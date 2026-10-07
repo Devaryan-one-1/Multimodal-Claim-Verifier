@@ -1,0 +1,63 @@
+{
+  "cache_version": 1,
+  "document_id": "synthetic_test",
+  "charts": {
+    "synthetic_chart_001": {
+      "success": true,
+      "status": "analyzed_no_values",
+      "usable_for_numeric_verification": false,
+      "document_id": "synthetic_test",
+      "chart_id": "synthetic_chart_001",
+      "page": 1,
+      "primary_model": "gemini-3.5-flash-lite",
+      "fallback_model": "gemini-3.5-flash",
+      "selected_model": "gemini-3.5-flash-lite",
+      "image_path": "data\\test_assets\\synthetic_revenue_chart.png",
+      "image_hash": "08b6058ed2c027924b4a7c18391be01ec30bc94e9f0fb8fc03a60ea78ad9cb6c",
+      "analysis": {
+        "chart_type": "bar",
+        "title": "International Revenue",
+        "display_unit": null,
+        "normalized_unit": null,
+        "x_axis": {
+          "label": null,
+          "unit": null,
+          "values": [
+            "2024",
+            "2025"
+          ]
+        },
+        "y_axis": {
+          "label": "USD billions",
+          "unit": "USD billions",
+          "values": [
+            "0",
+            "5",
+            "10"
+          ]
+        },
+        "legend": [],
+        "series": [],
+        "warnings": [
+          "Chart was recognized but no data series were extracted."
+        ]
+      },
+      "facts": [],
+      "readable_value_count": 0,
+      "attempts": [
+        {
+          "source": "chart_crop",
+          "model": "gemini-3.5-flash-lite",
+          "success": true,
+          "readable_values": 0
+        },
+        {
+          "source": "chart_crop",
+          "model": "gemini-3.5-flash",
+          "success": true,
+          "readable_values": 0
+        }
+      ]
+    }
+  }
+}

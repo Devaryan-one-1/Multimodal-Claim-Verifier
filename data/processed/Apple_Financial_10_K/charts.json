@@ -1,0 +1,51 @@
+{
+  "cache_version": 1,
+  "document_id": "Apple_Financial_10_K",
+  "pages": {
+    "1": {
+      "success": true,
+      "status": "no_charts",
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 1,
+      "page_image_path": "data\\pages\\Apple_Financial_10_K\\page_001.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "model": "gemini-flash-latest",
+      "min_area_ratio": 0.04,
+      "charts": [],
+      "chart_count": 0,
+      "rejected_tiny_regions": 0
+    },
+    "5": {
+      "success": true,
+      "status": "no_charts",
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 5,
+      "page_image_path": "data\\pages\\Apple_Financial_10_K\\page_005.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "model": "gemini-flash-latest",
+      "min_area_ratio": 0.04,
+      "charts": [],
+      "chart_count": 0,
+      "rejected_tiny_regions": 0
+    },
+    "10": {
+      "success": true,
+      "status": "no_charts",
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 10,
+      "page_image_path": "data\\pages\\Apple_Financial_10_K\\page_010.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "model": "gemini-flash-latest",
+      "min_area_ratio": 0.04,
+      "charts": [],
+      "chart_count": 0,
+      "rejected_tiny_regions": 0
+    }
+  }
+}

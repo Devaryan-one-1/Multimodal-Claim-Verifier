@@ -1,0 +1,29 @@
+{
+  "document_id": "apple-financial-10-k-3518726963",
+  "source_pdf": "data\\documents\\apple-financial-10-k-3518726963\\original.pdf",
+  "dpi": 200,
+  "page_count": 32,
+  "pages": {
+    "1": {
+      "document_id": "apple-financial-10-k-3518726963",
+      "page_number": 1,
+      "image_path": "data\\pages\\apple-financial-10-k-3518726963\\page_001.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    },
+    "2": {
+      "document_id": "apple-financial-10-k-3518726963",
+      "page_number": 2,
+      "image_path": "data\\pages\\apple-financial-10-k-3518726963\\page_002.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    }
+  },
+  "errors": []
+}

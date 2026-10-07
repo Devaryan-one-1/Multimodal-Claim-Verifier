@@ -1,0 +1,44 @@
+{
+  "claim_text": "Revenue grew 25% in 2025.",
+  "subject": null,
+  "metric": "revenue",
+  "segment": null,
+  "start_period": "2024",
+  "end_period": "2025",
+  "claimed_change": 25,
+  "change_type": "growth",
+  "unit": "percent",
+  "direction": "up",
+  "claim_type": "assertion",
+  "confidence": {
+    "claim_text": 1.0,
+    "subject": 0.0,
+    "metric": 0.99,
+    "segment": 1.0,
+    "start_period": 0.85,
+    "end_period": 0.99,
+    "claimed_change": 1.0,
+    "change_type": 1.0,
+    "unit": 1.0,
+    "direction": 1.0,
+    "claim_type": 1.0
+  },
+  "inferred": [
+    "start_period"
+  ],
+  "_source": "llm_compound",
+  "confirmation_questions": [
+    {
+      "field": "subject",
+      "assumed_value": null,
+      "confidence": 0.0,
+      "question": "I assumed subject = None. Is that correct?"
+    },
+    {
+      "field": "start_period",
+      "assumed_value": "2024",
+      "confidence": 0.85,
+      "question": "I assumed the comparison starts from 2024. Is that the right base year?"
+    }
+  ]
+}

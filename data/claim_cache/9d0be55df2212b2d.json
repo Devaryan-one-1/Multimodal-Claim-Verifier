@@ -1,0 +1,29 @@
+{
+  "claim_text": "Total net sales grew 16% from 2025 to 2026",
+  "subject": null,
+  "metric": "total net sales",
+  "segment": null,
+  "start_period": "2025",
+  "end_period": "2026",
+  "claimed_change": 16,
+  "change_type": "growth",
+  "unit": "percent",
+  "direction": "up",
+  "claim_type": "assertion",
+  "confidence": {
+    "claim_text": 1.0,
+    "subject": 0.5,
+    "metric": 0.95,
+    "segment": 1.0,
+    "start_period": 0.95,
+    "end_period": 0.95,
+    "claimed_change": 1.0,
+    "change_type": 1.0,
+    "unit": 1.0,
+    "direction": 1.0,
+    "claim_type": 1.0
+  },
+  "inferred": [],
+  "_source": "llm_compound",
+  "confirmation_questions": []
+}

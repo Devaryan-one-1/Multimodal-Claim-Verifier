@@ -1,0 +1,36 @@
+{
+  "subject": "revenue",
+  "metric": "revenue",
+  "segment": null,
+  "start_period": "2024",
+  "end_period": "2025",
+  "claimed_change": 25,
+  "change_type": "growth",
+  "unit": "percent",
+  "direction": "up",
+  "confidence": {
+    "subject": 1.0,
+    "metric": 1.0,
+    "segment": 1.0,
+    "start_period": 0.85,
+    "end_period": 1.0,
+    "claimed_change": 1.0,
+    "change_type": 1.0,
+    "unit": 1.0,
+    "direction": 1.0,
+    "claim_type": 1.0
+  },
+  "inferred": [
+    "start_period"
+  ],
+  "claim_type": "assertion",
+  "_source": "llm",
+  "confirmation_questions": [
+    {
+      "field": "start_period",
+      "assumed_value": "2024",
+      "confidence": 0.85,
+      "question": "I assumed the comparison starts from 2024. Is that the right base year?"
+    }
+  ]
+}

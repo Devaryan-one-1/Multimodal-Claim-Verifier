@@ -1,0 +1,230 @@
+{
+  "cache_version": 2,
+  "document_id": "Apple_Financial_10_K",
+  "pages": {
+    "1": {
+      "success": true,
+      "status": "ocr",
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 1,
+      "provider": "gemini",
+      "text": "UNITED STATES\nSECURITIES AND EXCHANGE COMMISSION\nWashington, D.C. 20549\n\nFORM 10-Q\n\n(Mark One)\n☒ QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the quarterly period ended June 27, 2026\nor\n☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the transition period from ______ to ______.\nCommission File Number: 001-36743\n\nApple Inc.\n(Exact name of Registrant as specified in its charter)\n\nCalifornia\n(State or other jurisdiction\nof incorporation or organization)\n\n94-2404110\n(I.R.S. Employer Identification No.)\n\nOne Apple Park Way\nCupertino, California\n(Address of principal executive offices)\n\n95014\n(Zip Code)\n\n(408) 996-1010\n(Registrant's telephone number, including area code)\n\nSecurities registered pursuant to Section 12(b) of the Act:\n\nTitle of each class | Trading symbol(s) | Name of each exchange on which registered\nCommon Stock, $0.00001 par value per share | AAPL | The Nasdaq Stock Market LLC\n1.625% Notes due 2026 | — | The Nasdaq Stock Market LLC\n2.000% Notes due 2027 | — | The Nasdaq Stock Market LLC\n1.375% Notes due 2029 | — | The Nasdaq Stock Market LLC\n3.050% Notes due 2029 | — | The Nasdaq Stock Market LLC\n0.500% Notes due 2031 | — | The Nasdaq Stock Market LLC\n3.600% Notes due 2042 | — | The Nasdaq Stock Market LLC\n\nIndicate by check mark whether the Registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the Registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the Registrant was required to submit such files).\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.\n\nLarge accelerated filer ☒ Accelerated filer ☐\nNon-accelerated filer ☐ Smaller reporting company ☐\nEmerging growth company ☐\n\nIf an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐",
+      "blocks": [
+        {
+          "text": "UNITED STATES\nSECURITIES AND EXCHANGE COMMISSION\nWashington, D.C. 20549",
+          "bbox": [
+            505,
+            207,
+            1193,
+            308
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "FORM 10-Q",
+          "bbox": [
+            738,
+            376,
+            964,
+            411
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "(Mark One)",
+          "bbox": [
+            51,
+            453,
+            151,
+            475
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "☒ QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the quarterly period ended June 27, 2026\nor\n☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the transition period from ______ to ______.\nCommission File Number: 001-36743",
+          "bbox": [
+            260,
+            491,
+            1440,
+            686
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Apple Inc.\n(Exact name of Registrant as specified in its charter)",
+          "bbox": [
+            590,
+            838,
+            1110,
+            924
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "California\n(State or other jurisdiction\nof incorporation or organization)",
+          "bbox": [
+            267,
+            975,
+            551,
+            1052
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "94-2404110\n(I.R.S. Employer Identification No.)",
+          "bbox": [
+            1137,
+            975,
+            1445,
+            1030
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "One Apple Park Way\nCupertino, California\n(Address of principal executive offices)",
+          "bbox": [
+            238,
+            1080,
+            580,
+            1168
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "95014\n(Zip Code)",
+          "bbox": [
+            1243,
+            1113,
+            1338,
+            1168
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "(408) 996-1010\n(Registrant's telephone number, including area code)",
+          "bbox": [
+            615,
+            1195,
+            1085,
+            1241
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Securities registered pursuant to Section 12(b) of the Act:",
+          "bbox": [
+            597,
+            1294,
+            1103,
+            1313
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Title of each class | Trading symbol(s) | Name of each exchange on which registered\nCommon Stock, $0.00001 par value per share | AAPL | The Nasdaq Stock Market LLC\n1.625% Notes due 2026 | — | The Nasdaq Stock Market LLC\n2.000% Notes due 2027 | — | The Nasdaq Stock Market LLC\n1.375% Notes due 2029 | — | The Nasdaq Stock Market LLC\n3.050% Notes due 2029 | — | The Nasdaq Stock Market LLC\n0.500% Notes due 2031 | — | The Nasdaq Stock Market LLC\n3.600% Notes due 2042 | — | The Nasdaq Stock Market LLC",
+          "bbox": [
+            156,
+            1340,
+            1489,
+            1606
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Indicate by check mark whether the Registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the Registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.\nYes ☒ No ☐",
+          "bbox": [
+            51,
+            1670,
+            1649,
+            1747
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Indicate by check mark whether the Registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the Registrant was required to submit such files).\nYes ☒ No ☐",
+          "bbox": [
+            51,
+            1775,
+            1649,
+            1855
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Indicate by check mark whether the Registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.",
+          "bbox": [
+            51,
+            1883,
+            1649,
+            1932
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "Large accelerated filer ☒ Accelerated filer ☐\nNon-accelerated filer ☐ Smaller reporting company ☐\nEmerging growth company ☐",
+          "bbox": [
+            53,
+            1958,
+            1634,
+            2059
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        },
+        {
+          "text": "If an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐",
+          "bbox": [
+            51,
+            2101,
+            1649,
+            2149
+          ],
+          "bbox_space": "image_pixels",
+          "confidence": null
+        }
+      ],
+      "confidence": null,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_001.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "evidence": {
+        "id": "ocr_Apple_Financial_10_K_page_001",
+        "evidence_id": "ocr_Apple_Financial_10_K_page_001",
+        "document_id": "Apple_Financial_10_K",
+        "page": 1,
+        "page_number": 1,
+        "type": "ocr",
+        "content": "UNITED STATES\nSECURITIES AND EXCHANGE COMMISSION\nWashington, D.C. 20549\n\nFORM 10-Q\n\n(Mark One)\n☒ QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the quarterly period ended June 27, 2026\nor\n☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the transition period from ______ to ______.\nCommission File Number: 001-36743\n\nApple Inc.\n(Exact name of Registrant as specified in its charter)\n\nCalifornia\n(State or other jurisdiction\nof incorporation or organization)\n\n94-2404110\n(I.R.S. Employer Identification No.)\n\nOne Apple Park Way\nCupertino, California\n(Address of principal executive offices)\n\n95014\n(Zip Code)\n\n(408) 996-1010\n(Registrant's telephone number, including area code)\n\nSecurities registered pursuant to Section 12(b) of the Act:\n\nTitle of each class | Trading symbol(s) | Name of each exchange on which registered\nCommon Stock, $0.00001 par value per share | AAPL | The Nasdaq Stock Market LLC\n1.625% Notes due 2026 | — | The Nasdaq Stock Market LLC\n2.000% Notes due 2027 | — | The Nasdaq Stock Market LLC\n1.375% Notes due 2029 | — | The Nasdaq Stock Market LLC\n3.050% Notes due 2029 | — | The Nasdaq Stock Market LLC\n0.500% Notes due 2031 | — | The Nasdaq Stock Market LLC\n3.600% Notes due 2042 | — | The Nasdaq Stock Market LLC\n\nIndicate by check mark whether the Registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the Registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the Registrant was required to submit such files).\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.\n\nLarge accelerated filer ☒ Accelerated filer ☐\nNon-accelerated filer ☐ Smaller reporting company ☐\nEmerging growth company ☐\n\nIf an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐",
+        "text": "UNITED STATES\nSECURITIES AND EXCHANGE COMMISSION\nWashington, D.C. 20549\n\nFORM 10-Q\n\n(Mark One)\n☒ QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the quarterly period ended June 27, 2026\nor\n☐ TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934\nFor the transition period from ______ to ______.\nCommission File Number: 001-36743\n\nApple Inc.\n(Exact name of Registrant as specified in its charter)\n\nCalifornia\n(State or other jurisdiction\nof incorporation or organization)\n\n94-2404110\n(I.R.S. Employer Identification No.)\n\nOne Apple Park Way\nCupertino, California\n(Address of principal executive offices)\n\n95014\n(Zip Code)\n\n(408) 996-1010\n(Registrant's telephone number, including area code)\n\nSecurities registered pursuant to Section 12(b) of the Act:\n\nTitle of each class | Trading symbol(s) | Name of each exchange on which registered\nCommon Stock, $0.00001 par value per share | AAPL | The Nasdaq Stock Market LLC\n1.625% Notes due 2026 | — | The Nasdaq Stock Market LLC\n2.000% Notes due 2027 | — | The Nasdaq Stock Market LLC\n1.375% Notes due 2029 | — | The Nasdaq Stock Market LLC\n3.050% Notes due 2029 | — | The Nasdaq Stock Market LLC\n0.500% Notes due 2031 | — | The Nasdaq Stock Market LLC\n3.600% Notes due 2042 | — | The Nasdaq Stock Market LLC\n\nIndicate by check mark whether the Registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the Registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the Registrant was required to submit such files).\nYes ☒ No ☐\n\nIndicate by check mark whether the Registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.\n\nLarge accelerated filer ☒ Accelerated filer ☐\nNon-accelerated filer ☐ Smaller reporting company ☐\nEmerging growth company ☐\n\nIf an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐",
+        "bbox": [
+          0,
+          0,
+          1700,
+          2200
+        ],
+        "bbox_space": "image_pixels",
+        "confidence": null,
+        "provider": "gemini",
+        "image_path": "data\\pages\\Apple_Financial_10_K\\page_001.png"
+      },
+      "provider_attempts": [],
+      "requires_unknown": false
+    }
+  }
+}

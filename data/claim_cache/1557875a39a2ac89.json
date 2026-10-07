@@ -1,0 +1,38 @@
+{
+  "claim_text": "International revenue grew 40% in 2025.",
+  "subject": null,
+  "metric": "revenue",
+  "segment": "International",
+  "start_period": "2024",
+  "end_period": "2025",
+  "claimed_change": 40,
+  "change_type": "growth",
+  "unit": "percent",
+  "direction": "up",
+  "claim_type": "assertion",
+  "confidence": {
+    "claim_text": 1.0,
+    "subject": 0.5,
+    "metric": 1.0,
+    "segment": 0.95,
+    "start_period": 0.85,
+    "end_period": 1.0,
+    "claimed_change": 1.0,
+    "change_type": 1.0,
+    "unit": 1.0,
+    "direction": 1.0,
+    "claim_type": 1.0
+  },
+  "inferred": [
+    "start_period"
+  ],
+  "_source": "llm_compound",
+  "confirmation_questions": [
+    {
+      "field": "start_period",
+      "assumed_value": "2024",
+      "confidence": 0.85,
+      "question": "I assumed the comparison starts from 2024. Is that the right base year?"
+    }
+  ]
+}

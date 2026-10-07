@@ -1,0 +1,64 @@
+{
+  "cache_version": 1,
+  "document_id": "diagnostic_test",
+  "charts": {
+    "diagnostic_chart_001": {
+      "success": true,
+      "status": "analyzed_no_values",
+      "usable_for_numeric_verification": false,
+      "document_id": "diagnostic_test",
+      "chart_id": "diagnostic_chart_001",
+      "page": 1,
+      "primary_model": "gemini-3.5-flash-lite",
+      "fallback_model": "gemini-3.5-flash",
+      "selected_model": "gemini-3.5-flash-lite",
+      "image_path": "data\\test_assets\\diagnostic_revenue_chart.png",
+      "image_hash": "999bfb1e36fedee4be60e82f2fd62003d3bded14fd9c58e248740d0a920a2448",
+      "analysis": {
+        "chart_type": "bar",
+        "title": "International Revenue",
+        "display_unit": null,
+        "normalized_unit": null,
+        "x_axis": {
+          "label": null,
+          "unit": null,
+          "values": [
+            "2024",
+            "2025"
+          ]
+        },
+        "y_axis": {
+          "label": null,
+          "unit": "USD billions",
+          "values": [
+            "0",
+            "5",
+            "10"
+          ]
+        },
+        "legend": [],
+        "series": [],
+        "warnings": [
+          "Chart was recognized but no data series were extracted."
+        ]
+      },
+      "facts": [],
+      "readable_value_count": 0,
+      "attempts": [
+        {
+          "source": "chart_crop",
+          "model": "gemini-3.5-flash-lite",
+          "success": true,
+          "readable_values": 0
+        },
+        {
+          "source": "chart_crop",
+          "model": "gemini-3.5-flash",
+          "success": false,
+          "error_type": "RuntimeError",
+          "reason": "Gemini chart analysis failed for gemini-3.5-flash after retries: Error code: 429 - {'error': {'message': 'Rate limit exceeded for model gemini-3.5-flash (limit: 20 requests per day on Free Tier). Please retry later or upgrade your tier at https://ai.dev/rate-limit.', 'code': 'too_many_requests'}}"
+        }
+      ]
+    }
+  }
+}
