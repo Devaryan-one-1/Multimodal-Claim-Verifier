@@ -18,7 +18,8 @@ from evaluation.dataset import (
 )
 from extraction.image_renderer import render_page
 from ui.evidence_panel import render_evidence_panel
-
+from evaluation.coverage import export_coverage_ready
+from ui.evaluation_coverage import render_coverage_summary
 
 def render_evaluation_panel(
     selected_document_ids: list[str],
@@ -211,7 +212,7 @@ def render_evaluation_panel(
                 st.error(str(exc))
 
         run = load_run(dataset_id)
-
+    render_coverage_summary(run)
     _render_review(run)
 
     st.divider()
@@ -220,10 +221,12 @@ def render_evaluation_panel(
     run = load_run(dataset_id)
     approved = verdict_counts(run)
 
-    can_export = all(
-        approved[verdict] == 25
-        for verdict in VERDICTS
-    )
+    # can_export = all(
+    #     approved[verdict] == 25
+    #     for verdict in VERDICTS
+    # )
+
+    can_export = export_coverage_ready(run) 
 
     if st.button(
         "Export reviewed dataset",
@@ -407,10 +410,22 @@ def _render_review(run: dict) -> None:
             value=record.get("review_notes") or "",
             height=90,
         )
+        st.caption(
+            "Coverage fields: straightforward claims use empty "
+            "challenge_tags; isolated difficult claims use one "
+            "challenge_tag; combined difficult claims use two or more. "
+            "Every challenge_tag must also appear in case_tags. "
+            "Undefined calculations require actual: null and a reason."
+        )
+        # source_checked = st.checkbox(
+        #     "I checked the original source, reporting periods, "
+        #     "units, chart/OCR readings and calculations."
+        # )
 
         source_checked = st.checkbox(
-            "I checked the original source, reporting periods, "
-            "units, chart/OCR readings and calculations."
+            "I checked the original source, reporting periods, units, "
+            "chart/OCR readings, calculations, numerical tolerances "
+            "and any negative-baseline sign convention."
         )
 
         unknown_scope_checked = st.checkbox(

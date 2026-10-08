@@ -17,7 +17,16 @@ from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
 from pypdf import PdfReader
-
+from .coverage import (
+    CASE_TAGS,
+    MODE_TARGETS,
+    CaseTag,
+    ChallengeMode,
+    batch_requests,
+    coverage_counts,
+    validate_case_fields,
+    validate_export_coverage,
+)
 
 ROOT = Path("data/evaluation")
 DRAFTS = ROOT / "drafts"
@@ -47,14 +56,43 @@ AtomicVerdict = Literal[
 ]
 
 
+# class ExpectedCalculation(BaseModel):
+#     formula: str
+#     inputs: list[str] = Field(default_factory=list)
+#     actual: float
+#     claimed: float | None = None
+#     result_unit: str
+#     currency: str | None = None
+
 class ExpectedCalculation(BaseModel):
     formula: str
     inputs: list[str] = Field(default_factory=list)
-    actual: float
+
+    status: Literal[
+        "defined",
+        "undefined",
+        "unavailable",
+    ] = "defined"
+
+    actual: float | None = None
     claimed: float | None = None
+
     result_unit: str
     currency: str | None = None
 
+    # Absolute tolerance, expressed in result_unit.
+    # Example: 0.1 means 0.1 percentage points when
+    # result_unit is "percent".
+    tolerance: float = Field(default=0.0, ge=0)
+
+    tolerance_reason: str | None = None
+
+    # Required when status is undefined or unavailable.
+    reason: str | None = None
+
+    # State the convention explicitly for calculations
+    # involving a negative baseline.
+    sign_convention: str | None = None
 
 class Subclaim(BaseModel):
     claim_text: str = Field(min_length=1)
@@ -64,13 +102,30 @@ class Subclaim(BaseModel):
     calculation: ExpectedCalculation | None = None
 
 
+# class Candidate(BaseModel):
+#     document_id: str
+#     claim_text: str = Field(min_length=1)
+#     verdict: Verdict
+#     subclaims: list[Subclaim] = Field(min_length=1)
+#     difficulty: Literal["easy", "medium", "hard"] = "medium"
+
 class Candidate(BaseModel):
     document_id: str
+
     claim_text: str = Field(min_length=1)
     verdict: Verdict
     subclaims: list[Subclaim] = Field(min_length=1)
-    difficulty: Literal["easy", "medium", "hard"] = "medium"
 
+    difficulty: Literal[
+        "easy",
+        "medium",
+        "hard",
+    ] = "medium"
+
+    challenge_mode: ChallengeMode
+
+    case_tags: list[CaseTag]
+    challenge_tags: list[CaseTag]
 
 class CandidateBatch(BaseModel):
     claims: list[Candidate] = Field(default_factory=list)
@@ -127,6 +182,113 @@ Return the requested structured output. If evidence is inadequate,
 return fewer candidates rather than inventing evidence.
 """
 
+SYSTEM_INSTRUCTION += """
+
+DIFFICULT-CASE DATASET POLICY
+
+The complete dataset must contain:
+- 50 straightforward claims
+- 35 difficult claims isolating one challenge
+- 15 difficult claims combining at least two challenges
+
+Each request specifies the required verdict/challenge_mode pairs.
+Follow these requested counts. Return fewer candidates if the
+provided evidence cannot support suitable examples.
+
+Coverage fields:
+- case_tags: all relevant test categories exercised by the claim.
+- challenge_tags: only the deliberately difficult aspects.
+- challenge_mode: straightforward, isolated or combined.
+
+For straightforward claims, challenge_tags must be empty.
+For isolated difficult claims, challenge_tags must contain exactly
+one tag.
+For combined difficult claims, challenge_tags must contain at least
+two distinct tags.
+Every challenge_tag must also appear in case_tags.
+
+Available tags:
+different_units
+different_currencies
+percentage_changes
+percentage_points
+different_years
+quarter_vs_annual
+charts
+tables
+ocr
+footnotes
+compound_claims
+missing_evidence
+rounded_values
+zero_baseline
+negative_values
+
+Tags must describe the actual claim and supplied evidence.
+Do not add tags merely to improve apparent coverage.
+
+Examples:
+- Straightforward table lookup:
+  case_tags=["tables"], challenge_tags=[].
+- Isolated unit normalization:
+  case_tags=["tables", "different_units"],
+  challenge_tags=["different_units"].
+- Combined unit and reporting-period mismatch:
+  case_tags=["tables", "different_units", "quarter_vs_annual"],
+  challenge_tags=["different_units", "quarter_vs_annual"].
+
+A compound claim can be straightforward when its component facts
+are simple. Do not classify every compound claim as difficult.
+Include compound_claims in case_tags when there are multiple
+atomic assertions.
+
+Different currencies:
+Preserve currencies. Do not invent exchange rates.
+Do not equate values across currencies without an explicit,
+relevant exchange rate and date in the evidence.
+
+Percentage calculations:
+Distinguish relative percentage growth, percentage-point change,
+and absolute change. Label the result unit explicitly.
+
+Rounded values:
+Use a defensible absolute tolerance in the result unit.
+Explain its basis in tolerance_reason.
+Do not widen tolerance just to make a false claim supported.
+Tolerance and calculations remain subject to human review.
+
+Zero baselines:
+Relative percentage growth from a zero baseline is undefined.
+Set calculation.status="undefined", actual=null,
+and explain the zero denominator in reason.
+Never return infinity, NaN, zero percent, or an invented percentage.
+An absolute change from zero may still be well-defined.
+Choose the verdict according to the claim's wording and evidence;
+zero-baseline cases are not automatically UNKNOWN.
+
+Negative values:
+Include losses, sign changes and negative baselines when present.
+State the calculation's sign_convention.
+Do not silently switch between dividing by the signed baseline
+and dividing by its absolute magnitude.
+Do not describe a move from loss to profit as ordinary positive-
+baseline revenue growth without explaining the convention.
+
+Calculation status:
+- defined: actual must be a finite number.
+- undefined: actual must be null and reason must explain why the
+  operation is mathematically undefined.
+- unavailable: actual must be null and reason must explain the
+  missing evidence or missing inputs.
+
+For charts, tables, OCR and footnotes tags, cite the corresponding
+source evidence type.
+For missing_evidence, include an UNKNOWN subclaim and explain
+what the reviewer must check in the complete document.
+
+Prioritize underrepresented tags when the supplied evidence permits.
+Never invent charts, scanned pages, currencies, periods or values.
+"""
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -514,6 +676,74 @@ def _aggregate(subclaims: list[Subclaim]) -> str:
     return "UNKNOWN"
 
 
+# def validate_candidate(
+#     value: dict,
+#     run: dict,
+#     allowed_evidence_ids: set[str] | None = None,
+# ) -> Candidate:
+#     candidate = Candidate.model_validate(value)
+
+#     if candidate.document_id not in run["document_ids"]:
+#         raise ValueError("Candidate uses an unselected document.")
+
+#     if candidate.verdict != _aggregate(candidate.subclaims):
+#         raise ValueError(
+#             "Overall verdict does not match subclaim verdicts. "
+#             "Edit both the overall verdict and the subclaims."
+#         )
+
+#     for subclaim in candidate.subclaims:
+#         if (
+#             subclaim.verdict in {"SUPPORTED", "CONTRADICTED"}
+#             and not subclaim.evidence_ids
+#         ):
+#             raise ValueError(
+#                 "Supported/contradicted subclaims need citations."
+#             )
+
+#         for evidence_id in subclaim.evidence_ids:
+#             if evidence_id not in run["evidence"]:
+#                 raise ValueError(
+#                     f"Unknown evidence ID: {evidence_id}"
+#                 )
+
+#             if (
+#                 allowed_evidence_ids is not None
+#                 and evidence_id not in allowed_evidence_ids
+#             ):
+#                 raise ValueError(
+#                     "AI cited evidence outside its supplied batch."
+#                 )
+
+#             if (
+#                 run["evidence"][evidence_id]["document_id"]
+#                 != candidate.document_id
+#             ):
+#                 raise ValueError(
+#                     "A citation belongs to another document."
+#                 )
+
+#         calculation = subclaim.calculation
+
+#         if calculation is not None:
+#             if subclaim.verdict == "UNKNOWN":
+#                 raise ValueError(
+#                     "An unresolved subclaim cannot have "
+#                     "an established actual calculation."
+#                 )
+
+#             values = [calculation.actual]
+
+#             if calculation.claimed is not None:
+#                 values.append(calculation.claimed)
+
+#             if not all(math.isfinite(value) for value in values):
+#                 raise ValueError(
+#                     "Calculation values must be finite numbers."
+#                 )
+
+#     return candidate
+
 def validate_candidate(
     value: dict,
     run: dict,
@@ -522,13 +752,17 @@ def validate_candidate(
     candidate = Candidate.model_validate(value)
 
     if candidate.document_id not in run["document_ids"]:
-        raise ValueError("Candidate uses an unselected document.")
+        raise ValueError(
+            "Candidate uses an unselected document."
+        )
 
     if candidate.verdict != _aggregate(candidate.subclaims):
         raise ValueError(
             "Overall verdict does not match subclaim verdicts. "
             "Edit both the overall verdict and the subclaims."
         )
+
+    cited_types = set()
 
     for subclaim in candidate.subclaims:
         if (
@@ -553,32 +787,101 @@ def validate_candidate(
                     "AI cited evidence outside its supplied batch."
                 )
 
+            source = run["evidence"][evidence_id]
+
             if (
-                run["evidence"][evidence_id]["document_id"]
+                source["document_id"]
                 != candidate.document_id
             ):
                 raise ValueError(
                     "A citation belongs to another document."
                 )
 
+            cited_types.add(source["type"])
+
         calculation = subclaim.calculation
 
-        if calculation is not None:
+        if calculation is None:
+            continue
+
+        if not math.isfinite(calculation.tolerance):
+            raise ValueError(
+                "Calculation tolerance must be finite."
+            )
+
+        if (
+            calculation.tolerance > 0
+            and not (
+                calculation.tolerance_reason or ""
+            ).strip()
+        ):
+            raise ValueError(
+                "A nonzero tolerance needs tolerance_reason."
+            )
+
+        if calculation.claimed is not None:
+            if not math.isfinite(calculation.claimed):
+                raise ValueError(
+                    "Claimed calculation value must be finite."
+                )
+
+        if calculation.status == "defined":
+            if (
+                calculation.actual is None
+                or not math.isfinite(calculation.actual)
+            ):
+                raise ValueError(
+                    "A defined calculation needs a finite actual."
+                )
+
             if subclaim.verdict == "UNKNOWN":
                 raise ValueError(
-                    "An unresolved subclaim cannot have "
-                    "an established actual calculation."
+                    "An unresolved subclaim cannot have an "
+                    "established actual calculation."
                 )
 
-            values = [calculation.actual]
-
-            if calculation.claimed is not None:
-                values.append(calculation.claimed)
-
-            if not all(math.isfinite(value) for value in values):
+        else:
+            if calculation.actual is not None:
                 raise ValueError(
-                    "Calculation values must be finite numbers."
+                    "Undefined/unavailable calculations must "
+                    "have actual: null."
                 )
+
+            if not (calculation.reason or "").strip():
+                raise ValueError(
+                    "Undefined/unavailable calculations "
+                    "need a reason."
+                )
+
+    # These tags can be established directly from citations.
+    derived_tags = {
+        tag
+        for evidence_type, tag in (
+            ("table", "tables"),
+            ("chart", "charts"),
+            ("ocr", "ocr"),
+            ("footnote", "footnotes"),
+        )
+        if evidence_type in cited_types
+    }
+
+    if len(candidate.subclaims) > 1:
+        derived_tags.add("compound_claims")
+
+    candidate.case_tags = sorted(
+        set(candidate.case_tags) | derived_tags
+    )
+
+    validate_case_fields(
+        candidate.model_dump(mode="json"),
+        cited_types,
+    )
+
+    candidate.difficulty = (
+        "easy"
+        if candidate.challenge_mode == "straightforward"
+        else "hard"
+    )
 
     return candidate
 
@@ -650,6 +953,215 @@ def _context_bundle(run: dict) -> list[dict]:
     return bundle
 
 
+# def add_drafts(
+#     dataset_id: str,
+#     *,
+#     batches: int = 10,
+#     progress: Callable[[str], None] | None = None,
+# ) -> dict:
+#     load_dotenv()
+
+#     api_key = (
+#         os.getenv("GOOGLE_API_KEY")
+#         or os.getenv("GEMINI_API_KEY")
+#     )
+
+#     if not api_key:
+#         raise ValueError(
+#             "GOOGLE_API_KEY is missing from your environment/.env."
+#         )
+
+#     model = (
+#         os.getenv("GEMINI_EVALUATION_MODEL")
+#         or os.getenv("GEMINI_MODEL")
+#         or "gemini-flash-latest"
+#     )
+
+#     run = load_run(dataset_id)
+#     assert_sources_unchanged(run)
+
+#     client = genai.Client(api_key=api_key)
+
+#     for batch_index in range(batches):
+#         counts = verdict_counts(
+#             run,
+#             statuses=("draft", "approved"),
+#         )
+
+#         remaining = {
+#             verdict: max(
+#                 0,
+#                 TARGET_PER_VERDICT - counts[verdict],
+#             )
+#             for verdict in VERDICTS
+#         }
+
+#         if not any(remaining.values()):
+#             break
+
+#         if len(run["records"]) >= 300:
+#             raise ValueError(
+#                 "This run reached 300 candidates. "
+#                 "Review existing drafts or create a new run."
+#             )
+
+#         wanted = {verdict: 0 for verdict in VERDICTS}
+
+#         # At most 10 candidates per API call.
+#         while sum(wanted.values()) < 10:
+#             added = False
+
+#             for verdict in VERDICTS:
+#                 if (
+#                     wanted[verdict] < remaining[verdict]
+#                     and sum(wanted.values()) < 10
+#                 ):
+#                     wanted[verdict] += 1
+#                     added = True
+
+#             if not added:
+#                 break
+
+#         run["batch_number"] += 1
+#         bundle = _context_bundle(run)
+#         allowed_ids = {item["id"] for item in bundle}
+
+#         existing_texts = {
+#             _normal_text(record["candidate"]["claim_text"])
+#             for record in run["records"]
+#         }
+
+#         prompt = json.dumps(
+#             {
+#                 "requested_counts": wanted,
+#                 "evidence_excerpts": bundle,
+#                 "avoid_existing_claims": [
+#                     record["candidate"]["claim_text"]
+#                     for record in run["records"][-100:]
+#                 ],
+#                 "reminder": (
+#                     "UNKNOWN requires full-document human review. "
+#                     "These are excerpts, not a complete corpus."
+#                 ),
+#             },
+#             ensure_ascii=False,
+#             allow_nan=False,
+#         )
+
+#         if progress:
+#             progress(
+#                 f"Generating batch {batch_index + 1}/{batches} "
+#                 f"using {model}"
+#             )
+
+#         try:
+#             response = client.models.generate_content(
+#                 model=model,
+#                 contents=prompt,
+#                 config=types.GenerateContentConfig(
+#                     system_instruction=SYSTEM_INSTRUCTION,
+#                     temperature=0.3,
+#                     response_mime_type="application/json",
+#                     response_schema=CandidateBatch,
+#                 ),
+#             )
+
+#             if isinstance(response.parsed, CandidateBatch):
+#                 batch = response.parsed
+#             elif response.parsed is not None:
+#                 batch = CandidateBatch.model_validate(
+#                     response.parsed
+#                 )
+#             else:
+#                 batch = CandidateBatch.model_validate_json(
+#                     response.text or ""
+#                 )
+
+#             accepted = Counter()
+#             skipped = []
+
+#             for draft in batch.claims:
+#                 try:
+#                     candidate = validate_candidate(
+#                         draft.model_dump(mode="json"),
+#                         run,
+#                         allowed_evidence_ids=allowed_ids,
+#                     )
+
+#                     label = candidate.verdict
+#                     normalized = _normal_text(
+#                         candidate.claim_text
+#                     )
+
+#                     if normalized in existing_texts:
+#                         raise ValueError("Duplicate claim.")
+
+#                     if accepted[label] >= wanted[label]:
+#                         raise ValueError(
+#                             "Batch verdict quota already filled."
+#                         )
+
+#                     if len(run["records"]) >= 300:
+#                         break
+
+#                     run["records"].append(
+#                         {
+#                             "id": f"claim_{uuid.uuid4().hex[:12]}",
+#                             "status": "draft",
+#                             "candidate": candidate.model_dump(
+#                                 mode="json"
+#                             ),
+#                             "original_candidate": (
+#                                 candidate.model_dump(mode="json")
+#                             ),
+#                             "generated_at": _now(),
+#                             "generation_model": model,
+#                             "version": 0,
+#                             "reviewed_by": None,
+#                             "reviewed_at": None,
+#                             "review_notes": "",
+#                             "unknown_scope_checked": False,
+#                         }
+#                     )
+
+#                     existing_texts.add(normalized)
+#                     accepted[label] += 1
+
+#                 except (ValueError, TypeError) as exc:
+#                     skipped.append(str(exc))
+
+#             run["generation_log"].append(
+#                 {
+#                     "batch": run["batch_number"],
+#                     "model": model,
+#                     "requested": wanted,
+#                     "accepted": dict(accepted),
+#                     "skipped": skipped,
+#                     "time": _now(),
+#                 }
+#             )
+
+#             run["revision"] += 1
+#             save_run(run)
+
+#         except Exception as exc:
+#             run["generation_log"].append(
+#                 {
+#                     "batch": run["batch_number"],
+#                     "error": str(exc),
+#                     "time": _now(),
+#                 }
+#             )
+
+#             save_run(run)
+
+#             raise RuntimeError(
+#                 "Generation stopped. Completed batches were saved. "
+#                 f"Details: {exc}"
+#             ) from exc
+
+#     return run
+
 def add_drafts(
     dataset_id: str,
     *,
@@ -680,20 +1192,9 @@ def add_drafts(
     client = genai.Client(api_key=api_key)
 
     for batch_index in range(batches):
-        counts = verdict_counts(
-            run,
-            statuses=("draft", "approved"),
-        )
+        requests = batch_requests(run, limit=10)
 
-        remaining = {
-            verdict: max(
-                0,
-                TARGET_PER_VERDICT - counts[verdict],
-            )
-            for verdict in VERDICTS
-        }
-
-        if not any(remaining.values()):
+        if not requests:
             break
 
         if len(run["records"]) >= 300:
@@ -702,35 +1203,42 @@ def add_drafts(
                 "Review existing drafts or create a new run."
             )
 
-        wanted = {verdict: 0 for verdict in VERDICTS}
-
-        # At most 10 candidates per API call.
-        while sum(wanted.values()) < 10:
-            added = False
-
-            for verdict in VERDICTS:
-                if (
-                    wanted[verdict] < remaining[verdict]
-                    and sum(wanted.values()) < 10
-                ):
-                    wanted[verdict] += 1
-                    added = True
-
-            if not added:
-                break
-
         run["batch_number"] += 1
+
         bundle = _context_bundle(run)
-        allowed_ids = {item["id"] for item in bundle}
+        allowed_ids = {
+            item["id"]
+            for item in bundle
+        }
 
         existing_texts = {
             _normal_text(record["candidate"]["claim_text"])
             for record in run["records"]
         }
 
+        active_coverage = coverage_counts(
+            run,
+            statuses=("draft", "approved"),
+        )
+
+        priority_tags = [
+            tag
+            for tag in CASE_TAGS
+            if active_coverage["by_tag"][tag] == 0
+        ]
+
+        requested_pairs = {
+            (
+                request["verdict"],
+                request["challenge_mode"],
+            ): request["count"]
+            for request in requests
+        }
+
         prompt = json.dumps(
             {
-                "requested_counts": wanted,
+                "requested_candidates": requests,
+                "priority_case_tags": priority_tags,
                 "evidence_excerpts": bundle,
                 "avoid_existing_claims": [
                     record["candidate"]["claim_text"]
@@ -738,7 +1246,8 @@ def add_drafts(
                 ],
                 "reminder": (
                     "UNKNOWN requires full-document human review. "
-                    "These are excerpts, not a complete corpus."
+                    "These are excerpts, not a complete corpus. "
+                    "Use the requested challenge_mode/verdict pairs."
                 ),
             },
             ensure_ascii=False,
@@ -785,7 +1294,11 @@ def add_drafts(
                         allowed_evidence_ids=allowed_ids,
                     )
 
-                    label = candidate.verdict
+                    pair = (
+                        candidate.verdict,
+                        candidate.challenge_mode,
+                    )
+
                     normalized = _normal_text(
                         candidate.claim_text
                     )
@@ -793,21 +1306,30 @@ def add_drafts(
                     if normalized in existing_texts:
                         raise ValueError("Duplicate claim.")
 
-                    if accepted[label] >= wanted[label]:
+                    if pair not in requested_pairs:
                         raise ValueError(
-                            "Batch verdict quota already filled."
+                            "Verdict/challenge pair was not requested."
+                        )
+
+                    if accepted[pair] >= requested_pairs[pair]:
+                        raise ValueError(
+                            "Batch coverage quota already filled."
                         )
 
                     if len(run["records"]) >= 300:
                         break
 
+                    candidate_value = candidate.model_dump(
+                        mode="json"
+                    )
+
                     run["records"].append(
                         {
-                            "id": f"claim_{uuid.uuid4().hex[:12]}",
-                            "status": "draft",
-                            "candidate": candidate.model_dump(
-                                mode="json"
+                            "id": (
+                                f"claim_{uuid.uuid4().hex[:12]}"
                             ),
+                            "status": "draft",
+                            "candidate": candidate_value,
                             "original_candidate": (
                                 candidate.model_dump(mode="json")
                             ),
@@ -822,7 +1344,7 @@ def add_drafts(
                     )
 
                     existing_texts.add(normalized)
-                    accepted[label] += 1
+                    accepted[pair] += 1
 
                 except (ValueError, TypeError) as exc:
                     skipped.append(str(exc))
@@ -831,8 +1353,18 @@ def add_drafts(
                 {
                     "batch": run["batch_number"],
                     "model": model,
-                    "requested": wanted,
-                    "accepted": dict(accepted),
+                    "requested": requests,
+                    "accepted": [
+                        {
+                            "verdict": verdict,
+                            "challenge_mode": mode,
+                            "count": count,
+                        }
+                        for (
+                            verdict,
+                            mode,
+                        ), count in accepted.items()
+                    ],
                     "skipped": skipped,
                     "time": _now(),
                 }
@@ -945,6 +1477,7 @@ def _jsonl(records: list[dict]) -> bytes:
 def export_reviewed(dataset_id: str) -> dict:
     run = load_run(dataset_id)
     assert_sources_unchanged(run)
+    validate_export_coverage(run)
 
     counts = verdict_counts(run)
 
@@ -1054,6 +1587,14 @@ def export_reviewed(dataset_id: str) -> dict:
                 ],
                 "citations": citations,
                 "evidence_types": evidence_types,
+                "case_group": (
+                "straightforward"
+                    if candidate.challenge_mode == "straightforward"
+                    else "difficult"
+                ),
+                "challenge_mode": candidate.challenge_mode,
+                "case_tags": candidate.case_tags,
+                "challenge_tags": candidate.challenge_tags,
                 "review_status": "approved",
                 "reviewed_by": record["reviewed_by"],
                 "reviewed_at": record["reviewed_at"],
@@ -1088,7 +1629,24 @@ def export_reviewed(dataset_id: str) -> dict:
             "one contradicted or unresolved subclaim."
         ),
     }
-
+    manifest.update(
+        {
+            "coverage_policy_version": 2,
+            "coverage_targets": dict(MODE_TARGETS),
+            "reviewed_coverage": coverage_counts(run),
+            "missing_case_tags": [
+                tag
+                for tag, count in coverage_counts(
+                    run
+                )["by_tag"].items()
+                if count == 0
+            ],
+            "tolerance_policy": (
+                "Absolute tolerance in each calculation's result_unit; "
+                "approved by the human reviewer."
+            ),
+        }
+    )
     # Keep a separate export for this dataset as well as
     # the requested current files in data/evaluation/.
     run_export = ROOT / "exports" / dataset_id
