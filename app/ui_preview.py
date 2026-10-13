@@ -17,6 +17,7 @@ from ui.verdict import render_verdicts
 from ui.evidence_panel import render_evidence_panel
 from ui.preview_evidence import actual_page_preview
 from ui.evaluation import render_evaluation_panel
+from ui.retrieval_evaluation import render_retrieval_evaluation
 
 st.set_page_config(
     page_title="Multimodal Claim Verifier",
@@ -415,3 +416,4 @@ render_evaluation_panel(
     selected_document_ids=selected_ids,
     documents=documents,
     )
+render_retrieval_evaluation()

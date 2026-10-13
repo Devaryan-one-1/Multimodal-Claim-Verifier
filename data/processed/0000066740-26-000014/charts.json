@@ -1,0 +1,21 @@
+{
+  "cache_version": 1,
+  "document_id": "0000066740-26-000014",
+  "pages": {
+    "1": {
+      "success": true,
+      "status": "no_charts",
+      "document_id": "0000066740-26-000014",
+      "page_number": 1,
+      "page_image_path": "data\\pages\\0000066740-26-000014\\page_001.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "model": "gemini-3.5-flash-lite",
+      "min_area_ratio": 0.04,
+      "charts": [],
+      "chart_count": 0,
+      "rejected_tiny_regions": 0
+    }
+  }
+}

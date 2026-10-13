@@ -1,5 +1,22 @@
 {
   "document_id": "0000066740-26-000014",
+  "filename": "original.pdf",
+  "company_name": "",
+  "pdf_path": "data\\documents\\0000066740-26-000014\\original.pdf",
+  "pdf_sha256": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "fingerprint": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "size_bytes": 9011708,
+  "profile": "dashboard-v1",
+  "options": {
+    "ocr": true,
+    "chart_mode": "candidate pages",
+    "visual_limit": 20
+  },
+  "status": "error",
+  "warnings": [
+    "OCR unavailable on page 109: Existing PDF text is sufficient; OCR was not required.",
+    "Chart detection used candidate pages; charts without detectable layout/caption cues may be missed."
+  ],
   "page_count": 158,
   "metadata": {
     "title": "10-K - 02/03/2026 - 3M Company",
@@ -7,5 +24,7 @@
     "subject": null,
     "creator": "Equisolve",
     "producer": "Equisolve"
-  }
+  },
+  "text_page_count": 158,
+  "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0\\nPlease retry in 25.654245675s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/embed_content_free_tier_requests', 'quotaId': 'EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-embedding-1.0'}, 'quotaValue': '100'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}"
 }
