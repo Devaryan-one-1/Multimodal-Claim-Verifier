@@ -1,0 +1,8 @@
+{
+  "document_id": "Apple_Financial_10_K",
+  "collection": "evidence_v2_4251d7d3a135",
+  "embedding_model": "gemini-embedding-001",
+  "dimensions": 768,
+  "chunk_count": 305,
+  "chunks_hash": "a505fa477f879581ee75ee5df1bfc2049de012562dd94a64ac83cc090bc6aa2e"
+}
