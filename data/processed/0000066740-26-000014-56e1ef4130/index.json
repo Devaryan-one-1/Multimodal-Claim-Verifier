@@ -1,0 +1,8 @@
+{
+  "document_id": "0000066740-26-000014-56e1ef4130",
+  "collection": "evidence_v2_4251d7d3a135",
+  "embedding_model": "gemini-embedding-001",
+  "dimensions": 768,
+  "chunk_count": 4854,
+  "chunks_hash": "9bf769cfe0fa2f4f265924bc386fbbf7cb227c45c42702739b392a89bb875f56"
+}
