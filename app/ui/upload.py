@@ -769,7 +769,7 @@ def initialize_upload_state() -> None:
         "scroll_to_claim_input",
         False,
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import re
@@ -1081,7 +1081,7 @@ def initialize_upload_state() -> None:
 # ) -> None:
 #     document = _find_document(document_id)
 #     document.update(updates)
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import inspect
@@ -1878,7 +1878,7 @@ def initialize_upload_state() -> None:
 #         "scroll_to_claim_input",
 #         False,
 #     )
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # import hashlib
 # # import re

@@ -303,7 +303,7 @@ def _render_note(calculation):
     if calculation.get("note"):
         st.info(str(calculation["note"]))
 
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from typing import Any
 
@@ -927,7 +927,7 @@ def _render_note(calculation):
 #             return value
 
 #     return None
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import re
 # from decimal import Decimal, InvalidOperation, localcontext
@@ -1224,7 +1224,7 @@ def _render_note(calculation):
 #     if calculation.get("note"):
 #         st.info(str(calculation["note"]))
 
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # from typing import Any
 

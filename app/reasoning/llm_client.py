@@ -1,3 +1,4 @@
+from services.model_gateway import structured, model_name
 import os
 from typing import Iterable, Optional
 
@@ -39,16 +40,8 @@ class LLMClient:
     """
 
     def __init__(self, model: Optional[str] = None):
-        api_key = os.getenv("GOOGLE_API_KEY")
+        self.model = model
 
-        if not api_key:
-            raise RuntimeError(
-                "GOOGLE_API_KEY is missing. "
-                "Add it to your .env file."
-            )
-
-        self.client = genai.Client(api_key=api_key)
-        self.model = model or DEFAULT_MODEL
 
     def generate_verification_result(
         self,
@@ -170,53 +163,10 @@ class LLMClient:
 
     #     return result
 
-    def _request_structured_result(
-        self,
-        *,
-        prompt: str,
-        system_instruction: str,
-    ) -> VerificationResult:
-        """
-        Call Gemini using native structured output.
-        """
+    def _request_structured_result(self, *, prompt: str, system_instruction: str) -> VerificationResult:
+        return structured(VerificationResult, prompt, system=system_instruction, model=self.model)
 
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.0,
-                system_instruction=system_instruction,
-                response_mime_type="application/json",
-                response_schema=VerificationResult,
-            ),
-        )
 
-        # Preferred path:
-        # Gemini SDK parses the JSON directly into our Pydantic model.
-        if response.parsed is not None:
-            if isinstance(response.parsed, VerificationResult):
-                return response.parsed
-
-            # Defensive fallback in case the SDK returns a dict.
-            return VerificationResult.model_validate(
-                response.parsed
-            )
-
-        # Fallback if parsed is unexpectedly unavailable.
-        raw = response.text
-
-        if not raw:
-            raise StructuredOutputError(
-                "Gemini returned an empty structured response."
-            )
-
-        try:
-            return VerificationResult.model_validate_json(raw)
-
-        except ValidationError as exc:
-            raise StructuredOutputError(
-                f"Response failed schema validation: {exc}"
-            ) from exc
     @staticmethod
     def _validate_grounding(
         *,

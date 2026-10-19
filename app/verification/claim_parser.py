@@ -5,7 +5,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from services.runtime import model_name, structured
+from services.model_gateway import model_name, structured
 
 DESC_MODEL = model_name()
 

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.model_gateway import structured, model_name, last_call, cache_file, trace_extraction
+
 import base64
 import hashlib
 import json
@@ -292,6 +294,7 @@ class ChartAnalysisResponse(BaseModel):
 # =========================================================
 
 
+@trace_extraction("chart_analysis")
 def analyze_chart(
     chart: dict[str, Any],
     *,
@@ -411,10 +414,10 @@ def analyze_chart(
         and not overwrite
         and cached.get(
             "primary_model"
-        ) == PRIMARY_MODEL
+        ) == model_name("vision")
         and cached.get(
             "fallback_model"
-        ) == FALLBACK_MODEL
+        ) == ""
         and cached.get(
             "image_hash"
         ) == image_hash
@@ -489,13 +492,13 @@ def analyze_chart(
             image_path=image_path,
             chart=chart,
             full_page=False,
-            model=PRIMARY_MODEL,
+            model=model_name("vision"),
         )
 
         attempts.append(
             {
                 "source": "chart_crop",
-                "model": PRIMARY_MODEL,
+                "model": model_name("vision"),
                 "success": True,
 
                 "readable_values": (
@@ -507,7 +510,7 @@ def analyze_chart(
         )
 
         analysis = primary_analysis
-        selected_model = PRIMARY_MODEL
+        selected_model = model_name("vision")
 
 
     except Exception as exc:
@@ -515,7 +518,7 @@ def analyze_chart(
         attempts.append(
             {
                 "source": "chart_crop",
-                "model": PRIMARY_MODEL,
+                "model": model_name("vision"),
                 "success": False,
 
                 "error_type": (
@@ -547,8 +550,8 @@ def analyze_chart(
 
     if (
         needs_stronger_model
-        and FALLBACK_MODEL
-        and FALLBACK_MODEL != PRIMARY_MODEL
+        and ""
+        and "" != model_name("vision")
     ):
 
         try:
@@ -558,7 +561,7 @@ def analyze_chart(
                     image_path=image_path,
                     chart=chart,
                     full_page=False,
-                    model=FALLBACK_MODEL,
+                    model="",
                 )
             )
 
@@ -571,7 +574,7 @@ def analyze_chart(
             attempts.append(
                 {
                     "source": "chart_crop",
-                    "model": FALLBACK_MODEL,
+                    "model": "",
                     "success": True,
 
                     "readable_values": (
@@ -603,7 +606,7 @@ def analyze_chart(
                 )
 
                 selected_model = (
-                    FALLBACK_MODEL
+                    ""
                 )
 
 
@@ -612,7 +615,7 @@ def analyze_chart(
             attempts.append(
                 {
                     "source": "chart_crop",
-                    "model": FALLBACK_MODEL,
+                    "model": "",
                     "success": False,
 
                     "error_type": (
@@ -659,8 +662,8 @@ def analyze_chart(
                 #     )
                 # )
                 page_model = (
-                    FALLBACK_MODEL
-                    or PRIMARY_MODEL
+                    ""
+                    or model_name("vision")
                 )
 
                 page_analysis = _analyze_with_retry(
@@ -813,15 +816,15 @@ def analyze_chart(
         #     DEFAULT_MODEL
         # ),
         "primary_model": (
-            PRIMARY_MODEL
+            model_name("vision")
         ),
 
         "fallback_model": (
-            FALLBACK_MODEL
+            ""
         ),
 
         "selected_model": (
-            selected_model
+            getattr(analysis, "_gateway_call", {}).get("actual_model", selected_model)
         ),
 
         "image_path": str(
@@ -985,317 +988,21 @@ def analyze_charts(
 #     chart: dict[str, Any],
 #     full_page: bool,
 # ) -> ChartAnalysisResponse:
-def _analyze_with_gemini(
-    *,
-    image_path: Path,
-    chart: dict[str, Any],
-    full_page: bool,
-    model: str,
-) -> ChartAnalysisResponse:
-    """
-    Read financial chart data using Gemini Vision.
-    """
-
-    api_key = os.getenv(
-        "GOOGLE_API_KEY"
+def _analyze_with_gemini(*, image_path: Path, chart: dict[str, Any],
+                         full_page: bool, model: str) -> ChartAnalysisResponse:
+    extracted = structured(
+        RawChartExtraction, _build_prompt(chart=chart, full_page=full_page),
+        task="vision", images=[image_path],
     )
-
-    if not api_key:
-        raise RuntimeError(
-            "GOOGLE_API_KEY is not configured."
-        )
-
-    client = genai.Client(
-        api_key=api_key
-    )
-
-    image_bytes = (
-        image_path.read_bytes()
-    )
-
-    encoded_image = (
-        base64.b64encode(
-            image_bytes
-        )
-        .decode("utf-8")
-    )
-
-    prompt = _build_prompt(
-        chart=chart,
-        full_page=full_page,
-    )
-
-    interaction = (
-        client.interactions.create(
-            # model=DEFAULT_MODEL,
-            model=model,
-            # input=[
-            #     {
-            #         "type": "image",
-            #         "mime_type": (
-            #             "image/png"
-            #         ),
-            #         "data": (
-            #             encoded_image
-            #         ),
-            #     },
-            #     {
-            #         "type": "text",
-            #         "text": prompt,
-            #     },
-            # ],
-
-            input=[
-                {
-                    "type": "text",
-                    "text": prompt,
-                },
-                {
-                    "type": "image",
-                    "mime_type": "image/png",
-                    "data": encoded_image,
-                    "resolution": "high",
-                },
-            ],
-
-            response_format={
-                "type": "text",
-
-                "mime_type": (
-                    "application/json"
-                ),
-
-                # "schema": (
-                #     ChartAnalysisResponse
-                #     .model_json_schema()
-                # ),
-                "schema": (
-                    RawChartExtraction
-                    .model_json_schema()
-                ),
-            },
-
-            store=False,
-        )
-    )
-
-    raw = (
-        interaction.output_text
-    )
+    analysis = _normalize_raw_extraction(extracted)
+    object.__setattr__(analysis, "_gateway_call", last_call())
+    return analysis
 
 
-    if not raw:
-        raise RuntimeError(
-            "Gemini returned an empty "
-            "chart-analysis response."
-        )
-    print("\n" + "=" * 60)
-    print(f"RAW CHART RESPONSE — {model}")
-    print("=" * 60)
-    print(raw)
+def _analyze_with_retry(*, image_path: Path, chart: dict[str, Any], full_page: bool,
+                        model: str, max_attempts: int = 3) -> ChartAnalysisResponse:
+    return _analyze_with_gemini(image_path=image_path, chart=chart, full_page=full_page, model=model)
 
-    try:
-
-        # return (
-        #     ChartAnalysisResponse
-        #     .model_validate_json(
-        #         raw
-        #     )
-        # )
-        extracted = (
-            RawChartExtraction
-            .model_validate_json(
-                raw
-            )
-        )
-
-        print("\nPARSED DATA POINTS:")
-
-        print(
-            json.dumps(
-                [
-                    point.model_dump()
-                    for point
-                    in extracted.data_points
-                ],
-                indent=2,
-            )
-        )
-
-        return _normalize_raw_extraction(
-            extracted
-        )
-
-    except Exception as exc:
-
-        raise RuntimeError(
-            "Gemini returned invalid "
-            "structured chart data."
-        ) from exc
-
-
-# def _analyze_with_retry(
-#     *,
-#     image_path: Path,
-#     chart: dict[str, Any],
-#     full_page: bool,
-#     max_attempts: int = 3,
-# ) -> ChartAnalysisResponse:
-#     """
-#     Retry only temporary Gemini errors.
-#     """
-
-#     last_error = None
-
-#     for attempt in range(
-#         max_attempts
-#     ):
-
-#         try:
-
-#             return (
-#                 _analyze_with_gemini(
-#                     image_path=image_path,
-#                     chart=chart,
-#                     full_page=full_page,
-#                 )
-#             )
-
-#         except Exception as exc:
-
-#             last_error = exc
-
-#             error_text = (
-#                 str(exc).upper()
-#             )
-
-#             transient = (
-#                 "503" in error_text
-#                 or "UNAVAILABLE"
-#                 in error_text
-#                 or "429"
-#                 in error_text
-#                 or "RESOURCE_EXHAUSTED"
-#                 in error_text
-#             )
-
-#             if not transient:
-#                 raise
-
-#             if (
-#                 attempt
-#                 == max_attempts - 1
-#             ):
-#                 break
-
-#             delay = 2 ** attempt
-
-#             print(
-#                 "Gemini chart analysis "
-#                 "temporarily unavailable. "
-#                 f"Retrying in {delay}s..."
-#             )
-
-#             time.sleep(
-#                 delay
-#             )
-
-#     raise RuntimeError(
-#         "Gemini chart analysis failed "
-#         f"after retries: {last_error}"
-#     )
-
-# def _analyze_with_retry(
-#     *,
-#     image_path: Path,
-#     chart: dict[str, Any],
-#     full_page: bool,
-#     max_attempts: int = 3,
-# ) -> ChartAnalysisResponse:
-
-def _analyze_with_retry(
-    *,
-    image_path: Path,
-    chart: dict[str, Any],
-    full_page: bool,
-    model: str,
-    max_attempts: int = 3,
-) -> ChartAnalysisResponse:
-    last_error = None
-
-    for attempt in range(max_attempts):
-
-        try:
-            # return _analyze_with_gemini(
-            #     image_path=image_path,
-            #     chart=chart,
-            #     full_page=full_page,
-            # )
-            return _analyze_with_gemini(
-                image_path=image_path,
-                chart=chart,
-                full_page=full_page,
-                model=model,
-            )
-        except Exception as exc:
-
-            last_error = exc
-
-            error_text = str(exc)
-            error_upper = error_text.upper()
-
-            # -----------------------------------------
-            # Daily/project quota exhaustion
-            #
-            # Retrying immediately is pointless.
-            # -----------------------------------------
-
-            quota_exhausted = (
-                "REQUESTS PER DAY" in error_upper
-                or "PER DAY" in error_upper
-                or "FREE TIER" in error_upper
-            )
-
-            if quota_exhausted:
-                # raise RuntimeError(
-                #     "Gemini daily quota exhausted for "
-                #     f"{DEFAULT_MODEL}: {exc}"
-                # ) from exc
-                raise RuntimeError(
-                    f"Gemini chart analysis failed for {model} "
-                    f"after retries: {last_error}"
-                )
-
-            # -----------------------------------------
-            # Temporary errors
-            # -----------------------------------------
-
-            transient = (
-                "503" in error_upper
-                or "UNAVAILABLE" in error_upper
-                or "429" in error_upper
-                or "RESOURCE_EXHAUSTED" in error_upper
-            )
-
-            if not transient:
-                raise
-
-            if attempt == max_attempts - 1:
-                break
-
-            delay = 2 ** attempt
-
-            print(
-                "Gemini chart analysis temporarily unavailable. "
-                f"Retrying in {delay}s..."
-            )
-
-            time.sleep(delay)
-
-    raise RuntimeError(
-        "Gemini chart analysis failed after retries: "
-        f"{last_error}"
-    )
 
 def _normalize_raw_extraction(
     raw: RawChartExtraction,
@@ -1839,15 +1546,8 @@ def _readable_value_count(
 # =========================================================
 
 
-def _cache_path(
-    document_id: str,
-) -> Path:
-
-    return (
-        PROCESSED_ROOT
-        / document_id
-        / "chart_analysis.json"
-    )
+def _cache_path(document_id: str) -> Path:
+    return cache_file(document_id, "chart_analysis.json")
 
 
 def _load_cache(
@@ -1971,7 +1671,7 @@ def _file_hash(
             )
 
     return digest.hexdigest()
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import base64
 # import hashlib
@@ -2265,7 +1965,7 @@ def _file_hash(
 # # =========================================================
 
 
-# def analyze_chart(
+# def analyze_chart
 #     chart: dict[str, Any],
 #     *,
 #     overwrite: bool = False,

@@ -296,7 +296,7 @@ def normalize(
         float(value) / norm
         for value in vector
     ]
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import json

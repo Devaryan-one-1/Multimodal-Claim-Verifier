@@ -83,7 +83,7 @@ def render_coverage_summary(run: dict) -> None:
         "Only its challenge_mode determines whether it belongs "
         "to the straightforward, isolated or combined quota."
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import streamlit as st
 

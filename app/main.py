@@ -28,12 +28,25 @@ for name in ("GOOGLE_API_KEY", "GEMINI_API_KEY", "GEMINI_MODEL", "GEMINI_EVALUAT
 if not os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
     os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
 
+# OpenRouter settings are separate from GEMINI_EMBEDDING_*.
+for name in ("OPENROUTER_API_KEY", "LLM_PROVIDER", "OPENROUTER_TEXT_MODEL",
+             "OPENROUTER_VISION_MODEL", "OPENROUTER_DRAFT_MODEL", "LLM_ALLOW_FALLBACKS",
+             "LLM_TEXT_FALLBACK_MODELS", "LLM_VISION_FALLBACK_MODELS", "LLM_TIMEOUT_SECONDS",
+             "LLM_MAX_OUTPUT_TOKENS", "OPENROUTER_SEND_TEMPERATURE", "GEMINI_VISION_MODEL"):
+    if not os.getenv(name):
+        try:
+            value = st.secrets.get(name)
+            if value is not None:
+                os.environ[name] = str(value)
+        except (FileNotFoundError, KeyError):
+            pass
+
 from ui.workspace import run_dashboard
 
 run_dashboard()
 
 # """Run from the project folder: streamlit run app/main.py"""
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import os
 # import sys
@@ -62,6 +75,6 @@ run_dashboard()
 # if not os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
 #     os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
 
-# from ui.workspace import run_dashboard
+# from ui.workspace import run_dashboar
 
 # run_dashboard()

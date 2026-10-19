@@ -9,7 +9,8 @@ from pydantic import BaseModel, Field
 from reasoning.evidence_fusion import fuse_evidence
 from retrieval.reranker import rerank
 from retrieval.vector_store import search
-from services.runtime import read, structured
+from services.runtime import read
+from services.model_gateway import structured, trace_verification
 from verification.claim_parser import parse_claims
 from verification.grounded_numeric import verify_numeric
 
@@ -152,7 +153,7 @@ For numerical claims, do not assert a calculation that Python did not supply.
         result.update(verdict="UNKNOWN", reason=str(exc), confidence=None)
         reason = str(exc).casefold()
         operational = pc.get("parsing_error") or any(token in reason for token in (
-            "503", "429", "unavailable: servererror", "resource_exhausted", "api key", "api_key", "timeout",
+            "model service", "503", "429", "unavailable: servererror", "resource_exhausted", "api key", "api_key", "timeout",
             "index is incomplete", "has no vector index", "couldn't connect", "connectionerror"))
         if operational:
             result.update(status="error", error=str(exc))
@@ -160,6 +161,7 @@ For numerical claims, do not assert a calculation that Python did not supply.
         return result
 
 
+@trace_verification
 def verify_claims(claim_text: str, document_ids: list[str], reporter=None) -> list[dict]:
     started = time.perf_counter()
     if not document_ids:

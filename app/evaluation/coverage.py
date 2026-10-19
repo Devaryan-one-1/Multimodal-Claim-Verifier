@@ -301,7 +301,7 @@ def validate_export_coverage(run: dict) -> None:
         f"verdicts: {counts['by_verdict']}; "
         f"unclassified: {counts['unclassified']}."
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from collections import Counter
 # from typing import Literal

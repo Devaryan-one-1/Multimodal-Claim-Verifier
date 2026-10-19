@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.model_gateway import configuration_snapshot, controlled_evaluation
+
 import hashlib
 import json
 import math
@@ -519,6 +521,7 @@ def _summaries(queries: list[dict]) -> list[dict]:
     return summaries
 
 
+@controlled_evaluation
 def evaluate_retrieval(
     *,
     dataset_dir: Path = DEFAULT_DATASET_DIR,
@@ -757,6 +760,7 @@ def evaluate_retrieval(
             "metric_names": list(METRIC_NAMES),
             "rerank_keep": "all returned candidates",
             "use_claim_parser": use_claim_parser,
+            "model_routing": configuration_snapshot(),
             "stop_on_error": stop_on_error,
             "reranker_model": reranker.RERANK_MODEL,
             "embedding_model": getattr(embeddings, "EMBED_MODEL", None),
@@ -805,7 +809,7 @@ def evaluate_retrieval(
 
     _write_json(report_path, report)
     return report
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import json
@@ -1317,7 +1321,7 @@ def evaluate_retrieval(
 #     return summaries
 
 
-# def evaluate_retrieval(
+# def evaluate_retrieval
 #     *,
 #     dataset_dir: Path = DEFAULT_DATASET_DIR,
 #     candidate_depth: int = 20,
@@ -1544,7 +1548,7 @@ def evaluate_retrieval(
 #             "candidate_depth": candidate_depth,
 #             "metric_depth": candidate_depth,
 #             "rerank_keep": "all returned candidates",
-#             "use_claim_parser": use_claim_parser,
+#             "use_claim_parser": use_claim_parse,
 #             "stop_on_error": stop_on_error,
 #             "reranker_model": reranker.RERANK_MODEL,
 #             "matching": (
@@ -1581,7 +1585,7 @@ def evaluate_retrieval(
 
 #     _write_json(report_path, report)
 #     return report
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # import hashlib
 # # import json
@@ -2093,7 +2097,7 @@ def evaluate_retrieval(
 # #     return summaries
 
 
-# # def evaluate_retrieval(
+# # def evaluate_retrieval
 # #     *,
 # #     dataset_dir: Path = DEFAULT_DATASET_DIR,
 # #     candidate_depth: int = 20,
@@ -2320,7 +2324,7 @@ def evaluate_retrieval(
 # #             "candidate_depth": candidate_depth,
 # #             "metric_depth": candidate_depth,
 # #             "rerank_keep": "all returned candidates",
-# #             "use_claim_parser": use_claim_parser,
+# #             "use_claim_parser": use_claim_parse,
 # #             "stop_on_error": stop_on_error,
 # #             "reranker_model": reranker.RERANK_MODEL,
 # #             "matching": (

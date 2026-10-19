@@ -308,7 +308,7 @@ def embed_document(
     )
 
     return len(chunks)
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import os
 

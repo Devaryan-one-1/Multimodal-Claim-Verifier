@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "backup": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\code_backups\\before_openrouter_20261019_175455_334482",
+  "modified_files": [
+    "app/main.py",
+    "app/ui/workspace.py",
+    "app/verification/claim_parser.py",
+    "app/verification/grounded_numeric.py",
+    "app/pipelines/verification_pipeline.py",
+    "app/pipelines/document_pipeline.py",
+    "app/evaluation/dataset.py",
+    "app/extraction/chart_detector.py",
+    "app/extraction/ocr.py",
+    "app/reasoning/vision_client.py",
+    "app/reasoning/llm_client.py",
+    "app/evaluation/retrieval_evaluation.py",
+    "app/evaluation/verdict_evaluation.py",
+    "app/services/model_gateway.py",
+    "app/ui/model_settings.py"
+  ],
+  "created_files": [
+    "app/services/model_gateway.py",
+    "app/ui/model_settings.py"
+  ]
+}

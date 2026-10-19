@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.model_gateway import structured, model_name, last_call
+
 from services.runtime import retry
 
 import hashlib
@@ -1177,28 +1179,9 @@ def add_drafts(
     batches: int = 10,
     progress: Callable[[str], None] | None = None,
 ) -> dict:
-    load_dotenv()
-
-    api_key = (
-        os.getenv("GOOGLE_API_KEY")
-        or os.getenv("GEMINI_API_KEY")
-    )
-
-    if not api_key:
-        raise ValueError(
-            "GOOGLE_API_KEY is missing from your environment/.env."
-        )
-
-    model = (
-        os.getenv("GEMINI_EVALUATION_MODEL")
-        or os.getenv("GEMINI_MODEL")
-        or "gemini-flash-latest"
-    )
-
+    model = model_name("draft")
     run = load_run(dataset_id)
     assert_sources_unchanged(run)
-
-    client = genai.Client(api_key=api_key)
 
     for batch_index in range(batches):
         requests = batch_requests(run, limit=10)
@@ -1270,27 +1253,11 @@ def add_drafts(
             )
 
         try:
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    system_instruction=SYSTEM_INSTRUCTION,
-                    temperature=0.3,
-                    response_mime_type="application/json",
-                    response_schema=CandidateBatch,
-                ),
+            batch = structured(
+                CandidateBatch, prompt, system=SYSTEM_INSTRUCTION,
+                task="draft", temperature=0.3,
             )
-
-            if isinstance(response.parsed, CandidateBatch):
-                batch = response.parsed
-            elif response.parsed is not None:
-                batch = CandidateBatch.model_validate(
-                    response.parsed
-                )
-            else:
-                batch = CandidateBatch.model_validate_json(
-                    response.text or ""
-                )
+            generation = last_call()
 
             accepted = Counter()
             skipped = []
@@ -1343,7 +1310,9 @@ def add_drafts(
                                 candidate.model_dump(mode="json")
                             ),
                             "generated_at": _now(),
-                            "generation_model": model,
+                            "generation_model": generation.get("actual_model", model),
+                            "generation_provider": generation.get("gateway_provider"),
+                            "generation_metadata": generation,
                             "version": 0,
                             "reviewed_by": None,
                             "reviewed_at": None,
@@ -1361,7 +1330,8 @@ def add_drafts(
             run["generation_log"].append(
                 {
                     "batch": run["batch_number"],
-                    "model": model,
+                    "model": generation.get("actual_model", model),
+                    "model_metadata": generation,
                     "requested": requests,
                     "accepted": [
                         {
@@ -1676,7 +1646,7 @@ def export_reviewed(dataset_id: str) -> dict:
         )
 
     return manifest
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import json

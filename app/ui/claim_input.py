@@ -605,7 +605,7 @@ def initialize_claim_state() -> None:
         "opened_history_results",
         None,
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from dataclasses import dataclass
 
@@ -671,7 +671,7 @@ def initialize_claim_state() -> None:
 #         text=cleaned_claim,
 #         document_ids=selected_document_ids,
 #     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import inspect
 # import time
@@ -1288,7 +1288,7 @@ def initialize_claim_state() -> None:
 #         "opened_history_results",
 #         None,
 #     )
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # from dataclasses import dataclass
 

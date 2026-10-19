@@ -525,7 +525,7 @@ def _render_downloads(run: dict) -> None:
                     f"{run['dataset_id']}_{filename}"
                 ),
             )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import json
 # from collections import Counter

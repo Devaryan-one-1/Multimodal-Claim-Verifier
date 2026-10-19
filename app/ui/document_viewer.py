@@ -511,7 +511,7 @@ def _clamp(page, count):
         1,
         min(int(page), int(count)),
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from pathlib import Path
 # from typing import Any, Callable
@@ -734,7 +734,7 @@ def _clamp(page, count):
 
 # def _clamp(value: int, minimum: int, maximum: int) -> int:
 #     return max(minimum, min(int(value), maximum))
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import math
 # from pathlib import Path
@@ -1245,7 +1245,7 @@ def _clamp(page, count):
 #         1,
 #         min(int(page), int(count)),
 #     )
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # from pathlib import Path
 # # from typing import Any, Callable

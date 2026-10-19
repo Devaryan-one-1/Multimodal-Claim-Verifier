@@ -524,7 +524,7 @@ def _page_number(
         if page is not None and page > 0
         else None
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from typing import Any, Callable
 
@@ -675,7 +675,7 @@ def _page_number(
 #             use_container_width=True,
 #             hide_index=True,
 #         )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import hashlib
 # import json
@@ -1201,7 +1201,7 @@ def _page_number(
 #         if page is not None and page > 0
 #         else None
 #     )
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # from typing import Any, Callable
 

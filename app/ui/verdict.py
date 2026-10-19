@@ -682,7 +682,7 @@ def verdict_config(
         verdict,
         VERDICT_CONFIG["UNKNOWN"],
     )
-# from __future__ import annotations
+# from __future__ import annotation
 
 # from typing import Any
 

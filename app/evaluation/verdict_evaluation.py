@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.model_gateway import model_name, configuration_snapshot, controlled_evaluation
+
 import hashlib
 import json
 import re
@@ -48,7 +50,6 @@ def _configuration(
     manifest: dict,
 ) -> dict:
     from retrieval import embeddings, reranker
-    from services.runtime import model_name
 
     files = {}
 
@@ -144,6 +145,7 @@ def _configuration(
 
     return {
         "reasoning_model": model_name(),
+        "model_routing": configuration_snapshot(),
         "embedding_model": getattr(
             embeddings,
             "EMBED_MODEL",
@@ -483,6 +485,7 @@ def _metrics(
     }
 
 
+@controlled_evaluation
 def evaluate_verdicts(
     *,
     dataset_dir: Path = DEFAULT_DATASET_DIR,

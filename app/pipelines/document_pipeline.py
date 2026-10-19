@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.model_gateway import configuration_snapshot
+
 import re
 import time
 from pathlib import Path
@@ -48,7 +50,8 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
     metadata = {"document_id": document_id, "filename": filename, "company_name": company_name,
                 "pdf_path": str(source), "pdf_sha256": source_hash, "fingerprint": source_hash,
                 "size_bytes": len(file_bytes), "profile": PROFILE,
-                "options": options, "status": "processing", "warnings": []}
+                "options": options, "status": "processing", "warnings": [],
+                "extraction_model_configuration": configuration_snapshot()}
     write(meta_path, metadata)
     warnings = metadata["warnings"]
     try:
@@ -138,6 +141,9 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
                 if display_unit:
                     facts = [dict(fact, unit=display_unit) for fact in facts]
                 item["facts"] = facts
+                item["model_provenance"] = {"detection": item.get("model_calls", []),
+                                            "analysis": result.get("model_calls", []),
+                                            "selected_analysis_model": result.get("selected_model")}
                 item["content"] = item.get("content", "") + "\n" + "\n".join(
                     f"{f.get('metric') or ''} {f.get('segment') or ''} {f.get('period') or f.get('category') or ''}: {f.get('display_value') or f.get('value')} {f.get('unit') or ''}"
                     for f in facts)

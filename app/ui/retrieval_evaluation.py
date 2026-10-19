@@ -168,7 +168,7 @@ def render_retrieval_evaluation() -> None:
             st.json(query)
     st.caption(f"Saved report: {path}")
 
-# from __future__ import annotations
+# from __future__ import annotation
 
 # import json
 # from pathlib import Path
@@ -396,7 +396,7 @@ def render_retrieval_evaluation() -> None:
 #     )
 
 #     st.caption(f"Saved report: {path}")
-# # from __future__ import annotations
+# # from __future__ import annotation
 
 # # import json
 # # from pathlib import Path

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from ui.model_settings import render_model_settings, render_model_usage
+
 import json
 import os
 from datetime import datetime
@@ -26,12 +28,11 @@ def _open_upload():
 
 
 def _settings():
-    configured = bool(os.getenv("GOOGLE_API_KEY"))
+    configured = False
     with st.sidebar:
         st.title("Claim Verifier")
         st.caption("Financial document workspace")
-        st.success("Gemini key configured") if configured else st.warning("Set GOOGLE_API_KEY in .env or Streamlit secrets.")
-        st.caption(f"Reasoning model: {model_name()}")
+        configured = render_model_settings()
         st.divider()
         st.markdown("**Document processing**")
         st.checkbox("OCR pages with little extractable text", value=True, key="dashboard_ocr")
@@ -123,6 +124,7 @@ def _workspace(documents, selected):
             st.info("Upload a report, enter an assertion, and select VERIFY. Your result, calculation and citations appear here.")
         else:
             render_overall(results)
+            render_model_usage(results)
             for index, result in enumerate(results):
                 render_result(result, index, len(results) > 1)
                 st.markdown("#### Evidence")

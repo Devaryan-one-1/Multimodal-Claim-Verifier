@@ -6,7 +6,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from services.runtime import structured
+from services.model_gateway import structured
 from verification.number_parser import parse_number
 from verification.financial_calculations import percentage_growth, absolute_change, margin, cagr, percentage_point_change
 
