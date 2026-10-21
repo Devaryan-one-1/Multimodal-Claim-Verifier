@@ -1,0 +1,344 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "retrieval/reranker.py": "108e6d5e1018c84b22641fb7f02de133275c081a247f91184ebd9c8119757a9d"
+      },
+      "dependencies": {
+        "sentence-transformers": "6.0.1",
+        "torch": "2.14.0",
+        "transformers": "5.16.1"
+      },
+      "initial_ranking_sha256": "f328b6f025dda00650e401840de7ca7e19b340ff41a8d3294401d8c9a9a34c22",
+      "initial_signature": "bbf0306e15516aa20dd1a1eac427fee48af89d9c85bdf807020dfc7b2753bcff",
+      "keep": "all initial candidates",
+      "parser_configuration": {
+        "code_hashes": {
+          "services/model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+          "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+          "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+        },
+        "dependencies": {
+          "google-genai": "2.22.0",
+          "httpx": "0.28.1",
+          "jsonschema": "4.26.0",
+          "pydantic": "2.13.5"
+        },
+        "routing": {
+          "allow_fallbacks": false,
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "gateway_version": 2,
+          "max_output_tokens": 8192,
+          "openrouter_base_url": "https://openrouter.ai/api/v1",
+          "provider": "openrouter",
+          "schema_policy": "strict JSON Schema plus local validation",
+          "send_temperature": false,
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "text_model": "dots-studio/dots-3-note-preview:free",
+          "timeout_seconds": 120.0,
+          "vision_fallbacks": [],
+          "vision_model": ""
+        }
+      },
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "use_claim_parser": true
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "As of December 31, 2025, Safety and Industrial goodwill carrying amount was $4,571 million."
+    },
+    "schema_version": 1,
+    "stage": "reranked"
+  },
+  "payload": {
+    "ranked_hits": [
+      {
+        "rank": 1,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1565::0::089d74fe7437",
+        "source_evidence_id": "evidence_1565",
+        "type": "text",
+        "page": 52,
+        "score": 0.030536130536130537,
+        "rerank_score": 3.837125778198242,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 2,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1696::0::718e818f90a3",
+        "source_evidence_id": "evidence_1696",
+        "type": "text",
+        "page": 58,
+        "score": 0.02736498731424429,
+        "rerank_score": 3.7236318588256836,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 3,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1038::0::21a3b8f72f8e",
+        "source_evidence_id": "evidence_1038",
+        "type": "text",
+        "page": 32,
+        "score": 0.032266458495966696,
+        "rerank_score": 3.628495693206787,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 4,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1588::0::2ea3c0a4d948",
+        "source_evidence_id": "evidence_1588",
+        "type": "text",
+        "page": 53,
+        "score": 0.015625,
+        "rerank_score": 2.925593614578247,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 5,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4626::0::a004b0590028",
+        "source_evidence_id": "evidence_4626",
+        "type": "text",
+        "page": 151,
+        "score": 0.024809741248097414,
+        "rerank_score": 2.6923470497131348,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 6,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2250::0::c710eac7ecd0",
+        "source_evidence_id": "evidence_2250",
+        "type": "text",
+        "page": 76,
+        "score": 0.021869488536155203,
+        "rerank_score": 2.3792972564697266,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 7,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1554::0::1eceda9a75b2",
+        "source_evidence_id": "evidence_1554",
+        "type": "text",
+        "page": 52,
+        "score": 0.023985497141263423,
+        "rerank_score": 1.747420072555542,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 8,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1402::0::e386c73f3977",
+        "source_evidence_id": "evidence_1402",
+        "type": "text",
+        "page": 46,
+        "score": 0.023952954675846242,
+        "rerank_score": 1.1375229358673096,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 9,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1429::0::e386c73f3977",
+        "source_evidence_id": "evidence_1429",
+        "type": "text",
+        "page": 47,
+        "score": 0.023669467787114845,
+        "rerank_score": 1.1375229358673096,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 10,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1692::0::e386c73f3977",
+        "source_evidence_id": "evidence_1692",
+        "type": "text",
+        "page": 58,
+        "score": 0.023392612859097127,
+        "rerank_score": 1.1375229358673096,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 11,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1726::0::e386c73f3977",
+        "source_evidence_id": "evidence_1726",
+        "type": "text",
+        "page": 59,
+        "score": 0.023122159850307404,
+        "rerank_score": 1.1375229358673096,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 12,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1747::0::e386c73f3977",
+        "source_evidence_id": "evidence_1747",
+        "type": "text",
+        "page": 60,
+        "score": 0.022857889237199582,
+        "rerank_score": 1.1375229358673096,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 13,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1561::0::d01595641327",
+        "source_evidence_id": "evidence_1561",
+        "type": "text",
+        "page": 52,
+        "score": 0.031099324975891997,
+        "rerank_score": 1.096213459968567,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 14,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4866::0::59cdf9b74378",
+        "source_evidence_id": "evidence_4866",
+        "type": "table",
+        "page": 102,
+        "score": 0.015151515151515152,
+        "rerank_score": 1.0687811374664307,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 15,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1100::0::55374a8f483f",
+        "source_evidence_id": "evidence_1100",
+        "type": "text",
+        "page": 34,
+        "score": 0.02438307873090482,
+        "rerank_score": 0.5374120473861694,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 16,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_833::0::34372f979782",
+        "source_evidence_id": "evidence_833",
+        "type": "text",
+        "page": 25,
+        "score": 0.025676937441643323,
+        "rerank_score": 0.5267267227172852,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 17,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1112::0::95b970663758",
+        "source_evidence_id": "evidence_1112",
+        "type": "text",
+        "page": 34,
+        "score": 0.021315192743764172,
+        "rerank_score": 0.30799585580825806,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 18,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1050::0::85b667c11842",
+        "source_evidence_id": "evidence_1050",
+        "type": "text",
+        "page": 32,
+        "score": 0.015625,
+        "rerank_score": 0.10810614377260208,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 19,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1327::0::7fab72402c5f",
+        "source_evidence_id": "evidence_1327",
+        "type": "text",
+        "page": 42,
+        "score": 0.025093353248693055,
+        "rerank_score": -0.47268638014793396,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 20,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1051::0::886507eca0bd",
+        "source_evidence_id": "evidence_1051",
+        "type": "text",
+        "page": 32,
+        "score": 0.016129032258064516,
+        "rerank_score": -1.1003587245941162,
+        "injected_table": false,
+        "source_identity_resolved": true
+      }
+    ],
+    "parsed_claim_used": true,
+    "parser_source": "computed",
+    "model_calls": [
+      {
+        "time": "2026-10-21T18:38:34.196786+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "dots-studio/dots-3-note-preview:free",
+        "actual_model": "dots-studio/dots-3-note-preview:free",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "AtlasCloud",
+        "request_id": "gen-1792607914-sqtp3iUdaKPOHYQl4YDm",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 323,
+          "completion_tokens": 1369,
+          "total_tokens": 1692,
+          "cost": 0,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0,
+            "upstream_inference_completions_cost": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1228,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 13.625
+      }
+    ]
+  },
+  "payload_sha256": "7188f9d0b98006b7b9875be68bdf72984c7cbe5c5a3d451e0177287514ca1918",
+  "created_at": "2026-10-21T18:38:48.130033+00:00"
+}
