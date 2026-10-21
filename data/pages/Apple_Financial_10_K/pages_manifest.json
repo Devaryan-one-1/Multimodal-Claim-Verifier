@@ -27,6 +27,26 @@
       "dpi": 200,
       "width_px": 1700,
       "height_px": 2200
+    },
+    "9": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 9,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_009.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    },
+    "18": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 18,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_018.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
     }
   },
   "errors": []
