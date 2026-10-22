@@ -1,0 +1,5424 @@
+{
+  "schema_version": 2,
+  "report_id": "20261022_172701_dd43c801",
+  "dataset_id": "20261007_222849_4964ec3d",
+  "dataset_revision": 121,
+  "created_at": "2026-10-22T17:27:01.190866+00:00",
+  "report_path": "data\\evaluation\\retrieval_results\\20261022_172701_dd43c801.json",
+  "complete": false,
+  "configuration": {
+    "candidate_depth": 20,
+    "metric_depth": 20,
+    "mrr_cutoff": 20,
+    "metric_names": [
+      "Recall@5",
+      "Recall@10",
+      "Hit@5",
+      "Hit@10",
+      "MRR@20"
+    ],
+    "rerank_keep": "all returned candidates",
+    "use_claim_parser": true,
+    "stop_on_error": true,
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "embedding_model": "gemini-embedding-001",
+    "embedding_dimensions": 768,
+    "vector_collection": "evidence_v2_4251d7d3a135",
+    "hybrid_candidate_pool": 50,
+    "model_routing": {
+      "provider": "openrouter",
+      "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "vision_model": "",
+      "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "text_fallbacks": [
+        "minimax/minimax-m3.1-flash"
+      ],
+      "vision_fallbacks": [],
+      "allow_fallbacks": false,
+      "timeout_seconds": 120.0,
+      "max_output_tokens": 8192,
+      "send_temperature": false,
+      "gateway_version": 2,
+      "schema_policy": "strict JSON Schema plus local validation",
+      "openrouter_base_url": "https://openrouter.ai/api/v1"
+    },
+    "initial_signature": "bbf0306e15516aa20dd1a1eac427fee48af89d9c85bdf807020dfc7b2753bcff",
+    "reranker_signature": "eea1a94ff85e9138db5a4b16de67d6581254c7281833c018fa0f22675320463f",
+    "initial_configuration": {
+      "candidate_depth": 20,
+      "embedding_model": "gemini-embedding-001",
+      "embedding_dimensions": 768,
+      "vector_collection": "evidence_v2_4251d7d3a135",
+      "query_task_type": "RETRIEVAL_QUERY",
+      "normalization": "l2",
+      "hybrid_candidate_pool": 50,
+      "rrf_k": 60,
+      "chunk_file_checksums": {
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\chunks.json": "2cee87d94f097ed9584ece9675421660f34f415de4bd0843ec0f5c149cf8fbfe"
+      },
+      "index_file_checksums": {
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\index.json": "3061733ebd1ab995b5176f548ab7d4882007efe08b5d46194cd58cecad991b84"
+      },
+      "index_metadata_signatures": {
+        "0000066740-26-000014-56e1ef4130": "81be62f4a4dd242b716cb927f2f87bae06a81d1f216f289c8801b96f86db1d7d"
+      },
+      "reviewed_source_hashes": {
+        "data\\documents\\0000066740-26-000014-56e1ef4130\\original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04"
+      },
+      "code_hashes": {
+        "retrieval/embeddings.py": "ef795d6fec213ef461a8c0c367cd02fbbddf8ba078eb1b68690e0b315d3d9b6c",
+        "retrieval/vector_store.py": "199d3e3549f17558846261e59f5ef231275e83f2e29b96f6f3151bcf611749d2",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+        "evaluation/retrieval_evaluation.py": "59abce3d7fad1c1f14b41010ca85266b25f06def31f2ae912188c02d7e715964"
+      },
+      "dependencies": {
+        "google-genai": "2.22.0",
+        "chromadb": "1.5.9",
+        "rank-bm25": "0.2.2"
+      }
+    },
+    "reranker_configuration": {
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "use_claim_parser": true,
+      "parser_configuration": {
+        "routing": {
+          "provider": "openrouter",
+          "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "vision_model": "",
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "vision_fallbacks": [],
+          "allow_fallbacks": false,
+          "timeout_seconds": 120.0,
+          "max_output_tokens": 8192,
+          "send_temperature": false,
+          "gateway_version": 2,
+          "schema_policy": "strict JSON Schema plus local validation",
+          "openrouter_base_url": "https://openrouter.ai/api/v1"
+        },
+        "code_hashes": {
+          "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b",
+          "services/model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+          "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485"
+        },
+        "dependencies": {
+          "pydantic": "2.13.5",
+          "google-genai": "2.22.0",
+          "httpx": "0.28.1",
+          "jsonschema": "4.26.0"
+        }
+      },
+      "code_hashes": {
+        "retrieval/reranker.py": "108e6d5e1018c84b22641fb7f02de133275c081a247f91184ebd9c8119757a9d"
+      },
+      "dependencies": {
+        "sentence-transformers": "6.0.1",
+        "transformers": "5.16.1",
+        "torch": "2.14.0"
+      },
+      "keep": "all initial candidates"
+    },
+    "matching": "document_id plus original source_evidence_id",
+    "ranking_unit": "chunk",
+    "gold_unit": "source evidence item",
+    "averaging": "Macro means over completed eligible queries separately by stage/level.",
+    "mrr_definition": "Reciprocal first-gold rank within top 20; zero when absent.",
+    "recall_definition": "Distinct gold sources in the first k chunk positions divided by all gold sources.",
+    "hit_definition": "One when at least one correct source occurs in the first k results; zero otherwise.",
+    "unindexed_gold_policy": "Unindexed gold remains in the recall denominator.",
+    "error_policy": "Failures and unattempted stages have null metrics; never invented zero scores.",
+    "unknown_policy": "UNKNOWN context citations are not gold; no-gold queries are excluded.",
+    "subclaim_scope": "Individual atoms of compound claims."
+  },
+  "dataset_checksums": {
+    "claims_sha256": "ac409c67c75b0438b4ee0ece6907b1a3ad8347c1181af03ff5dadfcc02d67d2a",
+    "ground_truth_sha256": "7d513a2b66778c8ed12a714aebf0c036d9f2fbd31a12e36e6cc9fe4fa76d577f"
+  },
+  "chunk_file_checksums": {
+    "data\\processed\\0000066740-26-000014-56e1ef4130\\chunks.json": "2cee87d94f097ed9584ece9675421660f34f415de4bd0843ec0f5c149cf8fbfe"
+  },
+  "queries": [
+    {
+      "query_id": "claim_7f6d59467929",
+      "claim_id": "claim_7f6d59467929",
+      "level": "claim",
+      "query_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4868"
+      ],
+      "case_tags": [
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "ok",
+          "ranked_hits": [
+            {
+              "rank": 1,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3203::0::aca09e73314d",
+              "source_evidence_id": "evidence_3203",
+              "type": "text",
+              "page": 102,
+              "score": 0.03252247488101534,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 2,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3202::0::11d4067bbfcd",
+              "source_evidence_id": "evidence_3202",
+              "type": "text",
+              "page": 102,
+              "score": 0.03252247488101534,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 3,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4868::0::055035e1f46b",
+              "source_evidence_id": "evidence_4868",
+              "type": "table",
+              "page": 102,
+              "score": 0.030798389007344232,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 4,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1380::0::b7f65bb643df",
+              "source_evidence_id": "evidence_1380",
+              "type": "text",
+              "page": 46,
+              "score": 0.02900988017658188,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 5,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1821::0::dcfa8ec72594",
+              "source_evidence_id": "evidence_1821",
+              "type": "text",
+              "page": 63,
+              "score": 0.028594771241830064,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 6,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4798::0::89e34c90d3f2",
+              "source_evidence_id": "evidence_4798",
+              "type": "table",
+              "page": 51,
+              "score": 0.027972027972027972,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 7,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_911::0::0ee72e80d38d",
+              "source_evidence_id": "evidence_911",
+              "type": "text",
+              "page": 28,
+              "score": 0.027730294396961064,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 8,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1112::0::95b970663758",
+              "source_evidence_id": "evidence_1112",
+              "type": "text",
+              "page": 34,
+              "score": 0.02715098147128967,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 9,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4789::0::d1816f489ec0",
+              "source_evidence_id": "evidence_4789",
+              "type": "table",
+              "page": 46,
+              "score": 0.027108970929195647,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 10,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1812::0::727891fe4f7c",
+              "source_evidence_id": "evidence_1812",
+              "type": "text",
+              "page": 62,
+              "score": 0.027056277056277056,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 11,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1402::0::e386c73f3977",
+              "source_evidence_id": "evidence_1402",
+              "type": "text",
+              "page": 46,
+              "score": 0.027031963470319637,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 12,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1429::0::e386c73f3977",
+              "source_evidence_id": "evidence_1429",
+              "type": "text",
+              "page": 47,
+              "score": 0.02667140825035562,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 13,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1692::0::e386c73f3977",
+              "source_evidence_id": "evidence_1692",
+              "type": "text",
+              "page": 58,
+              "score": 0.02632034632034632,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 14,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1726::0::e386c73f3977",
+              "source_evidence_id": "evidence_1726",
+              "type": "text",
+              "page": 59,
+              "score": 0.025978407557354925,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 15,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1747::0::e386c73f3977",
+              "source_evidence_id": "evidence_1747",
+              "type": "text",
+              "page": 60,
+              "score": 0.025645240835114255,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 16,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1099::0::b4fb33b2992a",
+              "source_evidence_id": "evidence_1099",
+              "type": "text",
+              "page": 34,
+              "score": 0.025516795865633074,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 17,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4626::0::a004b0590028",
+              "source_evidence_id": "evidence_4626",
+              "type": "text",
+              "page": 151,
+              "score": 0.025458570524984188,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 18,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3177::0::183f1b86c7f8",
+              "source_evidence_id": "evidence_3177",
+              "type": "text",
+              "page": 102,
+              "score": 0.02483719521429653,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 19,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_056::0::bd4d56168d10",
+              "source_evidence_id": "evidence_056",
+              "type": "text",
+              "page": 2,
+              "score": 0.02390271176963936,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            },
+            {
+              "rank": 20,
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_130::0::bd4d56168d10",
+              "source_evidence_id": "evidence_130",
+              "type": "text",
+              "page": 4,
+              "score": 0.023614523614523618,
+              "rerank_score": null,
+              "injected_table": false,
+              "source_identity_resolved": true
+            }
+          ],
+          "metrics": {
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "Hit@5": 1,
+            "Hit@10": 1,
+            "MRR@20": 0.3333333333333333,
+            "first_correct_rank": 3,
+            "gold_item_count": 1,
+            "correct_sources_at_5": [
+              "evidence_4868"
+            ],
+            "correct_sources_at_10": [
+              "evidence_4868"
+            ],
+            "evaluated_hit_count": 20,
+            "unresolved_source_id_count": 0
+          },
+          "error": null,
+          "result_source": "checkpoint"
+        },
+        "reranked": {
+          "status": "error",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": "RuntimeError: Reranker metadata parsing failed: Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError): Model service: Output reached the token limit (max_tokens=8192); the structured response was truncated. No verdict was accepted."
+        }
+      }
+    },
+    {
+      "query_id": "claim_466270f4cf97",
+      "claim_id": "claim_466270f4cf97",
+      "level": "claim",
+      "query_text": "Total income from continuing operations before income taxes fell from a positive $4,819 million in 2024 to a loss of $(4,213) million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_466270f4cf97:subclaim:1",
+      "claim_id": "claim_466270f4cf97",
+      "level": "subclaim",
+      "query_text": "Total income from continuing operations before income taxes was $4,819 million in 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_466270f4cf97:subclaim:2",
+      "claim_id": "claim_466270f4cf97",
+      "level": "subclaim",
+      "query_text": "Total income from continuing operations before income taxes was a loss of $(4,213) million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_758e49619eb4",
+      "claim_id": "claim_758e49619eb4",
+      "level": "claim",
+      "query_text": "The company's total effective tax rate for the fiscal year ended December 31, 2025, was 21.5%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a0e40a53fdb2",
+      "claim_id": "claim_a0e40a53fdb2",
+      "level": "claim",
+      "query_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_75bd0e2947d4",
+      "claim_id": "claim_75bd0e2947d4",
+      "level": "claim",
+      "query_text": "The Gross UTB balance at the beginning of 2025 was $800 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4816"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_971c6bc4fe3b",
+      "claim_id": "claim_971c6bc4fe3b",
+      "level": "claim",
+      "query_text": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million, and in 2022 it was $(5,000) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_971c6bc4fe3b:subclaim:1",
+      "claim_id": "claim_971c6bc4fe3b",
+      "level": "subclaim",
+      "query_text": "Total income (loss) from continuing operations before income taxes was $(11,271) million in 2023.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_971c6bc4fe3b:subclaim:2",
+      "claim_id": "claim_971c6bc4fe3b",
+      "level": "subclaim",
+      "query_text": "Total income (loss) from continuing operations before income taxes was $(5,000) million in 2022.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_064a78250d7d",
+      "claim_id": "claim_064a78250d7d",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, International income from continuing operations before income taxes decreased by approximately 6.99%, while for 2023 total income before income taxes was a loss of $(11,271) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_064a78250d7d:subclaim:1",
+      "claim_id": "claim_064a78250d7d",
+      "level": "subclaim",
+      "query_text": "International income from continuing operations before income taxes decreased by approximately 6.99% from 2024 to 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_064a78250d7d:subclaim:2",
+      "claim_id": "claim_064a78250d7d",
+      "level": "subclaim",
+      "query_text": "Total income from continuing operations before income taxes was a loss of $(11,271) million in 2023.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_db69f7289d53",
+      "claim_id": "claim_db69f7289d53",
+      "level": "claim",
+      "query_text": "In 2025, 3M granted 517,000 restricted stock units.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4856"
+      ],
+      "case_tags": [
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_847632bbd320",
+      "claim_id": "claim_847632bbd320",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_30ddcbad3755",
+      "claim_id": "claim_30ddcbad3755",
+      "level": "claim",
+      "query_text": "For 2025, 3M's GAAP total sales change exceeded its GAAP organic sales change by 0.6 percentage points.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4761"
+      ],
+      "case_tags": [
+        "percentage_points",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_8333a3ebb9e4",
+      "claim_id": "claim_8333a3ebb9e4",
+      "level": "claim",
+      "query_text": "In 2025, 3M's Electronics division net sales were $2,911 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c311cff770a6",
+      "claim_id": "claim_c311cff770a6",
+      "level": "claim",
+      "query_text": "In 2025, 3M's capital spending in Europe, Middle East and Africa was $350 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_f3bf5b20f844",
+      "claim_id": "claim_f3bf5b20f844",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, the fair value of plan assets for International pension plans with accumulated benefit obligation in excess of plan assets was $800 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4831"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_8bc63e0d8d08",
+      "claim_id": "claim_8bc63e0d8d08",
+      "level": "claim",
+      "query_text": "In 2025, Industrial Adhesives and Tapes recorded net sales of $2,266 million, while its research and development expense was $120 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_8bc63e0d8d08:subclaim:1",
+      "claim_id": "claim_8bc63e0d8d08",
+      "level": "subclaim",
+      "query_text": "In 2025, net sales for Industrial Adhesives and Tapes were $2,266 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_8bc63e0d8d08:subclaim:2",
+      "claim_id": "claim_8bc63e0d8d08",
+      "level": "subclaim",
+      "query_text": "In 2025, research and development expense for Industrial Adhesives and Tapes was $120 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_3f1aea1a2e06",
+      "claim_id": "claim_3f1aea1a2e06",
+      "level": "claim",
+      "query_text": "In fiscal year 2025, 3M incurred $340 million in advertising expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_2657f686d5e3",
+      "claim_id": "claim_2657f686d5e3",
+      "level": "claim",
+      "query_text": "During 2025, 3M made cash settlement payments exceeding $1.2 billion for PFAS contamination litigation in the Netherlands.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4308f078cfb1",
+      "claim_id": "claim_4308f078cfb1",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units, and in 2024, Personal Safety net sales were $3,544 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796",
+        "evidence_4856"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 2,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4308f078cfb1:subclaim:1",
+      "claim_id": "claim_4308f078cfb1",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4856"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4308f078cfb1:subclaim:2",
+      "claim_id": "claim_4308f078cfb1",
+      "level": "subclaim",
+      "query_text": "In 2024, Personal Safety net sales were $3,544 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c00aa98e7618",
+      "claim_id": "claim_c00aa98e7618",
+      "level": "claim",
+      "query_text": "In 2025, 3M's net sales in China/Hong Kong were $3,500 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4798"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_02eb57fbbd7a",
+      "claim_id": "claim_02eb57fbbd7a",
+      "level": "claim",
+      "query_text": "In 2024, 3M's net sales in the United States were $15,000 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4798"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_104cb2ddcfbf",
+      "claim_id": "claim_104cb2ddcfbf",
+      "level": "claim",
+      "query_text": "In 2025, 3M's net sales in China/Hong Kong grew by approximately 4.50% compared to 2024, while operating income in China was $600 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4798"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_104cb2ddcfbf:subclaim:1",
+      "claim_id": "claim_104cb2ddcfbf",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M's net sales in China/Hong Kong grew by approximately 4.50% compared to 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4798"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_104cb2ddcfbf:subclaim:2",
+      "claim_id": "claim_104cb2ddcfbf",
+      "level": "subclaim",
+      "query_text": "Operating income in China was $600 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_5f891f3b4eef",
+      "claim_id": "claim_5f891f3b4eef",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M reported $4,571 million in goodwill for Safety and Industrial, and total restructuring expenses across all divisions were $350 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4800"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_5f891f3b4eef:subclaim:1",
+      "claim_id": "claim_5f891f3b4eef",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, Safety and Industrial goodwill carrying amount was $4,571 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4800"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_5f891f3b4eef:subclaim:2",
+      "claim_id": "claim_5f891f3b4eef",
+      "level": "subclaim",
+      "query_text": "Total restructuring expenses across all divisions were $350 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_04b93ca19d6a",
+      "claim_id": "claim_04b93ca19d6a",
+      "level": "claim",
+      "query_text": "In 2025, 3M spent $1,200 million on environmental remediation projects.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b6b2f760d3d7",
+      "claim_id": "claim_b6b2f760d3d7",
+      "level": "claim",
+      "query_text": "3M's worldwide employee headcount was 85,000 as of year-end 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_90eb1af92900",
+      "claim_id": "claim_90eb1af92900",
+      "level": "claim",
+      "query_text": "In 2025, 3M's net sales in the Americas geographic area were $13,579 million, representing 54.5% of worldwide sales.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_90eb1af92900:subclaim:1",
+      "claim_id": "claim_90eb1af92900",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M's net sales in the Americas geographic area were $13,579 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_90eb1af92900:subclaim:2",
+      "claim_id": "claim_90eb1af92900",
+      "level": "subclaim",
+      "query_text": "In 2025, Americas sales represented 54.5% of worldwide sales.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c7a479ae84d5",
+      "claim_id": "claim_c7a479ae84d5",
+      "level": "claim",
+      "query_text": "From 2024 to 2025, 3M's total carrying amount of goodwill across all segments grew by 15.0%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4800"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_10f7b441d0f4",
+      "claim_id": "claim_10f7b441d0f4",
+      "level": "claim",
+      "query_text": "In 2025, 3M's total sales change in EMEA was 2.4% while organic sales in EMEA decreased by (1.7)%, and EMEA operating profit rose to $800 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_10f7b441d0f4:subclaim:1",
+      "claim_id": "claim_10f7b441d0f4",
+      "level": "subclaim",
+      "query_text": "In 2025, EMEA total sales change was 2.4% and organic sales change was (1.7)%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_10f7b441d0f4:subclaim:2",
+      "claim_id": "claim_10f7b441d0f4",
+      "level": "subclaim",
+      "query_text": "EMEA operating profit rose to $800 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_733dc5ff32fb",
+      "claim_id": "claim_733dc5ff32fb",
+      "level": "claim",
+      "query_text": "For 3M's primary annual stock option grants, the Black-Scholes fair value increased by approximately 60.94% from $20.53 in 2024 to $33.04 in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4855"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a89bd42162d9",
+      "claim_id": "claim_a89bd42162d9",
+      "level": "claim",
+      "query_text": "In 2025, 3M recognized $50 million of stock-based compensation expense specifically attributable to restricted stock units.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_577c89ef0111",
+      "claim_id": "claim_577c89ef0111",
+      "level": "claim",
+      "query_text": "In 2024, 3M settled three of the water system PFAS complaints filed against it in South Carolina state court for a total of $45 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_16162d683e4e",
+      "claim_id": "claim_16162d683e4e",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, the fair value of Level 1 postretirement benefit plan assets located in Europe was $85 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a35f969b24e4",
+      "claim_id": "claim_a35f969b24e4",
+      "level": "claim",
+      "query_text": "In 2025, the intrinsic value of performance shares distributed by 3M was $45 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4859"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e16d2036bcbe",
+      "claim_id": "claim_e16d2036bcbe",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, the fair value of 3M's U.S. pension plan assets was $9,200 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4837"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_f2d23f3c5e33",
+      "claim_id": "claim_f2d23f3c5e33",
+      "level": "claim",
+      "query_text": "In 2025, the tax benefit realized related to performance shares distributed by 3M was $4 million, and the intrinsic value of performance shares distributed in 2024 was $25 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4859"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_f2d23f3c5e33:subclaim:1",
+      "claim_id": "claim_f2d23f3c5e33",
+      "level": "subclaim",
+      "query_text": "In 2025, the tax benefit realized related to performance shares distributed by 3M was $4 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4859"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_f2d23f3c5e33:subclaim:2",
+      "claim_id": "claim_f2d23f3c5e33",
+      "level": "subclaim",
+      "query_text": "The intrinsic value of performance shares distributed in 2024 was $25 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4859"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6e789bac7b39",
+      "claim_id": "claim_6e789bac7b39",
+      "level": "claim",
+      "query_text": "Under the 2023 to 2025 structural reorganization actions, 3M recorded a total operating income impact of $187 million in 2024, and incurred severance payments of $95 million in Germany.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4804"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6e789bac7b39:subclaim:1",
+      "claim_id": "claim_6e789bac7b39",
+      "level": "subclaim",
+      "query_text": "In 2024, 3M recorded a total operating income impact of $187 million from the 2023 to 2025 structural reorganization actions.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4804"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6e789bac7b39:subclaim:2",
+      "claim_id": "claim_6e789bac7b39",
+      "level": "subclaim",
+      "query_text": "3M incurred severance payments of $95 million in Germany under these reorganization actions.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d6d8982c5085",
+      "claim_id": "claim_d6d8982c5085",
+      "level": "claim",
+      "query_text": "In 2024, the change in valuation allowance on Solventum ownership reduced 3M's effective tax rate by 7.7 percentage points, reflected as (7.7) percentage points in the rate reconciliation.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4815"
+      ],
+      "case_tags": [
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_937d3ea184b0",
+      "claim_id": "claim_937d3ea184b0",
+      "level": "claim",
+      "query_text": "Between 2023 and 2024, 3M's effective worldwide tax rate decreased by 8.7 percentage points, falling from 25.4% to 16.7%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4815"
+      ],
+      "case_tags": [
+        "different_years",
+        "percentage_points",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c964826c4db0",
+      "claim_id": "claim_c964826c4db0",
+      "level": "claim",
+      "query_text": "From year-end 2024 to year-end 2025, 3M's United States pension funded status improved from $(864) million to $(777) million, while its International pension funded status increased by 17.07% from $961 million to $1,125 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c964826c4db0:subclaim:1",
+      "claim_id": "claim_c964826c4db0",
+      "level": "subclaim",
+      "query_text": "3M's United States pension funded status improved from $(864) million at year-end 2024 to $(777) million at year-end 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c964826c4db0:subclaim:2",
+      "claim_id": "claim_c964826c4db0",
+      "level": "subclaim",
+      "query_text": "3M's International pension funded status grew by 17.07% from $961 million at year-end 2024 to $1,125 million at year-end 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b2a484bb4e1a",
+      "claim_id": "claim_b2a484bb4e1a",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M recorded goodwill of $2,000 million for its Consumer business segment.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4800"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_da364c3c6ecb",
+      "claim_id": "claim_da364c3c6ecb",
+      "level": "claim",
+      "query_text": "In 2024, 3M's net sales in the Europe, Middle East and Africa geographic area were $4,176 million, and research and development spending in that area was $210 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4797"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_da364c3c6ecb:subclaim:1",
+      "claim_id": "claim_da364c3c6ecb",
+      "level": "subclaim",
+      "query_text": "In 2024, 3M's net sales in Europe, Middle East and Africa were $4,176 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4797"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_da364c3c6ecb:subclaim:2",
+      "claim_id": "claim_da364c3c6ecb",
+      "level": "subclaim",
+      "query_text": "In 2024, 3M's research and development spending in Europe, Middle East and Africa was $210 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_58658508317b",
+      "claim_id": "claim_58658508317b",
+      "level": "claim",
+      "query_text": "In 2025, 3M incurred $450 million in legal defense fees related to ongoing environmental litigation.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_96a02442ac09",
+      "claim_id": "claim_96a02442ac09",
+      "level": "claim",
+      "query_text": "For the year ended December 31, 2024, 3M's capital expenditures for property, plant, and equipment were $1,800 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b9dbde494745",
+      "claim_id": "claim_b9dbde494745",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M reported goodwill of $58 million for Corporate and Other.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4800"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_088e5c87b661",
+      "claim_id": "claim_088e5c87b661",
+      "level": "claim",
+      "query_text": "For 2025, 3M's year-over-year change in adjusted operating income margin was an expansion of 5.0 percentage points.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4762"
+      ],
+      "case_tags": [
+        "percentage_points",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d616d9334857",
+      "claim_id": "claim_d616d9334857",
+      "level": "claim",
+      "query_text": "In 2024, 3M's postretirement benefit obligation declined by 20.77% from $1,897 million at the beginning of the year to $1,503 million at year-end, while the funded status of the postretirement plans was positive $742 million at year-end.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d616d9334857:subclaim:1",
+      "claim_id": "claim_d616d9334857",
+      "level": "subclaim",
+      "query_text": "3M's postretirement benefit obligation declined by 20.77% in 2024, from $1,897 million to $1,503 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d616d9334857:subclaim:2",
+      "claim_id": "claim_d616d9334857",
+      "level": "subclaim",
+      "query_text": "At year-end 2024, the funded status of 3M's postretirement plans was positive $742 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4829"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "rounded_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_7dbcfc871da9",
+      "claim_id": "claim_7dbcfc871da9",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M's total company employee headcount decreased by approximately 1.63% compared to December 31, 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_fc38fa562b82",
+      "claim_id": "claim_fc38fa562b82",
+      "level": "claim",
+      "query_text": "In July 2025, property owners in Gordon County and Murray County, Georgia, filed a single consolidated class-action lawsuit against PFAS chemical manufacturers and carpet manufacturers.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_2738"
+      ],
+      "case_tags": [],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_983cda3b530c",
+      "claim_id": "claim_983cda3b530c",
+      "level": "claim",
+      "query_text": "For the year ended December 31, 2025, 3M's capital spending in the Asia Pacific geographic area was $500 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_8184c8fff971",
+      "claim_id": "claim_8184c8fff971",
+      "level": "claim",
+      "query_text": "In 2025, 3M incurred $1,500 million of interest expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_ac82219dc493",
+      "claim_id": "claim_ac82219dc493",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M had 35,500 employees in the Americas, and its net property, plant, and equipment in the Americas was $5,123 thousand.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_ac82219dc493:subclaim:1",
+      "claim_id": "claim_ac82219dc493",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M had 35,500 employees in the Americas.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_ac82219dc493:subclaim:2",
+      "claim_id": "claim_ac82219dc493",
+      "level": "subclaim",
+      "query_text": "3M's net property, plant, and equipment in the Americas was $5,123 thousand as of December 31, 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4774"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6c4df59c0f16",
+      "claim_id": "claim_6c4df59c0f16",
+      "level": "claim",
+      "query_text": "In 2025, 3M's organic sales in Asia Pacific grew by 1.7%, while its advertising expense in Asia Pacific was $45 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6c4df59c0f16:subclaim:1",
+      "claim_id": "claim_6c4df59c0f16",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M's organic sales in Asia Pacific increased by 1.7%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6c4df59c0f16:subclaim:2",
+      "claim_id": "claim_6c4df59c0f16",
+      "level": "subclaim",
+      "query_text": "3M's advertising expense in Asia Pacific was $45 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_90fcf3bd8e6d",
+      "claim_id": "claim_90fcf3bd8e6d",
+      "level": "claim",
+      "query_text": "In 2025, 3M spent $125 million on environmental regulatory compliance systems across its manufacturing facilities in the United States.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_1f7747a2b41d",
+      "claim_id": "claim_1f7747a2b41d",
+      "level": "claim",
+      "query_text": "In 2025, 3M paid $35 million in external auditor fees for its annual financial statement audit.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_f45b1a5594be",
+      "claim_id": "claim_f45b1a5594be",
+      "level": "claim",
+      "query_text": "In 2025, 3M option holders exercised 10,871,000 stock options with a weighted average exercise price of $139.29.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4853"
+      ],
+      "case_tags": [
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_85bf78e08358",
+      "claim_id": "claim_85bf78e08358",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, 3M's capital expenditures for Transportation and Electronics decreased by approximately 35.90%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4865"
+      ],
+      "case_tags": [
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e392aaa8fdfb",
+      "claim_id": "claim_e392aaa8fdfb",
+      "level": "claim",
+      "query_text": "In 2025, 3M's capital expenditures for the Consumer segment declined by 23.75% from $80 million in 2024 to $61 million, while capital expenditures for the segment in 2023 were $150 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4865"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e392aaa8fdfb:subclaim:1",
+      "claim_id": "claim_e392aaa8fdfb",
+      "level": "subclaim",
+      "query_text": "Consumer capital expenditures fell by 23.75% from $80 million in 2024 to $61 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4865"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e392aaa8fdfb:subclaim:2",
+      "claim_id": "claim_e392aaa8fdfb",
+      "level": "subclaim",
+      "query_text": "Capital expenditures for the Consumer segment in 2023 were $150 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4865"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e3ecaac56677",
+      "claim_id": "claim_e3ecaac56677",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M's accumulated goodwill impairment loss was $500 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_2a8a51876a13",
+      "claim_id": "claim_2a8a51876a13",
+      "level": "claim",
+      "query_text": "In 2025, 3M recognized $75 million in insurance recoveries related to legal settlements.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4fd3ad20231b",
+      "claim_id": "claim_4fd3ad20231b",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M's accrued restructuring action balance at the end of the year was $55 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4806"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_24e96c249b9e",
+      "claim_id": "claim_24e96c249b9e",
+      "level": "claim",
+      "query_text": "In 2025, 3M incurred $21 million of incremental restructuring expense, whereas in 2024 it incurred $250 million of total incremental restructuring expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4806"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_24e96c249b9e:subclaim:1",
+      "claim_id": "claim_24e96c249b9e",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M incurred $21 million of incremental restructuring expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4806"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_24e96c249b9e:subclaim:2",
+      "claim_id": "claim_24e96c249b9e",
+      "level": "subclaim",
+      "query_text": "In 2024, 3M incurred $250 million of total incremental restructuring expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4806"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_90387bdb1e3e",
+      "claim_id": "claim_90387bdb1e3e",
+      "level": "claim",
+      "query_text": "In 2025, 3M's capital expenditures for continuing operations totaled $910 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4865"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b96e83d3e7b1",
+      "claim_id": "claim_b96e83d3e7b1",
+      "level": "claim",
+      "query_text": "In 2023, 3M generated positive pre-tax income from continuing operations in the United States of $13,272 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c3d1199d49f7",
+      "claim_id": "claim_c3d1199d49f7",
+      "level": "claim",
+      "query_text": "3M's outstanding performance shares increased by approximately 16.62% during 2025, rising from 782,000 shares as of January 1, 2025, to 912,000 shares as of December 31, 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4858"
+      ],
+      "case_tags": [
+        "different_units",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_87b6d659cd01",
+      "claim_id": "claim_87b6d659cd01",
+      "level": "claim",
+      "query_text": "Net income attributable to 3M fell by approximately 22.12% from $4,173 million in 2024 to $3,250 million in 2025, after having been a net loss of $(6,995) million in 2023.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_87b6d659cd01:subclaim:1",
+      "claim_id": "claim_87b6d659cd01",
+      "level": "subclaim",
+      "query_text": "Net income attributable to 3M decreased by approximately 22.12% from $4,173 million in 2024 to $3,250 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_87b6d659cd01:subclaim:2",
+      "claim_id": "claim_87b6d659cd01",
+      "level": "subclaim",
+      "query_text": "In 2023, net income (loss) attributable to 3M was $(6,995) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_23df03557831",
+      "claim_id": "claim_23df03557831",
+      "level": "claim",
+      "query_text": "In 2025, 3M recognized $(402) million for change in value of Solventum ownership, after experiencing a 100% increase in this value from 2023 to 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "tables",
+        "zero_baseline"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_23df03557831:subclaim:1",
+      "claim_id": "claim_23df03557831",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M recognized $(402) million for Solventum ownership - change in value.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "tables",
+        "zero_baseline"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_23df03557831:subclaim:2",
+      "claim_id": "claim_23df03557831",
+      "level": "subclaim",
+      "query_text": "The change in value of Solventum ownership grew by 100% between 2023 and 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "percentage_changes",
+        "tables",
+        "zero_baseline"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6e86e26e7dee",
+      "claim_id": "claim_6e86e26e7dee",
+      "level": "claim",
+      "query_text": "In 2025, 3M's research and development expense for the Consumer business segment was $145 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b7054a689eab",
+      "claim_id": "claim_b7054a689eab",
+      "level": "claim",
+      "query_text": "For the fourth quarter of 2025, 3M recorded total company net sales of $6,250 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence",
+        "quarter_vs_annual"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_035bee1bf361",
+      "claim_id": "claim_035bee1bf361",
+      "level": "claim",
+      "query_text": "In 2025, 3M granted 325,000 performance shares with a weighted average grant date fair value of $169.38.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4858"
+      ],
+      "case_tags": [
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_3e68cb8c8325",
+      "claim_id": "claim_3e68cb8c8325",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M reported total assets of $42,500 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4866"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6de7dfaa3aad",
+      "claim_id": "claim_6de7dfaa3aad",
+      "level": "claim",
+      "query_text": "In 2025, 3M's net sales for Roofing Granules were $750 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d0b75c08f943",
+      "claim_id": "claim_d0b75c08f943",
+      "level": "claim",
+      "query_text": "In 2025, net sales for Industrial Adhesives and Tapes grew by approximately 7.70% compared to 2024, while net sales for Abrasives were $1,550 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d0b75c08f943:subclaim:1",
+      "claim_id": "claim_d0b75c08f943",
+      "level": "subclaim",
+      "query_text": "In 2025, net sales for Industrial Adhesives and Tapes increased by approximately 7.70% compared to 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d0b75c08f943:subclaim:2",
+      "claim_id": "claim_d0b75c08f943",
+      "level": "subclaim",
+      "query_text": "In 2025, net sales for Abrasives were $1,550 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4796"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e7945bd9a942",
+      "claim_id": "claim_e7945bd9a942",
+      "level": "claim",
+      "query_text": "Under other comprehensive income (loss), net of tax, 3M recorded a defined benefit pension and postretirement plans adjustment of $(380) million in 2023, and cash flow hedging instruments gain of positive $83 million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e7945bd9a942:subclaim:1",
+      "claim_id": "claim_e7945bd9a942",
+      "level": "subclaim",
+      "query_text": "In 2023, 3M recorded a defined benefit pension and postretirement plans adjustment of $(380) million under other comprehensive income (loss), net of tax.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e7945bd9a942:subclaim:2",
+      "claim_id": "claim_e7945bd9a942",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M recorded cash flow hedging instruments adjustment of positive $83 million under other comprehensive income (loss), net of tax.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4785"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a808dd246121",
+      "claim_id": "claim_a808dd246121",
+      "level": "claim",
+      "query_text": "In 2025, 3M's corporate charitable contributions totaled $45 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_685fbca1347a",
+      "claim_id": "claim_685fbca1347a",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M held 8,500 active patents granted in Europe.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_1dc260093664",
+      "claim_id": "claim_1dc260093664",
+      "level": "claim",
+      "query_text": "In 2025, 3M paid $180 million in total software licensing fees.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d12b07f0f6a5",
+      "claim_id": "claim_d12b07f0f6a5",
+      "level": "claim",
+      "query_text": "In February 2025, 3M's Board of Directors authorized a new repurchase program of up to $7.5 billion of 3M's outstanding common stock with no pre-established end date.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4760"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4426d3f1ab13",
+      "claim_id": "claim_4426d3f1ab13",
+      "level": "claim",
+      "query_text": "In 2025, 3M declared and paid cash dividends totaling $1.51 per share for each quarter of the year.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4760"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_ad0058f5abb1",
+      "claim_id": "claim_ad0058f5abb1",
+      "level": "claim",
+      "query_text": "At January 31, 2026, 3M had 75,000 shareholders of record.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4760"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a16627ebb690",
+      "claim_id": "claim_a16627ebb690",
+      "level": "claim",
+      "query_text": "From 2024 to 2025, the number of reacquired treasury stock shares by 3M increased by approximately 46.15%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4808"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_478fd8735cd4",
+      "claim_id": "claim_478fd8735cd4",
+      "level": "claim",
+      "query_text": "From 2023 to 2024, 3M's net income (loss) from continuing operations attributable to 3M improved by $12,411 million, shifting from a loss of $(8,402) million to income of $4,009 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4820"
+      ],
+      "case_tags": [
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6b3bb218c516",
+      "claim_id": "claim_6b3bb218c516",
+      "level": "claim",
+      "query_text": "In 2025, 3M's diluted earnings per share was $6.00, and the company made $250 million in legal settlement payments related to water utilities during the fourth quarter.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4820"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6b3bb218c516:subclaim:1",
+      "claim_id": "claim_6b3bb218c516",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M's diluted earnings per share was $6.00.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4820"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_6b3bb218c516:subclaim:2",
+      "claim_id": "claim_6b3bb218c516",
+      "level": "subclaim",
+      "query_text": "3M made $250 million in legal settlement payments related to water utilities during the fourth quarter of 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d73455a4c759",
+      "claim_id": "claim_d73455a4c759",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, 3M's interest expense decreased by approximately 20.57%, while interest income was $(150) million in 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d73455a4c759:subclaim:1",
+      "claim_id": "claim_d73455a4c759",
+      "level": "subclaim",
+      "query_text": "Between 2024 and 2025, 3M's interest expense decreased by approximately 20.57%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_d73455a4c759:subclaim:2",
+      "claim_id": "claim_d73455a4c759",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M's interest income was $(150) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4807"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_years",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_54a4081407ac",
+      "claim_id": "claim_54a4081407ac",
+      "level": "claim",
+      "query_text": "Between December 31, 2024, and December 31, 2025, 3M's cash, cash equivalents and marketable securities held in the United States decreased by 25.0%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_602ac6aec6ad",
+      "claim_id": "claim_602ac6aec6ad",
+      "level": "claim",
+      "query_text": "In 2025, 3M recorded $225 million in pre-tax stock compensation expense, while total defined benefit pension and postretirement expense decreased by 50.0% compared to 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4770"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_602ac6aec6ad:subclaim:1",
+      "claim_id": "claim_602ac6aec6ad",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M recorded $225 million in pre-tax stock compensation expense.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4770"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_602ac6aec6ad:subclaim:2",
+      "claim_id": "claim_602ac6aec6ad",
+      "level": "subclaim",
+      "query_text": "Between 2024 and 2025, 3M's total defined benefit pension and postretirement expense decreased by 50.0%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4770"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_c6261c6589ad",
+      "claim_id": "claim_c6261c6589ad",
+      "level": "claim",
+      "query_text": "In 2025, 3M generated $850 million in net sales from dental products.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_a22adf5b0626",
+      "claim_id": "claim_a22adf5b0626",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M maintained $1.1 billion in available borrowing capacity under its committed revolving credit facilities.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_64acf6bdf5fc",
+      "claim_id": "claim_64acf6bdf5fc",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, the intrinsic value of 3M's restricted stock units that vested increased by approximately 141.10%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4857"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_531b74e018e3",
+      "claim_id": "claim_531b74e018e3",
+      "level": "claim",
+      "query_text": "In 2025, 3M recognized $268 million in pre-tax stock compensation expense on a continuing operations basis.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4770"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_5a1c6b1162b7",
+      "claim_id": "claim_5a1c6b1162b7",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M held $4.2 billion of cash, cash equivalents and marketable securities in the United States.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_3a82c5c752e6",
+      "claim_id": "claim_3a82c5c752e6",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M held $3,500 million in cash, cash equivalents and marketable securities in foreign subsidiaries, while total cash, cash equivalents and marketable securities was $590 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_3a82c5c752e6:subclaim:1",
+      "claim_id": "claim_3a82c5c752e6",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M held $3,500 million in cash, cash equivalents and marketable securities in foreign subsidiaries.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_3a82c5c752e6:subclaim:2",
+      "claim_id": "claim_3a82c5c752e6",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M's total cash, cash equivalents and marketable securities was $590 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b5383b822b97",
+      "claim_id": "claim_b5383b822b97",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M had $139 million of unrecognized compensation expense related to non-vested restricted stock units, and granted 450,000 performance stock options to executive officers during 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4857"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b5383b822b97:subclaim:1",
+      "claim_id": "claim_b5383b822b97",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M had $139 million of unrecognized compensation expense related to non-vested restricted stock units.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4857"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b5383b822b97:subclaim:2",
+      "claim_id": "claim_b5383b822b97",
+      "level": "subclaim",
+      "query_text": "3M granted 450,000 performance stock options to executive officers during 2025.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_53200c9d59e5",
+      "claim_id": "claim_53200c9d59e5",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M's total cash, cash equivalents and marketable securities was $5,900 million, reflecting an approximate 23.38% decrease from $7.7 billion as of December 31, 2024.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_53200c9d59e5:subclaim:1",
+      "claim_id": "claim_53200c9d59e5",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M's total cash, cash equivalents and marketable securities was $5,900 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_53200c9d59e5:subclaim:2",
+      "claim_id": "claim_53200c9d59e5",
+      "level": "subclaim",
+      "query_text": "Between December 31, 2024, and December 31, 2025, 3M's total cash, cash equivalents and marketable securities decreased by approximately 23.38%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4782"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "different_units",
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4ab8d6f0f76b",
+      "claim_id": "claim_4ab8d6f0f76b",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, 3M had 7,400 employees dedicated to research and development globally.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_68738aa56090",
+      "claim_id": "claim_68738aa56090",
+      "level": "claim",
+      "query_text": "In 2025, 3M incurred $185 million of legal expenses relating to environmental regulatory enforcement proceedings.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_0ff1107b94a2",
+      "claim_id": "claim_0ff1107b94a2",
+      "level": "claim",
+      "query_text": "For the year ended December 31, 2025, 3M's worldwide net sales generated from aerospace industry customers were $1,420 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "missing_evidence"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_93c6727e6aa1",
+      "claim_id": "claim_93c6727e6aa1",
+      "level": "claim",
+      "query_text": "In 2025, 3M's adjusted total company organic sales growth of 2.1% exceeded its GAAP organic sales growth of 0.9% by 1.2 percentage points, reflecting the removal of the manufactured PFAS products special item impact.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4779"
+      ],
+      "case_tags": [
+        "percentage_points",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_23330fd86361",
+      "claim_id": "claim_23330fd86361",
+      "level": "claim",
+      "query_text": "Between 2024 and 2025, 3M's United States income from continuing operations before income taxes decreased by approximately 18.70%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4811"
+      ],
+      "case_tags": [
+        "percentage_changes",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_e7ed23927a0d",
+      "claim_id": "claim_e7ed23927a0d",
+      "level": "claim",
+      "query_text": "As of December 31, 2025, the compensation rate increase assumption used to determine benefit obligations for 3M's international pension benefits was 3.77%.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4833"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_356de387a482",
+      "claim_id": "claim_356de387a482",
+      "level": "claim",
+      "query_text": "In 2025, 3M's net sales in the Asia Pacific geographic area were $4,274 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4db55009b465",
+      "claim_id": "claim_4db55009b465",
+      "level": "claim",
+      "query_text": "As of December 31, 2024, 3M's cumulative translation adjustment balance within accumulated other comprehensive income was $(2,953) million, and as of December 31, 2025, its defined benefit pension and postretirement plans adjustment balance was $(3,500) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4809"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4db55009b465:subclaim:1",
+      "claim_id": "claim_4db55009b465",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2024, 3M's cumulative translation adjustment balance within accumulated other comprehensive income, net of tax, was $(2,953) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4809"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_4db55009b465:subclaim:2",
+      "claim_id": "claim_4db55009b465",
+      "level": "subclaim",
+      "query_text": "As of December 31, 2025, 3M's defined benefit pension and postretirement plans adjustment balance within accumulated other comprehensive income, net of tax, was $(3,500) million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4809"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "negative_values",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b159af62680a",
+      "claim_id": "claim_b159af62680a",
+      "level": "claim",
+      "query_text": "In 2025, 3M reported worldwide net sales of $24,948 million, of which $1,850 million was generated in Japan.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b159af62680a:subclaim:1",
+      "claim_id": "claim_b159af62680a",
+      "level": "subclaim",
+      "query_text": "In 2025, 3M reported worldwide net sales of $24,948 million.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [
+        "evidence_4764"
+      ],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": 1,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "not_run",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    },
+    {
+      "query_id": "claim_b159af62680a:subclaim:2",
+      "claim_id": "claim_b159af62680a",
+      "level": "subclaim",
+      "query_text": "In 2025, $1,850 million of net sales was generated in Japan.",
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "gold_evidence_ids": [],
+      "case_tags": [
+        "compound_claims",
+        "missing_evidence",
+        "tables"
+      ],
+      "indexed_gold_count": null,
+      "unindexed_gold_evidence_ids": [],
+      "stages": {
+        "initial": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        },
+        "reranked": {
+          "status": "excluded",
+          "ranked_hits": [],
+          "metrics": null,
+          "error": null
+        }
+      }
+    }
+  ],
+  "summary": [
+    {
+      "level": "claim",
+      "stage": "initial",
+      "total_queries": 100,
+      "eligible_queries": 75,
+      "completed_queries": 1,
+      "excluded_queries": 25,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 74,
+      "Recall@5": 1.0,
+      "Recall@10": 1.0,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "MRR@20": 0.3333333333333333
+    },
+    {
+      "level": "claim",
+      "stage": "reranked",
+      "total_queries": 100,
+      "eligible_queries": 75,
+      "completed_queries": 0,
+      "excluded_queries": 25,
+      "failed_queries": 1,
+      "blocked_queries": 0,
+      "not_run_queries": 74,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    },
+    {
+      "level": "subclaim",
+      "stage": "initial",
+      "total_queries": 60,
+      "eligible_queries": 49,
+      "completed_queries": 0,
+      "excluded_queries": 11,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 49,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    },
+    {
+      "level": "subclaim",
+      "stage": "reranked",
+      "total_queries": 60,
+      "eligible_queries": 49,
+      "completed_queries": 0,
+      "excluded_queries": 11,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 49,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    }
+  ],
+  "paired_summary": [
+    {
+      "level": "claim",
+      "stage": "initial",
+      "total_queries": 0,
+      "eligible_queries": 0,
+      "completed_queries": 0,
+      "excluded_queries": 0,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    },
+    {
+      "level": "claim",
+      "stage": "reranked",
+      "total_queries": 0,
+      "eligible_queries": 0,
+      "completed_queries": 0,
+      "excluded_queries": 0,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    },
+    {
+      "level": "subclaim",
+      "stage": "initial",
+      "total_queries": 0,
+      "eligible_queries": 0,
+      "completed_queries": 0,
+      "excluded_queries": 0,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    },
+    {
+      "level": "subclaim",
+      "stage": "reranked",
+      "total_queries": 0,
+      "eligible_queries": 0,
+      "completed_queries": 0,
+      "excluded_queries": 0,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": null,
+      "Recall@10": null,
+      "Hit@5": null,
+      "Hit@10": null,
+      "MRR@20": null
+    }
+  ],
+  "updated_at": "2026-10-22T17:28:03.835920+00:00",
+  "checkpointing": {
+    "schema_version": 1,
+    "reuse_saved_stages": true,
+    "directory": "data\\evaluation\\retrieval_checkpoints",
+    "counts": {
+      "initial_disk_reused": 1
+    },
+    "query_embedding_cache": "data/cache/query_embeddings"
+  },
+  "model_calls": [
+    {
+      "time": "2026-10-22T17:27:01.226956+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1792690021-6NKHiprN5pkt6L06QlNu",
+      "http_status": 200,
+      "finish_reason": "length",
+      "native_finish_reason": "length",
+      "usage": {
+        "prompt_tokens": 356,
+        "completion_tokens": 8192,
+        "total_tokens": 8548,
+        "cost": 0.0182004,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0182004,
+          "upstream_inference_prompt_cost": 0.000178,
+          "upstream_inference_completions_cost": 0.0180224
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "error",
+      "error_type": "ModelServiceError",
+      "error_message": "Model service: Output reached the token limit (max_tokens=8192); the structured response was truncated. No verdict was accepted.",
+      "duration_seconds": 62.562
+    }
+  ],
+  "automatic_model_fallbacks": false
+}
