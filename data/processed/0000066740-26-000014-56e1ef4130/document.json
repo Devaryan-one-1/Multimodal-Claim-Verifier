@@ -7,5 +7,29 @@
     "subject": null,
     "creator": "Equisolve",
     "producer": "Equisolve"
+  },
+  "status": "ready",
+  "profile": "dashboard-v1",
+  "filename": "0000066740-26-000014-56e1ef4130.pdf",
+  "company_name": "3M Company",
+  "pdf_path": "data\\documents\\0000066740-26-000014-56e1ef4130\\original.pdf",
+  "pdf_sha256": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "fingerprint": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "size_bytes": 9011708,
+  "text_extracted": true,
+  "evidence_count": 4872,
+  "chunk_count": 4854,
+  "table_count": 115,
+  "chart_count": 1,
+  "ocr_page_count": 0,
+  "warnings": [],
+  "readiness_repair": {
+    "at": "2026-10-24T17:32:14.522424+00:00",
+    "method": "adopt_validated_existing_index",
+    "collection": "evidence_v2_4251d7d3a135",
+    "embedding_model": "gemini-embedding-001",
+    "dimensions": 768,
+    "chunks_hash": "9bf769cfe0fa2f4f265924bc386fbbf7cb227c45c42702739b392a89bb875f56",
+    "note": "Restored readiness from existing reviewed sources and index; no extraction, OCR, chart generation, or embedding requests performed."
   }
 }

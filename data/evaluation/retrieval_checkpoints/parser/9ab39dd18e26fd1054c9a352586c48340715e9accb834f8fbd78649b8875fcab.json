@@ -1,0 +1,112 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "services/model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+        "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+      },
+      "dependencies": {
+        "google-genai": "2.22.0",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "pydantic": "2.13.5"
+      },
+      "routing": {
+        "allow_fallbacks": false,
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "gateway_version": 2,
+        "max_output_tokens": 8192,
+        "openrouter_base_url": "https://openrouter.ai/api/v1",
+        "provider": "openrouter",
+        "schema_policy": "strict JSON Schema plus local validation",
+        "send_temperature": false,
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "timeout_seconds": 120.0,
+        "vision_fallbacks": [],
+        "vision_model": ""
+      }
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "Between 2024 and 2025, the intrinsic value of 3M's restricted stock units that vested increased by approximately 141.10%."
+    },
+    "schema_version": 1,
+    "stage": "parser"
+  },
+  "payload": {
+    "claims": [
+      {
+        "claim_text": "Between 2024 and 2025, the intrinsic value of 3M's restricted stock units that vested increased by approximately 141.10%.",
+        "company": "3M",
+        "subject": "intrinsic value of restricted stock units that vested",
+        "metric": "intrinsic value of restricted stock units that vested",
+        "segment": null,
+        "start_period": 2024,
+        "end_period": 2025,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "growth",
+        "claimed_literal": "approximately 141.10%",
+        "claimed_change": 141.1,
+        "comparison_operator": "greater_than",
+        "direction": "up",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "The change is expressed as a relative percentage growth.",
+          "The period is between 2024 and 2025.",
+          "The qualifier 'approximately' is retained."
+        ],
+        "change_type": "growth"
+      }
+    ],
+    "model_calls": [
+      {
+        "time": "2026-10-23T11:05:46.352139+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "dots-studio/dots-3-note-preview:free",
+        "actual_model": "dots-studio/dots-3-note-preview:free",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "AtlasCloud",
+        "request_id": "gen-1792753546-XgalLqR4a9GA7MGrxeSX",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 332,
+          "completion_tokens": 1424,
+          "total_tokens": 1756,
+          "cost": 0,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0,
+            "upstream_inference_completions_cost": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1163,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 16.003
+      }
+    ]
+  },
+  "payload_sha256": "694c4496a6499aa2f06b12e784ccc6f65484d6f2a8b38acb9203e1ef7755e34e",
+  "created_at": "2026-10-23T11:06:02.356857+00:00"
+}

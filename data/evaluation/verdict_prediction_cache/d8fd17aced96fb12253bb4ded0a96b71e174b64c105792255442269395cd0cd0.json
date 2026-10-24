@@ -1,0 +1,2110 @@
+{
+  "schema_version": 1,
+  "cache_key": "d8fd17aced96fb12253bb4ded0a96b71e174b64c105792255442269395cd0cd0",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "International income from continuing operations before income taxes decreased by approximately 6.99% from 2024 to 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:42:15.613213+00:00",
+  "results": [
+    {
+      "claim_text": "International income from continuing operations before income taxes decreased by approximately 6.99% from 2024 to 2025.",
+      "parsed_claim": {
+        "claim_text": "International income from continuing operations before income taxes decreased by approximately 6.99% from 2024 to 2025.",
+        "company": null,
+        "subject": "International income from continuing operations before income taxes",
+        "metric": "International income from continuing operations before income taxes",
+        "segment": "International",
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "growth",
+        "claimed_literal": "approximately 6.99%",
+        "claimed_change": -6.99,
+        "comparison_operator": "less_than",
+        "direction": "down",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "The assertion states a decrease of approximately 6.99% from 2024 to 2025.",
+          "The qualifier 'approximately' is retained."
+        ],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "bbox": [
+            23.54999901875,
+            98.91653781396317,
+            587.2353413855183,
+            311.17787794334726
+          ],
+          "table_id": "table_59_1",
+          "headers": [
+            "Numerator:"
+          ],
+          "rows": [
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "$ 3,250",
+              "$4,009",
+              "$(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$ 3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Denominator:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Dilution associated with stock-based compensation plans",
+              "3.9",
+              "1.6",
+              "—"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$ 6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$ 6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$ 6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$ 6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "source_evidence_id": "evidence_4820",
+          "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "score": 0.015151515151515152,
+          "rerank_score": 4.175234794616699
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "table",
+          "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "bbox": [
+            23.54999901875,
+            298.55767986779364,
+            588.1499754937499,
+            383.786826114149
+          ],
+          "table_id": "table_50_1",
+          "headers": [
+            "Net sales",
+            "$1,987",
+            "$8,071"
+          ],
+          "rows": [
+            [
+              "Cost of sales",
+              "844",
+              "3,494"
+            ],
+            [
+              "Other operating expenses",
+              "837",
+              "3,016"
+            ],
+            [
+              "Other expense (income), net",
+              "44",
+              "(22)"
+            ],
+            [
+              "Income from discontinued operations before income taxes",
+              "262",
+              "1,583"
+            ],
+            [
+              "Provision for income taxes",
+              "98",
+              "176"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "$164",
+              "$1,407"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "source_evidence_id": "evidence_4794",
+          "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "score": 0.030158730158730156,
+          "rerank_score": 2.588057041168213
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 40,
+          "type": "table",
+          "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "bbox": [
+            23.54999901875,
+            116.95540053226472,
+            587.452301104215,
+            521.3208873692063
+          ],
+          "table_id": "table_40_1",
+          "headers": [
+            "Net sales",
+            "$24,948",
+            "$24,575",
+            "$24,610"
+          ],
+          "rows": [
+            [
+              "Operating expenses"
+            ],
+            [
+              "Cost of sales",
+              "14,991",
+              "14,447",
+              "14,983"
+            ],
+            [
+              "Selling, general and administrative expenses",
+              "3,997",
+              "4,221",
+              "19,198"
+            ],
+            [
+              "Research, development and related expenses",
+              "1,169",
+              "1,085",
+              "1,154"
+            ],
+            [
+              "Loss (gain) on business divestitures",
+              "162",
+              "—",
+              "(36)"
+            ],
+            [
+              "Total operating expenses",
+              "20,319",
+              "19,753",
+              "35,299"
+            ],
+            [
+              "Operating income (loss)",
+              "4,629",
+              "4,822",
+              "(10,689)"
+            ],
+            [
+              "Other expense (income), net",
+              "416",
+              "3",
+              "582"
+            ],
+            [
+              "Income (loss) from continuing operations before income taxes",
+              "4,213",
+              "4,819",
+              "(11,271)"
+            ],
+            [
+              "Provision (benefit) for income taxes",
+              "1,003",
+              "804",
+              "(2,867)"
+            ],
+            [
+              "Income (loss) from continuing operations of consolidated group",
+              "3,210",
+              "4,015",
+              "(8,404)"
+            ],
+            [
+              "Income from unconsolidated subsidiaries, net of taxes",
+              "52",
+              "9",
+              "18"
+            ],
+            [
+              "Net income (loss) from continuing operations including noncontrolling interest",
+              "3,262",
+              "4,024",
+              "(8,386)"
+            ],
+            [
+              "Less: net income attributable to noncontrolling interest",
+              "12",
+              "15",
+              "16"
+            ],
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "3,250",
+              "4,009",
+              "(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": "year"
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "year"
+            ],
+            "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "source_evidence_id": "evidence_4784",
+          "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "score": 0.028438886647841874,
+          "rerank_score": 2.347677707672119
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "text",
+          "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            289.7374977632878,
+            553.1636018915156,
+            296.13349737678783
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "source_evidence_id": "evidence_1530",
+          "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "score": 0.02625418060200669,
+          "rerank_score": 2.0934691429138184
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 56,
+          "type": "text",
+          "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "bbox": [
+            23.54999901875,
+            80.2808328048061,
+            310.25485187198393,
+            88.2788324115561
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "source_evidence_id": "evidence_1652",
+          "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "score": 0.016129032258064516,
+          "rerank_score": 2.0212244987487793
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Income from continuing operations before taxes",
+          "bbox": [
+            27.946873835546874,
+            351.4820215047559,
+            192.63647010981043,
+            359.48002111150595
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "source_evidence_id": "evidence_933",
+          "text": "• Income from continuing operations before taxes",
+          "score": 0.02548435171385991,
+          "rerank_score": 1.5673956871032715
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 57,
+          "type": "table",
+          "content": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+          "bbox": [
+            23.54999901875,
+            76.73279680279724,
+            587.5499755187499,
+            209.90554801068768
+          ],
+          "table_id": "table_57_1",
+          "headers": [
+            "Statutory U.S. tax rate",
+            "21.0",
+            "%",
+            "21.0",
+            "%"
+          ],
+          "rows": [
+            [
+              "State income taxes - net of federal benefit",
+              "0.6",
+              "3.2"
+            ],
+            [
+              "International income taxes - net (c)",
+              "2.1",
+              "0.6"
+            ],
+            [
+              "Global intangible low taxed income (GILTI)",
+              "0.6",
+              "(0.3)"
+            ],
+            [
+              "Foreign derived intangible income (FDII)",
+              "(0.3)",
+              "0.6"
+            ],
+            [
+              "U.S. research and development credit",
+              "(0.7)",
+              "0.4"
+            ],
+            [
+              "Reserves for tax contingencies",
+              "0.6",
+              "(0.4)"
+            ],
+            [
+              "Employee share-based payments",
+              "0.4",
+              "—"
+            ],
+            [
+              "Change in valuation allowance on Solventum ownership",
+              "(7.7)",
+              "—"
+            ],
+            [
+              "All other - net",
+              "0.1",
+              "0.3"
+            ],
+            [
+              "Effective worldwide tax rate",
+              "16.7",
+              "%",
+              "25.4",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2024
+            ],
+            "period_types": [],
+            "raw": "2024 2023(b)"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+          "source_evidence_id": "evidence_4815",
+          "text": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+          "score": 0.02813852813852814,
+          "rerank_score": -0.03200391307473183
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Net income from continuing operations",
+          "bbox": [
+            27.946873835546874,
+            371.88202065475815,
+            164.88949238593457,
+            379.8800202615082
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "source_evidence_id": "evidence_937",
+          "text": "• Net income from continuing operations",
+          "score": 0.015625,
+          "rerank_score": -0.5982300639152527
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 57,
+          "type": "text",
+          "content": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+          "bbox": [
+            30.74999871875,
+            225.50621245190314,
+            426.2085766573083,
+            232.70621215190317
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+          "source_evidence_id": "evidence_1668",
+          "text": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+          "score": 0.02402186421173763,
+          "rerank_score": -1.8438204526901245
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_772",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 23,
+          "type": "text",
+          "content": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+          "bbox": [
+            23.54999901875,
+            103.68203182975526,
+            508.3389081442114,
+            111.68003143650526
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_772",
+          "source_evidence_id": "evidence_772",
+          "text": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+          "score": 0.024115296803652965,
+          "rerank_score": -2.0800836086273193
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "The assertion states a decrease of approximately 6.99% from 2024 to 2025.",
+        "The qualifier 'approximately' is retained."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain the segment-specific figures for 'International income from continuing operations before income taxes' for the years 2024 and 2025. The available financial tables show consolidated or total company figures (such as total 'Income (loss) from continuing operations before income taxes' of $4,819 million in 2024 and $4,213 million in 2025) but do not provide the breakdown for the International segment. Therefore, the claim cannot be verified with the given source addresses.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.02625418060200669,
+            "rerank_score": 2.0934691429138184,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.016129032258064516,
+            "rerank_score": 2.0212244987487793,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.02548435171385991,
+            "rerank_score": 1.5673956871032715,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.015625,
+            "rerank_score": -0.5982300639152527,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+            "bbox": [
+              30.74999871875,
+              225.50621245190314,
+              426.2085766573083,
+              232.70621215190317
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "text": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+            "score": 0.02402186421173763,
+            "rerank_score": -1.8438204526901245,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+            "bbox": [
+              23.54999901875,
+              103.68203182975526,
+              508.3389081442114,
+              111.68003143650526
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "text": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+            "score": 0.024115296803652965,
+            "rerank_score": -2.0800836086273193,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.015151515151515152,
+            "rerank_score": 4.175234794616699,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.030158730158730156,
+            "rerank_score": 2.588057041168213,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.028438886647841874,
+            "rerank_score": 2.347677707672119,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "table",
+            "content": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+            "bbox": [
+              23.54999901875,
+              76.73279680279724,
+              587.5499755187499,
+              209.90554801068768
+            ],
+            "table_id": "table_57_1",
+            "headers": [
+              "Statutory U.S. tax rate",
+              "21.0",
+              "%",
+              "21.0",
+              "%"
+            ],
+            "rows": [
+              [
+                "State income taxes - net of federal benefit",
+                "0.6",
+                "3.2"
+              ],
+              [
+                "International income taxes - net (c)",
+                "2.1",
+                "0.6"
+              ],
+              [
+                "Global intangible low taxed income (GILTI)",
+                "0.6",
+                "(0.3)"
+              ],
+              [
+                "Foreign derived intangible income (FDII)",
+                "(0.3)",
+                "0.6"
+              ],
+              [
+                "U.S. research and development credit",
+                "(0.7)",
+                "0.4"
+              ],
+              [
+                "Reserves for tax contingencies",
+                "0.6",
+                "(0.4)"
+              ],
+              [
+                "Employee share-based payments",
+                "0.4",
+                "—"
+              ],
+              [
+                "Change in valuation allowance on Solventum ownership",
+                "(7.7)",
+                "—"
+              ],
+              [
+                "All other - net",
+                "0.1",
+                "0.3"
+              ],
+              [
+                "Effective worldwide tax rate",
+                "16.7",
+                "%",
+                "25.4",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024
+              ],
+              "period_types": [],
+              "raw": "2024 2023(b)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "text": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+            "score": 0.02813852813852814,
+            "rerank_score": -0.03200391307473183,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.015151515151515152,
+            "rerank_score": 4.175234794616699,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.030158730158730156,
+            "rerank_score": 2.588057041168213,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.028438886647841874,
+            "rerank_score": 2.347677707672119,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "table",
+            "content": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+            "bbox": [
+              23.54999901875,
+              76.73279680279724,
+              587.5499755187499,
+              209.90554801068768
+            ],
+            "table_id": "table_57_1",
+            "headers": [
+              "Statutory U.S. tax rate",
+              "21.0",
+              "%",
+              "21.0",
+              "%"
+            ],
+            "rows": [
+              [
+                "State income taxes - net of federal benefit",
+                "0.6",
+                "3.2"
+              ],
+              [
+                "International income taxes - net (c)",
+                "2.1",
+                "0.6"
+              ],
+              [
+                "Global intangible low taxed income (GILTI)",
+                "0.6",
+                "(0.3)"
+              ],
+              [
+                "Foreign derived intangible income (FDII)",
+                "(0.3)",
+                "0.6"
+              ],
+              [
+                "U.S. research and development credit",
+                "(0.7)",
+                "0.4"
+              ],
+              [
+                "Reserves for tax contingencies",
+                "0.6",
+                "(0.4)"
+              ],
+              [
+                "Employee share-based payments",
+                "0.4",
+                "—"
+              ],
+              [
+                "Change in valuation allowance on Solventum ownership",
+                "(7.7)",
+                "—"
+              ],
+              [
+                "All other - net",
+                "0.1",
+                "0.3"
+              ],
+              [
+                "Effective worldwide tax rate",
+                "16.7",
+                "%",
+                "25.4",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024
+              ],
+              "period_types": [],
+              "raw": "2024 2023(b)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4815",
+            "text": "State income taxes - net of federal benefit: 2024 0.6, 3.2 | International income taxes - net (c): 2024 2.1, 0.6 | Global intangible low taxed income (GILTI): 2024 0.6, (0.3) | Foreign derived intangible income (FDII): 2024 (0.3), 0.6 | U.S. research and development credit: 2024 (0.7), 0.4 | Reserves for tax contingencies: 2024 0.6, (0.4) | Employee share-based payments: 2024 0.4, — | Change in valuation allowance on Solventum ownership: 2024 (7.7), — | All other - net: 2024 0.1, 0.3 | Effective worldwide tax rate: 2024 16.7, %, 25.4, %",
+            "score": 0.02813852813852814,
+            "rerank_score": -0.03200391307473183,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.02625418060200669,
+            "rerank_score": 2.0934691429138184,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.016129032258064516,
+            "rerank_score": 2.0212244987487793,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.02548435171385991,
+            "rerank_score": 1.5673956871032715,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.015625,
+            "rerank_score": -0.5982300639152527,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+            "bbox": [
+              30.74999871875,
+              225.50621245190314,
+              426.2085766573083,
+              232.70621215190317
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1668",
+            "text": "(c) International income taxes include tax expense associated with international earnings no longer considered permanently reinvested.",
+            "score": 0.02402186421173763,
+            "rerank_score": -1.8438204526901245,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+            "bbox": [
+              23.54999901875,
+              103.68203182975526,
+              508.3389081442114,
+              111.68003143650526
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_772",
+            "text": "Interest expense (net of interest income): decreased in 2025 compared to the same period YoY and increased in 2024 compared to the same period YoY.",
+            "score": 0.024115296803652965,
+            "rerank_score": -2.0800836086273193,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "0000066740-26-000014-56e1ef4130::evidence_4815",
+          "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "0000066740-26-000014-56e1ef4130::evidence_933",
+          "0000066740-26-000014-56e1ef4130::evidence_937",
+          "0000066740-26-000014-56e1ef4130::evidence_1668",
+          "0000066740-26-000014-56e1ef4130::evidence_772"
+        ],
+        "pages": [
+          23,
+          28,
+          40,
+          50,
+          56,
+          57,
+          59
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain the segment-specific figures for 'International income from continuing operations before income taxes' for the years 2024 and 2025. The available financial tables show consolidated or total company figures (such as total 'Income (loss) from continuing operations before income taxes' of $4,819 million in 2024 and $4,213 million in 2025) but do not provide the breakdown for the International segment. Therefore, the claim cannot be verified with the given source addresses.",
+      "original_claim": "International income from continuing operations before income taxes decreased by approximately 6.99% from 2024 to 2025.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 32.1904160999984,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:41:43.424860+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863701-1QNCWQ0tey0TfU8fgqL4",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 325,
+            "completion_tokens": 1314,
+            "total_tokens": 1639,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1097,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 14.73
+        },
+        {
+          "time": "2026-10-24T17:41:59.420926+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863717-s6KVdCMpCTwCp9kpfijh",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5872,
+            "completion_tokens": 1553,
+            "total_tokens": 7425,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1310,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 16.189
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "9216dc5c1c79e8db876a45877429ecb2b9512861debb6e5e25667edaf093cf5f"
+}

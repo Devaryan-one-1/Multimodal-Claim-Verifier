@@ -1,0 +1,788 @@
+{
+  "schema_version": 1,
+  "cache_key": "b753eef9b10d1b8b18ae4556c8703509995557b51ae93cc1c6c3f7274dac5006",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "During 2025, 3M made cash settlement payments exceeding $1.2 billion for PFAS contamination litigation in the Netherlands.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:51:00.288618+00:00",
+  "results": [
+    {
+      "claim_text": "During 2025, 3M made cash settlement payments exceeding $1.2 billion for PFAS contamination litigation in the Netherlands.",
+      "parsed_claim": {
+        "claim_text": "During 2025, 3M made cash settlement payments exceeding $1.2 billion for PFAS contamination litigation in the Netherlands.",
+        "company": "3M",
+        "subject": "3M",
+        "metric": "cash settlement payments for PFAS contamination litigation in the Netherlands",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$1.2 billion",
+        "claimed_change": null,
+        "comparison_operator": "greater_than",
+        "direction": "down",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "notes": [
+          "The litigation is related to PFAS contamination in the Netherlands.",
+          "The payments were made during the year 2025."
+        ],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_377",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 12,
+          "type": "text",
+          "content": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+          "bbox": [
+            23.54999901875,
+            218.28202705475746,
+            575.0306661103882,
+            226.28002666150746
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_377",
+          "source_evidence_id": "evidence_377",
+          "text": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+          "score": 0.026767330130404943,
+          "rerank_score": 4.636914253234863
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 35,
+          "type": "text",
+          "content": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+          "bbox": [
+            52.34999781875,
+            385.0820201047583,
+            567.4384105960023,
+            393.0800197115084
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+          "source_evidence_id": "evidence_1163",
+          "text": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+          "score": 0.03125,
+          "rerank_score": 4.127907752990723
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 85,
+          "type": "text",
+          "content": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+          "bbox": [
+            23.54999901875,
+            65.28083342980358,
+            581.0822812926368,
+            73.27883303655358
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+          "source_evidence_id": "evidence_2629",
+          "text": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+          "score": 0.022657450076804916,
+          "rerank_score": 3.019779682159424
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+          "bbox": [
+            23.54999901875,
+            142.0801102298367,
+            568.3729776741222,
+            150.0781098365867
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+          "source_evidence_id": "evidence_1100",
+          "text": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+          "score": 0.030090497737556562,
+          "rerank_score": 2.269285202026367
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 85,
+          "type": "text",
+          "content": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+          "bbox": [
+            23.54999901875,
+            74.88083302980635,
+            582.4310580883686,
+            82.87883263655635
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+          "source_evidence_id": "evidence_2630",
+          "text": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+          "score": 0.02296750619861673,
+          "rerank_score": 1.8391640186309814
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 94,
+          "type": "text",
+          "content": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+          "bbox": [
+            23.54999901875,
+            382.6808202048134,
+            282.5149702535423,
+            390.67881981156347
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+          "source_evidence_id": "evidence_3035",
+          "text": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+          "score": 0.024146905725853096,
+          "rerank_score": 1.7950129508972168
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 80,
+          "type": "text",
+          "content": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+          "bbox": [
+            23.54999901875,
+            268.07842497990464,
+            588.0057679790291,
+            276.07642458665464
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+          "source_evidence_id": "evidence_2433",
+          "text": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+          "score": 0.03177805800756621,
+          "rerank_score": 1.725332498550415
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 80,
+          "type": "text",
+          "content": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+          "bbox": [
+            23.54999901875,
+            259.0784253549075,
+            580.9764665426466,
+            267.0764249616575
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+          "source_evidence_id": "evidence_2432",
+          "text": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+          "score": 0.027205882352941177,
+          "rerank_score": 1.5322366952896118
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 80,
+          "type": "text",
+          "content": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+          "bbox": [
+            23.54999901875,
+            308.8784232799018,
+            567.3498577167522,
+            316.8764228866519
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+          "source_evidence_id": "evidence_2437",
+          "text": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+          "score": 0.015873015873015872,
+          "rerank_score": 1.3456103801727295
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+          "bbox": [
+            23.54999901875,
+            472.08009647983744,
+            586.9476133282482,
+            480.0780960865875
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+          "source_evidence_id": "evidence_1126",
+          "text": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+          "score": 0.031054405392392875,
+          "rerank_score": 1.1835368871688843
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "The litigation is related to PFAS contamination in the Netherlands.",
+        "The payments were made during the year 2025."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided documents discuss PFAS contamination in the Netherlands and related litigation, but do not contain any specific figures or mention of cash settlement payments made by 3M for this litigation in 2025. Thus, there are insufficient source addresses to evaluate the claim.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 12,
+            "type": "text",
+            "content": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+            "bbox": [
+              23.54999901875,
+              218.28202705475746,
+              575.0306661103882,
+              226.28002666150746
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "text": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+            "score": 0.026767330130404943,
+            "rerank_score": 4.636914253234863,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+            "bbox": [
+              52.34999781875,
+              385.0820201047583,
+              567.4384105960023,
+              393.0800197115084
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "text": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+            "score": 0.03125,
+            "rerank_score": 4.127907752990723,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 85,
+            "type": "text",
+            "content": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+            "bbox": [
+              23.54999901875,
+              65.28083342980358,
+              581.0822812926368,
+              73.27883303655358
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "text": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+            "score": 0.022657450076804916,
+            "rerank_score": 3.019779682159424,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+            "bbox": [
+              23.54999901875,
+              142.0801102298367,
+              568.3729776741222,
+              150.0781098365867
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "text": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+            "score": 0.030090497737556562,
+            "rerank_score": 2.269285202026367,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 85,
+            "type": "text",
+            "content": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+            "bbox": [
+              23.54999901875,
+              74.88083302980635,
+              582.4310580883686,
+              82.87883263655635
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "text": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+            "score": 0.02296750619861673,
+            "rerank_score": 1.8391640186309814,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 94,
+            "type": "text",
+            "content": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+            "bbox": [
+              23.54999901875,
+              382.6808202048134,
+              282.5149702535423,
+              390.67881981156347
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "text": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+            "score": 0.024146905725853096,
+            "rerank_score": 1.7950129508972168,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+            "bbox": [
+              23.54999901875,
+              268.07842497990464,
+              588.0057679790291,
+              276.07642458665464
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "text": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+            "score": 0.03177805800756621,
+            "rerank_score": 1.725332498550415,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+            "bbox": [
+              23.54999901875,
+              259.0784253549075,
+              580.9764665426466,
+              267.0764249616575
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "text": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+            "score": 0.027205882352941177,
+            "rerank_score": 1.5322366952896118,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+            "bbox": [
+              23.54999901875,
+              308.8784232799018,
+              567.3498577167522,
+              316.8764228866519
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "text": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.3456103801727295,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "bbox": [
+              23.54999901875,
+              472.08009647983744,
+              586.9476133282482,
+              480.0780960865875
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "text": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "score": 0.031054405392392875,
+            "rerank_score": 1.1835368871688843,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 12,
+            "type": "text",
+            "content": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+            "bbox": [
+              23.54999901875,
+              218.28202705475746,
+              575.0306661103882,
+              226.28002666150746
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_377",
+            "text": "March 2024. 3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement, with payments to be made from 2024 through 2036, in",
+            "score": 0.026767330130404943,
+            "rerank_score": 4.636914253234863,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+            "bbox": [
+              52.34999781875,
+              385.0820201047583,
+              567.4384105960023,
+              393.0800197115084
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1163",
+            "text": "pursuant to the terms of the CAE Settlement. Through December 31, 2025, 3M has paid $8.2 billion in aggregate relating to these settlements. See the settlement",
+            "score": 0.03125,
+            "rerank_score": 4.127907752990723,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 85,
+            "type": "text",
+            "content": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+            "bbox": [
+              23.54999901875,
+              65.28083342980358,
+              581.0822812926368,
+              73.27883303655358
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2629",
+            "text": "3M will pay $10.5 billion to $12.5 billion in total to resolve the claims released by the PWS Settlement. 3M recorded a pre-tax charge of $10.3 billion in the second quarter of",
+            "score": 0.022657450076804916,
+            "rerank_score": 3.019779682159424,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+            "bbox": [
+              23.54999901875,
+              142.0801102298367,
+              568.3729776741222,
+              150.0781098365867
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1100",
+            "text": "The decrease from December 31, 2024, was impacted by $3.4 billion in payments associated with PFAS-related environmental liabilities and the CAE legal settlement (as",
+            "score": 0.030090497737556562,
+            "rerank_score": 2.269285202026367,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 85,
+            "type": "text",
+            "content": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+            "bbox": [
+              23.54999901875,
+              74.88083302980635,
+              582.4310580883686,
+              82.87883263655635
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2630",
+            "text": "2023. The charge reflected the present value (discounted at an estimated 5.2% interest rate at time of proposed settlement) of the expected $12.5 billion nominal value of 3M’s",
+            "score": 0.02296750619861673,
+            "rerank_score": 1.8391640186309814,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 94,
+            "type": "text",
+            "content": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+            "bbox": [
+              23.54999901875,
+              382.6808202048134,
+              282.5149702535423,
+              390.67881981156347
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3035",
+            "text": "Settlement net of 3M’s then-existing accrual of $1.1 billion related to this matter.",
+            "score": 0.024146905725853096,
+            "rerank_score": 1.7950129508972168,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+            "bbox": [
+              23.54999901875,
+              268.07842497990464,
+              588.0057679790291,
+              276.07642458665464
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2433",
+            "text": "PFAS contamination in the Netherlands. The notice purports to identify claims by the Dutch government and references potential damages to other parties. 3M Belgium has met",
+            "score": 0.03177805800756621,
+            "rerank_score": 1.725332498550415,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+            "bbox": [
+              23.54999901875,
+              259.0784253549075,
+              580.9764665426466,
+              267.0764249616575
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2432",
+            "text": "The Netherlands. In May 2023, the government of the Netherlands sent 3M Belgium a notice of liability stating that it holds 3M Belgium liable for damages related to alleged",
+            "score": 0.027205882352941177,
+            "rerank_score": 1.5322366952896118,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 80,
+            "type": "text",
+            "content": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+            "bbox": [
+              23.54999901875,
+              308.8784232799018,
+              567.3498577167522,
+              316.8764228866519
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2437",
+            "text": "as defendants. The lawsuit generally alleges that PFAS from 3M Belgium’s Zwijndrecht facility impacted certain aspects of the Dutch fishing industry and seeks damages",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.3456103801727295,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "bbox": [
+              23.54999901875,
+              472.08009647983744,
+              586.9476133282482,
+              480.0780960865875
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "text": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "score": 0.031054405392392875,
+            "rerank_score": 1.1835368871688843,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_377",
+          "0000066740-26-000014-56e1ef4130::evidence_1163",
+          "0000066740-26-000014-56e1ef4130::evidence_2629",
+          "0000066740-26-000014-56e1ef4130::evidence_1100",
+          "0000066740-26-000014-56e1ef4130::evidence_2630",
+          "0000066740-26-000014-56e1ef4130::evidence_3035",
+          "0000066740-26-000014-56e1ef4130::evidence_2433",
+          "0000066740-26-000014-56e1ef4130::evidence_2432",
+          "0000066740-26-000014-56e1ef4130::evidence_2437",
+          "0000066740-26-000014-56e1ef4130::evidence_1126"
+        ],
+        "pages": [
+          12,
+          34,
+          35,
+          80,
+          85,
+          94
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "text",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided documents discuss PFAS contamination in the Netherlands and related litigation, but do not contain any specific figures or mention of cash settlement payments made by 3M for this litigation in 2025. Thus, there are insufficient source addresses to evaluate the claim.",
+      "original_claim": "During 2025, 3M made cash settlement payments exceeding $1.2 billion for PFAS contamination litigation in the Netherlands.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 27.31610450000153,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:50:32.974120+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864231-3wA0kKXXO0uAylkXVadr",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 324,
+            "completion_tokens": 1104,
+            "total_tokens": 1428,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 863,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 11.943
+        },
+        {
+          "time": "2026-10-24T17:50:45.901201+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864244-78n4hOjHh5KhrjYSEgZV",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3936,
+            "completion_tokens": 1277,
+            "total_tokens": 5213,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1230,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 14.386
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "e40083ae262fc232295ea55562907c54e4493fbc592638da4cbf8413d9c3e1ce"
+}

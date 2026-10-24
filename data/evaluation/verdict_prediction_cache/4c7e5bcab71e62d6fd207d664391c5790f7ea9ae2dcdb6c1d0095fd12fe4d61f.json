@@ -1,0 +1,1350 @@
+{
+  "schema_version": 1,
+  "cache_key": "4c7e5bcab71e62d6fd207d664391c5790f7ea9ae2dcdb6c1d0095fd12fe4d61f",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "In fiscal year 2025, 3M incurred $340 million in advertising expense.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:50:32.970553+00:00",
+  "results": [
+    {
+      "claim_text": "In fiscal year 2025, 3M incurred $340 million in advertising expense.",
+      "parsed_claim": {
+        "claim_text": "In fiscal year 2025, 3M incurred $340 million in advertising expense.",
+        "company": "3M",
+        "subject": null,
+        "metric": "advertising expense",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$340 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 65,
+          "type": "text",
+          "content": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+          "bbox": [
+            23.54999901875,
+            66.47843337990457,
+            579.8042732207579,
+            74.47643298665457
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+          "source_evidence_id": "evidence_1866",
+          "text": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+          "score": 0.02278953922789539,
+          "rerank_score": 4.268009185791016
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "bbox": [
+            23.54999901875,
+            299.88082365480767,
+            575.0717204036773,
+            307.8788232615577
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "source_evidence_id": "evidence_1610",
+          "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "score": 0.026334026334026334,
+          "rerank_score": 3.8522419929504395
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 58,
+          "type": "text",
+          "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "bbox": [
+            23.54999901875,
+            552.4808131298062,
+            555.0132006907795,
+            560.4788127365562
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "source_evidence_id": "evidence_1707",
+          "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "score": 0.02159090909090909,
+          "rerank_score": 3.4214720726013184
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "bbox": [
+            23.54999901875,
+            518.2800945548381,
+            519.5051183989528,
+            526.2780941615881
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "source_evidence_id": "evidence_1130",
+          "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "score": 0.015625,
+          "rerank_score": 1.9320471286773682
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 67,
+          "type": "text",
+          "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "bbox": [
+            23.54999901875,
+            347.878421654904,
+            578.2538767910874,
+            355.87642126165406
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "source_evidence_id": "evidence_1962",
+          "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "score": 0.014705882352941176,
+          "rerank_score": 1.9286930561065674
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 103,
+          "type": "text",
+          "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "bbox": [
+            23.54999901875,
+            365.88082090481583,
+            323.57319606278276,
+            373.8788205115659
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "source_evidence_id": "evidence_3232",
+          "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "score": 0.015873015873015872,
+          "rerank_score": 1.2157487869262695
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "bbox": [
+            23.54999901875,
+            449.2808174298054,
+            572.0706609881212,
+            457.27881703655544
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "source_evidence_id": "evidence_1759",
+          "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "score": 0.022987012987012986,
+          "rerank_score": 0.7970479130744934
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 40,
+          "type": "table",
+          "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "bbox": [
+            23.54999901875,
+            116.95540053226472,
+            587.452301104215,
+            521.3208873692063
+          ],
+          "table_id": "table_40_1",
+          "headers": [
+            "Net sales",
+            "$24,948",
+            "$24,575",
+            "$24,610"
+          ],
+          "rows": [
+            [
+              "Operating expenses"
+            ],
+            [
+              "Cost of sales",
+              "14,991",
+              "14,447",
+              "14,983"
+            ],
+            [
+              "Selling, general and administrative expenses",
+              "3,997",
+              "4,221",
+              "19,198"
+            ],
+            [
+              "Research, development and related expenses",
+              "1,169",
+              "1,085",
+              "1,154"
+            ],
+            [
+              "Loss (gain) on business divestitures",
+              "162",
+              "—",
+              "(36)"
+            ],
+            [
+              "Total operating expenses",
+              "20,319",
+              "19,753",
+              "35,299"
+            ],
+            [
+              "Operating income (loss)",
+              "4,629",
+              "4,822",
+              "(10,689)"
+            ],
+            [
+              "Other expense (income), net",
+              "416",
+              "3",
+              "582"
+            ],
+            [
+              "Income (loss) from continuing operations before income taxes",
+              "4,213",
+              "4,819",
+              "(11,271)"
+            ],
+            [
+              "Provision (benefit) for income taxes",
+              "1,003",
+              "804",
+              "(2,867)"
+            ],
+            [
+              "Income (loss) from continuing operations of consolidated group",
+              "3,210",
+              "4,015",
+              "(8,404)"
+            ],
+            [
+              "Income from unconsolidated subsidiaries, net of taxes",
+              "52",
+              "9",
+              "18"
+            ],
+            [
+              "Net income (loss) from continuing operations including noncontrolling interest",
+              "3,262",
+              "4,024",
+              "(8,386)"
+            ],
+            [
+              "Less: net income attributable to noncontrolling interest",
+              "12",
+              "15",
+              "16"
+            ],
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "3,250",
+              "4,009",
+              "(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": "year"
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "year"
+            ],
+            "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "source_evidence_id": "evidence_4784",
+          "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "score": 0.030017921146953404,
+          "rerank_score": 0.7243240475654602
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "bbox": [
+            23.54999901875,
+            479.8820161547566,
+            578.3847333586843,
+            487.8800157615067
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "source_evidence_id": "evidence_1051",
+          "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "score": 0.015384615384615385,
+          "rerank_score": 0.32104939222335815
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+          "bbox": [
+            30.74999871875,
+            443.3062033769097,
+            570.3749792823747,
+            450.50620307690974
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+          "source_evidence_id": "evidence_1617",
+          "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+          "score": 0.016129032258064516,
+          "rerank_score": -0.2611655592918396
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain any information regarding 3M's advertising expense for fiscal year 2025 or any other period, so the claim cannot be verified.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 65,
+            "type": "text",
+            "content": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "bbox": [
+              23.54999901875,
+              66.47843337990457,
+              579.8042732207579,
+              74.47643298665457
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "text": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "score": 0.02278953922789539,
+            "rerank_score": 4.268009185791016,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.026334026334026334,
+            "rerank_score": 3.8522419929504395,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.02159090909090909,
+            "rerank_score": 3.4214720726013184,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.015625,
+            "rerank_score": 1.9320471286773682,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014705882352941176,
+            "rerank_score": 1.9286930561065674,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.2157487869262695,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.022987012987012986,
+            "rerank_score": 0.7970479130744934,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.015384615384615385,
+            "rerank_score": 0.32104939222335815,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "bbox": [
+              30.74999871875,
+              443.3062033769097,
+              570.3749792823747,
+              450.50620307690974
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.2611655592918396,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.030017921146953404,
+            "rerank_score": 0.7243240475654602,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.030017921146953404,
+            "rerank_score": 0.7243240475654602,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 65,
+            "type": "text",
+            "content": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "bbox": [
+              23.54999901875,
+              66.47843337990457,
+              579.8042732207579,
+              74.47643298665457
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "text": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "score": 0.02278953922789539,
+            "rerank_score": 4.268009185791016,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.026334026334026334,
+            "rerank_score": 3.8522419929504395,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.02159090909090909,
+            "rerank_score": 3.4214720726013184,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.015625,
+            "rerank_score": 1.9320471286773682,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014705882352941176,
+            "rerank_score": 1.9286930561065674,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.2157487869262695,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.022987012987012986,
+            "rerank_score": 0.7970479130744934,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.015384615384615385,
+            "rerank_score": 0.32104939222335815,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "bbox": [
+              30.74999871875,
+              443.3062033769097,
+              570.3749792823747,
+              450.50620307690974
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.2611655592918396,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "0000066740-26-000014-56e1ef4130::evidence_1866",
+          "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "0000066740-26-000014-56e1ef4130::evidence_1617"
+        ],
+        "pages": [
+          32,
+          34,
+          40,
+          54,
+          58,
+          60,
+          65,
+          67,
+          103
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain any information regarding 3M's advertising expense for fiscal year 2025 or any other period, so the claim cannot be verified.",
+      "original_claim": "In fiscal year 2025, 3M incurred $340 million in advertising expense.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 23.44767419999698,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:50:09.524761+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864207-K6E66vgn8hIylrwSF6Kl",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 317,
+            "completion_tokens": 972,
+            "total_tokens": 1289,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 739,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 11.421
+        },
+        {
+          "time": "2026-10-24T17:50:22.539441+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864221-V9EaqRGmkzyHQclfuo73",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6390,
+            "completion_tokens": 1016,
+            "total_tokens": 7406,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 766,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 10.43
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "d16ce656089e4c5b6fbbaa6d921e5f812073a4cd61fb2d7d65a336360eee8370"
+}

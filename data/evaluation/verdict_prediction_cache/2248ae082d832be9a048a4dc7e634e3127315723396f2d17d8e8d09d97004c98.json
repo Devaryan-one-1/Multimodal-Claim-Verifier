@@ -1,0 +1,2455 @@
+{
+  "schema_version": 1,
+  "cache_key": "2248ae082d832be9a048a4dc7e634e3127315723396f2d17d8e8d09d97004c98",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units, and in 2024, Personal Safety net sales were $3,544 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:51:39.433068+00:00",
+  "results": [
+    {
+      "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units",
+      "parsed_claim": {
+        "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units",
+        "company": "3M",
+        "subject": "nonvested restricted stock units",
+        "metric": "nonvested restricted stock units",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "point_in_time",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "5,127,000",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "number",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "bbox": [
+            23.54999901875,
+            431.28081817981837,
+            580.3702775679044,
+            439.2788177865684
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "source_evidence_id": "evidence_3124",
+          "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "score": 0.03128054740957967,
+          "rerank_score": 4.982847213745117
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 97,
+          "type": "text",
+          "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+          "bbox": [
+            23.54999901875,
+            98.88083202981329,
+            576.4751412594717,
+            106.87883163656329
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "source_evidence_id": "evidence_3081",
+          "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+          "score": 0.032018442622950824,
+          "rerank_score": 3.6138248443603516
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "bbox": [
+            23.54999901875,
+            479.8820161547566,
+            578.3847333586843,
+            487.8800157615067
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "source_evidence_id": "evidence_1051",
+          "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "score": 0.02813852813852814,
+          "rerank_score": 3.4883298873901367
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 103,
+          "type": "text",
+          "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "bbox": [
+            23.54999901875,
+            365.88082090481583,
+            323.57319606278276,
+            373.8788205115659
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "source_evidence_id": "evidence_3232",
+          "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.0166006088256836
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "table",
+          "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+          "bbox": [
+            23.54999901875,
+            297.51400499489426,
+            587.5060730815549,
+            370.1055413356965
+          ],
+          "table_id": "table_98_3",
+          "headers": [
+            "Nonvested balance —"
+          ],
+          "rows": [
+            [
+              "As of January 1, 2025",
+              "6,150",
+              "$ 104.83"
+            ],
+            [
+              "Vested",
+              "(1,193)",
+              "127.28"
+            ],
+            [
+              "Granted",
+              "517",
+              "149.12"
+            ],
+            [
+              "Forfeited",
+              "(347)",
+              "103.22"
+            ],
+            [
+              "As of December 31, 2025",
+              "5,127",
+              "104.18"
+            ]
+          ],
+          "column_map": [],
+          "column_headers": {
+            "years": [],
+            "period_types": [],
+            "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "source_evidence_id": "evidence_4856",
+          "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+          "score": 0.02603002235707442,
+          "rerank_score": 2.7919483184814453
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 72,
+          "type": "text",
+          "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "bbox": [
+            30.74999871875,
+            295.70380952701134,
+            548.8734131302734,
+            302.9038092270114
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "source_evidence_id": "evidence_2102",
+          "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "score": 0.028790389395194696,
+          "rerank_score": 2.6334891319274902
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "bbox": [
+            23.54999901875,
+            499.6808153298127,
+            585.2894330022095,
+            507.67881493656273
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "source_evidence_id": "evidence_2012",
+          "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "score": 0.02278953922789539,
+          "rerank_score": 2.532902717590332
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 67,
+          "type": "text",
+          "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "bbox": [
+            23.54999901875,
+            347.878421654904,
+            578.2538767910874,
+            355.87642126165406
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "source_evidence_id": "evidence_1962",
+          "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "score": 0.014925373134328358,
+          "rerank_score": 1.9939422607421875
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "bbox": [
+            23.54999901875,
+            449.2808174298054,
+            572.0706609881212,
+            457.27881703655544
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "source_evidence_id": "evidence_1759",
+          "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "score": 0.014492753623188406,
+          "rerank_score": 1.6134586334228516
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+          "bbox": [
+            23.54999901875,
+            389.28081992981714,
+            557.8737568933083,
+            397.2788195365672
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+          "source_evidence_id": "evidence_3120",
+          "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+          "score": 0.028021349599695006,
+          "rerank_score": 1.1376696825027466
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unit quote is absent from the source evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.03128054740957967,
+            "rerank_score": 4.982847213745117,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "text",
+            "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "bbox": [
+              23.54999901875,
+              98.88083202981329,
+              576.4751412594717,
+              106.87883163656329
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "score": 0.032018442622950824,
+            "rerank_score": 3.6138248443603516,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.02813852813852814,
+            "rerank_score": 3.4883298873901367,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.0166006088256836,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.028790389395194696,
+            "rerank_score": 2.6334891319274902,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.02278953922789539,
+            "rerank_score": 2.532902717590332,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 1.9939422607421875,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.014492753623188406,
+            "rerank_score": 1.6134586334228516,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "bbox": [
+              23.54999901875,
+              389.28081992981714,
+              557.8737568933083,
+              397.2788195365672
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "score": 0.028021349599695006,
+            "rerank_score": 1.1376696825027466,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "table",
+            "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "bbox": [
+              23.54999901875,
+              297.51400499489426,
+              587.5060730815549,
+              370.1055413356965
+            ],
+            "table_id": "table_98_3",
+            "headers": [
+              "Nonvested balance —"
+            ],
+            "rows": [
+              [
+                "As of January 1, 2025",
+                "6,150",
+                "$ 104.83"
+              ],
+              [
+                "Vested",
+                "(1,193)",
+                "127.28"
+              ],
+              [
+                "Granted",
+                "517",
+                "149.12"
+              ],
+              [
+                "Forfeited",
+                "(347)",
+                "103.22"
+              ],
+              [
+                "As of December 31, 2025",
+                "5,127",
+                "104.18"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "score": 0.02603002235707442,
+            "rerank_score": 2.7919483184814453,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "table",
+            "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "bbox": [
+              23.54999901875,
+              297.51400499489426,
+              587.5060730815549,
+              370.1055413356965
+            ],
+            "table_id": "table_98_3",
+            "headers": [
+              "Nonvested balance —"
+            ],
+            "rows": [
+              [
+                "As of January 1, 2025",
+                "6,150",
+                "$ 104.83"
+              ],
+              [
+                "Vested",
+                "(1,193)",
+                "127.28"
+              ],
+              [
+                "Granted",
+                "517",
+                "149.12"
+              ],
+              [
+                "Forfeited",
+                "(347)",
+                "103.22"
+              ],
+              [
+                "As of December 31, 2025",
+                "5,127",
+                "104.18"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "score": 0.02603002235707442,
+            "rerank_score": 2.7919483184814453,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.03128054740957967,
+            "rerank_score": 4.982847213745117,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "text",
+            "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "bbox": [
+              23.54999901875,
+              98.88083202981329,
+              576.4751412594717,
+              106.87883163656329
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "score": 0.032018442622950824,
+            "rerank_score": 3.6138248443603516,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.02813852813852814,
+            "rerank_score": 3.4883298873901367,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.0166006088256836,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.028790389395194696,
+            "rerank_score": 2.6334891319274902,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.02278953922789539,
+            "rerank_score": 2.532902717590332,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 1.9939422607421875,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.014492753623188406,
+            "rerank_score": 1.6134586334228516,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "bbox": [
+              23.54999901875,
+              389.28081992981714,
+              557.8737568933083,
+              397.2788195365672
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "score": 0.028021349599695006,
+            "rerank_score": 1.1376696825027466,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "0000066740-26-000014-56e1ef4130::evidence_3120"
+        ],
+        "pages": [
+          32,
+          60,
+          67,
+          68,
+          72,
+          97,
+          98,
+          103
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Unit quote is absent from the source evidence.",
+      "original_claim": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units, and in 2024, Personal Safety net sales were $3,544 million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 39.142777200002456,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:51:00.291557+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864258-9xz4Ax1aIhRmG25qCxNs",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 350,
+            "completion_tokens": 1212,
+            "total_tokens": 1562,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 730,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 12.574
+        },
+        {
+          "time": "2026-10-24T17:51:14.086671+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864272-i17e4YiA7ctExNXfAIhP",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3938,
+            "completion_tokens": 1060,
+            "total_tokens": 4998,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 566,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 11.52
+        },
+        {
+          "time": "2026-10-24T17:51:27.267962+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864285-Cx2MK8ZkJPIRXTVv7wxx",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4440,
+            "completion_tokens": 952,
+            "total_tokens": 5392,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 419,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 12.164
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    },
+    {
+      "claim_text": "in 2024, Personal Safety net sales were $3,544 million",
+      "parsed_claim": {
+        "claim_text": "in 2024, Personal Safety net sales were $3,544 million",
+        "company": "3M",
+        "subject": "net sales",
+        "metric": "net sales",
+        "segment": "Personal Safety",
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$3,544 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            327.48202250475623,
+            257.73158230618344,
+            335.4800221115063
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+          "source_evidence_id": "evidence_840",
+          "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+          "score": 0.03278688524590164,
+          "rerank_score": 2.482774496078491
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            243.48202600475747,
+            292.5968762734628,
+            251.48002561150747
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+          "source_evidence_id": "evidence_833",
+          "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+          "score": 0.0304147465437788,
+          "rerank_score": 1.8741676807403564
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            100.73750563828958,
+            553.2948518860468,
+            107.13350525178953
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "source_evidence_id": "evidence_1539",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.031754032258064516,
+          "rerank_score": 0.45675626397132874
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            77.33630661334769,
+            553.3136018852656,
+            83.73230622684764
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "source_evidence_id": "evidence_3171",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.03125763125763126,
+          "rerank_score": 0.45675626397132874
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "table",
+          "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+          "bbox": [
+            23.54999901875,
+            143.14148339747612,
+            588.1499754937499,
+            227.7917815534532
+          ],
+          "table_id": "table_22_1",
+          "headers": [
+            "Net sales (millions)",
+            "$13,579",
+            "$7,095",
+            "$4,274",
+            "$24,948"
+          ],
+          "rows": [
+            [
+              "% of worldwide sales",
+              "54.5",
+              "%",
+              "28.4",
+              "%",
+              "17.1",
+              "%",
+              "100.0",
+              "%"
+            ],
+            [
+              "Components of net sales change:"
+            ],
+            [
+              "Organic sales(b)",
+              "1.3",
+              "%",
+              "1.7",
+              "%",
+              "(1.7)",
+              "%",
+              "0.9",
+              "%"
+            ],
+            [
+              "Divestitures(c)",
+              "0.3",
+              "—",
+              "0.2",
+              "0.2"
+            ],
+            [
+              "Translation",
+              "(0.3)",
+              "(0.3)",
+              "3.9",
+              "0.4"
+            ],
+            [
+              "Total sales change",
+              "1.3",
+              "%",
+              "1.4",
+              "%",
+              "2.4",
+              "%",
+              "1.5",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025
+            ],
+            "period_types": [],
+            "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "source_evidence_id": "evidence_4764",
+          "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+          "score": 0.015873015873015872,
+          "rerank_score": -0.27386343479156494
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            109.13823074669199,
+            587.8071183651786,
+            378.9922919009644
+          ],
+          "table_id": "table_51_1",
+          "headers": [
+            "Abrasives",
+            "$1,340",
+            "$1,295",
+            "$1,327"
+          ],
+          "rows": [
+            [
+              "Automotive Aftermarket",
+              "1,178",
+              "1,235",
+              "1,237"
+            ],
+            [
+              "Electrical Markets",
+              "1,394",
+              "1,274",
+              "1,259"
+            ],
+            [
+              "Industrial Adhesives and Tapes",
+              "2,266",
+              "2,104",
+              "2,051"
+            ],
+            [
+              "Industrial Specialties Division",
+              "1,172",
+              "1,161",
+              "1,206"
+            ],
+            [
+              "Personal Safety",
+              "3,544",
+              "3,371",
+              "3,382"
+            ],
+            [
+              "Roofing Granules",
+              "490",
+              "521",
+              "494"
+            ],
+            [
+              "Total Safety and Industrial Business segment",
+              "11,384",
+              "10,961",
+              "10,956"
+            ],
+            [
+              "Advanced Materials",
+              "858",
+              "969",
+              "1,167"
+            ],
+            [
+              "Automotive and Aerospace",
+              "1,901",
+              "1,912",
+              "1,925"
+            ],
+            [
+              "Commercial Branding and Transportation",
+              "2,602",
+              "2,528",
+              "2,546"
+            ],
+            [
+              "Electronics",
+              "2,911",
+              "2,971",
+              "2,863"
+            ],
+            [
+              "Total Transportation and Electronics Business segment",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer Safety and Well-Being",
+              "1,108",
+              "1,080",
+              "1,096"
+            ],
+            [
+              "Home and Auto Care",
+              "1,200",
+              "1,191",
+              "1,260"
+            ],
+            [
+              "Home Improvement",
+              "1,486",
+              "1,486",
+              "1,448"
+            ],
+            [
+              "Packaging and Expression",
+              "1,126",
+              "1,174",
+              "1,222"
+            ],
+            [
+              "Total Consumer Business segment",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "source_evidence_id": "evidence_4796",
+          "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.02105496453900709,
+          "rerank_score": -0.3558236360549927
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales by particular country (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            450.53749106329064,
+            553.3136018852656,
+            456.93349067679065
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+          "source_evidence_id": "evidence_1541",
+          "text": "Net sales by particular country (millions) 2025 2024 2023",
+          "score": 0.02419816723940435,
+          "rerank_score": -0.40305569767951965
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales by geographic area (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            386.3374937382848,
+            553.3136018852656,
+            392.73349335178483
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+          "source_evidence_id": "evidence_1540",
+          "text": "Net sales by geographic area (millions) 2025 2024 2023",
+          "score": 0.024610822831727205,
+          "rerank_score": -0.5520139932632446
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_719",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "text",
+          "content": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+          "bbox": [
+            23.54999901875,
+            296.2820238047563,
+            583.7421279074103,
+            304.28002341150636
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_719",
+          "source_evidence_id": "evidence_719",
+          "text": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+          "score": 0.015151515151515152,
+          "rerank_score": -1.2095391750335693
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_753",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "text",
+          "content": "(Percent of net sales) 2025 2024 Change",
+          "bbox": [
+            24.346873985546875,
+            394.73749338828725,
+            555.2054859665353,
+            401.13349300178726
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_753",
+          "source_evidence_id": "evidence_753",
+          "text": "(Percent of net sales) 2025 2024 Change",
+          "score": 0.028790389395194696,
+          "rerank_score": -2.1203866004943848
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "According to the table on page 51, the net sales for Personal Safety in 2024 were $3,371 million, whereas $3,544 million was the net sales for 2025. The claim incorrectly attributes the 2025 figure to 2024.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              327.48202250475623,
+              257.73158230618344,
+              335.4800221115063
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "score": 0.03278688524590164,
+            "rerank_score": 2.482774496078491,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              243.48202600475747,
+              292.5968762734628,
+              251.48002561150747
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "score": 0.0304147465437788,
+            "rerank_score": 1.8741676807403564,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.031754032258064516,
+            "rerank_score": 0.45675626397132874,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.03125763125763126,
+            "rerank_score": 0.45675626397132874,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by particular country (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              450.53749106329064,
+              553.3136018852656,
+              456.93349067679065
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "text": "Net sales by particular country (millions) 2025 2024 2023",
+            "score": 0.02419816723940435,
+            "rerank_score": -0.40305569767951965,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by geographic area (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              386.3374937382848,
+              553.3136018852656,
+              392.73349335178483
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "text": "Net sales by geographic area (millions) 2025 2024 2023",
+            "score": 0.024610822831727205,
+            "rerank_score": -0.5520139932632446,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+            "bbox": [
+              23.54999901875,
+              296.2820238047563,
+              583.7421279074103,
+              304.28002341150636
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "text": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+            "score": 0.015151515151515152,
+            "rerank_score": -1.2095391750335693,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "(Percent of net sales) 2025 2024 Change",
+            "bbox": [
+              24.346873985546875,
+              394.73749338828725,
+              555.2054859665353,
+              401.13349300178726
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "text": "(Percent of net sales) 2025 2024 Change",
+            "score": 0.028790389395194696,
+            "rerank_score": -2.1203866004943848,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.015873015873015872,
+            "rerank_score": -0.27386343479156494,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02105496453900709,
+            "rerank_score": -0.3558236360549927,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.015873015873015872,
+            "rerank_score": -0.27386343479156494,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02105496453900709,
+            "rerank_score": -0.3558236360549927,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              327.48202250475623,
+              257.73158230618344,
+              335.4800221115063
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "score": 0.03278688524590164,
+            "rerank_score": 2.482774496078491,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              243.48202600475747,
+              292.5968762734628,
+              251.48002561150747
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "score": 0.0304147465437788,
+            "rerank_score": 1.8741676807403564,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.031754032258064516,
+            "rerank_score": 0.45675626397132874,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.03125763125763126,
+            "rerank_score": 0.45675626397132874,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by particular country (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              450.53749106329064,
+              553.3136018852656,
+              456.93349067679065
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1541",
+            "text": "Net sales by particular country (millions) 2025 2024 2023",
+            "score": 0.02419816723940435,
+            "rerank_score": -0.40305569767951965,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by geographic area (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              386.3374937382848,
+              553.3136018852656,
+              392.73349335178483
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "text": "Net sales by geographic area (millions) 2025 2024 2023",
+            "score": 0.024610822831727205,
+            "rerank_score": -0.5520139932632446,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+            "bbox": [
+              23.54999901875,
+              296.2820238047563,
+              583.7421279074103,
+              304.28002341150636
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_719",
+            "text": "Net sales change was driven by strength in safety and general industrial and supported by commercial excellence and new product introductions. These were partially offset by",
+            "score": 0.015151515151515152,
+            "rerank_score": -1.2095391750335693,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "(Percent of net sales) 2025 2024 Change",
+            "bbox": [
+              24.346873985546875,
+              394.73749338828725,
+              555.2054859665353,
+              401.13349300178726
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_753",
+            "text": "(Percent of net sales) 2025 2024 Change",
+            "score": 0.028790389395194696,
+            "rerank_score": -2.1203866004943848,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "0000066740-26-000014-56e1ef4130::evidence_840",
+          "0000066740-26-000014-56e1ef4130::evidence_833",
+          "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "0000066740-26-000014-56e1ef4130::evidence_1541",
+          "0000066740-26-000014-56e1ef4130::evidence_1540",
+          "0000066740-26-000014-56e1ef4130::evidence_719",
+          "0000066740-26-000014-56e1ef4130::evidence_753"
+        ],
+        "pages": [
+          21,
+          22,
+          25,
+          51,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: According to the table on page 51, the net sales for Personal Safety in 2024 were $3,371 million, whereas $3,544 million was the net sales for 2025. The claim incorrectly attributes the 2025 figure to 2024.",
+      "original_claim": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units, and in 2024, Personal Safety net sales were $3,544 million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 39.14277910000237,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:51:00.291557+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864258-9xz4Ax1aIhRmG25qCxNs",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 350,
+            "completion_tokens": 1212,
+            "total_tokens": 1562,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 730,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 12.574
+        },
+        {
+          "time": "2026-10-24T17:51:14.086671+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864272-i17e4YiA7ctExNXfAIhP",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3938,
+            "completion_tokens": 1060,
+            "total_tokens": 4998,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 566,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 11.52
+        },
+        {
+          "time": "2026-10-24T17:51:27.267962+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864285-Cx2MK8ZkJPIRXTVv7wxx",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4440,
+            "completion_tokens": 952,
+            "total_tokens": 5392,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 419,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 12.164
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "f56d8c1ed7a08435e2ceb0037966c7f94a4fff68a4e0ee9067eae3af6ff0bbf6"
+}

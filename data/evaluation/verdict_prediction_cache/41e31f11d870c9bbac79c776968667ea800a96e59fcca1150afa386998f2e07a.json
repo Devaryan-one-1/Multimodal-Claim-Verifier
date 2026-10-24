@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "cache_key": "41e31f11d870c9bbac79c776968667ea800a96e59fcca1150afa386998f2e07a",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:37:52.524044+00:00",
+  "results": [
+    {
+      "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "parsed_claim": {
+        "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+        "company": null,
+        "subject": null,
+        "metric": "research and development expense",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$1,500 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "percentage_points",
+        "claim_type": "question",
+        "notes": [
+          "Metric is 'research and development expense' (not split).",
+          "Qualifier 'Total' is retained.",
+          "Company is not specified in the text and is therefore null.",
+          "Period is explicitly 'fiscal year 2025'.",
+          "Temporal status is historical ('was')."
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "Metric is 'research and development expense' (not split).",
+        "Qualifier 'Total' is retained.",
+        "Company is not specified in the text and is therefore null.",
+        "Period is explicitly 'fiscal year 2025'.",
+        "Temporal status is historical ('was')."
+      ],
+      "reason": "The claim could not be parsed as a verifiable assertion. Metric is 'research and development expense' (not split). Qualifier 'Total' is retained. Company is not specified in the text and is therefore null. Period is explicitly 'fiscal year 2025'. Temporal status is historical ('was').",
+      "calculation_unavailable_reason": "The claim could not be parsed as a verifiable assertion. Metric is 'research and development expense' (not split). Qualifier 'Total' is retained. Company is not specified in the text and is therefore null. Period is explicitly 'fiscal year 2025'. Temporal status is historical ('was').",
+      "original_claim": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 20.89272700001311,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:37:31.634934+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863450-QdELBD4izleUJzHm7pSg",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 317,
+            "completion_tokens": 1686,
+            "total_tokens": 2003,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1587,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 20.889
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "46f29a5d2ff5c3180de9b032ef5700e7a525e5dce5925daed6579e6367179d8f"
+}
