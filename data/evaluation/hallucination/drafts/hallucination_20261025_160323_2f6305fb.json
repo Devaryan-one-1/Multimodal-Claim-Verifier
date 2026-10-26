@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "dataset_id": "hallucination_20261025_160323_2f6305fb",
+  "revision": 1,
+  "created_at": "2026-10-25T16:03:23.191150+00:00",
+  "document_ids": [
+    "0000066740-26-000014-56e1ef4130"
+  ],
+  "documents": [
+    {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "title": "10-K - 02/03/2026 - 3M Company",
+      "page_count": 158
+    }
+  ],
+  "source_hashes": {
+    "data/documents/0000066740-26-000014-56e1ef4130/original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+    "data/processed/0000066740-26-000014-56e1ef4130/evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04",
+    "data/processed/0000066740-26-000014-56e1ef4130/pages.json": "94c7e26dfdec1ad7fc07f4339f365ac2b4da963c0c559a677cdb36c73cd0c9b1"
+  },
+  "records": [],
+  "model_calls": [
+    {
+      "time": "2026-10-25T16:03:42.351352+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792944222-uoryzT8bSz911Wzh3zad",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 5659,
+        "completion_tokens": 5195,
+        "total_tokens": 10854,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3385,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 55.914
+    }
+  ],
+  "generation_errors": [
+    {
+      "at": "2026-10-25T16:04:38.265232+00:00",
+      "category": "missing_forecast",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4792"
+    },
+    {
+      "at": "2026-10-25T16:04:38.265272+00:00",
+      "category": "missing_forecast",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4804"
+    },
+    {
+      "at": "2026-10-25T16:04:38.265296+00:00",
+      "category": "missing_forecast",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4810"
+    },
+    {
+      "at": "2026-10-25T16:04:38.265315+00:00",
+      "category": "missing_forecast",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4860"
+    },
+    {
+      "at": "2026-10-25T16:04:38.265318+00:00",
+      "category": "missing_forecast",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    }
+  ],
+  "pause": null,
+  "policy": {
+    "target": 20,
+    "per_category": 4,
+    "labels_are_provisional_until_reviewed": true
+  },
+  "updated_at": "2026-10-25T16:04:38.279786+00:00"
+}

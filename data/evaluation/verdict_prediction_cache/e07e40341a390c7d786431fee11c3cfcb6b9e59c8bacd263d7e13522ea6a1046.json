@@ -1,0 +1,3132 @@
+{
+  "schema_version": 2,
+  "cache_key": "e07e40341a390c7d786431fee11c3cfcb6b9e59c8bacd263d7e13522ea6a1046",
+  "configuration_signature": "9bdbfb3ba81d6c4a0dd06f896c8401528c2bced8647cfdbddefaeec6ff9e1d17",
+  "request": {
+    "claim_text": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million, and in 2022 it was $(5,000) million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-25T16:00:50.284620+00:00",
+  "results": [
+    {
+      "claim_text": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million",
+      "parsed_claim": {
+        "claim_text": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million",
+        "company": null,
+        "subject": null,
+        "metric": "total income (loss) from continuing operations before income taxes",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2023,
+        "period_quote": "In 2023",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$(11,271) million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": true,
+        "approximate": false,
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "bbox": [
+            23.54999901875,
+            98.91653781396317,
+            587.2353413855183,
+            311.17787794334726
+          ],
+          "table_id": "table_59_1",
+          "headers": [
+            "Numerator:"
+          ],
+          "rows": [
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "$ 3,250",
+              "$4,009",
+              "$(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$ 3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Denominator:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Dilution associated with stock-based compensation plans",
+              "3.9",
+              "1.6",
+              "—"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$ 6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$ 6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$ 6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$ 6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "source_evidence_id": "evidence_4820",
+          "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "score": 0.027046783625730993,
+          "rerank_score": 4.784212684631347,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 56,
+          "type": "text",
+          "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "bbox": [
+            23.54999901875,
+            80.2808328048061,
+            310.25485187198393,
+            88.2788324115561
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "source_evidence_id": "evidence_1652",
+          "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "score": 0.03278688524590164,
+          "rerank_score": 4.580491065979004,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "text",
+          "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            289.7374977632878,
+            553.1636018915156,
+            296.13349737678783
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "source_evidence_id": "evidence_1530",
+          "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "score": 0.029910714285714284,
+          "rerank_score": 3.8568061351776124,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 40,
+          "type": "table",
+          "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "bbox": [
+            23.54999901875,
+            116.95540053226472,
+            587.452301104215,
+            521.3208873692063
+          ],
+          "table_id": "table_40_1",
+          "headers": [
+            "Net sales",
+            "$24,948",
+            "$24,575",
+            "$24,610"
+          ],
+          "rows": [
+            [
+              "Operating expenses"
+            ],
+            [
+              "Cost of sales",
+              "14,991",
+              "14,447",
+              "14,983"
+            ],
+            [
+              "Selling, general and administrative expenses",
+              "3,997",
+              "4,221",
+              "19,198"
+            ],
+            [
+              "Research, development and related expenses",
+              "1,169",
+              "1,085",
+              "1,154"
+            ],
+            [
+              "Loss (gain) on business divestitures",
+              "162",
+              "—",
+              "(36)"
+            ],
+            [
+              "Total operating expenses",
+              "20,319",
+              "19,753",
+              "35,299"
+            ],
+            [
+              "Operating income (loss)",
+              "4,629",
+              "4,822",
+              "(10,689)"
+            ],
+            [
+              "Other expense (income), net",
+              "416",
+              "3",
+              "582"
+            ],
+            [
+              "Income (loss) from continuing operations before income taxes",
+              "4,213",
+              "4,819",
+              "(11,271)"
+            ],
+            [
+              "Provision (benefit) for income taxes",
+              "1,003",
+              "804",
+              "(2,867)"
+            ],
+            [
+              "Income (loss) from continuing operations of consolidated group",
+              "3,210",
+              "4,015",
+              "(8,404)"
+            ],
+            [
+              "Income from unconsolidated subsidiaries, net of taxes",
+              "52",
+              "9",
+              "18"
+            ],
+            [
+              "Net income (loss) from continuing operations including noncontrolling interest",
+              "3,262",
+              "4,024",
+              "(8,386)"
+            ],
+            [
+              "Less: net income attributable to noncontrolling interest",
+              "12",
+              "15",
+              "16"
+            ],
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "3,250",
+              "4,009",
+              "(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Weighted average 3M common shares outstanding — diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": "year"
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "year"
+            ],
+            "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "source_evidence_id": "evidence_4784",
+          "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+          "score": 0.030536130536130537,
+          "rerank_score": 2.9223400115966798,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Income from continuing operations before taxes",
+          "bbox": [
+            27.946873835546874,
+            351.4820215047559,
+            192.63647010981043,
+            359.48002111150595
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "source_evidence_id": "evidence_933",
+          "text": "• Income from continuing operations before taxes",
+          "score": 0.03225806451612903,
+          "rerank_score": 2.6286327838897705,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 55,
+          "type": "table",
+          "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+          "bbox": [
+            23.54999901875,
+            103.15730634007907,
+            587.397736719123,
+            364.57695382337835
+          ],
+          "table_id": "table_55_1",
+          "headers": [
+            "Balance at December 31, 2022, net of tax:",
+            "$(2,828)",
+            "$(3,838)",
+            "$(7)",
+            "$(6,673)"
+          ],
+          "rows": [
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "277",
+              "(763)",
+              "81",
+              "(405)"
+            ],
+            [
+              "Amounts reclassified out",
+              "54",
+              "252",
+              "(143)",
+              "163"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "331",
+              "(511)",
+              "(62)",
+              "(242)"
+            ],
+            [
+              "Tax effect(b)",
+              "(9)",
+              "131",
+              "15",
+              "137"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "322",
+              "(380)",
+              "(47)",
+              "(105)"
+            ],
+            [
+              "Balance at December 31, 2023, net of tax:",
+              "$(2,506)",
+              "$(4,218)",
+              "$(54)",
+              "$(6,778)"
+            ],
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "(563)",
+              "123",
+              "128",
+              "(312)"
+            ],
+            [
+              "Amounts reclassified out",
+              "38",
+              "1,127",
+              "(78)",
+              "1,087"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "(525)",
+              "1,250",
+              "50",
+              "775"
+            ],
+            [
+              "Tax effect(b)",
+              "14",
+              "(315)",
+              "(11)",
+              "(312)"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "(511)",
+              "935",
+              "39",
+              "463"
+            ],
+            [
+              "Solventum spin-off",
+              "64",
+              "520",
+              "—",
+              "584"
+            ],
+            [
+              "Balance at December 31, 2024, net of tax:",
+              "$(2,953)",
+              "$(2,763)",
+              "$(15)",
+              "$(5,731)"
+            ],
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "347",
+              "88",
+              "(77)",
+              "358"
+            ],
+            [
+              "Amounts reclassified out",
+              "—",
+              "304",
+              "(28)",
+              "276"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "347",
+              "392",
+              "(105)",
+              "634"
+            ],
+            [
+              "Tax effect(b)",
+              "86",
+              "(91)",
+              "22",
+              "17"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "433",
+              "301",
+              "(83)",
+              "651"
+            ],
+            [
+              "Solventum spin-off",
+              "—",
+              "11",
+              "—",
+              "11"
+            ],
+            [
+              "Balance at December 31, 2025, net of tax:",
+              "$(2,520)",
+              "$(2,451)",
+              "$(98)",
+              "$(5,069)"
+            ]
+          ],
+          "column_map": [],
+          "column_headers": {
+            "years": [],
+            "period_types": [],
+            "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "source_evidence_id": "evidence_4809",
+          "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+          "score": 0.02712049508554787,
+          "rerank_score": 2.54695520401001,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "table",
+          "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "bbox": [
+            23.54999901875,
+            298.55767986779364,
+            588.1499754937499,
+            383.786826114149
+          ],
+          "table_id": "table_50_1",
+          "headers": [
+            "Net sales",
+            "$1,987",
+            "$8,071"
+          ],
+          "rows": [
+            [
+              "Cost of sales",
+              "844",
+              "3,494"
+            ],
+            [
+              "Other operating expenses",
+              "837",
+              "3,016"
+            ],
+            [
+              "Other expense (income), net",
+              "44",
+              "(22)"
+            ],
+            [
+              "Income from discontinued operations before income taxes",
+              "262",
+              "1,583"
+            ],
+            [
+              "Provision for income taxes",
+              "98",
+              "176"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "$164",
+              "$1,407"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "source_evidence_id": "evidence_4794",
+          "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "score": 0.027526395173453996,
+          "rerank_score": 1.8294495344161987,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Net income from continuing operations",
+          "bbox": [
+            27.946873835546874,
+            371.88202065475815,
+            164.88949238593457,
+            379.8800202615082
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "source_evidence_id": "evidence_937",
+          "text": "• Net income from continuing operations",
+          "score": 0.029386529386529386,
+          "rerank_score": 1.119661569595337,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 30,
+          "type": "text",
+          "content": "Amounts from continuing operations",
+          "bbox": [
+            342.65908302253763,
+            76.76289233538864,
+            431.0262482529028,
+            82.36089204213863
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+          "source_evidence_id": "evidence_984",
+          "text": "Amounts from continuing operations",
+          "score": 0.026470588235294117,
+          "rerank_score": 0.8919107913970947,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 30,
+          "type": "text",
+          "content": "Amounts from continuing operations",
+          "bbox": [
+            338.4028331998814,
+            313.76288246038627,
+            426.7699984302466,
+            319.36088216713625
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+          "source_evidence_id": "evidence_989",
+          "text": "Amounts from continuing operations",
+          "score": 0.026120660599932594,
+          "rerank_score": 0.8919107913970947,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Negated numerical assertions require an explicit supported comparison policy.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.03278688524590164,
+            "rerank_score": 4.580491065979004,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.029910714285714284,
+            "rerank_score": 3.8568061351776124,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.03225806451612903,
+            "rerank_score": 2.6286327838897705,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.029386529386529386,
+            "rerank_score": 1.119661569595337,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.65908302253763,
+              76.76289233538864,
+              431.0262482529028,
+              82.36089204213863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "text": "Amounts from continuing operations",
+            "score": 0.026470588235294117,
+            "rerank_score": 0.8919107913970947,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              338.4028331998814,
+              313.76288246038627,
+              426.7699984302466,
+              319.36088216713625
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "text": "Amounts from continuing operations",
+            "score": 0.026120660599932594,
+            "rerank_score": 0.8919107913970947,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.027046783625730993,
+            "rerank_score": 4.784212684631347,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.030536130536130537,
+            "rerank_score": 2.9223400115966798,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "table",
+            "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "bbox": [
+              23.54999901875,
+              103.15730634007907,
+              587.397736719123,
+              364.57695382337835
+            ],
+            "table_id": "table_55_1",
+            "headers": [
+              "Balance at December 31, 2022, net of tax:",
+              "$(2,828)",
+              "$(3,838)",
+              "$(7)",
+              "$(6,673)"
+            ],
+            "rows": [
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "277",
+                "(763)",
+                "81",
+                "(405)"
+              ],
+              [
+                "Amounts reclassified out",
+                "54",
+                "252",
+                "(143)",
+                "163"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "331",
+                "(511)",
+                "(62)",
+                "(242)"
+              ],
+              [
+                "Tax effect(b)",
+                "(9)",
+                "131",
+                "15",
+                "137"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "322",
+                "(380)",
+                "(47)",
+                "(105)"
+              ],
+              [
+                "Balance at December 31, 2023, net of tax:",
+                "$(2,506)",
+                "$(4,218)",
+                "$(54)",
+                "$(6,778)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "(563)",
+                "123",
+                "128",
+                "(312)"
+              ],
+              [
+                "Amounts reclassified out",
+                "38",
+                "1,127",
+                "(78)",
+                "1,087"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "(525)",
+                "1,250",
+                "50",
+                "775"
+              ],
+              [
+                "Tax effect(b)",
+                "14",
+                "(315)",
+                "(11)",
+                "(312)"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "(511)",
+                "935",
+                "39",
+                "463"
+              ],
+              [
+                "Solventum spin-off",
+                "64",
+                "520",
+                "—",
+                "584"
+              ],
+              [
+                "Balance at December 31, 2024, net of tax:",
+                "$(2,953)",
+                "$(2,763)",
+                "$(15)",
+                "$(5,731)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "347",
+                "88",
+                "(77)",
+                "358"
+              ],
+              [
+                "Amounts reclassified out",
+                "—",
+                "304",
+                "(28)",
+                "276"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "347",
+                "392",
+                "(105)",
+                "634"
+              ],
+              [
+                "Tax effect(b)",
+                "86",
+                "(91)",
+                "22",
+                "17"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "433",
+                "301",
+                "(83)",
+                "651"
+              ],
+              [
+                "Solventum spin-off",
+                "—",
+                "11",
+                "—",
+                "11"
+              ],
+              [
+                "Balance at December 31, 2025, net of tax:",
+                "$(2,520)",
+                "$(2,451)",
+                "$(98)",
+                "$(5,069)"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "score": 0.02712049508554787,
+            "rerank_score": 2.54695520401001,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.027526395173453996,
+            "rerank_score": 1.8294495344161987,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.027046783625730993,
+            "rerank_score": 4.784212684631347,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 40,
+            "type": "table",
+            "content": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "bbox": [
+              23.54999901875,
+              116.95540053226472,
+              587.452301104215,
+              521.3208873692063
+            ],
+            "table_id": "table_40_1",
+            "headers": [
+              "Net sales",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ],
+            "rows": [
+              [
+                "Operating expenses"
+              ],
+              [
+                "Cost of sales",
+                "14,991",
+                "14,447",
+                "14,983"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "3,997",
+                "4,221",
+                "19,198"
+              ],
+              [
+                "Research, development and related expenses",
+                "1,169",
+                "1,085",
+                "1,154"
+              ],
+              [
+                "Loss (gain) on business divestitures",
+                "162",
+                "—",
+                "(36)"
+              ],
+              [
+                "Total operating expenses",
+                "20,319",
+                "19,753",
+                "35,299"
+              ],
+              [
+                "Operating income (loss)",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense (income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income (loss) from continuing operations before income taxes",
+                "4,213",
+                "4,819",
+                "(11,271)"
+              ],
+              [
+                "Provision (benefit) for income taxes",
+                "1,003",
+                "804",
+                "(2,867)"
+              ],
+              [
+                "Income (loss) from continuing operations of consolidated group",
+                "3,210",
+                "4,015",
+                "(8,404)"
+              ],
+              [
+                "Income from unconsolidated subsidiaries, net of taxes",
+                "52",
+                "9",
+                "18"
+              ],
+              [
+                "Net income (loss) from continuing operations including noncontrolling interest",
+                "3,262",
+                "4,024",
+                "(8,386)"
+              ],
+              [
+                "Less: net income attributable to noncontrolling interest",
+                "12",
+                "15",
+                "16"
+              ],
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "3,250",
+                "4,009",
+                "(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Weighted average 3M common shares outstanding — diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Years ended December 31, (Millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4784",
+            "text": "Operating expenses:  | Cost of sales: 2025 year 14,991, 2024 year 14,447, 2023 year 14,983 | Selling, general and administrative expenses: 2025 year 3,997, 2024 year 4,221, 2023 year 19,198 | Research, development and related expenses: 2025 year 1,169, 2024 year 1,085, 2023 year 1,154 | Loss (gain) on business divestitures: 2025 year 162, 2024 year —, 2023 year (36) | Total operating expenses: 2025 year 20,319, 2024 year 19,753, 2023 year 35,299 | Operating income (loss): 2025 year 4,629, 2024 year 4,822, 2023 year (10,689) | Other expense (income), net: 2025 year 416, 2024 year 3, 2023 year 582 | Income (loss) from continuing operations before income taxes: 2025 year 4,213, 2024 year 4,819, 2023 year (11,271) | Provision (benefit) for income taxes: 2025 year 1,003, 2024 year 804, 2023 year (2,867) | Income (loss) from continuing operations of consolidated group: 2025 year 3,210, 2024 year 4,015, 2023 year (8,404) | Income from unconsolidated subsidiaries, net of taxes: 2025 year 52, 2024 year 9, 2023 year 18 | Net income (loss) from continuing operations including noncontrolling interest: 2025 year 3,262, 2024 year 4,024, 2023 year (8,386) | Less: net income attributable to noncontrolling interest: 2025 year 12, 2024 year 15, 2023 year 16 | Net income (loss) from continuing operations attributable to 3M: 2025 year 3,250, 2024 year 4,009, 2023 year (8,402) | Net income from discontinued operations, net of taxes: 2025 year —, 2024 year 164, 2023 year 1,407 | Net income (loss) attributable to 3M: 2025 year $3,250, 2024 year $4,173, 2023 year $(6,995) | Earnings (loss) per share attributable to 3M common shareholders::  | Weighted average 3M common shares outstanding — basic: 2025 year 537.4, 2024 year 550.8, 2023 year 553.9 | Earnings (loss) per share from continuing operations — basic: 2025 year $6.05, 2024 year $7.28, 2023 year $(15.17) | Earnings per share from discontinued operations — basic: 2025 year —, 2024 year 0.30, 2023 year 2.54 | Earnings (loss) per share — basic: 2025 year $6.05, 2024 year $7.58, 2023 year $(12.63) | Weighted average 3M common shares outstanding — diluted: 2025 year 541.3, 2024 year 552.4, 2023 year 553.9 | Earnings (loss) per share from continuing operations — diluted: 2025 year $6.00, 2024 year $7.26, 2023 year $(15.17) | Earnings per share from discontinued operations — diluted: 2025 year —, 2024 year 0.29, 2023 year 2.54 | Earnings (loss) per share — diluted: 2025 year $6.00, 2024 year $7.55, 2023 year $(12.63)",
+            "score": 0.030536130536130537,
+            "rerank_score": 2.9223400115966798,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "table",
+            "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "bbox": [
+              23.54999901875,
+              103.15730634007907,
+              587.397736719123,
+              364.57695382337835
+            ],
+            "table_id": "table_55_1",
+            "headers": [
+              "Balance at December 31, 2022, net of tax:",
+              "$(2,828)",
+              "$(3,838)",
+              "$(7)",
+              "$(6,673)"
+            ],
+            "rows": [
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "277",
+                "(763)",
+                "81",
+                "(405)"
+              ],
+              [
+                "Amounts reclassified out",
+                "54",
+                "252",
+                "(143)",
+                "163"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "331",
+                "(511)",
+                "(62)",
+                "(242)"
+              ],
+              [
+                "Tax effect(b)",
+                "(9)",
+                "131",
+                "15",
+                "137"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "322",
+                "(380)",
+                "(47)",
+                "(105)"
+              ],
+              [
+                "Balance at December 31, 2023, net of tax:",
+                "$(2,506)",
+                "$(4,218)",
+                "$(54)",
+                "$(6,778)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "(563)",
+                "123",
+                "128",
+                "(312)"
+              ],
+              [
+                "Amounts reclassified out",
+                "38",
+                "1,127",
+                "(78)",
+                "1,087"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "(525)",
+                "1,250",
+                "50",
+                "775"
+              ],
+              [
+                "Tax effect(b)",
+                "14",
+                "(315)",
+                "(11)",
+                "(312)"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "(511)",
+                "935",
+                "39",
+                "463"
+              ],
+              [
+                "Solventum spin-off",
+                "64",
+                "520",
+                "—",
+                "584"
+              ],
+              [
+                "Balance at December 31, 2024, net of tax:",
+                "$(2,953)",
+                "$(2,763)",
+                "$(15)",
+                "$(5,731)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "347",
+                "88",
+                "(77)",
+                "358"
+              ],
+              [
+                "Amounts reclassified out",
+                "—",
+                "304",
+                "(28)",
+                "276"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "347",
+                "392",
+                "(105)",
+                "634"
+              ],
+              [
+                "Tax effect(b)",
+                "86",
+                "(91)",
+                "22",
+                "17"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "433",
+                "301",
+                "(83)",
+                "651"
+              ],
+              [
+                "Solventum spin-off",
+                "—",
+                "11",
+                "—",
+                "11"
+              ],
+              [
+                "Balance at December 31, 2025, net of tax:",
+                "$(2,520)",
+                "$(2,451)",
+                "$(98)",
+                "$(5,069)"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "score": 0.02712049508554787,
+            "rerank_score": 2.54695520401001,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.027526395173453996,
+            "rerank_score": 1.8294495344161987,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.03278688524590164,
+            "rerank_score": 4.580491065979004,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.029910714285714284,
+            "rerank_score": 3.8568061351776124,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.03225806451612903,
+            "rerank_score": 2.6286327838897705,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.029386529386529386,
+            "rerank_score": 1.119661569595337,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.65908302253763,
+              76.76289233538864,
+              431.0262482529028,
+              82.36089204213863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "text": "Amounts from continuing operations",
+            "score": 0.026470588235294117,
+            "rerank_score": 0.8919107913970947,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              338.4028331998814,
+              313.76288246038627,
+              426.7699984302466,
+              319.36088216713625
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "text": "Amounts from continuing operations",
+            "score": 0.026120660599932594,
+            "rerank_score": 0.8919107913970947,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "0000066740-26-000014-56e1ef4130::evidence_4784",
+          "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "0000066740-26-000014-56e1ef4130::evidence_933",
+          "0000066740-26-000014-56e1ef4130::evidence_937",
+          "0000066740-26-000014-56e1ef4130::evidence_984",
+          "0000066740-26-000014-56e1ef4130::evidence_989"
+        ],
+        "pages": [
+          28,
+          30,
+          40,
+          50,
+          55,
+          56,
+          59
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Negated numerical assertions require an explicit supported comparison policy.",
+      "reporting_period": "2023",
+      "original_claim": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million, and in 2022 it was $(5,000) million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 30.315512500004843,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T16:00:19.929601+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792944020-hCXckVgUeYty1gVSHsQy",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 447,
+            "completion_tokens": 2044,
+            "total_tokens": 2491,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1597,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 28.656
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    },
+    {
+      "claim_text": "in 2022 it was $(5,000) million",
+      "parsed_claim": {
+        "claim_text": "in 2022 it was $(5,000) million",
+        "company": null,
+        "subject": null,
+        "metric": "total income (loss) from continuing operations before income taxes",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2022,
+        "period_quote": "in 2022",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$(5,000) million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": true,
+        "approximate": false,
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 53,
+          "type": "text",
+          "content": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+          "bbox": [
+            23.54999901875,
+            368.2820208047571,
+            574.8812328846633,
+            376.28002041150717
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+          "source_evidence_id": "evidence_1588",
+          "text": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.4304871559143066,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 79,
+          "type": "text",
+          "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+          "bbox": [
+            23.54999901875,
+            238.68082620480823,
+            354.29833822256853,
+            246.67882581155823
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "source_evidence_id": "evidence_2390",
+          "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+          "score": 0.01639344262295082,
+          "rerank_score": 3.312907075881958,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 99,
+          "type": "text",
+          "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+          "bbox": [
+            23.54999901875,
+            188.2808283048082,
+            553.2510947059193,
+            196.2788279115582
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "source_evidence_id": "evidence_3142",
+          "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+          "score": 0.020578303081468973,
+          "rerank_score": 1.9123092889785767,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 41,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            110.9375052132907,
+            561.4604795458123,
+            117.33350482679066
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+          "source_evidence_id": "evidence_1321",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.01639344262295082,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 44,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            92.33750598829079,
+            566.7479793254998,
+            98.73350560179074
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+          "source_evidence_id": "evidence_1343",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.016129032258064516,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 47,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            442.13749141329185,
+            539.3542304669061,
+            448.53349102679186
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+          "source_evidence_id": "evidence_1446",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.015873015873015872,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 53,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            253.1374992882936,
+            553.3604798833123,
+            259.53349890179356
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+          "source_evidence_id": "evidence_1581",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.015625,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 53,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            453.5374909382897,
+            551.7292299512811,
+            459.9334905517897
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+          "source_evidence_id": "evidence_1596",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.015384615384615385,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            366.53629456334033,
+            553.3698518829218,
+            372.93229417684034
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+          "source_evidence_id": "evidence_1616",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.015151515151515152,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 55,
+          "type": "text",
+          "content": "(Millions) 2025 2024 2023",
+          "bbox": [
+            72.09374699609376,
+            401.96167878544026,
+            512.9911690953671,
+            407.55967849219024
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+          "source_evidence_id": "evidence_1638",
+          "text": "(Millions) 2025 2024 2023",
+          "score": 0.014925373134328358,
+          "rerank_score": -1.68454909324646,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Negated numerical assertions require an explicit supported comparison policy.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "bbox": [
+              23.54999901875,
+              368.2820208047571,
+              574.8812328846633,
+              376.28002041150717
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "text": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.4304871559143066,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 79,
+            "type": "text",
+            "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "bbox": [
+              23.54999901875,
+              238.68082620480823,
+              354.29833822256853,
+              246.67882581155823
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "score": 0.01639344262295082,
+            "rerank_score": 3.312907075881958,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 99,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "bbox": [
+              23.54999901875,
+              188.2808283048082,
+              553.2510947059193,
+              196.2788279115582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "score": 0.020578303081468973,
+            "rerank_score": 1.9123092889785767,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 41,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              110.9375052132907,
+              561.4604795458123,
+              117.33350482679066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.01639344262295082,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 44,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              92.33750598829079,
+              566.7479793254998,
+              98.73350560179074
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.016129032258064516,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              442.13749141329185,
+              539.3542304669061,
+              448.53349102679186
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015873015873015872,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              253.1374992882936,
+              553.3604798833123,
+              259.53349890179356
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015625,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              453.5374909382897,
+              551.7292299512811,
+              459.9334905517897
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015384615384615385,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              366.53629456334033,
+              553.3698518829218,
+              372.93229417684034
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015151515151515152,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              72.09374699609376,
+              401.96167878544026,
+              512.9911690953671,
+              407.55967849219024
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.014925373134328358,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "bbox": [
+              23.54999901875,
+              368.2820208047571,
+              574.8812328846633,
+              376.28002041150717
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "text": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.4304871559143066,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 79,
+            "type": "text",
+            "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "bbox": [
+              23.54999901875,
+              238.68082620480823,
+              354.29833822256853,
+              246.67882581155823
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "score": 0.01639344262295082,
+            "rerank_score": 3.312907075881958,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 99,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "bbox": [
+              23.54999901875,
+              188.2808283048082,
+              553.2510947059193,
+              196.2788279115582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "score": 0.020578303081468973,
+            "rerank_score": 1.9123092889785767,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 41,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              110.9375052132907,
+              561.4604795458123,
+              117.33350482679066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1321",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.01639344262295082,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 44,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              92.33750598829079,
+              566.7479793254998,
+              98.73350560179074
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1343",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.016129032258064516,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              442.13749141329185,
+              539.3542304669061,
+              448.53349102679186
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1446",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015873015873015872,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              253.1374992882936,
+              553.3604798833123,
+              259.53349890179356
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1581",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015625,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              453.5374909382897,
+              551.7292299512811,
+              459.9334905517897
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1596",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015384615384615385,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              366.53629456334033,
+              553.3698518829218,
+              372.93229417684034
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1616",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.015151515151515152,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "text",
+            "content": "(Millions) 2025 2024 2023",
+            "bbox": [
+              72.09374699609376,
+              401.96167878544026,
+              512.9911690953671,
+              407.55967849219024
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1638",
+            "text": "(Millions) 2025 2024 2023",
+            "score": 0.014925373134328358,
+            "rerank_score": -1.68454909324646,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_1588",
+          "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "0000066740-26-000014-56e1ef4130::evidence_1321",
+          "0000066740-26-000014-56e1ef4130::evidence_1343",
+          "0000066740-26-000014-56e1ef4130::evidence_1446",
+          "0000066740-26-000014-56e1ef4130::evidence_1581",
+          "0000066740-26-000014-56e1ef4130::evidence_1596",
+          "0000066740-26-000014-56e1ef4130::evidence_1616",
+          "0000066740-26-000014-56e1ef4130::evidence_1638"
+        ],
+        "pages": [
+          41,
+          44,
+          47,
+          53,
+          54,
+          55,
+          79,
+          99
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "text",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Negated numerical assertions require an explicit supported comparison policy.",
+      "reporting_period": "2022",
+      "original_claim": "In 2023, total income (loss) from continuing operations before income taxes was $(11,271) million, and in 2022 it was $(5,000) million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 30.315514800022356,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T16:00:19.929601+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792944020-hCXckVgUeYty1gVSHsQy",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 447,
+            "completion_tokens": 2044,
+            "total_tokens": 2491,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1597,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 28.656
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "401f0c963e6637e7437ee04e2a7b859a789456e79c40eda6ccbb9bb0e6bb1f04"
+}

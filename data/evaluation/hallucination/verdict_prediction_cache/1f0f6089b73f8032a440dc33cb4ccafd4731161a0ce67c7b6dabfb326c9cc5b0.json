@@ -1,0 +1,824 @@
+{
+  "schema_version": 2,
+  "cache_key": "1f0f6089b73f8032a440dc33cb4ccafd4731161a0ce67c7b6dabfb326c9cc5b0",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-26T12:20:29.622585+00:00",
+  "results": [
+    {
+      "claim_text": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+      "parsed_claim": {
+        "claim_text": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+        "company": "the company",
+        "subject": "adjusted innovation yield",
+        "metric": "adjusted innovation yield",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_quote": null,
+        "period_type": "annual",
+        "temporal_status": "unspecified",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "15.2%",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "invented metric",
+          "introduced to evaluate R&D efficiency"
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_765",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "text",
+          "content": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+          "bbox": [
+            23.54999901875,
+            584.2820118047578,
+            554.4605618074759,
+            592.2800114115078
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_765",
+          "source_evidence_id": "evidence_765",
+          "text": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+          "score": 0.03278688524590164,
+          "rerank_score": -2.552370071411133,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_764",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "text",
+          "content": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+          "bbox": [
+            23.54999901875,
+            575.282012179757,
+            554.204832387401,
+            583.280011786507
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_764",
+          "source_evidence_id": "evidence_764",
+          "text": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+          "score": 0.03225806451612903,
+          "rerank_score": -3.9608139991760254,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 47,
+          "type": "text",
+          "content": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+          "bbox": [
+            23.54999901875,
+            489.4820157547594,
+            489.88008315332905,
+            497.48001536150946
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+          "source_evidence_id": "evidence_1449",
+          "text": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+          "score": 0.027799227799227798,
+          "rerank_score": -5.0863189697265625,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "text",
+          "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+          "bbox": [
+            30.74999871875,
+            256.107411176858,
+            586.3277120416777,
+            263.30741087685806
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+          "source_evidence_id": "evidence_715",
+          "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+          "score": 0.02578981302385558,
+          "rerank_score": -5.760127544403076,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_809",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 24,
+          "type": "text",
+          "content": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+          "bbox": [
+            23.54999901875,
+            248.28202580475886,
+            252.98032506415265,
+            256.28002541150886
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_809",
+          "source_evidence_id": "evidence_809",
+          "text": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+          "score": 0.031024531024531024,
+          "rerank_score": -6.5026044845581055,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_877",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "text",
+          "content": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+          "bbox": [
+            23.54999901875,
+            508.6820149547577,
+            567.2320343490004,
+            516.6800145615077
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_877",
+          "source_evidence_id": "evidence_877",
+          "text": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+          "score": 0.020220588235294115,
+          "rerank_score": -7.084351539611816,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_864",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "text",
+          "content": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+          "bbox": [
+            23.54999901875,
+            365.28202092975806,
+            568.5632842935316,
+            373.2800205365081
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_864",
+          "source_evidence_id": "evidence_864",
+          "text": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+          "score": 0.020141700404858298,
+          "rerank_score": -7.340507507324219,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 149,
+          "type": "text",
+          "content": "• Significant new product development or advances in research",
+          "bbox": [
+            37.94999841875,
+            480.4820161297566,
+            249.31278410196677,
+            488.48001573650663
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+          "source_evidence_id": "evidence_4589",
+          "text": "• Significant new product development or advances in research",
+          "score": 0.015384615384615385,
+          "rerank_score": -7.920887470245361,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_799",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 24,
+          "type": "text",
+          "content": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+          "bbox": [
+            23.54999901875,
+            80.28203280475759,
+            565.3975609717676,
+            88.28003241150759
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_799",
+          "source_evidence_id": "evidence_799",
+          "text": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+          "score": 0.024687641125997292,
+          "rerank_score": -8.187135696411133,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_925",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+          "bbox": [
+            23.54999901875,
+            278.8820245297586,
+            562.4611616604478,
+            286.8800241365086
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_925",
+          "source_evidence_id": "evidence_925",
+          "text": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+          "score": 0.0210239651416122,
+          "rerank_score": -8.474401473999023,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "invented metric",
+        "introduced to evaluate R&D efficiency"
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The claimed metric 'adjusted innovation yield' and the value '15.2%' are not present in the provided source evidence, making the source operands missing.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+            "bbox": [
+              23.54999901875,
+              584.2820118047578,
+              554.4605618074759,
+              592.2800114115078
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "text": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+            "score": 0.03278688524590164,
+            "rerank_score": -2.552370071411133,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+            "bbox": [
+              23.54999901875,
+              575.282012179757,
+              554.204832387401,
+              583.280011786507
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "text": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+            "score": 0.03225806451612903,
+            "rerank_score": -3.9608139991760254,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+            "bbox": [
+              23.54999901875,
+              489.4820157547594,
+              489.88008315332905,
+              497.48001536150946
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "text": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+            "score": 0.027799227799227798,
+            "rerank_score": -5.0863189697265625,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "bbox": [
+              30.74999871875,
+              256.107411176858,
+              586.3277120416777,
+              263.30741087685806
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "score": 0.02578981302385558,
+            "rerank_score": -5.760127544403076,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 24,
+            "type": "text",
+            "content": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+            "bbox": [
+              23.54999901875,
+              248.28202580475886,
+              252.98032506415265,
+              256.28002541150886
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "text": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+            "score": 0.031024531024531024,
+            "rerank_score": -6.5026044845581055,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "bbox": [
+              23.54999901875,
+              508.6820149547577,
+              567.2320343490004,
+              516.6800145615077
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "text": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "score": 0.020220588235294115,
+            "rerank_score": -7.084351539611816,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "bbox": [
+              23.54999901875,
+              365.28202092975806,
+              568.5632842935316,
+              373.2800205365081
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "text": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "score": 0.020141700404858298,
+            "rerank_score": -7.340507507324219,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 149,
+            "type": "text",
+            "content": "• Significant new product development or advances in research",
+            "bbox": [
+              37.94999841875,
+              480.4820161297566,
+              249.31278410196677,
+              488.48001573650663
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "text": "• Significant new product development or advances in research",
+            "score": 0.015384615384615385,
+            "rerank_score": -7.920887470245361,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 24,
+            "type": "text",
+            "content": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+            "bbox": [
+              23.54999901875,
+              80.28203280475759,
+              565.3975609717676,
+              88.28003241150759
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "text": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+            "score": 0.024687641125997292,
+            "rerank_score": -8.187135696411133,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+            "bbox": [
+              23.54999901875,
+              278.8820245297586,
+              562.4611616604478,
+              286.8800241365086
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "text": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+            "score": 0.0210239651416122,
+            "rerank_score": -8.474401473999023,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+            "bbox": [
+              23.54999901875,
+              584.2820118047578,
+              554.4605618074759,
+              592.2800114115078
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_765",
+            "text": "development and technology development aimed at disruptive innovations. R&D spending also reflects the Company's continued focus on innovation through growth",
+            "score": 0.03278688524590164,
+            "rerank_score": -2.552370071411133,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+            "bbox": [
+              23.54999901875,
+              575.282012179757,
+              554.204832387401,
+              583.280011786507
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_764",
+            "text": "R&D measured as a percent of sales: 3M continues to invest in a range of R&D activities from application development, product and manufacturing support, product",
+            "score": 0.03225806451612903,
+            "rerank_score": -3.9608139991760254,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+            "bbox": [
+              23.54999901875,
+              489.4820157547594,
+              489.88008315332905,
+              497.48001536150946
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1449",
+            "text": "amortization of certain acquired technology; and gains or losses associated with certain corporate approved investments in R&D-related ventures.",
+            "score": 0.027799227799227798,
+            "rerank_score": -5.0863189697265625,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "bbox": [
+              30.74999871875,
+              256.107411176858,
+              586.3277120416777,
+              263.30741087685806
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "score": 0.02578981302385558,
+            "rerank_score": -5.760127544403076,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 24,
+            "type": "text",
+            "content": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+            "bbox": [
+              23.54999901875,
+              248.28202580475886,
+              252.98032506415265,
+              256.28002541150886
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_809",
+            "text": "relating to these investments impacting cost of sales, SG&A, and R&D.",
+            "score": 0.031024531024531024,
+            "rerank_score": -6.5026044845581055,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "bbox": [
+              23.54999901875,
+              508.6820149547577,
+              567.2320343490004,
+              516.6800145615077
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_877",
+            "text": "while business segment operating income margins increased YoY from 21.0 percent to 23.2 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "score": 0.020220588235294115,
+            "rerank_score": -7.084351539611816,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "bbox": [
+              23.54999901875,
+              365.28202092975806,
+              568.5632842935316,
+              373.2800205365081
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_864",
+            "text": "while business segment operating income margins decreased YoY from 23.2 percent to 22.7 percent. Refer to the Certain amounts adjusted for special items - (non-GAAP",
+            "score": 0.020141700404858298,
+            "rerank_score": -7.340507507324219,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 149,
+            "type": "text",
+            "content": "• Significant new product development or advances in research",
+            "bbox": [
+              37.94999841875,
+              480.4820161297566,
+              249.31278410196677,
+              488.48001573650663
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4589",
+            "text": "• Significant new product development or advances in research",
+            "score": 0.015384615384615385,
+            "rerank_score": -7.920887470245361,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 24,
+            "type": "text",
+            "content": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+            "bbox": [
+              23.54999901875,
+              80.28203280475759,
+              565.3975609717676,
+              88.28003241150759
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_799",
+            "text": "Stock compensation is discussed in Note 19 and impacts cost of sales, SG&A, and R&D. YoY stock compensation expense was impacted by the lower extent of the 2025",
+            "score": 0.024687641125997292,
+            "rerank_score": -8.187135696411133,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+            "bbox": [
+              23.54999901875,
+              278.8820245297586,
+              562.4611616604478,
+              286.8800241365086
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_925",
+            "text": "This document contains measures for which 3M provides the reported GAAP measure and a non-GAAP measure adjusted for special items. The document also contains",
+            "score": 0.0210239651416122,
+            "rerank_score": -8.474401473999023,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_765",
+          "0000066740-26-000014-56e1ef4130::evidence_764",
+          "0000066740-26-000014-56e1ef4130::evidence_1449",
+          "0000066740-26-000014-56e1ef4130::evidence_715",
+          "0000066740-26-000014-56e1ef4130::evidence_809",
+          "0000066740-26-000014-56e1ef4130::evidence_877",
+          "0000066740-26-000014-56e1ef4130::evidence_864",
+          "0000066740-26-000014-56e1ef4130::evidence_4589",
+          "0000066740-26-000014-56e1ef4130::evidence_799",
+          "0000066740-26-000014-56e1ef4130::evidence_925"
+        ],
+        "pages": [
+          21,
+          22,
+          24,
+          26,
+          28,
+          47,
+          149
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "text",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The claimed metric 'adjusted innovation yield' and the value '15.2%' are not present in the provided source evidence, making the source operands missing.",
+      "reporting_period": "See cited source",
+      "original_claim": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 47.085932799993316,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-26T12:19:42.492323+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793017183-yPRVDoxPt77Rs8AYVHd4",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 426,
+            "completion_tokens": 1780,
+            "total_tokens": 2206,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1688,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 25.727
+        },
+        {
+          "time": "2026-10-26T12:20:09.186071+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793017210-HOJTw6yrewbh55XfOaAa",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 2859,
+            "completion_tokens": 1313,
+            "total_tokens": 4172,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1118,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 20.389
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "ac24802ada55149a2d244f7e7f7bb51226f66478ee470b97f28b781ca93e0142"
+}

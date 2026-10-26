@@ -1,0 +1,825 @@
+{
+  "schema_version": 2,
+  "cache_key": "4f1367d3046e306cc4a8f1c44846d4d2ad35c829f29af6e91fbe3361a55e44db",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-26T12:08:11.742149+00:00",
+  "results": [
+    {
+      "claim_text": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+      "parsed_claim": {
+        "claim_text": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+        "company": null,
+        "subject": "adjusted return on investment",
+        "metric": "adjusted return on investment",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_quote": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "18.5%",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "up",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "The metric 'adjusted return on investment' is described as 'invented'.",
+          "The purpose of the metric is to evaluate a transaction's performance.",
+          "No specific company name or time period is mentioned."
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 64,
+          "type": "text",
+          "content": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+          "bbox": [
+            23.54999901875,
+            427.6808183298064,
+            563.413228042497,
+            435.67881793655647
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+          "source_evidence_id": "evidence_1860",
+          "text": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+          "score": 0.015384615384615385,
+          "rerank_score": -3.2696664333343506,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+          "bbox": [
+            23.54999901875,
+            268.0820249797555,
+            577.5882834238206,
+            276.0800245865055
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+          "source_evidence_id": "evidence_1030",
+          "text": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+          "score": 0.016129032258064516,
+          "rerank_score": -4.176724433898926,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 64,
+          "type": "text",
+          "content": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+          "bbox": [
+            23.54999901875,
+            418.680818704802,
+            576.3268739107792,
+            426.67881831155205
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+          "source_evidence_id": "evidence_1859",
+          "text": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+          "score": 0.01639344262295082,
+          "rerank_score": -4.210520267486572,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "text",
+          "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+          "bbox": [
+            30.74999871875,
+            256.107411176858,
+            586.3277120416777,
+            263.30741087685806
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+          "source_evidence_id": "evidence_715",
+          "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+          "score": 0.031024531024531024,
+          "rerank_score": -5.077500820159912,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+          "bbox": [
+            23.54999901875,
+            286.082024229757,
+            576.7839008973366,
+            294.08002383650705
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+          "source_evidence_id": "evidence_1032",
+          "text": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+          "score": 0.014705882352941176,
+          "rerank_score": -5.097997665405273,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 64,
+          "type": "text",
+          "content": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+          "bbox": [
+            23.54999901875,
+            409.0808191048065,
+            587.2421155615775,
+            417.07881871155655
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+          "source_evidence_id": "evidence_1858",
+          "text": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+          "score": 0.015625,
+          "rerank_score": -5.3038225173950195,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 103,
+          "type": "text",
+          "content": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+          "bbox": [
+            23.54999901875,
+            111.48083150481511,
+            586.7238099524438,
+            119.47883111156511
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+          "source_evidence_id": "evidence_3209",
+          "text": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+          "score": 0.015384615384615385,
+          "rerank_score": -5.807636260986328,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_714",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "text",
+          "content": "GAAP Adjusted GAAP Adjusted",
+          "bbox": [
+            267.45936685585923,
+            203.93750133828667,
+            555.7300457644822,
+            210.33350095178662
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_714",
+          "source_evidence_id": "evidence_714",
+          "text": "GAAP Adjusted GAAP Adjusted",
+          "score": 0.014492753623188406,
+          "rerank_score": -6.040216445922852,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 66,
+          "type": "text",
+          "content": "Investme n t s m e a su r ed at net",
+          "bbox": [
+            427.02186020742175,
+            204.5616870104359,
+            495.47468239562033,
+            210.15968671718588
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+          "source_evidence_id": "evidence_1921",
+          "text": "Investme n t s m e a su r ed at net",
+          "score": 0.015873015873015872,
+          "rerank_score": -6.924061298370361,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+          "bbox": [
+            23.54999901875,
+            523.6808143298124,
+            581.0789370127765,
+            531.6788139365624
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+          "source_evidence_id": "evidence_3129",
+          "text": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+          "score": 0.021482155035235283,
+          "rerank_score": -7.131508827209473,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "The metric 'adjusted return on investment' is described as 'invented'.",
+        "The purpose of the metric is to evaluate a transaction's performance.",
+        "No specific company name or time period is mentioned."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain any mention of the metric 'adjusted return on investment' or the value '18.5%'.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+            "bbox": [
+              23.54999901875,
+              427.6808183298064,
+              563.413228042497,
+              435.67881793655647
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "text": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+            "score": 0.015384615384615385,
+            "rerank_score": -3.2696664333343506,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+            "bbox": [
+              23.54999901875,
+              268.0820249797555,
+              577.5882834238206,
+              276.0800245865055
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "text": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+            "score": 0.016129032258064516,
+            "rerank_score": -4.176724433898926,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+            "bbox": [
+              23.54999901875,
+              418.680818704802,
+              576.3268739107792,
+              426.67881831155205
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "text": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+            "score": 0.01639344262295082,
+            "rerank_score": -4.210520267486572,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "bbox": [
+              30.74999871875,
+              256.107411176858,
+              586.3277120416777,
+              263.30741087685806
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "score": 0.031024531024531024,
+            "rerank_score": -5.077500820159912,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+            "bbox": [
+              23.54999901875,
+              286.082024229757,
+              576.7839008973366,
+              294.08002383650705
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "text": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+            "score": 0.014705882352941176,
+            "rerank_score": -5.097997665405273,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+            "bbox": [
+              23.54999901875,
+              409.0808191048065,
+              587.2421155615775,
+              417.07881871155655
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "text": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+            "score": 0.015625,
+            "rerank_score": -5.3038225173950195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+            "bbox": [
+              23.54999901875,
+              111.48083150481511,
+              586.7238099524438,
+              119.47883111156511
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "text": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+            "score": 0.015384615384615385,
+            "rerank_score": -5.807636260986328,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "GAAP Adjusted GAAP Adjusted",
+            "bbox": [
+              267.45936685585923,
+              203.93750133828667,
+              555.7300457644822,
+              210.33350095178662
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "text": "GAAP Adjusted GAAP Adjusted",
+            "score": 0.014492753623188406,
+            "rerank_score": -6.040216445922852,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 66,
+            "type": "text",
+            "content": "Investme n t s m e a su r ed at net",
+            "bbox": [
+              427.02186020742175,
+              204.5616870104359,
+              495.47468239562033,
+              210.15968671718588
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "text": "Investme n t s m e a su r ed at net",
+            "score": 0.015873015873015872,
+            "rerank_score": -6.924061298370361,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+            "bbox": [
+              23.54999901875,
+              523.6808143298124,
+              581.0789370127765,
+              531.6788139365624
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "text": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+            "score": 0.021482155035235283,
+            "rerank_score": -7.131508827209473,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+            "bbox": [
+              23.54999901875,
+              427.6808183298064,
+              563.413228042497,
+              435.67881793655647
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1860",
+            "text": "18% global equities, 15% private equities, 58% fixed-income and private credit investments, and 9% absolute return investments independent of traditional performance",
+            "score": 0.015384615384615385,
+            "rerank_score": -3.2696664333343506,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+            "bbox": [
+              23.54999901875,
+              268.0820249797555,
+              577.5882834238206,
+              276.0800245865055
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1030",
+            "text": "and expected performance from active investment management. For the primary U.S. qualified pension plan, the expected long-term rate of return for 2026 is 8.0 percent, no",
+            "score": 0.016129032258064516,
+            "rerank_score": -4.176724433898926,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+            "bbox": [
+              23.54999901875,
+              418.680818704802,
+              576.3268739107792,
+              426.67881831155205
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1859",
+            "text": "expectations and expected performance from active investment management. The 2025 expected long-term rate of return is based on an initial asset allocation assumption of",
+            "score": 0.01639344262295082,
+            "rerank_score": -4.210520267486572,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "bbox": [
+              30.74999871875,
+              256.107411176858,
+              586.3277120416777,
+              263.30741087685806
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_715",
+            "text": "(a) The Company refers to various \"adjusted\" amounts or measures on an “adjusted\" basis. These exclude special items. These non-GAAP measures are further described and reconciled to the",
+            "score": 0.031024531024531024,
+            "rerank_score": -5.077500820159912,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+            "bbox": [
+              23.54999901875,
+              286.082024229757,
+              576.7839008973366,
+              294.08002383650705
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1032",
+            "text": "asset allocations and expected long-term rate of return assumptions. The weighted average expected return for the international pension plans is 5.33% for 2026 compared to",
+            "score": 0.014705882352941176,
+            "rerank_score": -5.097997665405273,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+            "bbox": [
+              23.54999901875,
+              409.0808191048065,
+              587.2421155615775,
+              417.07881871155655
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1858",
+            "text": "expected long-term rate of return on U.S. plan assets is 8%. The expected return assumption is based on the strategic asset allocation of the plan, long term capital market return",
+            "score": 0.015625,
+            "rerank_score": -5.3038225173950195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+            "bbox": [
+              23.54999901875,
+              111.48083150481511,
+              586.7238099524438,
+              119.47883111156511
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3209",
+            "text": "a. The Company carried out an evaluation, under the supervision and with the participation of its management, including the Chief Executive Officer and Chief Financial",
+            "score": 0.015384615384615385,
+            "rerank_score": -5.807636260986328,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "text",
+            "content": "GAAP Adjusted GAAP Adjusted",
+            "bbox": [
+              267.45936685585923,
+              203.93750133828667,
+              555.7300457644822,
+              210.33350095178662
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_714",
+            "text": "GAAP Adjusted GAAP Adjusted",
+            "score": 0.014492753623188406,
+            "rerank_score": -6.040216445922852,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 66,
+            "type": "text",
+            "content": "Investme n t s m e a su r ed at net",
+            "bbox": [
+              427.02186020742175,
+              204.5616870104359,
+              495.47468239562033,
+              210.15968671718588
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1921",
+            "text": "Investme n t s m e a su r ed at net",
+            "score": 0.015873015873015872,
+            "rerank_score": -6.924061298370361,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+            "bbox": [
+              23.54999901875,
+              523.6808143298124,
+              581.0789370127765,
+              531.6788139365624
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3129",
+            "text": "performance criteria for these performance shares (free cash flow and earnings per share) were selected because the Company believes that they are important drivers of long-",
+            "score": 0.021482155035235283,
+            "rerank_score": -7.131508827209473,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_1860",
+          "0000066740-26-000014-56e1ef4130::evidence_1030",
+          "0000066740-26-000014-56e1ef4130::evidence_1859",
+          "0000066740-26-000014-56e1ef4130::evidence_715",
+          "0000066740-26-000014-56e1ef4130::evidence_1032",
+          "0000066740-26-000014-56e1ef4130::evidence_1858",
+          "0000066740-26-000014-56e1ef4130::evidence_3209",
+          "0000066740-26-000014-56e1ef4130::evidence_714",
+          "0000066740-26-000014-56e1ef4130::evidence_1921",
+          "0000066740-26-000014-56e1ef4130::evidence_3129"
+        ],
+        "pages": [
+          21,
+          32,
+          64,
+          66,
+          98,
+          103
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "text",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain any mention of the metric 'adjusted return on investment' or the value '18.5%'.",
+      "reporting_period": "See cited source",
+      "original_claim": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 35.63144800000009,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-26T12:07:36.082146+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793016456-HUPVwcnbwDEQX494FWXs",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 427,
+            "completion_tokens": 1763,
+            "total_tokens": 2190,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1635,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 21.016
+        },
+        {
+          "time": "2026-10-26T12:07:58.027392+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793016478-DEdLBpwYXFc2hFTbtEJ3",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 2994,
+            "completion_tokens": 838,
+            "total_tokens": 3832,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 774,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 13.683
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "cc5159139068187eecbf2897c6982785c0769f20859520e53c4b19eeda1f7a5a"
+}

@@ -1,0 +1,889 @@
+{
+  "schema_version": 2,
+  "cache_key": "c14d26f2bdc63787e4dd6d7aa667fe0b0a33218293cfd3165bc721e22e21455d",
+  "configuration_signature": "9bdbfb3ba81d6c4a0dd06f896c8401528c2bced8647cfdbddefaeec6ff9e1d17",
+  "request": {
+    "claim_text": "The company's total effective tax rate for the fiscal year ended December 31, 2025, was 21.5%.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-25T15:46:08.613037+00:00",
+  "results": [
+    {
+      "claim_text": "The company's total effective tax rate for the fiscal year ended December 31, 2025, was 21.5%.",
+      "parsed_claim": {
+        "claim_text": "The company's total effective tax rate for the fiscal year ended December 31, 2025, was 21.5%.",
+        "company": null,
+        "subject": "total effective tax rate",
+        "metric": "total effective tax rate",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "fiscal year ended December 31, 2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "21.5%",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "effective tax rate is a percentage rate",
+          "fiscal year ended December 31, 2025",
+          "no comparison year stated"
+        ],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "CONTRADICTED",
+      "confidence": null,
+      "confidence_kind": "deterministic comparison; no calibrated probability",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 23,
+          "type": "table",
+          "content": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+          "bbox": [
+            23.54999901875,
+            249.96598958475022,
+            587.8071183651784,
+            274.5932318018577
+          ],
+          "table_id": "table_23_1",
+          "headers": [
+            "Effective tax rate",
+            "23.8",
+            "%",
+            "16.7",
+            "%"
+          ],
+          "rows": [
+            [
+              "Adjusted effective tax rate(a)",
+              "19.9",
+              "19.6"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Provision for Income Taxes: (Percent of pre-tax income) 2025 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+          "source_evidence_id": "evidence_4767",
+          "text": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+          "score": 0.02639344262295082,
+          "rerank_score": 2.013831114768982,
+          "annual_report_year_columns": true,
+          "metric_label": "Adjusted effective tax rate(a)",
+          "period_interpretation": "annual_report_year_columns",
+          "relevant_row_indices": [
+            0
+          ],
+          "relevant_column_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "0000066740-26-000014-56e1ef4130::evidence_4767"
+      ],
+      "calculation": {
+        "formula": "value",
+        "value": 19.9,
+        "inputs": {
+          "value": 19.9
+        },
+        "raw_inputs": {
+          "value": "19.9"
+        },
+        "input_metadata": {
+          "value": {
+            "currency": null,
+            "unit": "number",
+            "precision": 1,
+            "scale": 1,
+            "normalized_precision": 1,
+            "unit_context": ""
+          }
+        },
+        "currency": null,
+        "result_unit": "number",
+        "result_precision": null,
+        "source_inputs": {
+          "value": {
+            "name": "value",
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "19.9",
+            "normalized_value": 19.9,
+            "unit_context": "",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "source_evidence_id": "evidence_4767",
+            "period_interpretation": "annual_report_year_columns",
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 21.5,
+        "actual": 19.9,
+        "difference": 1.6000000000000014,
+        "tolerance": 0.05,
+        "verdict": "CONTRADICTED",
+        "unit": "number",
+        "claimed_precision": 1,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "notes": [
+        "effective tax rate is a percentage rate",
+        "fiscal year ended December 31, 2025",
+        "no comparison year stated"
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unique matching source cells selected locally; Python performs the comparison.",
+      "unit": "number",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "bbox": [
+              23.54999901875,
+              340.6808219548049,
+              574.9526778216868,
+              348.67882156155497
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "text": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "score": 0.031024531024531024,
+            "rerank_score": 3.9667125701904298,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "For the fiscal year ended December 31, 2025",
+            "bbox": [
+              37.94999841875,
+              148.13750366328668,
+              158.35424334190625,
+              154.53350327678663
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "text": "For the fiscal year ended December 31, 2025",
+            "score": 0.03252247488101534,
+            "rerank_score": 2.3792205810546876,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "As of December 31, 2025, the Company's tax effected operating losses, capital losses, and tax credit carryovers before limitation impacts and valuation allowances were",
+            "bbox": [
+              23.54999901875,
+              408.48081912980814,
+              562.4574144623225,
+              416.4788187365582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "text": "As of December 31, 2025, the Company's tax effected operating losses, capital losses, and tax credit carryovers before limitation impacts and valuation allowances were",
+            "score": 0.025726010101010104,
+            "rerank_score": 2.0299275875091554,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.02871794871794872,
+            "rerank_score": 1.8230665683746339,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "For the Year Ended December 31, 2025",
+            "bbox": [
+              239.24999003125,
+              78.48198487975878,
+              372.44053145164384,
+              86.47998448650878
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "text": "For the Year Ended December 31, 2025",
+            "score": 0.030621785881252923,
+            "rerank_score": 1.1364036560058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 4,
+            "type": "text",
+            "content": "For the Year Ended December 31, 2025",
+            "bbox": [
+              239.24999003125,
+              79.68203282975696,
+              372.44053145164384,
+              87.68003243650696
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "text": "For the Year Ended December 31, 2025",
+            "score": 0.030158730158730156,
+            "rerank_score": 1.13640353679657,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "bbox": [
+              23.54999901875,
+              239.28082617980658,
+              573.3436467350803,
+              247.27882578655658
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "text": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "score": 0.026779422128259338,
+            "rerank_score": 0.27103315889835355,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "associated with foreign earnings in certain subsidiaries that are not considered permanently reinvested. As of December 31, 2025, the Company has not provided deferred taxes",
+            "bbox": [
+              23.54999901875,
+              562.0808127298089,
+              585.1554722748515,
+              570.0788123365589
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "text": "associated with foreign earnings in certain subsidiaries that are not considered permanently reinvested. As of December 31, 2025, the Company has not provided deferred taxes",
+            "score": 0.014925373134328358,
+            "rerank_score": -0.19460084438323974,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 106,
+            "type": "text",
+            "content": "the year ended December 31, 2023.",
+            "bbox": [
+              75.74062184414063,
+              382.6808202048134,
+              189.20442722148192,
+              390.67881981156347
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "text": "the year ended December 31, 2023.",
+            "score": 0.015625,
+            "rerank_score": -0.39275428652763367,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "table",
+            "content": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+            "bbox": [
+              23.54999901875,
+              249.96598958475022,
+              587.8071183651784,
+              274.5932318018577
+            ],
+            "table_id": "table_23_1",
+            "headers": [
+              "Effective tax rate",
+              "23.8",
+              "%",
+              "16.7",
+              "%"
+            ],
+            "rows": [
+              [
+                "Adjusted effective tax rate(a)",
+                "19.9",
+                "19.6"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Provision for Income Taxes: (Percent of pre-tax income) 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "text": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+            "score": 0.02639344262295082,
+            "rerank_score": 2.013831114768982,
+            "annual_report_year_columns": true,
+            "metric_label": "Adjusted effective tax rate(a)",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "table",
+            "content": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+            "bbox": [
+              23.54999901875,
+              249.96598958475022,
+              587.8071183651784,
+              274.5932318018577
+            ],
+            "table_id": "table_23_1",
+            "headers": [
+              "Effective tax rate",
+              "23.8",
+              "%",
+              "16.7",
+              "%"
+            ],
+            "rows": [
+              [
+                "Adjusted effective tax rate(a)",
+                "19.9",
+                "19.6"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Provision for Income Taxes: (Percent of pre-tax income) 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+            "text": "Adjusted effective tax rate(a): 2025 19.9, 2024 19.6",
+            "score": 0.02639344262295082,
+            "rerank_score": 2.013831114768982,
+            "annual_report_year_columns": true,
+            "metric_label": "Adjusted effective tax rate(a)",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "bbox": [
+              23.54999901875,
+              340.6808219548049,
+              574.9526778216868,
+              348.67882156155497
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "text": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "score": 0.031024531024531024,
+            "rerank_score": 3.9667125701904298,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "For the fiscal year ended December 31, 2025",
+            "bbox": [
+              37.94999841875,
+              148.13750366328668,
+              158.35424334190625,
+              154.53350327678663
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_008",
+            "text": "For the fiscal year ended December 31, 2025",
+            "score": 0.03252247488101534,
+            "rerank_score": 2.3792205810546876,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "As of December 31, 2025, the Company's tax effected operating losses, capital losses, and tax credit carryovers before limitation impacts and valuation allowances were",
+            "bbox": [
+              23.54999901875,
+              408.48081912980814,
+              562.4574144623225,
+              416.4788187365582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1698",
+            "text": "As of December 31, 2025, the Company's tax effected operating losses, capital losses, and tax credit carryovers before limitation impacts and valuation allowances were",
+            "score": 0.025726010101010104,
+            "rerank_score": 2.0299275875091554,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.02871794871794872,
+            "rerank_score": 1.8230665683746339,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "For the Year Ended December 31, 2025",
+            "bbox": [
+              239.24999003125,
+              78.48198487975878,
+              372.44053145164384,
+              86.47998448650878
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_056",
+            "text": "For the Year Ended December 31, 2025",
+            "score": 0.030621785881252923,
+            "rerank_score": 1.1364036560058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 4,
+            "type": "text",
+            "content": "For the Year Ended December 31, 2025",
+            "bbox": [
+              239.24999003125,
+              79.68203282975696,
+              372.44053145164384,
+              87.68003243650696
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_130",
+            "text": "For the Year Ended December 31, 2025",
+            "score": 0.030158730158730156,
+            "rerank_score": 1.13640353679657,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "bbox": [
+              23.54999901875,
+              239.28082617980658,
+              573.3436467350803,
+              247.27882578655658
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "text": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "score": 0.026779422128259338,
+            "rerank_score": 0.27103315889835355,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "associated with foreign earnings in certain subsidiaries that are not considered permanently reinvested. As of December 31, 2025, the Company has not provided deferred taxes",
+            "bbox": [
+              23.54999901875,
+              562.0808127298089,
+              585.1554722748515,
+              570.0788123365589
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1708",
+            "text": "associated with foreign earnings in certain subsidiaries that are not considered permanently reinvested. As of December 31, 2025, the Company has not provided deferred taxes",
+            "score": 0.014925373134328358,
+            "rerank_score": -0.19460084438323974,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 106,
+            "type": "text",
+            "content": "the year ended December 31, 2023.",
+            "bbox": [
+              75.74062184414063,
+              382.6808202048134,
+              189.20442722148192,
+              390.67881981156347
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3314",
+            "text": "the year ended December 31, 2023.",
+            "score": 0.015625,
+            "rerank_score": -0.39275428652763367,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": {
+          "formula": "value",
+          "value": 19.9,
+          "inputs": {
+            "value": 19.9
+          },
+          "raw_inputs": {
+            "value": "19.9"
+          },
+          "input_metadata": {
+            "value": {
+              "currency": null,
+              "unit": "number",
+              "precision": 1,
+              "scale": 1,
+              "normalized_precision": 1,
+              "unit_context": ""
+            }
+          },
+          "currency": null,
+          "result_unit": "number",
+          "result_precision": null,
+          "source_inputs": {
+            "value": {
+              "name": "value",
+              "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4767",
+              "row_index": 0,
+              "column_index": 1,
+              "number_index": null,
+              "fact_index": null,
+              "unit_quote": "",
+              "scope_quote": "",
+              "raw": "19.9",
+              "normalized_value": 19.9,
+              "unit_context": "",
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "page": 23,
+              "source_evidence_id": "evidence_4767",
+              "period_interpretation": "annual_report_year_columns",
+              "effective_column_map": [
+                {
+                  "col": 1,
+                  "year": 2025,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 2,
+                  "year": 2024,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                }
+              ]
+            }
+          },
+          "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+        },
+        "comparison": {
+          "claimed": 21.5,
+          "actual": 19.9,
+          "difference": 1.6000000000000014,
+          "tolerance": 0.05,
+          "verdict": "CONTRADICTED",
+          "unit": "number",
+          "claimed_precision": 1,
+          "actual_precision": null,
+          "difference_precision": null,
+          "operator": "equal"
+        },
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4767",
+          "0000066740-26-000014-56e1ef4130::evidence_1679",
+          "0000066740-26-000014-56e1ef4130::evidence_008",
+          "0000066740-26-000014-56e1ef4130::evidence_1698",
+          "0000066740-26-000014-56e1ef4130::evidence_784",
+          "0000066740-26-000014-56e1ef4130::evidence_056",
+          "0000066740-26-000014-56e1ef4130::evidence_130",
+          "0000066740-26-000014-56e1ef4130::evidence_1669",
+          "0000066740-26-000014-56e1ef4130::evidence_1708",
+          "0000066740-26-000014-56e1ef4130::evidence_3314"
+        ],
+        "pages": [
+          1,
+          2,
+          4,
+          23,
+          57,
+          58,
+          106
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "calculation",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Python comparison: claimed 21.5 number; actual 19.9 number.",
+      "reporting_period": "2025",
+      "original_claim": "The company's total effective tax rate for the fiscal year ended December 31, 2025, was 21.5%.",
+      "overall_verdict": "CONTRADICTED",
+      "processing_time_seconds": 17.23035300002084,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T15:45:51.344576+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792943151-8tNh3hzC8P3A8oglWzZS",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 430,
+            "completion_tokens": 1027,
+            "total_tokens": 1457,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 695,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 16.915
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "23450d4cb33cf1d111257bb39a7d964224b8012bf50f1274c1b831cc0960a0d2"
+}

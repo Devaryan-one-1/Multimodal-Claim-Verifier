@@ -1,0 +1,1382 @@
+{
+  "schema_version": 2,
+  "cache_key": "44c5c382eaab7763a3e3d7ccdfac29e279fd84f15b189105f7714b315162a687",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-26T11:57:31.883945+00:00",
+  "results": [
+    {
+      "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+      "parsed_claim": {
+        "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+        "company": "3M",
+        "subject": "diluted EPS",
+        "metric": "diluted EPS",
+        "segment": null,
+        "start_period": 2025,
+        "end_period": 2026,
+        "period_quote": "2026",
+        "period_type": "annual",
+        "temporal_status": "forward_looking",
+        "quarter": null,
+        "operation": "growth",
+        "claimed_literal": "10%",
+        "claimed_change": 10.0,
+        "comparison_operator": "at_least",
+        "direction": "up",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "Annual change in the stated year compares with its preceding year."
+        ],
+        "period_inference": "preceding_annual_year",
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "bbox": [
+            23.54999901875,
+            518.2800945548381,
+            519.5051183989528,
+            526.2780941615881
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "source_evidence_id": "evidence_1130",
+          "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "score": 0.01639344262295082,
+          "rerank_score": 1.3993234157562255,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "table",
+          "content": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+          "bbox": [
+            23.54999901875,
+            463.5414700474741,
+            588.1499754937499,
+            487.70818863404895
+          ],
+          "table_id": "table_21_3",
+          "headers": [
+            "Earning per diluted share (EPS)",
+            "$6.00",
+            "$8.06",
+            "$7.26",
+            "$7.30"
+          ],
+          "rows": [
+            [
+              "YoY change in EPS",
+              "(17)",
+              "%",
+              "10",
+              "%",
+              "148",
+              "%",
+              "21",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 5,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 6,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 7,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2025,
+              2025,
+              2024,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [
+              "quarter"
+            ],
+            "raw": "GAAP operating margins were affected by the YoY impact of special items. These primarily included an increase in net costs for significant litigation impacting operating income from the 2025 PFAS-related New Jersey Settlement and updates to site remediation obligations (discussed in Note 17), partially offset by increased insurance recoveries; manufactured PFAS products impacts; a 2025 charge associated with divestiture activity (discussed in Note 4); and 2025 transformation costs. Outside of special items, both GAAP and adjusted operating margins reflect benefits from growth, productivity, and lower restructuring costs (apart from the transformation costs special item), partially offset by growth investments and tariff impacts. Additionally, margins YoY were impacted by cost dis-synergies (from the exit of PFAS manufacturing and 2024 spin of Solventum); by transition service agreement reimbursement from Solventum, which began in the second quarter of 2024; and by the lower extent of stock-based compensation grants (see the Certain Expenses Impacting Multiple Line Items within Results of Operation discussion below). 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+          "source_evidence_id": "evidence_4763",
+          "text": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+          "score": 0.015151515151515152,
+          "rerank_score": 0.5053322374820709,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "bbox": [
+            23.54999901875,
+            479.8820161547566,
+            578.3847333586843,
+            487.8800157615067
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "source_evidence_id": "evidence_1051",
+          "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "score": 0.014285714285714285,
+          "rerank_score": -0.8361733198165894,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_334",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 11,
+          "type": "text",
+          "content": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+          "bbox": [
+            23.54999901875,
+            186.48202837975555,
+            579.6302754587376,
+            194.48002798650555
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_334",
+          "source_evidence_id": "evidence_334",
+          "text": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+          "score": 0.015625,
+          "rerank_score": -0.9142138004302979,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 64,
+          "type": "text",
+          "content": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+          "bbox": [
+            23.54999901875,
+            229.6808265798038,
+            582.3245772145243,
+            237.6788261865538
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+          "source_evidence_id": "evidence_1840",
+          "text": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+          "score": 0.014705882352941176,
+          "rerank_score": -1.0939800024032593,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 35,
+          "type": "text",
+          "content": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+          "bbox": [
+            23.54999901875,
+            265.08202510475644,
+            571.0436959909113,
+            273.08002471150644
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+          "source_evidence_id": "evidence_1152",
+          "text": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+          "score": 0.014925373134328358,
+          "rerank_score": -1.7371107578277587,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 77,
+          "type": "text",
+          "content": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+          "bbox": [
+            23.54999901875,
+            160.07842947990252,
+            586.8149528913272,
+            168.07642908665252
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+          "source_evidence_id": "evidence_2296",
+          "text": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+          "score": 0.015384615384615385,
+          "rerank_score": -1.9614478588104247,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "bbox": [
+            23.54999901875,
+            299.88082365480767,
+            575.0717204036773,
+            307.8788232615577
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "source_evidence_id": "evidence_1610",
+          "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "score": 0.014492753623188406,
+          "rerank_score": -2.071595573425293,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "bbox": [
+            23.54999901875,
+            98.91653781396317,
+            587.2353413855183,
+            311.17787794334726
+          ],
+          "table_id": "table_59_1",
+          "headers": [
+            "Numerator:"
+          ],
+          "rows": [
+            [
+              "Net income (loss) from continuing operations attributable to 3M",
+              "$ 3,250",
+              "$4,009",
+              "$(8,402)"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "—",
+              "164",
+              "1,407"
+            ],
+            [
+              "Net income (loss) attributable to 3M",
+              "$ 3,250",
+              "$4,173",
+              "$(6,995)"
+            ],
+            [
+              "Denominator:"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – basic",
+              "537.4",
+              "550.8",
+              "553.9"
+            ],
+            [
+              "Dilution associated with stock-based compensation plans",
+              "3.9",
+              "1.6",
+              "—"
+            ],
+            [
+              "Weighted average 3M common shares outstanding – diluted",
+              "541.3",
+              "552.4",
+              "553.9"
+            ],
+            [
+              "Earnings (loss) per share attributable to 3M common shareholders:"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — basic",
+              "$ 6.05",
+              "$7.28",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — basic",
+              "—",
+              "0.30",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — basic",
+              "$ 6.05",
+              "$7.58",
+              "$(12.63)"
+            ],
+            [
+              "Earnings (loss) per share from continuing operations — diluted",
+              "$ 6.00",
+              "$7.26",
+              "$(15.17)"
+            ],
+            [
+              "Earnings per share from discontinued operations — diluted",
+              "—",
+              "0.29",
+              "2.54"
+            ],
+            [
+              "Earnings (loss) per share — diluted",
+              "$ 6.00",
+              "$7.55",
+              "$(12.63)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "source_evidence_id": "evidence_4820",
+          "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+          "score": 0.016129032258064516,
+          "rerank_score": -2.4591750144958495,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 102,
+          "type": "text",
+          "content": "3M,",
+          "bbox": [
+            81.14999661875001,
+            290.2808240548049,
+            94.2584407375648,
+            298.27882366155495
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+          "source_evidence_id": "evidence_3188",
+          "text": "3M,",
+          "score": 0.015151515151515152,
+          "rerank_score": -3.117910385131836,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "Annual change in the stated year compares with its preceding year."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "No source projection for 2026 diluted EPS growth is available in the provided evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.01639344262295082,
+            "rerank_score": 1.3993234157562255,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.014285714285714285,
+            "rerank_score": -0.8361733198165894,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 11,
+            "type": "text",
+            "content": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+            "bbox": [
+              23.54999901875,
+              186.48202837975555,
+              579.6302754587376,
+              194.48002798650555
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "text": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+            "score": 0.015625,
+            "rerank_score": -0.9142138004302979,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+            "bbox": [
+              23.54999901875,
+              229.6808265798038,
+              582.3245772145243,
+              237.6788261865538
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "text": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+            "score": 0.014705882352941176,
+            "rerank_score": -1.0939800024032593,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+            "bbox": [
+              23.54999901875,
+              265.08202510475644,
+              571.0436959909113,
+              273.08002471150644
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "text": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+            "score": 0.014925373134328358,
+            "rerank_score": -1.7371107578277587,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 77,
+            "type": "text",
+            "content": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+            "bbox": [
+              23.54999901875,
+              160.07842947990252,
+              586.8149528913272,
+              168.07642908665252
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "text": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+            "score": 0.015384615384615385,
+            "rerank_score": -1.9614478588104247,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.014492753623188406,
+            "rerank_score": -2.071595573425293,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.015151515151515152,
+            "rerank_score": -3.117910385131836,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+            "bbox": [
+              23.54999901875,
+              463.5414700474741,
+              588.1499754937499,
+              487.70818863404895
+            ],
+            "table_id": "table_21_3",
+            "headers": [
+              "Earning per diluted share (EPS)",
+              "$6.00",
+              "$8.06",
+              "$7.26",
+              "$7.30"
+            ],
+            "rows": [
+              [
+                "YoY change in EPS",
+                "(17)",
+                "%",
+                "10",
+                "%",
+                "148",
+                "%",
+                "21",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2025,
+                2025,
+                2024,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "GAAP operating margins were affected by the YoY impact of special items. These primarily included an increase in net costs for significant litigation impacting operating income from the 2025 PFAS-related New Jersey Settlement and updates to site remediation obligations (discussed in Note 17), partially offset by increased insurance recoveries; manufactured PFAS products impacts; a 2025 charge associated with divestiture activity (discussed in Note 4); and 2025 transformation costs. Outside of special items, both GAAP and adjusted operating margins reflect benefits from growth, productivity, and lower restructuring costs (apart from the transformation costs special item), partially offset by growth investments and tariff impacts. Additionally, margins YoY were impacted by cost dis-synergies (from the exit of PFAS manufacturing and 2024 spin of Solventum); by transition service agreement reimbursement from Solventum, which began in the second quarter of 2024; and by the lower extent of stock-based compensation grants (see the Certain Expenses Impacting Multiple Line Items within Results of Operation discussion below). 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "text": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+            "score": 0.015151515151515152,
+            "rerank_score": 0.5053322374820709,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.016129032258064516,
+            "rerank_score": -2.4591750144958495,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+            "bbox": [
+              23.54999901875,
+              463.5414700474741,
+              588.1499754937499,
+              487.70818863404895
+            ],
+            "table_id": "table_21_3",
+            "headers": [
+              "Earning per diluted share (EPS)",
+              "$6.00",
+              "$8.06",
+              "$7.26",
+              "$7.30"
+            ],
+            "rows": [
+              [
+                "YoY change in EPS",
+                "(17)",
+                "%",
+                "10",
+                "%",
+                "148",
+                "%",
+                "21",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2025,
+                2025,
+                2024,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "GAAP operating margins were affected by the YoY impact of special items. These primarily included an increase in net costs for significant litigation impacting operating income from the 2025 PFAS-related New Jersey Settlement and updates to site remediation obligations (discussed in Note 17), partially offset by increased insurance recoveries; manufactured PFAS products impacts; a 2025 charge associated with divestiture activity (discussed in Note 4); and 2025 transformation costs. Outside of special items, both GAAP and adjusted operating margins reflect benefits from growth, productivity, and lower restructuring costs (apart from the transformation costs special item), partially offset by growth investments and tariff impacts. Additionally, margins YoY were impacted by cost dis-synergies (from the exit of PFAS manufacturing and 2024 spin of Solventum); by transition service agreement reimbursement from Solventum, which began in the second quarter of 2024; and by the lower extent of stock-based compensation grants (see the Certain Expenses Impacting Multiple Line Items within Results of Operation discussion below). 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+            "text": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %",
+            "score": 0.015151515151515152,
+            "rerank_score": 0.5053322374820709,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "bbox": [
+              23.54999901875,
+              98.91653781396317,
+              587.2353413855183,
+              311.17787794334726
+            ],
+            "table_id": "table_59_1",
+            "headers": [
+              "Numerator:"
+            ],
+            "rows": [
+              [
+                "Net income (loss) from continuing operations attributable to 3M",
+                "$ 3,250",
+                "$4,009",
+                "$(8,402)"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "—",
+                "164",
+                "1,407"
+              ],
+              [
+                "Net income (loss) attributable to 3M",
+                "$ 3,250",
+                "$4,173",
+                "$(6,995)"
+              ],
+              [
+                "Denominator:"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – basic",
+                "537.4",
+                "550.8",
+                "553.9"
+              ],
+              [
+                "Dilution associated with stock-based compensation plans",
+                "3.9",
+                "1.6",
+                "—"
+              ],
+              [
+                "Weighted average 3M common shares outstanding – diluted",
+                "541.3",
+                "552.4",
+                "553.9"
+              ],
+              [
+                "Earnings (loss) per share attributable to 3M common shareholders:"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — basic",
+                "$ 6.05",
+                "$7.28",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — basic",
+                "—",
+                "0.30",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — basic",
+                "$ 6.05",
+                "$7.58",
+                "$(12.63)"
+              ],
+              [
+                "Earnings (loss) per share from continuing operations — diluted",
+                "$ 6.00",
+                "$7.26",
+                "$(15.17)"
+              ],
+              [
+                "Earnings per share from discontinued operations — diluted",
+                "—",
+                "0.29",
+                "2.54"
+              ],
+              [
+                "Earnings (loss) per share — diluted",
+                "$ 6.00",
+                "$7.55",
+                "$(12.63)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 10. Earnings (Loss) Per Share The computations for basic and diluted earnings per share follow: (Amounts in millions, except per share amounts) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4820",
+            "text": "Net income (loss) from continuing operations attributable to 3M: 2025 $ 3,250, 2024 $4,009, 2023 $(8,402) | Net income from discontinued operations, net of taxes: 2025 —, 2024 164, 2023 1,407 | Net income (loss) attributable to 3M: 2025 $ 3,250, 2024 $4,173, 2023 $(6,995) | Denominator::  | Weighted average 3M common shares outstanding – basic: 2025 537.4, 2024 550.8, 2023 553.9 | Dilution associated with stock-based compensation plans: 2025 3.9, 2024 1.6, 2023 — | Weighted average 3M common shares outstanding – diluted: 2025 541.3, 2024 552.4, 2023 553.9 | Earnings (loss) per share attributable to 3M common shareholders::  | Earnings (loss) per share from continuing operations — basic: 2025 $ 6.05, 2024 $7.28, 2023 $(15.17) | Earnings per share from discontinued operations — basic: 2025 —, 2024 0.30, 2023 2.54 | Earnings (loss) per share — basic: 2025 $ 6.05, 2024 $7.58, 2023 $(12.63) | Earnings (loss) per share from continuing operations — diluted: 2025 $ 6.00, 2024 $7.26, 2023 $(15.17) | Earnings per share from discontinued operations — diluted: 2025 —, 2024 0.29, 2023 2.54 | Earnings (loss) per share — diluted: 2025 $ 6.00, 2024 $7.55, 2023 $(12.63)",
+            "score": 0.016129032258064516,
+            "rerank_score": -2.4591750144958495,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.01639344262295082,
+            "rerank_score": 1.3993234157562255,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.014285714285714285,
+            "rerank_score": -0.8361733198165894,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 11,
+            "type": "text",
+            "content": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+            "bbox": [
+              23.54999901875,
+              186.48202837975555,
+              579.6302754587376,
+              194.48002798650555
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_334",
+            "text": "working to discontinue the use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to",
+            "score": 0.015625,
+            "rerank_score": -0.9142138004302979,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 64,
+            "type": "text",
+            "content": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+            "bbox": [
+              23.54999901875,
+              229.6808265798038,
+              582.3245772145243,
+              237.6788261865538
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1840",
+            "text": "Therefore, the Company no longer has material exposure to health care cost inflation. In 2025, 3M modified this plan. Beginning in 2026, contributions provided by 3M to the",
+            "score": 0.014705882352941176,
+            "rerank_score": -1.0939800024032593,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+            "bbox": [
+              23.54999901875,
+              265.08202510475644,
+              571.0436959909113,
+              273.08002471150644
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1152",
+            "text": "share for the first quarter of 2024; and $0.70 per share for each of the second, third and fourth quarters of 2024. In February 2026, 3M's Board of Directors declared a first-",
+            "score": 0.014925373134328358,
+            "rerank_score": -1.7371107578277587,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 77,
+            "type": "text",
+            "content": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+            "bbox": [
+              23.54999901875,
+              160.07842947990252,
+              586.8149528913272,
+              168.07642908665252
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2296",
+            "text": "use of PFAS across its product portfolio by the end of 2025. 3M completed its exit of PFAS manufacturing at the end of 2025. 3M will continue to take actions to address PFAS",
+            "score": 0.015384615384615385,
+            "rerank_score": -1.9614478588104247,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.014492753623188406,
+            "rerank_score": -2.071595573425293,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.015151515151515152,
+            "rerank_score": -3.117910385131836,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4763",
+          "0000066740-26-000014-56e1ef4130::evidence_4820",
+          "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "0000066740-26-000014-56e1ef4130::evidence_334",
+          "0000066740-26-000014-56e1ef4130::evidence_1840",
+          "0000066740-26-000014-56e1ef4130::evidence_1152",
+          "0000066740-26-000014-56e1ef4130::evidence_2296",
+          "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "0000066740-26-000014-56e1ef4130::evidence_3188"
+        ],
+        "pages": [
+          11,
+          21,
+          32,
+          34,
+          35,
+          54,
+          59,
+          64,
+          77,
+          102
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: No source projection for 2026 diluted EPS growth is available in the provided evidence.",
+      "reporting_period": "2025–2026",
+      "original_claim": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 37.06434030001401,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-26T11:56:54.784672+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793015815-dZ5HvB1ZY0QkXXDJB7aO",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 421,
+            "completion_tokens": 1198,
+            "total_tokens": 1619,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 943,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.767
+        },
+        {
+          "time": "2026-10-26T11:57:12.997420+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793015834-xC9oPIXPYugZWDZxpgUb",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6668,
+            "completion_tokens": 1473,
+            "total_tokens": 8141,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1166,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 18.847
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "07b63a27f99af440d5fa33496dabfa3da251692ebbc8b92664f97429efd31d30"
+}

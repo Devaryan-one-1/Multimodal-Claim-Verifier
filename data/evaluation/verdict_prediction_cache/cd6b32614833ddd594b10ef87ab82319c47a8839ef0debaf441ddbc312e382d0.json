@@ -1,0 +1,1139 @@
+{
+  "schema_version": 2,
+  "cache_key": "cd6b32614833ddd594b10ef87ab82319c47a8839ef0debaf441ddbc312e382d0",
+  "configuration_signature": "9bdbfb3ba81d6c4a0dd06f896c8401528c2bced8647cfdbddefaeec6ff9e1d17",
+  "request": {
+    "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-25T15:42:49.937108+00:00",
+  "results": [
+    {
+      "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+      "parsed_claim": {
+        "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+        "company": null,
+        "subject": "Net property, plant, and equipment (PP&E) in China/Hong Kong",
+        "metric": "Net property, plant, and equipment (PP&E)",
+        "segment": "China/Hong Kong",
+        "start_period": 2024,
+        "end_period": 2025,
+        "period_quote": "between December 31, 2024, and December 31, 2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "direction",
+        "claimed_literal": null,
+        "claimed_change": null,
+        "comparison_operator": "greater_than",
+        "direction": "up",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "Direction is 'up' (increased) between the two dates.",
+          "No numeric value or percentage is provided in the statement.",
+          "Geographic segment is China/Hong Kong.",
+          "Annual change in the stated year compares with its preceding year."
+        ],
+        "period_inference": "preceding_annual_year",
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 102,
+          "type": "text",
+          "content": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+          "bbox": [
+            24.346873985546875,
+            454.73629088833854,
+            551.3038027290072,
+            461.13229050183855
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+          "source_evidence_id": "evidence_3202",
+          "text": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+          "score": 0.03252247488101534,
+          "rerank_score": 4.163961124420166,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 102,
+          "type": "text",
+          "content": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+          "bbox": [
+            24.346873985546875,
+            516.5362883133364,
+            551.3038027290072,
+            523.532287901842
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+          "source_evidence_id": "evidence_3203",
+          "text": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+          "score": 0.03252247488101534,
+          "rerank_score": 4.065865230560303,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 46,
+          "type": "text",
+          "content": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+          "bbox": [
+            23.54999901875,
+            66.4820333797627,
+            583.4722701786545,
+            74.4800329865127
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+          "source_evidence_id": "evidence_1380",
+          "text": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+          "score": 0.02900988017658188,
+          "rerank_score": 2.376432418823242,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_911",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "Property, plant and equipment -net - as of",
+          "bbox": [
+            463.34060869414054,
+            76.73750663828628,
+            577.604494005944,
+            83.13350625178623
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_911",
+          "source_evidence_id": "evidence_911",
+          "text": "Property, plant and equipment -net - as of",
+          "score": 0.027730294396961064,
+          "rerank_score": 2.061427593231201,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 46,
+          "type": "table",
+          "content": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+          "bbox": [
+            23.54999901875,
+            135.54428006660828,
+            572.9499761270833,
+            210.38772708290344
+          ],
+          "table_id": "table_46_1",
+          "headers": [
+            "Land",
+            "$202",
+            "$200"
+          ],
+          "rows": [
+            [
+              "Buildings and leasehold improvements",
+              "10 to 40 years",
+              "7,729",
+              "7,432"
+            ],
+            [
+              "Machinery and equipment",
+              "3 to 15 years",
+              "15,328",
+              "14,780"
+            ],
+            [
+              "Construction in progress",
+              "663",
+              "994"
+            ],
+            [
+              "Gross property, plant and equipment",
+              "23,922",
+              "23,406"
+            ],
+            [
+              "Accumulated depreciation",
+              "(16,821)",
+              "(16,018)"
+            ],
+            [
+              "Property, plant and equipment - net",
+              "$7,101",
+              "$7,388"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering costs, are recorded at cost. The Company capitalizes direct costs of services used in the development of, and external software acquired for use as, internal-use software. These software amounts are reported within machinery and equipment in PP&E. Depreciation of PP&E is generally computed using the straight-line method. Internal-use software elements of PP&E are depreciated over a period of three to seven years. 3M records capital-related government grants earned as reductions to the cost of PP&E and associated unpaid liabilities. Major classes of PP&E, along with their original useful lives (as applicable) are as follows: (Millions) Original lives December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+          "source_evidence_id": "evidence_4789",
+          "text": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+          "score": 0.027108970929195647,
+          "rerank_score": 1.7062966346740722,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 102,
+          "type": "text",
+          "content": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+          "bbox": [
+            24.346873985546875,
+            62.936307213343525,
+            572.7163018368196,
+            69.33230682684348
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+          "source_evidence_id": "evidence_3177",
+          "text": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+          "score": 0.02483719521429653,
+          "rerank_score": 1.3890939474105835,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 62,
+          "type": "text",
+          "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+          "bbox": [
+            24.346873985546875,
+            424.7616778354432,
+            575.1597303050103,
+            430.95967751719155
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+          "source_evidence_id": "evidence_1812",
+          "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+          "score": 0.027056277056277056,
+          "rerank_score": 0.5747373819351196,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 63,
+          "type": "text",
+          "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+          "bbox": [
+            24.346873985546875,
+            121.76169046043742,
+            576.5191022483697,
+            127.35969016718741
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+          "source_evidence_id": "evidence_1821",
+          "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+          "score": 0.028594771241830064,
+          "rerank_score": 0.45270408391952516,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+          "bbox": [
+            23.54999901875,
+            459.34457545523725,
+            587.8071183651786,
+            483.50767216153844
+          ],
+          "table_id": "table_51_3",
+          "headers": [
+            "United States",
+            "$10,936",
+            "$10,788",
+            "$10,607"
+          ],
+          "rows": [
+            [
+              "China/Hong Kong",
+              "2,951",
+              "2,824",
+              "2,625"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Net sales by particular country (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+          "source_evidence_id": "evidence_4798",
+          "text": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+          "score": 0.027972027972027972,
+          "rerank_score": 0.07646842002868653,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "(Billions) December 31, 2025 December 31, 2024",
+          "bbox": [
+            24.346873985546875,
+            86.33558623836666,
+            567.2131740661167,
+            92.73158585186661
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+          "source_evidence_id": "evidence_1099",
+          "text": "(Billions) December 31, 2025 December 31, 2024",
+          "score": 0.025516795865633074,
+          "rerank_score": -0.12418757677078246,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "Direction is 'up' (increased) between the two dates.",
+        "No numeric value or percentage is provided in the statement.",
+        "Geographic segment is China/Hong Kong.",
+        "Annual change in the stated year compares with its preceding year."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Net PP&E values for China/Hong Kong are not provided in the evidence; only net sales for China/Hong Kong and total company Net PP&E are available.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              454.73629088833854,
+              551.3038027290072,
+              461.13229050183855
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "text": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+            "score": 0.03252247488101534,
+            "rerank_score": 4.163961124420166,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              516.5362883133364,
+              551.3038027290072,
+              523.532287901842
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "text": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+            "score": 0.03252247488101534,
+            "rerank_score": 4.065865230560303,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 46,
+            "type": "text",
+            "content": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+            "bbox": [
+              23.54999901875,
+              66.4820333797627,
+              583.4722701786545,
+              74.4800329865127
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "text": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+            "score": 0.02900988017658188,
+            "rerank_score": 2.376432418823242,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "Property, plant and equipment -net - as of",
+            "bbox": [
+              463.34060869414054,
+              76.73750663828628,
+              577.604494005944,
+              83.13350625178623
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "text": "Property, plant and equipment -net - as of",
+            "score": 0.027730294396961064,
+            "rerank_score": 2.061427593231201,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+            "bbox": [
+              24.346873985546875,
+              62.936307213343525,
+              572.7163018368196,
+              69.33230682684348
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "text": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+            "score": 0.02483719521429653,
+            "rerank_score": 1.3890939474105835,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 62,
+            "type": "text",
+            "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              424.7616778354432,
+              575.1597303050103,
+              430.95967751719155
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "score": 0.027056277056277056,
+            "rerank_score": 0.5747373819351196,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 63,
+            "type": "text",
+            "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              121.76169046043742,
+              576.5191022483697,
+              127.35969016718741
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "score": 0.028594771241830064,
+            "rerank_score": 0.45270408391952516,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "(Billions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              86.33558623836666,
+              567.2131740661167,
+              92.73158585186661
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "text": "(Billions) December 31, 2025 December 31, 2024",
+            "score": 0.025516795865633074,
+            "rerank_score": -0.12418757677078246,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 46,
+            "type": "table",
+            "content": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              135.54428006660828,
+              572.9499761270833,
+              210.38772708290344
+            ],
+            "table_id": "table_46_1",
+            "headers": [
+              "Land",
+              "$202",
+              "$200"
+            ],
+            "rows": [
+              [
+                "Buildings and leasehold improvements",
+                "10 to 40 years",
+                "7,729",
+                "7,432"
+              ],
+              [
+                "Machinery and equipment",
+                "3 to 15 years",
+                "15,328",
+                "14,780"
+              ],
+              [
+                "Construction in progress",
+                "663",
+                "994"
+              ],
+              [
+                "Gross property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment - net",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering costs, are recorded at cost. The Company capitalizes direct costs of services used in the development of, and external software acquired for use as, internal-use software. These software amounts are reported within machinery and equipment in PP&E. Depreciation of PP&E is generally computed using the straight-line method. Internal-use software elements of PP&E are depreciated over a period of three to seven years. 3M records capital-related government grants earned as reductions to the cost of PP&E and associated unpaid liabilities. Major classes of PP&E, along with their original useful lives (as applicable) are as follows: (Millions) Original lives December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "text": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+            "score": 0.027108970929195647,
+            "rerank_score": 1.7062966346740722,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+            "bbox": [
+              23.54999901875,
+              459.34457545523725,
+              587.8071183651786,
+              483.50767216153844
+            ],
+            "table_id": "table_51_3",
+            "headers": [
+              "United States",
+              "$10,936",
+              "$10,788",
+              "$10,607"
+            ],
+            "rows": [
+              [
+                "China/Hong Kong",
+                "2,951",
+                "2,824",
+                "2,625"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by particular country (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "text": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+            "score": 0.027972027972027972,
+            "rerank_score": 0.07646842002868653,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 46,
+            "type": "table",
+            "content": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              135.54428006660828,
+              572.9499761270833,
+              210.38772708290344
+            ],
+            "table_id": "table_46_1",
+            "headers": [
+              "Land",
+              "$202",
+              "$200"
+            ],
+            "rows": [
+              [
+                "Buildings and leasehold improvements",
+                "10 to 40 years",
+                "7,729",
+                "7,432"
+              ],
+              [
+                "Machinery and equipment",
+                "3 to 15 years",
+                "15,328",
+                "14,780"
+              ],
+              [
+                "Construction in progress",
+                "663",
+                "994"
+              ],
+              [
+                "Gross property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment - net",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering costs, are recorded at cost. The Company capitalizes direct costs of services used in the development of, and external software acquired for use as, internal-use software. These software amounts are reported within machinery and equipment in PP&E. Depreciation of PP&E is generally computed using the straight-line method. Internal-use software elements of PP&E are depreciated over a period of three to seven years. 3M records capital-related government grants earned as reductions to the cost of PP&E and associated unpaid liabilities. Major classes of PP&E, along with their original useful lives (as applicable) are as follows: (Millions) Original lives December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4789",
+            "text": "Buildings and leasehold improvements: 2025 10 to 40 years, 2024 7,729, 7,432 | Machinery and equipment: 2025 3 to 15 years, 2024 15,328, 14,780 | Construction in progress: 2025 663, 2024 994 | Gross property, plant and equipment: 2025 23,922, 2024 23,406 | Accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment - net: 2025 $7,101, 2024 $7,388",
+            "score": 0.027108970929195647,
+            "rerank_score": 1.7062966346740722,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+            "bbox": [
+              23.54999901875,
+              459.34457545523725,
+              587.8071183651786,
+              483.50767216153844
+            ],
+            "table_id": "table_51_3",
+            "headers": [
+              "United States",
+              "$10,936",
+              "$10,788",
+              "$10,607"
+            ],
+            "rows": [
+              [
+                "China/Hong Kong",
+                "2,951",
+                "2,824",
+                "2,625"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by particular country (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4798",
+            "text": "China/Hong Kong: 2025 2,951, 2024 2,824, 2023 2,625",
+            "score": 0.027972027972027972,
+            "rerank_score": 0.07646842002868653,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              454.73629088833854,
+              551.3038027290072,
+              461.13229050183855
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3202",
+            "text": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024",
+            "score": 0.03252247488101534,
+            "rerank_score": 4.163961124420166,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              516.5362883133364,
+              551.3038027290072,
+              523.532287901842
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3203",
+            "text": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024",
+            "score": 0.03252247488101534,
+            "rerank_score": 4.065865230560303,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 46,
+            "type": "text",
+            "content": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+            "bbox": [
+              23.54999901875,
+              66.4820333797627,
+              583.4722701786545,
+              74.4800329865127
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1380",
+            "text": "Property, Plant and Equipment (PP&E) and Definite-Lived Intangible Assets: Property, plant and equipment, including capitalized interest and internal direct engineering",
+            "score": 0.02900988017658188,
+            "rerank_score": 2.376432418823242,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "Property, plant and equipment -net - as of",
+            "bbox": [
+              463.34060869414054,
+              76.73750663828628,
+              577.604494005944,
+              83.13350625178623
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_911",
+            "text": "Property, plant and equipment -net - as of",
+            "score": 0.027730294396961064,
+            "rerank_score": 2.061427593231201,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+            "bbox": [
+              24.346873985546875,
+              62.936307213343525,
+              572.7163018368196,
+              69.33230682684348
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3177",
+            "text": "Assets (millions) December 31, 2025 December 31, 2024 December 31, 2023",
+            "score": 0.02483719521429653,
+            "rerank_score": 1.3890939474105835,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 62,
+            "type": "text",
+            "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              424.7616778354432,
+              575.1597303050103,
+              430.95967751719155
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1812",
+            "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "score": 0.027056277056277056,
+            "rerank_score": 0.5747373819351196,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 63,
+            "type": "text",
+            "content": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              121.76169046043742,
+              576.5191022483697,
+              127.35969016718741
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1821",
+            "text": "(Millions) December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024",
+            "score": 0.028594771241830064,
+            "rerank_score": 0.45270408391952516,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "(Billions) December 31, 2025 December 31, 2024",
+            "bbox": [
+              24.346873985546875,
+              86.33558623836666,
+              567.2131740661167,
+              92.73158585186661
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1099",
+            "text": "(Billions) December 31, 2025 December 31, 2024",
+            "score": 0.025516795865633074,
+            "rerank_score": -0.12418757677078246,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4789",
+          "0000066740-26-000014-56e1ef4130::evidence_4798",
+          "0000066740-26-000014-56e1ef4130::evidence_3202",
+          "0000066740-26-000014-56e1ef4130::evidence_3203",
+          "0000066740-26-000014-56e1ef4130::evidence_1380",
+          "0000066740-26-000014-56e1ef4130::evidence_911",
+          "0000066740-26-000014-56e1ef4130::evidence_3177",
+          "0000066740-26-000014-56e1ef4130::evidence_1812",
+          "0000066740-26-000014-56e1ef4130::evidence_1821",
+          "0000066740-26-000014-56e1ef4130::evidence_1099"
+        ],
+        "pages": [
+          28,
+          34,
+          46,
+          51,
+          62,
+          63,
+          102
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Net PP&E values for China/Hong Kong are not provided in the evidence; only net sales for China/Hong Kong and total company Net PP&E are available.",
+      "reporting_period": "2024–2025",
+      "original_claim": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 53.11007349999272,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T15:41:56.794690+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792942917-h38mXvUiD01BS1xZjt5K",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 441,
+            "completion_tokens": 986,
+            "total_tokens": 1427,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 691,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.992
+        },
+        {
+          "time": "2026-10-25T15:42:16.987985+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792942937-92CdpcUPjdG5YHo4MuIu",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6014,
+            "completion_tokens": 2487,
+            "total_tokens": 8501,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1997,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 32.909
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "dfd9e4f2ad88c6b7981cfd61347c838e1fffdc155db1d4bf22fd8e3aa6ab2242"
+}

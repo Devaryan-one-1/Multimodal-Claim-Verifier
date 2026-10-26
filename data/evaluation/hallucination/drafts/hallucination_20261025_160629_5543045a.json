@@ -1,0 +1,2347 @@
+{
+  "schema_version": 1,
+  "dataset_id": "hallucination_20261025_160629_5543045a",
+  "revision": 65,
+  "created_at": "2026-10-25T16:06:29.340213+00:00",
+  "document_ids": [
+    "0000066740-26-000014-56e1ef4130"
+  ],
+  "documents": [
+    {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "title": "10-K - 02/03/2026 - 3M Company",
+      "page_count": 158
+    }
+  ],
+  "source_hashes": {
+    "data/documents/0000066740-26-000014-56e1ef4130/original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+    "data/processed/0000066740-26-000014-56e1ef4130/evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04",
+    "data/processed/0000066740-26-000014-56e1ef4130/pages.json": "94c7e26dfdec1ad7fc07f4339f365ac2b4da963c0c559a677cdb36c73cd0c9b1"
+  },
+  "records": [
+    {
+      "id": "h_1af7f20e8c94",
+      "version": 17,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "missing_forecast",
+        "claim_text": "3M projects that its 2025 adjusted operating margin will expand by at least 150 basis points versus 2024.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "3M projects that its 2025 adjusted operating margin will expand by at least 150 basis points versus 2024.",
+            "verdict": "UNKNOWN",
+            "reason": "The excerpts contain no forward-looking margin guidance for 2025.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Check the MD&A outlook, earnings-call transcripts and any guidance section in the full 10-K for 2025 margin forecasts; absence in excerpts is not proof of absence."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:53:41.709676+00:00"
+    },
+    {
+      "id": "h_d5521e61178a",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "missing_forecast",
+        "claim_text": "3M projects that its 2026 adjusted operating margin will expand by at least 150 basis points versus 2025.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "3M projects that its 2026 adjusted operating margin will expand by at least 150 basis points versus 2025.",
+            "verdict": "UNKNOWN",
+            "reason": "The 10-K for fiscal 2025 contains historical financials and does not disclose forward‑looking margin guidance for 2026.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Search the complete 10‑K and any subsequent 8‑K filings for 2026 adjusted operating margin guidance; absence in excerpts is not proof of absence."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:38:54.086563+00:00"
+    },
+    {
+      "id": "h_de67ec5808d7",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "missing_forecast",
+        "claim_text": "3M projects that its 2026 organic sales growth will be between 2.5% and 3.5%.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "3M projects that its 2026 organic sales growth will be between 2.5% and 3.5%.",
+            "verdict": "UNKNOWN",
+            "reason": "The document reports organic sales changes for 2024 and 2025 but does not establish any forecast or projection for 2026 organic sales growth.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+                "quote": "Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Review the complete PDF, including MD&A and forward-looking statements, to verify if any 2026 organic sales growth forecast is provided."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:45:38.763500+00:00"
+    },
+    {
+      "id": "h_96461314b90b",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "missing_forecast",
+        "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+            "verdict": "UNKNOWN",
+            "reason": "The document does not provide any forecast for 2026 diluted EPS growth, making this claim provisionally UNKNOWN.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4763",
+                "quote": "YoY change in EPS: 2025 (17), 2025 %, 2025 10, 2024 %, 2024 148, 2025 %, 2024 21, %"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the complete PDF, including the Management's Discussion & Analysis and forward-looking statements, to verify the absence of any 2026 diluted EPS growth forecast."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:46:03.875033+00:00"
+    },
+    {
+      "id": "h_21a019db4e44",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_metric",
+        "claim_text": "In 2025, 3M Company's Safety and Industrial segment reported a non-GAAP net profit margin of 25.4%, which is an invented metric for the segment's overall profitability.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "In 2025, 3M Company's Safety and Industrial segment reported a non-GAAP net profit margin of 25.4%.",
+            "verdict": "UNKNOWN",
+            "reason": "The document reports an adjusted operating margin of 25.4% for the Safety and Industrial segment, but does not establish a non-GAAP net profit margin of 25.4%.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4777",
+                "quote": "Adjusted amounts (non-GAAP measures): 2025 $2,894, 25.4, %"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Check the complete PDF to verify if the 25.4% adjusted amount represents the operating margin or if a non-GAAP net profit margin of 25.4% is defined or reported anywhere in the document, including footnotes, segment definitions and the full PDF."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:46:29.662150+00:00"
+    },
+    {
+      "id": "h_505beb20bce8",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_metric",
+        "claim_text": "In 2025, 3M Company reported a pre-tax gain of $47 million from selling its interest in investments, and also introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+            "verdict": "SUPPORTED",
+            "reason": "The document explicitly states a pre-tax gain of $47 million from selling an investment.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+                "quote": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million."
+              }
+            ]
+          },
+          {
+            "claim_text": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+            "verdict": "UNKNOWN",
+            "reason": "The document does not mention any 'adjusted return on investment' metric or 18.5% figure, which is invented.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Verify the $47 million pre-tax gain on page 23 and inspect the full PDF for any definition or mention of the 'adjusted return on investment' metric."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:49:22.554830+00:00"
+    },
+    {
+      "id": "h_4cdebfa179ef",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_metric",
+        "claim_text": "In 2024, 3M Company's Transportation and Electronics segment experienced an organic sales decrease of 1.0%, but the company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "In 2024, 3M Company's Transportation and Electronics segment experienced an organic sales decrease of 1.0%.",
+            "verdict": "SUPPORTED",
+            "reason": "The organic sales decrease of 1.0% for the Transportation and Electronics segment in 2024 is supported by the non-GAAP measures table on page 31.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4778",
+                "quote": "Transportation and Electronics: 2024 (1.0), %, 0.6, %, —, %, (1.0), %, (1.4), %"
+              }
+            ]
+          },
+          {
+            "claim_text": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+            "verdict": "UNKNOWN",
+            "reason": "The 'adjusted innovation yield' metric is not defined or reported in the provided document excerpts.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4778",
+                "quote": "Adjusted total Company (non-GAAP measures): 2024 1.2, %, 0.2, %, 0.7, %, (0.8), %, 1.3, %"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Verify the organic sales decrease of 1.0% for the Transportation and Electronics segment in 2024 in the non-GAAP measures table on page 31. Inspect the complete PDF, including footnotes and segment definitions, to confirm whether any 'adjusted innovation yield' metric of 15.2% is defined or reported"
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-25T23:49:46.677726+00:00"
+    },
+    {
+      "id": "h_2506af09c4ec",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_metric",
+        "claim_text": "3M Company reported an 'adjusted earnings per share growth rate' of 12.3% for fiscal year 2025.",
+        "verdict": "UNKNOWN",
+        "subclaims": [
+          {
+            "claim_text": "3M Company reported an 'adjusted earnings per share growth rate' of 12.3% for fiscal year 2025.",
+            "verdict": "UNKNOWN",
+            "reason": "The excerpts do not contain any metric named 'adjusted earnings per share growth rate' or a 12.3% value for it.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Search the full 10-K (all 158 pages) for the phrase 'adjusted earnings per share growth rate' and any EPS growth disclosures in Management's Discussion, segment tables, or non-GAAP reconciliations. Confirm whether this metric exists or is invented. Absence in excerpts does not prove absence in the 1"
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T10:51:59.472691+00:00"
+    },
+    {
+      "id": "h_50f03a40745b",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_segment",
+        "claim_text": "The newly formed Advanced Materials segment reported $3.5 billion in 2025 sales, while the Transportation and Electronics segment operating income fell by 9.0% in 2025.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "the Transportation and Electronics segment operating income fell by 9.0% in 2025",
+            "verdict": "SUPPORTED",
+            "reason": "The page 26 table explicitly reports a (9.0) percent change in segment operating income for 2025.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+                "quote": "Percent change: 2025 (9.0)"
+              }
+            ]
+          },
+          {
+            "claim_text": "The newly formed Advanced Materials segment reported $3.5 billion in 2025 sales",
+            "verdict": "UNKNOWN",
+            "reason": "The Advanced Materials segment and its sales figures are not established in the provided document excerpts.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Check the complete PDF for any segment definitions, forecasts, or footnotes mentioning the 'Advanced Materials' segment and its 2025 sales, and verify the Transportation and Electronics segment operating income percent change on page 26."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:10:01.244714+00:00"
+    },
+    {
+      "id": "h_42ee0a831582",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_segment",
+        "claim_text": "3M's worldwide sales increased to $24,948 million in 2025, but the newly formed Advanced Materials segment reported only $3.5 billion in 2025 sales.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's worldwide sales increased to $24,948 million in 2025",
+            "verdict": "SUPPORTED",
+            "reason": "The geographic sales table explicitly reports 2025 worldwide net sales of $24,948 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+                "quote": "Net sales (millions) $ 13,579 $ 7,095 $ 4,274 $ 24,948"
+              }
+            ]
+          },
+          {
+            "claim_text": "the newly formed Advanced Materials segment reported only $3.5 billion in 2025 sales",
+            "verdict": "UNKNOWN",
+            "reason": "The excerpts do not establish the existence of an Advanced Materials segment or its sales, making this segment and its sales figure UNKNOWN.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+                "quote": "Discussion of business segment results is provided in the Performance by Business Segment section."
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the complete PDF, specifically the Performance by Business Segment section and any footnotes, to verify the existence of the Advanced Materials segment and its reported 2025 sales."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:24:51.629635+00:00"
+    },
+    {
+      "id": "h_893711fdef0a",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_segment",
+        "claim_text": "In 2025, the newly formed Advanced Materials segment reported sales of $4.2 billion, and 3M's total marketable securities decreased to $710 million from $2,144 million in 2024.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's total marketable securities decreased to $710 million in 2025 from $2,144 million in 2024.",
+            "verdict": "SUPPORTED",
+            "reason": "The marketable securities figures are explicitly supported by the table in Note 11 on page 59.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+                "quote": "Total marketable securities: 2025 $ 710, 2024 $2,144"
+              }
+            ]
+          },
+          {
+            "claim_text": "the newly formed Advanced Materials segment reported sales of $4.2 billion in 2025",
+            "verdict": "UNKNOWN",
+            "reason": "The excerpts do not establish any sales figures for the Advanced Materials segment in 2025, making this value provisionally UNKNOWN.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Check the complete PDF for any mention of the Advanced Materials segment's 2025 sales, and verify the marketable securities table on page 59."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:25:02.997232+00:00"
+    },
+    {
+      "id": "h_86a7e52796cc",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "invented_segment",
+        "claim_text": "3M's total long-term debt was $12,602 million in 2025, and the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+            "verdict": "SUPPORTED",
+            "reason": "Supported by the long-term debt table on page 60.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+                "quote": "Total long-term debt: 2025 12,602"
+              }
+            ]
+          },
+          {
+            "claim_text": "the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025",
+            "verdict": "UNKNOWN",
+            "reason": "The excerpts do not establish the existence of this segment or its sales; it is provisionally UNKNOWN.",
+            "citations": []
+          }
+        ],
+        "reviewer_instructions": "Verify the total long-term debt of $12,602 million in 2025 in the long-term debt table on page 60. Then, inspect the complete PDF, segment definitions, and footnotes to determine if the Advanced Materials segment exists and reported $5.0 billion in sales in 2025."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:25:26.179994+00:00"
+    },
+    {
+      "id": "h_a57bd85aadc4",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "wrong_period_or_scope",
+        "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million, and its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million.",
+            "verdict": "SUPPORTED",
+            "reason": "Supported by the net sales by geographic area table for 2025.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+                "quote": "Asia Pacific: 2025 7,095"
+              }
+            ]
+          },
+          {
+            "claim_text": "Its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+            "verdict": "CONTRADICTED",
+            "reason": "Incorrectly assigns the 2023 figure of $4,274 million to the year 2024, when 2024 was actually $4,176 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+                "quote": "Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the complete PDF, specifically the net sales by geographic area table on page 51, to verify the correct years for Asia Pacific and Europe, Middle East and Africa sales figures."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:25:42.898201+00:00"
+    },
+    {
+      "id": "h_d69e936bf2c1",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "wrong_period_or_scope",
+        "claim_text": "3M Company's 2025 Net PP&E in the Asia Pacific region was $1,010 million, and its 2025 Net PP&E in the Europe, Middle East and Africa region was $1,051 million.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M Company's 2025 Net PP&E in the Asia Pacific region was $1,010 million.",
+            "verdict": "SUPPORTED",
+            "reason": "The table on page 102 explicitly reports Asia Pacific Net PP&E for 2025 as $1,010 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+                "quote": "Asia Pacific: 2025 1,010"
+              }
+            ]
+          },
+          {
+            "claim_text": "3M Company's 2025 Net PP&E in the Europe, Middle East and Africa region was $1,051 million.",
+            "verdict": "CONTRADICTED",
+            "reason": "The table reports 2025 Net PP&E for Europe, Middle East and Africa as $968 million, while $1,051 million is the 2024 value.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+                "quote": "Europe, Middle East and Africa: 2025 968, 2024 1,051"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the Net PP&E by geographic area table on page 102 of the 10-K. Verify the 2025 and 2024 values for the Asia Pacific and Europe, Middle East and Africa segments to confirm the period misalignment."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:29:12.384572+00:00"
+    },
+    {
+      "id": "h_f8041997e8b1",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "wrong_period_or_scope",
+        "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million, and its 2025 Europe, Middle East and Africa net sales were $4,274 million.",
+        "verdict": "CONTRADICTED",
+        "subclaims": [
+          {
+            "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million, and its 2025 Europe, Middle East and Africa net sales were $4,274 million.",
+            "verdict": "CONTRADICTED",
+            "reason": "The assertion incorrectly assigns the 2025 Asia Pacific net sales of $7,095 million to 2024 and the 2024 EMEA net sales of $4,274 million to 2025, swapping the reporting periods.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+                "quote": "Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Check the complete PDF for geographic segment net sales to verify the correct fiscal years for the Asia Pacific ($7,095 million) and EMEA ($4,274 million) sales figures."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:33:50.793282+00:00"
+    },
+    {
+      "id": "h_e08a89c880e0",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "wrong_period_or_scope",
+        "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million.",
+        "verdict": "CONTRADICTED",
+        "subclaims": [
+          {
+            "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million.",
+            "verdict": "CONTRADICTED",
+            "reason": "The claim assigns the 2025 Asia Pacific net sales figure of $7,095 million to the year 2024, whereas the 2024 figure was $6,994 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+                "quote": "Net sales (millions) $ 13,579 $ 7,095 $ 4,274 $ 24,948"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Check the net sales table on page 22 to verify the Asia Pacific net sales for 2024 and 2025."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:34:05.587927+00:00"
+    },
+    {
+      "id": "h_26580b967805",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "mixed_compound",
+        "claim_text": "3M's working capital (non-GAAP measure) decreased to $4,628 million in 2025, while its net deferred tax assets increased to $3,792 million in 2025.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's working capital (non-GAAP measure) decreased to $4,628 million in 2025.",
+            "verdict": "SUPPORTED",
+            "reason": "This is explicitly supported by the working capital table on page 34.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4783",
+                "quote": "Working capital (non-GAAP measure): 2024 $6,792, 2025 $4,628"
+              }
+            ]
+          },
+          {
+            "claim_text": "3M's net deferred tax assets increased to $3,792 million in 2025.",
+            "verdict": "CONTRADICTED",
+            "reason": "This is contradicted because the 2025 value was $3,408 million, and $3,792 million was the 2024 value.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4818",
+                "quote": "Net deferred tax assets(f): 2025 $3,408, 2024 $3,792"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the complete 10-K PDF, specifically verifying the non-GAAP working capital table on page 34 and the deferred tax assets/liabilities table on page 58 to confirm the correct years for each figure."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:34:27.217153+00:00"
+    },
+    {
+      "id": "h_08bced58809d",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "mixed_compound",
+        "claim_text": "In 2025, 3M's Safety and Industrial segment operating income was $2,836 million, while the company's total reportable business segment operating income was $5,001 million.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "In 2025, 3M's Safety and Industrial segment operating income was $2,836 million.",
+            "verdict": "SUPPORTED",
+            "reason": "This is explicitly supported by the segment table on page 101.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+                "quote": "Safety and Industrial operating income: 2025 2,836"
+              }
+            ]
+          },
+          {
+            "claim_text": "In 2025, the company's total reportable business segment operating income was $5,001 million.",
+            "verdict": "CONTRADICTED",
+            "reason": "The 2025 total reportable segment operating income was actually $5,268 million; $5,001 million was the 2024 value, making this contradicted.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+                "quote": "Total reportable business segment operating income: 2025 5,268, 2024 5,001"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Check the segment operating performance table on page 101 to verify Safety and Industrial operating income and total reportable business segment operating income for 2025 and 2024."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:40:13.688908+00:00"
+    },
+    {
+      "id": "h_ca342af86610",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "mixed_compound",
+        "claim_text": "In 2025, 3M's total income from continuing operations before income taxes was $4,213 million, while the company's total accumulated other comprehensive income (loss) at December 31, 2024 was $(5,069) million.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's total income from continuing operations before income taxes was $4,213 million in 2025.",
+            "verdict": "SUPPORTED",
+            "reason": "The table on page 56 explicitly reports $4,213 million for 2025.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4811",
+                "quote": "Total: 2025 $4,213"
+              }
+            ]
+          },
+          {
+            "claim_text": "3M's total accumulated other comprehensive income (loss) at December 31, 2024 was $(5,069) million.",
+            "verdict": "CONTRADICTED",
+            "reason": "The table on page 55 shows the 2024 balance was $(5,731) million, while $(5,069) million was the 2025 balance.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+                "quote": "Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731)"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Check page 56 for the 2025 income before taxes and page 55 for the 2024 and 2025 AOCI balances to confirm the 2024 total is $(5,731) million, not $(5,069) million."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:40:25.548201+00:00"
+    },
+    {
+      "id": "h_ae75af2408bb",
+      "version": 2,
+      "status": "approved",
+      "candidate": {
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "category": "mixed_compound",
+        "claim_text": "In 2025, 3M's Safety and Industrial segment GAAP operating income was $2,836 million, while the company's total GAAP operating income was $5,001 million.",
+        "verdict": "PARTIALLY_SUPPORTED",
+        "subclaims": [
+          {
+            "claim_text": "3M's Safety and Industrial segment GAAP operating income was $2,836 million in 2025.",
+            "verdict": "SUPPORTED",
+            "reason": "The table on page 30 explicitly reports Safety and Industrial GAAP operating income as $2,836 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4777",
+                "quote": "GAAP amounts: 2025 $2,836"
+              }
+            ]
+          },
+          {
+            "claim_text": "The company's total GAAP operating income was $5,001 million in 2025.",
+            "verdict": "CONTRADICTED",
+            "reason": "The table on page 30 explicitly reports total company GAAP operating income as $4,629 million, contradicting the claim of $5,001 million.",
+            "citations": [
+              {
+                "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4777",
+                "quote": "GAAP amounts: 2025 $24,948, 1.5, %, $4,629"
+              }
+            ]
+          }
+        ],
+        "reviewer_instructions": "Inspect the full PDF, particularly the segment reporting on page 30 and the consolidated income statement, to verify the exact GAAP operating incomes for the Safety and Industrial segment and the total company."
+      },
+      "reviewed_by": "Dev",
+      "review_notes": "",
+      "source_checked": true,
+      "unknown_scope_checked": true,
+      "generation_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "generation_policy": "single_compact_candidate_v2",
+      "reviewed_at": "2026-10-26T11:40:45.287370+00:00"
+    }
+  ],
+  "model_calls": [
+    {
+      "time": "2026-10-25T23:35:00.686040+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1792971301-tl1EcKvyHxUKJaPdIzCd",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 5393,
+        "completion_tokens": 243,
+        "total_tokens": 5636,
+        "cost": 0.0032311,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0032311,
+          "upstream_inference_prompt_cost": 0.0026965,
+          "upstream_inference_completions_cost": 0.0005346
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 6.197
+    },
+    {
+      "time": "2026-10-25T23:38:27.844299+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1792971508-zk85sxy8B3oYSBVgBh8B",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4148,
+        "completion_tokens": 266,
+        "total_tokens": 4414,
+        "cost": 0.0026592,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0026592,
+          "upstream_inference_prompt_cost": 0.002074,
+          "upstream_inference_completions_cost": 0.0005852
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 5.218
+    },
+    {
+      "time": "2026-10-25T23:39:03.403406+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1792971543-fyxKYJ4PrQEvyAKYqU6p",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4292,
+        "completion_tokens": 241,
+        "total_tokens": 4533,
+        "cost": 0.0026762,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0026762,
+          "upstream_inference_prompt_cost": 0.002146,
+          "upstream_inference_completions_cost": 0.0005302
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 5.385
+    },
+    {
+      "time": "2026-10-25T23:40:33.700158+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792971634-MJpzKpKwVoMtGYG0BcOU",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4184,
+        "completion_tokens": 5474,
+        "total_tokens": 9658,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4611,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 54.219
+    },
+    {
+      "time": "2026-10-25T23:42:31.030808+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792971751-2WPFz23ZPivOHtPnHavx",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3865,
+        "completion_tokens": 4446,
+        "total_tokens": 8311,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3927,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 45.901
+    },
+    {
+      "time": "2026-10-25T23:43:16.992139+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792971797-C5LfFQVFEVqr1Hj7O7ac",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4093,
+        "completion_tokens": 4085,
+        "total_tokens": 8178,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3693,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 39.552
+    },
+    {
+      "time": "2026-10-25T23:43:56.614973+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792971837-CM6pjaUMZ1p97tEDr6Fq",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4679,
+        "completion_tokens": 5926,
+        "total_tokens": 10605,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 5193,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 54.434
+    },
+    {
+      "time": "2026-10-25T23:46:39.313246+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792972000-f79O5Pef8vGVs90kmQ1d",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4013,
+        "completion_tokens": 4466,
+        "total_tokens": 8479,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4223,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 46.154
+    },
+    {
+      "time": "2026-10-25T23:47:25.512608+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792972045-jbQtNHICDEuzaDQ7sXhn",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4642,
+        "completion_tokens": 4899,
+        "total_tokens": 9541,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4341,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 48.207
+    },
+    {
+      "time": "2026-10-25T23:48:13.767775+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1792972094-tHRiNfaJRsh04WINAwwo",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4660,
+        "completion_tokens": 4195,
+        "total_tokens": 8855,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3960,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 36.686
+    },
+    {
+      "time": "2026-10-26T10:51:12.216811+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1793011873-KEckloBAWLFbnNe3HLJK",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3859,
+        "completion_tokens": 267,
+        "total_tokens": 4126,
+        "cost": 0.0025169,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0025169,
+          "upstream_inference_prompt_cost": 0.0019295,
+          "upstream_inference_completions_cost": 0.0005874
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 5.395
+    },
+    {
+      "time": "2026-10-26T10:51:17.711564+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1793011878-mAQAE4duOjuArJBRHQzR",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3741,
+        "completion_tokens": 335,
+        "total_tokens": 4076,
+        "cost": 0.0026075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0026075,
+          "upstream_inference_prompt_cost": 0.0018705,
+          "upstream_inference_completions_cost": 0.000737
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 3.483
+    },
+    {
+      "time": "2026-10-26T10:52:25.442837+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "DeepInfra",
+      "request_id": "gen-1793011946-oilh82w1B9C4aGyRHwd9",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3875,
+        "completion_tokens": 400,
+        "total_tokens": 4275,
+        "cost": 0.0028175,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0028175,
+          "upstream_inference_prompt_cost": 0.0019375,
+          "upstream_inference_completions_cost": 0.00088
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 3.164
+    },
+    {
+      "time": "2026-10-26T10:53:20.853919+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793012001-9EvNzlIqJZOmWAYGiTm4",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4942,
+        "completion_tokens": 4272,
+        "total_tokens": 9214,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3734,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 55.241
+    },
+    {
+      "time": "2026-10-26T11:04:54.885156+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793012695-G1jsdJBaXN3BCnGKCydj",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3227,
+        "completion_tokens": 3790,
+        "total_tokens": 7017,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3669,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 50.903
+    },
+    {
+      "time": "2026-10-26T11:05:45.834482+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793012746-1EZ0Ev1a85wk6iESXRiL",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3846,
+        "completion_tokens": 4347,
+        "total_tokens": 8193,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4247,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 56.141
+    },
+    {
+      "time": "2026-10-26T11:10:09.674743+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013010-YUff6I5F7QQrwMyjCPb4",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4302,
+        "completion_tokens": 4258,
+        "total_tokens": 8560,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3806,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 57.193
+    },
+    {
+      "time": "2026-10-26T11:11:06.988139+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013067-Lr10q1KaBMPaJNzm9tRN",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4363,
+        "completion_tokens": 3346,
+        "total_tokens": 7709,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2792,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 46.587
+    },
+    {
+      "time": "2026-10-26T11:11:53.634806+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013114-ENIhf39RAFz34vlMG2cY",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4750,
+        "completion_tokens": 4465,
+        "total_tokens": 9215,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4077,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 53.086
+    },
+    {
+      "time": "2026-10-26T11:12:46.784342+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013167-yR7wG7iZepsovXV927b5",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 3885,
+        "completion_tokens": 4984,
+        "total_tokens": 8869,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3692,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 60.443
+    },
+    {
+      "time": "2026-10-26T11:13:47.305574+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013228-gphYPGMtvhht2BRexQ6y",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4238,
+        "completion_tokens": 5792,
+        "total_tokens": 10030,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4190,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 72.324
+    },
+    {
+      "time": "2026-10-26T11:25:49.829469+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793013950-4JidqKNDnME5tz9qmvG2",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4207,
+        "completion_tokens": 5501,
+        "total_tokens": 9708,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4170,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 65.119
+    },
+    {
+      "time": "2026-10-26T11:26:55.010368+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014015-54zHEGzTYXsVYGnScdDG",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4824,
+        "completion_tokens": 6635,
+        "total_tokens": 11459,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 5222,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 74.433
+    },
+    {
+      "time": "2026-10-26T11:29:19.345081+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014160-0tdkdjXrUAt2D8cdnXfe",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4235,
+        "completion_tokens": 3998,
+        "total_tokens": 8233,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3100,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 50.215
+    },
+    {
+      "time": "2026-10-26T11:30:09.634235+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014210-qADu4F3r64XjieBRuTyu",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4491,
+        "completion_tokens": 4122,
+        "total_tokens": 8613,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3013,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 49.465
+    },
+    {
+      "time": "2026-10-26T11:30:59.163637+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014260-b6SXg6RCkhwyJ2NzgZPL",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4460,
+        "completion_tokens": 3935,
+        "total_tokens": 8395,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2865,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 41.532
+    },
+    {
+      "time": "2026-10-26T11:31:40.757623+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014301-0QxwAXhN9corBSKglUhF",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4757,
+        "completion_tokens": 3971,
+        "total_tokens": 8728,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3430,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 48.358
+    },
+    {
+      "time": "2026-10-26T11:34:31.612236+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014472-bzuXM2pmTbOBVpWr9GNI",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 5422,
+        "completion_tokens": 4084,
+        "total_tokens": 9506,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3080,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 49.447
+    },
+    {
+      "time": "2026-10-26T11:35:21.106561+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014521-5Bl1jzjVhEMbvOUDbOg7",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4075,
+        "completion_tokens": 5146,
+        "total_tokens": 9221,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3652,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 61.598
+    },
+    {
+      "time": "2026-10-26T11:36:22.779159+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "dots-studio/dots-3-note-preview:free",
+      "actual_model": "dots-studio/dots-3-note-preview:free",
+      "attempt": 1,
+      "fallback": false,
+      "upstream_provider": "AtlasCloud",
+      "request_id": "gen-1793014583-BIeGMm70gr7opJg9WkEc",
+      "http_status": 200,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 4257,
+        "completion_tokens": 5240,
+        "total_tokens": 9497,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4109,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "status": "ok",
+      "duration_seconds": 61.006
+    }
+  ],
+  "generation_errors": [
+    {
+      "at": "2026-10-25T23:39:08.788057+00:00",
+      "category": "missing_forecast",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-25T23:44:51.049231+00:00",
+      "category": "invented_metric",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4773"
+    },
+    {
+      "at": "2026-10-25T23:44:51.049242+00:00",
+      "category": "invented_metric",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-25T23:48:50.453591+00:00",
+      "category": "invented_metric",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T10:51:21.195026+00:00",
+      "category": "invented_segment",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4864"
+    },
+    {
+      "at": "2026-10-26T10:51:21.195044+00:00",
+      "category": "invented_segment",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T10:52:28.607086+00:00",
+      "category": "invented_segment",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4797"
+    },
+    {
+      "at": "2026-10-26T10:52:28.607118+00:00",
+      "category": "invented_segment",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T10:54:16.095213+00:00",
+      "category": "invented_segment",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4777"
+    },
+    {
+      "at": "2026-10-26T10:54:16.095237+00:00",
+      "category": "invented_segment",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T11:06:41.977694+00:00",
+      "category": "invented_segment",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4802"
+    },
+    {
+      "at": "2026-10-26T11:06:41.977726+00:00",
+      "category": "invented_segment",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T11:14:59.629346+00:00",
+      "category": "wrong_period_or_scope",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4764"
+    },
+    {
+      "at": "2026-10-26T11:14:59.629364+00:00",
+      "category": "wrong_period_or_scope",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T11:28:09.443071+00:00",
+      "category": "wrong_period_or_scope",
+      "error": "Quote is not verbatim extracted evidence: 0000066740-26-000014-56e1ef4130::evidence_4802"
+    },
+    {
+      "at": "2026-10-26T11:28:09.443084+00:00",
+      "category": "wrong_period_or_scope",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    },
+    {
+      "at": "2026-10-26T11:32:29.115438+00:00",
+      "category": "mixed_compound",
+      "error": "No valid new candidates; resume or edit a rejected draft."
+    }
+  ],
+  "pause": null,
+  "policy": {
+    "target": 20,
+    "per_category": 4,
+    "labels_are_provisional_until_reviewed": true
+  },
+  "updated_at": "2026-10-26T11:53:41.709701+00:00",
+  "generation_policy": "single_compact_candidate_v2"
+}

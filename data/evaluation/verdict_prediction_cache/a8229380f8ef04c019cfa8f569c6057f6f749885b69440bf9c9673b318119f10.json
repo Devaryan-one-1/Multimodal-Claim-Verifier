@@ -1,0 +1,1101 @@
+{
+  "schema_version": 2,
+  "cache_key": "a8229380f8ef04c019cfa8f569c6057f6f749885b69440bf9c9673b318119f10",
+  "configuration_signature": "9bdbfb3ba81d6c4a0dd06f896c8401528c2bced8647cfdbddefaeec6ff9e1d17",
+  "request": {
+    "claim_text": "The Gross UTB balance at the beginning of 2025 was $800 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-25T16:00:19.884129+00:00",
+  "results": [
+    {
+      "claim_text": "The Gross UTB balance at the beginning of 2025 was $800 million.",
+      "parsed_claim": {
+        "claim_text": "The Gross UTB balance at the beginning of 2025 was $800 million.",
+        "company": null,
+        "subject": "Gross UTB balance",
+        "metric": "Gross UTB balance",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "at the beginning of 2025",
+        "period_type": "point_in_time",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$800 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "No company specified in the sentence.",
+          "Point-in-time balance at the beginning of the year 2025."
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "CONTRADICTED",
+      "confidence": null,
+      "confidence_kind": "deterministic comparison; no calibrated probability",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 57,
+          "type": "table",
+          "content": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+          "bbox": [
+            23.54999901875,
+            378.94337880528434,
+            587.5499755187499,
+            500.77787004334385
+          ],
+          "table_id": "table_57_2",
+          "headers": [
+            "Gross UTB balance at beginning of period",
+            "$574",
+            "$590",
+            "$632"
+          ],
+          "rows": [
+            [
+              "Additions based on tax positions related to the current year",
+              "46",
+              "13",
+              "11"
+            ],
+            [
+              "Additions for tax positions of prior years",
+              "64",
+              "57",
+              "63"
+            ],
+            [
+              "Reductions for tax positions of prior years",
+              "(87)",
+              "(16)",
+              "(42)"
+            ],
+            [
+              "Settlements",
+              "(45)",
+              "(17)",
+              "(33)"
+            ],
+            [
+              "Reductions due to lapse of applicable statute of limitations",
+              "(49)",
+              "(36)",
+              "(42)"
+            ],
+            [
+              "Foreign currency translation",
+              "13",
+              "(17)",
+              "1"
+            ],
+            [
+              "Gross UTB balance at end of period",
+              "$516",
+              "$574",
+              "$590"
+            ],
+            [
+              "Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d)",
+              "$6",
+              "$25",
+              "$83"
+            ],
+            [
+              "Gross accrued interest and penalties in the consolidated balance sheet at end of period",
+              "$195",
+              "$207",
+              "$183"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "The Company recognizes the amount of tax benefit that has a greater than 50 percent likelihood of being ultimately realized upon settlement. The total amount of net unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows: (Millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+          "source_evidence_id": "evidence_4816",
+          "text": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+          "score": 0.029083245521601686,
+          "rerank_score": 1.9619349002838136,
+          "annual_report_year_columns": true,
+          "metric_label": "Additions based on tax positions related to the current year",
+          "relevant_row_indices": [
+            0
+          ],
+          "relevant_column_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "0000066740-26-000014-56e1ef4130::evidence_4816"
+      ],
+      "calculation": {
+        "formula": "value",
+        "value": 46000000.0,
+        "inputs": {
+          "value": 46000000.0
+        },
+        "raw_inputs": {
+          "value": "46"
+        },
+        "input_metadata": {
+          "value": {
+            "currency": null,
+            "unit": "number",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "Millions"
+          }
+        },
+        "currency": null,
+        "result_unit": "number",
+        "result_precision": null,
+        "source_inputs": {
+          "value": {
+            "name": "value",
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "Millions",
+            "scope_quote": "",
+            "raw": "46",
+            "normalized_value": 46000000.0,
+            "unit_context": "Millions",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "source_evidence_id": "evidence_4816",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 800000000.0,
+        "actual": 46000000.0,
+        "difference": 754000000.0,
+        "tolerance": 500000.0,
+        "verdict": "CONTRADICTED",
+        "unit": "number",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "notes": [
+        "No company specified in the sentence.",
+        "Point-in-time balance at the beginning of the year 2025."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The table on page 57 shows the Gross UTB balance at the beginning of 2025 is $574 million, which contradicts the claimed $800 million.",
+      "unit": "number",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "bbox": [
+              23.54999901875,
+              340.6808219548049,
+              574.9526778216868,
+              348.67882156155497
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "text": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "score": 0.031024531024531024,
+            "rerank_score": 3.0311108589172364,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows:",
+            "bbox": [
+              23.54999901875,
+              359.28082117980483,
+              375.5731659783874,
+              367.2788207865549
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "text": "Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows:",
+            "score": 0.03278688524590164,
+            "rerank_score": 2.9526963233947754,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "bbox": [
+              23.54999901875,
+              368.2820208047571,
+              574.8812328846633,
+              376.28002041150717
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "text": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "score": 0.015625,
+            "rerank_score": 0.9276841640472412,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "consolidated balance sheet and aggregated to less than $30 million as of December 31, 2025 and 2024.",
+            "bbox": [
+              23.54999901875,
+              373.08082060481064,
+              352.22031096915293,
+              381.0788202115607
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "text": "consolidated balance sheet and aggregated to less than $30 million as of December 31, 2025 and 2024.",
+            "score": 0.027271052146674038,
+            "rerank_score": 0.6953176021575928,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the",
+            "bbox": [
+              23.54999901875,
+              349.68082157980206,
+              552.8283379635342,
+              357.6788211865521
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "text": "gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the",
+            "score": 0.03200204813108039,
+            "rerank_score": 0.32608431577682495,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "2024, as those swaps were in place, 3M reflected the carrying value of the $800 million portion as USD denominated floating-rate date in the table above.",
+            "bbox": [
+              23.54999901875,
+              226.0808267298064,
+              516.1067940805494,
+              234.0788263365564
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "text": "2024, as those swaps were in place, 3M reflected the carrying value of the $800 million portion as USD denominated floating-rate date in the table above.",
+            "score": 0.015151515151515152,
+            "rerank_score": -0.6647259593009949,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of",
+            "bbox": [
+              23.54999901875,
+              236.88202627976102,
+              561.4671605899335,
+              244.88002588651102
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "text": "billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of",
+            "score": 0.014925373134328358,
+            "rerank_score": -2.0075883865356445,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "text",
+            "content": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material.",
+            "bbox": [
+              23.54999901875,
+              577.6808120798098,
+              439.2396677833465,
+              585.6788116865598
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "text": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material.",
+            "score": 0.024350649350649352,
+            "rerank_score": -2.264708423614502,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "table",
+            "content": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+            "bbox": [
+              23.54999901875,
+              378.94337880528434,
+              587.5499755187499,
+              500.77787004334385
+            ],
+            "table_id": "table_57_2",
+            "headers": [
+              "Gross UTB balance at beginning of period",
+              "$574",
+              "$590",
+              "$632"
+            ],
+            "rows": [
+              [
+                "Additions based on tax positions related to the current year",
+                "46",
+                "13",
+                "11"
+              ],
+              [
+                "Additions for tax positions of prior years",
+                "64",
+                "57",
+                "63"
+              ],
+              [
+                "Reductions for tax positions of prior years",
+                "(87)",
+                "(16)",
+                "(42)"
+              ],
+              [
+                "Settlements",
+                "(45)",
+                "(17)",
+                "(33)"
+              ],
+              [
+                "Reductions due to lapse of applicable statute of limitations",
+                "(49)",
+                "(36)",
+                "(42)"
+              ],
+              [
+                "Foreign currency translation",
+                "13",
+                "(17)",
+                "1"
+              ],
+              [
+                "Gross UTB balance at end of period",
+                "$516",
+                "$574",
+                "$590"
+              ],
+              [
+                "Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d)",
+                "$6",
+                "$25",
+                "$83"
+              ],
+              [
+                "Gross accrued interest and penalties in the consolidated balance sheet at end of period",
+                "$195",
+                "$207",
+                "$183"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "The Company recognizes the amount of tax benefit that has a greater than 50 percent likelihood of being ultimately realized upon settlement. The total amount of net unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "text": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+            "score": 0.029083245521601686,
+            "rerank_score": 1.9619349002838136,
+            "annual_report_year_columns": true,
+            "metric_label": "Additions based on tax positions related to the current year",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "caption",
+            "content": "table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024.",
+            "bbox": [
+              23.54999901875,
+              75.48011300483745,
+              554.4017237849274,
+              83.47811261158745
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "text": "table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024.",
+            "score": 0.022833419823559936,
+            "rerank_score": -2.1332143783569335,
+            "annual_report_year_columns": true,
+            "modality": "caption",
+            "priority": 45
+          }
+        ],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "table",
+            "content": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+            "bbox": [
+              23.54999901875,
+              378.94337880528434,
+              587.5499755187499,
+              500.77787004334385
+            ],
+            "table_id": "table_57_2",
+            "headers": [
+              "Gross UTB balance at beginning of period",
+              "$574",
+              "$590",
+              "$632"
+            ],
+            "rows": [
+              [
+                "Additions based on tax positions related to the current year",
+                "46",
+                "13",
+                "11"
+              ],
+              [
+                "Additions for tax positions of prior years",
+                "64",
+                "57",
+                "63"
+              ],
+              [
+                "Reductions for tax positions of prior years",
+                "(87)",
+                "(16)",
+                "(42)"
+              ],
+              [
+                "Settlements",
+                "(45)",
+                "(17)",
+                "(33)"
+              ],
+              [
+                "Reductions due to lapse of applicable statute of limitations",
+                "(49)",
+                "(36)",
+                "(42)"
+              ],
+              [
+                "Foreign currency translation",
+                "13",
+                "(17)",
+                "1"
+              ],
+              [
+                "Gross UTB balance at end of period",
+                "$516",
+                "$574",
+                "$590"
+              ],
+              [
+                "Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d)",
+                "$6",
+                "$25",
+                "$83"
+              ],
+              [
+                "Gross accrued interest and penalties in the consolidated balance sheet at end of period",
+                "$195",
+                "$207",
+                "$183"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "The Company recognizes the amount of tax benefit that has a greater than 50 percent likelihood of being ultimately realized upon settlement. The total amount of net unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+            "text": "Additions based on tax positions related to the current year: 2025 46, 2025 13, 2024 11 | Additions for tax positions of prior years: 2025 64, 2025 57, 2024 63 | Reductions for tax positions of prior years: 2025 (87), 2025 (16), 2024 (42) | Settlements: 2025 (45), 2025 (17), 2024 (33) | Reductions due to lapse of applicable statute of limitations: 2025 (49), 2025 (36), 2024 (42) | Foreign currency translation: 2025 13, 2025 (17), 2024 1 | Gross UTB balance at end of period: 2025 $516, 2025 $574, 2024 $590 | Gross interest and penalties (benefits) recognized in the consolidated statement of income (loss) (d): 2025 $6, 2025 $25, 2024 $83 | Gross accrued interest and penalties in the consolidated balance sheet at end of period: 2025 $195, 2025 $207, 2024 $183",
+            "score": 0.029083245521601686,
+            "rerank_score": 1.9619349002838136,
+            "annual_report_year_columns": true,
+            "metric_label": "Additions based on tax positions related to the current year",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "bbox": [
+              23.54999901875,
+              340.6808219548049,
+              574.9526778216868,
+              348.67882156155497
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1679",
+            "text": "unrecognized tax benefits (UTB), if recognized, would affect the effective tax rate by $652 million as of December 31, 2025. The ending net UTB results from adjusting the",
+            "score": 0.031024531024531024,
+            "rerank_score": 3.0311108589172364,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows:",
+            "bbox": [
+              23.54999901875,
+              359.28082117980483,
+              375.5731659783874,
+              367.2788207865549
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1681",
+            "text": "Consolidated Balance Sheet. A reconciliation of the beginning and ending amount of gross UTB is as follows:",
+            "score": 0.03278688524590164,
+            "rerank_score": 2.9526963233947754,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "text",
+            "content": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "bbox": [
+              23.54999901875,
+              368.2820208047571,
+              574.8812328846633,
+              376.28002041150717
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1588",
+            "text": "million and asset-related and other charges were $16 million. The balance of accrued restructuring liability as of December 31, 2025 was $25 million. Additional actions are",
+            "score": 0.015625,
+            "rerank_score": 0.9276841640472412,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "consolidated balance sheet and aggregated to less than $30 million as of December 31, 2025 and 2024.",
+            "bbox": [
+              23.54999901875,
+              373.08082060481064,
+              352.22031096915293,
+              381.0788202115607
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1799",
+            "text": "consolidated balance sheet and aggregated to less than $30 million as of December 31, 2025 and 2024.",
+            "score": 0.027271052146674038,
+            "rerank_score": 0.6953176021575928,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the",
+            "bbox": [
+              23.54999901875,
+              349.68082157980206,
+              552.8283379635342,
+              357.6788211865521
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1680",
+            "text": "gross balance for deferred items, interest and penalties, and deductible taxes. The net UTB is included as components of Other Assets and Other Liabilities within the",
+            "score": 0.03200204813108039,
+            "rerank_score": 0.32608431577682495,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "2024, as those swaps were in place, 3M reflected the carrying value of the $800 million portion as USD denominated floating-rate date in the table above.",
+            "bbox": [
+              23.54999901875,
+              226.0808267298064,
+              516.1067940805494,
+              234.0788263365564
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1743",
+            "text": "2024, as those swaps were in place, 3M reflected the carrying value of the $800 million portion as USD denominated floating-rate date in the table above.",
+            "score": 0.015151515151515152,
+            "rerank_score": -0.6647259593009949,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of",
+            "bbox": [
+              23.54999901875,
+              236.88202627976102,
+              561.4671605899335,
+              244.88002588651102
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1525",
+            "text": "billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of",
+            "score": 0.014925373134328358,
+            "rerank_score": -2.0075883865356445,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "text",
+            "content": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material.",
+            "bbox": [
+              23.54999901875,
+              577.6808120798098,
+              439.2396677833465,
+              585.6788116865598
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1727",
+            "text": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material.",
+            "score": 0.024350649350649352,
+            "rerank_score": -2.264708423614502,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "caption",
+            "content": "table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024.",
+            "bbox": [
+              23.54999901875,
+              75.48011300483745,
+              554.4017237849274,
+              83.47811261158745
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1098",
+            "text": "table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024.",
+            "score": 0.022833419823559936,
+            "rerank_score": -2.1332143783569335,
+            "annual_report_year_columns": true,
+            "modality": "caption",
+            "priority": 45
+          }
+        ],
+        "calculation": {
+          "formula": "value",
+          "value": 46000000.0,
+          "inputs": {
+            "value": 46000000.0
+          },
+          "raw_inputs": {
+            "value": "46"
+          },
+          "input_metadata": {
+            "value": {
+              "currency": null,
+              "unit": "number",
+              "precision": 0,
+              "scale": 1000000,
+              "normalized_precision": 0,
+              "unit_context": "Millions"
+            }
+          },
+          "currency": null,
+          "result_unit": "number",
+          "result_precision": null,
+          "source_inputs": {
+            "value": {
+              "name": "value",
+              "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4816",
+              "row_index": 0,
+              "column_index": 1,
+              "number_index": null,
+              "fact_index": null,
+              "unit_quote": "Millions",
+              "scope_quote": "",
+              "raw": "46",
+              "normalized_value": 46000000.0,
+              "unit_context": "Millions",
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "page": 57,
+              "source_evidence_id": "evidence_4816",
+              "period_interpretation": null,
+              "effective_column_map": [
+                {
+                  "col": 1,
+                  "year": 2025,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 2,
+                  "year": 2024,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 3,
+                  "year": 2023,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                }
+              ]
+            }
+          },
+          "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+        },
+        "comparison": {
+          "claimed": 800000000.0,
+          "actual": 46000000.0,
+          "difference": 754000000.0,
+          "tolerance": 500000.0,
+          "verdict": "CONTRADICTED",
+          "unit": "number",
+          "claimed_precision": 0,
+          "actual_precision": null,
+          "difference_precision": null,
+          "operator": "equal"
+        },
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4816",
+          "0000066740-26-000014-56e1ef4130::evidence_1679",
+          "0000066740-26-000014-56e1ef4130::evidence_1681",
+          "0000066740-26-000014-56e1ef4130::evidence_1588",
+          "0000066740-26-000014-56e1ef4130::evidence_1799",
+          "0000066740-26-000014-56e1ef4130::evidence_1680",
+          "0000066740-26-000014-56e1ef4130::evidence_1743",
+          "0000066740-26-000014-56e1ef4130::evidence_1525",
+          "0000066740-26-000014-56e1ef4130::evidence_1727",
+          "0000066740-26-000014-56e1ef4130::evidence_1098"
+        ],
+        "pages": [
+          34,
+          50,
+          53,
+          57,
+          59,
+          60,
+          61
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "calculation",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Python comparison: claimed 8e+08 number; actual 4.6e+07 number.",
+      "reporting_period": "2025",
+      "original_claim": "The Gross UTB balance at the beginning of 2025 was $800 million.",
+      "overall_verdict": "CONTRADICTED",
+      "processing_time_seconds": 48.30728549999185,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T15:59:31.547312+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792943971-H01TXsMQ0P0nYDqtYMSJ",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 421,
+            "completion_tokens": 1775,
+            "total_tokens": 2196,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1250,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 27.064
+        },
+        {
+          "time": "2026-10-25T15:59:59.191606+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792943999-IHrLnKIPRq7WejKuk1pn",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4923,
+            "completion_tokens": 1638,
+            "total_tokens": 6561,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1207,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 20.659
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "375ae35a4174a26f727c772e64b52d13fabb872a4492099669e9b8eadcb7a8c0"
+}

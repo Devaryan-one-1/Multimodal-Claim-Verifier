@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "dataset_id": "hallucination_20261025_160629_5543045a",
+  "revision": 65,
+  "claim_count": 20,
+  "created_at": "2026-10-26T11:53:43.942947+00:00",
+  "source_hashes": {
+    "data/documents/0000066740-26-000014-56e1ef4130/original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+    "data/processed/0000066740-26-000014-56e1ef4130/evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04",
+    "data/processed/0000066740-26-000014-56e1ef4130/pages.json": "94c7e26dfdec1ad7fc07f4339f365ac2b4da963c0c559a677cdb36c73cd0c9b1"
+  },
+  "claims_sha256": "504e7787bc14c5a553fa249f76c468d71d3d22f163e3c91e50753b8a7ad3c20a",
+  "ground_truth_sha256": "fbcd17c04d8b0b027480ccccedd2bb1d366150e80bdcf583ba23cfe882851193",
+  "suite": "hallucination_resistance",
+  "category_counts": {
+    "missing_forecast": 4,
+    "invented_metric": 4,
+    "invented_segment": 4,
+    "wrong_period_or_scope": 4,
+    "mixed_compound": 4
+  }
+}
