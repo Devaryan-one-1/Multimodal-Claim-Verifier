@@ -22,6 +22,7 @@ from ui.evidence import evidence_from_result, render_evidence
 from ui.retrieval_evaluation import render_retrieval_evaluation
 from ui.upload import initialize_upload_state, process_one_document, render_upload
 from ui.verdict_evaluation import render_verdict_evaluation
+from ui.hallucination import render_hallucination_panel
 
 def _open_upload():
     st.session_state.dashboard_manage = True
@@ -227,6 +228,7 @@ def run_dashboard():
         )
         render_retrieval_evaluation()
         render_verdict_evaluation()
+        render_hallucination_panel(selected_document_ids=selected)
     with history:
         _history()
     with about:
