@@ -1,0 +1,1248 @@
+{
+  "schema_version": 1,
+  "report_id": "20261027_182414_ae20194b",
+  "dataset_id": "hallucination_20261025_160629_5543045a",
+  "dataset_revision": 65,
+  "created_at": "2026-10-27T18:24:14.469832+00:00",
+  "report_path": "data\\evaluation\\hallucination\\verdict_results\\20261027_182414_ae20194b.json",
+  "complete": false,
+  "valid_inputs": true,
+  "paused": true,
+  "pause": {
+    "kind": "rate_limit_or_cooldown",
+    "reason": "Model service rate limit cooldown: retry in 62 seconds, or select another model. ",
+    "retry_after_seconds": 61.8,
+    "reset_at": null,
+    "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+    "query_id": "h_1af7f20e8c94"
+  },
+  "labels": [
+    "SUPPORTED",
+    "CONTRADICTED",
+    "PARTIALLY_SUPPORTED",
+    "UNKNOWN"
+  ],
+  "cache_mode": "reuse",
+  "max_new_predictions": 5,
+  "configuration_signature": "d55e7a79890d63c202b39c3612f4e462de65200ee30ca188725a71e3bd1434ee",
+  "configuration": {
+    "reasoning_model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "model_routing": {
+      "provider": "openrouter",
+      "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "vision_model": "",
+      "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "text_fallbacks": [
+        "minimax/minimax-m3.1-flash"
+      ],
+      "vision_fallbacks": [],
+      "allow_fallbacks": false,
+      "timeout_seconds": 120.0,
+      "max_output_tokens": 8192,
+      "send_temperature": false,
+      "gateway_version": 2,
+      "schema_policy": "strict JSON Schema plus local validation",
+      "openrouter_base_url": "https://openrouter.ai/api/v1"
+    },
+    "embedding_model": "gemini-embedding-001",
+    "embedding_dimensions": 768,
+    "vector_collection": "evidence_v2_4251d7d3a135",
+    "index_versions": {
+      "0000066740-26-000014-56e1ef4130": "33c1651876935dd656bc0c541095b7dbc5dbe41081d1b9815387033b0cd6dbab"
+    },
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reviewed_source_hashes": {
+      "data/documents/0000066740-26-000014-56e1ef4130/original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+      "data/processed/0000066740-26-000014-56e1ef4130/evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04",
+      "data/processed/0000066740-26-000014-56e1ef4130/pages.json": "94c7e26dfdec1ad7fc07f4339f365ac2b4da963c0c559a677cdb36c73cd0c9b1"
+    },
+    "processed_file_hashes": {
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\document.json": "70eb055f2d63a83f4c002c4ce9fad0d8c419466a91eafef5bc35e89b4ce0b5bf",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\pages.json": "94c7e26dfdec1ad7fc07f4339f365ac2b4da963c0c559a677cdb36c73cd0c9b1",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\tables.json": "4e8482ff11ef98cf742731364babc92763fc6cf727c0eb2731d8f3c2278ddf46",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\chunks.json": "2cee87d94f097ed9584ece9675421660f34f415de4bd0843ec0f5c149cf8fbfe",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\index.json": "3061733ebd1ab995b5176f548ab7d4882007efe08b5d46194cd58cecad991b84",
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\ocr.json": null,
+      "data\\processed\\0000066740-26-000014-56e1ef4130\\chart_analysis.json": null
+    },
+    "pipeline_code_hashes": {
+      "pipelines\\__init__.py": "b0fb5a13e71c4d1043700cd74514295ea6bbdba36b2931e5cf0c626bf8bdff17",
+      "pipelines\\ablation_pipeline.py": "6cb1bdbc8962ab252ef2b1a43fcac9e17fa290d600a2fac23bd8c47fd45af694",
+      "pipelines\\document_pipeline.py": "0c7526e86c8beb8e1f7ed70d2079d5f6729e97d889381c1331ccb54e78f2ecc1",
+      "pipelines\\verification_pipeline.py": "4c567349c79304a0a9f2ab6c4d987093a5dcefc02268af608cdb2c6698c851ad",
+      "verification\\claim_parser.py": "d13ea958153337d8480bc426b1b196fa5495726cf3651f7eb5ae203699b9861d",
+      "verification\\claim_verifier.py": "4001df727f33515c1ad6b9ed33b7f0593e69531f50a8fd5b4fafdc6862ca4c35",
+      "verification\\comparison.py": "eeb33abe7f350932e5b8bedb1a6a1e31eaa698d83d1f2d8cd48b2eb7fc49947e",
+      "verification\\financial_calculations.py": "44a4c436c34d8a206ca0437dea14657f7649f6765ea90e73d7e91f3edd47c757",
+      "verification\\grounded_numeric.py": "b7a76d8504662ca7be7fa2435e4188ec21c28046c11f094b859e924b23555709",
+      "verification\\number_parser.py": "514010d8726dd6df51f3a69fae6b5bdfd0b8f70c5c9aa4fc89480a71ace4a3c9",
+      "verification\\unit_normalizer.py": "6b8644cfaf10199eb68fd27fbbe92f826aff666e04b956d1fed01456fc989524",
+      "reasoning\\evidence_fusion.py": "1a40b8ceffb585431c180fad205da5cf279e958c01ecb89a6659efd6556c3c5e",
+      "reasoning\\llm_client.py": "404f1182a9a3bf6d4b727e5bc19beea8ab6ec0c8f679a7ac80d4a28805b0316a",
+      "reasoning\\prompts.py": "7641ad5bc33bdf026d7691b87d610c60ecfaf6481875cd7e52848f891d5481cc",
+      "reasoning\\schemas.py": "2cbcfbe24b5336b050a00e6cacc6e7b52e968a97ff85d249589c20371ecec03b",
+      "reasoning\\vision_client.py": "9ef778a992afbdf19872146188d016baf08d2bd047540c54966200087cd5534a",
+      "retrieval\\ablation_search.py": "9ca9345482e4f6b32f5691341130411a12dd8eb556a8f3516741f915ad6dd5e1",
+      "retrieval\\embeddings.py": "ef795d6fec213ef461a8c0c367cd02fbbddf8ba078eb1b68690e0b315d3d9b6c",
+      "retrieval\\hybrid_search.py": "abf50fd50955bccb20975cee3690edade338ebcf0cf3085705ecfc22aa5db93b",
+      "retrieval\\keyword_search.py": "773efd143ce75b932a61ea3adf0c36b7ed80b8a347be932766d44da6228eb54e",
+      "retrieval\\reranker.py": "108e6d5e1018c84b22641fb7f02de133275c081a247f91184ebd9c8119757a9d",
+      "retrieval\\retriever.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retrieval\\vector_store.py": "199d3e3549f17558846261e59f5ef231275e83f2e29b96f6f3151bcf611749d2",
+      "services\\__init__.py": "5ee368b8b403ddb926e38792d6c660d7a6ec88ea5bd628ded82a91e52931d2f1",
+      "services\\documents.py": "5e9ebc9cb81e382f57decad07a2f2a8c0f9ff51ed56843ee485a2d7ee0f05bf3",
+      "services\\model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+      "services\\runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+      "services\\verification_errors.py": "be8de03413ffdd63aa68f569c4328b39bb38c9aef7b0ee7997ea47f5edc3222e",
+      "evaluation/verdict_evaluation.py": "62fee13bd7de8b4f71d1c918180c9af0c777af74ba0898394cd9f360e4fc7809"
+    },
+    "dependencies": {
+      "google-genai": "2.22.0",
+      "pydantic": "2.13.5",
+      "chromadb": "1.5.9",
+      "sentence-transformers": "6.0.1",
+      "rank-bm25": "0.2.2",
+      "httpx": "0.28.1",
+      "jsonschema": "4.26.0"
+    },
+    "cache_schema_version": 2
+  },
+  "dataset_checksums": {
+    "claims_sha256": "504e7787bc14c5a553fa249f76c468d71d3d22f163e3c91e50753b8a7ad3c20a",
+    "ground_truth_sha256": "fbcd17c04d8b0b027480ccccedd2bb1d366150e80bdcf583ba23cfe882851193"
+  },
+  "metric_policy": {
+    "errors": "Service/validation failures have no factual label; unattempted work remains unattempted.",
+    "macro": "Equal weight across labels present in gold or predictions; absent classes have null metrics.",
+    "zero_division": "Undefined precision/recall for active classes scores zero.",
+    "weighted": "Weighted by gold support among completed predictions.",
+    "subclaims": "Independent verification of reviewed atomic text, not parser-output alignment.",
+    "cache": "Exact input, source/index configuration, models, pipeline code and dependencies.",
+    "model_aliases": "Use fresh predictions after an upstream model alias changes.",
+    "quota": "Any observed 429/quota/cooldown pauses the run regardless of stop_on_error."
+  },
+  "queries": [
+    {
+      "query_id": "h_1af7f20e8c94",
+      "claim_id": "h_1af7f20e8c94",
+      "level": "claim",
+      "claim_text": "3M projects that its 2025 adjusted operating margin will expand by at least 150 basis points versus 2024.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "error",
+      "prediction_source": null,
+      "error": "VerificationFailure: Model service rate limit cooldown: retry in 62 seconds, or select another model.",
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "missing_forecast"
+      ],
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit cooldown: retry in 62 seconds, or select another model. ",
+        "retry_after_seconds": 61.8,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available."
+      }
+    },
+    {
+      "query_id": "h_d5521e61178a",
+      "claim_id": "h_d5521e61178a",
+      "level": "claim",
+      "claim_text": "3M projects that its 2026 adjusted operating margin will expand by at least 150 basis points versus 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "missing_forecast"
+      ]
+    },
+    {
+      "query_id": "h_de67ec5808d7",
+      "claim_id": "h_de67ec5808d7",
+      "level": "claim",
+      "claim_text": "3M projects that its 2026 organic sales growth will be between 2.5% and 3.5%.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "missing_forecast"
+      ]
+    },
+    {
+      "query_id": "h_96461314b90b",
+      "claim_id": "h_96461314b90b",
+      "level": "claim",
+      "claim_text": "3M projects that its 2026 diluted EPS will grow by at least 10%.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "missing_forecast"
+      ]
+    },
+    {
+      "query_id": "h_21a019db4e44",
+      "claim_id": "h_21a019db4e44",
+      "level": "claim",
+      "claim_text": "In 2025, 3M Company's Safety and Industrial segment reported a non-GAAP net profit margin of 25.4%, which is an invented metric for the segment's overall profitability.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_505beb20bce8",
+      "claim_id": "h_505beb20bce8",
+      "level": "claim",
+      "claim_text": "In 2025, 3M Company reported a pre-tax gain of $47 million from selling its interest in investments, and also introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_505beb20bce8:subclaim:1",
+      "claim_id": "h_505beb20bce8",
+      "level": "subclaim",
+      "claim_text": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_505beb20bce8:subclaim:2",
+      "claim_id": "h_505beb20bce8",
+      "level": "subclaim",
+      "claim_text": "The company introduced an invented metric called 'adjusted return on investment' of 18.5% to evaluate that transaction's performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_4cdebfa179ef",
+      "claim_id": "h_4cdebfa179ef",
+      "level": "claim",
+      "claim_text": "In 2024, 3M Company's Transportation and Electronics segment experienced an organic sales decrease of 1.0%, but the company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_4cdebfa179ef:subclaim:1",
+      "claim_id": "h_4cdebfa179ef",
+      "level": "subclaim",
+      "claim_text": "In 2024, 3M Company's Transportation and Electronics segment experienced an organic sales decrease of 1.0%.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_4cdebfa179ef:subclaim:2",
+      "claim_id": "h_4cdebfa179ef",
+      "level": "subclaim",
+      "claim_text": "The company also introduced an invented metric called 'adjusted innovation yield' of 15.2% to evaluate R&D efficiency.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_2506af09c4ec",
+      "claim_id": "h_2506af09c4ec",
+      "level": "claim",
+      "claim_text": "3M Company reported an 'adjusted earnings per share growth rate' of 12.3% for fiscal year 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_metric"
+      ]
+    },
+    {
+      "query_id": "h_50f03a40745b",
+      "claim_id": "h_50f03a40745b",
+      "level": "claim",
+      "claim_text": "The newly formed Advanced Materials segment reported $3.5 billion in 2025 sales, while the Transportation and Electronics segment operating income fell by 9.0% in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_50f03a40745b:subclaim:1",
+      "claim_id": "h_50f03a40745b",
+      "level": "subclaim",
+      "claim_text": "the Transportation and Electronics segment operating income fell by 9.0% in 2025",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_50f03a40745b:subclaim:2",
+      "claim_id": "h_50f03a40745b",
+      "level": "subclaim",
+      "claim_text": "The newly formed Advanced Materials segment reported $3.5 billion in 2025 sales",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_42ee0a831582",
+      "claim_id": "h_42ee0a831582",
+      "level": "claim",
+      "claim_text": "3M's worldwide sales increased to $24,948 million in 2025, but the newly formed Advanced Materials segment reported only $3.5 billion in 2025 sales.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_42ee0a831582:subclaim:1",
+      "claim_id": "h_42ee0a831582",
+      "level": "subclaim",
+      "claim_text": "3M's worldwide sales increased to $24,948 million in 2025",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_42ee0a831582:subclaim:2",
+      "claim_id": "h_42ee0a831582",
+      "level": "subclaim",
+      "claim_text": "the newly formed Advanced Materials segment reported only $3.5 billion in 2025 sales",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_893711fdef0a",
+      "claim_id": "h_893711fdef0a",
+      "level": "claim",
+      "claim_text": "In 2025, the newly formed Advanced Materials segment reported sales of $4.2 billion, and 3M's total marketable securities decreased to $710 million from $2,144 million in 2024.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_893711fdef0a:subclaim:1",
+      "claim_id": "h_893711fdef0a",
+      "level": "subclaim",
+      "claim_text": "3M's total marketable securities decreased to $710 million in 2025 from $2,144 million in 2024.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_893711fdef0a:subclaim:2",
+      "claim_id": "h_893711fdef0a",
+      "level": "subclaim",
+      "claim_text": "the newly formed Advanced Materials segment reported sales of $4.2 billion in 2025",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_86a7e52796cc",
+      "claim_id": "h_86a7e52796cc",
+      "level": "claim",
+      "claim_text": "3M's total long-term debt was $12,602 million in 2025, and the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_86a7e52796cc:subclaim:1",
+      "claim_id": "h_86a7e52796cc",
+      "level": "subclaim",
+      "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_86a7e52796cc:subclaim:2",
+      "claim_id": "h_86a7e52796cc",
+      "level": "subclaim",
+      "claim_text": "the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "UNKNOWN",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "invented_segment"
+      ]
+    },
+    {
+      "query_id": "h_a57bd85aadc4",
+      "claim_id": "h_a57bd85aadc4",
+      "level": "claim",
+      "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million, and its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_a57bd85aadc4:subclaim:1",
+      "claim_id": "h_a57bd85aadc4",
+      "level": "subclaim",
+      "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_a57bd85aadc4:subclaim:2",
+      "claim_id": "h_a57bd85aadc4",
+      "level": "subclaim",
+      "claim_text": "Its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_d69e936bf2c1",
+      "claim_id": "h_d69e936bf2c1",
+      "level": "claim",
+      "claim_text": "3M Company's 2025 Net PP&E in the Asia Pacific region was $1,010 million, and its 2025 Net PP&E in the Europe, Middle East and Africa region was $1,051 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_d69e936bf2c1:subclaim:1",
+      "claim_id": "h_d69e936bf2c1",
+      "level": "subclaim",
+      "claim_text": "3M Company's 2025 Net PP&E in the Asia Pacific region was $1,010 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_d69e936bf2c1:subclaim:2",
+      "claim_id": "h_d69e936bf2c1",
+      "level": "subclaim",
+      "claim_text": "3M Company's 2025 Net PP&E in the Europe, Middle East and Africa region was $1,051 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_f8041997e8b1",
+      "claim_id": "h_f8041997e8b1",
+      "level": "claim",
+      "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million, and its 2025 Europe, Middle East and Africa net sales were $4,274 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_e08a89c880e0",
+      "claim_id": "h_e08a89c880e0",
+      "level": "claim",
+      "claim_text": "3M Company's 2024 Asia Pacific net sales were $7,095 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "wrong_period_or_scope"
+      ]
+    },
+    {
+      "query_id": "h_26580b967805",
+      "claim_id": "h_26580b967805",
+      "level": "claim",
+      "claim_text": "3M's working capital (non-GAAP measure) decreased to $4,628 million in 2025, while its net deferred tax assets increased to $3,792 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_26580b967805:subclaim:1",
+      "claim_id": "h_26580b967805",
+      "level": "subclaim",
+      "claim_text": "3M's working capital (non-GAAP measure) decreased to $4,628 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_26580b967805:subclaim:2",
+      "claim_id": "h_26580b967805",
+      "level": "subclaim",
+      "claim_text": "3M's net deferred tax assets increased to $3,792 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_08bced58809d",
+      "claim_id": "h_08bced58809d",
+      "level": "claim",
+      "claim_text": "In 2025, 3M's Safety and Industrial segment operating income was $2,836 million, while the company's total reportable business segment operating income was $5,001 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_08bced58809d:subclaim:1",
+      "claim_id": "h_08bced58809d",
+      "level": "subclaim",
+      "claim_text": "In 2025, 3M's Safety and Industrial segment operating income was $2,836 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_08bced58809d:subclaim:2",
+      "claim_id": "h_08bced58809d",
+      "level": "subclaim",
+      "claim_text": "In 2025, the company's total reportable business segment operating income was $5,001 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ca342af86610",
+      "claim_id": "h_ca342af86610",
+      "level": "claim",
+      "claim_text": "In 2025, 3M's total income from continuing operations before income taxes was $4,213 million, while the company's total accumulated other comprehensive income (loss) at December 31, 2024 was $(5,069) million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ca342af86610:subclaim:1",
+      "claim_id": "h_ca342af86610",
+      "level": "subclaim",
+      "claim_text": "3M's total income from continuing operations before income taxes was $4,213 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ca342af86610:subclaim:2",
+      "claim_id": "h_ca342af86610",
+      "level": "subclaim",
+      "claim_text": "3M's total accumulated other comprehensive income (loss) at December 31, 2024 was $(5,069) million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ae75af2408bb",
+      "claim_id": "h_ae75af2408bb",
+      "level": "claim",
+      "claim_text": "In 2025, 3M's Safety and Industrial segment GAAP operating income was $2,836 million, while the company's total GAAP operating income was $5,001 million.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ae75af2408bb:subclaim:1",
+      "claim_id": "h_ae75af2408bb",
+      "level": "subclaim",
+      "claim_text": "3M's Safety and Industrial segment GAAP operating income was $2,836 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "SUPPORTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    },
+    {
+      "query_id": "h_ae75af2408bb:subclaim:2",
+      "claim_id": "h_ae75af2408bb",
+      "level": "subclaim",
+      "claim_text": "The company's total GAAP operating income was $5,001 million in 2025.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "expected": "CONTRADICTED",
+      "predicted": null,
+      "correct": null,
+      "status": "not_run",
+      "prediction_source": null,
+      "error": null,
+      "results": [],
+      "case_tags": [
+        "hallucination_resistance",
+        "mixed_compound"
+      ]
+    }
+  ],
+  "metrics": {
+    "claim": {
+      "summary": {
+        "level": "claim",
+        "total_queries": 20,
+        "completed_queries": 0,
+        "failed_queries": 1,
+        "not_run_queries": 19,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      "per_class": [
+        {
+          "verdict": "SUPPORTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "CONTRADICTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "PARTIALLY_SUPPORTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "UNKNOWN",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      ],
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "CONTRADICTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "PARTIALLY_SUPPORTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "UNKNOWN": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        }
+      }
+    },
+    "subclaim": {
+      "summary": {
+        "level": "subclaim",
+        "total_queries": 24,
+        "completed_queries": 0,
+        "failed_queries": 0,
+        "not_run_queries": 24,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      "per_class": [
+        {
+          "verdict": "SUPPORTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "CONTRADICTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "PARTIALLY_SUPPORTED",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "verdict": "UNKNOWN",
+          "support": 0,
+          "predicted_count": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      ],
+      "confusion_matrix": {
+        "SUPPORTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "CONTRADICTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "PARTIALLY_SUPPORTED": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        },
+        "UNKNOWN": {
+          "SUPPORTED": 0,
+          "CONTRADICTED": 0,
+          "PARTIALLY_SUPPORTED": 0,
+          "UNKNOWN": 0
+        }
+      }
+    }
+  },
+  "summary": [
+    {
+      "level": "claim",
+      "total_queries": 20,
+      "completed_queries": 0,
+      "failed_queries": 1,
+      "not_run_queries": 19,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "level": "subclaim",
+      "total_queries": 24,
+      "completed_queries": 0,
+      "failed_queries": 0,
+      "not_run_queries": 24,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    }
+  ],
+  "elapsed_seconds": 0.09956499999680091,
+  "updated_at": "2026-10-27T18:24:14.569465+00:00",
+  "model_calls": [
+    {
+      "time": "2026-10-27T18:24:14.520873+00:00",
+      "task": "text",
+      "gateway_provider": "openrouter",
+      "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "actual_model": null,
+      "status": "cooldown",
+      "retry_after_seconds": 61.8
+    }
+  ],
+  "automatic_model_fallbacks": false
+}

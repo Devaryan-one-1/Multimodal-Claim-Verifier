@@ -1,0 +1,2394 @@
+{
+  "schema_version": 2,
+  "cache_key": "e48be42939d6e402753be58740377fea70bd9d6fe40b001936c9a0e7d8c42423",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million, and its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-27T19:05:37.400519+00:00",
+  "results": [
+    {
+      "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million",
+      "parsed_claim": {
+        "claim_text": "3M Company's 2025 Asia Pacific net sales were $7,095 million",
+        "company": "3M Company",
+        "subject": "net sales",
+        "metric": "net sales",
+        "segment": "Asia Pacific",
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$7,095 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "confidence": null,
+      "confidence_kind": "deterministic comparison; no calibrated probability",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            394.7553889572644,
+            587.8071183651786,
+            443.3208906192056
+          ],
+          "table_id": "table_51_2",
+          "headers": [
+            "Americas",
+            "$13,579",
+            "$13,405",
+            "$13,268"
+          ],
+          "rows": [
+            [
+              "Asia Pacific",
+              "7,095",
+              "6,994",
+              "7,068"
+            ],
+            [
+              "Europe, Middle East and Africa",
+              "4,274",
+              "4,176",
+              "4,274"
+            ],
+            [
+              "Worldwide",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "source_evidence_id": "evidence_4797",
+          "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.02921395544346364,
+          "rerank_score": 4.09487829208374,
+          "annual_report_year_columns": true,
+          "metric_label": "Asia Pacific",
+          "period_interpretation": "annual_report_year_columns",
+          "relevant_row_indices": [
+            0
+          ],
+          "relevant_column_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "0000066740-26-000014-56e1ef4130::evidence_4797"
+      ],
+      "calculation": {
+        "formula": "value",
+        "value": 7095000000.0,
+        "inputs": {
+          "value": 7095000000.0
+        },
+        "raw_inputs": {
+          "value": "7,095"
+        },
+        "input_metadata": {
+          "value": {
+            "currency": null,
+            "unit": "number",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "millions"
+          }
+        },
+        "currency": null,
+        "result_unit": "number",
+        "result_precision": null,
+        "source_inputs": {
+          "value": {
+            "name": "value",
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "7,095",
+            "normalized_value": 7095000000.0,
+            "unit_context": "millions",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "source_evidence_id": "evidence_4797",
+            "period_interpretation": "annual_report_year_columns",
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 7095000000.0,
+        "actual": 7095000000.0,
+        "difference": 0.0,
+        "tolerance": 500000.0,
+        "verdict": "SUPPORTED",
+        "unit": "number",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unique matching source cells selected locally; Python performs the comparison.",
+      "unit": "number",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.014705882352941176,
+            "rerank_score": 1.7842581033706666,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              264.79686696679676,
+              221.14569386559572,
+              346.8867072663866,
+              233.14569336559578
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "text": "3M COMPANY",
+            "score": 0.016129032258064516,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.081985604758756,
+              333.1996831974092,
+              69.07998521150876
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "text": "3M COMPANY",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 4,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.68203357975676,
+              333.1996831974092,
+              69.68003318650676
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "text": "3M COMPANY",
+            "score": 0.015625,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 110,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              222.44061873164048,
+              115.08083135480524,
+              274.8076108704123,
+              123.07883096155524
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "text": "3M COMPANY",
+            "score": 0.015384615384615385,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 111,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              276.3656164847655,
+              93.41799227391368,
+              335.3211430714861,
+              102.21399178741376
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "text": "3M COMPANY",
+            "score": 0.015151515151515152,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.5946645736694336,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "table",
+            "content": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              462.9487807104694,
+              587.483308854861,
+              505.5795481649492
+            ],
+            "table_id": "table_102_2",
+            "headers": [
+              "Americas",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "text": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "score": 0.0304147465437788,
+            "rerank_score": 5.267231559753418,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              394.7553889572644,
+              587.8071183651786,
+              443.3208906192056
+            ],
+            "table_id": "table_51_2",
+            "headers": [
+              "Americas",
+              "$13,579",
+              "$13,405",
+              "$13,268"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "7,095",
+                "6,994",
+                "7,068"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "4,274",
+                "4,176",
+                "4,274"
+              ],
+              [
+                "Worldwide",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02921395544346364,
+            "rerank_score": 4.09487829208374,
+            "annual_report_year_columns": true,
+            "metric_label": "Asia Pacific",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "table",
+            "content": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              100.54384196451932,
+              587.4115139860576,
+              143.31831086008688
+            ],
+            "table_id": "table_28_1",
+            "headers": [
+              "Americas",
+              "35,500",
+              "36,000",
+              "$663",
+              "$829",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "13,500",
+                "13,500",
+                "114",
+                "128",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "11,500",
+                "12,000",
+                "133",
+                "147",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "60,500",
+                "61,500",
+                "$910",
+                "$1,104",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Geographic Area Supplemental Information Property, plant and equipment -net - as of Employees as of December 31, Capital spending December 31, (Millions, except employees) 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "text": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "score": 0.028371628371628373,
+            "rerank_score": 3.6890398025512696,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "table",
+            "content": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              462.9487807104694,
+              587.483308854861,
+              505.5795481649492
+            ],
+            "table_id": "table_102_2",
+            "headers": [
+              "Americas",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "text": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "score": 0.0304147465437788,
+            "rerank_score": 5.267231559753418,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              394.7553889572644,
+              587.8071183651786,
+              443.3208906192056
+            ],
+            "table_id": "table_51_2",
+            "headers": [
+              "Americas",
+              "$13,579",
+              "$13,405",
+              "$13,268"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "7,095",
+                "6,994",
+                "7,068"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "4,274",
+                "4,176",
+                "4,274"
+              ],
+              [
+                "Worldwide",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02921395544346364,
+            "rerank_score": 4.09487829208374,
+            "annual_report_year_columns": true,
+            "metric_label": "Asia Pacific",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              0
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "table",
+            "content": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              100.54384196451932,
+              587.4115139860576,
+              143.31831086008688
+            ],
+            "table_id": "table_28_1",
+            "headers": [
+              "Americas",
+              "35,500",
+              "36,000",
+              "$663",
+              "$829",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "13,500",
+                "13,500",
+                "114",
+                "128",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "11,500",
+                "12,000",
+                "133",
+                "147",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "60,500",
+                "61,500",
+                "$910",
+                "$1,104",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Geographic Area Supplemental Information Property, plant and equipment -net - as of Employees as of December 31, Capital spending December 31, (Millions, except employees) 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "text": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "score": 0.028371628371628373,
+            "rerank_score": 3.6890398025512696,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.014705882352941176,
+            "rerank_score": 1.7842581033706666,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              264.79686696679676,
+              221.14569386559572,
+              346.8867072663866,
+              233.14569336559578
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "text": "3M COMPANY",
+            "score": 0.016129032258064516,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.081985604758756,
+              333.1996831974092,
+              69.07998521150876
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "text": "3M COMPANY",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 4,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.68203357975676,
+              333.1996831974092,
+              69.68003318650676
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_128",
+            "text": "3M COMPANY",
+            "score": 0.015625,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 110,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              222.44061873164048,
+              115.08083135480524,
+              274.8076108704123,
+              123.07883096155524
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3427",
+            "text": "3M COMPANY",
+            "score": 0.015384615384615385,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 111,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              276.3656164847655,
+              93.41799227391368,
+              335.3211430714861,
+              102.21399178741376
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3455",
+            "text": "3M COMPANY",
+            "score": 0.015151515151515152,
+            "rerank_score": 1.0266673564910889,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.5946645736694336,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": {
+          "formula": "value",
+          "value": 7095000000.0,
+          "inputs": {
+            "value": 7095000000.0
+          },
+          "raw_inputs": {
+            "value": "7,095"
+          },
+          "input_metadata": {
+            "value": {
+              "currency": null,
+              "unit": "number",
+              "precision": 0,
+              "scale": 1000000,
+              "normalized_precision": 0,
+              "unit_context": "millions"
+            }
+          },
+          "currency": null,
+          "result_unit": "number",
+          "result_precision": null,
+          "source_inputs": {
+            "value": {
+              "name": "value",
+              "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+              "row_index": 0,
+              "column_index": 1,
+              "number_index": null,
+              "fact_index": null,
+              "unit_quote": "",
+              "scope_quote": "",
+              "raw": "7,095",
+              "normalized_value": 7095000000.0,
+              "unit_context": "millions",
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "page": 51,
+              "source_evidence_id": "evidence_4797",
+              "period_interpretation": "annual_report_year_columns",
+              "effective_column_map": [
+                {
+                  "col": 1,
+                  "year": 2025,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 2,
+                  "year": 2024,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 3,
+                  "year": 2023,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                }
+              ]
+            }
+          },
+          "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+        },
+        "comparison": {
+          "claimed": 7095000000.0,
+          "actual": 7095000000.0,
+          "difference": 0.0,
+          "tolerance": 500000.0,
+          "verdict": "SUPPORTED",
+          "unit": "number",
+          "claimed_precision": 0,
+          "actual_precision": null,
+          "difference_precision": null,
+          "operator": "equal"
+        },
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4867",
+          "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "0000066740-26-000014-56e1ef4130::evidence_4774",
+          "0000066740-26-000014-56e1ef4130::evidence_952",
+          "0000066740-26-000014-56e1ef4130::evidence_013",
+          "0000066740-26-000014-56e1ef4130::evidence_054",
+          "0000066740-26-000014-56e1ef4130::evidence_128",
+          "0000066740-26-000014-56e1ef4130::evidence_3427",
+          "0000066740-26-000014-56e1ef4130::evidence_3455",
+          "0000066740-26-000014-56e1ef4130::evidence_3188"
+        ],
+        "pages": [
+          1,
+          2,
+          4,
+          28,
+          29,
+          51,
+          102,
+          110,
+          111
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "calculation",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Python comparison: claimed 7.095e+09 number; actual 7.095e+09 number.",
+      "reporting_period": "2025",
+      "original_claim": "3M Company's 2025 Asia Pacific net sales were $7,095 million, and its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+      "overall_verdict": "PARTIALLY_SUPPORTED",
+      "processing_time_seconds": 25.13853399999789,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T19:05:12.215259+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127912-zSRIhMi5L9tQ71SAgoML",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 446,
+            "completion_tokens": 1628,
+            "total_tokens": 2074,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1192,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 22.34
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    },
+    {
+      "claim_text": "3M Company's 2024 Europe, Middle East and Africa net sales were $4,274 million",
+      "parsed_claim": {
+        "claim_text": "3M Company's 2024 Europe, Middle East and Africa net sales were $4,274 million",
+        "company": "3M Company",
+        "subject": "net sales",
+        "metric": "net sales",
+        "segment": "Europe, Middle East and Africa",
+        "start_period": null,
+        "end_period": 2024,
+        "period_quote": "2024",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$4,274 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "CONTRADICTED",
+      "confidence": null,
+      "confidence_kind": "deterministic comparison; no calibrated probability",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            394.7553889572644,
+            587.8071183651786,
+            443.3208906192056
+          ],
+          "table_id": "table_51_2",
+          "headers": [
+            "Americas",
+            "$13,579",
+            "$13,405",
+            "$13,268"
+          ],
+          "rows": [
+            [
+              "Asia Pacific",
+              "7,095",
+              "6,994",
+              "7,068"
+            ],
+            [
+              "Europe, Middle East and Africa",
+              "4,274",
+              "4,176",
+              "4,274"
+            ],
+            [
+              "Worldwide",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "source_evidence_id": "evidence_4797",
+          "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.01639344262295082,
+          "rerank_score": 5.039717292785644,
+          "annual_report_year_columns": true,
+          "metric_label": "Europe, Middle East and Africa",
+          "period_interpretation": "annual_report_year_columns",
+          "relevant_row_indices": [
+            1
+          ],
+          "relevant_column_indices": [
+            0,
+            2
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "0000066740-26-000014-56e1ef4130::evidence_4797"
+      ],
+      "calculation": {
+        "formula": "value",
+        "value": 4176000000.0,
+        "inputs": {
+          "value": 4176000000.0
+        },
+        "raw_inputs": {
+          "value": "4,176"
+        },
+        "input_metadata": {
+          "value": {
+            "currency": null,
+            "unit": "number",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "millions"
+          }
+        },
+        "currency": null,
+        "result_unit": "number",
+        "result_precision": null,
+        "source_inputs": {
+          "value": {
+            "name": "value",
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "row_index": 1,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "4,176",
+            "normalized_value": 4176000000.0,
+            "unit_context": "millions",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "source_evidence_id": "evidence_4797",
+            "period_interpretation": "annual_report_year_columns",
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 4274000000.0,
+        "actual": 4176000000.0,
+        "difference": 98000000.0,
+        "tolerance": 500000.0,
+        "verdict": "CONTRADICTED",
+        "unit": "number",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unique matching source cells selected locally; Python performs the comparison.",
+      "unit": "number",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 65,
+            "type": "text",
+            "content": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "bbox": [
+              23.54999901875,
+              66.47843337990457,
+              579.8042732207579,
+              74.47643298665457
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "text": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "score": 0.023403679653679656,
+            "rerank_score": 2.614962434768677,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.020634920634920638,
+            "rerank_score": 1.7547735929489137,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              264.79686696679676,
+              221.14569386559572,
+              346.8867072663866,
+              233.14569336559578
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "text": "3M COMPANY",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.3178150653839111,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.081985604758756,
+              333.1996831974092,
+              69.07998521150876
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "text": "3M COMPANY",
+            "score": 0.015625,
+            "rerank_score": 1.317814826965332,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.025252525252525256,
+            "rerank_score": 0.4290140926837921,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.024925373134328358,
+            "rerank_score": 0.4290140926837921,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.24690145254135132,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              394.7553889572644,
+              587.8071183651786,
+              443.3208906192056
+            ],
+            "table_id": "table_51_2",
+            "headers": [
+              "Americas",
+              "$13,579",
+              "$13,405",
+              "$13,268"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "7,095",
+                "6,994",
+                "7,068"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "4,274",
+                "4,176",
+                "4,274"
+              ],
+              [
+                "Worldwide",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.01639344262295082,
+            "rerank_score": 5.039717292785644,
+            "annual_report_year_columns": true,
+            "metric_label": "Europe, Middle East and Africa",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              1
+            ],
+            "relevant_column_indices": [
+              0,
+              2
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "table",
+            "content": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              462.9487807104694,
+              587.483308854861,
+              505.5795481649492
+            ],
+            "table_id": "table_102_2",
+            "headers": [
+              "Americas",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "text": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "score": 0.015873015873015872,
+            "rerank_score": 4.704907512664795,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "table",
+            "content": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              100.54384196451932,
+              587.4115139860576,
+              143.31831086008688
+            ],
+            "table_id": "table_28_1",
+            "headers": [
+              "Americas",
+              "35,500",
+              "36,000",
+              "$663",
+              "$829",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "13,500",
+                "13,500",
+                "114",
+                "128",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "11,500",
+                "12,000",
+                "133",
+                "147",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "60,500",
+                "61,500",
+                "$910",
+                "$1,104",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Geographic Area Supplemental Information Property, plant and equipment -net - as of Employees as of December 31, Capital spending December 31, (Millions, except employees) 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "text": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "score": 0.015625,
+            "rerank_score": 3.763930654525757,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              394.7553889572644,
+              587.8071183651786,
+              443.3208906192056
+            ],
+            "table_id": "table_51_2",
+            "headers": [
+              "Americas",
+              "$13,579",
+              "$13,405",
+              "$13,268"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "7,095",
+                "6,994",
+                "7,068"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "4,274",
+                "4,176",
+                "4,274"
+              ],
+              [
+                "Worldwide",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Net sales by geographic area (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+            "text": "Asia Pacific: 2025 7,095, 2024 6,994, 2023 7,068 | Europe, Middle East and Africa: 2025 4,274, 2024 4,176, 2023 4,274 | Worldwide: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.01639344262295082,
+            "rerank_score": 5.039717292785644,
+            "annual_report_year_columns": true,
+            "metric_label": "Europe, Middle East and Africa",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              1
+            ],
+            "relevant_column_indices": [
+              0,
+              2
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "table",
+            "content": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              462.9487807104694,
+              587.483308854861,
+              505.5795481649492
+            ],
+            "table_id": "table_102_2",
+            "headers": [
+              "Americas",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net PP&E by geographic area (millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4867",
+            "text": "Asia Pacific: 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 968, 2024 1,051 | Total Company: 2025 $7,101, 2024 $7,388",
+            "score": 0.015873015873015872,
+            "rerank_score": 4.704907512664795,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "table",
+            "content": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "bbox": [
+              23.54999901875,
+              100.54384196451932,
+              587.4115139860576,
+              143.31831086008688
+            ],
+            "table_id": "table_28_1",
+            "headers": [
+              "Americas",
+              "35,500",
+              "36,000",
+              "$663",
+              "$829",
+              "$5,123",
+              "$5,284"
+            ],
+            "rows": [
+              [
+                "Asia Pacific",
+                "13,500",
+                "13,500",
+                "114",
+                "128",
+                "1,010",
+                "1,053"
+              ],
+              [
+                "Europe, Middle East and Africa",
+                "11,500",
+                "12,000",
+                "133",
+                "147",
+                "968",
+                "1,051"
+              ],
+              [
+                "Total Company",
+                "60,500",
+                "61,500",
+                "$910",
+                "$1,104",
+                "$7,101",
+                "$7,388"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Geographic Area Supplemental Information Property, plant and equipment -net - as of Employees as of December 31, Capital spending December 31, (Millions, except employees) 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4774",
+            "text": "Asia Pacific: 2025 13,500, 2024 13,500, 2025 114, 2024 128, 2025 1,010, 2024 1,053 | Europe, Middle East and Africa: 2025 11,500, 2024 12,000, 2025 133, 2024 147, 2025 968, 2024 1,051 | Total Company: 2025 60,500, 2024 61,500, 2025 $910, 2024 $1,104, 2025 $7,101, 2024 $7,388",
+            "score": 0.015625,
+            "rerank_score": 3.763930654525757,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 65,
+            "type": "text",
+            "content": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "bbox": [
+              23.54999901875,
+              66.47843337990457,
+              579.8042732207579,
+              74.47643298665457
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1866",
+            "text": "In 2024, primarily in the second quarter, 3M recorded a non-cash pension settlement charge of approximately $808 million reflected in other expense (income), net as a result",
+            "score": 0.023403679653679656,
+            "rerank_score": 2.614962434768677,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.020634920634920638,
+            "rerank_score": 1.7547735929489137,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 1,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              264.79686696679676,
+              221.14569386559572,
+              346.8867072663866,
+              233.14569336559578
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_013",
+            "text": "3M COMPANY",
+            "score": 0.015873015873015872,
+            "rerank_score": 1.3178150653839111,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 2,
+            "type": "text",
+            "content": "3M COMPANY",
+            "bbox": [
+              278.49373839609376,
+              61.081985604758756,
+              333.1996831974092,
+              69.07998521150876
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_054",
+            "text": "3M COMPANY",
+            "score": 0.015625,
+            "rerank_score": 1.317814826965332,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.025252525252525256,
+            "rerank_score": 0.4290140926837921,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.024925373134328358,
+            "rerank_score": 0.4290140926837921,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 102,
+            "type": "text",
+            "content": "3M,",
+            "bbox": [
+              81.14999661875001,
+              290.2808240548049,
+              94.2584407375648,
+              298.27882366155495
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3188",
+            "text": "3M,",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.24690145254135132,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": {
+          "formula": "value",
+          "value": 4176000000.0,
+          "inputs": {
+            "value": 4176000000.0
+          },
+          "raw_inputs": {
+            "value": "4,176"
+          },
+          "input_metadata": {
+            "value": {
+              "currency": null,
+              "unit": "number",
+              "precision": 0,
+              "scale": 1000000,
+              "normalized_precision": 0,
+              "unit_context": "millions"
+            }
+          },
+          "currency": null,
+          "result_unit": "number",
+          "result_precision": null,
+          "source_inputs": {
+            "value": {
+              "name": "value",
+              "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4797",
+              "row_index": 1,
+              "column_index": 2,
+              "number_index": null,
+              "fact_index": null,
+              "unit_quote": "",
+              "scope_quote": "",
+              "raw": "4,176",
+              "normalized_value": 4176000000.0,
+              "unit_context": "millions",
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "page": 51,
+              "source_evidence_id": "evidence_4797",
+              "period_interpretation": "annual_report_year_columns",
+              "effective_column_map": [
+                {
+                  "col": 1,
+                  "year": 2025,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 2,
+                  "year": 2024,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 3,
+                  "year": 2023,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                }
+              ]
+            }
+          },
+          "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+        },
+        "comparison": {
+          "claimed": 4274000000.0,
+          "actual": 4176000000.0,
+          "difference": 98000000.0,
+          "tolerance": 500000.0,
+          "verdict": "CONTRADICTED",
+          "unit": "number",
+          "claimed_precision": 0,
+          "actual_precision": null,
+          "difference_precision": null,
+          "operator": "equal"
+        },
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4797",
+          "0000066740-26-000014-56e1ef4130::evidence_4867",
+          "0000066740-26-000014-56e1ef4130::evidence_4774",
+          "0000066740-26-000014-56e1ef4130::evidence_1866",
+          "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "0000066740-26-000014-56e1ef4130::evidence_013",
+          "0000066740-26-000014-56e1ef4130::evidence_054",
+          "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "0000066740-26-000014-56e1ef4130::evidence_3188"
+        ],
+        "pages": [
+          1,
+          2,
+          28,
+          51,
+          54,
+          65,
+          101,
+          102
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "calculation",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Python comparison: claimed 4.274e+09 number; actual 4.176e+09 number.",
+      "reporting_period": "2024",
+      "original_claim": "3M Company's 2025 Asia Pacific net sales were $7,095 million, and its 2024 Europe, Middle East and Africa net sales were $4,274 million.",
+      "overall_verdict": "PARTIALLY_SUPPORTED",
+      "processing_time_seconds": 25.138537599996198,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T19:05:12.215259+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127912-zSRIhMi5L9tQ71SAgoML",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 446,
+            "completion_tokens": 1628,
+            "total_tokens": 2074,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1192,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 22.34
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "25f0b27b5b03affae28ef00f87aa41825d287a365d97f42575696ac76d6b7567"
+}

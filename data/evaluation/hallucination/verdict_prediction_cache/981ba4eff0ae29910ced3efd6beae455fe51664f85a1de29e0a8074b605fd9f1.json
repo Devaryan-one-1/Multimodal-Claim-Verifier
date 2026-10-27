@@ -1,0 +1,3640 @@
+{
+  "schema_version": 2,
+  "cache_key": "981ba4eff0ae29910ced3efd6beae455fe51664f85a1de29e0a8074b605fd9f1",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M's total long-term debt was $12,602 million in 2025, and the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-27T19:00:25.650189+00:00",
+  "results": [
+    {
+      "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+      "parsed_claim": {
+        "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+        "company": "3M",
+        "subject": null,
+        "metric": "total long-term debt",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$12,602 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 33,
+          "type": "text",
+          "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+          "bbox": [
+            23.54999901875,
+            428.8800982798395,
+            579.4116370541783,
+            436.87809788658956
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "source_evidence_id": "evidence_1086",
+          "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+          "score": 0.02938045560996381,
+          "rerank_score": 7.532854080200195,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 61,
+          "type": "text",
+          "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+          "bbox": [
+            23.54999901875,
+            66.48083337980756,
+            581.9141419099068,
+            74.47883298655756
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "source_evidence_id": "evidence_1772",
+          "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+          "score": 0.03021353930031804,
+          "rerank_score": 6.922588920593261,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 61,
+          "type": "text",
+          "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+          "bbox": [
+            23.54999901875,
+            89.28083242981052,
+            588.0621384074102,
+            97.27883203656052
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "source_evidence_id": "evidence_1774",
+          "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+          "score": 0.029386529386529386,
+          "rerank_score": 6.369024848937988,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+          "bbox": [
+            23.54999901875,
+            217.08082710480926,
+            571.2046894248037,
+            225.07882671155926
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "source_evidence_id": "evidence_1742",
+          "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+          "score": 0.023513513513513516,
+          "rerank_score": 4.455567932128906,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "bbox": [
+            23.54999901875,
+            499.6808153298127,
+            585.2894330022095,
+            507.67881493656273
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "source_evidence_id": "evidence_2012",
+          "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "score": 0.025563671006668783,
+          "rerank_score": 4.255251502990722,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "table",
+          "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+          "bbox": [
+            23.54999901875,
+            153.34605388455154,
+            586.5115140235577,
+            212.29164829736797
+          ],
+          "table_id": "table_60_1",
+          "headers": [
+            "USD denominated fixed-rate debt",
+            "$10,500",
+            "$10,400",
+            "3.76",
+            "%",
+            "3.33",
+            "%",
+            "2026-2050",
+            "$10,355",
+            "$10,317"
+          ],
+          "rows": [
+            [
+              "USD denominated floating-rate debt",
+              "200",
+              "1,014",
+              "3.77",
+              "6.94",
+              "2027-2044",
+              "199",
+              "915"
+            ],
+            [
+              "EUR denominated fixed-rate debt",
+              "€1,751",
+              "€1,751",
+              "1.73",
+              "1.60",
+              "2026-2031",
+              "2,048",
+              "1,812"
+            ],
+            [
+              "Total long-term debt",
+              "12,602",
+              "13,044"
+            ],
+            [
+              "Less: current portion of long-term debt",
+              "1,670",
+              "1,919"
+            ],
+            [
+              "Long-term debt (excluding current portion)",
+              "$10,932",
+              "$11,125"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 5,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 6,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "source_evidence_id": "evidence_4824",
+          "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.871822452545166,
+          "annual_report_year_columns": true,
+          "metric_label": "Total long-term debt"
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+          "bbox": [
+            23.54999901875,
+            370.08010072983706,
+            575.3160600777669,
+            378.0781003365871
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "source_evidence_id": "evidence_1117",
+          "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+          "score": 0.025779967159277502,
+          "rerank_score": 3.866775369644165,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 33,
+          "type": "text",
+          "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+          "bbox": [
+            23.54999901875,
+            488.88009577983865,
+            533.88622169974,
+            496.8780953865887
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "source_evidence_id": "evidence_1092",
+          "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+          "score": 0.027820121951219513,
+          "rerank_score": 3.463048315048218,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+          "bbox": [
+            23.54999901875,
+            289.6808240798138,
+            576.1144761852293,
+            297.6788236865639
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "source_evidence_id": "evidence_1992",
+          "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+          "score": 0.022352647352647352,
+          "rerank_score": 3.1705833435058595,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "bbox": [
+            23.54999901875,
+            449.2808174298054,
+            572.0706609881212,
+            457.27881703655544
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "source_evidence_id": "evidence_1759",
+          "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "score": 0.02719970792259949,
+          "rerank_score": 2.7835124492645265,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Quarterly, annual or YTD periods do not match the claim.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "bbox": [
+              23.54999901875,
+              428.8800982798395,
+              579.4116370541783,
+              436.87809788658956
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "score": 0.02938045560996381,
+            "rerank_score": 7.532854080200195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "bbox": [
+              23.54999901875,
+              66.48083337980756,
+              581.9141419099068,
+              74.47883298655756
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "score": 0.03021353930031804,
+            "rerank_score": 6.922588920593261,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "bbox": [
+              23.54999901875,
+              89.28083242981052,
+              588.0621384074102,
+              97.27883203656052
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "score": 0.029386529386529386,
+            "rerank_score": 6.369024848937988,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "bbox": [
+              23.54999901875,
+              217.08082710480926,
+              571.2046894248037,
+              225.07882671155926
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "score": 0.023513513513513516,
+            "rerank_score": 4.455567932128906,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.025563671006668783,
+            "rerank_score": 4.255251502990722,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "bbox": [
+              23.54999901875,
+              370.08010072983706,
+              575.3160600777669,
+              378.0781003365871
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "score": 0.025779967159277502,
+            "rerank_score": 3.866775369644165,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "bbox": [
+              23.54999901875,
+              488.88009577983865,
+              533.88622169974,
+              496.8780953865887
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "score": 0.027820121951219513,
+            "rerank_score": 3.463048315048218,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "bbox": [
+              23.54999901875,
+              289.6808240798138,
+              576.1144761852293,
+              297.6788236865639
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "score": 0.022352647352647352,
+            "rerank_score": 3.1705833435058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.02719970792259949,
+            "rerank_score": 2.7835124492645265,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "table",
+            "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "bbox": [
+              23.54999901875,
+              153.34605388455154,
+              586.5115140235577,
+              212.29164829736797
+            ],
+            "table_id": "table_60_1",
+            "headers": [
+              "USD denominated fixed-rate debt",
+              "$10,500",
+              "$10,400",
+              "3.76",
+              "%",
+              "3.33",
+              "%",
+              "2026-2050",
+              "$10,355",
+              "$10,317"
+            ],
+            "rows": [
+              [
+                "USD denominated floating-rate debt",
+                "200",
+                "1,014",
+                "3.77",
+                "6.94",
+                "2027-2044",
+                "199",
+                "915"
+              ],
+              [
+                "EUR denominated fixed-rate debt",
+                "€1,751",
+                "€1,751",
+                "1.73",
+                "1.60",
+                "2026-2031",
+                "2,048",
+                "1,812"
+              ],
+              [
+                "Total long-term debt",
+                "12,602",
+                "13,044"
+              ],
+              [
+                "Less: current portion of long-term debt",
+                "1,670",
+                "1,919"
+              ],
+              [
+                "Long-term debt (excluding current portion)",
+                "$10,932",
+                "$11,125"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.871822452545166,
+            "annual_report_year_columns": true,
+            "metric_label": "Total long-term debt",
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "table",
+            "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "bbox": [
+              23.54999901875,
+              153.34605388455154,
+              586.5115140235577,
+              212.29164829736797
+            ],
+            "table_id": "table_60_1",
+            "headers": [
+              "USD denominated fixed-rate debt",
+              "$10,500",
+              "$10,400",
+              "3.76",
+              "%",
+              "3.33",
+              "%",
+              "2026-2050",
+              "$10,355",
+              "$10,317"
+            ],
+            "rows": [
+              [
+                "USD denominated floating-rate debt",
+                "200",
+                "1,014",
+                "3.77",
+                "6.94",
+                "2027-2044",
+                "199",
+                "915"
+              ],
+              [
+                "EUR denominated fixed-rate debt",
+                "€1,751",
+                "€1,751",
+                "1.73",
+                "1.60",
+                "2026-2031",
+                "2,048",
+                "1,812"
+              ],
+              [
+                "Total long-term debt",
+                "12,602",
+                "13,044"
+              ],
+              [
+                "Less: current portion of long-term debt",
+                "1,670",
+                "1,919"
+              ],
+              [
+                "Long-term debt (excluding current portion)",
+                "$10,932",
+                "$11,125"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.871822452545166,
+            "annual_report_year_columns": true,
+            "metric_label": "Total long-term debt",
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "bbox": [
+              23.54999901875,
+              428.8800982798395,
+              579.4116370541783,
+              436.87809788658956
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "score": 0.02938045560996381,
+            "rerank_score": 7.532854080200195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "bbox": [
+              23.54999901875,
+              66.48083337980756,
+              581.9141419099068,
+              74.47883298655756
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "score": 0.03021353930031804,
+            "rerank_score": 6.922588920593261,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "bbox": [
+              23.54999901875,
+              89.28083242981052,
+              588.0621384074102,
+              97.27883203656052
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "score": 0.029386529386529386,
+            "rerank_score": 6.369024848937988,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "bbox": [
+              23.54999901875,
+              217.08082710480926,
+              571.2046894248037,
+              225.07882671155926
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "score": 0.023513513513513516,
+            "rerank_score": 4.455567932128906,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.025563671006668783,
+            "rerank_score": 4.255251502990722,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "bbox": [
+              23.54999901875,
+              370.08010072983706,
+              575.3160600777669,
+              378.0781003365871
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "score": 0.025779967159277502,
+            "rerank_score": 3.866775369644165,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "bbox": [
+              23.54999901875,
+              488.88009577983865,
+              533.88622169974,
+              496.8780953865887
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "score": 0.027820121951219513,
+            "rerank_score": 3.463048315048218,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "bbox": [
+              23.54999901875,
+              289.6808240798138,
+              576.1144761852293,
+              297.6788236865639
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "score": 0.022352647352647352,
+            "rerank_score": 3.1705833435058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.02719970792259949,
+            "rerank_score": 2.7835124492645265,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "0000066740-26-000014-56e1ef4130::evidence_1759"
+        ],
+        "pages": [
+          33,
+          34,
+          60,
+          61,
+          68
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Quarterly, annual or YTD periods do not match the claim.",
+      "reporting_period": "2025",
+      "original_claim": "3M's total long-term debt was $12,602 million in 2025, and the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025.",
+      "overall_verdict": "CONTRADICTED",
+      "processing_time_seconds": 63.81548419999308,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T18:59:21.678396+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127562-Xl2xirxXhYCUadZ9qn3Y",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 445,
+            "completion_tokens": 2648,
+            "total_tokens": 3093,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2137,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 29.687
+        },
+        {
+          "time": "2026-10-27T18:59:54.420076+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127595-4tRgjxPrxMctvGAtvdAN",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5535,
+            "completion_tokens": 2296,
+            "total_tokens": 7831,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1560,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 26.554
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    },
+    {
+      "claim_text": "the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025",
+      "parsed_claim": {
+        "claim_text": "the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025",
+        "company": "3M",
+        "subject": null,
+        "metric": "sales",
+        "segment": "Advanced Materials",
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$5.0 billion",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "CONTRADICTED",
+      "confidence": null,
+      "confidence_kind": "deterministic comparison; no calibrated probability",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            109.13823074669199,
+            587.8071183651786,
+            378.9922919009644
+          ],
+          "table_id": "table_51_1",
+          "headers": [
+            "Abrasives",
+            "$1,340",
+            "$1,295",
+            "$1,327"
+          ],
+          "rows": [
+            [
+              "Automotive Aftermarket",
+              "1,178",
+              "1,235",
+              "1,237"
+            ],
+            [
+              "Electrical Markets",
+              "1,394",
+              "1,274",
+              "1,259"
+            ],
+            [
+              "Industrial Adhesives and Tapes",
+              "2,266",
+              "2,104",
+              "2,051"
+            ],
+            [
+              "Industrial Specialties Division",
+              "1,172",
+              "1,161",
+              "1,206"
+            ],
+            [
+              "Personal Safety",
+              "3,544",
+              "3,371",
+              "3,382"
+            ],
+            [
+              "Roofing Granules",
+              "490",
+              "521",
+              "494"
+            ],
+            [
+              "Total Safety and Industrial Business segment",
+              "11,384",
+              "10,961",
+              "10,956"
+            ],
+            [
+              "Advanced Materials",
+              "858",
+              "969",
+              "1,167"
+            ],
+            [
+              "Automotive and Aerospace",
+              "1,901",
+              "1,912",
+              "1,925"
+            ],
+            [
+              "Commercial Branding and Transportation",
+              "2,602",
+              "2,528",
+              "2,546"
+            ],
+            [
+              "Electronics",
+              "2,911",
+              "2,971",
+              "2,863"
+            ],
+            [
+              "Total Transportation and Electronics Business segment",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer Safety and Well-Being",
+              "1,108",
+              "1,080",
+              "1,096"
+            ],
+            [
+              "Home and Auto Care",
+              "1,200",
+              "1,191",
+              "1,260"
+            ],
+            [
+              "Home Improvement",
+              "1,486",
+              "1,486",
+              "1,448"
+            ],
+            [
+              "Packaging and Expression",
+              "1,126",
+              "1,174",
+              "1,222"
+            ],
+            [
+              "Total Consumer Business segment",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "source_evidence_id": "evidence_4796",
+          "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.01639344262295082,
+          "rerank_score": -1.9635693073272704,
+          "annual_report_year_columns": true,
+          "metric_label": "Advanced Materials",
+          "period_interpretation": "annual_report_year_columns",
+          "relevant_row_indices": [
+            7
+          ],
+          "relevant_column_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "0000066740-26-000014-56e1ef4130::evidence_4796"
+      ],
+      "calculation": {
+        "formula": "value",
+        "value": 858000000.0,
+        "inputs": {
+          "value": 858000000.0
+        },
+        "raw_inputs": {
+          "value": "858"
+        },
+        "input_metadata": {
+          "value": {
+            "currency": null,
+            "unit": "number",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "millions"
+          }
+        },
+        "currency": null,
+        "result_unit": "number",
+        "result_precision": null,
+        "source_inputs": {
+          "value": {
+            "name": "value",
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "row_index": 7,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "858",
+            "normalized_value": 858000000.0,
+            "unit_context": "millions",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "source_evidence_id": "evidence_4796",
+            "period_interpretation": "annual_report_year_columns",
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null,
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 5000000000.0,
+        "actual": 858000000.0,
+        "difference": 4142000000.0,
+        "tolerance": 500000.0,
+        "verdict": "CONTRADICTED",
+        "unit": "number",
+        "claimed_precision": 1,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unique matching source cells selected locally; Python performs the comparison.",
+      "unit": "number",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "increase of up to $1.0 billion (at lenders' discretion), bringing the total facility up to $5.25 billion. The credit facility was undrawn at December 31, 2025. Under the",
+            "bbox": [
+              23.54999901875,
+              461.28009692983795,
+              547.3890439501714,
+              469.278096536588
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "text": "increase of up to $1.0 billion (at lenders' discretion), bringing the total facility up to $5.25 billion. The credit facility was undrawn at December 31, 2025. Under the",
+            "score": 0.014925373134328358,
+            "rerank_score": -2.126868391036987,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "bbox": [
+              23.54999901875,
+              472.08009647983744,
+              586.9476133282482,
+              480.0780960865875
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "text": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "score": 0.02591362126245847,
+            "rerank_score": -2.2925230503082275,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.6135658860206604,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "bbox": [
+              23.54999901875,
+              95.16599603475042,
+              588.1499754937499,
+              221.2999907791676
+            ],
+            "table_id": "table_26_1",
+            "headers": [
+              "Sales (millions)",
+              "$8,272",
+              "$8,380"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(1.5)",
+                "%",
+                "(1.0)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "—",
+                "0.6"
+              ],
+              [
+                "Divestitures(c)",
+                "(0.1)",
+                "—"
+              ],
+              [
+                "Translation",
+                "0.3",
+                "(1.0)"
+              ],
+              [
+                "Total sales change",
+                "(1.3)",
+                "%",
+                "(1.4)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$1,436",
+                "$1,578"
+              ],
+              [
+                "Percent change",
+                "(9.0)",
+                "%",
+                "20.2 %"
+              ],
+              [
+                "Percent of sales",
+                "17.4",
+                "%",
+                "18.8 %"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Transportation and Electronics Business (33.2% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "score": 0.03200204813108039,
+            "rerank_score": -1.3154878854751586,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 3.2, 2024 %, 0.7, % | Translation: 2025 0.7, 2024 (0.7) | Total sales change: 2025 3.9, 2024 %, —, % | Business segment operating income (millions): 2025 $2,836, 2024 $2,491 | Percent change: 2025 13.9, 2024 %, 7.2, % | Percent of sales: 2025 24.9, 2024 %, 22.7, %",
+            "bbox": [
+              23.54999901875,
+              130.73399455274978,
+              588.1499754937499,
+              233.906747010641
+            ],
+            "table_id": "table_25_1",
+            "headers": [
+              "Sales (millions)",
+              "$11,384",
+              "$10,961"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "3.2",
+                "%",
+                "0.7",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.7",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "3.9",
+                "%",
+                "—",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$2,836",
+                "$2,491"
+              ],
+              [
+                "Percent change",
+                "13.9",
+                "%",
+                "7.2",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "24.9",
+                "%",
+                "22.7",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Safety and Industrial Business (45.6% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 3.2, 2024 %, 0.7, % | Translation: 2025 0.7, 2024 (0.7) | Total sales change: 2025 3.9, 2024 %, —, % | Business segment operating income (millions): 2025 $2,836, 2024 $2,491 | Percent change: 2025 13.9, 2024 %, 7.2, % | Percent of sales: 2025 24.9, 2024 %, 22.7, %",
+            "score": 0.03007688828584351,
+            "rerank_score": -1.5745643615722655,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 27,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "bbox": [
+              23.54999901875,
+              93.53399610275228,
+              588.1499754937499,
+              196.7067485606448
+            ],
+            "table_id": "table_27_1",
+            "headers": [
+              "Sales (millions)",
+              "$4,920",
+              "$4,931"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(0.3)",
+                "%",
+                "(1.2)",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.1",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "(0.2)",
+                "%",
+                "(1.9)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$996",
+                "$932"
+              ],
+              [
+                "Percent change",
+                "6.9",
+                "%",
+                "3.1",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "20.2",
+                "%",
+                "18.9",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Consumer Business (19.7% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "score": 0.03125,
+            "rerank_score": -1.6204184532165526,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.01639344262295082,
+            "rerank_score": -1.9635693073272704,
+            "annual_report_year_columns": true,
+            "metric_label": "Advanced Materials",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              7
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.025873015873015874,
+            "rerank_score": -2.02097430229187,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "bbox": [
+              23.54999901875,
+              176.18105072365142,
+              587.3889999157012,
+              507.37786976835764
+            ],
+            "table_id": "table_101_2",
+            "headers": [
+              "Safety and Industrial"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "$6,172",
+                "$5,965",
+                "$6,137"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "1,858",
+                "2,020",
+                "2,023"
+              ],
+              [
+                "Research, development and related expenses",
+                "518",
+                "485",
+                "472"
+              ],
+              [
+                "Safety and Industrial operating income",
+                "2,836",
+                "2,491",
+                "2,324"
+              ],
+              [
+                "Transportation and Electronics"
+              ],
+              [
+                "Cost of sales",
+                "5,270",
+                "5,106",
+                "5,524"
+              ],
+              [
+                "Selling, general, administrative expenses",
+                "1,080",
+                "1,236",
+                "1,207"
+              ],
+              [
+                "Research, development and related expenses",
+                "486",
+                "460",
+                "458"
+              ],
+              [
+                "Transportation and Electronics operating income",
+                "1,436",
+                "1,578",
+                "1,312"
+              ],
+              [
+                "Consumer"
+              ],
+              [
+                "Cost of sales",
+                "2,941",
+                "2,912",
+                "3,064"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "855",
+                "955",
+                "933"
+              ],
+              [
+                "Research, development and related expenses",
+                "128",
+                "132",
+                "125"
+              ],
+              [
+                "Consumer operating income",
+                "996",
+                "932",
+                "904"
+              ],
+              [
+                "Total reportable business segment operating income",
+                "5,268",
+                "5,001",
+                "4,540"
+              ],
+              [
+                "Corporate and Other"
+              ],
+              [
+                "Corporate-level (expense) income",
+                "75",
+                "(114)",
+                "(485)"
+              ],
+              [
+                "Corporate special items:"
+              ],
+              [
+                "Net costs for significant litigation",
+                "(483)",
+                "(45)",
+                "(14,785)"
+              ],
+              [
+                "Divestiture costs",
+                "—",
+                "(20)",
+                "(13)"
+              ],
+              [
+                "Gain (loss) on business divestitures",
+                "(162)",
+                "—",
+                "36"
+              ],
+              [
+                "Russia exit (charges) benefits",
+                "—",
+                "—",
+                "18"
+              ],
+              [
+                "Transformation costs",
+                "(69)",
+                "—",
+                "—"
+              ],
+              [
+                "Total Corporate and Other",
+                "(639)",
+                "(179)",
+                "(15,229)"
+              ],
+              [
+                "Total Company operating income",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense/(income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income from continuing operations before income taxes",
+                "$4,213",
+                "$4,819",
+                "$(11,271)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Significant segment expenses and operating performance (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "text": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "score": 0.014492753623188406,
+            "rerank_score": -2.431142234802246,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "bbox": [
+              23.54999901875,
+              212.74564330951188,
+              588.1499754937499,
+              248.90819858404907
+            ],
+            "table_id": "table_21_1",
+            "headers": [
+              "Net sales (millions)",
+              "$24,948",
+              "$24,279",
+              "$24,575",
+              "$23,630"
+            ],
+            "rows": [
+              [
+                "Total sales change",
+                "1.5",
+                "%",
+                "2.7",
+                "%",
+                "(0.1)",
+                "%",
+                "1.3",
+                "%"
+              ],
+              [
+                "Organic sales change(b)",
+                "0.9",
+                "%",
+                "2.1",
+                "%",
+                "(0.2)",
+                "%",
+                "1.2",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "As discussed in Note 2, on April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum, and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. 3M manages its continuing operations in three operating business segments: Safety and Industrial; Transportation and Electronics; and Consumer. From a geographic perspective, EMEA refers to Europe, the Middle East, and Africa on a combined basis. Unless otherwise noted, any sales change analysis compares 2025 with 2024, year-on-year (YoY). Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "text": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "score": 0.024818577648766327,
+            "rerank_score": -2.5332931518554687,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.6135658860206604,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "bbox": [
+              23.54999901875,
+              95.16599603475042,
+              588.1499754937499,
+              221.2999907791676
+            ],
+            "table_id": "table_26_1",
+            "headers": [
+              "Sales (millions)",
+              "$8,272",
+              "$8,380"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(1.5)",
+                "%",
+                "(1.0)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "—",
+                "0.6"
+              ],
+              [
+                "Divestitures(c)",
+                "(0.1)",
+                "—"
+              ],
+              [
+                "Translation",
+                "0.3",
+                "(1.0)"
+              ],
+              [
+                "Total sales change",
+                "(1.3)",
+                "%",
+                "(1.4)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$1,436",
+                "$1,578"
+              ],
+              [
+                "Percent change",
+                "(9.0)",
+                "%",
+                "20.2 %"
+              ],
+              [
+                "Percent of sales",
+                "17.4",
+                "%",
+                "18.8 %"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Transportation and Electronics Business (33.2% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "score": 0.03200204813108039,
+            "rerank_score": -1.3154878854751586,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 3.2, 2024 %, 0.7, % | Translation: 2025 0.7, 2024 (0.7) | Total sales change: 2025 3.9, 2024 %, —, % | Business segment operating income (millions): 2025 $2,836, 2024 $2,491 | Percent change: 2025 13.9, 2024 %, 7.2, % | Percent of sales: 2025 24.9, 2024 %, 22.7, %",
+            "bbox": [
+              23.54999901875,
+              130.73399455274978,
+              588.1499754937499,
+              233.906747010641
+            ],
+            "table_id": "table_25_1",
+            "headers": [
+              "Sales (millions)",
+              "$11,384",
+              "$10,961"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "3.2",
+                "%",
+                "0.7",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.7",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "3.9",
+                "%",
+                "—",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$2,836",
+                "$2,491"
+              ],
+              [
+                "Percent change",
+                "13.9",
+                "%",
+                "7.2",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "24.9",
+                "%",
+                "22.7",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Safety and Industrial Business (45.6% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4771",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 3.2, 2024 %, 0.7, % | Translation: 2025 0.7, 2024 (0.7) | Total sales change: 2025 3.9, 2024 %, —, % | Business segment operating income (millions): 2025 $2,836, 2024 $2,491 | Percent change: 2025 13.9, 2024 %, 7.2, % | Percent of sales: 2025 24.9, 2024 %, 22.7, %",
+            "score": 0.03007688828584351,
+            "rerank_score": -1.5745643615722655,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 27,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "bbox": [
+              23.54999901875,
+              93.53399610275228,
+              588.1499754937499,
+              196.7067485606448
+            ],
+            "table_id": "table_27_1",
+            "headers": [
+              "Sales (millions)",
+              "$4,920",
+              "$4,931"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(0.3)",
+                "%",
+                "(1.2)",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.1",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "(0.2)",
+                "%",
+                "(1.9)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$996",
+                "$932"
+              ],
+              [
+                "Percent change",
+                "6.9",
+                "%",
+                "3.1",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "20.2",
+                "%",
+                "18.9",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Consumer Business (19.7% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "score": 0.03125,
+            "rerank_score": -1.6204184532165526,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.01639344262295082,
+            "rerank_score": -1.9635693073272704,
+            "annual_report_year_columns": true,
+            "metric_label": "Advanced Materials",
+            "period_interpretation": "annual_report_year_columns",
+            "relevant_row_indices": [
+              7
+            ],
+            "relevant_column_indices": [
+              0,
+              1
+            ],
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.025873015873015874,
+            "rerank_score": -2.02097430229187,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "bbox": [
+              23.54999901875,
+              176.18105072365142,
+              587.3889999157012,
+              507.37786976835764
+            ],
+            "table_id": "table_101_2",
+            "headers": [
+              "Safety and Industrial"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "$6,172",
+                "$5,965",
+                "$6,137"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "1,858",
+                "2,020",
+                "2,023"
+              ],
+              [
+                "Research, development and related expenses",
+                "518",
+                "485",
+                "472"
+              ],
+              [
+                "Safety and Industrial operating income",
+                "2,836",
+                "2,491",
+                "2,324"
+              ],
+              [
+                "Transportation and Electronics"
+              ],
+              [
+                "Cost of sales",
+                "5,270",
+                "5,106",
+                "5,524"
+              ],
+              [
+                "Selling, general, administrative expenses",
+                "1,080",
+                "1,236",
+                "1,207"
+              ],
+              [
+                "Research, development and related expenses",
+                "486",
+                "460",
+                "458"
+              ],
+              [
+                "Transportation and Electronics operating income",
+                "1,436",
+                "1,578",
+                "1,312"
+              ],
+              [
+                "Consumer"
+              ],
+              [
+                "Cost of sales",
+                "2,941",
+                "2,912",
+                "3,064"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "855",
+                "955",
+                "933"
+              ],
+              [
+                "Research, development and related expenses",
+                "128",
+                "132",
+                "125"
+              ],
+              [
+                "Consumer operating income",
+                "996",
+                "932",
+                "904"
+              ],
+              [
+                "Total reportable business segment operating income",
+                "5,268",
+                "5,001",
+                "4,540"
+              ],
+              [
+                "Corporate and Other"
+              ],
+              [
+                "Corporate-level (expense) income",
+                "75",
+                "(114)",
+                "(485)"
+              ],
+              [
+                "Corporate special items:"
+              ],
+              [
+                "Net costs for significant litigation",
+                "(483)",
+                "(45)",
+                "(14,785)"
+              ],
+              [
+                "Divestiture costs",
+                "—",
+                "(20)",
+                "(13)"
+              ],
+              [
+                "Gain (loss) on business divestitures",
+                "(162)",
+                "—",
+                "36"
+              ],
+              [
+                "Russia exit (charges) benefits",
+                "—",
+                "—",
+                "18"
+              ],
+              [
+                "Transformation costs",
+                "(69)",
+                "—",
+                "—"
+              ],
+              [
+                "Total Corporate and Other",
+                "(639)",
+                "(179)",
+                "(15,229)"
+              ],
+              [
+                "Total Company operating income",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense/(income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income from continuing operations before income taxes",
+                "$4,213",
+                "$4,819",
+                "$(11,271)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Significant segment expenses and operating performance (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "text": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "score": 0.014492753623188406,
+            "rerank_score": -2.431142234802246,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "bbox": [
+              23.54999901875,
+              212.74564330951188,
+              588.1499754937499,
+              248.90819858404907
+            ],
+            "table_id": "table_21_1",
+            "headers": [
+              "Net sales (millions)",
+              "$24,948",
+              "$24,279",
+              "$24,575",
+              "$23,630"
+            ],
+            "rows": [
+              [
+                "Total sales change",
+                "1.5",
+                "%",
+                "2.7",
+                "%",
+                "(0.1)",
+                "%",
+                "1.3",
+                "%"
+              ],
+              [
+                "Organic sales change(b)",
+                "0.9",
+                "%",
+                "2.1",
+                "%",
+                "(0.2)",
+                "%",
+                "1.2",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "As discussed in Note 2, on April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum, and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. 3M manages its continuing operations in three operating business segments: Safety and Industrial; Transportation and Electronics; and Consumer. From a geographic perspective, EMEA refers to Europe, the Middle East, and Africa on a combined basis. Unless otherwise noted, any sales change analysis compares 2025 with 2024, year-on-year (YoY). Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "text": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "score": 0.024818577648766327,
+            "rerank_score": -2.5332931518554687,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "increase of up to $1.0 billion (at lenders' discretion), bringing the total facility up to $5.25 billion. The credit facility was undrawn at December 31, 2025. Under the",
+            "bbox": [
+              23.54999901875,
+              461.28009692983795,
+              547.3890439501714,
+              469.278096536588
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1089",
+            "text": "increase of up to $1.0 billion (at lenders' discretion), bringing the total facility up to $5.25 billion. The credit facility was undrawn at December 31, 2025. Under the",
+            "score": 0.014925373134328358,
+            "rerank_score": -2.126868391036987,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "bbox": [
+              23.54999901875,
+              472.08009647983744,
+              586.9476133282482,
+              480.0780960865875
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1126",
+            "text": "In 2025, cash flows provided by operating activities increased by $0.5 billion compared to the same period last year, primarily driven by lower payments associated with PFAS-",
+            "score": 0.02591362126245847,
+            "rerank_score": -2.2925230503082275,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": {
+          "formula": "value",
+          "value": 858000000.0,
+          "inputs": {
+            "value": 858000000.0
+          },
+          "raw_inputs": {
+            "value": "858"
+          },
+          "input_metadata": {
+            "value": {
+              "currency": null,
+              "unit": "number",
+              "precision": 0,
+              "scale": 1000000,
+              "normalized_precision": 0,
+              "unit_context": "millions"
+            }
+          },
+          "currency": null,
+          "result_unit": "number",
+          "result_precision": null,
+          "source_inputs": {
+            "value": {
+              "name": "value",
+              "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+              "row_index": 7,
+              "column_index": 1,
+              "number_index": null,
+              "fact_index": null,
+              "unit_quote": "",
+              "scope_quote": "",
+              "raw": "858",
+              "normalized_value": 858000000.0,
+              "unit_context": "millions",
+              "document_id": "0000066740-26-000014-56e1ef4130",
+              "page": 51,
+              "source_evidence_id": "evidence_4796",
+              "period_interpretation": "annual_report_year_columns",
+              "effective_column_map": [
+                {
+                  "col": 1,
+                  "year": 2025,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 2,
+                  "year": 2024,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                },
+                {
+                  "col": 3,
+                  "year": 2023,
+                  "period": null,
+                  "mapping_origin": "explicit_terminal_header"
+                }
+              ]
+            }
+          },
+          "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+        },
+        "comparison": {
+          "claimed": 5000000000.0,
+          "actual": 858000000.0,
+          "difference": 4142000000.0,
+          "tolerance": 500000.0,
+          "verdict": "CONTRADICTED",
+          "unit": "number",
+          "claimed_precision": 1,
+          "actual_precision": null,
+          "difference_precision": null,
+          "operator": "equal"
+        },
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "0000066740-26-000014-56e1ef4130::evidence_4772",
+          "0000066740-26-000014-56e1ef4130::evidence_4771",
+          "0000066740-26-000014-56e1ef4130::evidence_4773",
+          "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "0000066740-26-000014-56e1ef4130::evidence_4863",
+          "0000066740-26-000014-56e1ef4130::evidence_4761",
+          "0000066740-26-000014-56e1ef4130::evidence_1089",
+          "0000066740-26-000014-56e1ef4130::evidence_1126"
+        ],
+        "pages": [
+          21,
+          22,
+          25,
+          26,
+          27,
+          33,
+          34,
+          51,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "calculation",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Python comparison: claimed 5e+09 number; actual 8.58e+08 number.",
+      "reporting_period": "2025",
+      "original_claim": "3M's total long-term debt was $12,602 million in 2025, and the newly formed Advanced Materials segment reported sales of $5.0 billion in 2025.",
+      "overall_verdict": "CONTRADICTED",
+      "processing_time_seconds": 63.81549910000467,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T18:59:21.678396+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127562-Xl2xirxXhYCUadZ9qn3Y",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 445,
+            "completion_tokens": 2648,
+            "total_tokens": 3093,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2137,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 29.687
+        },
+        {
+          "time": "2026-10-27T18:59:54.420076+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127595-4tRgjxPrxMctvGAtvdAN",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5535,
+            "completion_tokens": 2296,
+            "total_tokens": 7831,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1560,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 26.554
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "9d2e9ba27839aed85bf4fa3648ffd1e9ae8d9ba5985536af407a164a01bf2390"
+}
