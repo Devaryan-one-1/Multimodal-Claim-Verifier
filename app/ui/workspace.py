@@ -9,9 +9,9 @@ from pathlib import Path
 
 import streamlit as st
 
-from extraction.image_renderer import render_page
-from pipelines.document_pipeline import process_document, saved_documents
-from pipelines.verification_pipeline import aggregate_verdict, verify_claims
+from services.application import render_page
+from services.application import process_document, saved_documents
+from services.application import aggregate_verdict, verify_claims
 from services.documents import delete_document, persist_document_labels
 from services.runtime import digest, model_name
 from ui.claim_input import initialize_claim_state, render_claim_input

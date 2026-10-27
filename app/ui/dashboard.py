@@ -4,7 +4,7 @@ from html import escape
 
 import streamlit as st
 
-from pipelines.verification_pipeline import aggregate_verdict
+from services.application import aggregate_verdict
 from ui.calculation import _format, render_calculation
 
 

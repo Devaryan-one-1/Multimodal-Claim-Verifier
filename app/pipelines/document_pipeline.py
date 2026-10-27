@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from services.observability import event, operation
+from services.document_guards import validate_pdf, usable_tables, safe_ocr
+from services.document_errors import NoUsableEvidenceError
+
 from services.model_gateway import configuration_snapshot
 
 import re
@@ -20,10 +24,13 @@ from services.runtime import digest, read, write
 PROFILE = "dashboard-v1"
 
 
+@operation("document_processing")
 def process_document(file_bytes: bytes, filename: str, document_id: str, company_name: str = "", reporter=None,
                      *, enable_ocr: bool = True, chart_mode: str = "candidate pages", visual_limit: int = 20, force: bool = False) -> dict:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", document_id) or document_id in {".", ".."}:
         raise ValueError("Invalid document ID.")
+    validate_pdf(file_bytes)
+    event("document_uploaded", document_id=document_id, size_bytes=len(file_bytes))
     started = time.perf_counter()
     folder = Path("data/processed") / document_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -56,6 +63,7 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
     warnings = metadata["warnings"]
     try:
         update("Extracting text", 2, "Reading actual PDF pages")
+        event("extraction_started", document_id=document_id)
         parsed = parsepdf(document_id)
         update("Analyzing layout", 3, "Separating text, tables and visual regions")
         layout = analyze_layout(document_id)
@@ -72,7 +80,10 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
         metadata.update(page_count=parsed["page_count"], metadata=parsed["metadata"],
                         text_page_count=sum(bool(p["text"].strip()) for p in pages))
         update("Extracting tables", 4, "Preserving table values and recovered period headers")
-        tables = extract_tables(document_id)
+        tables = usable_tables(extract_tables(document_id), warnings)
+        event("tables_found", document_id=document_id, count=len(tables["tables"]))
+        if not tables["tables"]:
+            warnings.append("No structured tables extracted; text, OCR and visual evidence may still be available.")
         write(folder / "tables.json", tables)
         write(meta_path, metadata)
         base = build_evidence(document_id)["evidence"]
@@ -93,10 +104,14 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
         update("Processing visual evidence", 5, "OCR weak-text pages and analyze requested chart pages")
         weak = [p for p in pages if len(re.sub(r"\W", "", p["text"])) < 80]
         ocr_count = 0
+        if weak:
+            event("weak_text_pages", document_id=document_id, count=len(weak))
+        if not metadata["text_page_count"]:
+            warnings.append("No native PDF text was extracted; verification depends on successful OCR or visual extraction.")
         if enable_ocr:
             from extraction.ocr import ocr_page
             for page in weak:
-                result = ocr_page(document_id, page["page_number"], extracted_text=page["text"], providers=("gemini", "cloud_vision"), overwrite=force)
+                result = safe_ocr(ocr_page, document_id, page["page_number"], extracted_text=page["text"], providers=("gemini", "cloud_vision"), overwrite=force)
                 item = result.get("evidence")
                 if result.get("success") and item and not result.get("requires_unknown"):
                     item = dict(item)
@@ -154,9 +169,14 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
                 evidence.append(item)
                 if not facts:
                     warnings.append(f"Chart {chart.get('chart_id')} has no explicit readable numeric labels.")
+        event("charts_found", document_id=document_id, count=len(detected_charts))
+        if not any(str(item.get("content") or "").strip() or item.get("rows") or item.get("facts") for item in evidence):
+            raise NoUsableEvidenceError()
         update("Building evidence", 6, f"Combining {len(evidence)} actual source items")
         write(folder / "evidence.json", {"document_id": document_id, "evidence": evidence})
         chunks = chunk_document(document_id)["chunks"]
+        if not chunks:
+            raise NoUsableEvidenceError()
         update("Creating search index", 7, f"Indexing {len(chunks)} chunks with document-specific IDs")
         index_count = embed_document(document_id, reporter=reporter)
         metadata.update(status="ready", text_extracted=metadata["text_page_count"] > 0,
@@ -165,9 +185,13 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
                         evidence_count=len(evidence), chunk_count=index_count,
                         visual_pages_scanned=len(requested), processing_time_seconds=time.perf_counter() - started)
         write(meta_path, metadata)
+        event("document_ready", document_id=document_id, evidence_count=len(evidence),
+              table_count=metadata["table_count"], chart_count=metadata["chart_count"],
+              ocr_page_count=ocr_count, chunk_count=index_count)
         return metadata
     except Exception as exc:
-        metadata.update(status="error", error=str(exc))
+        metadata.update(status="error", error=str(exc), error_kind=type(exc).__name__,
+                        error_stage=getattr(exc, "stage", "document_processing"))
         write(meta_path, metadata)
         raise
 

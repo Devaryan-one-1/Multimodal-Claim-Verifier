@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from evaluation.coverage import (
+from services.evaluation_coverage import (
     CASE_TAGS,
     MODE_TARGETS,
     coverage_counts,

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from evaluation.retrieval_evaluation import (
+from services.evaluation_retrieval_evaluation import (
     DEFAULT_DATASET_DIR,
     METRIC_NAMES,
     MRR_DEPTH,

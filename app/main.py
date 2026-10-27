@@ -41,6 +41,9 @@ for name in ("OPENROUTER_API_KEY", "LLM_PROVIDER", "OPENROUTER_TEXT_MODEL",
         except (FileNotFoundError, KeyError):
             pass
 
+from services.observability import configure_logging
+configure_logging()
+
 from ui.workspace import run_dashboard
 
 run_dashboard()

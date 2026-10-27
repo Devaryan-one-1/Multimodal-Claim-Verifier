@@ -1,0 +1,16 @@
+{"timestamp": "2026-10-27T23:23:10.140295+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb"}
+{"timestamp": "2026-10-27T23:23:10.140788+00:00", "level": "INFO", "event": "claim_received", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb", "claim_length": 76, "document_count": 2}
+{"timestamp": "2026-10-27T23:23:18.303478+00:00", "level": "INFO", "event": "llm_called", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb", "provider": null, "model": null, "task": "text", "status": "ok", "elapsed_ms": null}
+{"timestamp": "2026-10-27T23:24:51.800157+00:00", "level": "WARNING", "event": "llm_called", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb", "provider": null, "model": null, "task": "text", "status": "error", "elapsed_ms": null}
+{"timestamp": "2026-10-27T23:24:51.808255+00:00", "level": "ERROR", "event": "verification_error", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb", "status": "error", "verdict": "UNKNOWN", "error_kind": "VerificationFailure", "stage": "claim_parser"}
+{"timestamp": "2026-10-27T23:24:51.809456+00:00", "level": "INFO", "event": "claim_verification_finished", "request_id": "7564f766c5e34a31bb3c1fb0f76f59eb", "duration_seconds": 101.66916489999858}
+{"timestamp": "2026-10-27T23:27:24.016173+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "4045bc862095481e97bf8a66a20b4e64"}
+{"timestamp": "2026-10-27T23:27:24.016471+00:00", "level": "INFO", "event": "claim_received", "request_id": "4045bc862095481e97bf8a66a20b4e64", "claim_length": 76, "document_count": 2}
+{"timestamp": "2026-10-27T23:27:24.484397+00:00", "level": "WARNING", "event": "llm_called", "request_id": "4045bc862095481e97bf8a66a20b4e64", "provider": null, "model": null, "task": "text", "status": "error", "elapsed_ms": null}
+{"timestamp": "2026-10-27T23:27:24.485293+00:00", "level": "ERROR", "event": "verification_error", "request_id": "4045bc862095481e97bf8a66a20b4e64", "status": "error", "verdict": "UNKNOWN", "error_kind": "VerificationFailure", "stage": "claim_parser"}
+{"timestamp": "2026-10-27T23:27:24.487266+00:00", "level": "INFO", "event": "claim_verification_finished", "request_id": "4045bc862095481e97bf8a66a20b4e64", "duration_seconds": 0.47105930000543594}
+{"timestamp": "2026-10-27T23:27:35.186162+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "919d1cb6b4de4389920d6d9bde24a2f5"}
+{"timestamp": "2026-10-27T23:27:35.186491+00:00", "level": "INFO", "event": "claim_received", "request_id": "919d1cb6b4de4389920d6d9bde24a2f5", "claim_length": 50, "document_count": 2}
+{"timestamp": "2026-10-27T23:27:35.524002+00:00", "level": "WARNING", "event": "llm_called", "request_id": "919d1cb6b4de4389920d6d9bde24a2f5", "provider": null, "model": null, "task": "text", "status": "error", "elapsed_ms": null}
+{"timestamp": "2026-10-27T23:27:35.525345+00:00", "level": "ERROR", "event": "verification_error", "request_id": "919d1cb6b4de4389920d6d9bde24a2f5", "status": "error", "verdict": "UNKNOWN", "error_kind": "VerificationFailure", "stage": "claim_parser"}
+{"timestamp": "2026-10-27T23:27:35.527805+00:00", "level": "INFO", "event": "claim_verification_finished", "request_id": "919d1cb6b4de4389920d6d9bde24a2f5", "duration_seconds": 0.34161930000118446}

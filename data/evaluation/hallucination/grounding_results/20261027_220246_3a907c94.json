@@ -1,7 +1,7 @@
 {
   "report_id": "20261027_220246_3a907c94",
   "dataset_id": "hallucination_20261025_160629_5543045a",
-  "at": "2026-10-27T22:02:46.966206+00:00",
+  "at": "2026-10-27T23:27:35.783570+00:00",
   "policy": "Pass requires correct verdict, automatic source checks, and human checks of numbers, quotations and reasoning. Service failures are not UNKNOWN.",
   "summary": [
     {

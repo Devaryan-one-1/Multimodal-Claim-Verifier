@@ -5,7 +5,7 @@ from collections import Counter
 
 import streamlit as st
 
-from evaluation.dataset import (
+from services.evaluation_dataset import (
     ROOT,
     VERDICTS,
     add_drafts,
@@ -16,9 +16,9 @@ from evaluation.dataset import (
     update_record,
     verdict_counts,
 )
-from extraction.image_renderer import render_page
+from services.application import render_page
 from ui.evidence_panel import render_evidence_panel
-from evaluation.coverage import export_coverage_ready
+from services.evaluation_coverage import export_coverage_ready
 from ui.evaluation_coverage import render_coverage_summary
 
 def render_evaluation_panel(

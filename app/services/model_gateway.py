@@ -1,6 +1,8 @@
 """Text/vision routing only. This module never creates or searches embeddings."""
 from __future__ import annotations
 
+from services.observability import record_model_call
+
 import base64
 import copy
 import hashlib
@@ -225,6 +227,7 @@ def _strict_schema(value):
 
 
 def _record(event):
+    record_model_call(event)
     _last.set(dict(event))
     calls = _calls.get()
     if calls is not None:

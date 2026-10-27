@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from services.observability import event, operation
+
 import json
 import re
 import time
@@ -95,7 +97,9 @@ def _verify_one(pc, selected, reporter=None):
             hits = []
             for doc in scope:
                 hits.extend(search(pc["claim_text"], top_k=20, document_id=doc))
+            event("evidence_retrieved", count=len(hits), stage="initial")
             if not hits:
+                event("evidence_unavailable", stage="retrieval")
                 result.update(reason="No relevant evidence was retrieved from the selected documents.",
                               calculation_unavailable_reason="No relevant evidence was retrieved.")
                 return result
@@ -120,12 +124,15 @@ def _verify_one(pc, selected, reporter=None):
                 )
                 evidence.append(item)
                 seen.add(key)
+            event("evidence_retrieved", count=len(evidence), stage="resolved")
             result["evidence"] = evidence
             if not evidence:
                 raise VerificationFailure("Retrieved chunks do not resolve to original evidence.", stage="source_resolution")
             if reporter:
                 reporter.update("Verifying calculations", completed=4, message="Reading source cells and calculating in Python")
             calculation, comparison, numeric_reason, used = verify_numeric(pc, evidence)
+            event("calculation_performed" if comparison else "calculation_unavailable",
+                  available=bool(comparison), operation=pc.get("operation"))
             result.update(calculation=calculation, comparison=comparison,
                           calculation_unavailable_reason=numeric_reason)
             if calculation:
@@ -197,12 +204,20 @@ limited to the supplied evidence, not as proof about every page of the report.
                           error_kind=type(exc).__name__, reason=str(exc),
                           error_stage=getattr(exc, "stage", "verification"),
                           pause=quota_pause(exc, calls[call_start:]))
-            result.setdefault("calculation_unavailable_reason", str(exc))
+            if not result.get("calculation_unavailable_reason"):
+                result["calculation_unavailable_reason"] = str(exc)
             return result
+        finally:
+            event("verification_error" if result.get("status") == "error" else "verdict_generated",
+                  level="error" if result.get("status") == "error" else "info",
+                  status=result.get("status"), verdict=result.get("verdict"),
+                  error_kind=result.get("error_kind"), stage=result.get("error_stage"))
 
 
 @trace_verification
+@operation("claim_verification")
 def verify_claims(claim_text: str, document_ids: list[str], reporter=None) -> list[dict]:
+    event("claim_received", claim_length=len(claim_text), document_count=len(document_ids))
     started = time.perf_counter()
     if not document_ids:
         return [{"claim_text": claim_text, "verdict": "UNKNOWN", "status": "error",

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from evaluation.hallucination import (
+from services.evaluation_hallucination import (
     ROOT, add_drafts, counts, create_run, export_reviewed, grounding_report,
     list_runs, load_run, local_grounding_checks, run_tests,
     save_grounding_review, update_record,
