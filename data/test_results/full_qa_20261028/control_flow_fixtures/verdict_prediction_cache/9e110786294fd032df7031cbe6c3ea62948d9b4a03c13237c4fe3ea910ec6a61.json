@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "cache_key": "9e110786294fd032df7031cbe6c3ea62948d9b4a03c13237c4fe3ea910ec6a61",
+  "configuration_signature": "c5917c493137b7d672dbfe5694b5ff2acd74120e3fe728cf46962872a58df961",
+  "request": {
+    "claim_text": "Total income from continuing operations before income taxes was a loss of $(11,271) million in 2023.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-28T12:41:46.910316+00:00",
+  "results": [
+    {
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "claim_text": "Total income from continuing operations before income taxes was a loss of $(11,271) million in 2023.",
+      "reason": "Synthetic control-flow fixture. Not measured performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "evidence": []
+    }
+  ],
+  "results_hash": "0654b169a0e710306214385e6198e4da967f0a67e6c60158738b195894917766"
+}

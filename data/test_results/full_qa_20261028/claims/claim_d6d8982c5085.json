@@ -1,0 +1,79 @@
+[
+  {
+    "claim_text": "In 2024, the change in valuation allowance on Solventum ownership reduced 3M's effective tax rate by 7.7 percentage points, reflected as (7.7) percentage points in the rate reconciliation.",
+    "parsed_claim": {
+      "claim_text": "In 2024, the change in valuation allowance on Solventum ownership reduced 3M's effective tax rate by 7.7 percentage points, reflected as (7.7) percentage points in the rate reconciliation.",
+      "claim_type": "unclear",
+      "operation": "qualitative",
+      "parsing_error": "Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit",
+      "error_kind": "ModelServiceError",
+      "pause": null,
+      "notes": [
+        "Claim parsing unavailable: ModelServiceError: Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit"
+      ]
+    },
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ],
+    "status": "error",
+    "verdict": "UNKNOWN",
+    "confidence": null,
+    "confidence_kind": "uncalibrated model confidence",
+    "evidence": [],
+    "evidence_ids": [],
+    "calculation": null,
+    "comparison": null,
+    "notes": [
+      "Claim parsing unavailable: ModelServiceError: Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit"
+    ],
+    "error": "Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit",
+    "error_kind": "VerificationFailure",
+    "reason": "Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit",
+    "error_stage": "claim_parser",
+    "pause": null,
+    "calculation_unavailable_reason": "Model service failed for nvidia/nemotron-3-ultra-550b-a55b (ModelServiceError, HTTP 402): Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit",
+    "original_claim": "In 2024, the change in valuation allowance on Solventum ownership reduced 3M's effective tax rate by 7.7 percentage points, reflected as (7.7) percentage points in the rate reconciliation.",
+    "overall_verdict": "UNKNOWN",
+    "processing_time_seconds": 0.2606348999834154,
+    "model_configuration": {
+      "provider": "openrouter",
+      "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "vision_model": "",
+      "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "text_fallbacks": [
+        "minimax/minimax-m3.1-flash"
+      ],
+      "vision_fallbacks": [],
+      "allow_fallbacks": true,
+      "timeout_seconds": 120.0,
+      "max_output_tokens": 8192,
+      "send_temperature": false,
+      "gateway_version": 2,
+      "schema_policy": "strict JSON Schema plus local validation",
+      "openrouter_base_url": "https://openrouter.ai/api/v1"
+    },
+    "model_calls": [
+      {
+        "time": "2026-10-28T12:37:32.121122+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "actual_model": null,
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": null,
+        "request_id": null,
+        "http_status": 402,
+        "finish_reason": null,
+        "native_finish_reason": null,
+        "usage": {},
+        "service_error_code": 402,
+        "status": "error",
+        "error_type": "ModelServiceError",
+        "error_message": "Model service error 402: This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 7454. To increase, visit https://openrouter.ai/workspaces/default/keys/280614275f84a77d5242247d9c7c017a5f5550e859e28d1fa75b450853654278 and adjust the key's daily limit",
+        "duration_seconds": 0.254
+      }
+    ],
+    "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+  }
+]

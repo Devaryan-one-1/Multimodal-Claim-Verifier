@@ -1,0 +1,110 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "services/model_gateway.py": "9021fa65940c23f1e2d8b304855f59698b6fccbfcb2279bdcd230e25508c1b97",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+        "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+      },
+      "dependencies": {
+        "google-genai": "2.22.0",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "pydantic": "2.13.5"
+      },
+      "routing": {
+        "allow_fallbacks": false,
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "gateway_version": 1,
+        "max_output_tokens": 8192,
+        "openrouter_base_url": "https://openrouter.ai/api/v1",
+        "provider": "openrouter",
+        "schema_policy": "strict JSON Schema plus local validation",
+        "send_temperature": false,
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "timeout_seconds": 120.0,
+        "vision_fallbacks": [],
+        "vision_model": ""
+      }
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025."
+    },
+    "schema_version": 1,
+    "stage": "parser"
+  },
+  "payload": {
+    "claims": [
+      {
+        "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+        "company": null,
+        "subject": "Net property, plant, and equipment (PP&E)",
+        "metric": "Net property, plant, and equipment",
+        "segment": "China/Hong Kong",
+        "start_period": null,
+        "end_period": null,
+        "period_type": "point_in_time",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "growth",
+        "claimed_literal": "increased",
+        "claimed_change": null,
+        "comparison_operator": "greater_than",
+        "direction": "up",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "notes": [
+          "Company not specified in assertion.",
+          "Start and end dates explicitly stated (Dec 31, 2024 to Dec 31, 2025).",
+          "No numeric magnitude or unit provided; qualitative growth claim.",
+          "Period type is point_in_time (balance sheet dates)."
+        ],
+        "change_type": "growth"
+      }
+    ],
+    "model_calls": [
+      {
+        "time": "2026-10-21T11:35:41.428823+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "DeepInfra",
+        "request_id": "gen-1792582541-aLpnUw6ue61BaOYgm0H4",
+        "usage": {
+          "prompt_tokens": 356,
+          "completion_tokens": 284,
+          "total_tokens": 640,
+          "cost": 0.0008028,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0008028,
+            "upstream_inference_prompt_cost": 0.000178,
+            "upstream_inference_completions_cost": 0.0006248
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 6.289
+      }
+    ]
+  },
+  "payload_sha256": "5ee7064396f55201c8c5ce6bb71f11d8c85ae2ca2033613b482cdc450cca7524",
+  "created_at": "2026-10-21T11:35:47.718481+00:00"
+}

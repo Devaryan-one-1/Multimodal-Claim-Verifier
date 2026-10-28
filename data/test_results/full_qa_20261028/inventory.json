@@ -1,0 +1,3223 @@
+{
+  "status": "checked",
+  "main_count": 100,
+  "review_status": {
+    "approved": 100
+  },
+  "labels": {
+    "CONTRADICTED": 25,
+    "PARTIALLY_SUPPORTED": 25,
+    "UNKNOWN": 25,
+    "SUPPORTED": 25
+  },
+  "coverage": {
+    "by_mode": {
+      "combined": 15,
+      "isolated": 35,
+      "straightforward": 50
+    },
+    "by_tag": {
+      "charts": 0,
+      "compound_claims": 30,
+      "different_currencies": 0,
+      "different_units": 8,
+      "different_years": 14,
+      "footnotes": 0,
+      "missing_evidence": 36,
+      "negative_values": 15,
+      "ocr": 0,
+      "percentage_changes": 21,
+      "percentage_points": 4,
+      "quarter_vs_annual": 1,
+      "rounded_values": 2,
+      "tables": 75,
+      "zero_baseline": 1
+    },
+    "by_verdict": {
+      "CONTRADICTED": 25,
+      "PARTIALLY_SUPPORTED": 25,
+      "SUPPORTED": 25,
+      "UNKNOWN": 25
+    },
+    "difficult": 50,
+    "straightforward": 50,
+    "unclassified": 0
+  },
+  "missing_case_tags": [
+    "different_currencies",
+    "charts",
+    "ocr",
+    "footnotes"
+  ],
+  "hallucination_count": 20,
+  "hallucination_labels": {
+    "UNKNOWN": 6,
+    "PARTIALLY_SUPPORTED": 12,
+    "CONTRADICTED": 2
+  },
+  "saved_reports": [
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261019_112155_2c298395.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 13,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 62,
+          "Recall@5": 0.5384615384615384,
+          "Recall@10": 0.6923076923076923,
+          "Hit@5": 0.5384615384615384,
+          "Hit@10": 0.6923076923076923,
+          "MRR@20": 0.36485042735042733
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 13,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 62,
+          "Recall@5": 0.4230769230769231,
+          "Recall@10": 0.5769230769230769,
+          "Hit@5": 0.46153846153846156,
+          "Hit@10": 0.6153846153846154,
+          "MRR@20": 0.23808275058275058
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 7,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 42,
+          "Recall@5": 0.14285714285714285,
+          "Recall@10": 0.2857142857142857,
+          "Hit@5": 0.14285714285714285,
+          "Hit@10": 0.2857142857142857,
+          "MRR@20": 0.061309523809523814
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 6,
+          "excluded_queries": 11,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 42,
+          "Recall@5": 0.16666666666666666,
+          "Recall@10": 0.16666666666666666,
+          "Hit@5": 0.16666666666666666,
+          "Hit@10": 0.16666666666666666,
+          "MRR@20": 0.17857142857142858
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261019_112712_bb0f99fb.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 10,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 64,
+          "Recall@5": 0.5,
+          "Recall@10": 0.7,
+          "Hit@5": 0.5,
+          "Hit@10": 0.7,
+          "MRR@20": 0.33541666666666664
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 10,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 1,
+          "not_run_queries": 64,
+          "Recall@5": 0.3,
+          "Recall@10": 0.5,
+          "Hit@5": 0.3,
+          "Hit@10": 0.5,
+          "MRR@20": 0.14208333333333334
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 5,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 44,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.0125
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 5,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 44,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.014285714285714285
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_111311_2ac4551b.json",
+      "complete": true,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.4666666666666667,
+          "Recall@10": 0.6133333333333333,
+          "Hit@5": 0.4666666666666667,
+          "Hit@10": 0.6133333333333333,
+          "MRR@20": 0.329977688977689
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.43333333333333335,
+          "Recall@10": 0.5933333333333334,
+          "Hit@5": 0.44,
+          "Hit@10": 0.6,
+          "MRR@20": 0.28351472601472605
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.42857142857142855,
+          "Recall@10": 0.5714285714285714,
+          "Hit@5": 0.42857142857142855,
+          "Hit@10": 0.5714285714285714,
+          "MRR@20": 0.3207043135883093
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.5102040816326531,
+          "Recall@10": 0.6122448979591837,
+          "Hit@5": 0.5102040816326531,
+          "Hit@10": 0.6122448979591837,
+          "MRR@20": 0.34926163105935015
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_112803_ddea3450.json",
+      "complete": true,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.4666666666666667,
+          "Recall@10": 0.6133333333333333,
+          "Hit@5": 0.4666666666666667,
+          "Hit@10": 0.6133333333333333,
+          "MRR@20": 0.329977688977689
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.43333333333333335,
+          "Recall@10": 0.5933333333333334,
+          "Hit@5": 0.44,
+          "Hit@10": 0.6,
+          "MRR@20": 0.28351472601472605
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.42857142857142855,
+          "Recall@10": 0.5714285714285714,
+          "Hit@5": 0.42857142857142855,
+          "Hit@10": 0.5714285714285714,
+          "MRR@20": 0.3207043135883093
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.5102040816326531,
+          "Recall@10": 0.6122448979591837,
+          "Hit@5": 0.5102040816326531,
+          "Hit@10": 0.6122448979591837,
+          "MRR@20": 0.34926163105935015
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_113541_a8c77298.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 2,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 73,
+          "Recall@5": 0.5,
+          "Recall@10": 1.0,
+          "Hit@5": 0.5,
+          "Hit@10": 1.0,
+          "MRR@20": 0.22916666666666666
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 2,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 73,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.07291666666666666
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 2,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 47,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.0
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 1,
+          "excluded_queries": 11,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 47,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.0
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_180736_b469a593.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 1,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": 1.0,
+          "Recall@10": 1.0,
+          "Hit@5": 1.0,
+          "Hit@10": 1.0,
+          "MRR@20": 0.3333333333333333
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 0,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_180851_03d4b414.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 1,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": 1.0,
+          "Recall@10": 1.0,
+          "Hit@5": 1.0,
+          "Hit@10": 1.0,
+          "MRR@20": 0.3333333333333333
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 0,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_181137_231883ab.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 1,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": 1.0,
+          "Recall@10": 1.0,
+          "Hit@5": 1.0,
+          "Hit@10": 1.0,
+          "MRR@20": 0.3333333333333333
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 0,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_181141_72e23864.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 1,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": 1.0,
+          "Recall@10": 1.0,
+          "Hit@5": 1.0,
+          "Hit@10": 1.0,
+          "MRR@20": 0.3333333333333333
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 0,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_183100_23a75fcc.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 2,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 73,
+          "Recall@5": 0.5,
+          "Recall@10": 1.0,
+          "Hit@5": 0.5,
+          "Hit@10": 1.0,
+          "MRR@20": 0.22916666666666666
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 2,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 73,
+          "Recall@5": 0.0,
+          "Recall@10": 0.0,
+          "Hit@5": 0.0,
+          "Hit@10": 0.0,
+          "MRR@20": 0.07291666666666666
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261021_183133_4908f29b.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 33,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 42,
+          "Recall@5": 0.5151515151515151,
+          "Recall@10": 0.696969696969697,
+          "Hit@5": 0.5151515151515151,
+          "Hit@10": 0.696969696969697,
+          "MRR@20": 0.3183862433862434
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 32,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 42,
+          "Recall@5": 0.484375,
+          "Recall@10": 0.609375,
+          "Hit@5": 0.5,
+          "Hit@10": 0.625,
+          "MRR@20": 0.2877046130952381
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 19,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 30,
+          "Recall@5": 0.42105263157894735,
+          "Recall@10": 0.5263157894736842,
+          "Hit@5": 0.42105263157894735,
+          "Hit@10": 0.5263157894736842,
+          "MRR@20": 0.31485685367264316
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 19,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 30,
+          "Recall@5": 0.42105263157894735,
+          "Recall@10": 0.5263157894736842,
+          "Hit@5": 0.42105263157894735,
+          "Hit@10": 0.5263157894736842,
+          "MRR@20": 0.3380012531328321
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_172701_dd43c801.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 1,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": 1.0,
+          "Recall@10": 1.0,
+          "Hit@5": 1.0,
+          "Hit@10": 1.0,
+          "MRR@20": 0.3333333333333333
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 0,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 74,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 0,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 49,
+          "Recall@5": null,
+          "Recall@10": null,
+          "Hit@5": null,
+          "Hit@10": null,
+          "MRR@20": null
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_173226_5d76bd19.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 42,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 33,
+          "Recall@5": 0.5238095238095238,
+          "Recall@10": 0.6666666666666666,
+          "Hit@5": 0.5238095238095238,
+          "Hit@10": 0.6666666666666666,
+          "MRR@20": 0.32952569916855634
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 41,
+          "excluded_queries": 25,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 33,
+          "Recall@5": 0.45121951219512196,
+          "Recall@10": 0.5975609756097561,
+          "Hit@5": 0.4634146341463415,
+          "Hit@10": 0.6097560975609756,
+          "MRR@20": 0.28518679829655436
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 24,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 25,
+          "Recall@5": 0.4166666666666667,
+          "Recall@10": 0.5,
+          "Hit@5": 0.4166666666666667,
+          "Hit@10": 0.5,
+          "MRR@20": 0.30394917582417585
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 24,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 25,
+          "Recall@5": 0.375,
+          "Recall@10": 0.4583333333333333,
+          "Hit@5": 0.375,
+          "Hit@10": 0.4583333333333333,
+          "MRR@20": 0.31548985124352774
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_174015_a15df772.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.5079365079365079,
+          "Recall@10": 0.6507936507936508,
+          "Hit@5": 0.5079365079365079,
+          "Hit@10": 0.6507936507936508,
+          "MRR@20": 0.34737339380196525
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.4523809523809524,
+          "Recall@10": 0.6111111111111112,
+          "Hit@5": 0.4603174603174603,
+          "Hit@10": 0.6190476190476191,
+          "MRR@20": 0.2834425935616412
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 40,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.375,
+          "Recall@10": 0.55,
+          "Hit@5": 0.375,
+          "Hit@10": 0.55,
+          "MRR@20": 0.29821366133866134
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 39,
+          "excluded_queries": 11,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.48717948717948717,
+          "Recall@10": 0.5897435897435898,
+          "Hit@5": 0.48717948717948717,
+          "Hit@10": 0.5897435897435898,
+          "MRR@20": 0.33631284293048996
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_214052_e030141f.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.5079365079365079,
+          "Recall@10": 0.6507936507936508,
+          "Hit@5": 0.5079365079365079,
+          "Hit@10": 0.6507936507936508,
+          "MRR@20": 0.34737339380196525
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.4523809523809524,
+          "Recall@10": 0.6111111111111112,
+          "Hit@5": 0.4603174603174603,
+          "Hit@10": 0.6190476190476191,
+          "MRR@20": 0.2834425935616412
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 40,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.375,
+          "Recall@10": 0.55,
+          "Hit@5": 0.375,
+          "Hit@10": 0.55,
+          "MRR@20": 0.29821366133866134
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 39,
+          "excluded_queries": 11,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.48717948717948717,
+          "Recall@10": 0.5897435897435898,
+          "Hit@5": 0.48717948717948717,
+          "Hit@10": 0.5897435897435898,
+          "MRR@20": 0.33631284293048996
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_214118_32713271.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.5079365079365079,
+          "Recall@10": 0.6507936507936508,
+          "Hit@5": 0.5079365079365079,
+          "Hit@10": 0.6507936507936508,
+          "MRR@20": 0.34737339380196525
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 12,
+          "Recall@5": 0.4523809523809524,
+          "Recall@10": 0.6111111111111112,
+          "Hit@5": 0.4603174603174603,
+          "Hit@10": 0.6190476190476191,
+          "MRR@20": 0.2834425935616412
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 40,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.375,
+          "Recall@10": 0.55,
+          "Hit@5": 0.375,
+          "Hit@10": 0.55,
+          "MRR@20": 0.29821366133866134
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 39,
+          "excluded_queries": 11,
+          "failed_queries": 1,
+          "blocked_queries": 0,
+          "not_run_queries": 9,
+          "Recall@5": 0.48717948717948717,
+          "Recall@10": 0.5897435897435898,
+          "Hit@5": 0.48717948717948717,
+          "Hit@10": 0.5897435897435898,
+          "MRR@20": 0.33631284293048996
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261022_214126_9ac3f6d7.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.4666666666666667,
+          "Recall@10": 0.6133333333333333,
+          "Hit@5": 0.4666666666666667,
+          "Hit@10": 0.6133333333333333,
+          "MRR@20": 0.329977688977689
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 63,
+          "excluded_queries": 25,
+          "failed_queries": 12,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.4523809523809524,
+          "Recall@10": 0.6111111111111112,
+          "Hit@5": 0.4603174603174603,
+          "Hit@10": 0.6190476190476191,
+          "MRR@20": 0.2834425935616412
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.42857142857142855,
+          "Recall@10": 0.5714285714285714,
+          "Hit@5": 0.42857142857142855,
+          "Hit@10": 0.5714285714285714,
+          "MRR@20": 0.3207043135883093
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 39,
+          "excluded_queries": 11,
+          "failed_queries": 10,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.48717948717948717,
+          "Recall@10": 0.5897435897435898,
+          "Hit@5": 0.48717948717948717,
+          "Hit@10": 0.5897435897435898,
+          "MRR@20": 0.33631284293048996
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\retrieval_results\\20261023_110510_e9ec5804.json",
+      "complete": true,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "stage": "initial",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.4666666666666667,
+          "Recall@10": 0.6133333333333333,
+          "Hit@5": 0.4666666666666667,
+          "Hit@10": 0.6133333333333333,
+          "MRR@20": 0.329977688977689
+        },
+        {
+          "level": "claim",
+          "stage": "reranked",
+          "total_queries": 100,
+          "eligible_queries": 75,
+          "completed_queries": 75,
+          "excluded_queries": 25,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.43333333333333335,
+          "Recall@10": 0.6066666666666667,
+          "Hit@5": 0.44,
+          "Hit@10": 0.6133333333333333,
+          "MRR@20": 0.28388509638509635
+        },
+        {
+          "level": "subclaim",
+          "stage": "initial",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.42857142857142855,
+          "Recall@10": 0.5714285714285714,
+          "Hit@5": 0.42857142857142855,
+          "Hit@10": 0.5714285714285714,
+          "MRR@20": 0.3207043135883093
+        },
+        {
+          "level": "subclaim",
+          "stage": "reranked",
+          "total_queries": 60,
+          "eligible_queries": 49,
+          "completed_queries": 49,
+          "excluded_queries": 11,
+          "failed_queries": 0,
+          "blocked_queries": 0,
+          "not_run_queries": 0,
+          "Recall@5": 0.5102040816326531,
+          "Recall@10": 0.6122448979591837,
+          "Hit@5": 0.5102040816326531,
+          "Hit@10": 0.6122448979591837,
+          "MRR@20": 0.34926163105935015
+        }
+      ],
+      "query_statuses": {
+        "null": 160
+      }
+    },
+    {
+      "path": "data\\evaluation\\verdict_results\\20261024_175210_4970b346.json",
+      "complete": false,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 15,
+          "failed_queries": 85,
+          "not_run_queries": 0,
+          "cache_hits": 0,
+          "coverage": 0.15,
+          "accuracy": 0.2,
+          "macro_class_count": 4,
+          "macro_precision": 0.05,
+          "weighted_precision": 0.04000000000000001,
+          "macro_recall": 0.25,
+          "weighted_recall": 0.2,
+          "macro_f1": 0.08333333333333333,
+          "weighted_f1": 0.06666666666666667
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 8,
+          "failed_queries": 52,
+          "not_run_queries": 0,
+          "cache_hits": 0,
+          "coverage": 0.13333333333333333,
+          "accuracy": 0.25,
+          "macro_class_count": 3,
+          "macro_precision": 0.08333333333333333,
+          "weighted_precision": 0.0625,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.25,
+          "macro_f1": 0.13333333333333333,
+          "weighted_f1": 0.1
+        }
+      ],
+      "query_statuses": {
+        "ok": 23,
+        "error": 137
+      }
+    },
+    {
+      "path": "data\\evaluation\\verdict_results\\20261025_154156_525a98b1.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 3,
+          "failed_queries": 0,
+          "not_run_queries": 97,
+          "cache_hits": 0,
+          "coverage": 0.03,
+          "accuracy": 0.3333333333333333,
+          "macro_class_count": 3,
+          "macro_precision": 0.3333333333333333,
+          "weighted_precision": 0.3333333333333333,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.3333333333333333,
+          "macro_f1": 0.3333333333333333,
+          "weighted_f1": 0.3333333333333333
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 2,
+          "failed_queries": 0,
+          "not_run_queries": 58,
+          "cache_hits": 0,
+          "coverage": 0.03333333333333333,
+          "accuracy": 1.0,
+          "macro_class_count": 2,
+          "macro_precision": 1.0,
+          "weighted_precision": 1.0,
+          "macro_recall": 1.0,
+          "weighted_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        }
+      ],
+      "query_statuses": {
+        "ok": 5,
+        "not_run": 155
+      }
+    },
+    {
+      "path": "data\\evaluation\\verdict_results\\20261025_155840_93e52d59.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 6,
+          "failed_queries": 0,
+          "not_run_queries": 94,
+          "cache_hits": 3,
+          "coverage": 0.06,
+          "accuracy": 0.5,
+          "macro_class_count": 3,
+          "macro_precision": 0.611111111111111,
+          "weighted_precision": 0.611111111111111,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.5,
+          "macro_f1": 0.5222222222222223,
+          "weighted_f1": 0.5222222222222223
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 4,
+          "failed_queries": 0,
+          "not_run_queries": 56,
+          "cache_hits": 2,
+          "coverage": 0.06666666666666667,
+          "accuracy": 1.0,
+          "macro_class_count": 3,
+          "macro_precision": 1.0,
+          "weighted_precision": 1.0,
+          "macro_recall": 1.0,
+          "weighted_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        }
+      ],
+      "query_statuses": {
+        "ok": 10,
+        "not_run": 150
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_115403_a49f81ae.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 3,
+          "failed_queries": 2,
+          "not_run_queries": 15,
+          "cache_hits": 0,
+          "coverage": 0.15,
+          "accuracy": 1.0,
+          "macro_class_count": 1,
+          "macro_precision": 1.0,
+          "weighted_precision": 1.0,
+          "macro_recall": 1.0,
+          "weighted_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 3,
+        "not_run": 39
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_120401_5753d4d6.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 4,
+          "failed_queries": 2,
+          "not_run_queries": 14,
+          "cache_hits": 3,
+          "coverage": 0.2,
+          "accuracy": 0.75,
+          "macro_class_count": 2,
+          "macro_precision": 0.375,
+          "weighted_precision": 0.5625,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.75,
+          "macro_f1": 0.42857142857142855,
+          "weighted_f1": 0.6428571428571428
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 2,
+          "failed_queries": 0,
+          "not_run_queries": 22,
+          "cache_hits": 0,
+          "coverage": 0.08333333333333333,
+          "accuracy": 0.5,
+          "macro_class_count": 2,
+          "macro_precision": 0.25,
+          "weighted_precision": 0.25,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "weighted_f1": 0.3333333333333333
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 6,
+        "not_run": 36
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_121506_d1d12d6a.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 5,
+          "failed_queries": 2,
+          "not_run_queries": 13,
+          "cache_hits": 4,
+          "coverage": 0.25,
+          "accuracy": 0.6,
+          "macro_class_count": 2,
+          "macro_precision": 0.3,
+          "weighted_precision": 0.36,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.6,
+          "macro_f1": 0.375,
+          "weighted_f1": 0.45
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 4,
+          "failed_queries": 0,
+          "not_run_queries": 20,
+          "cache_hits": 2,
+          "coverage": 0.16666666666666666,
+          "accuracy": 0.5,
+          "macro_class_count": 2,
+          "macro_precision": 0.25,
+          "weighted_precision": 0.25,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "weighted_f1": 0.3333333333333333
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 9,
+        "not_run": 33
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_122413_7721c567.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "Model service rate limit reached. Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_122422_ca240f1c.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit cooldown: retry in 57 seconds, or select another model. ",
+        "retry_after_seconds": 56.6,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_122505_9ae0f0ae.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit cooldown: retry in 14 seconds, or select another model. ",
+        "retry_after_seconds": 13.7,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261026_123030_b8b44534.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "Model service rate limit reached. Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_182131_51bb421d.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit reached. Model service error 429: Provider returned error Model service error 429: Provider returned error Model service error 429: Provider returned error",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_182410_8c951d53.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit reached. Model service error 429: Provider returned error Model service error 429: Provider returned error Model service error 429: Provider returned error",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_182414_ae20194b.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "Model service rate limit cooldown: retry in 62 seconds, or select another model. ",
+        "retry_after_seconds": 61.8,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_182439_ad537be8.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 7,
+          "failed_queries": 2,
+          "not_run_queries": 11,
+          "cache_hits": 5,
+          "coverage": 0.35,
+          "accuracy": 0.5714285714285714,
+          "macro_class_count": 3,
+          "macro_precision": 0.2222222222222222,
+          "weighted_precision": 0.38095238095238093,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.5714285714285714,
+          "macro_f1": 0.26666666666666666,
+          "weighted_f1": 0.4571428571428572
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 5,
+          "failed_queries": 0,
+          "not_run_queries": 19,
+          "cache_hits": 4,
+          "coverage": 0.20833333333333334,
+          "accuracy": 0.4,
+          "macro_class_count": 2,
+          "macro_precision": 0.2,
+          "weighted_precision": 0.16,
+          "macro_recall": 0.5,
+          "weighted_recall": 0.4,
+          "macro_f1": 0.2857142857142857,
+          "weighted_f1": 0.22857142857142856
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 12,
+        "not_run": 30
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_183522_c9355f0e.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 8,
+          "failed_queries": 2,
+          "not_run_queries": 10,
+          "cache_hits": 7,
+          "coverage": 0.4,
+          "accuracy": 0.625,
+          "macro_class_count": 3,
+          "macro_precision": 0.5555555555555555,
+          "weighted_precision": 0.8333333333333333,
+          "macro_recall": 0.4166666666666667,
+          "weighted_recall": 0.625,
+          "macro_f1": 0.4000000000000001,
+          "weighted_f1": 0.6000000000000001
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 7,
+          "failed_queries": 0,
+          "not_run_queries": 17,
+          "cache_hits": 5,
+          "coverage": 0.2916666666666667,
+          "accuracy": 0.2857142857142857,
+          "macro_class_count": 3,
+          "macro_precision": 0.13333333333333333,
+          "weighted_precision": 0.17142857142857146,
+          "macro_recall": 0.2222222222222222,
+          "weighted_recall": 0.2857142857142857,
+          "macro_f1": 0.16666666666666666,
+          "weighted_f1": 0.21428571428571427
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 15,
+        "not_run": 27
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_184432_f78e1198.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 9,
+          "failed_queries": 2,
+          "not_run_queries": 9,
+          "cache_hits": 8,
+          "coverage": 0.45,
+          "accuracy": 0.5555555555555556,
+          "macro_class_count": 3,
+          "macro_precision": 0.5238095238095238,
+          "weighted_precision": 0.8095238095238095,
+          "macro_recall": 0.39999999999999997,
+          "weighted_recall": 0.5555555555555556,
+          "macro_f1": 0.35353535353535354,
+          "weighted_f1": 0.5084175084175084
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 9,
+          "failed_queries": 0,
+          "not_run_queries": 15,
+          "cache_hits": 7,
+          "coverage": 0.375,
+          "accuracy": 0.3333333333333333,
+          "macro_class_count": 3,
+          "macro_precision": 0.14285714285714285,
+          "weighted_precision": 0.19047619047619047,
+          "macro_recall": 0.25,
+          "weighted_recall": 0.3333333333333333,
+          "macro_f1": 0.1818181818181818,
+          "weighted_f1": 0.2424242424242424
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 18,
+        "not_run": 24
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_185617_33543ba5.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 10,
+          "failed_queries": 2,
+          "not_run_queries": 8,
+          "cache_hits": 9,
+          "coverage": 0.5,
+          "accuracy": 0.5,
+          "macro_class_count": 3,
+          "macro_precision": 0.5238095238095238,
+          "weighted_precision": 0.8285714285714285,
+          "macro_recall": 0.3888888888888889,
+          "weighted_recall": 0.5,
+          "macro_f1": 0.3376623376623377,
+          "weighted_f1": 0.4623376623376624
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 11,
+          "failed_queries": 0,
+          "not_run_queries": 13,
+          "cache_hits": 9,
+          "coverage": 0.4583333333333333,
+          "accuracy": 0.36363636363636365,
+          "macro_class_count": 3,
+          "macro_precision": 0.14814814814814814,
+          "weighted_precision": 0.20202020202020202,
+          "macro_recall": 0.26666666666666666,
+          "weighted_recall": 0.36363636363636365,
+          "macro_f1": 0.19047619047619047,
+          "weighted_f1": 0.2597402597402597
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 21,
+        "not_run": 21
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_190224_a1a3b3d7.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "prediction_budget",
+        "reason": "The chosen new-prediction limit for this run was reached.",
+        "action": "Run again in reuse mode to continue with the remaining queries."
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 11,
+          "failed_queries": 2,
+          "not_run_queries": 7,
+          "cache_hits": 10,
+          "coverage": 0.55,
+          "accuracy": 0.5454545454545454,
+          "macro_class_count": 3,
+          "macro_precision": 0.5238095238095238,
+          "weighted_precision": 0.8441558441558441,
+          "macro_recall": 0.42857142857142855,
+          "weighted_recall": 0.5454545454545454,
+          "macro_f1": 0.39057239057239057,
+          "weighted_f1": 0.5472910927456381
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 13,
+          "failed_queries": 0,
+          "not_run_queries": 11,
+          "cache_hits": 11,
+          "coverage": 0.5416666666666666,
+          "accuracy": 0.38461538461538464,
+          "macro_class_count": 3,
+          "macro_precision": 0.16666666666666666,
+          "weighted_precision": 0.23076923076923078,
+          "macro_recall": 0.2777777777777778,
+          "weighted_recall": 0.38461538461538464,
+          "macro_f1": 0.20833333333333334,
+          "weighted_f1": 0.28846153846153844
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 24,
+        "not_run": 18
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_210344_f4d66432.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "Model service rate limit reached. Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_a57bd85aadc4:subclaim:2"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 11,
+          "failed_queries": 2,
+          "not_run_queries": 7,
+          "cache_hits": 11,
+          "coverage": 0.55,
+          "accuracy": 0.5454545454545454,
+          "macro_class_count": 3,
+          "macro_precision": 0.5238095238095238,
+          "weighted_precision": 0.8441558441558441,
+          "macro_recall": 0.42857142857142855,
+          "weighted_recall": 0.5454545454545454,
+          "macro_f1": 0.39057239057239057,
+          "weighted_f1": 0.5472910927456381
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 13,
+          "failed_queries": 1,
+          "not_run_queries": 10,
+          "cache_hits": 13,
+          "coverage": 0.5416666666666666,
+          "accuracy": 0.38461538461538464,
+          "macro_class_count": 3,
+          "macro_precision": 0.16666666666666666,
+          "weighted_precision": 0.23076923076923078,
+          "macro_recall": 0.2777777777777778,
+          "weighted_recall": 0.38461538461538464,
+          "macro_f1": 0.20833333333333334,
+          "weighted_f1": 0.28846153846153844
+        }
+      ],
+      "query_statuses": {
+        "error": 3,
+        "ok": 24,
+        "not_run": 17
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261027_220246_3a907c94.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "Model service rate limit reached. Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day Model service error 429: Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available.",
+        "query_id": "h_1af7f20e8c94"
+      },
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 19,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261028_110641_8a2f42b1.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": false,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 20,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "not_run": 44
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\verdict_results\\20261028_110645_8a6ddfa2.json",
+      "complete": false,
+      "valid_inputs": true,
+      "paused": false,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 20,
+          "completed_queries": 2,
+          "failed_queries": 2,
+          "not_run_queries": 16,
+          "cache_hits": 0,
+          "coverage": 0.1,
+          "accuracy": 1.0,
+          "macro_class_count": 1,
+          "macro_precision": 1.0,
+          "weighted_precision": 1.0,
+          "macro_recall": 1.0,
+          "weighted_recall": 1.0,
+          "macro_f1": 1.0,
+          "weighted_f1": 1.0
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 24,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 24,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 2,
+        "not_run": 40
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_115403_a49f81ae.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 3,
+          "service_or_validation_errors": 2,
+          "unattempted": 15,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 3,
+        "not_run": 39
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_120401_5753d4d6.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 4,
+          "service_or_validation_errors": 2,
+          "unattempted": 14,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 2,
+          "service_or_validation_errors": 0,
+          "unattempted": 22,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 6,
+        "not_run": 36
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_121506_d1d12d6a.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 5,
+          "service_or_validation_errors": 2,
+          "unattempted": 13,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 4,
+          "service_or_validation_errors": 0,
+          "unattempted": 20,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 9,
+        "not_run": 33
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_122413_7721c567.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_122422_ca240f1c.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_122505_9ae0f0ae.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261026_123030_b8b44534.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_182131_51bb421d.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_182410_8c951d53.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_182414_ae20194b.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_182439_ad537be8.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 7,
+          "service_or_validation_errors": 2,
+          "unattempted": 11,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 5,
+          "service_or_validation_errors": 0,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 12,
+        "not_run": 30
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_183522_c9355f0e.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 8,
+          "service_or_validation_errors": 2,
+          "unattempted": 10,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 7,
+          "service_or_validation_errors": 0,
+          "unattempted": 17,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 15,
+        "not_run": 27
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_184432_f78e1198.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 9,
+          "service_or_validation_errors": 2,
+          "unattempted": 9,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 9,
+          "service_or_validation_errors": 0,
+          "unattempted": 15,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 18,
+        "not_run": 24
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_185617_33543ba5.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 10,
+          "service_or_validation_errors": 2,
+          "unattempted": 8,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 11,
+          "service_or_validation_errors": 0,
+          "unattempted": 13,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 21,
+        "not_run": 21
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_190224_a1a3b3d7.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 11,
+          "service_or_validation_errors": 2,
+          "unattempted": 7,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 13,
+          "service_or_validation_errors": 0,
+          "unattempted": 11,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 24,
+        "not_run": 18
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_210344_f4d66432.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 11,
+          "service_or_validation_errors": 2,
+          "unattempted": 7,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 13,
+          "service_or_validation_errors": 1,
+          "unattempted": 10,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 3,
+        "ok": 24,
+        "not_run": 17
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261027_220246_3a907c94.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 0,
+          "service_or_validation_errors": 1,
+          "unattempted": 19,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 1,
+        "not_run": 43
+      }
+    },
+    {
+      "path": "data\\evaluation\\hallucination\\grounding_results\\20261028_110645_8a6ddfa2.json",
+      "complete": null,
+      "valid_inputs": null,
+      "paused": null,
+      "pause": null,
+      "summary": [
+        {
+          "level": "claim",
+          "total": 20,
+          "completed": 2,
+          "service_or_validation_errors": 2,
+          "unattempted": 16,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        },
+        {
+          "level": "subclaim",
+          "total": 24,
+          "completed": 0,
+          "service_or_validation_errors": 0,
+          "unattempted": 24,
+          "grounding_reviewed": 0,
+          "passes": 0,
+          "partial_pass_rate": null,
+          "final_pass_rate": null
+        }
+      ],
+      "query_statuses": {
+        "error": 2,
+        "ok": 2,
+        "not_run": 40
+      }
+    }
+  ],
+  "readme": {
+    "architecture": true,
+    "setup": true,
+    "limitations": true,
+    "historical_retrieval": true,
+    "pending_metrics": true,
+    "ablation_pending": true
+  },
+  "ablation_dashboard_connected": false
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "cache_key": "766e493d46e3856d4de4a5867ce7a80a74b6cd45af0ffd5588a10739dccf797f",
+  "configuration_signature": "c5917c493137b7d672dbfe5694b5ff2acd74120e3fe728cf46962872a58df961",
+  "request": {
+    "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-28T12:40:50.966912+00:00",
+  "results": [
+    {
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "reason": "Synthetic control-flow fixture. Not measured performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "evidence": []
+    }
+  ],
+  "results_hash": "e222f9232b3dba78f53f8081fbdff41dbbd4c7dc7737c568c8409ce4abb19558"
+}

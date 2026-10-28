@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "cache_key": "414c6bc6d9b4d7a0ff4f73bfff3d2ff56889ca3d7d52c863b30d7dc5598daba1",
+  "configuration_signature": "c5917c493137b7d672dbfe5694b5ff2acd74120e3fe728cf46962872a58df961",
+  "request": {
+    "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-28T12:40:50.071084+00:00",
+  "results": [
+    {
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "claim_text": "Net property, plant, and equipment (PP&E) in China/Hong Kong increased between December 31, 2024, and December 31, 2025.",
+      "reason": "Synthetic control-flow fixture. Not measured performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "evidence": []
+    }
+  ],
+  "results_hash": "e8f185122ee9dc61672d6c246d9116f48e6cacdb56afee706a7ba9d305958a9b"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "invalid",
+  "status": "error",
+  "error": "The uploaded PDF cannot be opened. Check that it is a valid, undamaged PDF.",
+  "kind": "InvalidPDFError",
+  "persisted": {},
+  "index_exists": false
+}

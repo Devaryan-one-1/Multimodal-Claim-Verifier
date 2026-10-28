@@ -1,0 +1,2375 @@
+{
+  "schema_version": 1,
+  "cache_key": "343eba1dcf597367f15df3f230f4518667eec17799a5be7695bc3f7128f32e6d",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "In 2025, research and development expense for Industrial Adhesives and Tapes was $120 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:50:09.519365+00:00",
+  "results": [
+    {
+      "claim_text": "In 2025, research and development expense for Industrial Adhesives and Tapes was $120 million.",
+      "parsed_claim": {
+        "claim_text": "In 2025, research and development expense for Industrial Adhesives and Tapes was $120 million.",
+        "company": "Industrial Adhesives and Tapes",
+        "subject": null,
+        "metric": "research and development expense",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$120 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            109.13823074669199,
+            587.8071183651786,
+            378.9922919009644
+          ],
+          "table_id": "table_51_1",
+          "headers": [
+            "Abrasives",
+            "$1,340",
+            "$1,295",
+            "$1,327"
+          ],
+          "rows": [
+            [
+              "Automotive Aftermarket",
+              "1,178",
+              "1,235",
+              "1,237"
+            ],
+            [
+              "Electrical Markets",
+              "1,394",
+              "1,274",
+              "1,259"
+            ],
+            [
+              "Industrial Adhesives and Tapes",
+              "2,266",
+              "2,104",
+              "2,051"
+            ],
+            [
+              "Industrial Specialties Division",
+              "1,172",
+              "1,161",
+              "1,206"
+            ],
+            [
+              "Personal Safety",
+              "3,544",
+              "3,371",
+              "3,382"
+            ],
+            [
+              "Roofing Granules",
+              "490",
+              "521",
+              "494"
+            ],
+            [
+              "Total Safety and Industrial Business segment",
+              "11,384",
+              "10,961",
+              "10,956"
+            ],
+            [
+              "Advanced Materials",
+              "858",
+              "969",
+              "1,167"
+            ],
+            [
+              "Automotive and Aerospace",
+              "1,901",
+              "1,912",
+              "1,925"
+            ],
+            [
+              "Commercial Branding and Transportation",
+              "2,602",
+              "2,528",
+              "2,546"
+            ],
+            [
+              "Electronics",
+              "2,911",
+              "2,971",
+              "2,863"
+            ],
+            [
+              "Total Transportation and Electronics Business segment",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer Safety and Well-Being",
+              "1,108",
+              "1,080",
+              "1,096"
+            ],
+            [
+              "Home and Auto Care",
+              "1,200",
+              "1,191",
+              "1,260"
+            ],
+            [
+              "Home Improvement",
+              "1,486",
+              "1,486",
+              "1,448"
+            ],
+            [
+              "Packaging and Expression",
+              "1,126",
+              "1,174",
+              "1,222"
+            ],
+            [
+              "Total Consumer Business segment",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "source_evidence_id": "evidence_4796",
+          "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.025396825396825397,
+          "rerank_score": 1.4626281261444092
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 53,
+          "type": "table",
+          "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+          "bbox": [
+            23.54999901875,
+            461.9553861572644,
+            587.4954300664773,
+            510.9790696183001
+          ],
+          "table_id": "table_53_4",
+          "headers": [
+            "Cost of sales",
+            "$1",
+            "$30",
+            "$89"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses",
+              "20",
+              "142",
+              "295"
+            ],
+            [
+              "Research, development and related expenses",
+              "—",
+              "15",
+              "31"
+            ],
+            [
+              "Total operating income impact",
+              "$21",
+              "$187",
+              "$415"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2023,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2023,
+              2025,
+              2023,
+              2023,
+              2025,
+              2025,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "quarter"
+            ],
+            "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "source_evidence_id": "evidence_4804",
+          "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+          "score": 0.02946912242686891,
+          "rerank_score": 0.6628192663192749
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "table",
+          "content": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+          "bbox": [
+            23.54999901875,
+            176.18105072365142,
+            587.3889999157012,
+            507.37786976835764
+          ],
+          "table_id": "table_101_2",
+          "headers": [
+            "Safety and Industrial"
+          ],
+          "rows": [
+            [
+              "Cost of sales",
+              "$6,172",
+              "$5,965",
+              "$6,137"
+            ],
+            [
+              "Selling, general and administrative expenses",
+              "1,858",
+              "2,020",
+              "2,023"
+            ],
+            [
+              "Research, development and related expenses",
+              "518",
+              "485",
+              "472"
+            ],
+            [
+              "Safety and Industrial operating income",
+              "2,836",
+              "2,491",
+              "2,324"
+            ],
+            [
+              "Transportation and Electronics"
+            ],
+            [
+              "Cost of sales",
+              "5,270",
+              "5,106",
+              "5,524"
+            ],
+            [
+              "Selling, general, administrative expenses",
+              "1,080",
+              "1,236",
+              "1,207"
+            ],
+            [
+              "Research, development and related expenses",
+              "486",
+              "460",
+              "458"
+            ],
+            [
+              "Transportation and Electronics operating income",
+              "1,436",
+              "1,578",
+              "1,312"
+            ],
+            [
+              "Consumer"
+            ],
+            [
+              "Cost of sales",
+              "2,941",
+              "2,912",
+              "3,064"
+            ],
+            [
+              "Selling, general and administrative expenses",
+              "855",
+              "955",
+              "933"
+            ],
+            [
+              "Research, development and related expenses",
+              "128",
+              "132",
+              "125"
+            ],
+            [
+              "Consumer operating income",
+              "996",
+              "932",
+              "904"
+            ],
+            [
+              "Total reportable business segment operating income",
+              "5,268",
+              "5,001",
+              "4,540"
+            ],
+            [
+              "Corporate and Other"
+            ],
+            [
+              "Corporate-level (expense) income",
+              "75",
+              "(114)",
+              "(485)"
+            ],
+            [
+              "Corporate special items:"
+            ],
+            [
+              "Net costs for significant litigation",
+              "(483)",
+              "(45)",
+              "(14,785)"
+            ],
+            [
+              "Divestiture costs",
+              "—",
+              "(20)",
+              "(13)"
+            ],
+            [
+              "Gain (loss) on business divestitures",
+              "(162)",
+              "—",
+              "36"
+            ],
+            [
+              "Russia exit (charges) benefits",
+              "—",
+              "—",
+              "18"
+            ],
+            [
+              "Transformation costs",
+              "(69)",
+              "—",
+              "—"
+            ],
+            [
+              "Total Corporate and Other",
+              "(639)",
+              "(179)",
+              "(15,229)"
+            ],
+            [
+              "Total Company operating income",
+              "4,629",
+              "4,822",
+              "(10,689)"
+            ],
+            [
+              "Other expense/(income), net",
+              "416",
+              "3",
+              "582"
+            ],
+            [
+              "Income from continuing operations before income taxes",
+              "$4,213",
+              "$4,819",
+              "$(11,271)"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Significant segment expenses and operating performance (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+          "source_evidence_id": "evidence_4863",
+          "text": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+          "score": 0.021286031042128603,
+          "rerank_score": 0.4581875801086426
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 97,
+          "type": "table",
+          "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+          "bbox": [
+            23.54999901875,
+            293.9541931573165,
+            587.5317937013257,
+            367.11969379426023
+          ],
+          "table_id": "table_97_1",
+          "headers": [
+            "Cost of sales",
+            "$32",
+            "$39",
+            "$38"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses",
+              "158",
+              "185",
+              "165"
+            ],
+            [
+              "Research, development and related expenses",
+              "35",
+              "44",
+              "38"
+            ],
+            [
+              "Stock-based compensation expenses",
+              "225",
+              "268",
+              "241"
+            ],
+            [
+              "Income tax benefits",
+              "(41)",
+              "(31)",
+              "(41)"
+            ],
+            [
+              "Stock-based compensation expenses (benefits), net of tax",
+              "$184",
+              "$237",
+              "$200"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2021,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2016,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2021,
+              2016,
+              2025,
+              2024,
+              2024,
+              2024,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "quarter"
+            ],
+            "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "source_evidence_id": "evidence_4852",
+          "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+          "score": 0.02139524297257312,
+          "rerank_score": -0.6049181818962097
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+          "bbox": [
+            23.54999901875,
+            341.28202192975476,
+            547.0531447105179,
+            349.2800215365048
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+          "source_evidence_id": "evidence_841",
+          "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+          "score": 0.016129032258064516,
+          "rerank_score": -0.6570324897766113
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+          "bbox": [
+            23.54999901875,
+            257.88202540475436,
+            578.93135159419,
+            265.88002501150436
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+          "source_evidence_id": "evidence_834",
+          "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+          "score": 0.01639344262295082,
+          "rerank_score": -0.7279971837997437
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "table",
+          "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+          "bbox": [
+            23.54999901875,
+            403.5617478908111,
+            588.1499754937499,
+            463.59228837596305
+          ],
+          "table_id": "table_22_3",
+          "headers": [
+            "Cost of sales",
+            "60.1",
+            "%",
+            "58.8",
+            "%",
+            "1.3",
+            "%"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses (SG&A)",
+              "16.0",
+              "17.2",
+              "(1.2",
+              ")"
+            ],
+            [
+              "Research, development and related expenses (R&D)",
+              "4.7",
+              "4.4",
+              "0.3"
+            ],
+            [
+              "Loss on business divestitures",
+              "0.6",
+              "—",
+              "0.6"
+            ],
+            [
+              "Operating income margin",
+              "18.6",
+              "%",
+              "19.6",
+              "%",
+              "(1.0",
+              ")%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "source_evidence_id": "evidence_4766",
+          "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+          "score": 0.02546333601933924,
+          "rerank_score": -0.8358671069145203
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 47,
+          "type": "text",
+          "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+          "bbox": [
+            23.54999901875,
+            471.48201650475784,
+            554.3642658395371,
+            479.4800161115079
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "source_evidence_id": "evidence_1447",
+          "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+          "score": 0.03055037313432836,
+          "rerank_score": -0.951053261756897
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+          "bbox": [
+            23.54999901875,
+            489.48201575475576,
+            579.4426212558268,
+            497.4800153615058
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "source_evidence_id": "evidence_1052",
+          "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+          "score": 0.029206349206349208,
+          "rerank_score": -1.7810189723968506
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_746",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "text",
+          "content": "2025",
+          "bbox": [
+            392.428111648828,
+            123.53750468828889,
+            405.2167360559686,
+            129.93350430178884
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_746",
+          "source_evidence_id": "evidence_746",
+          "text": "2025",
+          "score": 0.014705882352941176,
+          "rerank_score": -2.928534507751465
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain research and development expense specifically for the 'Industrial Adhesives and Tapes' segment. The only segment-level R&D data is for the broader 'Safety and Industrial' segment ($518 million in 2025), 'Transportation and Electronics' ($486 million), and 'Consumer' ($128 million). The table on page 51 containing 'Industrial Adhesives and Tapes' represents segment sales/revenue, not R&D expense. Thus, there is no sufficient source to verify the claim of $120 million.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "bbox": [
+              23.54999901875,
+              341.28202192975476,
+              547.0531447105179,
+              349.2800215365048
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.6570324897766113,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "bbox": [
+              23.54999901875,
+              257.88202540475436,
+              578.93135159419,
+              265.88002501150436
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.7279971837997437,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "bbox": [
+              23.54999901875,
+              471.48201650475784,
+              554.3642658395371,
+              479.4800161115079
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "score": 0.03055037313432836,
+            "rerank_score": -0.951053261756897,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "bbox": [
+              23.54999901875,
+              489.48201575475576,
+              579.4426212558268,
+              497.4800153615058
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "score": 0.029206349206349208,
+            "rerank_score": -1.7810189723968506,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "2025",
+            "bbox": [
+              392.428111648828,
+              123.53750468828889,
+              405.2167360559686,
+              129.93350430178884
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "text": "2025",
+            "score": 0.014705882352941176,
+            "rerank_score": -2.928534507751465,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.025396825396825397,
+            "rerank_score": 1.4626281261444092,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "bbox": [
+              23.54999901875,
+              461.9553861572644,
+              587.4954300664773,
+              510.9790696183001
+            ],
+            "table_id": "table_53_4",
+            "headers": [
+              "Cost of sales",
+              "$1",
+              "$30",
+              "$89"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "20",
+                "142",
+                "295"
+              ],
+              [
+                "Research, development and related expenses",
+                "—",
+                "15",
+                "31"
+              ],
+              [
+                "Total operating income impact",
+                "$21",
+                "$187",
+                "$415"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2023,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2023,
+                2025,
+                2023,
+                2023,
+                2025,
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "score": 0.02946912242686891,
+            "rerank_score": 0.6628192663192749,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "bbox": [
+              23.54999901875,
+              176.18105072365142,
+              587.3889999157012,
+              507.37786976835764
+            ],
+            "table_id": "table_101_2",
+            "headers": [
+              "Safety and Industrial"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "$6,172",
+                "$5,965",
+                "$6,137"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "1,858",
+                "2,020",
+                "2,023"
+              ],
+              [
+                "Research, development and related expenses",
+                "518",
+                "485",
+                "472"
+              ],
+              [
+                "Safety and Industrial operating income",
+                "2,836",
+                "2,491",
+                "2,324"
+              ],
+              [
+                "Transportation and Electronics"
+              ],
+              [
+                "Cost of sales",
+                "5,270",
+                "5,106",
+                "5,524"
+              ],
+              [
+                "Selling, general, administrative expenses",
+                "1,080",
+                "1,236",
+                "1,207"
+              ],
+              [
+                "Research, development and related expenses",
+                "486",
+                "460",
+                "458"
+              ],
+              [
+                "Transportation and Electronics operating income",
+                "1,436",
+                "1,578",
+                "1,312"
+              ],
+              [
+                "Consumer"
+              ],
+              [
+                "Cost of sales",
+                "2,941",
+                "2,912",
+                "3,064"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "855",
+                "955",
+                "933"
+              ],
+              [
+                "Research, development and related expenses",
+                "128",
+                "132",
+                "125"
+              ],
+              [
+                "Consumer operating income",
+                "996",
+                "932",
+                "904"
+              ],
+              [
+                "Total reportable business segment operating income",
+                "5,268",
+                "5,001",
+                "4,540"
+              ],
+              [
+                "Corporate and Other"
+              ],
+              [
+                "Corporate-level (expense) income",
+                "75",
+                "(114)",
+                "(485)"
+              ],
+              [
+                "Corporate special items:"
+              ],
+              [
+                "Net costs for significant litigation",
+                "(483)",
+                "(45)",
+                "(14,785)"
+              ],
+              [
+                "Divestiture costs",
+                "—",
+                "(20)",
+                "(13)"
+              ],
+              [
+                "Gain (loss) on business divestitures",
+                "(162)",
+                "—",
+                "36"
+              ],
+              [
+                "Russia exit (charges) benefits",
+                "—",
+                "—",
+                "18"
+              ],
+              [
+                "Transformation costs",
+                "(69)",
+                "—",
+                "—"
+              ],
+              [
+                "Total Corporate and Other",
+                "(639)",
+                "(179)",
+                "(15,229)"
+              ],
+              [
+                "Total Company operating income",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense/(income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income from continuing operations before income taxes",
+                "$4,213",
+                "$4,819",
+                "$(11,271)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Significant segment expenses and operating performance (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "text": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "score": 0.021286031042128603,
+            "rerank_score": 0.4581875801086426,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "bbox": [
+              23.54999901875,
+              293.9541931573165,
+              587.5317937013257,
+              367.11969379426023
+            ],
+            "table_id": "table_97_1",
+            "headers": [
+              "Cost of sales",
+              "$32",
+              "$39",
+              "$38"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "158",
+                "185",
+                "165"
+              ],
+              [
+                "Research, development and related expenses",
+                "35",
+                "44",
+                "38"
+              ],
+              [
+                "Stock-based compensation expenses",
+                "225",
+                "268",
+                "241"
+              ],
+              [
+                "Income tax benefits",
+                "(41)",
+                "(31)",
+                "(41)"
+              ],
+              [
+                "Stock-based compensation expenses (benefits), net of tax",
+                "$184",
+                "$237",
+                "$200"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2021,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2016,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2021,
+                2016,
+                2025,
+                2024,
+                2024,
+                2024,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "score": 0.02139524297257312,
+            "rerank_score": -0.6049181818962097,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "bbox": [
+              23.54999901875,
+              403.5617478908111,
+              588.1499754937499,
+              463.59228837596305
+            ],
+            "table_id": "table_22_3",
+            "headers": [
+              "Cost of sales",
+              "60.1",
+              "%",
+              "58.8",
+              "%",
+              "1.3",
+              "%"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses (SG&A)",
+                "16.0",
+                "17.2",
+                "(1.2",
+                ")"
+              ],
+              [
+                "Research, development and related expenses (R&D)",
+                "4.7",
+                "4.4",
+                "0.3"
+              ],
+              [
+                "Loss on business divestitures",
+                "0.6",
+                "—",
+                "0.6"
+              ],
+              [
+                "Operating income margin",
+                "18.6",
+                "%",
+                "19.6",
+                "%",
+                "(1.0",
+                ")%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "score": 0.02546333601933924,
+            "rerank_score": -0.8358671069145203,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.025396825396825397,
+            "rerank_score": 1.4626281261444092,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "bbox": [
+              23.54999901875,
+              461.9553861572644,
+              587.4954300664773,
+              510.9790696183001
+            ],
+            "table_id": "table_53_4",
+            "headers": [
+              "Cost of sales",
+              "$1",
+              "$30",
+              "$89"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "20",
+                "142",
+                "295"
+              ],
+              [
+                "Research, development and related expenses",
+                "—",
+                "15",
+                "31"
+              ],
+              [
+                "Total operating income impact",
+                "$21",
+                "$187",
+                "$415"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2023,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2023,
+                2025,
+                2023,
+                2023,
+                2025,
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "score": 0.02946912242686891,
+            "rerank_score": 0.6628192663192749,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "bbox": [
+              23.54999901875,
+              176.18105072365142,
+              587.3889999157012,
+              507.37786976835764
+            ],
+            "table_id": "table_101_2",
+            "headers": [
+              "Safety and Industrial"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "$6,172",
+                "$5,965",
+                "$6,137"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "1,858",
+                "2,020",
+                "2,023"
+              ],
+              [
+                "Research, development and related expenses",
+                "518",
+                "485",
+                "472"
+              ],
+              [
+                "Safety and Industrial operating income",
+                "2,836",
+                "2,491",
+                "2,324"
+              ],
+              [
+                "Transportation and Electronics"
+              ],
+              [
+                "Cost of sales",
+                "5,270",
+                "5,106",
+                "5,524"
+              ],
+              [
+                "Selling, general, administrative expenses",
+                "1,080",
+                "1,236",
+                "1,207"
+              ],
+              [
+                "Research, development and related expenses",
+                "486",
+                "460",
+                "458"
+              ],
+              [
+                "Transportation and Electronics operating income",
+                "1,436",
+                "1,578",
+                "1,312"
+              ],
+              [
+                "Consumer"
+              ],
+              [
+                "Cost of sales",
+                "2,941",
+                "2,912",
+                "3,064"
+              ],
+              [
+                "Selling, general and administrative expenses",
+                "855",
+                "955",
+                "933"
+              ],
+              [
+                "Research, development and related expenses",
+                "128",
+                "132",
+                "125"
+              ],
+              [
+                "Consumer operating income",
+                "996",
+                "932",
+                "904"
+              ],
+              [
+                "Total reportable business segment operating income",
+                "5,268",
+                "5,001",
+                "4,540"
+              ],
+              [
+                "Corporate and Other"
+              ],
+              [
+                "Corporate-level (expense) income",
+                "75",
+                "(114)",
+                "(485)"
+              ],
+              [
+                "Corporate special items:"
+              ],
+              [
+                "Net costs for significant litigation",
+                "(483)",
+                "(45)",
+                "(14,785)"
+              ],
+              [
+                "Divestiture costs",
+                "—",
+                "(20)",
+                "(13)"
+              ],
+              [
+                "Gain (loss) on business divestitures",
+                "(162)",
+                "—",
+                "36"
+              ],
+              [
+                "Russia exit (charges) benefits",
+                "—",
+                "—",
+                "18"
+              ],
+              [
+                "Transformation costs",
+                "(69)",
+                "—",
+                "—"
+              ],
+              [
+                "Total Corporate and Other",
+                "(639)",
+                "(179)",
+                "(15,229)"
+              ],
+              [
+                "Total Company operating income",
+                "4,629",
+                "4,822",
+                "(10,689)"
+              ],
+              [
+                "Other expense/(income), net",
+                "416",
+                "3",
+                "582"
+              ],
+              [
+                "Income from continuing operations before income taxes",
+                "$4,213",
+                "$4,819",
+                "$(11,271)"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Significant segment expenses and operating performance (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4863",
+            "text": "Cost of sales: 2025 $6,172, 2024 $5,965, 2023 $6,137 | Selling, general and administrative expenses: 2025 1,858, 2024 2,020, 2023 2,023 | Research, development and related expenses: 2025 518, 2024 485, 2023 472 | Safety and Industrial operating income: 2025 2,836, 2024 2,491, 2023 2,324 | Transportation and Electronics:  | Cost of sales: 2025 5,270, 2024 5,106, 2023 5,524 | Selling, general, administrative expenses: 2025 1,080, 2024 1,236, 2023 1,207 | Research, development and related expenses: 2025 486, 2024 460, 2023 458 | Transportation and Electronics operating income: 2025 1,436, 2024 1,578, 2023 1,312 | Consumer:  | Cost of sales: 2025 2,941, 2024 2,912, 2023 3,064 | Selling, general and administrative expenses: 2025 855, 2024 955, 2023 933 | Research, development and related expenses: 2025 128, 2024 132, 2023 125 | Consumer operating income: 2025 996, 2024 932, 2023 904 | Total reportable business segment operating income: 2025 5,268, 2024 5,001, 2023 4,540 | Corporate and Other:  | Corporate-level (expense) income: 2025 75, 2024 (114), 2023 (485) | Corporate special items::  | Net costs for significant litigation: 2025 (483), 2024 (45), 2023 (14,785) | Divestiture costs: 2025 —, 2024 (20), 2023 (13) | Gain (loss) on business divestitures: 2025 (162), 2024 —, 2023 36 | Russia exit (charges) benefits: 2025 —, 2024 —, 2023 18 | Transformation costs: 2025 (69), 2024 —, 2023 — | Total Corporate and Other: 2025 (639), 2024 (179), 2023 (15,229) | Total Company operating income: 2025 4,629, 2024 4,822, 2023 (10,689) | Other expense/(income), net: 2025 416, 2024 3, 2023 582 | Income from continuing operations before income taxes: 2025 $4,213, 2024 $4,819, 2023 $(11,271)",
+            "score": 0.021286031042128603,
+            "rerank_score": 0.4581875801086426,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "bbox": [
+              23.54999901875,
+              293.9541931573165,
+              587.5317937013257,
+              367.11969379426023
+            ],
+            "table_id": "table_97_1",
+            "headers": [
+              "Cost of sales",
+              "$32",
+              "$39",
+              "$38"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "158",
+                "185",
+                "165"
+              ],
+              [
+                "Research, development and related expenses",
+                "35",
+                "44",
+                "38"
+              ],
+              [
+                "Stock-based compensation expenses",
+                "225",
+                "268",
+                "241"
+              ],
+              [
+                "Income tax benefits",
+                "(41)",
+                "(31)",
+                "(41)"
+              ],
+              [
+                "Stock-based compensation expenses (benefits), net of tax",
+                "$184",
+                "$237",
+                "$200"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2021,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2016,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2021,
+                2016,
+                2025,
+                2024,
+                2024,
+                2024,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "score": 0.02139524297257312,
+            "rerank_score": -0.6049181818962097,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "bbox": [
+              23.54999901875,
+              403.5617478908111,
+              588.1499754937499,
+              463.59228837596305
+            ],
+            "table_id": "table_22_3",
+            "headers": [
+              "Cost of sales",
+              "60.1",
+              "%",
+              "58.8",
+              "%",
+              "1.3",
+              "%"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses (SG&A)",
+                "16.0",
+                "17.2",
+                "(1.2",
+                ")"
+              ],
+              [
+                "Research, development and related expenses (R&D)",
+                "4.7",
+                "4.4",
+                "0.3"
+              ],
+              [
+                "Loss on business divestitures",
+                "0.6",
+                "—",
+                "0.6"
+              ],
+              [
+                "Operating income margin",
+                "18.6",
+                "%",
+                "19.6",
+                "%",
+                "(1.0",
+                ")%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "score": 0.02546333601933924,
+            "rerank_score": -0.8358671069145203,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "bbox": [
+              23.54999901875,
+              341.28202192975476,
+              547.0531447105179,
+              349.2800215365048
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "score": 0.016129032258064516,
+            "rerank_score": -0.6570324897766113,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "bbox": [
+              23.54999901875,
+              257.88202540475436,
+              578.93135159419,
+              265.88002501150436
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "score": 0.01639344262295082,
+            "rerank_score": -0.7279971837997437,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "bbox": [
+              23.54999901875,
+              471.48201650475784,
+              554.3642658395371,
+              479.4800161115079
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "score": 0.03055037313432836,
+            "rerank_score": -0.951053261756897,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "bbox": [
+              23.54999901875,
+              489.48201575475576,
+              579.4426212558268,
+              497.4800153615058
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "score": 0.029206349206349208,
+            "rerank_score": -1.7810189723968506,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "text",
+            "content": "2025",
+            "bbox": [
+              392.428111648828,
+              123.53750468828889,
+              405.2167360559686,
+              129.93350430178884
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_746",
+            "text": "2025",
+            "score": 0.014705882352941176,
+            "rerank_score": -2.928534507751465,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "0000066740-26-000014-56e1ef4130::evidence_4863",
+          "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "0000066740-26-000014-56e1ef4130::evidence_841",
+          "0000066740-26-000014-56e1ef4130::evidence_834",
+          "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "0000066740-26-000014-56e1ef4130::evidence_746"
+        ],
+        "pages": [
+          22,
+          25,
+          32,
+          47,
+          51,
+          53,
+          97,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain research and development expense specifically for the 'Industrial Adhesives and Tapes' segment. The only segment-level R&D data is for the broader 'Safety and Industrial' segment ($518 million in 2025), 'Transportation and Electronics' ($486 million), and 'Consumer' ($128 million). The table on page 51 containing 'Industrial Adhesives and Tapes' represents segment sales/revenue, not R&D expense. Thus, there is no sufficient source to verify the claim of $120 million.",
+      "original_claim": "In 2025, research and development expense for Industrial Adhesives and Tapes was $120 million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 28.55299240000022,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:49:40.967899+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864179-EpDjoEYap6sTX2fj8jBw",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 321,
+            "completion_tokens": 955,
+            "total_tokens": 1276,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 771,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 11.845
+        },
+        {
+          "time": "2026-10-24T17:49:54.474098+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864192-s0mpWbGGlawzStc9BmuQ",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5661,
+            "completion_tokens": 1442,
+            "total_tokens": 7103,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1071,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.044
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "4bc5eef396e5faf5c6ffd84824f254a2994fe0ebd3d520cad4006d1a672032be"
+}

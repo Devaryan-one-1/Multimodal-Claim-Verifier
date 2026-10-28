@@ -1,0 +1,899 @@
+{
+  "schema_version": 1,
+  "cache_key": "d3a9e2b20154f5bee512cf90922a773876746530f477f4665abff5f894a1a3a6",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:52:09.875853+00:00",
+  "results": [
+    {
+      "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units.",
+      "parsed_claim": {
+        "claim_text": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units.",
+        "company": "3M",
+        "subject": "3M",
+        "metric": "nonvested restricted stock units",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "point_in_time",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "5,127,000 nonvested restricted stock units",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "bbox": [
+            23.54999901875,
+            431.28081817981837,
+            580.3702775679044,
+            439.2788177865684
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "source_evidence_id": "evidence_3124",
+          "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "score": 0.03128054740957967,
+          "rerank_score": 5.0040283203125
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 97,
+          "type": "text",
+          "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+          "bbox": [
+            23.54999901875,
+            98.88083202981329,
+            576.4751412594717,
+            106.87883163656329
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "source_evidence_id": "evidence_3081",
+          "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+          "score": 0.032018442622950824,
+          "rerank_score": 3.8286638259887695
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "bbox": [
+            23.54999901875,
+            479.8820161547566,
+            578.3847333586843,
+            487.8800157615067
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "source_evidence_id": "evidence_1051",
+          "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+          "score": 0.028371628371628373,
+          "rerank_score": 3.807973861694336
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 103,
+          "type": "text",
+          "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "bbox": [
+            23.54999901875,
+            365.88082090481583,
+            323.57319606278276,
+            373.8788205115659
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "source_evidence_id": "evidence_3232",
+          "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.478182554244995
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "table",
+          "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+          "bbox": [
+            23.54999901875,
+            297.51400499489426,
+            587.5060730815549,
+            370.1055413356965
+          ],
+          "table_id": "table_98_3",
+          "headers": [
+            "Nonvested balance —"
+          ],
+          "rows": [
+            [
+              "As of January 1, 2025",
+              "6,150",
+              "$ 104.83"
+            ],
+            [
+              "Vested",
+              "(1,193)",
+              "127.28"
+            ],
+            [
+              "Granted",
+              "517",
+              "149.12"
+            ],
+            [
+              "Forfeited",
+              "(347)",
+              "103.22"
+            ],
+            [
+              "As of December 31, 2025",
+              "5,127",
+              "104.18"
+            ]
+          ],
+          "column_map": [],
+          "column_headers": {
+            "years": [],
+            "period_types": [],
+            "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "source_evidence_id": "evidence_4856",
+          "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+          "score": 0.027623285131627734,
+          "rerank_score": 3.163285970687866
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 72,
+          "type": "text",
+          "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "bbox": [
+            30.74999871875,
+            295.70380952701134,
+            548.8734131302734,
+            302.9038092270114
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "source_evidence_id": "evidence_2102",
+          "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "score": 0.028790389395194696,
+          "rerank_score": 2.9953842163085938
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "bbox": [
+            23.54999901875,
+            499.6808153298127,
+            585.2894330022095,
+            507.67881493656273
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "source_evidence_id": "evidence_2012",
+          "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "score": 0.023376623376623377,
+          "rerank_score": 2.9672374725341797
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 67,
+          "type": "text",
+          "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "bbox": [
+            23.54999901875,
+            347.878421654904,
+            578.2538767910874,
+            355.87642126165406
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "source_evidence_id": "evidence_1962",
+          "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+          "score": 0.014925373134328358,
+          "rerank_score": 2.3442721366882324
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "bbox": [
+            23.54999901875,
+            449.2808174298054,
+            572.0706609881212,
+            457.27881703655544
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "source_evidence_id": "evidence_1759",
+          "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "score": 0.014492753623188406,
+          "rerank_score": 2.012732982635498
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+          "bbox": [
+            23.54999901875,
+            389.28081992981714,
+            557.8737568933083,
+            397.2788195365672
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+          "source_evidence_id": "evidence_3120",
+          "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+          "score": 0.028021349599695006,
+          "rerank_score": 1.371593952178955
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unit quote is absent from the source evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.03128054740957967,
+            "rerank_score": 5.0040283203125,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "text",
+            "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "bbox": [
+              23.54999901875,
+              98.88083202981329,
+              576.4751412594717,
+              106.87883163656329
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "score": 0.032018442622950824,
+            "rerank_score": 3.8286638259887695,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.028371628371628373,
+            "rerank_score": 3.807973861694336,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.478182554244995,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.028790389395194696,
+            "rerank_score": 2.9953842163085938,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.023376623376623377,
+            "rerank_score": 2.9672374725341797,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 2.3442721366882324,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.014492753623188406,
+            "rerank_score": 2.012732982635498,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "bbox": [
+              23.54999901875,
+              389.28081992981714,
+              557.8737568933083,
+              397.2788195365672
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "score": 0.028021349599695006,
+            "rerank_score": 1.371593952178955,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "table",
+            "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "bbox": [
+              23.54999901875,
+              297.51400499489426,
+              587.5060730815549,
+              370.1055413356965
+            ],
+            "table_id": "table_98_3",
+            "headers": [
+              "Nonvested balance —"
+            ],
+            "rows": [
+              [
+                "As of January 1, 2025",
+                "6,150",
+                "$ 104.83"
+              ],
+              [
+                "Vested",
+                "(1,193)",
+                "127.28"
+              ],
+              [
+                "Granted",
+                "517",
+                "149.12"
+              ],
+              [
+                "Forfeited",
+                "(347)",
+                "103.22"
+              ],
+              [
+                "As of December 31, 2025",
+                "5,127",
+                "104.18"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "score": 0.027623285131627734,
+            "rerank_score": 3.163285970687866,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "table",
+            "content": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "bbox": [
+              23.54999901875,
+              297.51400499489426,
+              587.5060730815549,
+              370.1055413356965
+            ],
+            "table_id": "table_98_3",
+            "headers": [
+              "Nonvested balance —"
+            ],
+            "rows": [
+              [
+                "As of January 1, 2025",
+                "6,150",
+                "$ 104.83"
+              ],
+              [
+                "Vested",
+                "(1,193)",
+                "127.28"
+              ],
+              [
+                "Granted",
+                "517",
+                "149.12"
+              ],
+              [
+                "Forfeited",
+                "(347)",
+                "103.22"
+              ],
+              [
+                "As of December 31, 2025",
+                "5,127",
+                "104.18"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "Expected volatility is a statistical measure of the amount by which a stock price is expected to fluctuate during a period. Expected volatility is based upon three volatilities of 3M stock: the median of the term of the expected life rolling volatility; the median of the most recent term of the expected life volatility; and the implied volatility on the grant date. The expected term assumption is based on the weighted average of historical grants. Restricted Stock Units: The following table summarizes restricted stock unit activity: Weighted average grant date fair (Units in thousands) Number of units value"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4856",
+            "text": "As of January 1, 2025: 6,150, $ 104.83 | Vested: (1,193), 127.28 | Granted: 517, 149.12 | Forfeited: (347), 103.22 | As of December 31, 2025: 5,127, 104.18",
+            "score": 0.027623285131627734,
+            "rerank_score": 3.163285970687866,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.03128054740957967,
+            "rerank_score": 5.0040283203125,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "text",
+            "content": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "bbox": [
+              23.54999901875,
+              98.88083202981329,
+              576.4751412594717,
+              106.87883163656329
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3081",
+            "text": "restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant",
+            "score": 0.032018442622950824,
+            "rerank_score": 3.8286638259887695,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "bbox": [
+              23.54999901875,
+              479.8820161547566,
+              578.3847333586843,
+              487.8800157615067
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1051",
+            "text": "2025, 3M had 16 primary reporting units, with five reporting units accounting for approximately 85 percent of the goodwill. These five reporting units were comprised of the",
+            "score": 0.028371628371628373,
+            "rerank_score": 3.807973861694336,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.478182554244995,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.028790389395194696,
+            "rerank_score": 2.9953842163085938,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.023376623376623377,
+            "rerank_score": 2.9672374725341797,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 67,
+            "type": "text",
+            "content": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "bbox": [
+              23.54999901875,
+              347.878421654904,
+              578.2538767910874,
+              355.87642126165406
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1962",
+            "text": "programs as of December 31, 2025 and 2024 were each approximately $0.3 billion. These amounts are included within accounts payable on 3M's consolidated balance sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 2.3442721366882324,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.014492753623188406,
+            "rerank_score": 2.012732982635498,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "bbox": [
+              23.54999901875,
+              389.28081992981714,
+              557.8737568933083,
+              397.2788195365672
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3120",
+            "text": "same number of shares of 3M common stock accrue on these restricted stock units during the vesting period, although no dividend equivalents are paid on any of these",
+            "score": 0.028021349599695006,
+            "rerank_score": 1.371593952178955,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4856",
+          "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "0000066740-26-000014-56e1ef4130::evidence_3081",
+          "0000066740-26-000014-56e1ef4130::evidence_1051",
+          "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "0000066740-26-000014-56e1ef4130::evidence_1962",
+          "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "0000066740-26-000014-56e1ef4130::evidence_3120"
+        ],
+        "pages": [
+          32,
+          60,
+          67,
+          68,
+          72,
+          97,
+          98,
+          103
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Unit quote is absent from the source evidence.",
+      "original_claim": "As of December 31, 2025, 3M had 5,127,000 nonvested restricted stock units.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 30.439722400013125,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:51:39.437768+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864297-TIbqL4zoGdc2pNKno0kD",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 329,
+            "completion_tokens": 1486,
+            "total_tokens": 1815,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1169,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.593
+        },
+        {
+          "time": "2026-10-24T17:51:55.433135+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864313-pOcFROt0BwxmTLVVOlvI",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3941,
+            "completion_tokens": 1375,
+            "total_tokens": 5316,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 791,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 14.441
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "dc28d17ece217f09488ce46a294019e1664dfe0c9a9d681cdb7375d8be92f209"
+}

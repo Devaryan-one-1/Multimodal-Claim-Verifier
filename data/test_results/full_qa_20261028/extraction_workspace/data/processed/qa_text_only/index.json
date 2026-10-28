@@ -1,0 +1,8 @@
+{
+  "document_id": "qa_text_only",
+  "collection": "evidence_v2_4251d7d3a135",
+  "embedding_model": "gemini-embedding-001",
+  "dimensions": 768,
+  "chunk_count": 1,
+  "chunks_hash": "3fb46541d8355cd250d9fcba482ba983ef95bd640c30b2e3ec46022911d8f7c1"
+}

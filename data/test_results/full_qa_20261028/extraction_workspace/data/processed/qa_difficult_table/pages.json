@@ -1,0 +1,64 @@
+{
+  "document_id": "qa_difficult_table",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "QA difficult table: USD millions, years ended 2024 and 2025\nMetric 2024 2025\nRevenue 100 110\nOperating\nprofit 10\n12",
+      "width": 595.0,
+      "height": 842.0,
+      "rotation": 0,
+      "regions": [
+        {
+          "type": "paragraph",
+          "bbox": [
+            40.0,
+            51.277000000000044,
+            332.2480000000001,
+            62.277000000000044
+          ],
+          "text": "QA difficult table: USD millions, years ended 2024 and 2025"
+        },
+        {
+          "type": "paragraph",
+          "bbox": [
+            45.0,
+            96.27700000000004,
+            454.464,
+            107.27700000000004
+          ],
+          "text": "Metric 2024 2025"
+        },
+        {
+          "type": "paragraph",
+          "bbox": [
+            45.0,
+            126.27700000000004,
+            448.348,
+            137.27700000000004
+          ],
+          "text": "Revenue 100 110"
+        },
+        {
+          "type": "paragraph",
+          "bbox": [
+            45.0,
+            156.27700000000004,
+            442.23199999999997,
+            167.27700000000004
+          ],
+          "text": "Operating 12"
+        },
+        {
+          "type": "paragraph",
+          "bbox": [
+            55.0,
+            171.27700000000004,
+            262.23199999999997,
+            182.27700000000004
+          ],
+          "text": "profit 10"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1473 @@
+{
+  "schema_version": 1,
+  "cache_key": "9a120d730f9ccecbc9dde4f65a682695d091782720d876823c27a3cda0eb3d53",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "Total income (loss) from continuing operations before income taxes was $(5,000) million in 2022.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:40:39.907984+00:00",
+  "results": [
+    {
+      "claim_text": "Total income (loss) from continuing operations before income taxes was $(5,000) million in 2022.",
+      "parsed_claim": {
+        "claim_text": "Total income (loss) from continuing operations before income taxes was $(5,000) million in 2022.",
+        "company": null,
+        "subject": null,
+        "metric": "Total income (loss) from continuing operations before income taxes",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$(5,000) million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 56,
+          "type": "text",
+          "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "bbox": [
+            23.54999901875,
+            80.2808328048061,
+            310.25485187198393,
+            88.2788324115561
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "source_evidence_id": "evidence_1652",
+          "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+          "score": 0.03278688524590164,
+          "rerank_score": 5.877633094787598
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "text",
+          "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            289.7374977632878,
+            553.1636018915156,
+            296.13349737678783
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "source_evidence_id": "evidence_1530",
+          "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+          "score": 0.024806892453951276,
+          "rerank_score": 4.369621276855469
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Income from continuing operations before taxes",
+          "bbox": [
+            27.946873835546874,
+            351.4820215047559,
+            192.63647010981043,
+            359.48002111150595
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+          "source_evidence_id": "evidence_933",
+          "text": "• Income from continuing operations before taxes",
+          "score": 0.03225806451612903,
+          "rerank_score": 4.165412902832031
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "table",
+          "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "bbox": [
+            23.54999901875,
+            298.55767986779364,
+            588.1499754937499,
+            383.786826114149
+          ],
+          "table_id": "table_50_1",
+          "headers": [
+            "Net sales",
+            "$1,987",
+            "$8,071"
+          ],
+          "rows": [
+            [
+              "Cost of sales",
+              "844",
+              "3,494"
+            ],
+            [
+              "Other operating expenses",
+              "837",
+              "3,016"
+            ],
+            [
+              "Other expense (income), net",
+              "44",
+              "(22)"
+            ],
+            [
+              "Income from discontinued operations before income taxes",
+              "262",
+              "1,583"
+            ],
+            [
+              "Provision for income taxes",
+              "98",
+              "176"
+            ],
+            [
+              "Net income from discontinued operations, net of taxes",
+              "$164",
+              "$1,407"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "source_evidence_id": "evidence_4794",
+          "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+          "score": 0.027884615384615386,
+          "rerank_score": 2.8220901489257812
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 28,
+          "type": "text",
+          "content": "• Net income from continuing operations",
+          "bbox": [
+            27.946873835546874,
+            371.88202065475815,
+            164.88949238593457,
+            379.8800202615082
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+          "source_evidence_id": "evidence_937",
+          "text": "• Net income from continuing operations",
+          "score": 0.030158730158730156,
+          "rerank_score": 2.2961835861206055
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 55,
+          "type": "table",
+          "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+          "bbox": [
+            23.54999901875,
+            103.15730634007907,
+            587.397736719123,
+            364.57695382337835
+          ],
+          "table_id": "table_55_1",
+          "headers": [
+            "Balance at December 31, 2022, net of tax:",
+            "$(2,828)",
+            "$(3,838)",
+            "$(7)",
+            "$(6,673)"
+          ],
+          "rows": [
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "277",
+              "(763)",
+              "81",
+              "(405)"
+            ],
+            [
+              "Amounts reclassified out",
+              "54",
+              "252",
+              "(143)",
+              "163"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "331",
+              "(511)",
+              "(62)",
+              "(242)"
+            ],
+            [
+              "Tax effect(b)",
+              "(9)",
+              "131",
+              "15",
+              "137"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "322",
+              "(380)",
+              "(47)",
+              "(105)"
+            ],
+            [
+              "Balance at December 31, 2023, net of tax:",
+              "$(2,506)",
+              "$(4,218)",
+              "$(54)",
+              "$(6,778)"
+            ],
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "(563)",
+              "123",
+              "128",
+              "(312)"
+            ],
+            [
+              "Amounts reclassified out",
+              "38",
+              "1,127",
+              "(78)",
+              "1,087"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "(525)",
+              "1,250",
+              "50",
+              "775"
+            ],
+            [
+              "Tax effect(b)",
+              "14",
+              "(315)",
+              "(11)",
+              "(312)"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "(511)",
+              "935",
+              "39",
+              "463"
+            ],
+            [
+              "Solventum spin-off",
+              "64",
+              "520",
+              "—",
+              "584"
+            ],
+            [
+              "Balance at December 31, 2024, net of tax:",
+              "$(2,953)",
+              "$(2,763)",
+              "$(15)",
+              "$(5,731)"
+            ],
+            [
+              "Other comprehensive income (loss), before tax:"
+            ],
+            [
+              "Amounts before reclassifications",
+              "347",
+              "88",
+              "(77)",
+              "358"
+            ],
+            [
+              "Amounts reclassified out",
+              "—",
+              "304",
+              "(28)",
+              "276"
+            ],
+            [
+              "Total other comprehensive income (loss), before tax",
+              "347",
+              "392",
+              "(105)",
+              "634"
+            ],
+            [
+              "Tax effect(b)",
+              "86",
+              "(91)",
+              "22",
+              "17"
+            ],
+            [
+              "Total other comprehensive income (loss), net of tax",
+              "433",
+              "301",
+              "(83)",
+              "651"
+            ],
+            [
+              "Solventum spin-off",
+              "—",
+              "11",
+              "—",
+              "11"
+            ],
+            [
+              "Balance at December 31, 2025, net of tax:",
+              "$(2,520)",
+              "$(2,451)",
+              "$(98)",
+              "$(5,069)"
+            ]
+          ],
+          "column_map": [],
+          "column_headers": {
+            "years": [],
+            "period_types": [],
+            "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "source_evidence_id": "evidence_4809",
+          "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+          "score": 0.026120660599932594,
+          "rerank_score": 1.706169605255127
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_977",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 29,
+          "type": "text",
+          "content": "Amounts from continuing operations",
+          "bbox": [
+            342.50908302878764,
+            334.1628816103885,
+            430.8762482591528,
+            339.7608813171385
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_977",
+          "source_evidence_id": "evidence_977",
+          "text": "Amounts from continuing operations",
+          "score": 0.028373015873015873,
+          "rerank_score": 1.6686142683029175
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 30,
+          "type": "text",
+          "content": "Amounts from continuing operations",
+          "bbox": [
+            342.65908302253763,
+            76.76289233538864,
+            431.0262482529028,
+            82.36089204213863
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+          "source_evidence_id": "evidence_984",
+          "text": "Amounts from continuing operations",
+          "score": 0.02797067901234568,
+          "rerank_score": 1.6686142683029175
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 30,
+          "type": "text",
+          "content": "Amounts from continuing operations",
+          "bbox": [
+            338.4028331998814,
+            313.76288246038627,
+            426.7699984302466,
+            319.36088216713625
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+          "source_evidence_id": "evidence_989",
+          "text": "Amounts from continuing operations",
+          "score": 0.027579737335834898,
+          "rerank_score": 1.6686142683029175
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "text",
+          "content": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+          "bbox": [
+            23.54999901875,
+            278.2820245547566,
+            344.00730416563175,
+            286.2800241615066
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+          "source_evidence_id": "evidence_1529",
+          "text": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+          "score": 0.024954072259644827,
+          "rerank_score": 0.9429075717926025
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain the value for 'Total income (loss) from continuing operations before income taxes' in 2022. Evidence 1652 mentions the section header but contains no numerical data, and other evidence contains information on discontinued operations or other comprehensive income. Therefore, no sufficient source addresses exist to verify the claim.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.03278688524590164,
+            "rerank_score": 5.877633094787598,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.024806892453951276,
+            "rerank_score": 4.369621276855469,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.03225806451612903,
+            "rerank_score": 4.165412902832031,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.030158730158730156,
+            "rerank_score": 2.2961835861206055,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.50908302878764,
+              334.1628816103885,
+              430.8762482591528,
+              339.7608813171385
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "text": "Amounts from continuing operations",
+            "score": 0.028373015873015873,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.65908302253763,
+              76.76289233538864,
+              431.0262482529028,
+              82.36089204213863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "text": "Amounts from continuing operations",
+            "score": 0.02797067901234568,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              338.4028331998814,
+              313.76288246038627,
+              426.7699984302466,
+              319.36088216713625
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "text": "Amounts from continuing operations",
+            "score": 0.027579737335834898,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+            "bbox": [
+              23.54999901875,
+              278.2820245547566,
+              344.00730416563175,
+              286.2800241615066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "text": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+            "score": 0.024954072259644827,
+            "rerank_score": 0.9429075717926025,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.027884615384615386,
+            "rerank_score": 2.8220901489257812,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "table",
+            "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "bbox": [
+              23.54999901875,
+              103.15730634007907,
+              587.397736719123,
+              364.57695382337835
+            ],
+            "table_id": "table_55_1",
+            "headers": [
+              "Balance at December 31, 2022, net of tax:",
+              "$(2,828)",
+              "$(3,838)",
+              "$(7)",
+              "$(6,673)"
+            ],
+            "rows": [
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "277",
+                "(763)",
+                "81",
+                "(405)"
+              ],
+              [
+                "Amounts reclassified out",
+                "54",
+                "252",
+                "(143)",
+                "163"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "331",
+                "(511)",
+                "(62)",
+                "(242)"
+              ],
+              [
+                "Tax effect(b)",
+                "(9)",
+                "131",
+                "15",
+                "137"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "322",
+                "(380)",
+                "(47)",
+                "(105)"
+              ],
+              [
+                "Balance at December 31, 2023, net of tax:",
+                "$(2,506)",
+                "$(4,218)",
+                "$(54)",
+                "$(6,778)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "(563)",
+                "123",
+                "128",
+                "(312)"
+              ],
+              [
+                "Amounts reclassified out",
+                "38",
+                "1,127",
+                "(78)",
+                "1,087"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "(525)",
+                "1,250",
+                "50",
+                "775"
+              ],
+              [
+                "Tax effect(b)",
+                "14",
+                "(315)",
+                "(11)",
+                "(312)"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "(511)",
+                "935",
+                "39",
+                "463"
+              ],
+              [
+                "Solventum spin-off",
+                "64",
+                "520",
+                "—",
+                "584"
+              ],
+              [
+                "Balance at December 31, 2024, net of tax:",
+                "$(2,953)",
+                "$(2,763)",
+                "$(15)",
+                "$(5,731)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "347",
+                "88",
+                "(77)",
+                "358"
+              ],
+              [
+                "Amounts reclassified out",
+                "—",
+                "304",
+                "(28)",
+                "276"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "347",
+                "392",
+                "(105)",
+                "634"
+              ],
+              [
+                "Tax effect(b)",
+                "86",
+                "(91)",
+                "22",
+                "17"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "433",
+                "301",
+                "(83)",
+                "651"
+              ],
+              [
+                "Solventum spin-off",
+                "—",
+                "11",
+                "—",
+                "11"
+              ],
+              [
+                "Balance at December 31, 2025, net of tax:",
+                "$(2,520)",
+                "$(2,451)",
+                "$(98)",
+                "$(5,069)"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "score": 0.026120660599932594,
+            "rerank_score": 1.706169605255127,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "table",
+            "content": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "bbox": [
+              23.54999901875,
+              298.55767986779364,
+              588.1499754937499,
+              383.786826114149
+            ],
+            "table_id": "table_50_1",
+            "headers": [
+              "Net sales",
+              "$1,987",
+              "$8,071"
+            ],
+            "rows": [
+              [
+                "Cost of sales",
+                "844",
+                "3,494"
+              ],
+              [
+                "Other operating expenses",
+                "837",
+                "3,016"
+              ],
+              [
+                "Other expense (income), net",
+                "44",
+                "(22)"
+              ],
+              [
+                "Income from discontinued operations before income taxes",
+                "262",
+                "1,583"
+              ],
+              [
+                "Provision for income taxes",
+                "98",
+                "176"
+              ],
+              [
+                "Net income from discontinued operations, net of taxes",
+                "$164",
+                "$1,407"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 2. Discontinued Operations On April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. The spin-off transaction was intended to be tax-free for U.S. federal income tax purposes. To reflect the completion of the spin, 3M recorded a decrease in shareholders equity for the net book value of applicable assets and liabilities included in the Separation, net of the book value of 3M's retained ownership. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. Following the Separation, as 3M no longer controls or has the ability to exert significant influence over Solventum, 3M measures, at fair value on a recurring basis, its retained ownership interest in Solventum common stock (see additional information in Note 7). The Company entered into various agreements to effect the Separation and provide for the relationship between 3M and Solventum, including, among others, a separation and distribution agreement; a tax matters agreement; and transition service, distribution, and contract manufacturing agreements; as well as certain commercial supply agreements. The transition service and distribution agreements have overall terms of two years following the Separation and each may be extended an additional year. The transition contract manufacturing agreement's term is three years with an ability to extend under certain circumstances. Supply agreements, by which each company may provide product to the other, have initial three-year terms, but may extend for particular products up to ten or twelve years following the Separation, under certain circumstances. In addition, the companies had certain amounts due between them as of the Separation date. 3M continuing involvement with Solventum in the form of net sales under supply agreements and income from transition agreements is reflected in amounts disclosed in \"Corporate and Other\" in Note 20. Supply agreements are reflected as net sales and associated costs while transition agreement income is recorded as a direct offset to associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7 billion gross fees, net of assigned costs). Solventum transition agreement income for 2024 was approximately $50 million, (approximately $0.6 billion gross fees, net of assigned costs). Transition services or purchases from Solventum are not material to 3M. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.1 billion, respectively, as of December 31, 2025. Amounts due from Solventum and amounts due to Solventum under the agreements referenced above were approximately $0.4 billion and $0.2 billion, respectively, as of due from December 31, 2024. Information regarding net income from discontinued operations, net of taxes includes the following: Net income from discontinued operations, net of taxes (millions) 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4794",
+            "text": "Cost of sales: 2024 844, 2025 3,494 | Other operating expenses: 2024 837, 2025 3,016 | Other expense (income), net: 2024 44, 2025 (22) | Income from discontinued operations before income taxes: 2024 262, 2025 1,583 | Provision for income taxes: 2024 98, 2025 176 | Net income from discontinued operations, net of taxes: 2024 $164, 2025 $1,407",
+            "score": 0.027884615384615386,
+            "rerank_score": 2.8220901489257812,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 55,
+            "type": "table",
+            "content": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "bbox": [
+              23.54999901875,
+              103.15730634007907,
+              587.397736719123,
+              364.57695382337835
+            ],
+            "table_id": "table_55_1",
+            "headers": [
+              "Balance at December 31, 2022, net of tax:",
+              "$(2,828)",
+              "$(3,838)",
+              "$(7)",
+              "$(6,673)"
+            ],
+            "rows": [
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "277",
+                "(763)",
+                "81",
+                "(405)"
+              ],
+              [
+                "Amounts reclassified out",
+                "54",
+                "252",
+                "(143)",
+                "163"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "331",
+                "(511)",
+                "(62)",
+                "(242)"
+              ],
+              [
+                "Tax effect(b)",
+                "(9)",
+                "131",
+                "15",
+                "137"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "322",
+                "(380)",
+                "(47)",
+                "(105)"
+              ],
+              [
+                "Balance at December 31, 2023, net of tax:",
+                "$(2,506)",
+                "$(4,218)",
+                "$(54)",
+                "$(6,778)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "(563)",
+                "123",
+                "128",
+                "(312)"
+              ],
+              [
+                "Amounts reclassified out",
+                "38",
+                "1,127",
+                "(78)",
+                "1,087"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "(525)",
+                "1,250",
+                "50",
+                "775"
+              ],
+              [
+                "Tax effect(b)",
+                "14",
+                "(315)",
+                "(11)",
+                "(312)"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "(511)",
+                "935",
+                "39",
+                "463"
+              ],
+              [
+                "Solventum spin-off",
+                "64",
+                "520",
+                "—",
+                "584"
+              ],
+              [
+                "Balance at December 31, 2024, net of tax:",
+                "$(2,953)",
+                "$(2,763)",
+                "$(15)",
+                "$(5,731)"
+              ],
+              [
+                "Other comprehensive income (loss), before tax:"
+              ],
+              [
+                "Amounts before reclassifications",
+                "347",
+                "88",
+                "(77)",
+                "358"
+              ],
+              [
+                "Amounts reclassified out",
+                "—",
+                "304",
+                "(28)",
+                "276"
+              ],
+              [
+                "Total other comprehensive income (loss), before tax",
+                "347",
+                "392",
+                "(105)",
+                "634"
+              ],
+              [
+                "Tax effect(b)",
+                "86",
+                "(91)",
+                "22",
+                "17"
+              ],
+              [
+                "Total other comprehensive income (loss), net of tax",
+                "433",
+                "301",
+                "(83)",
+                "651"
+              ],
+              [
+                "Solventum spin-off",
+                "—",
+                "11",
+                "—",
+                "11"
+              ],
+              [
+                "Balance at December 31, 2025, net of tax:",
+                "$(2,520)",
+                "$(2,451)",
+                "$(98)",
+                "$(5,069)"
+              ]
+            ],
+            "column_map": [],
+            "column_headers": {
+              "years": [],
+              "period_types": [],
+              "raw": "The table below presents the changes in accumulated other comprehensive income (loss) attributable to 3M (AOCI), including the reclassifications out of AOCI by component: Defined benefit pension and Cash flow hedging Cumulative translation postretirement plans instruments, unrealized gain Total accumulated other (Millions) adjustment adjustment (loss)(a) comprehensive income (loss)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4809",
+            "text": "Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 277, (763), 81, (405) | Amounts reclassified out: 54, 252, (143), 163 | Total other comprehensive income (loss), before tax: 331, (511), (62), (242) | Tax effect(b): (9), 131, 15, 137 | Total other comprehensive income (loss), net of tax: 322, (380), (47), (105) | Balance at December 31, 2023, net of tax:: $(2,506), $(4,218), $(54), $(6,778) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: (563), 123, 128, (312) | Amounts reclassified out: 38, 1,127, (78), 1,087 | Total other comprehensive income (loss), before tax: (525), 1,250, 50, 775 | Tax effect(b): 14, (315), (11), (312) | Total other comprehensive income (loss), net of tax: (511), 935, 39, 463 | Solventum spin-off: 64, 520, —, 584 | Balance at December 31, 2024, net of tax:: $(2,953), $(2,763), $(15), $(5,731) | Other comprehensive income (loss), before tax::  | Amounts before reclassifications: 347, 88, (77), 358 | Amounts reclassified out: —, 304, (28), 276 | Total other comprehensive income (loss), before tax: 347, 392, (105), 634 | Tax effect(b): 86, (91), 22, 17 | Total other comprehensive income (loss), net of tax: 433, 301, (83), 651 | Solventum spin-off: —, 11, —, 11 | Balance at December 31, 2025, net of tax:: $(2,520), $(2,451), $(98), $(5,069)",
+            "score": 0.026120660599932594,
+            "rerank_score": 1.706169605255127,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 56,
+            "type": "text",
+            "content": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "bbox": [
+              23.54999901875,
+              80.2808328048061,
+              310.25485187198393,
+              88.2788324115561
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1652",
+            "text": "Income (loss) from continuing operations before income taxes consisted of the following:",
+            "score": 0.03278688524590164,
+            "rerank_score": 5.877633094787598,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              289.7374977632878,
+              553.1636018915156,
+              296.13349737678783
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1530",
+            "text": "Net income from discontinued operations, net of taxes (millions) 2024 2023",
+            "score": 0.024806892453951276,
+            "rerank_score": 4.369621276855469,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Income from continuing operations before taxes",
+            "bbox": [
+              27.946873835546874,
+              351.4820215047559,
+              192.63647010981043,
+              359.48002111150595
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_933",
+            "text": "• Income from continuing operations before taxes",
+            "score": 0.03225806451612903,
+            "rerank_score": 4.165412902832031,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 28,
+            "type": "text",
+            "content": "• Net income from continuing operations",
+            "bbox": [
+              27.946873835546874,
+              371.88202065475815,
+              164.88949238593457,
+              379.8800202615082
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_937",
+            "text": "• Net income from continuing operations",
+            "score": 0.030158730158730156,
+            "rerank_score": 2.2961835861206055,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.50908302878764,
+              334.1628816103885,
+              430.8762482591528,
+              339.7608813171385
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_977",
+            "text": "Amounts from continuing operations",
+            "score": 0.028373015873015873,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              342.65908302253763,
+              76.76289233538864,
+              431.0262482529028,
+              82.36089204213863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_984",
+            "text": "Amounts from continuing operations",
+            "score": 0.02797067901234568,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 30,
+            "type": "text",
+            "content": "Amounts from continuing operations",
+            "bbox": [
+              338.4028331998814,
+              313.76288246038627,
+              426.7699984302466,
+              319.36088216713625
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_989",
+            "text": "Amounts from continuing operations",
+            "score": 0.027579737335834898,
+            "rerank_score": 1.6686142683029175,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+            "bbox": [
+              23.54999901875,
+              278.2820245547566,
+              344.00730416563175,
+              286.2800241615066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1529",
+            "text": "Information regarding net income from discontinued operations, net of taxes includes the following:",
+            "score": 0.024954072259644827,
+            "rerank_score": 0.9429075717926025,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4794",
+          "0000066740-26-000014-56e1ef4130::evidence_4809",
+          "0000066740-26-000014-56e1ef4130::evidence_1652",
+          "0000066740-26-000014-56e1ef4130::evidence_1530",
+          "0000066740-26-000014-56e1ef4130::evidence_933",
+          "0000066740-26-000014-56e1ef4130::evidence_937",
+          "0000066740-26-000014-56e1ef4130::evidence_977",
+          "0000066740-26-000014-56e1ef4130::evidence_984",
+          "0000066740-26-000014-56e1ef4130::evidence_989",
+          "0000066740-26-000014-56e1ef4130::evidence_1529"
+        ],
+        "pages": [
+          28,
+          29,
+          30,
+          50,
+          55,
+          56
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain the value for 'Total income (loss) from continuing operations before income taxes' in 2022. Evidence 1652 mentions the section header but contains no numerical data, and other evidence contains information on discontinued operations or other comprehensive income. Therefore, no sufficient source addresses exist to verify the claim.",
+      "original_claim": "Total income (loss) from continuing operations before income taxes was $(5,000) million in 2022.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 33.699097699995036,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:40:06.210929+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863604-jpFjyvXGexrRskD0l8Y8",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 322,
+            "completion_tokens": 1120,
+            "total_tokens": 1442,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 955,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 13.528
+        },
+        {
+          "time": "2026-10-24T17:40:21.939600+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863620-LRZMgWbGpWSNkck6s954",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3497,
+            "completion_tokens": 1603,
+            "total_tokens": 5100,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1598,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 17.964
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "890f163dc625256646d47a331a6aebfd53366ae2db18d97b626b93c640886164"
+}

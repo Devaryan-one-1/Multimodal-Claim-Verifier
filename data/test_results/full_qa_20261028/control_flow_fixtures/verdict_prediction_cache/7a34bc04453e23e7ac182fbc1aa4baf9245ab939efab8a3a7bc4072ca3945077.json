@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "cache_key": "7a34bc04453e23e7ac182fbc1aa4baf9245ab939efab8a3a7bc4072ca3945077",
+  "configuration_signature": "c5917c493137b7d672dbfe5694b5ff2acd74120e3fe728cf46962872a58df961",
+  "request": {
+    "claim_text": "For 2025, 3M's GAAP total sales change exceeded its GAAP organic sales change by 0.6 percentage points.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-28T12:41:48.074968+00:00",
+  "results": [
+    {
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "claim_text": "For 2025, 3M's GAAP total sales change exceeded its GAAP organic sales change by 0.6 percentage points.",
+      "reason": "Synthetic control-flow fixture. Not measured performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "evidence": []
+    }
+  ],
+  "results_hash": "3bb5dbb0816d9dce29273e8693dd938b53b30ac7eaa981555be06642f6c73694"
+}

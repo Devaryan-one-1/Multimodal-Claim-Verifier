@@ -1,0 +1,84 @@
+{
+  "growth": {
+    "value": 10.0,
+    "formula": "(new - old)/old*100",
+    "inputs": {
+      "old": 100.0,
+      "new": 110.0
+    },
+    "note": null
+  },
+  "absolute": {
+    "value": -15.0,
+    "formula": "new - old",
+    "inputs": {
+      "old": 407.0,
+      "new": 392.0
+    },
+    "note": null
+  },
+  "margin": {
+    "value": 20.0,
+    "formula": "profit / revenue * 100",
+    "inputs": {
+      "profit": 20.0,
+      "revenue": 100.0
+    },
+    "note": null
+  },
+  "cagr": {
+    "value": 10.000000000000009,
+    "formula": "(ending/beginning)^(1/years)-1",
+    "inputs": {
+      "beginning": 100.0,
+      "ending": 121.0,
+      "years": 2.0
+    },
+    "note": null
+  },
+  "pp": {
+    "value": 5.0,
+    "formula": "new_margin - old_margin",
+    "inputs": {
+      "old_margin": 20.0,
+      "new_margin": 25.0
+    },
+    "note": null
+  },
+  "units": {
+    "value": 100000000.0,
+    "formula": "new - old",
+    "inputs": {
+      "old": 1000000000.0,
+      "new": 1100000000.0
+    },
+    "note": null
+  },
+  "zero": {
+    "value": null,
+    "formula": "(new - old)/old*100",
+    "inputs": {
+      "old": 0.0,
+      "new": 10.0
+    },
+    "note": "Relative percentage growth is undefined for a zero baseline."
+  },
+  "negative": {
+    "value": null,
+    "formula": "(new - old)/old*100",
+    "inputs": {
+      "old": -10.0,
+      "new": 10.0
+    },
+    "note": "A negative baseline requires an explicit comparison convention."
+  },
+  "sign_change": {
+    "value": -200.0,
+    "formula": "(new - old)/old*100",
+    "inputs": {
+      "old": 10.0,
+      "new": -10.0
+    },
+    "note": null
+  }
+}

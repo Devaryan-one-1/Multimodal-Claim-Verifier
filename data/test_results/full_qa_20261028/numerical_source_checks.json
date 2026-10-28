@@ -1,0 +1,949 @@
+{
+  "fixture_only": true,
+  "tests": [
+    {
+      "name": "source_growth",
+      "pass": true,
+      "calculation": {
+        "formula": "(new - old)/old*100",
+        "value": 10.0,
+        "inputs": {
+          "old": 100000000.0,
+          "new": 110000000.0
+        },
+        "raw_inputs": {
+          "old": "100",
+          "new": "110"
+        },
+        "input_metadata": {
+          "old": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "new": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "old": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "100",
+            "normalized_value": 100000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "110",
+            "normalized_value": 110000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 10.0,
+        "actual": 10.0,
+        "difference": 0.0,
+        "tolerance": 0.5,
+        "verdict": "SUPPORTED",
+        "unit": "percent",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "source_contradicted_growth",
+      "pass": true,
+      "calculation": {
+        "formula": "(new - old)/old*100",
+        "value": 10.0,
+        "inputs": {
+          "old": 100000000.0,
+          "new": 110000000.0
+        },
+        "raw_inputs": {
+          "old": "100",
+          "new": "110"
+        },
+        "input_metadata": {
+          "old": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "new": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "old": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "100",
+            "normalized_value": 100000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "110",
+            "normalized_value": 110000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 40.0,
+        "actual": 10.0,
+        "difference": 30.0,
+        "tolerance": 0.5,
+        "verdict": "CONTRADICTED",
+        "unit": "percent",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "rounded_within_tolerance",
+      "pass": true,
+      "calculation": {
+        "formula": "(new - old)/old*100",
+        "value": 10.040000000000001,
+        "inputs": {
+          "old": 100000000.0,
+          "new": 110040000.0
+        },
+        "raw_inputs": {
+          "old": "100",
+          "new": "110.04"
+        },
+        "input_metadata": {
+          "old": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "new": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 2,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "old": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "100",
+            "normalized_value": 100000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "110.04",
+            "normalized_value": 110040000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 10.0,
+        "actual": 10.040000000000001,
+        "difference": -0.040000000000000924,
+        "tolerance": 0.05,
+        "verdict": "SUPPORTED",
+        "unit": "percent",
+        "claimed_precision": 1,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "rounded_outside_tolerance",
+      "pass": true,
+      "calculation": {
+        "formula": "(new - old)/old*100",
+        "value": 10.040000000000001,
+        "inputs": {
+          "old": 100000000.0,
+          "new": 110040000.0
+        },
+        "raw_inputs": {
+          "old": "100",
+          "new": "110.04"
+        },
+        "input_metadata": {
+          "old": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "new": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 2,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "old": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "100",
+            "normalized_value": 100000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "110.04",
+            "normalized_value": 110040000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 10.1,
+        "actual": 10.040000000000001,
+        "difference": 0.05999999999999872,
+        "tolerance": 0.05,
+        "verdict": "CONTRADICTED",
+        "unit": "percent",
+        "claimed_precision": 1,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "different_currencies_no_conversion",
+      "pass": true,
+      "calculation": null,
+      "comparison": null,
+      "reason": "Source currencies differ or are incompletely specified; no currency conversion is inferred."
+    },
+    {
+      "name": "zero_baseline_explicit",
+      "pass": true,
+      "calculation": null,
+      "comparison": null,
+      "reason": "Relative percentage growth is undefined for a zero baseline."
+    },
+    {
+      "name": "negative_baseline_explicit",
+      "pass": true,
+      "calculation": null,
+      "comparison": null,
+      "reason": "A negative baseline requires an explicit comparison convention."
+    },
+    {
+      "name": "cagr_actual_year_span",
+      "pass": true,
+      "calculation": {
+        "formula": "(ending/beginning)^(1/years)-1",
+        "value": 10.000000000000009,
+        "inputs": {
+          "beginning": 100000000.0,
+          "ending": 121000000.0,
+          "years": 2.0
+        },
+        "raw_inputs": {
+          "beginning": "100",
+          "ending": "121"
+        },
+        "input_metadata": {
+          "beginning": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "ending": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "beginning": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "100",
+            "normalized_value": 100000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2026,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "ending": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "121",
+            "normalized_value": 121000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2026,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 10.0,
+        "actual": 10.000000000000009,
+        "difference": -8.881784197001252e-15,
+        "tolerance": 0.5,
+        "verdict": "SUPPORTED",
+        "unit": "percent",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "percentage_points_source",
+      "pass": true,
+      "calculation": {
+        "formula": "new_margin - old_margin",
+        "value": 5.0,
+        "inputs": {
+          "old_margin": 20.0,
+          "new_margin": 25.0
+        },
+        "raw_inputs": {
+          "old_margin": "20%",
+          "new_margin": "25%"
+        },
+        "input_metadata": {
+          "old_margin": {
+            "currency": null,
+            "unit": "percent",
+            "precision": 0,
+            "scale": 1,
+            "normalized_precision": 0,
+            "unit_context": ""
+          },
+          "new_margin": {
+            "currency": null,
+            "unit": "percent",
+            "precision": 0,
+            "scale": 1,
+            "normalized_precision": 0,
+            "unit_context": ""
+          }
+        },
+        "currency": null,
+        "result_unit": "percentage points",
+        "result_precision": 0,
+        "source_inputs": {
+          "old_margin": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "20%",
+            "normalized_value": 20.0,
+            "unit_context": "",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new_margin": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "25%",
+            "normalized_value": 25.0,
+            "unit_context": "",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 5.0,
+        "actual": 5.0,
+        "difference": 0.0,
+        "tolerance": 0.5,
+        "verdict": "SUPPORTED",
+        "unit": "percentage points",
+        "claimed_precision": 0,
+        "actual_precision": 0,
+        "difference_precision": 0,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "millions_billions_source",
+      "pass": true,
+      "calculation": {
+        "formula": "(new - old)/old*100",
+        "value": 10.0,
+        "inputs": {
+          "old": 1000000000.0,
+          "new": 1100000000.0
+        },
+        "raw_inputs": {
+          "old": "1000 million",
+          "new": "1.1 billion"
+        },
+        "input_metadata": {
+          "old": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD"
+          },
+          "new": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 1,
+            "scale": 1000000000,
+            "normalized_precision": 0,
+            "unit_context": "USD"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "old": {
+            "name": "old",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 1,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "1000 million",
+            "normalized_value": 1000000000.0,
+            "unit_context": "USD",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "new": {
+            "name": "new",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "1.1 billion",
+            "normalized_value": 1100000000.0,
+            "unit_context": "USD",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 10.0,
+        "actual": 10.0,
+        "difference": 0.0,
+        "tolerance": 0.5,
+        "verdict": "SUPPORTED",
+        "unit": "percent",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "Unique matching source cells selected locally; Python performs the comparison."
+    },
+    {
+      "name": "margin_amounts",
+      "pass": true,
+      "calculation": {
+        "formula": "profit / revenue * 100",
+        "value": 20.0,
+        "inputs": {
+          "profit": 22000000.0,
+          "revenue": 110000000.0
+        },
+        "raw_inputs": {
+          "profit": "22",
+          "revenue": "110"
+        },
+        "input_metadata": {
+          "profit": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          },
+          "revenue": {
+            "currency": "USD",
+            "unit": "USD",
+            "precision": 0,
+            "scale": 1000000,
+            "normalized_precision": 0,
+            "unit_context": "USD millions"
+          }
+        },
+        "currency": "USD",
+        "result_unit": "percent",
+        "result_precision": null,
+        "source_inputs": {
+          "profit": {
+            "name": "profit",
+            "evidence_id": "fixture",
+            "row_index": 0,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "22",
+            "normalized_value": 22000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          },
+          "revenue": {
+            "name": "revenue",
+            "evidence_id": "fixture",
+            "row_index": 1,
+            "column_index": 2,
+            "number_index": null,
+            "fact_index": null,
+            "unit_quote": "",
+            "scope_quote": "",
+            "raw": "110",
+            "normalized_value": 110000000.0,
+            "unit_context": "USD millions",
+            "document_id": "qa_fixture",
+            "page": 1,
+            "source_evidence_id": "fixture",
+            "period_interpretation": null,
+            "effective_column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": "annual",
+                "mapping_origin": "explicit_terminal_header"
+              }
+            ]
+          }
+        },
+        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."
+      },
+      "comparison": {
+        "claimed": 20.0,
+        "actual": 20.0,
+        "difference": 0.0,
+        "tolerance": 0.5,
+        "verdict": "SUPPORTED",
+        "unit": "percent",
+        "claimed_precision": 0,
+        "actual_precision": null,
+        "difference_precision": null,
+        "operator": "equal"
+      },
+      "reason": "QA explicit-address fixture; no model involved"
+    }
+  ],
+  "passed": 11,
+  "failed": 0
+}

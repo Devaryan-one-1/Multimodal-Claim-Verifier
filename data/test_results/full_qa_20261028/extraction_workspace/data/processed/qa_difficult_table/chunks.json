@@ -1,0 +1,55 @@
+{
+  "document_id": "qa_difficult_table",
+  "chunks": [
+    {
+      "id": "qa_difficult_table::evidence_001::0::757967f17743",
+      "document_id": "qa_difficult_table",
+      "page": 1,
+      "type": "text",
+      "content": "QA difficult table: USD millions, years ended 2024 and 2025",
+      "bbox": [
+        40.0,
+        51.277000000000044,
+        332.2480000000001,
+        62.277000000000044
+      ],
+      "bbox_space": "pdf_points",
+      "page_width_pt": 595.0,
+      "page_height_pt": 842.0,
+      "page_rotation": 0,
+      "source_evidence_id": "evidence_001",
+      "text": "QA difficult table: USD millions, years ended 2024 and 2025",
+      "location": [
+        40.0,
+        51.277000000000044,
+        332.2480000000001,
+        62.277000000000044
+      ]
+    },
+    {
+      "id": "qa_difficult_table::evidence_002::0::b76ed7f5cb9c",
+      "document_id": "qa_difficult_table",
+      "page": 1,
+      "type": "text",
+      "content": "Metric 2024 2025\nRevenue 100 110\nOperating 12\nprofit 10",
+      "bbox": [
+        45.0,
+        96.27700000000004,
+        454.464,
+        182.27700000000004
+      ],
+      "bbox_space": "pdf_points",
+      "page_width_pt": 595.0,
+      "page_height_pt": 842.0,
+      "page_rotation": 0,
+      "source_evidence_id": "evidence_002",
+      "text": "Metric 2024 2025\nRevenue 100 110\nOperating 12\nprofit 10",
+      "location": [
+        45.0,
+        96.27700000000004,
+        454.464,
+        182.27700000000004
+      ]
+    }
+  ]
+}

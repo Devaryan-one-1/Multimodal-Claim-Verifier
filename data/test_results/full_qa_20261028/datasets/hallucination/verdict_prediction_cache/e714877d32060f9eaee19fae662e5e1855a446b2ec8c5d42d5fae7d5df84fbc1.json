@@ -1,0 +1,4501 @@
+{
+  "schema_version": 2,
+  "cache_key": "e714877d32060f9eaee19fae662e5e1855a446b2ec8c5d42d5fae7d5df84fbc1",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M's total marketable securities decreased to $710 million in 2025 from $2,144 million in 2024.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-27T18:50:58.719437+00:00",
+  "results": [
+    {
+      "claim_text": "3M's total marketable securities is $710 million in 2025",
+      "parsed_claim": {
+        "claim_text": "3M's total marketable securities is $710 million in 2025",
+        "company": "3M",
+        "subject": "total marketable securities",
+        "metric": "total marketable securities",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "in 2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$710 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+          "bbox": [
+            23.54999901875,
+            620.1605388658598,
+            587.2353413855183,
+            656.7835552427129
+          ],
+          "table_id": "table_59_4",
+          "headers": [
+            "Due in one year or less",
+            "$599"
+          ],
+          "rows": [
+            [
+              "Due after one year through five years",
+              "111"
+            ],
+            [
+              "Total marketable securities",
+              "$710"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025
+            ],
+            "period_types": [],
+            "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "source_evidence_id": "evidence_4823",
+          "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+          "score": 0.032266458495966696,
+          "rerank_score": 5.944704627990722,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+          "bbox": [
+            23.54999901875,
+            440.12021023308523,
+            587.2353413855183,
+            568.5795455399555
+          ],
+          "table_id": "table_59_3",
+          "headers": [
+            "Corporate debt",
+            "$ 302",
+            "$850"
+          ],
+          "rows": [
+            [
+              "Commercial paper",
+              "191",
+              "658"
+            ],
+            [
+              "U.S. government and treasury securities",
+              "53",
+              "407"
+            ],
+            [
+              "Asset backed securities and certificates of/time deposits",
+              "148",
+              "209"
+            ],
+            [
+              "U.S. municipal securities",
+              "4",
+              "4"
+            ],
+            [
+              "Current marketable securities",
+              "698",
+              "2,128"
+            ],
+            [
+              "U.S. municipal securities",
+              "12",
+              "16"
+            ],
+            [
+              "Non-current marketable securities",
+              "12",
+              "16"
+            ],
+            [
+              "Total marketable securities",
+              "$ 710",
+              "$2,144"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "source_evidence_id": "evidence_4822",
+          "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+          "score": 0.030621785881252923,
+          "rerank_score": 4.127440071105957,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "table",
+          "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+          "bbox": [
+            23.549999018750004,
+            95.16407603483036,
+            587.5961293629807,
+            132.39131772693824
+          ],
+          "table_id": "table_34_1",
+          "headers": [
+            "Foreign subsidiaries",
+            "$3.5",
+            "$3.5"
+          ],
+          "rows": [
+            [
+              "United States",
+              "2.4",
+              "4.2"
+            ],
+            [
+              "Total cash, cash equivalents and marketable securities",
+              "$5.9",
+              "$7.7"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "source_evidence_id": "evidence_4782",
+          "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+          "score": 0.027820121951219513,
+          "rerank_score": 4.046504831314087,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+          "bbox": [
+            23.54999901875,
+            191.88010815483835,
+            585.8115498411846,
+            199.87810776158835
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "source_evidence_id": "evidence_1105",
+          "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+          "score": 0.014084507042253521,
+          "rerank_score": 3.82214937210083,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 42,
+          "type": "table",
+          "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+          "bbox": [
+            23.54999901875,
+            93.38477871766341,
+            587.4160912268078,
+            603.9807440649045
+          ],
+          "table_id": "table_42_1",
+          "headers": [
+            "Assets"
+          ],
+          "rows": [
+            [
+              "Current assets"
+            ],
+            [
+              "Cash and cash equivalents",
+              "$5,235",
+              "$5,600"
+            ],
+            [
+              "Marketable securities",
+              "698",
+              "2,128"
+            ],
+            [
+              "Accounts receivable — net of allowances of $61 and $60",
+              "3,533",
+              "3,194"
+            ],
+            [
+              "Inventories"
+            ],
+            [
+              "Finished goods",
+              "1,744",
+              "1,849"
+            ],
+            [
+              "Work in process",
+              "1,126",
+              "1,051"
+            ],
+            [
+              "Raw materials and supplies",
+              "791",
+              "798"
+            ],
+            [
+              "Total inventories",
+              "3,661",
+              "3,698"
+            ],
+            [
+              "Prepaids",
+              "391",
+              "493"
+            ],
+            [
+              "Assets held for sale",
+              "46",
+              "—"
+            ],
+            [
+              "Other current assets",
+              "2,823",
+              "771"
+            ],
+            [
+              "Total current assets",
+              "16,387",
+              "15,884"
+            ],
+            [
+              "Property, plant and equipment",
+              "23,922",
+              "23,406"
+            ],
+            [
+              "Less: accumulated depreciation",
+              "(16,821)",
+              "(16,018)"
+            ],
+            [
+              "Property, plant and equipment — net",
+              "7,101",
+              "7,388"
+            ],
+            [
+              "Goodwill",
+              "6,419",
+              "6,281"
+            ],
+            [
+              "Intangible assets — net",
+              "1,103",
+              "1,210"
+            ],
+            [
+              "Other assets",
+              "6,723",
+              "9,105"
+            ],
+            [
+              "Total assets",
+              "$37,733",
+              "$39,868"
+            ],
+            [
+              "Liabilities"
+            ],
+            [
+              "Current liabilities"
+            ],
+            [
+              "Short-term borrowings and current portion of long-term debt",
+              "$1,670",
+              "$1,919"
+            ],
+            [
+              "Accounts payable",
+              "2,702",
+              "2,660"
+            ],
+            [
+              "Accrued payroll",
+              "718",
+              "712"
+            ],
+            [
+              "Liabilities held for sale",
+              "55",
+              "—"
+            ],
+            [
+              "Other current liabilities",
+              "4,450",
+              "5,965"
+            ],
+            [
+              "Total current liabilities",
+              "9,595",
+              "11,256"
+            ],
+            [
+              "Long-term debt",
+              "10,932",
+              "11,125"
+            ],
+            [
+              "Pension and postretirement benefits",
+              "1,631",
+              "1,813"
+            ],
+            [
+              "Other liabilities",
+              "10,828",
+              "11,780"
+            ],
+            [
+              "Total liabilities",
+              "32,986",
+              "35,974"
+            ],
+            [
+              "Commitments and contingencies (Note 17)"
+            ],
+            [
+              "Equity"
+            ],
+            [
+              "3M Company shareholders’ equity:"
+            ],
+            [
+              "Common stock par value, $.01 per share; 944,033,056 shares issued",
+              "9",
+              "9"
+            ],
+            [
+              "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+            ],
+            [
+              "Additional paid-in capital",
+              "7,440",
+              "7,229"
+            ],
+            [
+              "Retained earnings",
+              "38,258",
+              "36,797"
+            ],
+            [
+              "Treasury stock, at cost",
+              "(35,936)",
+              "(34,462)"
+            ],
+            [
+              "Accumulated other comprehensive income (loss)",
+              "(5,069)",
+              "(5,731)"
+            ],
+            [
+              "Total 3M Company shareholders’ equity",
+              "4,702",
+              "3,842"
+            ],
+            [
+              "Noncontrolling interest",
+              "45",
+              "52"
+            ],
+            [
+              "Total equity",
+              "4,747",
+              "3,894"
+            ],
+            [
+              "Total liabilities and equity",
+              "$37,733",
+              "$39,868"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "source_evidence_id": "evidence_4786",
+          "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+          "score": 0.025739237015474183,
+          "rerank_score": 2.3524065971374513,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 72,
+          "type": "text",
+          "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "bbox": [
+            30.74999871875,
+            295.70380952701134,
+            548.8734131302734,
+            302.9038092270114
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "source_evidence_id": "evidence_2102",
+          "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+          "score": 0.0239010989010989,
+          "rerank_score": 1.7805143356323243,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 45,
+          "type": "text",
+          "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+          "bbox": [
+            23.54999901875,
+            236.2820263047554,
+            556.6001417275967,
+            244.2800259115054
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "source_evidence_id": "evidence_1364",
+          "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+          "score": 0.02946236559139785,
+          "rerank_score": 0.6519602537155151,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 72,
+          "type": "table",
+          "content": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+          "bbox": [
+            23.54999901875,
+            106.71822653932185,
+            587.5013268721283,
+            287.7873328907508
+          ],
+          "table_id": "table_72_1",
+          "headers": [
+            "Assets:"
+          ],
+          "rows": [
+            [
+              "Available-for-sale marketable securities:"
+            ],
+            [
+              "Corporate debt",
+              "$302",
+              "$850",
+              "$—",
+              "$—",
+              "$302",
+              "$ 850",
+              "$—",
+              "$—"
+            ],
+            [
+              "Commercial paper",
+              "191",
+              "658",
+              "—",
+              "—",
+              "191",
+              "658",
+              "—",
+              "—"
+            ],
+            [
+              "U.S. government and treasury securities",
+              "53",
+              "407",
+              "53",
+              "407",
+              "—",
+              "—",
+              "—",
+              "—"
+            ],
+            [
+              "Asset backed securities and certificates of/time deposits",
+              "148",
+              "209",
+              "—",
+              "—",
+              "148",
+              "209",
+              "—",
+              "—"
+            ],
+            [
+              "U.S. municipal securities",
+              "16",
+              "20",
+              "—",
+              "—",
+              "—",
+              "—",
+              "16",
+              "20"
+            ],
+            [
+              "Solventum common stock (a)",
+              "2,026",
+              "2,270",
+              "2,026",
+              "2,270",
+              "—",
+              "—",
+              "—",
+              "—"
+            ],
+            [
+              "Derivative instruments — assets:"
+            ],
+            [
+              "Foreign currency forward/option contracts and cross-currency swaps",
+              "192",
+              "142",
+              "—",
+              "—",
+              "192",
+              "142",
+              "—",
+              "—"
+            ],
+            [
+              "Liabilities:"
+            ],
+            [
+              "Derivative instruments — liabilities:"
+            ],
+            [
+              "Foreign currency forward/option contracts and cross-currency swaps",
+              "330",
+              "84",
+              "—",
+              "—",
+              "330",
+              "84",
+              "—",
+              "—"
+            ],
+            [
+              "Interest rate contracts",
+              "—",
+              "81",
+              "—",
+              "—",
+              "—",
+              "81",
+              "—",
+              "—"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 5,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 6,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 7,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 8,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "The following table provides information by level for material assets and liabilities that are measured at fair value on a recurring basis at December 31, 2025 and 2024. Fair value measurements using inputs considered as Fair value at Level 1 Level 2 Level 3 (Millions) 2025 2024 2025 2024 2025 2024 2025 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+          "source_evidence_id": "evidence_4846",
+          "text": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+          "score": 0.020454545454545454,
+          "rerank_score": 0.3342411875724792,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 103,
+          "type": "text",
+          "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "bbox": [
+            23.54999901875,
+            365.88082090481583,
+            323.57319606278276,
+            373.8788205115659
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "source_evidence_id": "evidence_3232",
+          "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+          "score": 0.014925373134328358,
+          "rerank_score": 0.29903057813644407,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 71,
+          "type": "text",
+          "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+          "bbox": [
+            23.54999901875,
+            196.08082797980137,
+            545.0986800719536,
+            204.07882758655137
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+          "source_evidence_id": "evidence_2081",
+          "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+          "score": 0.030536130536130537,
+          "rerank_score": 0.17817062139511108,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Invalid table cell address.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "bbox": [
+              23.54999901875,
+              191.88010815483835,
+              585.8115498411846,
+              199.87810776158835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "score": 0.014084507042253521,
+            "rerank_score": 3.82214937210083,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.0239010989010989,
+            "rerank_score": 1.7805143356323243,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 45,
+            "type": "text",
+            "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "bbox": [
+              23.54999901875,
+              236.2820263047554,
+              556.6001417275967,
+              244.2800259115054
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "score": 0.02946236559139785,
+            "rerank_score": 0.6519602537155151,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.014925373134328358,
+            "rerank_score": 0.29903057813644407,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "bbox": [
+              23.54999901875,
+              196.08082797980137,
+              545.0986800719536,
+              204.07882758655137
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "score": 0.030536130536130537,
+            "rerank_score": 0.17817062139511108,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "bbox": [
+              23.54999901875,
+              620.1605388658598,
+              587.2353413855183,
+              656.7835552427129
+            ],
+            "table_id": "table_59_4",
+            "headers": [
+              "Due in one year or less",
+              "$599"
+            ],
+            "rows": [
+              [
+                "Due after one year through five years",
+                "111"
+              ],
+              [
+                "Total marketable securities",
+                "$710"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "score": 0.032266458495966696,
+            "rerank_score": 5.944704627990722,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "bbox": [
+              23.54999901875,
+              440.12021023308523,
+              587.2353413855183,
+              568.5795455399555
+            ],
+            "table_id": "table_59_3",
+            "headers": [
+              "Corporate debt",
+              "$ 302",
+              "$850"
+            ],
+            "rows": [
+              [
+                "Commercial paper",
+                "191",
+                "658"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209"
+              ],
+              [
+                "U.S. municipal securities",
+                "4",
+                "4"
+              ],
+              [
+                "Current marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "U.S. municipal securities",
+                "12",
+                "16"
+              ],
+              [
+                "Non-current marketable securities",
+                "12",
+                "16"
+              ],
+              [
+                "Total marketable securities",
+                "$ 710",
+                "$2,144"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "score": 0.030621785881252923,
+            "rerank_score": 4.127440071105957,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "table",
+            "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "bbox": [
+              23.549999018750004,
+              95.16407603483036,
+              587.5961293629807,
+              132.39131772693824
+            ],
+            "table_id": "table_34_1",
+            "headers": [
+              "Foreign subsidiaries",
+              "$3.5",
+              "$3.5"
+            ],
+            "rows": [
+              [
+                "United States",
+                "2.4",
+                "4.2"
+              ],
+              [
+                "Total cash, cash equivalents and marketable securities",
+                "$5.9",
+                "$7.7"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "score": 0.027820121951219513,
+            "rerank_score": 4.046504831314087,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 42,
+            "type": "table",
+            "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "bbox": [
+              23.54999901875,
+              93.38477871766341,
+              587.4160912268078,
+              603.9807440649045
+            ],
+            "table_id": "table_42_1",
+            "headers": [
+              "Assets"
+            ],
+            "rows": [
+              [
+                "Current assets"
+              ],
+              [
+                "Cash and cash equivalents",
+                "$5,235",
+                "$5,600"
+              ],
+              [
+                "Marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "Accounts receivable — net of allowances of $61 and $60",
+                "3,533",
+                "3,194"
+              ],
+              [
+                "Inventories"
+              ],
+              [
+                "Finished goods",
+                "1,744",
+                "1,849"
+              ],
+              [
+                "Work in process",
+                "1,126",
+                "1,051"
+              ],
+              [
+                "Raw materials and supplies",
+                "791",
+                "798"
+              ],
+              [
+                "Total inventories",
+                "3,661",
+                "3,698"
+              ],
+              [
+                "Prepaids",
+                "391",
+                "493"
+              ],
+              [
+                "Assets held for sale",
+                "46",
+                "—"
+              ],
+              [
+                "Other current assets",
+                "2,823",
+                "771"
+              ],
+              [
+                "Total current assets",
+                "16,387",
+                "15,884"
+              ],
+              [
+                "Property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Less: accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment — net",
+                "7,101",
+                "7,388"
+              ],
+              [
+                "Goodwill",
+                "6,419",
+                "6,281"
+              ],
+              [
+                "Intangible assets — net",
+                "1,103",
+                "1,210"
+              ],
+              [
+                "Other assets",
+                "6,723",
+                "9,105"
+              ],
+              [
+                "Total assets",
+                "$37,733",
+                "$39,868"
+              ],
+              [
+                "Liabilities"
+              ],
+              [
+                "Current liabilities"
+              ],
+              [
+                "Short-term borrowings and current portion of long-term debt",
+                "$1,670",
+                "$1,919"
+              ],
+              [
+                "Accounts payable",
+                "2,702",
+                "2,660"
+              ],
+              [
+                "Accrued payroll",
+                "718",
+                "712"
+              ],
+              [
+                "Liabilities held for sale",
+                "55",
+                "—"
+              ],
+              [
+                "Other current liabilities",
+                "4,450",
+                "5,965"
+              ],
+              [
+                "Total current liabilities",
+                "9,595",
+                "11,256"
+              ],
+              [
+                "Long-term debt",
+                "10,932",
+                "11,125"
+              ],
+              [
+                "Pension and postretirement benefits",
+                "1,631",
+                "1,813"
+              ],
+              [
+                "Other liabilities",
+                "10,828",
+                "11,780"
+              ],
+              [
+                "Total liabilities",
+                "32,986",
+                "35,974"
+              ],
+              [
+                "Commitments and contingencies (Note 17)"
+              ],
+              [
+                "Equity"
+              ],
+              [
+                "3M Company shareholders’ equity:"
+              ],
+              [
+                "Common stock par value, $.01 per share; 944,033,056 shares issued",
+                "9",
+                "9"
+              ],
+              [
+                "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+              ],
+              [
+                "Additional paid-in capital",
+                "7,440",
+                "7,229"
+              ],
+              [
+                "Retained earnings",
+                "38,258",
+                "36,797"
+              ],
+              [
+                "Treasury stock, at cost",
+                "(35,936)",
+                "(34,462)"
+              ],
+              [
+                "Accumulated other comprehensive income (loss)",
+                "(5,069)",
+                "(5,731)"
+              ],
+              [
+                "Total 3M Company shareholders’ equity",
+                "4,702",
+                "3,842"
+              ],
+              [
+                "Noncontrolling interest",
+                "45",
+                "52"
+              ],
+              [
+                "Total equity",
+                "4,747",
+                "3,894"
+              ],
+              [
+                "Total liabilities and equity",
+                "$37,733",
+                "$39,868"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "score": 0.025739237015474183,
+            "rerank_score": 2.3524065971374513,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "table",
+            "content": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+            "bbox": [
+              23.54999901875,
+              106.71822653932185,
+              587.5013268721283,
+              287.7873328907508
+            ],
+            "table_id": "table_72_1",
+            "headers": [
+              "Assets:"
+            ],
+            "rows": [
+              [
+                "Available-for-sale marketable securities:"
+              ],
+              [
+                "Corporate debt",
+                "$302",
+                "$850",
+                "$—",
+                "$—",
+                "$302",
+                "$ 850",
+                "$—",
+                "$—"
+              ],
+              [
+                "Commercial paper",
+                "191",
+                "658",
+                "—",
+                "—",
+                "191",
+                "658",
+                "—",
+                "—"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407",
+                "53",
+                "407",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209",
+                "—",
+                "—",
+                "148",
+                "209",
+                "—",
+                "—"
+              ],
+              [
+                "U.S. municipal securities",
+                "16",
+                "20",
+                "—",
+                "—",
+                "—",
+                "—",
+                "16",
+                "20"
+              ],
+              [
+                "Solventum common stock (a)",
+                "2,026",
+                "2,270",
+                "2,026",
+                "2,270",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Derivative instruments — assets:"
+              ],
+              [
+                "Foreign currency forward/option contracts and cross-currency swaps",
+                "192",
+                "142",
+                "—",
+                "—",
+                "192",
+                "142",
+                "—",
+                "—"
+              ],
+              [
+                "Liabilities:"
+              ],
+              [
+                "Derivative instruments — liabilities:"
+              ],
+              [
+                "Foreign currency forward/option contracts and cross-currency swaps",
+                "330",
+                "84",
+                "—",
+                "—",
+                "330",
+                "84",
+                "—",
+                "—"
+              ],
+              [
+                "Interest rate contracts",
+                "—",
+                "81",
+                "—",
+                "—",
+                "—",
+                "81",
+                "—",
+                "—"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 8,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "The following table provides information by level for material assets and liabilities that are measured at fair value on a recurring basis at December 31, 2025 and 2024. Fair value measurements using inputs considered as Fair value at Level 1 Level 2 Level 3 (Millions) 2025 2024 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "text": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+            "score": 0.020454545454545454,
+            "rerank_score": 0.3342411875724792,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "bbox": [
+              23.54999901875,
+              620.1605388658598,
+              587.2353413855183,
+              656.7835552427129
+            ],
+            "table_id": "table_59_4",
+            "headers": [
+              "Due in one year or less",
+              "$599"
+            ],
+            "rows": [
+              [
+                "Due after one year through five years",
+                "111"
+              ],
+              [
+                "Total marketable securities",
+                "$710"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "score": 0.032266458495966696,
+            "rerank_score": 5.944704627990722,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "bbox": [
+              23.54999901875,
+              440.12021023308523,
+              587.2353413855183,
+              568.5795455399555
+            ],
+            "table_id": "table_59_3",
+            "headers": [
+              "Corporate debt",
+              "$ 302",
+              "$850"
+            ],
+            "rows": [
+              [
+                "Commercial paper",
+                "191",
+                "658"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209"
+              ],
+              [
+                "U.S. municipal securities",
+                "4",
+                "4"
+              ],
+              [
+                "Current marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "U.S. municipal securities",
+                "12",
+                "16"
+              ],
+              [
+                "Non-current marketable securities",
+                "12",
+                "16"
+              ],
+              [
+                "Total marketable securities",
+                "$ 710",
+                "$2,144"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "score": 0.030621785881252923,
+            "rerank_score": 4.127440071105957,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "table",
+            "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "bbox": [
+              23.549999018750004,
+              95.16407603483036,
+              587.5961293629807,
+              132.39131772693824
+            ],
+            "table_id": "table_34_1",
+            "headers": [
+              "Foreign subsidiaries",
+              "$3.5",
+              "$3.5"
+            ],
+            "rows": [
+              [
+                "United States",
+                "2.4",
+                "4.2"
+              ],
+              [
+                "Total cash, cash equivalents and marketable securities",
+                "$5.9",
+                "$7.7"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "score": 0.027820121951219513,
+            "rerank_score": 4.046504831314087,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 42,
+            "type": "table",
+            "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "bbox": [
+              23.54999901875,
+              93.38477871766341,
+              587.4160912268078,
+              603.9807440649045
+            ],
+            "table_id": "table_42_1",
+            "headers": [
+              "Assets"
+            ],
+            "rows": [
+              [
+                "Current assets"
+              ],
+              [
+                "Cash and cash equivalents",
+                "$5,235",
+                "$5,600"
+              ],
+              [
+                "Marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "Accounts receivable — net of allowances of $61 and $60",
+                "3,533",
+                "3,194"
+              ],
+              [
+                "Inventories"
+              ],
+              [
+                "Finished goods",
+                "1,744",
+                "1,849"
+              ],
+              [
+                "Work in process",
+                "1,126",
+                "1,051"
+              ],
+              [
+                "Raw materials and supplies",
+                "791",
+                "798"
+              ],
+              [
+                "Total inventories",
+                "3,661",
+                "3,698"
+              ],
+              [
+                "Prepaids",
+                "391",
+                "493"
+              ],
+              [
+                "Assets held for sale",
+                "46",
+                "—"
+              ],
+              [
+                "Other current assets",
+                "2,823",
+                "771"
+              ],
+              [
+                "Total current assets",
+                "16,387",
+                "15,884"
+              ],
+              [
+                "Property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Less: accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment — net",
+                "7,101",
+                "7,388"
+              ],
+              [
+                "Goodwill",
+                "6,419",
+                "6,281"
+              ],
+              [
+                "Intangible assets — net",
+                "1,103",
+                "1,210"
+              ],
+              [
+                "Other assets",
+                "6,723",
+                "9,105"
+              ],
+              [
+                "Total assets",
+                "$37,733",
+                "$39,868"
+              ],
+              [
+                "Liabilities"
+              ],
+              [
+                "Current liabilities"
+              ],
+              [
+                "Short-term borrowings and current portion of long-term debt",
+                "$1,670",
+                "$1,919"
+              ],
+              [
+                "Accounts payable",
+                "2,702",
+                "2,660"
+              ],
+              [
+                "Accrued payroll",
+                "718",
+                "712"
+              ],
+              [
+                "Liabilities held for sale",
+                "55",
+                "—"
+              ],
+              [
+                "Other current liabilities",
+                "4,450",
+                "5,965"
+              ],
+              [
+                "Total current liabilities",
+                "9,595",
+                "11,256"
+              ],
+              [
+                "Long-term debt",
+                "10,932",
+                "11,125"
+              ],
+              [
+                "Pension and postretirement benefits",
+                "1,631",
+                "1,813"
+              ],
+              [
+                "Other liabilities",
+                "10,828",
+                "11,780"
+              ],
+              [
+                "Total liabilities",
+                "32,986",
+                "35,974"
+              ],
+              [
+                "Commitments and contingencies (Note 17)"
+              ],
+              [
+                "Equity"
+              ],
+              [
+                "3M Company shareholders’ equity:"
+              ],
+              [
+                "Common stock par value, $.01 per share; 944,033,056 shares issued",
+                "9",
+                "9"
+              ],
+              [
+                "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+              ],
+              [
+                "Additional paid-in capital",
+                "7,440",
+                "7,229"
+              ],
+              [
+                "Retained earnings",
+                "38,258",
+                "36,797"
+              ],
+              [
+                "Treasury stock, at cost",
+                "(35,936)",
+                "(34,462)"
+              ],
+              [
+                "Accumulated other comprehensive income (loss)",
+                "(5,069)",
+                "(5,731)"
+              ],
+              [
+                "Total 3M Company shareholders’ equity",
+                "4,702",
+                "3,842"
+              ],
+              [
+                "Noncontrolling interest",
+                "45",
+                "52"
+              ],
+              [
+                "Total equity",
+                "4,747",
+                "3,894"
+              ],
+              [
+                "Total liabilities and equity",
+                "$37,733",
+                "$39,868"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "score": 0.025739237015474183,
+            "rerank_score": 2.3524065971374513,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "table",
+            "content": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+            "bbox": [
+              23.54999901875,
+              106.71822653932185,
+              587.5013268721283,
+              287.7873328907508
+            ],
+            "table_id": "table_72_1",
+            "headers": [
+              "Assets:"
+            ],
+            "rows": [
+              [
+                "Available-for-sale marketable securities:"
+              ],
+              [
+                "Corporate debt",
+                "$302",
+                "$850",
+                "$—",
+                "$—",
+                "$302",
+                "$ 850",
+                "$—",
+                "$—"
+              ],
+              [
+                "Commercial paper",
+                "191",
+                "658",
+                "—",
+                "—",
+                "191",
+                "658",
+                "—",
+                "—"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407",
+                "53",
+                "407",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209",
+                "—",
+                "—",
+                "148",
+                "209",
+                "—",
+                "—"
+              ],
+              [
+                "U.S. municipal securities",
+                "16",
+                "20",
+                "—",
+                "—",
+                "—",
+                "—",
+                "16",
+                "20"
+              ],
+              [
+                "Solventum common stock (a)",
+                "2,026",
+                "2,270",
+                "2,026",
+                "2,270",
+                "—",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Derivative instruments — assets:"
+              ],
+              [
+                "Foreign currency forward/option contracts and cross-currency swaps",
+                "192",
+                "142",
+                "—",
+                "—",
+                "192",
+                "142",
+                "—",
+                "—"
+              ],
+              [
+                "Liabilities:"
+              ],
+              [
+                "Derivative instruments — liabilities:"
+              ],
+              [
+                "Foreign currency forward/option contracts and cross-currency swaps",
+                "330",
+                "84",
+                "—",
+                "—",
+                "330",
+                "84",
+                "—",
+                "—"
+              ],
+              [
+                "Interest rate contracts",
+                "—",
+                "81",
+                "—",
+                "—",
+                "—",
+                "81",
+                "—",
+                "—"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 8,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "The following table provides information by level for material assets and liabilities that are measured at fair value on a recurring basis at December 31, 2025 and 2024. Fair value measurements using inputs considered as Fair value at Level 1 Level 2 Level 3 (Millions) 2025 2024 2025 2024 2025 2024 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4846",
+            "text": "Available-for-sale marketable securities::  | Corporate debt: 2025 $302, 2024 $850, 2025 $—, 2024 $—, 2025 $302, 2024 $ 850, 2025 $—, 2024 $— | Commercial paper: 2025 191, 2024 658, 2025 —, 2024 —, 2025 191, 2024 658, 2025 —, 2024 — | U.S. government and treasury securities: 2025 53, 2024 407, 2025 53, 2024 407, 2025 —, 2024 —, 2025 —, 2024 — | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209, 2025 —, 2024 —, 2025 148, 2024 209, 2025 —, 2024 — | U.S. municipal securities: 2025 16, 2024 20, 2025 —, 2024 —, 2025 —, 2024 —, 2025 16, 2024 20 | Solventum common stock (a): 2025 2,026, 2024 2,270, 2025 2,026, 2024 2,270, 2025 —, 2024 —, 2025 —, 2024 — | Derivative instruments — assets::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 192, 2024 142, 2025 —, 2024 —, 2025 192, 2024 142, 2025 —, 2024 — | Liabilities::  | Derivative instruments — liabilities::  | Foreign currency forward/option contracts and cross-currency swaps: 2025 330, 2024 84, 2025 —, 2024 —, 2025 330, 2024 84, 2025 —, 2024 — | Interest rate contracts: 2025 —, 2024 81, 2025 —, 2024 —, 2025 —, 2024 81, 2025 —, 2024 —",
+            "score": 0.020454545454545454,
+            "rerank_score": 0.3342411875724792,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "bbox": [
+              23.54999901875,
+              191.88010815483835,
+              585.8115498411846,
+              199.87810776158835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "score": 0.014084507042253521,
+            "rerank_score": 3.82214937210083,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 72,
+            "type": "text",
+            "content": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "bbox": [
+              30.74999871875,
+              295.70380952701134,
+              548.8734131302734,
+              302.9038092270114
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2102",
+            "text": "(a) Solventum common stock is 3M's Consolidated Balance Sheet as of December 31, 2025 and 2024, respectively.",
+            "score": 0.0239010989010989,
+            "rerank_score": 1.7805143356323243,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 45,
+            "type": "text",
+            "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "bbox": [
+              23.54999901875,
+              236.2820263047554,
+              556.6001417275967,
+              244.2800259115054
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "score": 0.02946236559139785,
+            "rerank_score": 0.6519602537155151,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 103,
+            "type": "text",
+            "content": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "bbox": [
+              23.54999901875,
+              365.88082090481583,
+              323.57319606278276,
+              373.8788205115659
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3232",
+            "text": "quarter ended December 31, 2025. 3M did not have any other covered payments during 2025.",
+            "score": 0.014925373134328358,
+            "rerank_score": 0.29903057813644407,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "bbox": [
+              23.54999901875,
+              196.08082797980137,
+              545.0986800719536,
+              204.07882758655137
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "score": 0.030536130536130537,
+            "rerank_score": 0.17817062139511108,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "0000066740-26-000014-56e1ef4130::evidence_4846",
+          "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "0000066740-26-000014-56e1ef4130::evidence_2102",
+          "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "0000066740-26-000014-56e1ef4130::evidence_3232",
+          "0000066740-26-000014-56e1ef4130::evidence_2081"
+        ],
+        "pages": [
+          34,
+          42,
+          45,
+          59,
+          71,
+          72,
+          103
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Invalid table cell address.",
+      "reporting_period": "2025",
+      "original_claim": "3M's total marketable securities decreased to $710 million in 2025 from $2,144 million in 2024.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 85.96713459999592,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T18:49:32.695369+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793126973-Cyj3Rejy5TY2fsOVbSXu",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 435,
+            "completion_tokens": 2856,
+            "total_tokens": 3291,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2299,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 32.5
+        },
+        {
+          "time": "2026-10-27T18:50:07.286419+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127008-Kd1RP3HP3dxDouNNnMgE",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 8358,
+            "completion_tokens": 3106,
+            "total_tokens": 11464,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2329,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 33.634
+        },
+        {
+          "time": "2026-10-27T18:50:43.142893+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127044-LKiwSyXkpm5JnAGeMqKV",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6461,
+            "completion_tokens": 1205,
+            "total_tokens": 7666,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 816,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.513
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    },
+    {
+      "claim_text": "3M's total marketable securities is $2,144 million in 2024",
+      "parsed_claim": {
+        "claim_text": "3M's total marketable securities is $2,144 million in 2024",
+        "company": "3M",
+        "subject": "total marketable securities",
+        "metric": "total marketable securities",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2024,
+        "period_quote": "in 2024",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$2,144 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "unspecified",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "table",
+          "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+          "bbox": [
+            23.549999018750004,
+            95.16407603483036,
+            587.5961293629807,
+            132.39131772693824
+          ],
+          "table_id": "table_34_1",
+          "headers": [
+            "Foreign subsidiaries",
+            "$3.5",
+            "$3.5"
+          ],
+          "rows": [
+            [
+              "United States",
+              "2.4",
+              "4.2"
+            ],
+            [
+              "Total cash, cash equivalents and marketable securities",
+              "$5.9",
+              "$7.7"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "source_evidence_id": "evidence_4782",
+          "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+          "score": 0.028474711270410194,
+          "rerank_score": 5.011805152893066,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+          "bbox": [
+            23.54999901875,
+            440.12021023308523,
+            587.2353413855183,
+            568.5795455399555
+          ],
+          "table_id": "table_59_3",
+          "headers": [
+            "Corporate debt",
+            "$ 302",
+            "$850"
+          ],
+          "rows": [
+            [
+              "Commercial paper",
+              "191",
+              "658"
+            ],
+            [
+              "U.S. government and treasury securities",
+              "53",
+              "407"
+            ],
+            [
+              "Asset backed securities and certificates of/time deposits",
+              "148",
+              "209"
+            ],
+            [
+              "U.S. municipal securities",
+              "4",
+              "4"
+            ],
+            [
+              "Current marketable securities",
+              "698",
+              "2,128"
+            ],
+            [
+              "U.S. municipal securities",
+              "12",
+              "16"
+            ],
+            [
+              "Non-current marketable securities",
+              "12",
+              "16"
+            ],
+            [
+              "Total marketable securities",
+              "$ 710",
+              "$2,144"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "source_evidence_id": "evidence_4822",
+          "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+          "score": 0.030886196246139225,
+          "rerank_score": 3.860486125946045,
+          "annual_report_year_columns": true,
+          "metric_label": "Total marketable securities"
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 58,
+          "type": "text",
+          "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "bbox": [
+            23.54999901875,
+            552.4808131298062,
+            555.0132006907795,
+            560.4788127365562
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "source_evidence_id": "evidence_1707",
+          "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "score": 0.021845794392523363,
+          "rerank_score": 3.0129228591918946,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 59,
+          "type": "table",
+          "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+          "bbox": [
+            23.54999901875,
+            620.1605388658598,
+            587.2353413855183,
+            656.7835552427129
+          ],
+          "table_id": "table_59_4",
+          "headers": [
+            "Due in one year or less",
+            "$599"
+          ],
+          "rows": [
+            [
+              "Due after one year through five years",
+              "111"
+            ],
+            [
+              "Total marketable securities",
+              "$710"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025
+            ],
+            "period_types": [],
+            "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "source_evidence_id": "evidence_4823",
+          "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+          "score": 0.015151515151515152,
+          "rerank_score": 2.864752769470215,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 42,
+          "type": "table",
+          "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+          "bbox": [
+            23.54999901875,
+            93.38477871766341,
+            587.4160912268078,
+            603.9807440649045
+          ],
+          "table_id": "table_42_1",
+          "headers": [
+            "Assets"
+          ],
+          "rows": [
+            [
+              "Current assets"
+            ],
+            [
+              "Cash and cash equivalents",
+              "$5,235",
+              "$5,600"
+            ],
+            [
+              "Marketable securities",
+              "698",
+              "2,128"
+            ],
+            [
+              "Accounts receivable — net of allowances of $61 and $60",
+              "3,533",
+              "3,194"
+            ],
+            [
+              "Inventories"
+            ],
+            [
+              "Finished goods",
+              "1,744",
+              "1,849"
+            ],
+            [
+              "Work in process",
+              "1,126",
+              "1,051"
+            ],
+            [
+              "Raw materials and supplies",
+              "791",
+              "798"
+            ],
+            [
+              "Total inventories",
+              "3,661",
+              "3,698"
+            ],
+            [
+              "Prepaids",
+              "391",
+              "493"
+            ],
+            [
+              "Assets held for sale",
+              "46",
+              "—"
+            ],
+            [
+              "Other current assets",
+              "2,823",
+              "771"
+            ],
+            [
+              "Total current assets",
+              "16,387",
+              "15,884"
+            ],
+            [
+              "Property, plant and equipment",
+              "23,922",
+              "23,406"
+            ],
+            [
+              "Less: accumulated depreciation",
+              "(16,821)",
+              "(16,018)"
+            ],
+            [
+              "Property, plant and equipment — net",
+              "7,101",
+              "7,388"
+            ],
+            [
+              "Goodwill",
+              "6,419",
+              "6,281"
+            ],
+            [
+              "Intangible assets — net",
+              "1,103",
+              "1,210"
+            ],
+            [
+              "Other assets",
+              "6,723",
+              "9,105"
+            ],
+            [
+              "Total assets",
+              "$37,733",
+              "$39,868"
+            ],
+            [
+              "Liabilities"
+            ],
+            [
+              "Current liabilities"
+            ],
+            [
+              "Short-term borrowings and current portion of long-term debt",
+              "$1,670",
+              "$1,919"
+            ],
+            [
+              "Accounts payable",
+              "2,702",
+              "2,660"
+            ],
+            [
+              "Accrued payroll",
+              "718",
+              "712"
+            ],
+            [
+              "Liabilities held for sale",
+              "55",
+              "—"
+            ],
+            [
+              "Other current liabilities",
+              "4,450",
+              "5,965"
+            ],
+            [
+              "Total current liabilities",
+              "9,595",
+              "11,256"
+            ],
+            [
+              "Long-term debt",
+              "10,932",
+              "11,125"
+            ],
+            [
+              "Pension and postretirement benefits",
+              "1,631",
+              "1,813"
+            ],
+            [
+              "Other liabilities",
+              "10,828",
+              "11,780"
+            ],
+            [
+              "Total liabilities",
+              "32,986",
+              "35,974"
+            ],
+            [
+              "Commitments and contingencies (Note 17)"
+            ],
+            [
+              "Equity"
+            ],
+            [
+              "3M Company shareholders’ equity:"
+            ],
+            [
+              "Common stock par value, $.01 per share; 944,033,056 shares issued",
+              "9",
+              "9"
+            ],
+            [
+              "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+            ],
+            [
+              "Additional paid-in capital",
+              "7,440",
+              "7,229"
+            ],
+            [
+              "Retained earnings",
+              "38,258",
+              "36,797"
+            ],
+            [
+              "Treasury stock, at cost",
+              "(35,936)",
+              "(34,462)"
+            ],
+            [
+              "Accumulated other comprehensive income (loss)",
+              "(5,069)",
+              "(5,731)"
+            ],
+            [
+              "Total 3M Company shareholders’ equity",
+              "4,702",
+              "3,842"
+            ],
+            [
+              "Noncontrolling interest",
+              "45",
+              "52"
+            ],
+            [
+              "Total equity",
+              "4,747",
+              "3,894"
+            ],
+            [
+              "Total liabilities and equity",
+              "$37,733",
+              "$39,868"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "source_evidence_id": "evidence_4786",
+          "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+          "score": 0.02736498731424429,
+          "rerank_score": 2.604295825958252,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 44,
+          "type": "text",
+          "content": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+          "bbox": [
+            45.14999811875,
+            619.1073960518556,
+            466.2550590847048,
+            626.3073957518557
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+          "source_evidence_id": "evidence_1346",
+          "text": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+          "score": 0.014925373134328358,
+          "rerank_score": 1.0894905090332032,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 45,
+          "type": "text",
+          "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+          "bbox": [
+            23.54999901875,
+            236.2820263047554,
+            556.6001417275967,
+            244.2800259115054
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "source_evidence_id": "evidence_1364",
+          "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+          "score": 0.0287391216352965,
+          "rerank_score": 0.9058241248130798,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 71,
+          "type": "text",
+          "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+          "bbox": [
+            23.54999901875,
+            196.08082797980137,
+            545.0986800719536,
+            204.07882758655137
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+          "source_evidence_id": "evidence_2081",
+          "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+          "score": 0.03055037313432836,
+          "rerank_score": 0.8568205237388611,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 35,
+          "type": "text",
+          "content": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+          "bbox": [
+            23.54999901875,
+            84.48203262975699,
+            418.560103264995,
+            92.48003223650699
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+          "source_evidence_id": "evidence_1135",
+          "text": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+          "score": 0.02758751902587519,
+          "rerank_score": 0.08799894154071808,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 71,
+          "type": "text",
+          "content": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+          "bbox": [
+            37.94999841875,
+            172.68082895480734,
+            571.1251116681196,
+            180.67882856155734
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+          "source_evidence_id": "evidence_2079",
+          "text": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+          "score": 0.02871794871794872,
+          "rerank_score": -0.1419525146484375,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Quarterly, annual or YTD periods do not match the claim.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.021845794392523363,
+            "rerank_score": 3.0129228591918946,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 44,
+            "type": "text",
+            "content": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+            "bbox": [
+              45.14999811875,
+              619.1073960518556,
+              466.2550590847048,
+              626.3073957518557
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "text": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 1.0894905090332032,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 45,
+            "type": "text",
+            "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "bbox": [
+              23.54999901875,
+              236.2820263047554,
+              556.6001417275967,
+              244.2800259115054
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "score": 0.0287391216352965,
+            "rerank_score": 0.9058241248130798,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "bbox": [
+              23.54999901875,
+              196.08082797980137,
+              545.0986800719536,
+              204.07882758655137
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "score": 0.03055037313432836,
+            "rerank_score": 0.8568205237388611,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+            "bbox": [
+              23.54999901875,
+              84.48203262975699,
+              418.560103264995,
+              92.48003223650699
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "text": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+            "score": 0.02758751902587519,
+            "rerank_score": 0.08799894154071808,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+            "bbox": [
+              37.94999841875,
+              172.68082895480734,
+              571.1251116681196,
+              180.67882856155734
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "text": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+            "score": 0.02871794871794872,
+            "rerank_score": -0.1419525146484375,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "table",
+            "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "bbox": [
+              23.549999018750004,
+              95.16407603483036,
+              587.5961293629807,
+              132.39131772693824
+            ],
+            "table_id": "table_34_1",
+            "headers": [
+              "Foreign subsidiaries",
+              "$3.5",
+              "$3.5"
+            ],
+            "rows": [
+              [
+                "United States",
+                "2.4",
+                "4.2"
+              ],
+              [
+                "Total cash, cash equivalents and marketable securities",
+                "$5.9",
+                "$7.7"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "score": 0.028474711270410194,
+            "rerank_score": 5.011805152893066,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "bbox": [
+              23.54999901875,
+              440.12021023308523,
+              587.2353413855183,
+              568.5795455399555
+            ],
+            "table_id": "table_59_3",
+            "headers": [
+              "Corporate debt",
+              "$ 302",
+              "$850"
+            ],
+            "rows": [
+              [
+                "Commercial paper",
+                "191",
+                "658"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209"
+              ],
+              [
+                "U.S. municipal securities",
+                "4",
+                "4"
+              ],
+              [
+                "Current marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "U.S. municipal securities",
+                "12",
+                "16"
+              ],
+              [
+                "Non-current marketable securities",
+                "12",
+                "16"
+              ],
+              [
+                "Total marketable securities",
+                "$ 710",
+                "$2,144"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "score": 0.030886196246139225,
+            "rerank_score": 3.860486125946045,
+            "annual_report_year_columns": true,
+            "metric_label": "Total marketable securities",
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "bbox": [
+              23.54999901875,
+              620.1605388658598,
+              587.2353413855183,
+              656.7835552427129
+            ],
+            "table_id": "table_59_4",
+            "headers": [
+              "Due in one year or less",
+              "$599"
+            ],
+            "rows": [
+              [
+                "Due after one year through five years",
+                "111"
+              ],
+              [
+                "Total marketable securities",
+                "$710"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "score": 0.015151515151515152,
+            "rerank_score": 2.864752769470215,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 42,
+            "type": "table",
+            "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "bbox": [
+              23.54999901875,
+              93.38477871766341,
+              587.4160912268078,
+              603.9807440649045
+            ],
+            "table_id": "table_42_1",
+            "headers": [
+              "Assets"
+            ],
+            "rows": [
+              [
+                "Current assets"
+              ],
+              [
+                "Cash and cash equivalents",
+                "$5,235",
+                "$5,600"
+              ],
+              [
+                "Marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "Accounts receivable — net of allowances of $61 and $60",
+                "3,533",
+                "3,194"
+              ],
+              [
+                "Inventories"
+              ],
+              [
+                "Finished goods",
+                "1,744",
+                "1,849"
+              ],
+              [
+                "Work in process",
+                "1,126",
+                "1,051"
+              ],
+              [
+                "Raw materials and supplies",
+                "791",
+                "798"
+              ],
+              [
+                "Total inventories",
+                "3,661",
+                "3,698"
+              ],
+              [
+                "Prepaids",
+                "391",
+                "493"
+              ],
+              [
+                "Assets held for sale",
+                "46",
+                "—"
+              ],
+              [
+                "Other current assets",
+                "2,823",
+                "771"
+              ],
+              [
+                "Total current assets",
+                "16,387",
+                "15,884"
+              ],
+              [
+                "Property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Less: accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment — net",
+                "7,101",
+                "7,388"
+              ],
+              [
+                "Goodwill",
+                "6,419",
+                "6,281"
+              ],
+              [
+                "Intangible assets — net",
+                "1,103",
+                "1,210"
+              ],
+              [
+                "Other assets",
+                "6,723",
+                "9,105"
+              ],
+              [
+                "Total assets",
+                "$37,733",
+                "$39,868"
+              ],
+              [
+                "Liabilities"
+              ],
+              [
+                "Current liabilities"
+              ],
+              [
+                "Short-term borrowings and current portion of long-term debt",
+                "$1,670",
+                "$1,919"
+              ],
+              [
+                "Accounts payable",
+                "2,702",
+                "2,660"
+              ],
+              [
+                "Accrued payroll",
+                "718",
+                "712"
+              ],
+              [
+                "Liabilities held for sale",
+                "55",
+                "—"
+              ],
+              [
+                "Other current liabilities",
+                "4,450",
+                "5,965"
+              ],
+              [
+                "Total current liabilities",
+                "9,595",
+                "11,256"
+              ],
+              [
+                "Long-term debt",
+                "10,932",
+                "11,125"
+              ],
+              [
+                "Pension and postretirement benefits",
+                "1,631",
+                "1,813"
+              ],
+              [
+                "Other liabilities",
+                "10,828",
+                "11,780"
+              ],
+              [
+                "Total liabilities",
+                "32,986",
+                "35,974"
+              ],
+              [
+                "Commitments and contingencies (Note 17)"
+              ],
+              [
+                "Equity"
+              ],
+              [
+                "3M Company shareholders’ equity:"
+              ],
+              [
+                "Common stock par value, $.01 per share; 944,033,056 shares issued",
+                "9",
+                "9"
+              ],
+              [
+                "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+              ],
+              [
+                "Additional paid-in capital",
+                "7,440",
+                "7,229"
+              ],
+              [
+                "Retained earnings",
+                "38,258",
+                "36,797"
+              ],
+              [
+                "Treasury stock, at cost",
+                "(35,936)",
+                "(34,462)"
+              ],
+              [
+                "Accumulated other comprehensive income (loss)",
+                "(5,069)",
+                "(5,731)"
+              ],
+              [
+                "Total 3M Company shareholders’ equity",
+                "4,702",
+                "3,842"
+              ],
+              [
+                "Noncontrolling interest",
+                "45",
+                "52"
+              ],
+              [
+                "Total equity",
+                "4,747",
+                "3,894"
+              ],
+              [
+                "Total liabilities and equity",
+                "$37,733",
+                "$39,868"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "score": 0.02736498731424429,
+            "rerank_score": 2.604295825958252,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "table",
+            "content": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "bbox": [
+              23.549999018750004,
+              95.16407603483036,
+              587.5961293629807,
+              132.39131772693824
+            ],
+            "table_id": "table_34_1",
+            "headers": [
+              "Foreign subsidiaries",
+              "$3.5",
+              "$3.5"
+            ],
+            "rows": [
+              [
+                "United States",
+                "2.4",
+                "4.2"
+              ],
+              [
+                "Total cash, cash equivalents and marketable securities",
+                "$5.9",
+                "$7.7"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Cash, cash equivalents and marketable securities: Cash, cash equivalents and marketable securities are invested in bank instruments and other high quality securities. The table below provides the breakout of the balance between the Company's foreign subsidiaries and the United States as of December 31, 2025 and December 31, 2024. (Billions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4782",
+            "text": "United States: 2025 2.4, 2024 4.2 | Total cash, cash equivalents and marketable securities: 2025 $5.9, 2024 $7.7",
+            "score": 0.028474711270410194,
+            "rerank_score": 5.011805152893066,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "bbox": [
+              23.54999901875,
+              440.12021023308523,
+              587.2353413855183,
+              568.5795455399555
+            ],
+            "table_id": "table_59_3",
+            "headers": [
+              "Corporate debt",
+              "$ 302",
+              "$850"
+            ],
+            "rows": [
+              [
+                "Commercial paper",
+                "191",
+                "658"
+              ],
+              [
+                "U.S. government and treasury securities",
+                "53",
+                "407"
+              ],
+              [
+                "Asset backed securities and certificates of/time deposits",
+                "148",
+                "209"
+              ],
+              [
+                "U.S. municipal securities",
+                "4",
+                "4"
+              ],
+              [
+                "Current marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "U.S. municipal securities",
+                "12",
+                "16"
+              ],
+              [
+                "Non-current marketable securities",
+                "12",
+                "16"
+              ],
+              [
+                "Total marketable securities",
+                "$ 710",
+                "$2,144"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Note 11. Marketable Securities The Company invests in certificates of deposit/time deposits, commercial paper, and other securities. The following is a summary of amounts recorded on the Consolidated Balance Sheet for marketable securities (current and non-current). (Millions) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4822",
+            "text": "Commercial paper: 2025 191, 2024 658 | U.S. government and treasury securities: 2025 53, 2024 407 | Asset backed securities and certificates of/time deposits: 2025 148, 2024 209 | U.S. municipal securities: 2025 4, 2024 4 | Current marketable securities: 2025 698, 2024 2,128 | U.S. municipal securities: 2025 12, 2024 16 | Non-current marketable securities: 2025 12, 2024 16 | Total marketable securities: 2025 $ 710, 2024 $2,144",
+            "score": 0.030886196246139225,
+            "rerank_score": 3.860486125946045,
+            "annual_report_year_columns": true,
+            "metric_label": "Total marketable securities",
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 59,
+            "type": "table",
+            "content": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "bbox": [
+              23.54999901875,
+              620.1605388658598,
+              587.2353413855183,
+              656.7835552427129
+            ],
+            "table_id": "table_59_4",
+            "headers": [
+              "Due in one year or less",
+              "$599"
+            ],
+            "rows": [
+              [
+                "Due after one year through five years",
+                "111"
+              ],
+              [
+                "Total marketable securities",
+                "$710"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "At December 31, 2025 and 2024, gross unrealized, gross realized, and net realized gains and/or losses (pre-tax) were not material. The balances at December 31, 2025 for marketable securities by contractual maturity are shown below. Actual maturities may differ from contractual maturities because the issuers of the securities may have the right to prepay obligations without prepayment penalties. (Millions)"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4823",
+            "text": "Due after one year through five years: 2025 111 | Total marketable securities: 2025 $710",
+            "score": 0.015151515151515152,
+            "rerank_score": 2.864752769470215,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 42,
+            "type": "table",
+            "content": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "bbox": [
+              23.54999901875,
+              93.38477871766341,
+              587.4160912268078,
+              603.9807440649045
+            ],
+            "table_id": "table_42_1",
+            "headers": [
+              "Assets"
+            ],
+            "rows": [
+              [
+                "Current assets"
+              ],
+              [
+                "Cash and cash equivalents",
+                "$5,235",
+                "$5,600"
+              ],
+              [
+                "Marketable securities",
+                "698",
+                "2,128"
+              ],
+              [
+                "Accounts receivable — net of allowances of $61 and $60",
+                "3,533",
+                "3,194"
+              ],
+              [
+                "Inventories"
+              ],
+              [
+                "Finished goods",
+                "1,744",
+                "1,849"
+              ],
+              [
+                "Work in process",
+                "1,126",
+                "1,051"
+              ],
+              [
+                "Raw materials and supplies",
+                "791",
+                "798"
+              ],
+              [
+                "Total inventories",
+                "3,661",
+                "3,698"
+              ],
+              [
+                "Prepaids",
+                "391",
+                "493"
+              ],
+              [
+                "Assets held for sale",
+                "46",
+                "—"
+              ],
+              [
+                "Other current assets",
+                "2,823",
+                "771"
+              ],
+              [
+                "Total current assets",
+                "16,387",
+                "15,884"
+              ],
+              [
+                "Property, plant and equipment",
+                "23,922",
+                "23,406"
+              ],
+              [
+                "Less: accumulated depreciation",
+                "(16,821)",
+                "(16,018)"
+              ],
+              [
+                "Property, plant and equipment — net",
+                "7,101",
+                "7,388"
+              ],
+              [
+                "Goodwill",
+                "6,419",
+                "6,281"
+              ],
+              [
+                "Intangible assets — net",
+                "1,103",
+                "1,210"
+              ],
+              [
+                "Other assets",
+                "6,723",
+                "9,105"
+              ],
+              [
+                "Total assets",
+                "$37,733",
+                "$39,868"
+              ],
+              [
+                "Liabilities"
+              ],
+              [
+                "Current liabilities"
+              ],
+              [
+                "Short-term borrowings and current portion of long-term debt",
+                "$1,670",
+                "$1,919"
+              ],
+              [
+                "Accounts payable",
+                "2,702",
+                "2,660"
+              ],
+              [
+                "Accrued payroll",
+                "718",
+                "712"
+              ],
+              [
+                "Liabilities held for sale",
+                "55",
+                "—"
+              ],
+              [
+                "Other current liabilities",
+                "4,450",
+                "5,965"
+              ],
+              [
+                "Total current liabilities",
+                "9,595",
+                "11,256"
+              ],
+              [
+                "Long-term debt",
+                "10,932",
+                "11,125"
+              ],
+              [
+                "Pension and postretirement benefits",
+                "1,631",
+                "1,813"
+              ],
+              [
+                "Other liabilities",
+                "10,828",
+                "11,780"
+              ],
+              [
+                "Total liabilities",
+                "32,986",
+                "35,974"
+              ],
+              [
+                "Commitments and contingencies (Note 17)"
+              ],
+              [
+                "Equity"
+              ],
+              [
+                "3M Company shareholders’ equity:"
+              ],
+              [
+                "Common stock par value, $.01 per share; 944,033,056 shares issued",
+                "9",
+                "9"
+              ],
+              [
+                "Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303"
+              ],
+              [
+                "Additional paid-in capital",
+                "7,440",
+                "7,229"
+              ],
+              [
+                "Retained earnings",
+                "38,258",
+                "36,797"
+              ],
+              [
+                "Treasury stock, at cost",
+                "(35,936)",
+                "(34,462)"
+              ],
+              [
+                "Accumulated other comprehensive income (loss)",
+                "(5,069)",
+                "(5,731)"
+              ],
+              [
+                "Total 3M Company shareholders’ equity",
+                "4,702",
+                "3,842"
+              ],
+              [
+                "Noncontrolling interest",
+                "45",
+                "52"
+              ],
+              [
+                "Total equity",
+                "4,747",
+                "3,894"
+              ],
+              [
+                "Total liabilities and equity",
+                "$37,733",
+                "$39,868"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "(Dollars in millions, except per share amount) December 31, 2025 December 31, 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4786",
+            "text": "Current assets:  | Cash and cash equivalents: 2025 $5,235, 2024 $5,600 | Marketable securities: 2025 698, 2024 2,128 | Accounts receivable — net of allowances of $61 and $60: 2025 3,533, 2024 3,194 | Inventories:  | Finished goods: 2025 1,744, 2024 1,849 | Work in process: 2025 1,126, 2024 1,051 | Raw materials and supplies: 2025 791, 2024 798 | Total inventories: 2025 3,661, 2024 3,698 | Prepaids: 2025 391, 2024 493 | Assets held for sale: 2025 46, 2024 — | Other current assets: 2025 2,823, 2024 771 | Total current assets: 2025 16,387, 2024 15,884 | Property, plant and equipment: 2025 23,922, 2024 23,406 | Less: accumulated depreciation: 2025 (16,821), 2024 (16,018) | Property, plant and equipment — net: 2025 7,101, 2024 7,388 | Goodwill: 2025 6,419, 2024 6,281 | Intangible assets — net: 2025 1,103, 2024 1,210 | Other assets: 2025 6,723, 2024 9,105 | Total assets: 2025 $37,733, 2024 $39,868 | Liabilities:  | Current liabilities:  | Short-term borrowings and current portion of long-term debt: 2025 $1,670, 2024 $1,919 | Accounts payable: 2025 2,702, 2024 2,660 | Accrued payroll: 2025 718, 2024 712 | Liabilities held for sale: 2025 55, 2024 — | Other current liabilities: 2025 4,450, 2024 5,965 | Total current liabilities: 2025 9,595, 2024 11,256 | Long-term debt: 2025 10,932, 2024 11,125 | Pension and postretirement benefits: 2025 1,631, 2024 1,813 | Other liabilities: 2025 10,828, 2024 11,780 | Total liabilities: 2025 32,986, 2024 35,974 | Commitments and contingencies (Note 17):  | Equity:  | 3M Company shareholders’ equity::  | Common stock par value, $.01 per share; 944,033,056 shares issued: 2025 9, 2024 9 | Shares outstanding - December 31, 2025: 530,279,131 December 31, 2024: 539,470,303:  | Additional paid-in capital: 2025 7,440, 2024 7,229 | Retained earnings: 2025 38,258, 2024 36,797 | Treasury stock, at cost: 2025 (35,936), 2024 (34,462) | Accumulated other comprehensive income (loss): 2025 (5,069), 2024 (5,731) | Total 3M Company shareholders’ equity: 2025 4,702, 2024 3,842 | Noncontrolling interest: 2025 45, 2024 52 | Total equity: 2025 4,747, 2024 3,894 | Total liabilities and equity: 2025 $37,733, 2024 $39,868",
+            "score": 0.02736498731424429,
+            "rerank_score": 2.604295825958252,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.021845794392523363,
+            "rerank_score": 3.0129228591918946,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 44,
+            "type": "text",
+            "content": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+            "bbox": [
+              45.14999811875,
+              619.1073960518556,
+              466.2550590847048,
+              626.3073957518557
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1346",
+            "text": "through its April 2024 separation from 3M that were presented in current assets of discontinued operations in the 3M Consolidated Balance Sheet.",
+            "score": 0.014925373134328358,
+            "rerank_score": 1.0894905090332032,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 45,
+            "type": "text",
+            "content": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "bbox": [
+              23.54999901875,
+              236.2820263047554,
+              556.6001417275967,
+              244.2800259115054
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1364",
+            "text": "Investments: 3M invests in both marketable and equity securities. These securities are classified as current or non-current based on their availability for use in current",
+            "score": 0.0287391216352965,
+            "rerank_score": 0.9058241248130798,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "bbox": [
+              23.54999901875,
+              196.08082797980137,
+              545.0986800719536,
+              204.07882758655137
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2081",
+            "text": "• Available-for-sale marketable securities —certain U.S. municipal securities only: 3M holds municipal securities with several cities in the United States as of",
+            "score": 0.03055037313432836,
+            "rerank_score": 0.8568205237388611,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 35,
+            "type": "text",
+            "content": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+            "bbox": [
+              23.54999901875,
+              84.48203262975699,
+              418.560103264995,
+              92.48003223650699
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1135",
+            "text": "interest in Solventum Corporation. Refer to Note 11 for more details about 3M’s diversified marketable securities portfolio.",
+            "score": 0.02758751902587519,
+            "rerank_score": 0.08799894154071808,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 71,
+            "type": "text",
+            "content": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+            "bbox": [
+              37.94999841875,
+              172.68082895480734,
+              571.1251116681196,
+              180.67882856155734
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2079",
+            "text": "determine the daily fair value to be used. 3M classifies U.S. government and treasury securities as level 1, while all other marketable securities (excluding certain U.S.",
+            "score": 0.02871794871794872,
+            "rerank_score": -0.1419525146484375,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4782",
+          "0000066740-26-000014-56e1ef4130::evidence_4822",
+          "0000066740-26-000014-56e1ef4130::evidence_4823",
+          "0000066740-26-000014-56e1ef4130::evidence_4786",
+          "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "0000066740-26-000014-56e1ef4130::evidence_1346",
+          "0000066740-26-000014-56e1ef4130::evidence_1364",
+          "0000066740-26-000014-56e1ef4130::evidence_2081",
+          "0000066740-26-000014-56e1ef4130::evidence_1135",
+          "0000066740-26-000014-56e1ef4130::evidence_2079"
+        ],
+        "pages": [
+          34,
+          35,
+          42,
+          44,
+          45,
+          58,
+          59,
+          71
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Quarterly, annual or YTD periods do not match the claim.",
+      "reporting_period": "2024",
+      "original_claim": "3M's total marketable securities decreased to $710 million in 2025 from $2,144 million in 2024.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 85.96713730000192,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T18:49:32.695369+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793126973-Cyj3Rejy5TY2fsOVbSXu",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 435,
+            "completion_tokens": 2856,
+            "total_tokens": 3291,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2299,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 32.5
+        },
+        {
+          "time": "2026-10-27T18:50:07.286419+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127008-Kd1RP3HP3dxDouNNnMgE",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 8358,
+            "completion_tokens": 3106,
+            "total_tokens": 11464,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 2329,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 33.634
+        },
+        {
+          "time": "2026-10-27T18:50:43.142893+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127044-LKiwSyXkpm5JnAGeMqKV",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 6461,
+            "completion_tokens": 1205,
+            "total_tokens": 7666,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 816,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.513
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "b05f23ec0675597c96488cdde1ce72c6169d21fdc7c154f380d296ce16884d2d"
+}

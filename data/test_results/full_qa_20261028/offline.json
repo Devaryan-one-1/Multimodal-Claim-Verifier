@@ -1,0 +1,240 @@
+{
+  "tests": [
+    {
+      "name": "growth",
+      "actual": 10.0,
+      "expected": 10,
+      "pass": true,
+      "detail": {
+        "value": 10.0,
+        "formula": "(new - old)/old*100",
+        "inputs": {
+          "old": 100.0,
+          "new": 110.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "absolute",
+      "actual": -15.0,
+      "expected": -15,
+      "pass": true,
+      "detail": {
+        "value": -15.0,
+        "formula": "new - old",
+        "inputs": {
+          "old": 407.0,
+          "new": 392.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "margin",
+      "actual": 20.0,
+      "expected": 20,
+      "pass": true,
+      "detail": {
+        "value": 20.0,
+        "formula": "profit / revenue * 100",
+        "inputs": {
+          "profit": 20.0,
+          "revenue": 100.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "cagr_two_year_span",
+      "actual": 10.000000000000009,
+      "expected": 10,
+      "pass": true,
+      "detail": {
+        "value": 10.000000000000009,
+        "formula": "(ending/beginning)^(1/years)-1",
+        "inputs": {
+          "beginning": 100.0,
+          "ending": 121.0,
+          "years": 2.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "percentage_points",
+      "actual": 5.0,
+      "expected": 5,
+      "pass": true,
+      "detail": {
+        "value": 5.0,
+        "formula": "new_margin - old_margin",
+        "inputs": {
+          "old_margin": 20.0,
+          "new_margin": 25.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "millions_billions",
+      "actual": 100000000.0,
+      "expected": 100000000,
+      "pass": true,
+      "detail": {
+        "value": 100000000.0,
+        "formula": "new - old",
+        "inputs": {
+          "old": 1000000000.0,
+          "new": 1100000000.0
+        },
+        "note": null
+      }
+    },
+    {
+      "name": "zero",
+      "actual": null,
+      "expected": null,
+      "pass": true,
+      "detail": {
+        "value": null,
+        "formula": "(new - old)/old*100",
+        "inputs": {
+          "old": 0.0,
+          "new": 10.0
+        },
+        "note": "Relative percentage growth is undefined for a zero baseline."
+      }
+    },
+    {
+      "name": "negative",
+      "actual": null,
+      "expected": null,
+      "pass": true,
+      "detail": {
+        "value": null,
+        "formula": "(new - old)/old*100",
+        "inputs": {
+          "old": -10.0,
+          "new": 10.0
+        },
+        "note": "A negative baseline requires an explicit comparison convention."
+      }
+    },
+    {
+      "name": "currency_retained_EUR 10 million",
+      "parsed": {
+        "value": 10000000.0,
+        "currency": "EUR",
+        "kind": "number",
+        "unit": "EUR",
+        "scale": 1000000,
+        "precision": 0,
+        "raw": "EUR 10 million",
+        "unit_context": ""
+      },
+      "note": null,
+      "pass": true
+    },
+    {
+      "name": "currency_retained_USD 10 million",
+      "parsed": {
+        "value": 10000000.0,
+        "currency": "USD",
+        "kind": "number",
+        "unit": "USD",
+        "scale": 1000000,
+        "precision": 0,
+        "raw": "USD 10 million",
+        "unit_context": ""
+      },
+      "note": null,
+      "pass": true
+    },
+    {
+      "name": "currency_retained_GBP 3 billion",
+      "parsed": {
+        "value": 3000000000.0,
+        "currency": "GBP",
+        "kind": "number",
+        "unit": "GBP",
+        "scale": 1000000000,
+        "precision": 0,
+        "raw": "GBP 3 billion",
+        "unit_context": ""
+      },
+      "note": null,
+      "pass": true
+    },
+    {
+      "name": "quarterly_vs_annual",
+      "pass": true,
+      "reason": "Quarterly, annual or YTD periods do not match the claim."
+    },
+    {
+      "name": "wrong_year",
+      "pass": true,
+      "reason": "Selected cell belongs to a different year."
+    },
+    {
+      "name": "invented_cell",
+      "pass": true,
+      "reason": "Invalid table cell address."
+    },
+    {
+      "name": "pause_429",
+      "pass": true,
+      "pause": {
+        "kind": "rate_limit_or_cooldown",
+        "reason": "rate limit exceeded rate limit exceeded",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available."
+      }
+    },
+    {
+      "name": "pause_daily",
+      "pass": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "daily quota exhausted daily quota exhausted",
+        "retry_after_seconds": null,
+        "reset_at": null,
+        "action": "Successful predictions were saved. Resume explicitly when quota is available."
+      }
+    },
+    {
+      "name": "pause_402",
+      "pass": false,
+      "pause": null
+    },
+    {
+      "name": "coordinate_highlight",
+      "pass": true,
+      "changed_box": [
+        47,
+        1050,
+        1175,
+        1100
+      ]
+    },
+    {
+      "name": "malformed_table_skipped",
+      "pass": true,
+      "warnings": [
+        "Malformed or empty table skipped on page 1; inspect the source page."
+      ]
+    }
+  ],
+  "passed": 18,
+  "failed": 1,
+  "evidence_types": {
+    "chart": 1,
+    "text": 4647,
+    "caption": 109,
+    "table": 115
+  },
+  "empty_chart_ids": [
+    "evidence_001"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "document_id": "qa_scanned",
+  "evidence": [
+    {
+      "id": "evidence_001",
+      "document_id": "qa_scanned",
+      "page": 1,
+      "type": "chart",
+      "content": "",
+      "bbox": [
+        40.0,
+        117.5,
+        570.0,
+        382.5
+      ]
+    }
+  ]
+}

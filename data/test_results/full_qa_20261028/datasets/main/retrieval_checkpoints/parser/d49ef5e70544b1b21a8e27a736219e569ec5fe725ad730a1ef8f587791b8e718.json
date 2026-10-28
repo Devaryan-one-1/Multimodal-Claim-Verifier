@@ -1,0 +1,135 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "services/model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+        "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+      },
+      "dependencies": {
+        "google-genai": "2.22.0",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "pydantic": "2.13.5"
+      },
+      "routing": {
+        "allow_fallbacks": false,
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "gateway_version": 2,
+        "max_output_tokens": 8192,
+        "openrouter_base_url": "https://openrouter.ai/api/v1",
+        "provider": "openrouter",
+        "schema_policy": "strict JSON Schema plus local validation",
+        "send_temperature": false,
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "timeout_seconds": 120.0,
+        "vision_fallbacks": [],
+        "vision_model": ""
+      }
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "In 2025, 3M option holders exercised 10,871,000 stock options with a weighted average exercise price of $139.29."
+    },
+    "schema_version": 1,
+    "stage": "parser"
+  },
+  "payload": {
+    "claims": [
+      {
+        "claim_text": "In 2025, 3M option holders exercised 10,871,000 stock options.",
+        "company": "3M",
+        "subject": "3M option holders",
+        "metric": "number of stock options exercised",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "10,871,000",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "number",
+        "claim_type": "assertion",
+        "notes": [
+          "Subject is '3M option holders', company is 3M.",
+          "Period is annual year 2025."
+        ],
+        "change_type": "decline"
+      },
+      {
+        "claim_text": "The weighted average exercise price of the exercised stock options was $139.29.",
+        "company": "3M",
+        "subject": "3M exercised stock options",
+        "metric": "weighted average exercise price of exercised stock options",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$139.29",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "Associated with the stock options exercised in 2025 by 3M option holders.",
+          "Value is in USD ($)."
+        ],
+        "change_type": "decline"
+      }
+    ],
+    "model_calls": [
+      {
+        "time": "2026-10-22T17:36:05.803848+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "dots-studio/dots-3-note-preview:free",
+        "actual_model": "dots-studio/dots-3-note-preview:free",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "AtlasCloud",
+        "request_id": "gen-1792690565-CAO8Zw0tBT6Q1Mzt8k99",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 336,
+          "completion_tokens": 1404,
+          "total_tokens": 1740,
+          "cost": 0,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0,
+            "upstream_inference_completions_cost": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 886,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 16.478
+      }
+    ]
+  },
+  "payload_sha256": "b59e954c2b29c9bd501c3c25a772f8ac4e06c4ae70554e645a61811b2c5870d9",
+  "created_at": "2026-10-22T17:36:22.283314+00:00"
+}

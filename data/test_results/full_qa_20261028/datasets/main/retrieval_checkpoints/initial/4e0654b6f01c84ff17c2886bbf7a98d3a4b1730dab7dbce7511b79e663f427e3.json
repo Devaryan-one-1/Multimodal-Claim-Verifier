@@ -1,0 +1,290 @@
+{
+  "identity": {
+    "configuration": {
+      "candidate_depth": 20,
+      "chunk_file_checksums": {
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\chunks.json": "2cee87d94f097ed9584ece9675421660f34f415de4bd0843ec0f5c149cf8fbfe"
+      },
+      "code_hashes": {
+        "evaluation/retrieval_evaluation.py": "59abce3d7fad1c1f14b41010ca85266b25f06def31f2ae912188c02d7e715964",
+        "retrieval/embeddings.py": "ef795d6fec213ef461a8c0c367cd02fbbddf8ba078eb1b68690e0b315d3d9b6c",
+        "retrieval/vector_store.py": "199d3e3549f17558846261e59f5ef231275e83f2e29b96f6f3151bcf611749d2",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485"
+      },
+      "dependencies": {
+        "chromadb": "1.5.9",
+        "google-genai": "2.22.0",
+        "rank-bm25": "0.2.2"
+      },
+      "embedding_dimensions": 768,
+      "embedding_model": "gemini-embedding-001",
+      "hybrid_candidate_pool": 50,
+      "index_file_checksums": {
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\index.json": "3061733ebd1ab995b5176f548ab7d4882007efe08b5d46194cd58cecad991b84"
+      },
+      "index_metadata_signatures": {
+        "0000066740-26-000014-56e1ef4130": "81be62f4a4dd242b716cb927f2f87bae06a81d1f216f289c8801b96f86db1d7d"
+      },
+      "normalization": "l2",
+      "query_task_type": "RETRIEVAL_QUERY",
+      "reviewed_source_hashes": {
+        "data\\documents\\0000066740-26-000014-56e1ef4130\\original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+        "data\\processed\\0000066740-26-000014-56e1ef4130\\evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04"
+      },
+      "rrf_k": 60,
+      "vector_collection": "evidence_v2_4251d7d3a135"
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "3M's net property, plant, and equipment in the Americas was $5,123 thousand as of December 31, 2025."
+    },
+    "schema_version": 1,
+    "stage": "initial"
+  },
+  "payload": {
+    "ranked_hits": [
+      {
+        "rank": 1,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_915::0::17c1bf8de9cc",
+        "source_evidence_id": "evidence_915",
+        "type": "text",
+        "page": 28,
+        "score": 0.031746031746031744,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 2,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3202::0::11d4067bbfcd",
+        "source_evidence_id": "evidence_3202",
+        "type": "text",
+        "page": 102,
+        "score": 0.031054405392392875,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 3,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4789::0::d1816f489ec0",
+        "source_evidence_id": "evidence_4789",
+        "type": "table",
+        "page": 46,
+        "score": 0.030776515151515152,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 4,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3203::0::aca09e73314d",
+        "source_evidence_id": "evidence_3203",
+        "type": "text",
+        "page": 102,
+        "score": 0.030090497737556562,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 5,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_911::0::0ee72e80d38d",
+        "source_evidence_id": "evidence_911",
+        "type": "text",
+        "page": 28,
+        "score": 0.029551337359792925,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 6,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1622::0::b897ef3bab00",
+        "source_evidence_id": "evidence_1622",
+        "type": "text",
+        "page": 54,
+        "score": 0.026262626262626265,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 7,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1092::0::d1798c1ac7bf",
+        "source_evidence_id": "evidence_1092",
+        "type": "text",
+        "page": 33,
+        "score": 0.02485334979932078,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 8,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2102::0::4d0feb3aa6a9",
+        "source_evidence_id": "evidence_2102",
+        "type": "text",
+        "page": 72,
+        "score": 0.02456928838951311,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 9,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1104::0::3c3667ddf3c3",
+        "source_evidence_id": "evidence_1104",
+        "type": "text",
+        "page": 34,
+        "score": 0.02340736800106397,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 10,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1038::0::21a3b8f72f8e",
+        "source_evidence_id": "evidence_1038",
+        "type": "text",
+        "page": 32,
+        "score": 0.023063200815494393,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 11,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1759::0::479450f70f49",
+        "source_evidence_id": "evidence_1759",
+        "type": "text",
+        "page": 60,
+        "score": 0.02230392156862745,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 12,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1635::0::16c1089fe712",
+        "source_evidence_id": "evidence_1635",
+        "type": "text",
+        "page": 55,
+        "score": 0.02098901098901099,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 13,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4786::0::8f1b8bac7e8f",
+        "source_evidence_id": "evidence_4786",
+        "type": "table",
+        "page": 42,
+        "score": 0.01639344262295082,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 14,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1380::0::b7f65bb643df",
+        "source_evidence_id": "evidence_1380",
+        "type": "text",
+        "page": 46,
+        "score": 0.016129032258064516,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 15,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1129::0::937971d68c2a",
+        "source_evidence_id": "evidence_1129",
+        "type": "text",
+        "page": 34,
+        "score": 0.015625,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 16,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3061::0::16bc3b315f3e",
+        "source_evidence_id": "evidence_3061",
+        "type": "text",
+        "page": 96,
+        "score": 0.015384615384615385,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 17,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1051::0::886507eca0bd",
+        "source_evidence_id": "evidence_1051",
+        "type": "text",
+        "page": 32,
+        "score": 0.014925373134328358,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 18,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3232::0::469e891f6511",
+        "source_evidence_id": "evidence_3232",
+        "type": "text",
+        "page": 103,
+        "score": 0.014705882352941176,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 19,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1383::0::7c4c5464681f",
+        "source_evidence_id": "evidence_1383",
+        "type": "text",
+        "page": 46,
+        "score": 0.014492753623188406,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 20,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_3216::0::d612efc6dc83",
+        "source_evidence_id": "evidence_3216",
+        "type": "text",
+        "page": 103,
+        "score": 0.014492753623188406,
+        "rerank_score": null,
+        "injected_table": false,
+        "source_identity_resolved": true
+      }
+    ]
+  },
+  "payload_sha256": "f655885b6045557843965941afb4f9c55562236efc0ae10dae14a120bc567459",
+  "created_at": "2026-10-21T11:14:56.335195+00:00"
+}

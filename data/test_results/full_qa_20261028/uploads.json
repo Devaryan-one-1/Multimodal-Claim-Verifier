@@ -1,0 +1,254 @@
+{
+  "rows": [
+    {
+      "name": "invalid",
+      "status": "error",
+      "error": "The uploaded PDF cannot be opened. Check that it is a valid, undamaged PDF.",
+      "kind": "InvalidPDFError",
+      "persisted": {},
+      "index_exists": false
+    },
+    {
+      "name": "encrypted",
+      "status": "error",
+      "error": "This PDF is password protected. Upload an unlocked copy.",
+      "kind": "InvalidPDFError",
+      "persisted": {},
+      "index_exists": false
+    },
+    {
+      "name": "text_only",
+      "returned": {
+        "document_id": "qa_text_only",
+        "filename": "text_only.pdf",
+        "company_name": "",
+        "pdf_path": "data\\documents\\qa_text_only\\original.pdf",
+        "pdf_sha256": "78a435584bbab2ee0b6285cb22afed25df7bec15924bdd9dcc4c8d56f1e6f808",
+        "fingerprint": "78a435584bbab2ee0b6285cb22afed25df7bec15924bdd9dcc4c8d56f1e6f808",
+        "size_bytes": 1038,
+        "profile": "dashboard-v1",
+        "options": {
+          "ocr": false,
+          "chart_mode": "off",
+          "visual_limit": 20
+        },
+        "status": "ready",
+        "warnings": [
+          "No structured tables extracted; text, OCR and visual evidence may still be available.",
+          "Chart detection was disabled."
+        ],
+        "extraction_model_configuration": {
+          "provider": "openrouter",
+          "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "vision_model": "",
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "vision_fallbacks": [],
+          "allow_fallbacks": true,
+          "timeout_seconds": 120.0,
+          "max_output_tokens": 8192,
+          "send_temperature": false,
+          "gateway_version": 2,
+          "schema_policy": "strict JSON Schema plus local validation",
+          "openrouter_base_url": "https://openrouter.ai/api/v1"
+        },
+        "page_count": 1,
+        "metadata": {
+          "title": null,
+          "author": null,
+          "subject": null,
+          "creator": null,
+          "producer": null
+        },
+        "text_page_count": 1,
+        "text_extracted": true,
+        "table_count": 0,
+        "chart_count": 0,
+        "ocr_page_count": 0,
+        "evidence_count": 1,
+        "chunk_count": 1,
+        "visual_pages_scanned": 0,
+        "processing_time_seconds": 2.1312268000037875
+      },
+      "status": "ready"
+    },
+    {
+      "name": "scanned",
+      "status": "error",
+      "error": "No usable evidence was extracted. Check the PDF and OCR coverage before indexing.",
+      "kind": "NoUsableEvidenceError",
+      "persisted": {
+        "document_id": "qa_scanned",
+        "filename": "scanned.pdf",
+        "company_name": "",
+        "pdf_path": "data\\documents\\qa_scanned\\original.pdf",
+        "pdf_sha256": "04de26b0a9296bf93f7862d29283b68d3d14885c30fe22a9401e0606fbaf1f7d",
+        "fingerprint": "04de26b0a9296bf93f7862d29283b68d3d14885c30fe22a9401e0606fbaf1f7d",
+        "size_bytes": 2163572,
+        "profile": "dashboard-v1",
+        "options": {
+          "ocr": true,
+          "chart_mode": "off",
+          "visual_limit": 20
+        },
+        "status": "error",
+        "warnings": [
+          "No structured tables extracted; text, OCR and visual evidence may still be available.",
+          "No native PDF text was extracted; verification depends on successful OCR or visual extraction.",
+          "OCR unavailable on page 1: All configured OCR providers failed or returned insufficient text.",
+          "Chart detection was disabled."
+        ],
+        "extraction_model_configuration": {
+          "provider": "openrouter",
+          "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "vision_model": "",
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "vision_fallbacks": [],
+          "allow_fallbacks": true,
+          "timeout_seconds": 120.0,
+          "max_output_tokens": 8192,
+          "send_temperature": false,
+          "gateway_version": 2,
+          "schema_policy": "strict JSON Schema plus local validation",
+          "openrouter_base_url": "https://openrouter.ai/api/v1"
+        },
+        "page_count": 1,
+        "metadata": {
+          "title": null,
+          "author": null,
+          "subject": null,
+          "creator": null,
+          "producer": null
+        },
+        "text_page_count": 0,
+        "error": "No usable evidence was extracted. Check the PDF and OCR coverage before indexing.",
+        "error_kind": "NoUsableEvidenceError",
+        "error_stage": "evidence"
+      },
+      "index_exists": false
+    },
+    {
+      "name": "blank",
+      "status": "error",
+      "error": "No usable evidence was extracted. Check the PDF and OCR coverage before indexing.",
+      "kind": "NoUsableEvidenceError",
+      "persisted": {
+        "document_id": "qa_blank",
+        "filename": "blank.pdf",
+        "company_name": "",
+        "pdf_path": "data\\documents\\qa_blank\\original.pdf",
+        "pdf_sha256": "bbe866b98c3cd047fa946c41b03dd0e8f9df8d336aa56a99b3cd61e136342845",
+        "fingerprint": "bbe866b98c3cd047fa946c41b03dd0e8f9df8d336aa56a99b3cd61e136342845",
+        "size_bytes": 518,
+        "profile": "dashboard-v1",
+        "options": {
+          "ocr": false,
+          "chart_mode": "off",
+          "visual_limit": 20
+        },
+        "status": "error",
+        "warnings": [
+          "No structured tables extracted; text, OCR and visual evidence may still be available.",
+          "No native PDF text was extracted; verification depends on successful OCR or visual extraction.",
+          "OCR disabled: 1 weak-text pages were not transcribed.",
+          "Chart detection was disabled."
+        ],
+        "extraction_model_configuration": {
+          "provider": "openrouter",
+          "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "vision_model": "",
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "vision_fallbacks": [],
+          "allow_fallbacks": true,
+          "timeout_seconds": 120.0,
+          "max_output_tokens": 8192,
+          "send_temperature": false,
+          "gateway_version": 2,
+          "schema_policy": "strict JSON Schema plus local validation",
+          "openrouter_base_url": "https://openrouter.ai/api/v1"
+        },
+        "page_count": 1,
+        "metadata": {
+          "title": null,
+          "author": null,
+          "subject": null,
+          "creator": null,
+          "producer": null
+        },
+        "text_page_count": 0,
+        "error": "No usable evidence was extracted. Check the PDF and OCR coverage before indexing.",
+        "error_kind": "NoUsableEvidenceError",
+        "error_stage": "evidence"
+      },
+      "index_exists": false
+    },
+    {
+      "name": "difficult_table",
+      "returned": {
+        "document_id": "qa_difficult_table",
+        "filename": "difficult_table.pdf",
+        "company_name": "",
+        "pdf_path": "data\\documents\\qa_difficult_table\\original.pdf",
+        "pdf_sha256": "a3862d6648b9e2a745665163cf338bd577aba5a9b8c684d58078aeddd5e99b7b",
+        "fingerprint": "a3862d6648b9e2a745665163cf338bd577aba5a9b8c684d58078aeddd5e99b7b",
+        "size_bytes": 2227,
+        "profile": "dashboard-v1",
+        "options": {
+          "ocr": false,
+          "chart_mode": "off",
+          "visual_limit": 20
+        },
+        "status": "ready",
+        "warnings": [
+          "No structured tables extracted; text, OCR and visual evidence may still be available.",
+          "Chart detection was disabled."
+        ],
+        "extraction_model_configuration": {
+          "provider": "openrouter",
+          "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "vision_model": "",
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "vision_fallbacks": [],
+          "allow_fallbacks": true,
+          "timeout_seconds": 120.0,
+          "max_output_tokens": 8192,
+          "send_temperature": false,
+          "gateway_version": 2,
+          "schema_policy": "strict JSON Schema plus local validation",
+          "openrouter_base_url": "https://openrouter.ai/api/v1"
+        },
+        "page_count": 1,
+        "metadata": {
+          "title": null,
+          "author": null,
+          "subject": null,
+          "creator": null,
+          "producer": null
+        },
+        "text_page_count": 1,
+        "text_extracted": true,
+        "table_count": 0,
+        "chart_count": 0,
+        "ocr_page_count": 0,
+        "evidence_count": 2,
+        "chunk_count": 2,
+        "visual_pages_scanned": 0,
+        "processing_time_seconds": 0.9114852999919094
+      },
+      "status": "ready"
+    }
+  ],
+  "isolated_workspace": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\extraction_workspace",
+  "note": "Full real pipeline, including providers; no mock embeddings."
+}

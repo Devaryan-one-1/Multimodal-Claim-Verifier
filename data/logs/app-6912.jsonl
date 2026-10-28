@@ -1,0 +1,16 @@
+{"timestamp": "2026-10-28T17:08:30.911283+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "6b9cd35af82e4809814ba04be2a237d2"}
+{"timestamp": "2026-10-28T17:08:30.911796+00:00", "level": "INFO", "event": "claim_received", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "claim_length": 80, "document_count": 2}
+{"timestamp": "2026-10-28T17:08:57.794935+00:00", "level": "INFO", "event": "llm_called", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "provider": null, "model": null, "task": "text", "status": "ok", "elapsed_ms": null}
+{"timestamp": "2026-10-28T17:08:59.976847+00:00", "level": "INFO", "event": "evidence_retrieved", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "count": 20, "stage": "initial"}
+{"timestamp": "2026-10-28T17:09:04.359023+00:00", "level": "INFO", "event": "evidence_retrieved", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "count": 10, "stage": "resolved"}
+{"timestamp": "2026-10-28T17:09:30.834325+00:00", "level": "INFO", "event": "llm_called", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "provider": null, "model": null, "task": "text", "status": "ok", "elapsed_ms": null}
+{"timestamp": "2026-10-28T17:09:30.835844+00:00", "level": "INFO", "event": "calculation_unavailable", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "available": false, "operation": "direction"}
+{"timestamp": "2026-10-28T17:09:30.836625+00:00", "level": "INFO", "event": "verdict_generated", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "status": "complete", "verdict": "UNKNOWN", "error_kind": null, "stage": null}
+{"timestamp": "2026-10-28T17:09:32.185266+00:00", "level": "INFO", "event": "evidence_retrieved", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "count": 20, "stage": "initial"}
+{"timestamp": "2026-10-28T17:09:32.328048+00:00", "level": "INFO", "event": "evidence_retrieved", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "count": 10, "stage": "resolved"}
+{"timestamp": "2026-10-28T17:09:49.407555+00:00", "level": "INFO", "event": "llm_called", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "provider": null, "model": null, "task": "text", "status": "ok", "elapsed_ms": null}
+{"timestamp": "2026-10-28T17:09:49.408340+00:00", "level": "INFO", "event": "calculation_unavailable", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "available": false, "operation": "direction"}
+{"timestamp": "2026-10-28T17:09:49.409096+00:00", "level": "INFO", "event": "verdict_generated", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "status": "complete", "verdict": "UNKNOWN", "error_kind": null, "stage": null}
+{"timestamp": "2026-10-28T17:09:49.413652+00:00", "level": "INFO", "event": "claim_verification_finished", "request_id": "6b9cd35af82e4809814ba04be2a237d2", "duration_seconds": 78.502358800004}
+{"timestamp": "2026-10-28T17:14:01.355513+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "d2dfbd292f77476c97642a841c5bdab1"}
+{"timestamp": "2026-10-28T17:14:01.355992+00:00", "level": "INFO", "event": "claim_received", "request_id": "d2dfbd292f77476c97642a841c5bdab1", "claim_length": 55, "document_count": 2}

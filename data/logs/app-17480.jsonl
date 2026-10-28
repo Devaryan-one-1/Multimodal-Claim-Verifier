@@ -1,0 +1,5 @@
+{"timestamp": "2026-10-28T11:58:54.310005+00:00", "level": "INFO", "event": "claim_verification_started", "request_id": "5372f32526bd4677819f07480ea8f23a"}
+{"timestamp": "2026-10-28T11:58:54.310149+00:00", "level": "INFO", "event": "claim_received", "request_id": "5372f32526bd4677819f07480ea8f23a", "claim_length": 120, "document_count": 1}
+{"timestamp": "2026-10-28T11:58:54.708818+00:00", "level": "WARNING", "event": "llm_called", "request_id": "5372f32526bd4677819f07480ea8f23a", "provider": null, "model": null, "task": "text", "status": "error", "elapsed_ms": null}
+{"timestamp": "2026-10-28T11:58:54.710168+00:00", "level": "ERROR", "event": "verification_error", "request_id": "5372f32526bd4677819f07480ea8f23a", "status": "error", "verdict": "UNKNOWN", "error_kind": "VerificationFailure", "stage": "claim_parser"}
+{"timestamp": "2026-10-28T11:58:54.712721+00:00", "level": "INFO", "event": "claim_verification_finished", "request_id": "5372f32526bd4677819f07480ea8f23a", "duration_seconds": 0.4027035000035539}

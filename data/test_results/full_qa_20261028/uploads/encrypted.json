@@ -1,0 +1,8 @@
+{
+  "name": "encrypted",
+  "status": "error",
+  "error": "This PDF is password protected. Upload an unlocked copy.",
+  "kind": "InvalidPDFError",
+  "persisted": {},
+  "index_exists": false
+}

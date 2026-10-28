@@ -1,0 +1,11 @@
+{
+  "query_id": "h_de67ec5808d7",
+  "reviewer": "Codex QA control-flow fixture; NOT a human assessment",
+  "at": "2026-10-28T12:41:55.599104+00:00",
+  "notes": "Persistence test only; source prediction is not approved as grounded.",
+  "numbers_ok": false,
+  "quotes_ok": false,
+  "reasoning_ok": false,
+  "automatic_issues": [],
+  "grounding_pass": false
+}

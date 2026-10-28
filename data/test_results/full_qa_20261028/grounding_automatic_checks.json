@@ -1,0 +1,15 @@
+{
+  "source_report": "data\\evaluation\\hallucination\\verdict_results\\20261028_110645_8a6ddfa2.json",
+  "human_assessment": false,
+  "queries": [
+    {
+      "query_id": "h_de67ec5808d7",
+      "automatic_issues": []
+    },
+    {
+      "query_id": "h_96461314b90b",
+      "automatic_issues": []
+    }
+  ],
+  "note": "Automated checks cannot replace the requested human grounding assessments."
+}

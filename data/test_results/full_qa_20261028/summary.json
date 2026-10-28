@@ -1,0 +1,324 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "status": "PASS (headless)",
+      "detail": "Dashboard loaded without application exceptions; browser visual access unavailable."
+    },
+    {
+      "step": 2,
+      "status": "PASS",
+      "detail": "3M original PDF 158 pages; approved drafts and saved reports persisted across restart. Source hashes unchanged."
+    },
+    {
+      "step": 3,
+      "status": "PARTIAL",
+      "detail": "OpenRouter model selected; Gemini gemini-embedding-001 768 dimensions retained; reasoning model change did not embed documents. Live reasoning blocked by HTTP 402; vision model blank."
+    },
+    {
+      "step": 4,
+      "status": "FAILED OPERATIONALLY",
+      "detail": "All 101 direct inputs attempted; 101 service errors. No valid factual accuracy denominator."
+    },
+    {
+      "step": 5,
+      "status": "FUNCTIONAL CHECKS PASS; LIVE BLOCKED",
+      "detail": "Primitive/safety checks 18/19 (the failure is HTTP 402 pause classification). Numerical source-fixture checks 11/11. Live reviewed calculations blocked at parser."
+    },
+    {
+      "step": 6,
+      "status": "PARTIAL",
+      "detail": "Table/text/chart page navigation, full table, citation identity and coordinate highlight passed functional tests. Chart record has no usable content or indexed chunks; no saved OCR evidence."
+    },
+    {
+      "step": 7,
+      "status": "PASS for error/coverage handling",
+      "detail": "Six isolated PDF fixtures attempted. Invalid and encrypted rejected; text-only ready with warning; scan/blank failed without ready index; difficult table text retained with warning."
+    },
+    {
+      "step": 8,
+      "status": "PARTIAL / LOGGING BUG",
+      "detail": "Timestamps present and no keys/prompts/document text detected. 401 records lack correlation (400 ablation calls plus one deliberately unwrapped malformed-table fixture). Model/provider/duration fields on llm_called are null."
+    },
+    {
+      "step": 9,
+      "status": "PARTIAL / CREDIT PAUSE BUG",
+      "detail": "Five-prediction limit, reuse, cache-only, 429 pause and error exclusion passed isolated control-flow fixtures. Natural HTTP 402 credit exhaustion does not pause evaluation. No compatible real successful predictions existed for this configuration."
+    },
+    {
+      "step": 10,
+      "status": "PARTIAL",
+      "detail": "100 approved main claims, 25 per verdict. Missing currencies/charts/OCR/footnotes coverage. Retrieval complete with parser disabled; full verdict and hallucination attempts failed operationally. All four ablations attempted; 400 errors. Human grounding review pending."
+    },
+    {
+      "step": 11,
+      "status": "PASS",
+      "detail": "README includes architecture, setup, limitations and historical retrieval; verdict F1, numerical accuracy, ablation and hallucination conclusions remain pending."
+    }
+  ],
+  "preservation": {
+    "files": [
+      "data\\logs\\app-11768.jsonl",
+      "data\\logs\\app-12352.jsonl",
+      "data\\logs\\app-12368.jsonl",
+      "data\\logs\\app-14176.jsonl",
+      "data\\logs\\app-15332.jsonl",
+      "data\\logs\\app-17480.jsonl",
+      "data\\logs\\app-18776.jsonl",
+      "data\\logs\\app-24208.jsonl",
+      "data\\logs\\app-3268.jsonl",
+      "data\\logs\\app-34080.jsonl",
+      "data\\logs\\app-35116.jsonl",
+      "data\\logs\\app-4480.jsonl",
+      "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\extraction_workspace\\data\\logs\\app-35232.jsonl"
+    ],
+    "event_counts": {
+      "claim_verification_started": 341,
+      "claim_received": 341,
+      "llm_called": 757,
+      "verification_error": 334,
+      "claim_verification_finished": 340,
+      "malformed_table": 1,
+      "evidence_retrieved": 22,
+      "calculation_unavailable": 9,
+      "verdict_generated": 10,
+      "calculation_performed": 1,
+      "document_processing_started": 6,
+      "document_processing_failed": 4,
+      "document_uploaded": 4,
+      "extraction_started": 4,
+      "tables_found": 4,
+      "charts_found": 4,
+      "document_ready": 2,
+      "document_processing_finished": 2,
+      "weak_text_pages": 2,
+      "ocr_unavailable": 1
+    },
+    "missing_timestamp": 0,
+    "missing_request_id": 401,
+    "privacy_findings": [],
+    "preserved_source_files": 42,
+    "changed_source_files": []
+  },
+  "direct_claims": {
+    "attempted": 101,
+    "operational_successes": 0,
+    "operational_errors": 101
+  },
+  "retrieval_summary": [
+    {
+      "level": "claim",
+      "stage": "initial",
+      "total_queries": 100,
+      "eligible_queries": 75,
+      "completed_queries": 75,
+      "excluded_queries": 25,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": 0.4666666666666667,
+      "Recall@10": 0.6133333333333333,
+      "Hit@5": 0.4666666666666667,
+      "Hit@10": 0.6133333333333333,
+      "MRR@20": 0.329977688977689
+    },
+    {
+      "level": "claim",
+      "stage": "reranked",
+      "total_queries": 100,
+      "eligible_queries": 75,
+      "completed_queries": 75,
+      "excluded_queries": 25,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": 0.43333333333333335,
+      "Recall@10": 0.5933333333333334,
+      "Hit@5": 0.44,
+      "Hit@10": 0.6,
+      "MRR@20": 0.28351472601472605
+    },
+    {
+      "level": "subclaim",
+      "stage": "initial",
+      "total_queries": 60,
+      "eligible_queries": 49,
+      "completed_queries": 49,
+      "excluded_queries": 11,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": 0.42857142857142855,
+      "Recall@10": 0.5714285714285714,
+      "Hit@5": 0.42857142857142855,
+      "Hit@10": 0.5714285714285714,
+      "MRR@20": 0.3207043135883093
+    },
+    {
+      "level": "subclaim",
+      "stage": "reranked",
+      "total_queries": 60,
+      "eligible_queries": 49,
+      "completed_queries": 49,
+      "excluded_queries": 11,
+      "failed_queries": 0,
+      "blocked_queries": 0,
+      "not_run_queries": 0,
+      "Recall@5": 0.5102040816326531,
+      "Recall@10": 0.6122448979591837,
+      "Hit@5": 0.5102040816326531,
+      "Hit@10": 0.6122448979591837,
+      "MRR@20": 0.34926163105935015
+    }
+  ],
+  "verdict_summary": [
+    {
+      "level": "claim",
+      "total_queries": 100,
+      "completed_queries": 0,
+      "failed_queries": 100,
+      "not_run_queries": 0,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "level": "subclaim",
+      "total_queries": 60,
+      "completed_queries": 0,
+      "failed_queries": 60,
+      "not_run_queries": 0,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    }
+  ],
+  "hallucination_summary": [
+    {
+      "level": "claim",
+      "total_queries": 20,
+      "completed_queries": 0,
+      "failed_queries": 20,
+      "not_run_queries": 0,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "level": "subclaim",
+      "total_queries": 24,
+      "completed_queries": 0,
+      "failed_queries": 24,
+      "not_run_queries": 0,
+      "cache_hits": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_class_count": 0,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    }
+  ],
+  "ablation_summary": [
+    {
+      "variant": "A",
+      "name": "Text only",
+      "total_claims": 100,
+      "completed": 0,
+      "errors": 100,
+      "not_run": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "variant": "B",
+      "name": "Text + tables",
+      "total_claims": 100,
+      "completed": 0,
+      "errors": 100,
+      "not_run": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "variant": "C",
+      "name": "Text + tables + charts",
+      "total_claims": 100,
+      "completed": 0,
+      "errors": 100,
+      "not_run": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    },
+    {
+      "variant": "D",
+      "name": "Text + tables + charts + numerical verification",
+      "total_claims": 100,
+      "completed": 0,
+      "errors": 100,
+      "not_run": 0,
+      "coverage": 0.0,
+      "accuracy": null,
+      "macro_precision": null,
+      "weighted_precision": null,
+      "macro_recall": null,
+      "weighted_recall": null,
+      "macro_f1": null,
+      "weighted_f1": null
+    }
+  ],
+  "ui_functional_tests": {
+    "passed": 17,
+    "failed": 1
+  },
+  "failure_resume_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "numerical_source_tests": {
+    "passed": 11,
+    "failed": 0
+  }
+}

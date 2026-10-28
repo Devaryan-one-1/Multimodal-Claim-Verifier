@@ -1,0 +1,54 @@
+{
+  "document_id": "qa_text_only",
+  "filename": "text_only.pdf",
+  "company_name": "",
+  "pdf_path": "data\\documents\\qa_text_only\\original.pdf",
+  "pdf_sha256": "78a435584bbab2ee0b6285cb22afed25df7bec15924bdd9dcc4c8d56f1e6f808",
+  "fingerprint": "78a435584bbab2ee0b6285cb22afed25df7bec15924bdd9dcc4c8d56f1e6f808",
+  "size_bytes": 1038,
+  "profile": "dashboard-v1",
+  "options": {
+    "ocr": false,
+    "chart_mode": "off",
+    "visual_limit": 20
+  },
+  "status": "ready",
+  "warnings": [
+    "No structured tables extracted; text, OCR and visual evidence may still be available.",
+    "Chart detection was disabled."
+  ],
+  "extraction_model_configuration": {
+    "provider": "openrouter",
+    "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "vision_model": "",
+    "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "text_fallbacks": [
+      "minimax/minimax-m3.1-flash"
+    ],
+    "vision_fallbacks": [],
+    "allow_fallbacks": true,
+    "timeout_seconds": 120.0,
+    "max_output_tokens": 8192,
+    "send_temperature": false,
+    "gateway_version": 2,
+    "schema_policy": "strict JSON Schema plus local validation",
+    "openrouter_base_url": "https://openrouter.ai/api/v1"
+  },
+  "page_count": 1,
+  "metadata": {
+    "title": null,
+    "author": null,
+    "subject": null,
+    "creator": null,
+    "producer": null
+  },
+  "text_page_count": 1,
+  "text_extracted": true,
+  "table_count": 0,
+  "chart_count": 0,
+  "ocr_page_count": 0,
+  "evidence_count": 1,
+  "chunk_count": 1,
+  "visual_pages_scanned": 0,
+  "processing_time_seconds": 2.1312268000037875
+}

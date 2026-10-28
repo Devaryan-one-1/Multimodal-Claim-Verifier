@@ -1,0 +1,344 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "retrieval/reranker.py": "108e6d5e1018c84b22641fb7f02de133275c081a247f91184ebd9c8119757a9d"
+      },
+      "dependencies": {
+        "sentence-transformers": "6.0.1",
+        "torch": "2.14.0",
+        "transformers": "5.16.1"
+      },
+      "initial_ranking_sha256": "0e2aad62ea44dd058489d72aa995218b9349c6f32c2c0fcb3661499a9de3f074",
+      "initial_signature": "bbf0306e15516aa20dd1a1eac427fee48af89d9c85bdf807020dfc7b2753bcff",
+      "keep": "all initial candidates",
+      "parser_configuration": {
+        "code_hashes": {
+          "services/model_gateway.py": "e3993773aa3a2b783cf67a173fb76dff26968eb68e90202367f5135b8cb90708",
+          "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+          "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+        },
+        "dependencies": {
+          "google-genai": "2.22.0",
+          "httpx": "0.28.1",
+          "jsonschema": "4.26.0",
+          "pydantic": "2.13.5"
+        },
+        "routing": {
+          "allow_fallbacks": false,
+          "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "gateway_version": 2,
+          "max_output_tokens": 8192,
+          "openrouter_base_url": "https://openrouter.ai/api/v1",
+          "provider": "openrouter",
+          "schema_policy": "strict JSON Schema plus local validation",
+          "send_temperature": false,
+          "text_fallbacks": [
+            "minimax/minimax-m3.1-flash"
+          ],
+          "text_model": "dots-studio/dots-3-note-preview:free",
+          "timeout_seconds": 120.0,
+          "vision_fallbacks": [],
+          "vision_model": ""
+        }
+      },
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "use_claim_parser": true
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "At January 31, 2026, 3M had 75,000 shareholders of record."
+    },
+    "schema_version": 1,
+    "stage": "reranked"
+  },
+  "payload": {
+    "ranked_hits": [
+      {
+        "rank": 1,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_668::0::a69a4e3dd11c",
+        "source_evidence_id": "evidence_668",
+        "type": "text",
+        "page": 20,
+        "score": 0.03278688524590164,
+        "rerank_score": 8.220773696899414,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 2,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_048::0::f48f33bb8838",
+        "source_evidence_id": "evidence_048",
+        "type": "text",
+        "page": 1,
+        "score": 0.03200204813108039,
+        "rerank_score": 2.4986672401428223,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 3,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1333::0::4452f2bf7c56",
+        "source_evidence_id": "evidence_1333",
+        "type": "text",
+        "page": 43,
+        "score": 0.031754032258064516,
+        "rerank_score": 1.9309138059616089,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 4,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2012::0::e482fb5ef566",
+        "source_evidence_id": "evidence_2012",
+        "type": "text",
+        "page": 68,
+        "score": 0.015151515151515152,
+        "rerank_score": 0.7731102108955383,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 5,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1151::0::891556d43a63",
+        "source_evidence_id": "evidence_1151",
+        "type": "text",
+        "page": 35,
+        "score": 0.015625,
+        "rerank_score": 0.29290756583213806,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 6,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1238::0::4c8c902e6704",
+        "source_evidence_id": "evidence_1238",
+        "type": "text",
+        "page": 38,
+        "score": 0.024527186761229315,
+        "rerank_score": 0.26395171880722046,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 7,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1092::0::d1798c1ac7bf",
+        "source_evidence_id": "evidence_1092",
+        "type": "text",
+        "page": 33,
+        "score": 0.020517676767676768,
+        "rerank_score": -0.030930541455745697,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 8,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1511::0::14fc57f5419c",
+        "source_evidence_id": "evidence_1511",
+        "type": "text",
+        "page": 50,
+        "score": 0.020454545454545454,
+        "rerank_score": -0.8146789073944092,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 9,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1105::0::6ee20a187565",
+        "source_evidence_id": "evidence_1105",
+        "type": "text",
+        "page": 34,
+        "score": 0.014492753623188406,
+        "rerank_score": -1.0312542915344238,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 10,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2102::0::4d0feb3aa6a9",
+        "source_evidence_id": "evidence_2102",
+        "type": "text",
+        "page": 72,
+        "score": 0.015384615384615385,
+        "rerank_score": -1.0385866165161133,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 11,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_046::0::278069d34264",
+        "source_evidence_id": "evidence_046",
+        "type": "text",
+        "page": 1,
+        "score": 0.02862400327131466,
+        "rerank_score": -1.4182006120681763,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 12,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2857::0::2558c7827799",
+        "source_evidence_id": "evidence_2857",
+        "type": "text",
+        "page": 90,
+        "score": 0.014925373134328358,
+        "rerank_score": -1.4775077104568481,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 13,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1717::0::1165d64f6495",
+        "source_evidence_id": "evidence_1717",
+        "type": "text",
+        "page": 59,
+        "score": 0.024285714285714285,
+        "rerank_score": -2.8118643760681152,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 14,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1719::0::4f23667c67ec",
+        "source_evidence_id": "evidence_1719",
+        "type": "text",
+        "page": 59,
+        "score": 0.02383854801571177,
+        "rerank_score": -2.8896729946136475,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 15,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2737::0::1796fa457114",
+        "source_evidence_id": "evidence_2737",
+        "type": "text",
+        "page": 87,
+        "score": 0.015873015873015872,
+        "rerank_score": -3.677420139312744,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 16,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1556::0::4a1ce9e46e1a",
+        "source_evidence_id": "evidence_1556",
+        "type": "text",
+        "page": 52,
+        "score": 0.015151515151515152,
+        "rerank_score": -4.228295803070068,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 17,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_1071::0::8f765bef6287",
+        "source_evidence_id": "evidence_1071",
+        "type": "text",
+        "page": 33,
+        "score": 0.018433571185864764,
+        "rerank_score": -4.461289405822754,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 18,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_2242::0::f369cb89fc62",
+        "source_evidence_id": "evidence_2242",
+        "type": "text",
+        "page": 75,
+        "score": 0.015384615384615385,
+        "rerank_score": -5.860480785369873,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 19,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4234::0::5211280a3948",
+        "source_evidence_id": "evidence_4234",
+        "type": "text",
+        "page": 136,
+        "score": 0.014705882352941176,
+        "rerank_score": -6.893978118896484,
+        "injected_table": false,
+        "source_identity_resolved": true
+      },
+      {
+        "rank": 20,
+        "document_id": "0000066740-26-000014-56e1ef4130",
+        "chunk_id": "0000066740-26-000014-56e1ef4130::evidence_4780::0::dcb5f3ab41ab",
+        "source_evidence_id": "evidence_4780",
+        "type": "table",
+        "page": 32,
+        "score": 0.014705882352941176,
+        "rerank_score": -9.929258346557617,
+        "injected_table": false,
+        "source_identity_resolved": true
+      }
+    ],
+    "parsed_claim_used": true,
+    "parser_source": "computed",
+    "model_calls": [
+      {
+        "time": "2026-10-22T17:48:12.875210+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "dots-studio/dots-3-note-preview:free",
+        "actual_model": "dots-studio/dots-3-note-preview:free",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "AtlasCloud",
+        "request_id": "gen-1792691292-dINuiezxC7m3IUvBM3Q2",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 322,
+          "completion_tokens": 1010,
+          "total_tokens": 1332,
+          "cost": 0,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0,
+            "upstream_inference_prompt_cost": 0,
+            "upstream_inference_completions_cost": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 724,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 12.141
+      }
+    ]
+  },
+  "payload_sha256": "69408211cec70da7b2974ad362f6cbeeeb0da88a0fbbc576be3a555e4f0c462e",
+  "created_at": "2026-10-22T17:48:25.167973+00:00"
+}

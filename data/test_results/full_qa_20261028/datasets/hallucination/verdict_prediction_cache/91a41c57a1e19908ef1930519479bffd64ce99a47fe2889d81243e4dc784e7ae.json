@@ -1,0 +1,1105 @@
+{
+  "schema_version": 2,
+  "cache_key": "91a41c57a1e19908ef1930519479bffd64ce99a47fe2889d81243e4dc784e7ae",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-27T19:01:11.909799+00:00",
+  "results": [
+    {
+      "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+      "parsed_claim": {
+        "claim_text": "3M's total long-term debt was $12,602 million in 2025",
+        "company": "3M",
+        "subject": "3M",
+        "metric": "total long-term debt",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$12,602 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percent",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 33,
+          "type": "text",
+          "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+          "bbox": [
+            23.54999901875,
+            428.8800982798395,
+            579.4116370541783,
+            436.87809788658956
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "source_evidence_id": "evidence_1086",
+          "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+          "score": 0.02938045560996381,
+          "rerank_score": 7.532854080200195,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 61,
+          "type": "text",
+          "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+          "bbox": [
+            23.54999901875,
+            66.48083337980756,
+            581.9141419099068,
+            74.47883298655756
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "source_evidence_id": "evidence_1772",
+          "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+          "score": 0.03021353930031804,
+          "rerank_score": 6.922588920593261,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 61,
+          "type": "text",
+          "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+          "bbox": [
+            23.54999901875,
+            89.28083242981052,
+            588.0621384074102,
+            97.27883203656052
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "source_evidence_id": "evidence_1774",
+          "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+          "score": 0.029386529386529386,
+          "rerank_score": 6.369024848937988,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+          "bbox": [
+            23.54999901875,
+            217.08082710480926,
+            571.2046894248037,
+            225.07882671155926
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "source_evidence_id": "evidence_1742",
+          "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+          "score": 0.023513513513513516,
+          "rerank_score": 4.455567932128906,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "bbox": [
+            23.54999901875,
+            499.6808153298127,
+            585.2894330022095,
+            507.67881493656273
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "source_evidence_id": "evidence_2012",
+          "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+          "score": 0.025563671006668783,
+          "rerank_score": 4.255251502990722,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "table",
+          "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+          "bbox": [
+            23.54999901875,
+            153.34605388455154,
+            586.5115140235577,
+            212.29164829736797
+          ],
+          "table_id": "table_60_1",
+          "headers": [
+            "USD denominated fixed-rate debt",
+            "$10,500",
+            "$10,400",
+            "3.76",
+            "%",
+            "3.33",
+            "%",
+            "2026-2050",
+            "$10,355",
+            "$10,317"
+          ],
+          "rows": [
+            [
+              "USD denominated floating-rate debt",
+              "200",
+              "1,014",
+              "3.77",
+              "6.94",
+              "2027-2044",
+              "199",
+              "915"
+            ],
+            [
+              "EUR denominated fixed-rate debt",
+              "€1,751",
+              "€1,751",
+              "1.73",
+              "1.60",
+              "2026-2031",
+              "2,048",
+              "1,812"
+            ],
+            [
+              "Total long-term debt",
+              "12,602",
+              "13,044"
+            ],
+            [
+              "Less: current portion of long-term debt",
+              "1,670",
+              "1,919"
+            ],
+            [
+              "Long-term debt (excluding current portion)",
+              "$10,932",
+              "$11,125"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 5,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 6,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "source_evidence_id": "evidence_4824",
+          "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.871822452545166,
+          "annual_report_year_columns": true,
+          "metric_label": "Total long-term debt"
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+          "bbox": [
+            23.54999901875,
+            370.08010072983706,
+            575.3160600777669,
+            378.0781003365871
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "source_evidence_id": "evidence_1117",
+          "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+          "score": 0.025779967159277502,
+          "rerank_score": 3.866775369644165,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 33,
+          "type": "text",
+          "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+          "bbox": [
+            23.54999901875,
+            488.88009577983865,
+            533.88622169974,
+            496.8780953865887
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "source_evidence_id": "evidence_1092",
+          "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+          "score": 0.027820121951219513,
+          "rerank_score": 3.463048315048218,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 68,
+          "type": "text",
+          "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+          "bbox": [
+            23.54999901875,
+            289.6808240798138,
+            576.1144761852293,
+            297.6788236865639
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "source_evidence_id": "evidence_1992",
+          "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+          "score": 0.022352647352647352,
+          "rerank_score": 3.1705833435058595,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 60,
+          "type": "text",
+          "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "bbox": [
+            23.54999901875,
+            449.2808174298054,
+            572.0706609881212,
+            457.27881703655544
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+          "source_evidence_id": "evidence_1759",
+          "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+          "score": 0.02719970792259949,
+          "rerank_score": 2.7835124492645265,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Quarterly, annual or YTD periods do not match the claim.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "bbox": [
+              23.54999901875,
+              428.8800982798395,
+              579.4116370541783,
+              436.87809788658956
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "score": 0.02938045560996381,
+            "rerank_score": 7.532854080200195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "bbox": [
+              23.54999901875,
+              66.48083337980756,
+              581.9141419099068,
+              74.47883298655756
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "score": 0.03021353930031804,
+            "rerank_score": 6.922588920593261,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "bbox": [
+              23.54999901875,
+              89.28083242981052,
+              588.0621384074102,
+              97.27883203656052
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "score": 0.029386529386529386,
+            "rerank_score": 6.369024848937988,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "bbox": [
+              23.54999901875,
+              217.08082710480926,
+              571.2046894248037,
+              225.07882671155926
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "score": 0.023513513513513516,
+            "rerank_score": 4.455567932128906,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.025563671006668783,
+            "rerank_score": 4.255251502990722,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "bbox": [
+              23.54999901875,
+              370.08010072983706,
+              575.3160600777669,
+              378.0781003365871
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "score": 0.025779967159277502,
+            "rerank_score": 3.866775369644165,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "bbox": [
+              23.54999901875,
+              488.88009577983865,
+              533.88622169974,
+              496.8780953865887
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "score": 0.027820121951219513,
+            "rerank_score": 3.463048315048218,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "bbox": [
+              23.54999901875,
+              289.6808240798138,
+              576.1144761852293,
+              297.6788236865639
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "score": 0.022352647352647352,
+            "rerank_score": 3.1705833435058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.02719970792259949,
+            "rerank_score": 2.7835124492645265,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "table",
+            "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "bbox": [
+              23.54999901875,
+              153.34605388455154,
+              586.5115140235577,
+              212.29164829736797
+            ],
+            "table_id": "table_60_1",
+            "headers": [
+              "USD denominated fixed-rate debt",
+              "$10,500",
+              "$10,400",
+              "3.76",
+              "%",
+              "3.33",
+              "%",
+              "2026-2050",
+              "$10,355",
+              "$10,317"
+            ],
+            "rows": [
+              [
+                "USD denominated floating-rate debt",
+                "200",
+                "1,014",
+                "3.77",
+                "6.94",
+                "2027-2044",
+                "199",
+                "915"
+              ],
+              [
+                "EUR denominated fixed-rate debt",
+                "€1,751",
+                "€1,751",
+                "1.73",
+                "1.60",
+                "2026-2031",
+                "2,048",
+                "1,812"
+              ],
+              [
+                "Total long-term debt",
+                "12,602",
+                "13,044"
+              ],
+              [
+                "Less: current portion of long-term debt",
+                "1,670",
+                "1,919"
+              ],
+              [
+                "Long-term debt (excluding current portion)",
+                "$10,932",
+                "$11,125"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.871822452545166,
+            "annual_report_year_columns": true,
+            "metric_label": "Total long-term debt",
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "table",
+            "content": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "bbox": [
+              23.54999901875,
+              153.34605388455154,
+              586.5115140235577,
+              212.29164829736797
+            ],
+            "table_id": "table_60_1",
+            "headers": [
+              "USD denominated fixed-rate debt",
+              "$10,500",
+              "$10,400",
+              "3.76",
+              "%",
+              "3.33",
+              "%",
+              "2026-2050",
+              "$10,355",
+              "$10,317"
+            ],
+            "rows": [
+              [
+                "USD denominated floating-rate debt",
+                "200",
+                "1,014",
+                "3.77",
+                "6.94",
+                "2027-2044",
+                "199",
+                "915"
+              ],
+              [
+                "EUR denominated fixed-rate debt",
+                "€1,751",
+                "€1,751",
+                "1.73",
+                "1.60",
+                "2026-2031",
+                "2,048",
+                "1,812"
+              ],
+              [
+                "Total long-term debt",
+                "12,602",
+                "13,044"
+              ],
+              [
+                "Less: current portion of long-term debt",
+                "1,670",
+                "1,919"
+              ],
+              [
+                "Long-term debt (excluding current portion)",
+                "$10,932",
+                "$11,125"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Principal amount Weighted-average interest rate Carrying value Final m a turity December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 December 31, 2025 December 31, 2024 (Millions) d at e"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4824",
+            "text": "USD denominated floating-rate debt: 2025 200, 2024 1,014, 2025 3.77, 2024 6.94, 2025 2027-2044, 2024 199, 915 | EUR denominated fixed-rate debt: 2025 €1,751, 2024 €1,751, 2025 1.73, 2024 1.60, 2025 2026-2031, 2024 2,048, 1,812 | Total long-term debt: 2025 12,602, 2024 13,044 | Less: current portion of long-term debt: 2025 1,670, 2024 1,919 | Long-term debt (excluding current portion): 2025 $10,932, 2024 $11,125",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.871822452545166,
+            "annual_report_year_columns": true,
+            "metric_label": "Total long-term debt",
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "bbox": [
+              23.54999901875,
+              428.8800982798395,
+              579.4116370541783,
+              436.87809788658956
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1086",
+            "text": "3M has a principal amount of long-term debt of $1.5 billion which will mature in 2026. The Company's financial condition and liquidity enable it to address these obligations",
+            "score": 0.02938045560996381,
+            "rerank_score": 7.532854080200195,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "bbox": [
+              23.54999901875,
+              66.48083337980756,
+              581.9141419099068,
+              74.47883298655756
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1772",
+            "text": "Long-Term Debt Issuances: In 2025, 3M issued $1.1 billion aggregate principal amount of fixed rate unsecured notes. These were comprised of $550 million of 5-year notes",
+            "score": 0.03021353930031804,
+            "rerank_score": 6.922588920593261,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 61,
+            "type": "text",
+            "content": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "bbox": [
+              23.54999901875,
+              89.28083242981052,
+              588.0621384074102,
+              97.27883203656052
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1774",
+            "text": "Long-Term Debt Maturities and Extinguishments: In 2025, 3M repaid $1.8 billion aggregate principal amount of primarily fixed-rate notes that matured. In 2024, 3M repaid",
+            "score": 0.029386529386529386,
+            "rerank_score": 6.369024848937988,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "bbox": [
+              23.54999901875,
+              217.08082710480926,
+              571.2046894248037,
+              225.07882671155926
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1742",
+            "text": "During 2025, 3M terminated swaps that had converted $800 million principal portion of fixed rate notes to floating-rate debt for a portion of their terms. For December 31,",
+            "score": 0.023513513513513516,
+            "rerank_score": 4.455567932128906,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "bbox": [
+              23.54999901875,
+              499.6808153298127,
+              585.2894330022095,
+              507.67881493656273
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2012",
+            "text": "\"Location, Fair Value, and Gross Notional Amounts of Derivative Instruments\" table further below. In addition, at December 31, 2025, 3M had a principal amount of long-term",
+            "score": 0.025563671006668783,
+            "rerank_score": 4.255251502990722,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "bbox": [
+              23.54999901875,
+              370.08010072983706,
+              575.3160600777669,
+              378.0781003365871
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1117",
+            "text": "settlement, short-term borrowings and current portions of long-term debt and higher current assets driven by the 2025 classification of 3M's remaining interest in Solventum",
+            "score": 0.025779967159277502,
+            "rerank_score": 3.866775369644165,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 33,
+            "type": "text",
+            "content": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "bbox": [
+              23.54999901875,
+              488.88009577983865,
+              533.88622169974,
+              496.8780953865887
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1092",
+            "text": "funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of dividends.",
+            "score": 0.027820121951219513,
+            "rerank_score": 3.463048315048218,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 68,
+            "type": "text",
+            "content": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "bbox": [
+              23.54999901875,
+              289.6808240798138,
+              576.1144761852293,
+              297.6788236865639
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1992",
+            "text": "As further discussed in Note 12, during 2025, 3M terminated fixed-to-floating interest rate swaps that were entered into in 2021, returning $800 million of notes due in 2049",
+            "score": 0.022352647352647352,
+            "rerank_score": 3.1705833435058595,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 60,
+            "type": "text",
+            "content": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "bbox": [
+              23.54999901875,
+              449.2808174298054,
+              572.0706609881212,
+              457.27881703655544
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1759",
+            "text": "interest expense on all funded debt for the same period. At December 31, 2025, 3M was in compliance with this requirement. Debt covenants do not restrict the payment of",
+            "score": 0.02719970792259949,
+            "rerank_score": 2.7835124492645265,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4824",
+          "0000066740-26-000014-56e1ef4130::evidence_1086",
+          "0000066740-26-000014-56e1ef4130::evidence_1772",
+          "0000066740-26-000014-56e1ef4130::evidence_1774",
+          "0000066740-26-000014-56e1ef4130::evidence_1742",
+          "0000066740-26-000014-56e1ef4130::evidence_2012",
+          "0000066740-26-000014-56e1ef4130::evidence_1117",
+          "0000066740-26-000014-56e1ef4130::evidence_1092",
+          "0000066740-26-000014-56e1ef4130::evidence_1992",
+          "0000066740-26-000014-56e1ef4130::evidence_1759"
+        ],
+        "pages": [
+          33,
+          34,
+          60,
+          61,
+          68
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Quarterly, annual or YTD periods do not match the claim.",
+      "reporting_period": "2025",
+      "original_claim": "3M's total long-term debt was $12,602 million in 2025",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 46.098314100003336,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-27T19:00:25.756526+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127626-4MgSFSQb9S2Oisqb6GdM",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 422,
+            "completion_tokens": 1858,
+            "total_tokens": 2280,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1530,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 23.754
+        },
+        {
+          "time": "2026-10-27T19:00:52.690383+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793127654-xGXdgBGITgpcyaJXfTj6",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5538,
+            "completion_tokens": 1413,
+            "total_tokens": 6951,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 899,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 19.16
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "c26aee4aa4c5a2c88ffacc43a8463fb411bdf2816084c5d61dd8cd4775cadebb"
+}

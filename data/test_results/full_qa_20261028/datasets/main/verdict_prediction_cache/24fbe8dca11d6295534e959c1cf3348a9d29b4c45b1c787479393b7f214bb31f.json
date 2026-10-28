@@ -1,0 +1,2244 @@
+{
+  "schema_version": 1,
+  "cache_key": "24fbe8dca11d6295534e959c1cf3348a9d29b4c45b1c787479393b7f214bb31f",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:44:42.877522+00:00",
+  "results": [
+    {
+      "claim_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%",
+      "parsed_claim": {
+        "claim_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%",
+        "company": "3M",
+        "subject": "3M",
+        "metric": "total company net sales",
+        "segment": "total company",
+        "start_period": 2024,
+        "end_period": 2025,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "growth",
+        "claimed_literal": "approximately 1.52%",
+        "claimed_change": 1.52,
+        "comparison_operator": "less_than",
+        "direction": "up",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "period is between 2024 and 2025",
+          "growth is approximately 1.52%"
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 21,
+          "type": "table",
+          "content": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+          "bbox": [
+            23.54999901875,
+            212.74564330951188,
+            588.1499754937499,
+            248.90819858404907
+          ],
+          "table_id": "table_21_1",
+          "headers": [
+            "Net sales (millions)",
+            "$24,948",
+            "$24,279",
+            "$24,575",
+            "$23,630"
+          ],
+          "rows": [
+            [
+              "Total sales change",
+              "1.5",
+              "%",
+              "2.7",
+              "%",
+              "(0.1)",
+              "%",
+              "1.3",
+              "%"
+            ],
+            [
+              "Organic sales change(b)",
+              "0.9",
+              "%",
+              "2.1",
+              "%",
+              "(0.2)",
+              "%",
+              "1.2",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 5,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 6,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 7,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2024,
+              2025,
+              2024,
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "As discussed in Note 2, on April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum, and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. 3M manages its continuing operations in three operating business segments: Safety and Industrial; Transportation and Electronics; and Consumer. From a geographic perspective, EMEA refers to Europe, the Middle East, and Africa on a combined basis. Unless otherwise noted, any sales change analysis compares 2025 with 2024, year-on-year (YoY). Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+          "source_evidence_id": "evidence_4761",
+          "text": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+          "score": 0.02699859747545582,
+          "rerank_score": 5.365656566619873
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "table",
+          "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+          "bbox": [
+            23.54999901875,
+            143.14148339747612,
+            588.1499754937499,
+            227.7917815534532
+          ],
+          "table_id": "table_22_1",
+          "headers": [
+            "Net sales (millions)",
+            "$13,579",
+            "$7,095",
+            "$4,274",
+            "$24,948"
+          ],
+          "rows": [
+            [
+              "% of worldwide sales",
+              "54.5",
+              "%",
+              "28.4",
+              "%",
+              "17.1",
+              "%",
+              "100.0",
+              "%"
+            ],
+            [
+              "Components of net sales change:"
+            ],
+            [
+              "Organic sales(b)",
+              "1.3",
+              "%",
+              "1.7",
+              "%",
+              "(1.7)",
+              "%",
+              "0.9",
+              "%"
+            ],
+            [
+              "Divestitures(c)",
+              "0.3",
+              "—",
+              "0.2",
+              "0.2"
+            ],
+            [
+              "Translation",
+              "(0.3)",
+              "(0.3)",
+              "3.9",
+              "0.4"
+            ],
+            [
+              "Total sales change",
+              "1.3",
+              "%",
+              "1.4",
+              "%",
+              "2.4",
+              "%",
+              "1.5",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025
+            ],
+            "period_types": [],
+            "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "source_evidence_id": "evidence_4764",
+          "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+          "score": 0.015625,
+          "rerank_score": 4.836834144592285
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 23,
+          "type": "text",
+          "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+          "bbox": [
+            23.54999901875,
+            284.2820243047583,
+            585.2217593950294,
+            292.28002391150835
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+          "source_evidence_id": "evidence_784",
+          "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+          "score": 0.027809742999616416,
+          "rerank_score": 4.655467224121094
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "table",
+          "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+          "bbox": [
+            23.54999901875,
+            251.1414788974746,
+            588.1499754937499,
+            347.30819448405094
+          ],
+          "table_id": "table_22_2",
+          "headers": [
+            "Net sales (millions)",
+            "$13,405",
+            "$6,994",
+            "$4,176",
+            "$24,575"
+          ],
+          "rows": [
+            [
+              "% of worldwide sales",
+              "54.5",
+              "%",
+              "28.5",
+              "%",
+              "17.0",
+              "%",
+              "100.0",
+              "%"
+            ],
+            [
+              "Components of net sales change:"
+            ],
+            [
+              "Organic sales(b)",
+              "0.1",
+              "%",
+              "1.2",
+              "%",
+              "(3.1)",
+              "%",
+              "(0.2)",
+              "%"
+            ],
+            [
+              "Acquisitions(c)",
+              "0.3",
+              "—",
+              "—",
+              "0.2"
+            ],
+            [
+              "Divestitures(c)",
+              "1.0",
+              "0.1",
+              "0.2",
+              "0.6"
+            ],
+            [
+              "Translation",
+              "(0.4)",
+              "(2.3)",
+              "0.6",
+              "(0.7)"
+            ],
+            [
+              "Total sales change",
+              "1.0",
+              "%",
+              "(1.0)",
+              "%",
+              "(2.3)",
+              "%",
+              "(0.1)",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 4,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide Net sales (millions) $ 13,579 $ 7,095 $ 4,274 $ 24,948 % of worldwide sales 54.5 % 28.4 % 17.1 % 100.0 % Components of net sales change: Organic sales(b) 1.3 % 1.7 % (1.7) % 0.9 % Divestitures(c) 0.3 — 0.2 0.2 Translation (0.3) (0.3) 3.9 0.4 Total sales change 1.3 % 1.4 % 2.4 % 1.5 % 2024 Americas Asia Pacific EMEA Worldwide"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+          "source_evidence_id": "evidence_4765",
+          "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+          "score": 0.015384615384615385,
+          "rerank_score": 3.8395978927612306
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "bbox": [
+            23.54999901875,
+            518.2800945548381,
+            519.5051183989528,
+            526.2780941615881
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "source_evidence_id": "evidence_1130",
+          "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+          "score": 0.025458570524984188,
+          "rerank_score": 3.654955005645752
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 27,
+          "type": "table",
+          "content": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+          "bbox": [
+            23.54999901875,
+            93.53399610275228,
+            588.1499754937499,
+            196.7067485606448
+          ],
+          "table_id": "table_27_1",
+          "headers": [
+            "Sales (millions)",
+            "$4,920",
+            "$4,931"
+          ],
+          "rows": [
+            [
+              "Sales change analysis:"
+            ],
+            [
+              "Organic sales(b)",
+              "(0.3)",
+              "%",
+              "(1.2)",
+              "%"
+            ],
+            [
+              "Translation",
+              "0.1",
+              "(0.7)"
+            ],
+            [
+              "Total sales change",
+              "(0.2)",
+              "%",
+              "(1.9)",
+              "%"
+            ],
+            [
+              "Business segment operating income (millions)",
+              "$996",
+              "$932"
+            ],
+            [
+              "Percent change",
+              "6.9",
+              "%",
+              "3.1",
+              "%"
+            ],
+            [
+              "Percent of sales",
+              "20.2",
+              "%",
+              "18.9",
+              "%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Consumer Business (19.7% of consolidated sales): 2025 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+          "source_evidence_id": "evidence_4773",
+          "text": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+          "score": 0.014925373134328358,
+          "rerank_score": 3.3509222984313967
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "table",
+          "content": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+          "bbox": [
+            23.54999901875,
+            95.16599603475042,
+            588.1499754937499,
+            221.2999907791676
+          ],
+          "table_id": "table_26_1",
+          "headers": [
+            "Sales (millions)",
+            "$8,272",
+            "$8,380"
+          ],
+          "rows": [
+            [
+              "Sales change analysis:"
+            ],
+            [
+              "Organic sales(b)",
+              "(1.5)",
+              "%",
+              "(1.0)",
+              "%"
+            ],
+            [
+              "Acquisitions(c)",
+              "—",
+              "0.6"
+            ],
+            [
+              "Divestitures(c)",
+              "(0.1)",
+              "—"
+            ],
+            [
+              "Translation",
+              "0.3",
+              "(1.0)"
+            ],
+            [
+              "Total sales change",
+              "(1.3)",
+              "%",
+              "(1.4)",
+              "%"
+            ],
+            [
+              "Business segment operating income (millions)",
+              "$1,436",
+              "$1,578"
+            ],
+            [
+              "Percent change",
+              "(9.0)",
+              "%",
+              "20.2 %"
+            ],
+            [
+              "Percent of sales",
+              "17.4",
+              "%",
+              "18.8 %"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Transportation and Electronics Business (33.2% of consolidated sales): 2025 2024"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+          "source_evidence_id": "evidence_4772",
+          "text": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+          "score": 0.015151515151515152,
+          "rerank_score": 2.779397201538086
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 29,
+          "type": "text",
+          "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+          "bbox": [
+            37.94999841875,
+            74.88203302975785,
+            586.1032730690297,
+            82.88003263650785
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+          "source_evidence_id": "evidence_952",
+          "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+          "score": 0.014925373134328358,
+          "rerank_score": 2.607999897003174
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 57,
+          "type": "text",
+          "content": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+          "bbox": [
+            23.54999901875,
+            239.28082617980658,
+            573.3436467350803,
+            247.27882578655658
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+          "source_evidence_id": "evidence_1669",
+          "text": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+          "score": 0.014492753623188406,
+          "rerank_score": 1.871344518661499
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "table",
+          "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            86.14339100529921,
+            587.3889999157012,
+            159.37788426835164
+          ],
+          "table_id": "table_101_1",
+          "headers": [
+            "Safety and Industrial",
+            "$11,384",
+            "$10,961",
+            "$10,956"
+          ],
+          "rows": [
+            [
+              "Transportation and Electronics",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Total reportable business segment net sales",
+              "24,576",
+              "24,272",
+              "24,483"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "source_evidence_id": "evidence_4862",
+          "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.02484567901234568,
+          "rerank_score": 1.3956231594085693
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "period is between 2024 and 2025",
+        "growth is approximately 1.52%"
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unit quote is absent from the source evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.027809742999616416,
+            "rerank_score": 4.655467224121094,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.025458570524984188,
+            "rerank_score": 3.654955005645752,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.014925373134328358,
+            "rerank_score": 2.607999897003174,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "bbox": [
+              23.54999901875,
+              239.28082617980658,
+              573.3436467350803,
+              247.27882578655658
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "text": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "score": 0.014492753623188406,
+            "rerank_score": 1.871344518661499,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "bbox": [
+              23.54999901875,
+              212.74564330951188,
+              588.1499754937499,
+              248.90819858404907
+            ],
+            "table_id": "table_21_1",
+            "headers": [
+              "Net sales (millions)",
+              "$24,948",
+              "$24,279",
+              "$24,575",
+              "$23,630"
+            ],
+            "rows": [
+              [
+                "Total sales change",
+                "1.5",
+                "%",
+                "2.7",
+                "%",
+                "(0.1)",
+                "%",
+                "1.3",
+                "%"
+              ],
+              [
+                "Organic sales change(b)",
+                "0.9",
+                "%",
+                "2.1",
+                "%",
+                "(0.2)",
+                "%",
+                "1.2",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "As discussed in Note 2, on April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum, and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. 3M manages its continuing operations in three operating business segments: Safety and Industrial; Transportation and Electronics; and Consumer. From a geographic perspective, EMEA refers to Europe, the Middle East, and Africa on a combined basis. Unless otherwise noted, any sales change analysis compares 2025 with 2024, year-on-year (YoY). Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "text": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "score": 0.02699859747545582,
+            "rerank_score": 5.365656566619873,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.015625,
+            "rerank_score": 4.836834144592285,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+            "bbox": [
+              23.54999901875,
+              251.1414788974746,
+              588.1499754937499,
+              347.30819448405094
+            ],
+            "table_id": "table_22_2",
+            "headers": [
+              "Net sales (millions)",
+              "$13,405",
+              "$6,994",
+              "$4,176",
+              "$24,575"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.5",
+                "%",
+                "17.0",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "0.1",
+                "%",
+                "1.2",
+                "%",
+                "(3.1)",
+                "%",
+                "(0.2)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "0.3",
+                "—",
+                "—",
+                "0.2"
+              ],
+              [
+                "Divestitures(c)",
+                "1.0",
+                "0.1",
+                "0.2",
+                "0.6"
+              ],
+              [
+                "Translation",
+                "(0.4)",
+                "(2.3)",
+                "0.6",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "1.0",
+                "%",
+                "(1.0)",
+                "%",
+                "(2.3)",
+                "%",
+                "(0.1)",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide Net sales (millions) $ 13,579 $ 7,095 $ 4,274 $ 24,948 % of worldwide sales 54.5 % 28.4 % 17.1 % 100.0 % Components of net sales change: Organic sales(b) 1.3 % 1.7 % (1.7) % 0.9 % Divestitures(c) 0.3 — 0.2 0.2 Translation (0.3) (0.3) 3.9 0.4 Total sales change 1.3 % 1.4 % 2.4 % 1.5 % 2024 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+            "score": 0.015384615384615385,
+            "rerank_score": 3.8395978927612306,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 27,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "bbox": [
+              23.54999901875,
+              93.53399610275228,
+              588.1499754937499,
+              196.7067485606448
+            ],
+            "table_id": "table_27_1",
+            "headers": [
+              "Sales (millions)",
+              "$4,920",
+              "$4,931"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(0.3)",
+                "%",
+                "(1.2)",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.1",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "(0.2)",
+                "%",
+                "(1.9)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$996",
+                "$932"
+              ],
+              [
+                "Percent change",
+                "6.9",
+                "%",
+                "3.1",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "20.2",
+                "%",
+                "18.9",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Consumer Business (19.7% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "score": 0.014925373134328358,
+            "rerank_score": 3.3509222984313967,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "bbox": [
+              23.54999901875,
+              95.16599603475042,
+              588.1499754937499,
+              221.2999907791676
+            ],
+            "table_id": "table_26_1",
+            "headers": [
+              "Sales (millions)",
+              "$8,272",
+              "$8,380"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(1.5)",
+                "%",
+                "(1.0)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "—",
+                "0.6"
+              ],
+              [
+                "Divestitures(c)",
+                "(0.1)",
+                "—"
+              ],
+              [
+                "Translation",
+                "0.3",
+                "(1.0)"
+              ],
+              [
+                "Total sales change",
+                "(1.3)",
+                "%",
+                "(1.4)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$1,436",
+                "$1,578"
+              ],
+              [
+                "Percent change",
+                "(9.0)",
+                "%",
+                "20.2 %"
+              ],
+              [
+                "Percent of sales",
+                "17.4",
+                "%",
+                "18.8 %"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Transportation and Electronics Business (33.2% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "score": 0.015151515151515152,
+            "rerank_score": 2.779397201538086,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02484567901234568,
+            "rerank_score": 1.3956231594085693,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 21,
+            "type": "table",
+            "content": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "bbox": [
+              23.54999901875,
+              212.74564330951188,
+              588.1499754937499,
+              248.90819858404907
+            ],
+            "table_id": "table_21_1",
+            "headers": [
+              "Net sales (millions)",
+              "$24,948",
+              "$24,279",
+              "$24,575",
+              "$23,630"
+            ],
+            "rows": [
+              [
+                "Total sales change",
+                "1.5",
+                "%",
+                "2.7",
+                "%",
+                "(0.1)",
+                "%",
+                "1.3",
+                "%"
+              ],
+              [
+                "Organic sales change(b)",
+                "0.9",
+                "%",
+                "2.1",
+                "%",
+                "(0.2)",
+                "%",
+                "1.2",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 6,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 7,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2024,
+                2025,
+                2024,
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "As discussed in Note 2, on April 1, 2024, 3M completed the separation of its Health Care business (the Separation) through a pro rata distribution of 80.1% of the outstanding shares of Solventum Corporation (Solventum) to 3M stockholders. As a result, Solventum became an independent public company, 3M no longer consolidated Solventum into 3M’s financial results and the historical net income of Solventum, and applicable assets and liabilities included in the Separation were reported in 3M's consolidated financial statements as discontinued operations. 3M manages its continuing operations in three operating business segments: Safety and Industrial; Transportation and Electronics; and Consumer. From a geographic perspective, EMEA refers to Europe, the Middle East, and Africa on a combined basis. Unless otherwise noted, any sales change analysis compares 2025 with 2024, year-on-year (YoY). Financial highlights for 2025 and 2024: 2025 2024 Adjusted(a) Adjusted(a) GAAP GAAP"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4761",
+            "text": "Total sales change: 2024 1.5, 2025 %, 2024 2.7, 2025 %, 2024 (0.1), 2025 %, 2024 1.3, % | Organic sales change(b): 2024 0.9, 2025 %, 2024 2.1, 2025 %, 2024 (0.2), 2025 %, 2024 1.2, %",
+            "score": 0.02699859747545582,
+            "rerank_score": 5.365656566619873,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "bbox": [
+              23.54999901875,
+              143.14148339747612,
+              588.1499754937499,
+              227.7917815534532
+            ],
+            "table_id": "table_22_1",
+            "headers": [
+              "Net sales (millions)",
+              "$13,579",
+              "$7,095",
+              "$4,274",
+              "$24,948"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.4",
+                "%",
+                "17.1",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "1.3",
+                "%",
+                "1.7",
+                "%",
+                "(1.7)",
+                "%",
+                "0.9",
+                "%"
+              ],
+              [
+                "Divestitures(c)",
+                "0.3",
+                "—",
+                "0.2",
+                "0.2"
+              ],
+              [
+                "Translation",
+                "(0.3)",
+                "(0.3)",
+                "3.9",
+                "0.4"
+              ],
+              [
+                "Total sales change",
+                "1.3",
+                "%",
+                "1.4",
+                "%",
+                "2.4",
+                "%",
+                "1.5",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4764",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.4, %, 17.1, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 1.3, 2024 %, 2025 1.7, %, (1.7), %, 0.9, % | Divestitures(c): 2025 0.3, 2024 —, 2025 0.2, 0.2 | Translation: 2025 (0.3), 2024 (0.3), 2025 3.9, 0.4 | Total sales change: 2025 1.3, 2024 %, 2025 1.4, %, 2.4, %, 1.5, %",
+            "score": 0.015625,
+            "rerank_score": 4.836834144592285,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+            "bbox": [
+              23.54999901875,
+              251.1414788974746,
+              588.1499754937499,
+              347.30819448405094
+            ],
+            "table_id": "table_22_2",
+            "headers": [
+              "Net sales (millions)",
+              "$13,405",
+              "$6,994",
+              "$4,176",
+              "$24,575"
+            ],
+            "rows": [
+              [
+                "% of worldwide sales",
+                "54.5",
+                "%",
+                "28.5",
+                "%",
+                "17.0",
+                "%",
+                "100.0",
+                "%"
+              ],
+              [
+                "Components of net sales change:"
+              ],
+              [
+                "Organic sales(b)",
+                "0.1",
+                "%",
+                "1.2",
+                "%",
+                "(3.1)",
+                "%",
+                "(0.2)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "0.3",
+                "—",
+                "—",
+                "0.2"
+              ],
+              [
+                "Divestitures(c)",
+                "1.0",
+                "0.1",
+                "0.2",
+                "0.6"
+              ],
+              [
+                "Translation",
+                "(0.4)",
+                "(2.3)",
+                "0.6",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "1.0",
+                "%",
+                "(1.0)",
+                "%",
+                "(2.3)",
+                "%",
+                "(0.1)",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 4,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Net Sales: Percent change information compares 2025 and 2024, unless otherwise indicated. Discussion of business segment results is provided in the Performance by Business Segment section. Information regarding sales by geographic area is included below. 2025 Americas Asia Pacific EMEA Worldwide Net sales (millions) $ 13,579 $ 7,095 $ 4,274 $ 24,948 % of worldwide sales 54.5 % 28.4 % 17.1 % 100.0 % Components of net sales change: Organic sales(b) 1.3 % 1.7 % (1.7) % 0.9 % Divestitures(c) 0.3 — 0.2 0.2 Translation (0.3) (0.3) 3.9 0.4 Total sales change 1.3 % 1.4 % 2.4 % 1.5 % 2024 Americas Asia Pacific EMEA Worldwide"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4765",
+            "text": "% of worldwide sales: 2025 54.5, 2024 %, 2025 28.5, 2024 %, 17.0, %, 100.0, % | Components of net sales change::  | Organic sales(b): 2025 0.1, 2024 %, 2025 1.2, 2024 %, (3.1), %, (0.2), % | Acquisitions(c): 2025 0.3, 2024 —, 2025 —, 2024 0.2 | Divestitures(c): 2025 1.0, 2024 0.1, 2025 0.2, 2024 0.6 | Translation: 2025 (0.4), 2024 (2.3), 2025 0.6, 2024 (0.7) | Total sales change: 2025 1.0, 2024 %, 2025 (1.0), 2024 %, (2.3), %, (0.1), %",
+            "score": 0.015384615384615385,
+            "rerank_score": 3.8395978927612306,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 27,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "bbox": [
+              23.54999901875,
+              93.53399610275228,
+              588.1499754937499,
+              196.7067485606448
+            ],
+            "table_id": "table_27_1",
+            "headers": [
+              "Sales (millions)",
+              "$4,920",
+              "$4,931"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(0.3)",
+                "%",
+                "(1.2)",
+                "%"
+              ],
+              [
+                "Translation",
+                "0.1",
+                "(0.7)"
+              ],
+              [
+                "Total sales change",
+                "(0.2)",
+                "%",
+                "(1.9)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$996",
+                "$932"
+              ],
+              [
+                "Percent change",
+                "6.9",
+                "%",
+                "3.1",
+                "%"
+              ],
+              [
+                "Percent of sales",
+                "20.2",
+                "%",
+                "18.9",
+                "%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Consumer Business (19.7% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4773",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (0.3), 2024 %, (1.2), % | Translation: 2025 0.1, 2024 (0.7) | Total sales change: 2025 (0.2), 2024 %, (1.9), % | Business segment operating income (millions): 2025 $996, 2024 $932 | Percent change: 2025 6.9, 2024 %, 3.1, % | Percent of sales: 2025 20.2, 2024 %, 18.9, %",
+            "score": 0.014925373134328358,
+            "rerank_score": 3.3509222984313967,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "table",
+            "content": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "bbox": [
+              23.54999901875,
+              95.16599603475042,
+              588.1499754937499,
+              221.2999907791676
+            ],
+            "table_id": "table_26_1",
+            "headers": [
+              "Sales (millions)",
+              "$8,272",
+              "$8,380"
+            ],
+            "rows": [
+              [
+                "Sales change analysis:"
+              ],
+              [
+                "Organic sales(b)",
+                "(1.5)",
+                "%",
+                "(1.0)",
+                "%"
+              ],
+              [
+                "Acquisitions(c)",
+                "—",
+                "0.6"
+              ],
+              [
+                "Divestitures(c)",
+                "(0.1)",
+                "—"
+              ],
+              [
+                "Translation",
+                "0.3",
+                "(1.0)"
+              ],
+              [
+                "Total sales change",
+                "(1.3)",
+                "%",
+                "(1.4)",
+                "%"
+              ],
+              [
+                "Business segment operating income (millions)",
+                "$1,436",
+                "$1,578"
+              ],
+              [
+                "Percent change",
+                "(9.0)",
+                "%",
+                "20.2 %"
+              ],
+              [
+                "Percent of sales",
+                "17.4",
+                "%",
+                "18.8 %"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Transportation and Electronics Business (33.2% of consolidated sales): 2025 2024"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4772",
+            "text": "Sales change analysis::  | Organic sales(b): 2025 (1.5), 2024 %, (1.0), % | Acquisitions(c): 2025 —, 2024 0.6 | Divestitures(c): 2025 (0.1), 2024 — | Translation: 2025 0.3, 2024 (1.0) | Total sales change: 2025 (1.3), 2024 %, (1.4), % | Business segment operating income (millions): 2025 $1,436, 2024 $1,578 | Percent change: 2025 (9.0), 2024 %, 20.2 % | Percent of sales: 2025 17.4, 2024 %, 18.8 %",
+            "score": 0.015151515151515152,
+            "rerank_score": 2.779397201538086,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02484567901234568,
+            "rerank_score": 1.3956231594085693,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.027809742999616416,
+            "rerank_score": 4.655467224121094,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "bbox": [
+              23.54999901875,
+              518.2800945548381,
+              519.5051183989528,
+              526.2780941615881
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1130",
+            "text": "in 2025. The Company expects 2026 capital spending to be approximately $1.1 billion as 3M continues to invest in growth, productivity and sustainability.",
+            "score": 0.025458570524984188,
+            "rerank_score": 3.654955005645752,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.014925373134328358,
+            "rerank_score": 2.607999897003174,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 57,
+            "type": "text",
+            "content": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "bbox": [
+              23.54999901875,
+              239.28082617980658,
+              573.3436467350803,
+              247.27882578655658
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1669",
+            "text": "The primary factors that impacted the 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net costs of",
+            "score": 0.014492753623188406,
+            "rerank_score": 1.871344518661499,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4761",
+          "0000066740-26-000014-56e1ef4130::evidence_4764",
+          "0000066740-26-000014-56e1ef4130::evidence_4765",
+          "0000066740-26-000014-56e1ef4130::evidence_4773",
+          "0000066740-26-000014-56e1ef4130::evidence_4772",
+          "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "0000066740-26-000014-56e1ef4130::evidence_784",
+          "0000066740-26-000014-56e1ef4130::evidence_1130",
+          "0000066740-26-000014-56e1ef4130::evidence_952",
+          "0000066740-26-000014-56e1ef4130::evidence_1669"
+        ],
+        "pages": [
+          21,
+          22,
+          23,
+          26,
+          27,
+          29,
+          34,
+          57,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Unit quote is absent from the source evidence.",
+      "original_claim": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 38.50066259999585,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:44:04.379159+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863842-UgjNsIEJaxBG1c4jWUDK",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 325,
+            "completion_tokens": 1434,
+            "total_tokens": 1759,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1273,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 16.484
+        },
+        {
+          "time": "2026-10-24T17:44:22.992494+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863861-69llRuvVyoWKu7Ja9JWc",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5241,
+            "completion_tokens": 1905,
+            "total_tokens": 7146,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 961,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 19.884
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "15f1f8b87863590a0b972af1386eb09cc3b3c1a492ddc87dbce8c5e3ee397fc8"
+}

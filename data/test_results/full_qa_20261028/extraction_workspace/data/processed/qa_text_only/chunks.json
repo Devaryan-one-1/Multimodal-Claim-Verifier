@@ -1,0 +1,30 @@
+{
+  "document_id": "qa_text_only",
+  "chunks": [
+    {
+      "id": "qa_text_only::evidence_001::0::b748aedb6bd5",
+      "document_id": "qa_text_only",
+      "page": 1,
+      "type": "text",
+      "content": "QA Test Company annual report 2025.\nRevenue increased from USD 100 million in 2024 to USD 110 million in 2025.\nThis page contains prose only and has no structured table.\nThe report describes annual results for the year ended December 31, 2025.",
+      "bbox": [
+        50.0,
+        53.384000000000015,
+        461.49200000000025,
+        118.55780000000004
+      ],
+      "bbox_space": "pdf_points",
+      "page_width_pt": 595.0,
+      "page_height_pt": 842.0,
+      "page_rotation": 0,
+      "source_evidence_id": "evidence_001",
+      "text": "QA Test Company annual report 2025.\nRevenue increased from USD 100 million in 2024 to USD 110 million in 2025.\nThis page contains prose only and has no structured table.\nThe report describes annual results for the year ended December 31, 2025.",
+      "location": [
+        50.0,
+        53.384000000000015,
+        461.49200000000025,
+        118.55780000000004
+      ]
+    }
+  ]
+}

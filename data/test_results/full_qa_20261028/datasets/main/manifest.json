@@ -1,0 +1,73 @@
+{
+  "claim_count": 100,
+  "claims_sha256": "ac409c67c75b0438b4ee0ece6907b1a3ad8347c1181af03ff5dadfcc02d67d2a",
+  "coverage_policy_version": 2,
+  "coverage_targets": {
+    "combined": 15,
+    "isolated": 35,
+    "straightforward": 50
+  },
+  "dataset_id": "20261007_222849_4964ec3d",
+  "document_ids": [
+    "0000066740-26-000014-56e1ef4130"
+  ],
+  "draft_snapshot": "data\\evaluation\\drafts\\20261007_222849_4964ec3d.json",
+  "exported_at": "2026-10-15T17:33:08.403811+00:00",
+  "ground_truth_sha256": "7d513a2b66778c8ed12a714aebf0c036d9f2fbd31a12e36e6cc9fe4fa76d577f",
+  "missing_case_tags": [
+    "different_currencies",
+    "charts",
+    "ocr",
+    "footnotes"
+  ],
+  "modality_claim_counts": {
+    "table": 75,
+    "text": 7
+  },
+  "partial_policy": "At least one supported subclaim and at least one contradicted or unresolved subclaim.",
+  "reviewed_coverage": {
+    "by_mode": {
+      "combined": 15,
+      "isolated": 35,
+      "straightforward": 50
+    },
+    "by_tag": {
+      "charts": 0,
+      "compound_claims": 30,
+      "different_currencies": 0,
+      "different_units": 8,
+      "different_years": 14,
+      "footnotes": 0,
+      "missing_evidence": 36,
+      "negative_values": 15,
+      "ocr": 0,
+      "percentage_changes": 21,
+      "percentage_points": 4,
+      "quarter_vs_annual": 1,
+      "rounded_values": 2,
+      "tables": 75,
+      "zero_baseline": 1
+    },
+    "by_verdict": {
+      "CONTRADICTED": 25,
+      "PARTIALLY_SUPPORTED": 25,
+      "SUPPORTED": 25,
+      "UNKNOWN": 25
+    },
+    "difficult": 50,
+    "straightforward": 50,
+    "unclassified": 0
+  },
+  "revision": 121,
+  "source_hashes": {
+    "data\\documents\\0000066740-26-000014-56e1ef4130\\original.pdf": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+    "data\\processed\\0000066740-26-000014-56e1ef4130\\evidence.json": "ca7a8072b3c26eaf419e344c3a18ef4d4d0511bd75db84db3e8affd03e187c04"
+  },
+  "tolerance_policy": "Absolute tolerance in each calculation's result_unit; approved by the human reviewer.",
+  "verdict_counts": {
+    "CONTRADICTED": 25,
+    "PARTIALLY_SUPPORTED": 25,
+    "SUPPORTED": 25,
+    "UNKNOWN": 25
+  }
+}

@@ -1,0 +1,1431 @@
+{
+  "schema_version": 1,
+  "cache_key": "7f474768d218dc15fa39c85bf0140d22183b4207987afb64e13e85350eb69f6a",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "In 2025, 3M's Electronics division net sales were $2,911 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:45:57.198747+00:00",
+  "results": [
+    {
+      "claim_text": "In 2025, 3M's Electronics division net sales were $2,911 million.",
+      "parsed_claim": {
+        "claim_text": "In 2025, 3M's Electronics division net sales were $2,911 million.",
+        "company": "3M",
+        "subject": null,
+        "metric": "net sales",
+        "segment": "Electronics division",
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$2,911 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "up",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 52,
+          "type": "text",
+          "content": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+          "bbox": [
+            23.54999901875,
+            80.28203280475395,
+            587.8519198024994,
+            88.28003241150395
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+          "source_evidence_id": "evidence_1545",
+          "text": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+          "score": 0.025219941348973606,
+          "rerank_score": 3.065647602081299
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "bbox": [
+            23.54999901875,
+            299.88082365480767,
+            575.0717204036773,
+            307.8788232615577
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "source_evidence_id": "evidence_1610",
+          "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "score": 0.019446804493533466,
+          "rerank_score": 2.8880083560943604
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_871",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "text",
+          "content": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+          "bbox": [
+            37.94999841875,
+            443.88201765475714,
+            573.6240528053273,
+            451.8800172615072
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_871",
+          "source_evidence_id": "evidence_871",
+          "text": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+          "score": 0.024705882352941175,
+          "rerank_score": 2.877324104309082
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 29,
+          "type": "text",
+          "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+          "bbox": [
+            37.94999841875,
+            74.88203302975785,
+            586.1032730690297,
+            82.88003263650785
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+          "source_evidence_id": "evidence_952",
+          "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+          "score": 0.015384615384615385,
+          "rerank_score": 2.2502264976501465
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "table",
+          "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            86.14339100529921,
+            587.3889999157012,
+            159.37788426835164
+          ],
+          "table_id": "table_101_1",
+          "headers": [
+            "Safety and Industrial",
+            "$11,384",
+            "$10,961",
+            "$10,956"
+          ],
+          "rows": [
+            [
+              "Transportation and Electronics",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Total reportable business segment net sales",
+              "24,576",
+              "24,272",
+              "24,483"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "source_evidence_id": "evidence_4862",
+          "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.02533373786407767,
+          "rerank_score": 1.3566110134124756
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_852",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "text",
+          "content": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            230.8820265297593,
+            333.916637631806,
+            238.8800261365093
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_852",
+          "source_evidence_id": "evidence_852",
+          "text": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+          "score": 0.027263007840342125,
+          "rerank_score": 0.7483973503112793
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            100.73750563828958,
+            553.2948518860468,
+            107.13350525178953
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "source_evidence_id": "evidence_1539",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.02482636323333826,
+          "rerank_score": 0.13751710951328278
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            77.33630661334769,
+            553.3136018852656,
+            83.73230622684764
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "source_evidence_id": "evidence_3171",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.024509803921568627,
+          "rerank_score": 0.13751710951328278
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_866",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 26,
+          "type": "text",
+          "content": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            388.68201995475937,
+            333.916637631806,
+            396.6800195615094
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_866",
+          "source_evidence_id": "evidence_866",
+          "text": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+          "score": 0.015625,
+          "rerank_score": -0.20231224596500397
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            109.13823074669199,
+            587.8071183651786,
+            378.9922919009644
+          ],
+          "table_id": "table_51_1",
+          "headers": [
+            "Abrasives",
+            "$1,340",
+            "$1,295",
+            "$1,327"
+          ],
+          "rows": [
+            [
+              "Automotive Aftermarket",
+              "1,178",
+              "1,235",
+              "1,237"
+            ],
+            [
+              "Electrical Markets",
+              "1,394",
+              "1,274",
+              "1,259"
+            ],
+            [
+              "Industrial Adhesives and Tapes",
+              "2,266",
+              "2,104",
+              "2,051"
+            ],
+            [
+              "Industrial Specialties Division",
+              "1,172",
+              "1,161",
+              "1,206"
+            ],
+            [
+              "Personal Safety",
+              "3,544",
+              "3,371",
+              "3,382"
+            ],
+            [
+              "Roofing Granules",
+              "490",
+              "521",
+              "494"
+            ],
+            [
+              "Total Safety and Industrial Business segment",
+              "11,384",
+              "10,961",
+              "10,956"
+            ],
+            [
+              "Advanced Materials",
+              "858",
+              "969",
+              "1,167"
+            ],
+            [
+              "Automotive and Aerospace",
+              "1,901",
+              "1,912",
+              "1,925"
+            ],
+            [
+              "Commercial Branding and Transportation",
+              "2,602",
+              "2,528",
+              "2,546"
+            ],
+            [
+              "Electronics",
+              "2,911",
+              "2,971",
+              "2,863"
+            ],
+            [
+              "Total Transportation and Electronics Business segment",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer Safety and Well-Being",
+              "1,108",
+              "1,080",
+              "1,096"
+            ],
+            [
+              "Home and Auto Care",
+              "1,200",
+              "1,191",
+              "1,260"
+            ],
+            [
+              "Home Improvement",
+              "1,486",
+              "1,486",
+              "1,448"
+            ],
+            [
+              "Packaging and Expression",
+              "1,126",
+              "1,174",
+              "1,222"
+            ],
+            [
+              "Total Consumer Business segment",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "source_evidence_id": "evidence_4796",
+          "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.02750455373406193,
+          "rerank_score": -1.4415431022644043
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unit quote is absent from the source evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 52,
+            "type": "text",
+            "content": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+            "bbox": [
+              23.54999901875,
+              80.28203280475395,
+              587.8519198024994,
+              88.28003241150395
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "text": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+            "score": 0.025219941348973606,
+            "rerank_score": 3.065647602081299,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.019446804493533466,
+            "rerank_score": 2.8880083560943604,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+            "bbox": [
+              37.94999841875,
+              443.88201765475714,
+              573.6240528053273,
+              451.8800172615072
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "text": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+            "score": 0.024705882352941175,
+            "rerank_score": 2.877324104309082,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.015384615384615385,
+            "rerank_score": 2.2502264976501465,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              230.8820265297593,
+              333.916637631806,
+              238.8800261365093
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "text": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+            "score": 0.027263007840342125,
+            "rerank_score": 0.7483973503112793,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.02482636323333826,
+            "rerank_score": 0.13751710951328278,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.024509803921568627,
+            "rerank_score": 0.13751710951328278,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              388.68201995475937,
+              333.916637631806,
+              396.6800195615094
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "text": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+            "score": 0.015625,
+            "rerank_score": -0.20231224596500397,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02533373786407767,
+            "rerank_score": 1.3566110134124756,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02750455373406193,
+            "rerank_score": -1.4415431022644043,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02533373786407767,
+            "rerank_score": 1.3566110134124756,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.02750455373406193,
+            "rerank_score": -1.4415431022644043,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 52,
+            "type": "text",
+            "content": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+            "bbox": [
+              23.54999901875,
+              80.28203280475395,
+              587.8519198024994,
+              88.28003241150395
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1545",
+            "text": "2025 Divestitures and Previously Announced Divestitures: In June 2025, 3M completed the sale of its fused silica business, formerly part of the Transportation and Electronics",
+            "score": 0.025219941348973606,
+            "rerank_score": 3.065647602081299,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.019446804493533466,
+            "rerank_score": 2.8880083560943604,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+            "bbox": [
+              37.94999841875,
+              443.88201765475714,
+              573.6240528053273,
+              451.8800172615072
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_871",
+            "text": "• Divestiture and acquisition impacts relate to lost/gained Transportation and Electronics sales year-on-year from the Aearo Entities. In the third quarter of 2022, 3M",
+            "score": 0.024705882352941175,
+            "rerank_score": 2.877324104309082,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "bbox": [
+              37.94999841875,
+              74.88203302975785,
+              586.1032730690297,
+              82.88003263650785
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_952",
+            "text": "• In 2025, 3M reflected a net write-down for a business classified as held for sale and completed a divestiture for immaterial proceeds slightly below the business's book",
+            "score": 0.015384615384615385,
+            "rerank_score": 2.2502264976501465,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              230.8820265297593,
+              333.916637631806,
+              238.8800261365093
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_852",
+            "text": "Year 2025 results: Sales in Transportation and Electronics were down 1.3 percent in U.S. dollars.",
+            "score": 0.027263007840342125,
+            "rerank_score": 0.7483973503112793,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.02482636323333826,
+            "rerank_score": 0.13751710951328278,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.024509803921568627,
+            "rerank_score": 0.13751710951328278,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 26,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              388.68201995475937,
+              333.916637631806,
+              396.6800195615094
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_866",
+            "text": "Year 2024 results: Sales in Transportation and Electronics were down 1.4 percent in U.S. dollars.",
+            "score": 0.015625,
+            "rerank_score": -0.20231224596500397,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "0000066740-26-000014-56e1ef4130::evidence_1545",
+          "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "0000066740-26-000014-56e1ef4130::evidence_871",
+          "0000066740-26-000014-56e1ef4130::evidence_952",
+          "0000066740-26-000014-56e1ef4130::evidence_852",
+          "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "0000066740-26-000014-56e1ef4130::evidence_866"
+        ],
+        "pages": [
+          26,
+          29,
+          51,
+          52,
+          54,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Unit quote is absent from the source evidence.",
+      "original_claim": "In 2025, 3M's Electronics division net sales were $2,911 million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 33.997473600000376,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:45:23.204813+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863921-pblsc2d3vHmv3Jxjog4u",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 319,
+            "completion_tokens": 1280,
+            "total_tokens": 1599,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1045,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 17.451
+        },
+        {
+          "time": "2026-10-24T17:45:41.972450+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792863940-SXaAuCbvsPjDvi5Rnfo5",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4954,
+            "completion_tokens": 1251,
+            "total_tokens": 6205,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 823,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.223
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "f7da65af827e4d44b2766f3b097da8d709be199ce1e06add4e840c6442b48135"
+}

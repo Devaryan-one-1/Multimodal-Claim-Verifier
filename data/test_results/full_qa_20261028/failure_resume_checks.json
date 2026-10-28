@@ -1,0 +1,182 @@
+{
+  "fixture_only": true,
+  "tests": [
+    {
+      "name": "five_prediction_pause",
+      "pass": true,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 9,
+          "failed_queries": 0,
+          "not_run_queries": 91,
+          "cache_hits": 6,
+          "coverage": 0.09,
+          "accuracy": 0.3333333333333333,
+          "macro_class_count": 4,
+          "macro_precision": 0.08333333333333333,
+          "weighted_precision": 0.1111111111111111,
+          "macro_recall": 0.25,
+          "weighted_recall": 0.3333333333333333,
+          "macro_f1": 0.125,
+          "weighted_f1": 0.16666666666666666
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 6,
+          "failed_queries": 0,
+          "not_run_queries": 54,
+          "cache_hits": 4,
+          "coverage": 0.1,
+          "accuracy": 0.6666666666666666,
+          "macro_class_count": 3,
+          "macro_precision": 0.2222222222222222,
+          "weighted_precision": 0.4444444444444444,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.6666666666666666,
+          "macro_f1": 0.26666666666666666,
+          "weighted_f1": 0.5333333333333333
+        }
+      ]
+    },
+    {
+      "name": "resume_reuses_successful_cache",
+      "pass": true,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 14,
+          "failed_queries": 0,
+          "not_run_queries": 86,
+          "cache_hits": 9,
+          "coverage": 0.14,
+          "accuracy": 0.35714285714285715,
+          "macro_class_count": 4,
+          "macro_precision": 0.08928571428571429,
+          "weighted_precision": 0.12755102040816327,
+          "macro_recall": 0.25,
+          "weighted_recall": 0.35714285714285715,
+          "macro_f1": 0.13157894736842105,
+          "weighted_f1": 0.18796992481203006
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 6,
+          "failed_queries": 0,
+          "not_run_queries": 54,
+          "cache_hits": 6,
+          "coverage": 0.1,
+          "accuracy": 0.6666666666666666,
+          "macro_class_count": 3,
+          "macro_precision": 0.2222222222222222,
+          "weighted_precision": 0.4444444444444444,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.6666666666666666,
+          "macro_f1": 0.26666666666666666,
+          "weighted_f1": 0.5333333333333333
+        }
+      ]
+    },
+    {
+      "name": "cache_only_calls_no_provider",
+      "pass": true,
+      "live_fixture_calls": 10,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 14,
+          "failed_queries": 0,
+          "not_run_queries": 86,
+          "cache_hits": 14,
+          "coverage": 0.14,
+          "accuracy": 0.35714285714285715,
+          "macro_class_count": 4,
+          "macro_precision": 0.08928571428571429,
+          "weighted_precision": 0.12755102040816327,
+          "macro_recall": 0.25,
+          "weighted_recall": 0.35714285714285715,
+          "macro_f1": 0.13157894736842105,
+          "weighted_f1": 0.18796992481203006
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 6,
+          "failed_queries": 0,
+          "not_run_queries": 54,
+          "cache_hits": 6,
+          "coverage": 0.1,
+          "accuracy": 0.6666666666666666,
+          "macro_class_count": 3,
+          "macro_precision": 0.2222222222222222,
+          "weighted_precision": 0.4444444444444444,
+          "macro_recall": 0.3333333333333333,
+          "weighted_recall": 0.6666666666666666,
+          "macro_f1": 0.26666666666666666,
+          "weighted_f1": 0.5333333333333333
+        }
+      ]
+    },
+    {
+      "name": "quota_always_pauses",
+      "pass": true,
+      "pause": {
+        "kind": "daily_quota",
+        "reason": "Synthetic QA quota failure",
+        "query_id": "claim_7f6d59467929"
+      }
+    },
+    {
+      "name": "errors_excluded_from_verdict_metrics",
+      "pass": true,
+      "summary": [
+        {
+          "level": "claim",
+          "total_queries": 100,
+          "completed_queries": 0,
+          "failed_queries": 1,
+          "not_run_queries": 99,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        },
+        {
+          "level": "subclaim",
+          "total_queries": 60,
+          "completed_queries": 0,
+          "failed_queries": 0,
+          "not_run_queries": 60,
+          "cache_hits": 0,
+          "coverage": 0.0,
+          "accuracy": null,
+          "macro_class_count": 0,
+          "macro_precision": null,
+          "weighted_precision": null,
+          "macro_recall": null,
+          "weighted_recall": null,
+          "macro_f1": null,
+          "weighted_f1": null
+        }
+      ]
+    },
+    {
+      "name": "grounding_review_persists_in_isolation",
+      "pass": true
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "warning": "Synthetic fixture reports must never be cited as measured model performance."
+}

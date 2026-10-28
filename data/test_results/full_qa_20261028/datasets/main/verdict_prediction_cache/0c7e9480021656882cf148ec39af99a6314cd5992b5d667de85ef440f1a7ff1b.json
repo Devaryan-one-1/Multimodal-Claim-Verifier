@@ -1,0 +1,1437 @@
+{
+  "schema_version": 1,
+  "cache_key": "0c7e9480021656882cf148ec39af99a6314cd5992b5d667de85ef440f1a7ff1b",
+  "configuration_signature": "31910eb8521b768c999903eca5fe83c253d23874a83b132dd0eaac51a64e0cff",
+  "request": {
+    "claim_text": "In 2025, net sales for Industrial Adhesives and Tapes were $2,266 million.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-24T17:49:40.963937+00:00",
+  "results": [
+    {
+      "claim_text": "In 2025, net sales for Industrial Adhesives and Tapes were $2,266 million.",
+      "parsed_claim": {
+        "claim_text": "In 2025, net sales for Industrial Adhesives and Tapes were $2,266 million.",
+        "company": null,
+        "subject": "net sales for Industrial Adhesives and Tapes",
+        "metric": "net sales",
+        "segment": "Industrial Adhesives and Tapes",
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$2,266 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "down",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "The company is not explicitly mentioned in the text and is not inferred.",
+          "The segment is 'Industrial Adhesives and Tapes'.",
+          "The period is the annual year 2025."
+        ],
+        "change_type": "decline"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "table",
+          "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            109.13823074669199,
+            587.8071183651786,
+            378.9922919009644
+          ],
+          "table_id": "table_51_1",
+          "headers": [
+            "Abrasives",
+            "$1,340",
+            "$1,295",
+            "$1,327"
+          ],
+          "rows": [
+            [
+              "Automotive Aftermarket",
+              "1,178",
+              "1,235",
+              "1,237"
+            ],
+            [
+              "Electrical Markets",
+              "1,394",
+              "1,274",
+              "1,259"
+            ],
+            [
+              "Industrial Adhesives and Tapes",
+              "2,266",
+              "2,104",
+              "2,051"
+            ],
+            [
+              "Industrial Specialties Division",
+              "1,172",
+              "1,161",
+              "1,206"
+            ],
+            [
+              "Personal Safety",
+              "3,544",
+              "3,371",
+              "3,382"
+            ],
+            [
+              "Roofing Granules",
+              "490",
+              "521",
+              "494"
+            ],
+            [
+              "Total Safety and Industrial Business segment",
+              "11,384",
+              "10,961",
+              "10,956"
+            ],
+            [
+              "Advanced Materials",
+              "858",
+              "969",
+              "1,167"
+            ],
+            [
+              "Automotive and Aerospace",
+              "1,901",
+              "1,912",
+              "1,925"
+            ],
+            [
+              "Commercial Branding and Transportation",
+              "2,602",
+              "2,528",
+              "2,546"
+            ],
+            [
+              "Electronics",
+              "2,911",
+              "2,971",
+              "2,863"
+            ],
+            [
+              "Total Transportation and Electronics Business segment",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer Safety and Well-Being",
+              "1,108",
+              "1,080",
+              "1,096"
+            ],
+            [
+              "Home and Auto Care",
+              "1,200",
+              "1,191",
+              "1,260"
+            ],
+            [
+              "Home Improvement",
+              "1,486",
+              "1,486",
+              "1,448"
+            ],
+            [
+              "Packaging and Expression",
+              "1,126",
+              "1,174",
+              "1,222"
+            ],
+            [
+              "Total Consumer Business segment",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "source_evidence_id": "evidence_4796",
+          "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.029551337359792925,
+          "rerank_score": 3.818042516708374
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+          "bbox": [
+            23.54999901875,
+            257.88202540475436,
+            578.93135159419,
+            265.88002501150436
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+          "source_evidence_id": "evidence_834",
+          "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+          "score": 0.02629443272196072,
+          "rerank_score": 2.6254656314849854
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+          "bbox": [
+            23.54999901875,
+            341.28202192975476,
+            547.0531447105179,
+            349.2800215365048
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+          "source_evidence_id": "evidence_841",
+          "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+          "score": 0.031754032258064516,
+          "rerank_score": 2.576084613800049
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            243.48202600475747,
+            292.5968762734628,
+            251.48002561150747
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+          "source_evidence_id": "evidence_833",
+          "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+          "score": 0.031009615384615385,
+          "rerank_score": 1.1907613277435303
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 25,
+          "type": "text",
+          "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+          "bbox": [
+            23.54999901875,
+            327.48202250475623,
+            257.73158230618344,
+            335.4800221115063
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+          "source_evidence_id": "evidence_840",
+          "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+          "score": 0.015384615384615385,
+          "rerank_score": 0.5998417735099792
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            100.73750563828958,
+            553.2948518860468,
+            107.13350525178953
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "source_evidence_id": "evidence_1539",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.0304147465437788,
+          "rerank_score": 0.26519209146499634
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "text",
+          "content": "Net sales (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            77.33630661334769,
+            553.3136018852656,
+            83.73230622684764
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "source_evidence_id": "evidence_3171",
+          "text": "Net sales (millions) 2025 2024 2023",
+          "score": 0.029957522915269395,
+          "rerank_score": 0.26519209146499634
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+          "bbox": [
+            23.54999901875,
+            489.48201575475576,
+            579.4426212558268,
+            497.4800153615058
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "source_evidence_id": "evidence_1052",
+          "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+          "score": 0.015873015873015872,
+          "rerank_score": 0.08116947114467621
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 101,
+          "type": "table",
+          "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "bbox": [
+            23.54999901875,
+            86.14339100529921,
+            587.3889999157012,
+            159.37788426835164
+          ],
+          "table_id": "table_101_1",
+          "headers": [
+            "Safety and Industrial",
+            "$11,384",
+            "$10,961",
+            "$10,956"
+          ],
+          "rows": [
+            [
+              "Transportation and Electronics",
+              "8,272",
+              "8,380",
+              "8,501"
+            ],
+            [
+              "Consumer",
+              "4,920",
+              "4,931",
+              "5,026"
+            ],
+            [
+              "Total reportable business segment net sales",
+              "24,576",
+              "24,272",
+              "24,483"
+            ],
+            [
+              "Corporate and Other",
+              "372",
+              "303",
+              "127"
+            ],
+            [
+              "Total Company",
+              "$24,948",
+              "$24,575",
+              "$24,610"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [],
+            "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "source_evidence_id": "evidence_4862",
+          "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+          "score": 0.014492753623188406,
+          "rerank_score": -0.080789715051651
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 51,
+          "type": "text",
+          "content": "Net sales by geographic area (millions) 2025 2024 2023",
+          "bbox": [
+            24.346873985546875,
+            386.3374937382848,
+            553.3136018852656,
+            392.73349335178483
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+          "source_evidence_id": "evidence_1540",
+          "text": "Net sales by geographic area (millions) 2025 2024 2023",
+          "score": 0.02220873786407767,
+          "rerank_score": -0.27720776200294495
+        }
+      ],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "The company is not explicitly mentioned in the text and is not inferred.",
+        "The segment is 'Industrial Adhesives and Tapes'.",
+        "The period is the annual year 2025."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Unit quote is absent from the source evidence.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "bbox": [
+              23.54999901875,
+              257.88202540475436,
+              578.93135159419,
+              265.88002501150436
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "score": 0.02629443272196072,
+            "rerank_score": 2.6254656314849854,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "bbox": [
+              23.54999901875,
+              341.28202192975476,
+              547.0531447105179,
+              349.2800215365048
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "score": 0.031754032258064516,
+            "rerank_score": 2.576084613800049,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              243.48202600475747,
+              292.5968762734628,
+              251.48002561150747
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "score": 0.031009615384615385,
+            "rerank_score": 1.1907613277435303,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              327.48202250475623,
+              257.73158230618344,
+              335.4800221115063
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "score": 0.015384615384615385,
+            "rerank_score": 0.5998417735099792,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.0304147465437788,
+            "rerank_score": 0.26519209146499634,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.029957522915269395,
+            "rerank_score": 0.26519209146499634,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "bbox": [
+              23.54999901875,
+              489.48201575475576,
+              579.4426212558268,
+              497.4800153615058
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "score": 0.015873015873015872,
+            "rerank_score": 0.08116947114467621,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by geographic area (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              386.3374937382848,
+              553.3136018852656,
+              392.73349335178483
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "text": "Net sales by geographic area (millions) 2025 2024 2023",
+            "score": 0.02220873786407767,
+            "rerank_score": -0.27720776200294495,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.029551337359792925,
+            "rerank_score": 3.818042516708374,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.014492753623188406,
+            "rerank_score": -0.080789715051651,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "table",
+            "content": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              109.13823074669199,
+              587.8071183651786,
+              378.9922919009644
+            ],
+            "table_id": "table_51_1",
+            "headers": [
+              "Abrasives",
+              "$1,340",
+              "$1,295",
+              "$1,327"
+            ],
+            "rows": [
+              [
+                "Automotive Aftermarket",
+                "1,178",
+                "1,235",
+                "1,237"
+              ],
+              [
+                "Electrical Markets",
+                "1,394",
+                "1,274",
+                "1,259"
+              ],
+              [
+                "Industrial Adhesives and Tapes",
+                "2,266",
+                "2,104",
+                "2,051"
+              ],
+              [
+                "Industrial Specialties Division",
+                "1,172",
+                "1,161",
+                "1,206"
+              ],
+              [
+                "Personal Safety",
+                "3,544",
+                "3,371",
+                "3,382"
+              ],
+              [
+                "Roofing Granules",
+                "490",
+                "521",
+                "494"
+              ],
+              [
+                "Total Safety and Industrial Business segment",
+                "11,384",
+                "10,961",
+                "10,956"
+              ],
+              [
+                "Advanced Materials",
+                "858",
+                "969",
+                "1,167"
+              ],
+              [
+                "Automotive and Aerospace",
+                "1,901",
+                "1,912",
+                "1,925"
+              ],
+              [
+                "Commercial Branding and Transportation",
+                "2,602",
+                "2,528",
+                "2,546"
+              ],
+              [
+                "Electronics",
+                "2,911",
+                "2,971",
+                "2,863"
+              ],
+              [
+                "Total Transportation and Electronics Business segment",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer Safety and Well-Being",
+                "1,108",
+                "1,080",
+                "1,096"
+              ],
+              [
+                "Home and Auto Care",
+                "1,200",
+                "1,191",
+                "1,260"
+              ],
+              [
+                "Home Improvement",
+                "1,486",
+                "1,486",
+                "1,448"
+              ],
+              [
+                "Packaging and Expression",
+                "1,126",
+                "1,174",
+                "1,222"
+              ],
+              [
+                "Total Consumer Business segment",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Note 3. Revenue Disaggregated Revenue Information: The Company views the following disaggregated disclosures as useful to understanding the composition of revenue recognized during the respective reporting periods: Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4796",
+            "text": "Automotive Aftermarket: 2025 1,178, 2024 1,235, 2023 1,237 | Electrical Markets: 2025 1,394, 2024 1,274, 2023 1,259 | Industrial Adhesives and Tapes: 2025 2,266, 2024 2,104, 2023 2,051 | Industrial Specialties Division: 2025 1,172, 2024 1,161, 2023 1,206 | Personal Safety: 2025 3,544, 2024 3,371, 2023 3,382 | Roofing Granules: 2025 490, 2024 521, 2023 494 | Total Safety and Industrial Business segment: 2025 11,384, 2024 10,961, 2023 10,956 | Advanced Materials: 2025 858, 2024 969, 2023 1,167 | Automotive and Aerospace: 2025 1,901, 2024 1,912, 2023 1,925 | Commercial Branding and Transportation: 2025 2,602, 2024 2,528, 2023 2,546 | Electronics: 2025 2,911, 2024 2,971, 2023 2,863 | Total Transportation and Electronics Business segment: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer Safety and Well-Being: 2025 1,108, 2024 1,080, 2023 1,096 | Home and Auto Care: 2025 1,200, 2024 1,191, 2023 1,260 | Home Improvement: 2025 1,486, 2024 1,486, 2023 1,448 | Packaging and Expression: 2025 1,126, 2024 1,174, 2023 1,222 | Total Consumer Business segment: 2025 4,920, 2024 4,931, 2023 5,026 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.029551337359792925,
+            "rerank_score": 3.818042516708374,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "table",
+            "content": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "bbox": [
+              23.54999901875,
+              86.14339100529921,
+              587.3889999157012,
+              159.37788426835164
+            ],
+            "table_id": "table_101_1",
+            "headers": [
+              "Safety and Industrial",
+              "$11,384",
+              "$10,961",
+              "$10,956"
+            ],
+            "rows": [
+              [
+                "Transportation and Electronics",
+                "8,272",
+                "8,380",
+                "8,501"
+              ],
+              [
+                "Consumer",
+                "4,920",
+                "4,931",
+                "5,026"
+              ],
+              [
+                "Total reportable business segment net sales",
+                "24,576",
+                "24,272",
+                "24,483"
+              ],
+              [
+                "Corporate and Other",
+                "372",
+                "303",
+                "127"
+              ],
+              [
+                "Total Company",
+                "$24,948",
+                "$24,575",
+                "$24,610"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [],
+              "raw": "Business Segment Information Net sales (millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4862",
+            "text": "Transportation and Electronics: 2025 8,272, 2024 8,380, 2023 8,501 | Consumer: 2025 4,920, 2024 4,931, 2023 5,026 | Total reportable business segment net sales: 2025 24,576, 2024 24,272, 2023 24,483 | Corporate and Other: 2025 372, 2024 303, 2023 127 | Total Company: 2025 $24,948, 2024 $24,575, 2023 $24,610",
+            "score": 0.014492753623188406,
+            "rerank_score": -0.080789715051651,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "bbox": [
+              23.54999901875,
+              257.88202540475436,
+              578.93135159419,
+              265.88002501150436
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_834",
+            "text": "Organic sales increased in electrical markets, industrial adhesives and tapes, personal safety, abrasives and industrial specialties, driven by demand in key underlying markets",
+            "score": 0.02629443272196072,
+            "rerank_score": 2.6254656314849854,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "bbox": [
+              23.54999901875,
+              341.28202192975476,
+              547.0531447105179,
+              349.2800215365048
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_841",
+            "text": "Organic sales increased in roofing granules, industrial adhesives and tapes and in electrical markets due to strong demand for bonding solutions and residential roof",
+            "score": 0.031754032258064516,
+            "rerank_score": 2.576084613800049,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              243.48202600475747,
+              292.5968762734628,
+              251.48002561150747
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_833",
+            "text": "Year 2025 results: Sales in Safety and Industrial were up 3.9 percent in U.S. dollars.",
+            "score": 0.031009615384615385,
+            "rerank_score": 1.1907613277435303,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 25,
+            "type": "text",
+            "content": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "bbox": [
+              23.54999901875,
+              327.48202250475623,
+              257.73158230618344,
+              335.4800221115063
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_840",
+            "text": "Year 2024 results: Sales in Safety and Industrial were flat in U.S. dollars.",
+            "score": 0.015384615384615385,
+            "rerank_score": 0.5998417735099792,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              100.73750563828958,
+              553.2948518860468,
+              107.13350525178953
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1539",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.0304147465437788,
+            "rerank_score": 0.26519209146499634,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 101,
+            "type": "text",
+            "content": "Net sales (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              77.33630661334769,
+              553.3136018852656,
+              83.73230622684764
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3171",
+            "text": "Net sales (millions) 2025 2024 2023",
+            "score": 0.029957522915269395,
+            "rerank_score": 0.26519209146499634,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "bbox": [
+              23.54999901875,
+              489.48201575475576,
+              579.4426212558268,
+              497.4800153615058
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1052",
+            "text": "following divisions: Commercial Branding and Transportation, Display Materials and Systems, Electronics Materials Solutions, Industrial Adhesives and Tapes, and Personal",
+            "score": 0.015873015873015872,
+            "rerank_score": 0.08116947114467621,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 51,
+            "type": "text",
+            "content": "Net sales by geographic area (millions) 2025 2024 2023",
+            "bbox": [
+              24.346873985546875,
+              386.3374937382848,
+              553.3136018852656,
+              392.73349335178483
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1540",
+            "text": "Net sales by geographic area (millions) 2025 2024 2023",
+            "score": 0.02220873786407767,
+            "rerank_score": -0.27720776200294495,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4796",
+          "0000066740-26-000014-56e1ef4130::evidence_4862",
+          "0000066740-26-000014-56e1ef4130::evidence_834",
+          "0000066740-26-000014-56e1ef4130::evidence_841",
+          "0000066740-26-000014-56e1ef4130::evidence_833",
+          "0000066740-26-000014-56e1ef4130::evidence_840",
+          "0000066740-26-000014-56e1ef4130::evidence_1539",
+          "0000066740-26-000014-56e1ef4130::evidence_3171",
+          "0000066740-26-000014-56e1ef4130::evidence_1052",
+          "0000066740-26-000014-56e1ef4130::evidence_1540"
+        ],
+        "pages": [
+          25,
+          32,
+          51,
+          101
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Unit quote is absent from the source evidence.",
+      "original_claim": "In 2025, net sales for Industrial Adhesives and Tapes were $2,266 million.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 42.33004030000302,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-24T17:48:58.635892+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864137-Uax8bppuXP87ssmvcs0T",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 321,
+            "completion_tokens": 1728,
+            "total_tokens": 2049,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1482,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 19.568
+        },
+        {
+          "time": "2026-10-24T17:49:19.062340+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792864157-7BtOyBs6ng5AYPnpSzDT",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4257,
+            "completion_tokens": 1914,
+            "total_tokens": 6171,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1483,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 21.9
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "9865ef100d5cae64004f4958821213f9fd2f6c0c9066f4e95e6e399c53acab67"
+}

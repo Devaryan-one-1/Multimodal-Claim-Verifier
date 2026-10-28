@@ -1,0 +1,33 @@
+{"timestamp": "2026-10-28T12:37:52.276550+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "0d7b76340b204a68942b61ca36212cfc"}
+{"timestamp": "2026-10-28T12:37:52.278078+00:00", "level": "ERROR", "event": "document_processing_failed", "request_id": "0d7b76340b204a68942b61ca36212cfc", "error_kind": "InvalidPDFError", "stage": "validation", "duration_seconds": 0.003356300003360957}
+{"timestamp": "2026-10-28T12:37:52.291332+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "871fd0e8a7994fa7afc762a2cb3a4d09"}
+{"timestamp": "2026-10-28T12:37:52.307473+00:00", "level": "ERROR", "event": "document_processing_failed", "request_id": "871fd0e8a7994fa7afc762a2cb3a4d09", "error_kind": "InvalidPDFError", "stage": "validation", "duration_seconds": 0.01614190000691451}
+{"timestamp": "2026-10-28T12:37:52.308103+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "0f52d0f2c3d549fc8e943c355b74889b"}
+{"timestamp": "2026-10-28T12:37:52.308404+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "document_id": "qa_text_only", "size_bytes": 1038}
+{"timestamp": "2026-10-28T12:37:52.309530+00:00", "level": "INFO", "event": "extraction_started", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "document_id": "qa_text_only"}
+{"timestamp": "2026-10-28T12:37:52.320920+00:00", "level": "INFO", "event": "tables_found", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "document_id": "qa_text_only", "count": 0}
+{"timestamp": "2026-10-28T12:37:52.348799+00:00", "level": "INFO", "event": "charts_found", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "document_id": "qa_text_only", "count": 0}
+{"timestamp": "2026-10-28T12:37:54.440737+00:00", "level": "INFO", "event": "document_ready", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "document_id": "qa_text_only", "evidence_count": 1, "table_count": 0, "chart_count": 0, "ocr_page_count": 0, "chunk_count": 1}
+{"timestamp": "2026-10-28T12:37:54.441003+00:00", "level": "INFO", "event": "document_processing_finished", "request_id": "0f52d0f2c3d549fc8e943c355b74889b", "duration_seconds": 2.132891000015661}
+{"timestamp": "2026-10-28T12:37:54.443206+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "d35bae554531402da9a352190f8cdf46"}
+{"timestamp": "2026-10-28T12:37:54.443924+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "d35bae554531402da9a352190f8cdf46", "document_id": "qa_scanned", "size_bytes": 2163572}
+{"timestamp": "2026-10-28T12:37:54.449301+00:00", "level": "INFO", "event": "extraction_started", "request_id": "d35bae554531402da9a352190f8cdf46", "document_id": "qa_scanned"}
+{"timestamp": "2026-10-28T12:37:54.471336+00:00", "level": "INFO", "event": "tables_found", "request_id": "d35bae554531402da9a352190f8cdf46", "document_id": "qa_scanned", "count": 0}
+{"timestamp": "2026-10-28T12:37:54.489089+00:00", "level": "INFO", "event": "weak_text_pages", "request_id": "d35bae554531402da9a352190f8cdf46", "document_id": "qa_scanned", "count": 1}
+{"timestamp": "2026-10-28T12:38:06.628004+00:00", "level": "WARNING", "event": "ocr_unavailable", "request_id": "d35bae554531402da9a352190f8cdf46"}
+{"timestamp": "2026-10-28T12:38:06.628308+00:00", "level": "INFO", "event": "charts_found", "request_id": "d35bae554531402da9a352190f8cdf46", "document_id": "qa_scanned", "count": 0}
+{"timestamp": "2026-10-28T12:38:06.629726+00:00", "level": "ERROR", "event": "document_processing_failed", "request_id": "d35bae554531402da9a352190f8cdf46", "error_kind": "NoUsableEvidenceError", "stage": "evidence", "duration_seconds": 12.186517800000729}
+{"timestamp": "2026-10-28T12:38:06.644493+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "375926a25dea411b90f24440b31463e1"}
+{"timestamp": "2026-10-28T12:38:06.645219+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "375926a25dea411b90f24440b31463e1", "document_id": "qa_blank", "size_bytes": 518}
+{"timestamp": "2026-10-28T12:38:06.647316+00:00", "level": "INFO", "event": "extraction_started", "request_id": "375926a25dea411b90f24440b31463e1", "document_id": "qa_blank"}
+{"timestamp": "2026-10-28T12:38:06.656260+00:00", "level": "INFO", "event": "tables_found", "request_id": "375926a25dea411b90f24440b31463e1", "document_id": "qa_blank", "count": 0}
+{"timestamp": "2026-10-28T12:38:06.676284+00:00", "level": "INFO", "event": "weak_text_pages", "request_id": "375926a25dea411b90f24440b31463e1", "document_id": "qa_blank", "count": 1}
+{"timestamp": "2026-10-28T12:38:06.676438+00:00", "level": "INFO", "event": "charts_found", "request_id": "375926a25dea411b90f24440b31463e1", "document_id": "qa_blank", "count": 0}
+{"timestamp": "2026-10-28T12:38:06.677073+00:00", "level": "ERROR", "event": "document_processing_failed", "request_id": "375926a25dea411b90f24440b31463e1", "error_kind": "NoUsableEvidenceError", "stage": "evidence", "duration_seconds": 0.03259639997850172}
+{"timestamp": "2026-10-28T12:38:06.685403+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "b5979bb1f2314cc19a0b95b095928e88"}
+{"timestamp": "2026-10-28T12:38:06.686007+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "document_id": "qa_difficult_table", "size_bytes": 2227}
+{"timestamp": "2026-10-28T12:38:06.687801+00:00", "level": "INFO", "event": "extraction_started", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "document_id": "qa_difficult_table"}
+{"timestamp": "2026-10-28T12:38:06.711255+00:00", "level": "INFO", "event": "tables_found", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "document_id": "qa_difficult_table", "count": 0}
+{"timestamp": "2026-10-28T12:38:06.729782+00:00", "level": "INFO", "event": "charts_found", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "document_id": "qa_difficult_table", "count": 0}
+{"timestamp": "2026-10-28T12:38:07.599231+00:00", "level": "INFO", "event": "document_ready", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "document_id": "qa_difficult_table", "evidence_count": 2, "table_count": 0, "chart_count": 0, "ocr_page_count": 0, "chunk_count": 2}
+{"timestamp": "2026-10-28T12:38:07.599480+00:00", "level": "INFO", "event": "document_processing_finished", "request_id": "b5979bb1f2314cc19a0b95b095928e88", "duration_seconds": 0.914084299991373}

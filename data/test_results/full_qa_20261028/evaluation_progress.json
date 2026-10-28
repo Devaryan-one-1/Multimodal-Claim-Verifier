@@ -1,0 +1,457 @@
+[
+  {
+    "test": "verdict_cache",
+    "status": null,
+    "complete": false,
+    "valid_inputs": true,
+    "paused": false,
+    "pause": null,
+    "error": null,
+    "summary": [
+      {
+        "level": "claim",
+        "total_queries": 100,
+        "completed_queries": 0,
+        "failed_queries": 0,
+        "not_run_queries": 100,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "level": "subclaim",
+        "total_queries": 60,
+        "completed_queries": 0,
+        "failed_queries": 0,
+        "not_run_queries": 60,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\verdict_results\\20261028_123817_477030de.json",
+    "query_statuses": {
+      "not_run": 160
+    }
+  },
+  {
+    "test": "verdict_live",
+    "status": null,
+    "complete": false,
+    "valid_inputs": true,
+    "paused": true,
+    "pause": {
+      "kind": "prediction_budget",
+      "reason": "The chosen new-prediction limit for this run was reached.",
+      "action": "Run again in reuse mode to continue with the remaining queries."
+    },
+    "error": null,
+    "summary": [
+      {
+        "level": "claim",
+        "total_queries": 100,
+        "completed_queries": 0,
+        "failed_queries": 3,
+        "not_run_queries": 97,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "level": "subclaim",
+        "total_queries": 60,
+        "completed_queries": 0,
+        "failed_queries": 2,
+        "not_run_queries": 58,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\verdict_results\\20261028_123823_8b61e5d3.json",
+    "query_statuses": {
+      "error": 5,
+      "not_run": 155
+    }
+  },
+  {
+    "test": "verdict_resume",
+    "status": null,
+    "complete": false,
+    "valid_inputs": true,
+    "paused": true,
+    "pause": {
+      "kind": "prediction_budget",
+      "reason": "The chosen new-prediction limit for this run was reached.",
+      "action": "Run again in reuse mode to continue with the remaining queries."
+    },
+    "error": null,
+    "summary": [
+      {
+        "level": "claim",
+        "total_queries": 100,
+        "completed_queries": 0,
+        "failed_queries": 3,
+        "not_run_queries": 97,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "level": "subclaim",
+        "total_queries": 60,
+        "completed_queries": 0,
+        "failed_queries": 2,
+        "not_run_queries": 58,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\verdict_results\\20261028_123825_df501bb1.json",
+    "query_statuses": {
+      "error": 5,
+      "not_run": 155
+    }
+  },
+  {
+    "test": "hallucination_live",
+    "status": null,
+    "complete": false,
+    "valid_inputs": true,
+    "paused": false,
+    "pause": null,
+    "error": null,
+    "summary": [
+      {
+        "level": "claim",
+        "total_queries": 20,
+        "completed_queries": 0,
+        "failed_queries": 20,
+        "not_run_queries": 0,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "level": "subclaim",
+        "total_queries": 24,
+        "completed_queries": 0,
+        "failed_queries": 24,
+        "not_run_queries": 0,
+        "cache_hits": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_class_count": 0,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\hallucination\\verdict_results\\20261028_123827_7c39749b.json",
+    "query_statuses": {
+      "error": 44
+    }
+  },
+  {
+    "test": "retrieval_live",
+    "status": null,
+    "complete": true,
+    "valid_inputs": null,
+    "paused": null,
+    "pause": null,
+    "error": null,
+    "summary": [
+      {
+        "level": "claim",
+        "stage": "initial",
+        "total_queries": 100,
+        "eligible_queries": 75,
+        "completed_queries": 75,
+        "excluded_queries": 25,
+        "failed_queries": 0,
+        "blocked_queries": 0,
+        "not_run_queries": 0,
+        "Recall@5": 0.4666666666666667,
+        "Recall@10": 0.6133333333333333,
+        "Hit@5": 0.4666666666666667,
+        "Hit@10": 0.6133333333333333,
+        "MRR@20": 0.329977688977689
+      },
+      {
+        "level": "claim",
+        "stage": "reranked",
+        "total_queries": 100,
+        "eligible_queries": 75,
+        "completed_queries": 75,
+        "excluded_queries": 25,
+        "failed_queries": 0,
+        "blocked_queries": 0,
+        "not_run_queries": 0,
+        "Recall@5": 0.43333333333333335,
+        "Recall@10": 0.5933333333333334,
+        "Hit@5": 0.44,
+        "Hit@10": 0.6,
+        "MRR@20": 0.28351472601472605
+      },
+      {
+        "level": "subclaim",
+        "stage": "initial",
+        "total_queries": 60,
+        "eligible_queries": 49,
+        "completed_queries": 49,
+        "excluded_queries": 11,
+        "failed_queries": 0,
+        "blocked_queries": 0,
+        "not_run_queries": 0,
+        "Recall@5": 0.42857142857142855,
+        "Recall@10": 0.5714285714285714,
+        "Hit@5": 0.42857142857142855,
+        "Hit@10": 0.5714285714285714,
+        "MRR@20": 0.3207043135883093
+      },
+      {
+        "level": "subclaim",
+        "stage": "reranked",
+        "total_queries": 60,
+        "eligible_queries": 49,
+        "completed_queries": 49,
+        "excluded_queries": 11,
+        "failed_queries": 0,
+        "blocked_queries": 0,
+        "not_run_queries": 0,
+        "Recall@5": 0.5102040816326531,
+        "Recall@10": 0.6122448979591837,
+        "Hit@5": 0.5102040816326531,
+        "Hit@10": 0.6122448979591837,
+        "MRR@20": 0.34926163105935015
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\retrieval_results\\20261028_123841_065a82ee.json",
+    "query_statuses": {
+      "null": 160
+    }
+  },
+  {
+    "test": "ablation_inventory",
+    "status": null,
+    "complete": null,
+    "valid_inputs": null,
+    "paused": null,
+    "pause": null,
+    "error": null,
+    "summary": null,
+    "report_path": null,
+    "query_statuses": {}
+  },
+  {
+    "test": "ablation_cache",
+    "status": null,
+    "complete": false,
+    "valid_inputs": null,
+    "paused": null,
+    "pause": null,
+    "error": null,
+    "summary": [
+      {
+        "variant": "A",
+        "name": "Text only",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 0,
+        "not_run": 100,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "B",
+        "name": "Text + tables",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 0,
+        "not_run": 100,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "C",
+        "name": "Text + tables + charts",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 0,
+        "not_run": 100,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "D",
+        "name": "Text + tables + charts + numerical verification",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 0,
+        "not_run": 100,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\ablation_results\\20261028_123852_68e921aa.json",
+    "query_statuses": {
+      "not_run": 400
+    }
+  },
+  {
+    "test": "ablation_live",
+    "status": null,
+    "complete": false,
+    "valid_inputs": null,
+    "paused": null,
+    "pause": null,
+    "error": null,
+    "summary": [
+      {
+        "variant": "A",
+        "name": "Text only",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 100,
+        "not_run": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "B",
+        "name": "Text + tables",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 100,
+        "not_run": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "C",
+        "name": "Text + tables + charts",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 100,
+        "not_run": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      },
+      {
+        "variant": "D",
+        "name": "Text + tables + charts + numerical verification",
+        "total_claims": 100,
+        "completed": 0,
+        "errors": 100,
+        "not_run": 0,
+        "coverage": 0.0,
+        "accuracy": null,
+        "macro_precision": null,
+        "weighted_precision": null,
+        "macro_recall": null,
+        "weighted_recall": null,
+        "macro_f1": null,
+        "weighted_f1": null
+      }
+    ],
+    "report_path": "F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\data\\test_results\\full_qa_20261028\\datasets\\main\\ablation_results\\20261028_123910_f2cadaed.json",
+    "query_statuses": {
+      "error": 400
+    }
+  }
+]

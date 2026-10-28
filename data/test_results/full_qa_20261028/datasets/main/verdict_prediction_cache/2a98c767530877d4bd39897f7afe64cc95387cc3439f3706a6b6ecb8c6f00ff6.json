@@ -1,0 +1,2633 @@
+{
+  "schema_version": 2,
+  "cache_key": "2a98c767530877d4bd39897f7afe64cc95387cc3439f3706a6b6ecb8c6f00ff6",
+  "configuration_signature": "9bdbfb3ba81d6c4a0dd06f896c8401528c2bced8647cfdbddefaeec6ff9e1d17",
+  "request": {
+    "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-25T15:59:31.506703+00:00",
+  "results": [
+    {
+      "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "parsed_claim": {
+        "claim_text": "Total research and development expense was $1,500 million in fiscal year 2025.",
+        "company": null,
+        "subject": "total research and development expense",
+        "metric": "total_research_and_development_expense",
+        "segment": "research and development",
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "fiscal year 2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$1,500 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [
+          "Company name is not specified in the input sentence.",
+          "Single fiscal year period with no comparison year stated.",
+          "Amount represents total expense, not a ratio or growth rate."
+        ],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 53,
+          "type": "table",
+          "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+          "bbox": [
+            23.54999901875,
+            461.9553861572644,
+            587.4954300664773,
+            510.9790696183001
+          ],
+          "table_id": "table_53_4",
+          "headers": [
+            "Cost of sales",
+            "$1",
+            "$30",
+            "$89"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses",
+              "20",
+              "142",
+              "295"
+            ],
+            [
+              "Research, development and related expenses",
+              "—",
+              "15",
+              "31"
+            ],
+            [
+              "Total operating income impact",
+              "$21",
+              "$187",
+              "$415"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2023,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2023,
+              2025,
+              2023,
+              2023,
+              2025,
+              2025,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "quarter"
+            ],
+            "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "source_evidence_id": "evidence_4804",
+          "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+          "score": 0.031054405392392875,
+          "rerank_score": 3.850389575958252,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 47,
+          "type": "text",
+          "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+          "bbox": [
+            23.54999901875,
+            471.48201650475784,
+            554.3642658395371,
+            479.4800161115079
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "source_evidence_id": "evidence_1447",
+          "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+          "score": 0.030834914611005692,
+          "rerank_score": 2.783202648162842,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 97,
+          "type": "table",
+          "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+          "bbox": [
+            23.54999901875,
+            293.9541931573165,
+            587.5317937013257,
+            367.11969379426023
+          ],
+          "table_id": "table_97_1",
+          "headers": [
+            "Cost of sales",
+            "$32",
+            "$39",
+            "$38"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses",
+              "158",
+              "185",
+              "165"
+            ],
+            [
+              "Research, development and related expenses",
+              "35",
+              "44",
+              "38"
+            ],
+            [
+              "Stock-based compensation expenses",
+              "225",
+              "268",
+              "241"
+            ],
+            [
+              "Income tax benefits",
+              "(41)",
+              "(31)",
+              "(41)"
+            ],
+            [
+              "Stock-based compensation expenses (benefits), net of tax",
+              "$184",
+              "$237",
+              "$200"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2021,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2016,
+              "period": null
+            },
+            {
+              "col": 3,
+              "year": 2025,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2021,
+              2016,
+              2025,
+              2024,
+              2024,
+              2024,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "quarter"
+            ],
+            "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "source_evidence_id": "evidence_4852",
+          "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+          "score": 0.01639344262295082,
+          "rerank_score": 1.5208197593688966,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 22,
+          "type": "table",
+          "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+          "bbox": [
+            23.54999901875,
+            403.5617478908111,
+            588.1499754937499,
+            463.59228837596305
+          ],
+          "table_id": "table_22_3",
+          "headers": [
+            "Cost of sales",
+            "60.1",
+            "%",
+            "58.8",
+            "%",
+            "1.3",
+            "%"
+          ],
+          "rows": [
+            [
+              "Selling, general and administrative expenses (SG&A)",
+              "16.0",
+              "17.2",
+              "(1.2",
+              ")"
+            ],
+            [
+              "Research, development and related expenses (R&D)",
+              "4.7",
+              "4.4",
+              "0.3"
+            ],
+            [
+              "Loss on business divestitures",
+              "0.6",
+              "—",
+              "0.6"
+            ],
+            [
+              "Operating income margin",
+              "18.6",
+              "%",
+              "19.6",
+              "%",
+              "(1.0",
+              ")%"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "source_evidence_id": "evidence_4766",
+          "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+          "score": 0.021994824747118325,
+          "rerank_score": 1.5073028564453126,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+          "bbox": [
+            30.74999871875,
+            443.3062033769097,
+            570.3749792823747,
+            450.50620307690974
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+          "source_evidence_id": "evidence_1617",
+          "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+          "score": 0.015151515151515152,
+          "rerank_score": 0.7381410360336303,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 99,
+          "type": "text",
+          "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+          "bbox": [
+            23.54999901875,
+            188.2808283048082,
+            553.2510947059193,
+            196.2788279115582
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "source_evidence_id": "evidence_3142",
+          "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+          "score": 0.014492753623188406,
+          "rerank_score": -0.42991586923599245,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 98,
+          "type": "text",
+          "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "bbox": [
+            23.54999901875,
+            431.28081817981837,
+            580.3702775679044,
+            439.2788177865684
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "source_evidence_id": "evidence_3124",
+          "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+          "score": 0.014285714285714285,
+          "rerank_score": -0.830468499660492,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 32,
+          "type": "text",
+          "content": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+          "bbox": [
+            23.54999901875,
+            309.48202325475467,
+            580.2705509613296,
+            317.4800228615047
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+          "source_evidence_id": "evidence_1034",
+          "text": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+          "score": 0.020276497695852536,
+          "rerank_score": -1.075873041152954,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 63,
+          "type": "table",
+          "content": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+          "bbox": [
+            23.54999901875,
+            278.9209402770281,
+            587.4185469527976,
+            630.522283662011
+          ],
+          "table_id": "table_63_2",
+          "headers": [
+            "Net periodic benefit cost (benefit)"
+          ],
+          "rows": [
+            [
+              "Operating expense"
+            ],
+            [
+              "Service cost",
+              "$102",
+              "$ 123",
+              "$171",
+              "$49",
+              "$63",
+              "$76",
+              "$17",
+              "$ 21",
+              "$27"
+            ],
+            [
+              "Non-operating expense"
+            ],
+            [
+              "Interest cost",
+              "433",
+              "522",
+              "662",
+              "198",
+              "200",
+              "225",
+              "73",
+              "80",
+              "87"
+            ],
+            [
+              "Expected return on plan assets",
+              "(569)",
+              "(714)",
+              "(974)",
+              "(278)",
+              "(322)",
+              "(307)",
+              "(57)",
+              "(65)",
+              "(77)"
+            ],
+            [
+              "Amortization of transition asset",
+              "—",
+              "—",
+              "—",
+              "—",
+              "2",
+              "2",
+              "—",
+              "—",
+              "—"
+            ],
+            [
+              "Amortization of prior service benefit",
+              "—",
+              "(15)",
+              "(24)",
+              "1",
+              "1",
+              "2",
+              "(15)",
+              "(22)",
+              "(31)"
+            ],
+            [
+              "Amortization of net actuarial loss",
+              "277",
+              "307",
+              "292",
+              "8",
+              "11",
+              "7",
+              "16",
+              "20",
+              "9"
+            ],
+            [
+              "Settlements, curtailments, special termination benefits and other",
+              "14",
+              "821",
+              "(5)",
+              "2",
+              "1",
+              "3",
+              "1",
+              "1",
+              "—"
+            ],
+            [
+              "Total non-operating expense (benefit)",
+              "155",
+              "921",
+              "(49)",
+              "(69)",
+              "(107)",
+              "(68)",
+              "18",
+              "14",
+              "(12)"
+            ],
+            [
+              "Total net periodic benefit cost (benefit)",
+              "$257",
+              "$ 1,044",
+              "$122",
+              "$(20)",
+              "$(44)",
+              "$8",
+              "$35",
+              "$ 35",
+              "$15"
+            ],
+            [
+              "Service cost - continuing operations",
+              "$102",
+              "$ 116",
+              "$139",
+              "$49",
+              "$58",
+              "$60",
+              "$17",
+              "$ 20",
+              "$23"
+            ],
+            [
+              "Service cost - discontinued operations",
+              "—",
+              "7",
+              "32",
+              "—",
+              "5",
+              "16",
+              "—",
+              "1",
+              "4"
+            ],
+            [
+              "Total service cost",
+              "102",
+              "123",
+              "171",
+              "49",
+              "63",
+              "76",
+              "17",
+              "21",
+              "27"
+            ],
+            [
+              "Total non-operating expense (benefit) - continuing operations",
+              "155",
+              "921",
+              "(32)",
+              "(69)",
+              "(107)",
+              "(67)",
+              "18",
+              "14",
+              "(10)"
+            ],
+            [
+              "Total non-operating expense (benefit) - discontinued operations",
+              "—",
+              "—",
+              "(17)",
+              "—",
+              "—",
+              "(1)",
+              "—",
+              "—",
+              "(2)"
+            ],
+            [
+              "Total non-operating expense (benefit)",
+              "155",
+              "921",
+              "(49)",
+              "(69)",
+              "(107)",
+              "(68)",
+              "18",
+              "14",
+              "(12)"
+            ],
+            [
+              "Total net periodic benefit cost (benefit) - continuing operations",
+              "257",
+              "1,037",
+              "107",
+              "(20)",
+              "(49)",
+              "(7)",
+              "35",
+              "34",
+              "13"
+            ],
+            [
+              "Total net periodic benefit cost (benefit) - discontinued operations",
+              "—",
+              "7",
+              "15",
+              "—",
+              "5",
+              "15",
+              "—",
+              "1",
+              "2"
+            ],
+            [
+              "Total net periodic benefit cost (benefit)",
+              "$257",
+              "$ 1,044",
+              "$122",
+              "$(20)",
+              "$(44)",
+              "$8",
+              "$35",
+              "$ 35",
+              "$15"
+            ],
+            [
+              "Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss"
+            ],
+            [
+              "Amortization of transition asset",
+              "$—",
+              "$ —",
+              "$—",
+              "$—",
+              "$(2)",
+              "$(2)",
+              "$—",
+              "$ —",
+              "$—"
+            ],
+            [
+              "Prior service cost (benefit)",
+              "—",
+              "—",
+              "—",
+              "1",
+              "—",
+              "(1)",
+              "(144)",
+              "—",
+              "—"
+            ],
+            [
+              "Amortization of prior service benefit",
+              "—",
+              "15",
+              "24",
+              "(1)",
+              "(1)",
+              "(2)",
+              "15",
+              "22",
+              "31"
+            ],
+            [
+              "Net actuarial (gain) loss",
+              "14",
+              "(105)",
+              "495",
+              "21",
+              "85",
+              "166",
+              "17",
+              "(69)",
+              "100"
+            ],
+            [
+              "Amortization of net actuarial loss",
+              "(277)",
+              "(307)",
+              "(292)",
+              "(8)",
+              "(11)",
+              "(7)",
+              "(16)",
+              "(20)",
+              "(9)"
+            ],
+            [
+              "Foreign currency",
+              "—",
+              "—",
+              "—",
+              "26",
+              "(36)",
+              "3",
+              "—",
+              "2",
+              "—"
+            ],
+            [
+              "Settlements, curtailments, special termination benefits and other",
+              "(14)",
+              "(821)",
+              "5",
+              "(2)",
+              "(1)",
+              "—",
+              "(1)",
+              "(1)",
+              "—"
+            ],
+            [
+              "Total recognized in other comprehensive (income) loss",
+              "$(277)",
+              "$ (1,218)",
+              "$232",
+              "$37",
+              "$34",
+              "$157",
+              "$(129)",
+              "$ (66)",
+              "$122"
+            ],
+            [
+              "Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss",
+              "$(20)",
+              "$ (174)",
+              "$354",
+              "$17",
+              "$(10)",
+              "$165",
+              "$(94)",
+              "$ (31)",
+              "$137"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 3,
+              "year": 2023,
+              "period": "year"
+            },
+            {
+              "col": 4,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 5,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 6,
+              "year": 2023,
+              "period": "year"
+            },
+            {
+              "col": 7,
+              "year": 2025,
+              "period": "year"
+            },
+            {
+              "col": 8,
+              "year": 2024,
+              "period": "year"
+            },
+            {
+              "col": 9,
+              "year": 2023,
+              "period": "year"
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024,
+              2023,
+              2025,
+              2024,
+              2023,
+              2025,
+              2024,
+              2023
+            ],
+            "period_types": [
+              "year"
+            ],
+            "raw": "Components of Net Periodic Cost and Other Amounts Recognized in Other Comprehensive Income: The service cost component of defined benefit net periodic benefit cost is recorded in cost of sales, selling, general and administrative expenses, and research, development and related expenses. As discussed in Note 7, the other components of net periodic benefit cost are reflected in other expense (income), net. Components of net periodic benefit cost and other supplemental information for the years ended December 31 follow: Qualified and non-qualified pension benefits United States International Postretirement benefits (Millions) 2025 2024 2023 2025 2024 2023 2025 2024 2023"
+          },
+          "is_data": true,
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+          "source_evidence_id": "evidence_4832",
+          "text": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+          "score": 0.015873015873015872,
+          "rerank_score": -1.5942815780639648,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 50,
+          "type": "text",
+          "content": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+          "bbox": [
+            23.54999901875,
+            227.8820266547566,
+            573.4435103565194,
+            235.8800262615066
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+          "source_evidence_id": "evidence_1524",
+          "text": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+          "score": 0.024089635854341734,
+          "rerank_score": -1.741160774230957,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [
+        "Company name is not specified in the input sentence.",
+        "Single fiscal year period with no comparison year stated.",
+        "Amount represents total expense, not a ratio or growth rate."
+      ],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "The provided evidence does not contain the total research and development expense for fiscal year 2025, only individual components like restructuring charges, stock-based compensation, and percentage of net sales.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "bbox": [
+              23.54999901875,
+              471.48201650475784,
+              554.3642658395371,
+              479.4800161115079
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "score": 0.030834914611005692,
+            "rerank_score": 2.783202648162842,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "bbox": [
+              30.74999871875,
+              443.3062033769097,
+              570.3749792823747,
+              450.50620307690974
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "score": 0.015151515151515152,
+            "rerank_score": 0.7381410360336303,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 99,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "bbox": [
+              23.54999901875,
+              188.2808283048082,
+              553.2510947059193,
+              196.2788279115582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "score": 0.014492753623188406,
+            "rerank_score": -0.42991586923599245,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.014285714285714285,
+            "rerank_score": -0.830468499660492,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+            "bbox": [
+              23.54999901875,
+              309.48202325475467,
+              580.2705509613296,
+              317.4800228615047
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "text": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+            "score": 0.020276497695852536,
+            "rerank_score": -1.075873041152954,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+            "bbox": [
+              23.54999901875,
+              227.8820266547566,
+              573.4435103565194,
+              235.8800262615066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "text": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+            "score": 0.024089635854341734,
+            "rerank_score": -1.741160774230957,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "bbox": [
+              23.54999901875,
+              461.9553861572644,
+              587.4954300664773,
+              510.9790696183001
+            ],
+            "table_id": "table_53_4",
+            "headers": [
+              "Cost of sales",
+              "$1",
+              "$30",
+              "$89"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "20",
+                "142",
+                "295"
+              ],
+              [
+                "Research, development and related expenses",
+                "—",
+                "15",
+                "31"
+              ],
+              [
+                "Total operating income impact",
+                "$21",
+                "$187",
+                "$415"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2023,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2023,
+                2025,
+                2023,
+                2023,
+                2025,
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "score": 0.031054405392392875,
+            "rerank_score": 3.850389575958252,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "bbox": [
+              23.54999901875,
+              293.9541931573165,
+              587.5317937013257,
+              367.11969379426023
+            ],
+            "table_id": "table_97_1",
+            "headers": [
+              "Cost of sales",
+              "$32",
+              "$39",
+              "$38"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "158",
+                "185",
+                "165"
+              ],
+              [
+                "Research, development and related expenses",
+                "35",
+                "44",
+                "38"
+              ],
+              [
+                "Stock-based compensation expenses",
+                "225",
+                "268",
+                "241"
+              ],
+              [
+                "Income tax benefits",
+                "(41)",
+                "(31)",
+                "(41)"
+              ],
+              [
+                "Stock-based compensation expenses (benefits), net of tax",
+                "$184",
+                "$237",
+                "$200"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2021,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2016,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2021,
+                2016,
+                2025,
+                2024,
+                2024,
+                2024,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "score": 0.01639344262295082,
+            "rerank_score": 1.5208197593688966,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "bbox": [
+              23.54999901875,
+              403.5617478908111,
+              588.1499754937499,
+              463.59228837596305
+            ],
+            "table_id": "table_22_3",
+            "headers": [
+              "Cost of sales",
+              "60.1",
+              "%",
+              "58.8",
+              "%",
+              "1.3",
+              "%"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses (SG&A)",
+                "16.0",
+                "17.2",
+                "(1.2",
+                ")"
+              ],
+              [
+                "Research, development and related expenses (R&D)",
+                "4.7",
+                "4.4",
+                "0.3"
+              ],
+              [
+                "Loss on business divestitures",
+                "0.6",
+                "—",
+                "0.6"
+              ],
+              [
+                "Operating income margin",
+                "18.6",
+                "%",
+                "19.6",
+                "%",
+                "(1.0",
+                ")%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "score": 0.021994824747118325,
+            "rerank_score": 1.5073028564453126,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 63,
+            "type": "table",
+            "content": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+            "bbox": [
+              23.54999901875,
+              278.9209402770281,
+              587.4185469527976,
+              630.522283662011
+            ],
+            "table_id": "table_63_2",
+            "headers": [
+              "Net periodic benefit cost (benefit)"
+            ],
+            "rows": [
+              [
+                "Operating expense"
+              ],
+              [
+                "Service cost",
+                "$102",
+                "$ 123",
+                "$171",
+                "$49",
+                "$63",
+                "$76",
+                "$17",
+                "$ 21",
+                "$27"
+              ],
+              [
+                "Non-operating expense"
+              ],
+              [
+                "Interest cost",
+                "433",
+                "522",
+                "662",
+                "198",
+                "200",
+                "225",
+                "73",
+                "80",
+                "87"
+              ],
+              [
+                "Expected return on plan assets",
+                "(569)",
+                "(714)",
+                "(974)",
+                "(278)",
+                "(322)",
+                "(307)",
+                "(57)",
+                "(65)",
+                "(77)"
+              ],
+              [
+                "Amortization of transition asset",
+                "—",
+                "—",
+                "—",
+                "—",
+                "2",
+                "2",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Amortization of prior service benefit",
+                "—",
+                "(15)",
+                "(24)",
+                "1",
+                "1",
+                "2",
+                "(15)",
+                "(22)",
+                "(31)"
+              ],
+              [
+                "Amortization of net actuarial loss",
+                "277",
+                "307",
+                "292",
+                "8",
+                "11",
+                "7",
+                "16",
+                "20",
+                "9"
+              ],
+              [
+                "Settlements, curtailments, special termination benefits and other",
+                "14",
+                "821",
+                "(5)",
+                "2",
+                "1",
+                "3",
+                "1",
+                "1",
+                "—"
+              ],
+              [
+                "Total non-operating expense (benefit)",
+                "155",
+                "921",
+                "(49)",
+                "(69)",
+                "(107)",
+                "(68)",
+                "18",
+                "14",
+                "(12)"
+              ],
+              [
+                "Total net periodic benefit cost (benefit)",
+                "$257",
+                "$ 1,044",
+                "$122",
+                "$(20)",
+                "$(44)",
+                "$8",
+                "$35",
+                "$ 35",
+                "$15"
+              ],
+              [
+                "Service cost - continuing operations",
+                "$102",
+                "$ 116",
+                "$139",
+                "$49",
+                "$58",
+                "$60",
+                "$17",
+                "$ 20",
+                "$23"
+              ],
+              [
+                "Service cost - discontinued operations",
+                "—",
+                "7",
+                "32",
+                "—",
+                "5",
+                "16",
+                "—",
+                "1",
+                "4"
+              ],
+              [
+                "Total service cost",
+                "102",
+                "123",
+                "171",
+                "49",
+                "63",
+                "76",
+                "17",
+                "21",
+                "27"
+              ],
+              [
+                "Total non-operating expense (benefit) - continuing operations",
+                "155",
+                "921",
+                "(32)",
+                "(69)",
+                "(107)",
+                "(67)",
+                "18",
+                "14",
+                "(10)"
+              ],
+              [
+                "Total non-operating expense (benefit) - discontinued operations",
+                "—",
+                "—",
+                "(17)",
+                "—",
+                "—",
+                "(1)",
+                "—",
+                "—",
+                "(2)"
+              ],
+              [
+                "Total non-operating expense (benefit)",
+                "155",
+                "921",
+                "(49)",
+                "(69)",
+                "(107)",
+                "(68)",
+                "18",
+                "14",
+                "(12)"
+              ],
+              [
+                "Total net periodic benefit cost (benefit) - continuing operations",
+                "257",
+                "1,037",
+                "107",
+                "(20)",
+                "(49)",
+                "(7)",
+                "35",
+                "34",
+                "13"
+              ],
+              [
+                "Total net periodic benefit cost (benefit) - discontinued operations",
+                "—",
+                "7",
+                "15",
+                "—",
+                "5",
+                "15",
+                "—",
+                "1",
+                "2"
+              ],
+              [
+                "Total net periodic benefit cost (benefit)",
+                "$257",
+                "$ 1,044",
+                "$122",
+                "$(20)",
+                "$(44)",
+                "$8",
+                "$35",
+                "$ 35",
+                "$15"
+              ],
+              [
+                "Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss"
+              ],
+              [
+                "Amortization of transition asset",
+                "$—",
+                "$ —",
+                "$—",
+                "$—",
+                "$(2)",
+                "$(2)",
+                "$—",
+                "$ —",
+                "$—"
+              ],
+              [
+                "Prior service cost (benefit)",
+                "—",
+                "—",
+                "—",
+                "1",
+                "—",
+                "(1)",
+                "(144)",
+                "—",
+                "—"
+              ],
+              [
+                "Amortization of prior service benefit",
+                "—",
+                "15",
+                "24",
+                "(1)",
+                "(1)",
+                "(2)",
+                "15",
+                "22",
+                "31"
+              ],
+              [
+                "Net actuarial (gain) loss",
+                "14",
+                "(105)",
+                "495",
+                "21",
+                "85",
+                "166",
+                "17",
+                "(69)",
+                "100"
+              ],
+              [
+                "Amortization of net actuarial loss",
+                "(277)",
+                "(307)",
+                "(292)",
+                "(8)",
+                "(11)",
+                "(7)",
+                "(16)",
+                "(20)",
+                "(9)"
+              ],
+              [
+                "Foreign currency",
+                "—",
+                "—",
+                "—",
+                "26",
+                "(36)",
+                "3",
+                "—",
+                "2",
+                "—"
+              ],
+              [
+                "Settlements, curtailments, special termination benefits and other",
+                "(14)",
+                "(821)",
+                "5",
+                "(2)",
+                "(1)",
+                "—",
+                "(1)",
+                "(1)",
+                "—"
+              ],
+              [
+                "Total recognized in other comprehensive (income) loss",
+                "$(277)",
+                "$ (1,218)",
+                "$232",
+                "$37",
+                "$34",
+                "$157",
+                "$(129)",
+                "$ (66)",
+                "$122"
+              ],
+              [
+                "Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss",
+                "$(20)",
+                "$ (174)",
+                "$354",
+                "$17",
+                "$(10)",
+                "$165",
+                "$(94)",
+                "$ (31)",
+                "$137"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 6,
+                "year": 2023,
+                "period": "year"
+              },
+              {
+                "col": 7,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 8,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 9,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023,
+                2025,
+                2024,
+                2023,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Components of Net Periodic Cost and Other Amounts Recognized in Other Comprehensive Income: The service cost component of defined benefit net periodic benefit cost is recorded in cost of sales, selling, general and administrative expenses, and research, development and related expenses. As discussed in Note 7, the other components of net periodic benefit cost are reflected in other expense (income), net. Components of net periodic benefit cost and other supplemental information for the years ended December 31 follow: Qualified and non-qualified pension benefits United States International Postretirement benefits (Millions) 2025 2024 2023 2025 2024 2023 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "text": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+            "score": 0.015873015873015872,
+            "rerank_score": -1.5942815780639648,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          }
+        ],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 53,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "bbox": [
+              23.54999901875,
+              461.9553861572644,
+              587.4954300664773,
+              510.9790696183001
+            ],
+            "table_id": "table_53_4",
+            "headers": [
+              "Cost of sales",
+              "$1",
+              "$30",
+              "$89"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "20",
+                "142",
+                "295"
+              ],
+              [
+                "Research, development and related expenses",
+                "—",
+                "15",
+                "31"
+              ],
+              [
+                "Total operating income impact",
+                "$21",
+                "$187",
+                "$415"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2023,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2023,
+                2025,
+                2023,
+                2023,
+                2025,
+                2025,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "2023 to 2025 Structural Reorganization Actions: In 2023, 3M announced it would undertake structural reorganization actions to reduce the size of the corporate center of the Company, simplify the supply chain, streamline 3M’s geographic footprint, reduce layers of management, further align business go-to-market models to customers, and reduce manufacturing roles to align with production volumes. Beginning in the first quarter of 2023 and ending largely in the second quarter of 2025, management approved and committed to undertake associated actions that impacted approximately seven thousand positions worldwide (as updated to exclude discontinued operations) resulting in pre-tax charges as indicated in the table below. Remaining activities related to approved and committed actions were largely completed in 2025. The related restructuring charges for periods presented were recorded in the income statement as follows: (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4804",
+            "text": "Selling, general and administrative expenses: 2023 20, 2025 142, 2023 295 | Research, development and related expenses: 2023 —, 2025 15, 2023 31 | Total operating income impact: 2023 $21, 2025 $187, 2023 $415",
+            "score": 0.031054405392392875,
+            "rerank_score": 3.850389575958252,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 97,
+            "type": "table",
+            "content": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "bbox": [
+              23.54999901875,
+              293.9541931573165,
+              587.5317937013257,
+              367.11969379426023
+            ],
+            "table_id": "table_97_1",
+            "headers": [
+              "Cost of sales",
+              "$32",
+              "$39",
+              "$38"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses",
+                "158",
+                "185",
+                "165"
+              ],
+              [
+                "Research, development and related expenses",
+                "35",
+                "44",
+                "38"
+              ],
+              [
+                "Stock-based compensation expenses",
+                "225",
+                "268",
+                "241"
+              ],
+              [
+                "Income tax benefits",
+                "(41)",
+                "(31)",
+                "(41)"
+              ],
+              [
+                "Stock-based compensation expenses (benefits), net of tax",
+                "$184",
+                "$237",
+                "$200"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2021,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2016,
+                "period": null
+              },
+              {
+                "col": 3,
+                "year": 2025,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2021,
+                2016,
+                2025,
+                2024,
+                2024,
+                2024,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "quarter"
+              ],
+              "raw": "Note 19. Stock-Based Compensation At the May 2021 Annual Meeting, the shareholders approved the Amended and Restated 3M Company 2016 Long-Term Incentive Plan (LTIP), which included an increase of 27 million in the number of shares available for issuance. Awards may be issued in the form of incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, other stock awards, and performance units and performance shares. As of December 31, 2025, the remaining shares available for grant under the LTIP are 21 million and there were approximately 6,400 participants with outstanding options, restricted stock, or restricted stock units. The Company’s annual stock option and restricted stock unit grant is typically made in February to provide a strong and immediate link between the performance of individuals during the preceding year and the size of their annual stock compensation grants. The grant to eligible employees uses the closing stock price on the grant date. Accounting rules require recognition of expense under a non-substantive vesting period approach, requiring compensation expense recognition when an employee is eligible to retire. Employees are considered eligible to retire at age 55 and after having completed ten years of service. This retiree-eligible population represents 31 percent of the annual grant stock-based compensation expense; therefore, higher stock-based compensation expense is typically recognized in the first quarter. However, due to the spin-off of Solventum (see Note 2), the 2024 annual grant was made in May, after the April 1, 2024 separation. In addition to the annual grants, the Company makes other minor grants of stock options, restricted stock units and other stock-based grants. The Company issues cash settled restricted stock units and stock appreciation rights in certain countries. The cash settled grants do not result in the issuance of common stock and are considered immaterial by the Company, and not included in the tables below. In connection with the Solventum separation on April 1, 2024 (see Note 2), all outstanding stock-based compensation awards associated with Solventum employees converted into Solventum awards, became Solventum’s responsibility and were cancelled from 3M plans. In addition, for awards associated with remaining 3M employees, the number of shares underlying unvested stock awards was adjusted along with the exercise price and the number of shares underlying outstanding stock options. The adjustments to shares underlying unvested stock awards and outstanding stock options did not result in a material stock-based compensation cost. Stock-Based Compensation Expense: Amounts recognized in the financial statements with respect to stock-based compensation programs, which include stock options, restricted stock, restricted stock units, performance shares and the General Employees’ Stock Purchase Plan (GESPP), are provided in the following table. Capitalized stock- based compensation amounts were not material. (Millions) 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4852",
+            "text": "Selling, general and administrative expenses: 2021 158, 2016 185, 2025 165 | Research, development and related expenses: 2021 35, 2016 44, 2025 38 | Stock-based compensation expenses: 2021 225, 2016 268, 2025 241 | Income tax benefits: 2021 (41), 2016 (31), 2025 (41) | Stock-based compensation expenses (benefits), net of tax: 2021 $184, 2016 $237, 2025 $200",
+            "score": 0.01639344262295082,
+            "rerank_score": 1.5208197593688966,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 22,
+            "type": "table",
+            "content": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "bbox": [
+              23.54999901875,
+              403.5617478908111,
+              588.1499754937499,
+              463.59228837596305
+            ],
+            "table_id": "table_22_3",
+            "headers": [
+              "Cost of sales",
+              "60.1",
+              "%",
+              "58.8",
+              "%",
+              "1.3",
+              "%"
+            ],
+            "rows": [
+              [
+                "Selling, general and administrative expenses (SG&A)",
+                "16.0",
+                "17.2",
+                "(1.2",
+                ")"
+              ],
+              [
+                "Research, development and related expenses (R&D)",
+                "4.7",
+                "4.4",
+                "0.3"
+              ],
+              [
+                "Loss on business divestitures",
+                "0.6",
+                "—",
+                "0.6"
+              ],
+              [
+                "Operating income margin",
+                "18.6",
+                "%",
+                "19.6",
+                "%",
+                "(1.0",
+                ")%"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": null
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": null
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024
+              ],
+              "period_types": [],
+              "raw": "Operating Expenses: (Percent of net sales) 2025 2024 Change"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4766",
+            "text": "Selling, general and administrative expenses (SG&A): 2025 16.0, 2024 17.2, (1.2, ) | Research, development and related expenses (R&D): 2025 4.7, 2024 4.4, 0.3 | Loss on business divestitures: 2025 0.6, 2024 —, 0.6 | Operating income margin: 2025 18.6, 2024 %, 19.6, %, (1.0, )%",
+            "score": 0.021994824747118325,
+            "rerank_score": 1.5073028564453126,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 63,
+            "type": "table",
+            "content": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+            "bbox": [
+              23.54999901875,
+              278.9209402770281,
+              587.4185469527976,
+              630.522283662011
+            ],
+            "table_id": "table_63_2",
+            "headers": [
+              "Net periodic benefit cost (benefit)"
+            ],
+            "rows": [
+              [
+                "Operating expense"
+              ],
+              [
+                "Service cost",
+                "$102",
+                "$ 123",
+                "$171",
+                "$49",
+                "$63",
+                "$76",
+                "$17",
+                "$ 21",
+                "$27"
+              ],
+              [
+                "Non-operating expense"
+              ],
+              [
+                "Interest cost",
+                "433",
+                "522",
+                "662",
+                "198",
+                "200",
+                "225",
+                "73",
+                "80",
+                "87"
+              ],
+              [
+                "Expected return on plan assets",
+                "(569)",
+                "(714)",
+                "(974)",
+                "(278)",
+                "(322)",
+                "(307)",
+                "(57)",
+                "(65)",
+                "(77)"
+              ],
+              [
+                "Amortization of transition asset",
+                "—",
+                "—",
+                "—",
+                "—",
+                "2",
+                "2",
+                "—",
+                "—",
+                "—"
+              ],
+              [
+                "Amortization of prior service benefit",
+                "—",
+                "(15)",
+                "(24)",
+                "1",
+                "1",
+                "2",
+                "(15)",
+                "(22)",
+                "(31)"
+              ],
+              [
+                "Amortization of net actuarial loss",
+                "277",
+                "307",
+                "292",
+                "8",
+                "11",
+                "7",
+                "16",
+                "20",
+                "9"
+              ],
+              [
+                "Settlements, curtailments, special termination benefits and other",
+                "14",
+                "821",
+                "(5)",
+                "2",
+                "1",
+                "3",
+                "1",
+                "1",
+                "—"
+              ],
+              [
+                "Total non-operating expense (benefit)",
+                "155",
+                "921",
+                "(49)",
+                "(69)",
+                "(107)",
+                "(68)",
+                "18",
+                "14",
+                "(12)"
+              ],
+              [
+                "Total net periodic benefit cost (benefit)",
+                "$257",
+                "$ 1,044",
+                "$122",
+                "$(20)",
+                "$(44)",
+                "$8",
+                "$35",
+                "$ 35",
+                "$15"
+              ],
+              [
+                "Service cost - continuing operations",
+                "$102",
+                "$ 116",
+                "$139",
+                "$49",
+                "$58",
+                "$60",
+                "$17",
+                "$ 20",
+                "$23"
+              ],
+              [
+                "Service cost - discontinued operations",
+                "—",
+                "7",
+                "32",
+                "—",
+                "5",
+                "16",
+                "—",
+                "1",
+                "4"
+              ],
+              [
+                "Total service cost",
+                "102",
+                "123",
+                "171",
+                "49",
+                "63",
+                "76",
+                "17",
+                "21",
+                "27"
+              ],
+              [
+                "Total non-operating expense (benefit) - continuing operations",
+                "155",
+                "921",
+                "(32)",
+                "(69)",
+                "(107)",
+                "(67)",
+                "18",
+                "14",
+                "(10)"
+              ],
+              [
+                "Total non-operating expense (benefit) - discontinued operations",
+                "—",
+                "—",
+                "(17)",
+                "—",
+                "—",
+                "(1)",
+                "—",
+                "—",
+                "(2)"
+              ],
+              [
+                "Total non-operating expense (benefit)",
+                "155",
+                "921",
+                "(49)",
+                "(69)",
+                "(107)",
+                "(68)",
+                "18",
+                "14",
+                "(12)"
+              ],
+              [
+                "Total net periodic benefit cost (benefit) - continuing operations",
+                "257",
+                "1,037",
+                "107",
+                "(20)",
+                "(49)",
+                "(7)",
+                "35",
+                "34",
+                "13"
+              ],
+              [
+                "Total net periodic benefit cost (benefit) - discontinued operations",
+                "—",
+                "7",
+                "15",
+                "—",
+                "5",
+                "15",
+                "—",
+                "1",
+                "2"
+              ],
+              [
+                "Total net periodic benefit cost (benefit)",
+                "$257",
+                "$ 1,044",
+                "$122",
+                "$(20)",
+                "$(44)",
+                "$8",
+                "$35",
+                "$ 35",
+                "$15"
+              ],
+              [
+                "Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss"
+              ],
+              [
+                "Amortization of transition asset",
+                "$—",
+                "$ —",
+                "$—",
+                "$—",
+                "$(2)",
+                "$(2)",
+                "$—",
+                "$ —",
+                "$—"
+              ],
+              [
+                "Prior service cost (benefit)",
+                "—",
+                "—",
+                "—",
+                "1",
+                "—",
+                "(1)",
+                "(144)",
+                "—",
+                "—"
+              ],
+              [
+                "Amortization of prior service benefit",
+                "—",
+                "15",
+                "24",
+                "(1)",
+                "(1)",
+                "(2)",
+                "15",
+                "22",
+                "31"
+              ],
+              [
+                "Net actuarial (gain) loss",
+                "14",
+                "(105)",
+                "495",
+                "21",
+                "85",
+                "166",
+                "17",
+                "(69)",
+                "100"
+              ],
+              [
+                "Amortization of net actuarial loss",
+                "(277)",
+                "(307)",
+                "(292)",
+                "(8)",
+                "(11)",
+                "(7)",
+                "(16)",
+                "(20)",
+                "(9)"
+              ],
+              [
+                "Foreign currency",
+                "—",
+                "—",
+                "—",
+                "26",
+                "(36)",
+                "3",
+                "—",
+                "2",
+                "—"
+              ],
+              [
+                "Settlements, curtailments, special termination benefits and other",
+                "(14)",
+                "(821)",
+                "5",
+                "(2)",
+                "(1)",
+                "—",
+                "(1)",
+                "(1)",
+                "—"
+              ],
+              [
+                "Total recognized in other comprehensive (income) loss",
+                "$(277)",
+                "$ (1,218)",
+                "$232",
+                "$37",
+                "$34",
+                "$157",
+                "$(129)",
+                "$ (66)",
+                "$122"
+              ],
+              [
+                "Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss",
+                "$(20)",
+                "$ (174)",
+                "$354",
+                "$17",
+                "$(10)",
+                "$165",
+                "$(94)",
+                "$ (31)",
+                "$137"
+              ]
+            ],
+            "column_map": [
+              {
+                "col": 1,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 2,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 3,
+                "year": 2023,
+                "period": "year"
+              },
+              {
+                "col": 4,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 5,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 6,
+                "year": 2023,
+                "period": "year"
+              },
+              {
+                "col": 7,
+                "year": 2025,
+                "period": "year"
+              },
+              {
+                "col": 8,
+                "year": 2024,
+                "period": "year"
+              },
+              {
+                "col": 9,
+                "year": 2023,
+                "period": "year"
+              }
+            ],
+            "column_headers": {
+              "years": [
+                2025,
+                2024,
+                2023,
+                2025,
+                2024,
+                2023,
+                2025,
+                2024,
+                2023
+              ],
+              "period_types": [
+                "year"
+              ],
+              "raw": "Components of Net Periodic Cost and Other Amounts Recognized in Other Comprehensive Income: The service cost component of defined benefit net periodic benefit cost is recorded in cost of sales, selling, general and administrative expenses, and research, development and related expenses. As discussed in Note 7, the other components of net periodic benefit cost are reflected in other expense (income), net. Components of net periodic benefit cost and other supplemental information for the years ended December 31 follow: Qualified and non-qualified pension benefits United States International Postretirement benefits (Millions) 2025 2024 2023 2025 2024 2023 2025 2024 2023"
+            },
+            "is_data": true,
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_4832",
+            "text": "Operating expense:  | Service cost: 2025 year $102, 2024 year $ 123, 2023 year $171, 2025 year $49, 2024 year $63, 2023 year $76, 2025 year $17, 2024 year $ 21, 2023 year $27 | Non-operating expense:  | Interest cost: 2025 year 433, 2024 year 522, 2023 year 662, 2025 year 198, 2024 year 200, 2023 year 225, 2025 year 73, 2024 year 80, 2023 year 87 | Expected return on plan assets: 2025 year (569), 2024 year (714), 2023 year (974), 2025 year (278), 2024 year (322), 2023 year (307), 2025 year (57), 2024 year (65), 2023 year (77) | Amortization of transition asset: 2025 year —, 2024 year —, 2023 year —, 2025 year —, 2024 year 2, 2023 year 2, 2025 year —, 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year (15), 2023 year (24), 2025 year 1, 2024 year 1, 2023 year 2, 2025 year (15), 2024 year (22), 2023 year (31) | Amortization of net actuarial loss: 2025 year 277, 2024 year 307, 2023 year 292, 2025 year 8, 2024 year 11, 2023 year 7, 2025 year 16, 2024 year 20, 2023 year 9 | Settlements, curtailments, special termination benefits and other: 2025 year 14, 2024 year 821, 2023 year (5), 2025 year 2, 2024 year 1, 2023 year 3, 2025 year 1, 2024 year 1, 2023 year — | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Service cost - continuing operations: 2025 year $102, 2024 year $ 116, 2023 year $139, 2025 year $49, 2024 year $58, 2023 year $60, 2025 year $17, 2024 year $ 20, 2023 year $23 | Service cost - discontinued operations: 2025 year —, 2024 year 7, 2023 year 32, 2025 year —, 2024 year 5, 2023 year 16, 2025 year —, 2024 year 1, 2023 year 4 | Total service cost: 2025 year 102, 2024 year 123, 2023 year 171, 2025 year 49, 2024 year 63, 2023 year 76, 2025 year 17, 2024 year 21, 2023 year 27 | Total non-operating expense (benefit) - continuing operations: 2025 year 155, 2024 year 921, 2023 year (32), 2025 year (69), 2024 year (107), 2023 year (67), 2025 year 18, 2024 year 14, 2023 year (10) | Total non-operating expense (benefit) - discontinued operations: 2025 year —, 2024 year —, 2023 year (17), 2025 year —, 2024 year —, 2023 year (1), 2025 year —, 2024 year —, 2023 year (2) | Total non-operating expense (benefit): 2025 year 155, 2024 year 921, 2023 year (49), 2025 year (69), 2024 year (107), 2023 year (68), 2025 year 18, 2024 year 14, 2023 year (12) | Total net periodic benefit cost (benefit) - continuing operations: 2025 year 257, 2024 year 1,037, 2023 year 107, 2025 year (20), 2024 year (49), 2023 year (7), 2025 year 35, 2024 year 34, 2023 year 13 | Total net periodic benefit cost (benefit) - discontinued operations: 2025 year —, 2024 year 7, 2023 year 15, 2025 year —, 2024 year 5, 2023 year 15, 2025 year —, 2024 year 1, 2023 year 2 | Total net periodic benefit cost (benefit): 2025 year $257, 2024 year $ 1,044, 2023 year $122, 2025 year $(20), 2024 year $(44), 2023 year $8, 2025 year $35, 2024 year $ 35, 2023 year $15 | Other changes in plan assets and benefit obligations recognized in other comprehensive (income) loss:  | Amortization of transition asset: 2025 year $—, 2024 year $ —, 2023 year $—, 2025 year $—, 2024 year $(2), 2023 year $(2), 2025 year $—, 2024 year $ —, 2023 year $— | Prior service cost (benefit): 2025 year —, 2024 year —, 2023 year —, 2025 year 1, 2024 year —, 2023 year (1), 2025 year (144), 2024 year —, 2023 year — | Amortization of prior service benefit: 2025 year —, 2024 year 15, 2023 year 24, 2025 year (1), 2024 year (1), 2023 year (2), 2025 year 15, 2024 year 22, 2023 year 31 | Net actuarial (gain) loss: 2025 year 14, 2024 year (105), 2023 year 495, 2025 year 21, 2024 year 85, 2023 year 166, 2025 year 17, 2024 year (69), 2023 year 100 | Amortization of net actuarial loss: 2025 year (277), 2024 year (307), 2023 year (292), 2025 year (8), 2024 year (11), 2023 year (7), 2025 year (16), 2024 year (20), 2023 year (9) | Foreign currency: 2025 year —, 2024 year —, 2023 year —, 2025 year 26, 2024 year (36), 2023 year 3, 2025 year —, 2024 year 2, 2023 year — | Settlements, curtailments, special termination benefits and other: 2025 year (14), 2024 year (821), 2023 year 5, 2025 year (2), 2024 year (1), 2023 year —, 2025 year (1), 2024 year (1), 2023 year — | Total recognized in other comprehensive (income) loss: 2025 year $(277), 2024 year $ (1,218), 2023 year $232, 2025 year $37, 2024 year $34, 2023 year $157, 2025 year $(129), 2024 year $ (66), 2023 year $122 | Total recognized in net periodic benefit cost (benefit) and other comprehensive (income) loss: 2025 year $(20), 2024 year $ (174), 2023 year $354, 2025 year $17, 2024 year $(10), 2023 year $165, 2025 year $(94), 2024 year $ (31), 2023 year $137",
+            "score": 0.015873015873015872,
+            "rerank_score": -1.5942815780639648,
+            "annual_report_year_columns": true,
+            "modality": "table",
+            "priority": 80
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 47,
+            "type": "text",
+            "content": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "bbox": [
+              23.54999901875,
+              471.48201650475784,
+              554.3642658395371,
+              479.4800161115079
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1447",
+            "text": "Research, Development and Related Expenses: Research and development expenses cover basic scientific research and the application of scientific advances in the",
+            "score": 0.030834914611005692,
+            "rerank_score": 2.783202648162842,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "bbox": [
+              30.74999871875,
+              443.3062033769097,
+              570.3749792823747,
+              450.50620307690974
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1617",
+            "text": "(a) Interest expense includes $448 million, $472 million and $565 million in 2025, 2024, 2023, respectively, related to outstanding debt. Interest expense in the table above also includes",
+            "score": 0.015151515151515152,
+            "rerank_score": 0.7381410360336303,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 99,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "bbox": [
+              23.54999901875,
+              188.2808283048082,
+              553.2510947059193,
+              196.2788279115582
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3142",
+            "text": "As of December 31, 2025, there was $50 million of compensation expense that has yet to be recognized related to performance shares. This expense is expected to be",
+            "score": 0.014492753623188406,
+            "rerank_score": -0.42991586923599245,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 98,
+            "type": "text",
+            "content": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "bbox": [
+              23.54999901875,
+              431.28081817981837,
+              580.3702775679044,
+              439.2788177865684
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_3124",
+            "text": "As of December 31, 2025, there was $139 million of compensation expense that has yet to be recognized related to non-vested restricted stock units. This expense is expected",
+            "score": 0.014285714285714285,
+            "rerank_score": -0.830468499660492,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 32,
+            "type": "text",
+            "content": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+            "bbox": [
+              23.54999901875,
+              309.48202325475467,
+              580.2705509613296,
+              317.4800228615047
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1034",
+            "text": "In 2025, the Company recognized pre-tax defined benefit pension and postretirement benefit service cost expense of $168 million and non-service pension and postretirement",
+            "score": 0.020276497695852536,
+            "rerank_score": -1.075873041152954,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 50,
+            "type": "text",
+            "content": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+            "bbox": [
+              23.54999901875,
+              227.8820266547566,
+              573.4435103565194,
+              235.8800262615066
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1524",
+            "text": "associated costs within selling, general and administrative expenses. Solventum transition agreement income for 2025 was approximately $150 million (approximately $0.7",
+            "score": 0.024089635854341734,
+            "rerank_score": -1.741160774230957,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_4804",
+          "0000066740-26-000014-56e1ef4130::evidence_4852",
+          "0000066740-26-000014-56e1ef4130::evidence_4766",
+          "0000066740-26-000014-56e1ef4130::evidence_4832",
+          "0000066740-26-000014-56e1ef4130::evidence_1447",
+          "0000066740-26-000014-56e1ef4130::evidence_1617",
+          "0000066740-26-000014-56e1ef4130::evidence_3142",
+          "0000066740-26-000014-56e1ef4130::evidence_3124",
+          "0000066740-26-000014-56e1ef4130::evidence_1034",
+          "0000066740-26-000014-56e1ef4130::evidence_1524"
+        ],
+        "pages": [
+          22,
+          32,
+          47,
+          50,
+          53,
+          54,
+          63,
+          97,
+          98,
+          99
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "table",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: The provided evidence does not contain the total research and development expense for fiscal year 2025, only individual components like restructuring charges, stock-based compensation, and percentage of net sales.",
+      "reporting_period": "2025",
+      "original_claim": "Total research and development expense was $1,500 million in fiscal year 2025.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 50.860398700024234,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-25T15:58:40.620316+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792943921-3rXkxp7ThkXETV56ODpF",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 422,
+            "completion_tokens": 2152,
+            "total_tokens": 2574,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1789,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 27.92
+        },
+        {
+          "time": "2026-10-25T15:59:14.839582+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1792943955-gU4GeuEa9NpaZO8FgItI",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 11100,
+            "completion_tokens": 1411,
+            "total_tokens": 12511,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1128,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 16.636
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "3167ccc2f918870e16478a2fefd3dcbf87f491755d5b1c46031afbbbac18c0d7"
+}

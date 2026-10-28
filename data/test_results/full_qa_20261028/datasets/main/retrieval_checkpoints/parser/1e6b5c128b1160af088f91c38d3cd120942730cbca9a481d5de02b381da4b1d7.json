@@ -1,0 +1,107 @@
+{
+  "identity": {
+    "configuration": {
+      "code_hashes": {
+        "services/model_gateway.py": "9021fa65940c23f1e2d8b304855f59698b6fccbfcb2279bdcd230e25508c1b97",
+        "services/runtime.py": "81f1e3828a799364ebfc0ec686cf7c71af30f47fdab873fc485b86fa365d5485",
+        "verification/claim_parser.py": "d06b2a808587b06dd346c611740c3bc92b38c846d51052b3a6307fb771983f3b"
+      },
+      "dependencies": {
+        "google-genai": "2.22.0",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "pydantic": "2.13.5"
+      },
+      "routing": {
+        "allow_fallbacks": false,
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "gateway_version": 1,
+        "max_output_tokens": 8192,
+        "openrouter_base_url": "https://openrouter.ai/api/v1",
+        "provider": "openrouter",
+        "schema_policy": "strict JSON Schema plus local validation",
+        "send_temperature": false,
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "text_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "timeout_seconds": 120.0,
+        "vision_fallbacks": [],
+        "vision_model": ""
+      }
+    },
+    "request": {
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "query_text": "Total income from continuing operations before income taxes was $4,819 million in 2024."
+    },
+    "schema_version": 1,
+    "stage": "parser"
+  },
+  "payload": {
+    "claims": [
+      {
+        "claim_text": "Total income from continuing operations before income taxes was $4,819 million in 2024.",
+        "company": null,
+        "subject": "Total income from continuing operations before income taxes",
+        "metric": "Total income from continuing operations before income taxes",
+        "segment": null,
+        "start_period": null,
+        "end_period": null,
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$4,819 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "unspecified",
+        "unit": "percentage_points",
+        "claim_type": "assertion",
+        "notes": [
+          "Company not specified in assertion; must be sourced from document context."
+        ],
+        "change_type": "growth"
+      }
+    ],
+    "model_calls": [
+      {
+        "time": "2026-10-21T11:36:03.527954+00:00",
+        "task": "text",
+        "gateway_provider": "openrouter",
+        "requested_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "actual_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "attempt": 1,
+        "fallback": false,
+        "upstream_provider": "DeepInfra",
+        "request_id": "gen-1792582563-prJtg45MGNdwUhhlAADC",
+        "usage": {
+          "prompt_tokens": 338,
+          "completion_tokens": 215,
+          "total_tokens": 553,
+          "cost": 0.000642,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.000642,
+            "upstream_inference_prompt_cost": 0.000169,
+            "upstream_inference_completions_cost": 0.000473
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "status": "ok",
+        "duration_seconds": 4.777
+      }
+    ]
+  },
+  "payload_sha256": "ae0851c16f759407dc7bbb0d83ee492068e5a4ccd6ccce7287f44d0209908658",
+  "created_at": "2026-10-21T11:36:08.305337+00:00"
+}

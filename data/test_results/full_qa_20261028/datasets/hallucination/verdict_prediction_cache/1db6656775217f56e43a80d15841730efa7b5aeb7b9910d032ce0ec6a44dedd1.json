@@ -1,0 +1,818 @@
+{
+  "schema_version": 2,
+  "cache_key": "1db6656775217f56e43a80d15841730efa7b5aeb7b9910d032ce0ec6a44dedd1",
+  "configuration_signature": "2921b0e5108b3c948a57ebb177e3d383245c7e35b5d3a209ce0433a4b40596c2",
+  "request": {
+    "claim_text": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-26T12:07:36.038302+00:00",
+  "results": [
+    {
+      "claim_text": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+      "parsed_claim": {
+        "claim_text": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+        "company": "3M Company",
+        "subject": "pre-tax gain from selling its interest in investments",
+        "metric": "pre-tax gain from selling its interest in investments",
+        "segment": null,
+        "start_period": null,
+        "end_period": 2025,
+        "period_quote": "in 2025",
+        "period_type": "annual",
+        "temporal_status": "historical",
+        "quarter": null,
+        "operation": "level",
+        "claimed_literal": "$47 million",
+        "claimed_change": null,
+        "comparison_operator": "equal",
+        "direction": "flat",
+        "unit": "amount",
+        "claim_type": "assertion",
+        "negated": false,
+        "approximate": false,
+        "notes": [],
+        "change_type": "growth"
+      },
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "status": "complete",
+      "verdict": "UNKNOWN",
+      "confidence": null,
+      "confidence_kind": "uncalibrated model confidence",
+      "evidence": [
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_790",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 23,
+          "type": "text",
+          "content": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+          "bbox": [
+            23.54999901875,
+            374.2820205547552,
+            583.6523698311505,
+            382.28002016150526
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+          "source_evidence_id": "evidence_790",
+          "text": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+          "score": 0.03278688524590164,
+          "rerank_score": 8.158246040344238,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "bbox": [
+            23.54999901875,
+            299.88082365480767,
+            575.0717204036773,
+            307.8788232615577
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "source_evidence_id": "evidence_1610",
+          "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+          "score": 0.028283227848101264,
+          "rerank_score": 5.8305130958557125,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 52,
+          "type": "text",
+          "content": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+          "bbox": [
+            23.54999901875,
+            112.6820314547524,
+            561.2780224178144,
+            120.6800310615024
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+          "source_evidence_id": "evidence_1548",
+          "text": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+          "score": 0.02886002886002886,
+          "rerank_score": 4.514558887481689,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 58,
+          "type": "text",
+          "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "bbox": [
+            23.54999901875,
+            552.4808131298062,
+            555.0132006907795,
+            560.4788127365562
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "source_evidence_id": "evidence_1707",
+          "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+          "score": 0.014925373134328358,
+          "rerank_score": 3.9860005378723145,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 79,
+          "type": "text",
+          "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+          "bbox": [
+            23.54999901875,
+            238.68082620480823,
+            354.29833822256853,
+            246.67882581155823
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "source_evidence_id": "evidence_2390",
+          "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+          "score": 0.015873015873015872,
+          "rerank_score": 3.532467842102051,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+          "bbox": [
+            23.54999901875,
+            191.88010815483835,
+            585.8115498411846,
+            199.87810776158835
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "source_evidence_id": "evidence_1105",
+          "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+          "score": 0.015625,
+          "rerank_score": 3.5318244457244874,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 54,
+          "type": "text",
+          "content": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+          "bbox": [
+            45.14999811875,
+            489.50620145191397,
+            581.4609162364608,
+            496.706201151914
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+          "source_evidence_id": "evidence_1622",
+          "text": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+          "score": 0.02455892731122089,
+          "rerank_score": 3.170702075958252,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_953",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 29,
+          "type": "text",
+          "content": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+          "bbox": [
+            52.34999781875,
+            83.88203265475863,
+            566.96230702657,
+            91.88003226150863
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_953",
+          "source_evidence_id": "evidence_953",
+          "text": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+          "score": 0.02724014336917563,
+          "rerank_score": 3.1410765647888184,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 23,
+          "type": "text",
+          "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+          "bbox": [
+            23.54999901875,
+            284.2820243047583,
+            585.2217593950294,
+            292.28002391150835
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+          "source_evidence_id": "evidence_784",
+          "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+          "score": 0.025603392041748205,
+          "rerank_score": 3.1294687747955323,
+          "annual_report_year_columns": true
+        },
+        {
+          "id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 34,
+          "type": "text",
+          "content": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+          "bbox": [
+            23.54999901875,
+            200.8801077798355,
+            587.9667127463863,
+            208.8781073865855
+          ],
+          "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+          "source_evidence_id": "evidence_1106",
+          "text": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+          "score": 0.027364110201042444,
+          "rerank_score": 3.082612991333008,
+          "annual_report_year_columns": true
+        }
+      ],
+      "evidence_ids": [],
+      "calculation": null,
+      "comparison": null,
+      "notes": [],
+      "document_id": "0000066740-26-000014-56e1ef4130",
+      "company_name": "3M Company",
+      "calculation_unavailable_reason": "Source number context does not identify the claimed metric.",
+      "fused_evidence": {
+        "text_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+            "bbox": [
+              23.54999901875,
+              374.2820205547552,
+              583.6523698311505,
+              382.28002016150526
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "text": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+            "score": 0.03278688524590164,
+            "rerank_score": 8.158246040344238,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.028283227848101264,
+            "rerank_score": 5.8305130958557125,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 52,
+            "type": "text",
+            "content": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+            "bbox": [
+              23.54999901875,
+              112.6820314547524,
+              561.2780224178144,
+              120.6800310615024
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "text": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+            "score": 0.02886002886002886,
+            "rerank_score": 4.514558887481689,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.014925373134328358,
+            "rerank_score": 3.9860005378723145,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 79,
+            "type": "text",
+            "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "bbox": [
+              23.54999901875,
+              238.68082620480823,
+              354.29833822256853,
+              246.67882581155823
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.532467842102051,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "bbox": [
+              23.54999901875,
+              191.88010815483835,
+              585.8115498411846,
+              199.87810776158835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "score": 0.015625,
+            "rerank_score": 3.5318244457244874,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+            "bbox": [
+              45.14999811875,
+              489.50620145191397,
+              581.4609162364608,
+              496.706201151914
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "text": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+            "score": 0.02455892731122089,
+            "rerank_score": 3.170702075958252,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+            "bbox": [
+              52.34999781875,
+              83.88203265475863,
+              566.96230702657,
+              91.88003226150863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "text": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+            "score": 0.02724014336917563,
+            "rerank_score": 3.1410765647888184,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.025603392041748205,
+            "rerank_score": 3.1294687747955323,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+            "bbox": [
+              23.54999901875,
+              200.8801077798355,
+              587.9667127463863,
+              208.8781073865855
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "text": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+            "score": 0.027364110201042444,
+            "rerank_score": 3.082612991333008,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "table_evidence": [],
+        "chart_evidence": [],
+        "ocr_evidence": [],
+        "other_evidence": [],
+        "ranked_evidence": [
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+            "bbox": [
+              23.54999901875,
+              374.2820205547552,
+              583.6523698311505,
+              382.28002016150526
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_790",
+            "text": "3M sold its interest in one of these investments, resulting in a pre-tax gain of $47 million. Because this was an ownership disposition, the impact of taxes thereon was reflected",
+            "score": 0.03278688524590164,
+            "rerank_score": 8.158246040344238,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "bbox": [
+              23.54999901875,
+              299.88082365480767,
+              575.0717204036773,
+              307.8788232615577
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1610",
+            "text": "2023. During 2025, 2024 and 2023, 3M management approved and committed to undertake employee-related actions resulting in pre-tax charges of $9 million, $66 million,",
+            "score": 0.028283227848101264,
+            "rerank_score": 5.8305130958557125,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 52,
+            "type": "text",
+            "content": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+            "bbox": [
+              23.54999901875,
+              112.6820314547524,
+              561.2780224178144,
+              120.6800310615024
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1548",
+            "text": "half of 2026, subject to customary closing conditions. In the third quarter of 2025, this business was classified as held for sale. In 2025, 3M recorded a pre-tax charge of",
+            "score": 0.02886002886002886,
+            "rerank_score": 4.514558887481689,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 58,
+            "type": "text",
+            "content": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "bbox": [
+              23.54999901875,
+              552.4808131298062,
+              555.0132006907795,
+              560.4788127365562
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1707",
+            "text": "considered permanently reinvested, which resulted in a charge of approximately $100 million in the second quarter of 2024. Thereafter, 3M provides for income taxes",
+            "score": 0.014925373134328358,
+            "rerank_score": 3.9860005378723145,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 79,
+            "type": "text",
+            "content": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "bbox": [
+              23.54999901875,
+              238.68082620480823,
+              354.29833822256853,
+              246.67882581155823
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_2390",
+            "text": "actions, the Company recorded a pre-tax charge of approximately $500 million in the first half of 2022.",
+            "score": 0.015873015873015872,
+            "rerank_score": 3.532467842102051,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "bbox": [
+              23.54999901875,
+              191.88010815483835,
+              585.8115498411846,
+              199.87810776158835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1105",
+            "text": "15% of Solventum's common stock, with a fair value of $2.0 billion. In August 2025, 3M sold a portion of its holdings, for proceeds of $0.6 billion, and classified its remaining",
+            "score": 0.015625,
+            "rerank_score": 3.5318244457244874,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 54,
+            "type": "text",
+            "content": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+            "bbox": [
+              45.14999811875,
+              489.50620145191397,
+              581.4609162364608,
+              496.706201151914
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1622",
+            "text": "Solventum separated from 3M in April 2024 (discussed in Note 2). As of December 31, 2025 and 2024 the balance of unrealized gain on this investment was $1.5 billion and $1.6 billion,",
+            "score": 0.02455892731122089,
+            "rerank_score": 3.170702075958252,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 29,
+            "type": "text",
+            "content": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+            "bbox": [
+              52.34999781875,
+              83.88203265475863,
+              566.96230702657,
+              91.88003226150863
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_953",
+            "text": "value. In 2023, 3M recorded a gain related to the sale of its dental local anesthetic business partially offset by a loss associated with a contingent indemnification",
+            "score": 0.02724014336917563,
+            "rerank_score": 3.1410765647888184,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 23,
+            "type": "text",
+            "content": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "bbox": [
+              23.54999901875,
+              284.2820243047583,
+              585.2217593950294,
+              292.28002391150835
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_784",
+            "text": "The primary factors that increased the Company's 2025 effective tax rate when compared to 2024 were the tax impact of 3M's retained ownership interest in Solventum and net",
+            "score": 0.025603392041748205,
+            "rerank_score": 3.1294687747955323,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          },
+          {
+            "id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "document_id": "0000066740-26-000014-56e1ef4130",
+            "page": 34,
+            "type": "text",
+            "content": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+            "bbox": [
+              23.54999901875,
+              200.8801077798355,
+              587.9667127463863,
+              208.8781073865855
+            ],
+            "evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "source_evidence_id": "0000066740-26-000014-56e1ef4130::evidence_1106",
+            "text": "interest as current equity investments (part of other current assets). As previously disclosed, 3M expects to sell its ownership in Solventum within five years of its 2024 spin-off.",
+            "score": 0.027364110201042444,
+            "rerank_score": 3.082612991333008,
+            "annual_report_year_columns": true,
+            "modality": "text",
+            "priority": 60
+          }
+        ],
+        "calculation": null,
+        "comparison": null,
+        "evidence_ids": [
+          "0000066740-26-000014-56e1ef4130::evidence_790",
+          "0000066740-26-000014-56e1ef4130::evidence_1610",
+          "0000066740-26-000014-56e1ef4130::evidence_1548",
+          "0000066740-26-000014-56e1ef4130::evidence_1707",
+          "0000066740-26-000014-56e1ef4130::evidence_2390",
+          "0000066740-26-000014-56e1ef4130::evidence_1105",
+          "0000066740-26-000014-56e1ef4130::evidence_1622",
+          "0000066740-26-000014-56e1ef4130::evidence_953",
+          "0000066740-26-000014-56e1ef4130::evidence_784",
+          "0000066740-26-000014-56e1ef4130::evidence_1106"
+        ],
+        "pages": [
+          23,
+          29,
+          34,
+          52,
+          54,
+          58,
+          79
+        ],
+        "evidence_priority": [
+          "calculation",
+          "table",
+          "chart",
+          "text",
+          "ocr"
+        ],
+        "primary_numerical_source": "text",
+        "has_conflict": false,
+        "conflicts": [],
+        "unresolved_conflict": false,
+        "requires_unknown": false,
+        "duplicates_removed": 0,
+        "evidence_count": 10
+      },
+      "reason": "Calculation unavailable: Source number context does not identify the claimed metric.",
+      "reporting_period": "2025",
+      "original_claim": "3M Company reported a pre-tax gain of $47 million from selling its interest in investments in 2025.",
+      "overall_verdict": "UNKNOWN",
+      "processing_time_seconds": 36.28073490000679,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "dots-studio/dots-3-note-preview:free",
+        "vision_model": "",
+        "draft_model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "text_fallbacks": [
+          "minimax/minimax-m3.1-flash"
+        ],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-10-26T12:06:59.727076+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793016420-rQJmwKowleM8R3l1KEoO",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 426,
+            "completion_tokens": 1328,
+            "total_tokens": 1754,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1104,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 19.891
+        },
+        {
+          "time": "2026-10-26T12:07:20.577560+00:00",
+          "task": "text",
+          "gateway_provider": "openrouter",
+          "requested_model": "dots-studio/dots-3-note-preview:free",
+          "actual_model": "dots-studio/dots-3-note-preview:free",
+          "attempt": 1,
+          "fallback": false,
+          "upstream_provider": "AtlasCloud",
+          "request_id": "gen-1793016441-aiHSyXCtHhP6jfGhFuTg",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4924,
+            "completion_tokens": 1230,
+            "total_tokens": 6154,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 860,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 15.427
+        }
+      ],
+      "model_calls_scope": "entire submitted claim including parsing and all subclaims"
+    }
+  ],
+  "results_hash": "eaaec9a24597bec904c6c3f9a26454c1175510c086159eb95cf784a4483ac7a4"
+}

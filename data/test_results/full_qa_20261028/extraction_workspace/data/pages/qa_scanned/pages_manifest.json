@@ -1,0 +1,19 @@
+{
+  "document_id": "qa_scanned",
+  "source_pdf": "data\\documents\\qa_scanned\\original.pdf",
+  "dpi": 200,
+  "page_count": 1,
+  "pages": {
+    "1": {
+      "document_id": "qa_scanned",
+      "page_number": 1,
+      "image_path": "data\\pages\\qa_scanned\\page_001.png",
+      "dpi": 200,
+      "width_px": 1653,
+      "height_px": 2339,
+      "page_width_pt": 595.0,
+      "page_height_pt": 842.0
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "cache_key": "586e4450baea5fbea766535c05523355f3f0ed52027d816dc588a3d172fc8085",
+  "configuration_signature": "c5917c493137b7d672dbfe5694b5ff2acd74120e3fe728cf46962872a58df961",
+  "request": {
+    "claim_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%.",
+    "document_ids": [
+      "0000066740-26-000014-56e1ef4130"
+    ]
+  },
+  "created_at": "2026-10-28T12:41:47.091860+00:00",
+  "results": [
+    {
+      "status": "complete",
+      "verdict": "SUPPORTED",
+      "claim_text": "Between 2024 and 2025, 3M's total company net sales increased by approximately 1.52%.",
+      "reason": "Synthetic control-flow fixture. Not measured performance.",
+      "document_ids": [
+        "0000066740-26-000014-56e1ef4130"
+      ],
+      "evidence": []
+    }
+  ],
+  "results_hash": "1d8a8c0e9ea7898e6d50013dfd7305c09df48b79231a64c4206bfce2b14cf6df"
+}

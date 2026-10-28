@@ -1,0 +1,165 @@
+{
+  "fixture_only": true,
+  "tests": [
+    {
+      "name": "dashboard_load",
+      "pass": true,
+      "exceptions": []
+    },
+    {
+      "name": "reasoning_change_no_reembedding",
+      "pass": true,
+      "calls": 0,
+      "exceptions": []
+    },
+    {
+      "name": "contradicted_expands",
+      "pass": true
+    },
+    {
+      "name": "signed_difference_claimed_minus_actual",
+      "pass": true,
+      "metrics": [
+        [
+          "Actual",
+          "−15.00 USD millions"
+        ],
+        [
+          "Claimed",
+          "15 USD millions"
+        ],
+        [
+          "Signed difference",
+          "+30.00 USD millions"
+        ]
+      ]
+    },
+    {
+      "name": "original_and_normalized_values",
+      "pass": true,
+      "text": [
+        "$407 million",
+        "407,000,000 USD",
+        "$392 million",
+        "392,000,000 USD"
+      ]
+    },
+    {
+      "name": "currency_unit_tolerance_visible",
+      "pass": true,
+      "captions": [
+        "Currency: USD · Input unit: USD · Source scale: ×1,000,000",
+        "Currency: USD · Input unit: USD · Source scale: ×1,000,000",
+        "Result unit: USD millions",
+        "Comparison tolerance: 0.5 USD millions (based on displayed numeric precision)."
+      ]
+    },
+    {
+      "name": "full_table_expands",
+      "pass": true,
+      "before_frames": 5,
+      "after_frames": 6
+    },
+    {
+      "name": "table_view_page",
+      "pass": true,
+      "citation": {
+        "signature": "e1d20bf8f37c11009075e9af274e8f00dd068113558f7b33a4c65a420d5dfe03",
+        "evidence": {
+          "id": "evidence_4868",
+          "document_id": "0000066740-26-000014-56e1ef4130",
+          "page": 102,
+          "type": "table",
+          "content": "China/Hong Kong: 2025 392, 2024 407",
+          "bbox": [
+            23.54999901875,
+            525.3487781104681,
+            587.483308854861,
+            549.9920203269069
+          ],
+          "table_id": "table_102_3",
+          "headers": [
+            "United States",
+            "$4,769",
+            "$4,966"
+          ],
+          "rows": [
+            [
+              "China/Hong Kong",
+              "392",
+              "407"
+            ]
+          ],
+          "column_map": [
+            {
+              "col": 1,
+              "year": 2025,
+              "period": null
+            },
+            {
+              "col": 2,
+              "year": 2024,
+              "period": null
+            }
+          ],
+          "column_headers": {
+            "years": [
+              2025,
+              2024
+            ],
+            "period_types": [],
+            "raw": "Net PP&E by particular country (millions) December 31, 2025 December 31, 2024"
+          },
+          "is_data": true,
+          "claim_context": {
+            "claim_text": "QA DISPLAY FIXTURE - not a measured prediction"
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_preserves_citation_identity",
+      "pass": true
+    },
+    {
+      "name": "SUPPORTED_calculation_collapsed",
+      "pass": true
+    },
+    {
+      "name": "SUPPORTED_unavailable_reason",
+      "pass": true
+    },
+    {
+      "name": "UNKNOWN_calculation_collapsed",
+      "pass": true
+    },
+    {
+      "name": "UNKNOWN_unavailable_reason",
+      "pass": true
+    },
+    {
+      "name": "PARTIALLY_SUPPORTED_calculation_collapsed",
+      "pass": true
+    },
+    {
+      "name": "PARTIALLY_SUPPORTED_unavailable_reason",
+      "pass": true
+    },
+    {
+      "name": "text_view_page",
+      "pass": true,
+      "source_content_usable": true
+    },
+    {
+      "name": "chart_view_page",
+      "pass": true,
+      "source_content_usable": false
+    },
+    {
+      "name": "ablation_dashboard_integration",
+      "pass": false
+    }
+  ],
+  "passed": 17,
+  "failed": 1
+}

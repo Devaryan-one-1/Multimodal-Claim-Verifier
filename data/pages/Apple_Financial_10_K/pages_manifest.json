@@ -47,6 +47,46 @@
       "height_px": 2200,
       "page_width_pt": 612.0,
       "page_height_pt": 792.0
+    },
+    "2": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 2,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_002.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    },
+    "3": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 3,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_003.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    },
+    "4": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 4,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_004.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    },
+    "6": {
+      "document_id": "Apple_Financial_10_K",
+      "page_number": 6,
+      "image_path": "data\\pages\\Apple_Financial_10_K\\page_006.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
     }
   },
   "errors": []
