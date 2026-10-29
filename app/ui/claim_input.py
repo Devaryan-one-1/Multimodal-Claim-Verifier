@@ -407,9 +407,9 @@ def render_document_scope(
             )
 
         st.caption(
-            "If the claim names a company, the future verification "
-            "pipeline will restrict retrieval to that company. "
-            "Otherwise, all selected documents are searched."
+            "Claims without a company name require exactly one selected document. "
+            "With multiple selected documents, name the company explicitly; "
+            "the pipeline checks its identity in the selected sources."
         )
 
 
@@ -511,7 +511,7 @@ def render_failed_claim_retries(
                 changed = True
 
     if changed:
-        from services.application import aggregate_verdict
+        from pipelines.verification_pipeline import aggregate_verdict
         for item in updated_results:
             item["overall_verdict"] = aggregate_verdict(updated_results)
         st.session_state.opened_history_results = None
@@ -544,7 +544,7 @@ def add_history_entry(
 
 
 def history_verdict(results: list[dict[str, Any]]) -> str:
-    from services.application import aggregate_verdict
+    from pipelines.verification_pipeline import aggregate_verdict
     return aggregate_verdict(results)
 
 

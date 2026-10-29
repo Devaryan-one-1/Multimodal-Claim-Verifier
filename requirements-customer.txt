@@ -1,0 +1,2 @@
+-r requirements.txt
+streamlit[auth]>=1.42,<2
