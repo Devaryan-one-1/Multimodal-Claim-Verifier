@@ -63,7 +63,7 @@ def extract_tables(document_id: str) -> dict:
                 header_block = _header_block_above(words, tbl.bbox)
                 years, period_types, column_map = _parse_periods(header_block, data_cols)
 
-                needs_llm_header = len(years) < data_cols or data_cols == 0
+                needs_llm_header = len(years) != data_cols or data_cols == 0
 
                 # is this real financial data, or navigation (TOC)?
                 is_data = _looks_like_data(headers, rows, years)
@@ -89,26 +89,50 @@ def extract_tables(document_id: str) -> dict:
 
 
 def _clean_table(raw):
-    """
-    Attach lone currency symbols to the following number, drop empty/None
-    spacer cells, and keep only non-empty rows.
-    ['Products','$','78,678','','$','66,613'] -> ['Products','$78,678','$66,613']
-    """
+    """Keep missing values in place; merge only table-wide currency columns."""
+    rows = []
+    for row in raw or []:
+        if row is None:
+            continue
+        cells = [str(cell).replace("\n", " ").strip() if cell is not None else "" for cell in row]
+        if any(cells):
+            rows.append(cells)
+    if not rows:
+        return []
+
+    symbols = {"$", "\u20ac", "\u00a3"}
+    header, body = rows[0], rows[1:] or rows
+    currency_columns = set()
+    for column in range(1, max(map(len, rows)) - 1):
+        values = [row[column] for row in body if column < len(row) and row[column]]
+        left = header[column] if column < len(header) else ""
+        right = header[column + 1] if column + 1 < len(header) else ""
+        if left in symbols:
+            values.append(left)
+        if not values or any(value not in symbols for value in values):
+            continue
+        # Two nonempty header labels may be separate years, not a split amount.
+        if left and right and left not in symbols:
+            continue
+        if any(row[column + 1] in symbols for row in body if column + 1 < len(row)):
+            continue
+        currency_columns.add(column)
+
     cleaned = []
-    for row in raw:
-        cells = [(c or "").replace("\n", " ").strip() for c in row]
-        merged = []
-        pending_currency = ""
-        for cell in cells:
-            if cell in ("$", "\u20ac", "\u00a3"):
-                pending_currency = cell
-                continue
-            if cell == "":
-                continue
-            merged.append(pending_currency + cell)
-            pending_currency = ""
-        if merged:
-            cleaned.append(merged)
+    for row in rows:
+        cells, column = [], 0
+        while column < len(row):
+            value = row[column]
+            if column in currency_columns:
+                following = row[column + 1] if column + 1 < len(row) else ""
+                if value in symbols:
+                    value = value + following if following else ""
+                elif not value:
+                    value = following
+                column += 1
+            cells.append(value)
+            column += 1
+        cleaned.append(cells)
     return cleaned
 
 
@@ -205,7 +229,7 @@ def _parse_periods(header_text, data_cols):
 
     # build the positional map
     column_map = []
-    if years and data_cols > 0:
+    if years and data_cols > 0 and len(years) == data_cols:
         if period_types and len(years) == data_cols and len(period_types) >= 1:
             # split the year columns evenly across the period types, in order
             per_group = max(1, len(years) // len(period_types))

@@ -8,6 +8,8 @@ from typing import Any, Callable
 
 import streamlit as st
 
+from services.verification_status import execution_failed, verification_state
+
 
 VERIFICATION_STAGES = [
     "Parsing claim",
@@ -238,19 +240,31 @@ def execute_verification(
                 original_claim=claim_text,
                 elapsed=reporter.elapsed_seconds,
             )
+            for result in results:
+                if not result.get("document_ids"):
+                    result["document_ids"] = list(document_ids)
 
-            reporter.update(
-                "Generating verdict",
-                completed=len(VERIFICATION_STAGES),
-                message=(
-                    f"Generated {len(results)} result(s)"
-                ),
-            )
+            state = verification_state(results)
+            labels = {
+                "complete": "Verification completed",
+                "failed": "Verification failed",
+                "paused": "Verification paused",
+                "incomplete": "Verification incomplete",
+            }
+            if state == "complete":
+                reporter.update(
+                    "Generating verdict",
+                    completed=len(VERIFICATION_STAGES),
+                    message=f"Generated {len(results)} result(s)",
+                )
+            else:
+                completed = sum(not execution_failed(result) for result in results)
+                reporter.log(f"{labels[state]}: {completed} of {len(results)} claims completed.")
 
             status.update(
-                label="Verification completed",
-                state="complete",
-                expanded=False,
+                label=labels[state],
+                state="complete" if state == "complete" else "error",
+                expanded=state != "complete",
             )
 
             return results
@@ -269,6 +283,7 @@ def execute_verification(
             return [
                 {
                     "claim_text": claim_text,
+                    "document_ids": list(document_ids),
                     "status": "error",
                     "verdict": "UNKNOWN",
                     "confidence": 0.0,
@@ -323,6 +338,8 @@ def normalize_results(
             "The verification callback must return a dictionary "
             "or list of dictionaries."
         )
+    if not raw_results:
+        raise ValueError("The verification callback returned no results.")
 
     normalized = []
 
@@ -357,7 +374,7 @@ def normalize_results(
             "status",
             (
                 "error"
-                if item.get("error")
+                if execution_failed(item)
                 else "complete"
             ),
         )
@@ -468,16 +485,12 @@ def render_failed_claim_retries(
     if not results or verify_callback is None:
         return None
 
-    updated_results = list(results)
+    updated_results = []
     changed = False
 
     for index, result in enumerate(results):
-        failed = (
-            result.get("status") == "error"
-            or bool(result.get("error"))
-        )
-
-        if not failed:
+        if not execution_failed(result):
+            updated_results.append(result)
             continue
 
         claim_text = result.get("claim_text", "Failed claim")
@@ -501,17 +514,13 @@ def render_failed_claim_retries(
                     verify_callback=verify_callback,
                 )
 
-                if len(retry_result) == 1:
-                    updated_results[index] = retry_result[0]
-                else:
-                    updated_results[index:index + 1] = (
-                        retry_result
-                    )
-
+                updated_results.extend(retry_result)
                 changed = True
+            else:
+                updated_results.append(result)
 
     if changed:
-        from pipelines.verification_pipeline import aggregate_verdict
+        from services.application import aggregate_verdict
         for item in updated_results:
             item["overall_verdict"] = aggregate_verdict(updated_results)
         st.session_state.opened_history_results = None
@@ -544,7 +553,10 @@ def add_history_entry(
 
 
 def history_verdict(results: list[dict[str, Any]]) -> str:
-    from pipelines.verification_pipeline import aggregate_verdict
+    state = verification_state(results)
+    if state != "complete":
+        return {"failed": "Verification failed", "paused": "Paused", "incomplete": "Incomplete"}[state]
+    from services.application import aggregate_verdict
     return aggregate_verdict(results)
 
 
@@ -555,6 +567,9 @@ def verdict_icon(verdict: str) -> str:
         "PARTIALLY_SUPPORTED": "◐",
         "UNKNOWN": "?",
         "MIXED": "◆",
+        "Verification failed": "!",
+        "Paused": "⏸",
+        "Incomplete": "!",
     }.get(verdict, "?")
 
 

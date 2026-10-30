@@ -5,6 +5,7 @@ from html import escape
 import streamlit as st
 
 from services.application import aggregate_verdict
+from services.verification_status import execution_failed as _execution_failed
 from ui.calculation import _format, render_calculation
 
 
@@ -99,11 +100,6 @@ def render_overall(results: list[dict]):
             label = aggregate_verdict(results)
             st.markdown(f"### Overall: {label.replace('_', ' ')}")
             st.caption(f"{len(results)} atomic claims verified independently.")
-
-
-def _execution_failed(result: dict) -> bool:
-    return (result.get("status") in {"error", "failed", "paused"}
-            or bool(result.get("error")) or bool(result.get("parsing_error")))
 
 
 def render_result(result: dict, index: int, multiple: bool):

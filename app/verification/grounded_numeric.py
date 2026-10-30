@@ -158,6 +158,9 @@ def _value(pc, operand, item):
         if row_index is None or column is None or row_index < 0 or row_index >= len(rows) or column < 1 or column >= len(rows[row_index]):
             raise ValueError("Invalid table cell address.")
         row = rows[row_index]
+        width = max([len(item.get("headers") or []), *(len(source_row) for source_row in rows)])
+        if len(row) != width:
+            raise ValueError("Selected table row has missing column positions. Re-extract the source table before verification.")
         label_context = " ".join([str(row[0]), str(item.get("headers") or []), str(item.get("context") or ""),
                                   str((item.get("column_headers") or {}).get("raw") or "")]).casefold()
         item["metric_label"] = str(row[0])
@@ -326,6 +329,12 @@ quotes verbatim or leave empty. Return at most four operands and a short reason.
                                       pause=quota_pause(exc, calls[start:])) from exc
 
 
+def _quantity_kind(value: dict) -> str:
+    if value["kind"] == "percent":
+        return "percent"
+    return "amount" if value.get("currency") or value.get("unit") == "amount" else "number"
+
+
 def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | None, str, list[str]]:
     operation = pc.get("operation", "qualitative")
     if operation == "qualitative":
@@ -377,25 +386,30 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
                  "margin": ("value",) if "value" in operands else ("profit", "revenue")}[operation]
         if set(operands) != set(names):
             raise ValueError("Selected operands do not match the requested operation.")
-        if "old" in operands and "new" in operands and operands["old"]["kind"] != operands["new"]["kind"]:
-            raise ValueError("The two values have incompatible percentage/amount types.")
+        kinds = {_quantity_kind(operand) for operand in operands.values()}
+        if len(kinds) != 1:
+            raise ValueError("Source operands have incompatible percentage, monetary amount or count types.")
+        source_kind = next(iter(kinds))
         values = {name: operands[name]["value"] for name in names}
-        if operation == "margin" and "value" not in operands and any(item["kind"] == "percent" for item in operands.values()):
-            raise ValueError("A profit/revenue margin requires amounts, not two reported percentages.")
+        if operation == "margin" and "value" not in operands and source_kind != "amount":
+            raise ValueError("A profit/revenue margin requires source-established monetary amounts.")
+        if operation == "absolute_change" and source_kind == "percent":
+            raise ValueError("An absolute change between percentages requires an explicit percentage-point comparison.")
         money = [value for value in operands.values() if value["kind"] != "percent"]
         currencies = {value["currency"] for value in money}
         if len(currencies) > 1:
             raise ValueError("Source currencies differ or are incompletely specified; no currency conversion is inferred.")
         currency = next(iter(currencies), None)
+        quantity_unit = currency or source_kind
         unit = "percent"
         if operation == "direction":
             computed = absolute_change(values["old"], values["new"])
-            unit = "percentage points" if operands["old"]["kind"] == "percent" else currency or "number"
+            unit = "percentage points" if source_kind == "percent" else quantity_unit
         elif operation == "growth":
             computed = percentage_growth(values["old"], values["new"])
         elif operation == "absolute_change":
             computed = absolute_change(values["old"], values["new"])
-            unit = currency or "amount"
+            unit = quantity_unit
         elif operation == "percentage_points":
             if any(item["kind"] != "percent" for item in operands.values()):
                 raise ValueError("Percentage-point change requires two percentage inputs.")
@@ -417,7 +431,7 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
             addresses = {"beginning": addresses["old"], "ending": addresses["new"]}
         else:
             computed = {"formula": "value", "value": values["value"], "inputs": values}
-            unit = "percent" if operands["value"]["kind"] == "percent" else currency or "number"
+            unit = quantity_unit
         formula, value, values = computed["formula"], computed["value"], computed["inputs"]
         if value is None:
             raise ValueError(computed.get("note") or "The calculation is undefined.")
@@ -429,8 +443,22 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
         )
         if claimed is None:
             raise ValueError(reason)
-        if unit == "percent" and claimed["kind"] != "percent":
-            raise ValueError("The claim literal does not specify a percentage.")
+        if operation != "direction":
+            claimed_kind = _quantity_kind(claimed)
+            result_kind = "percentage_points" if unit == "percentage points" else (
+                "percent" if unit == "percent" else source_kind)
+            declared = pc.get("unit", "unspecified")
+            if declared not in {None, "unspecified", result_kind}:
+                raise ValueError("Claim unit and calculated result have incompatible quantity types.")
+            if result_kind == "percentage_points":
+                if claimed_kind != "number" or not (declared == "percentage_points" or re.search(
+                    r"\b(?:percentage\s+points?|points?|pp|ppt)\b", literal or "", re.I
+                )):
+                    raise ValueError("Percentage-point change needs a percentage-point literal, not a percent or monetary amount.")
+            elif claimed_kind != result_kind:
+                raise ValueError("Claim and source result have incompatible percentage, monetary amount or count types.")
+            if claimed_kind == "percent" and (claimed.get("currency") or any(symbol in clean_literal for symbol in "$€£")):
+                raise ValueError("A percentage claim cannot also specify a monetary amount.")
         if unit in {"percent", "percentage points"}:
             claimed_value = claimed["value"]
             tolerance = 0.5 * 10 ** (-claimed["precision"])

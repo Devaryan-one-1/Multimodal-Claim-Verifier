@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-30",
+  "method": "Actual imported UI functions with a recording Streamlit double; actual evaluation functions extracted by AST. No live provider calls or application edits.",
+  "existing_suite": {"passed": 10, "failed": 0},
+  "syntax": {"files": 91, "failures": 0, "python": "3.11.11"},
+  "targeted_probes": {
+    "passed": 14,
+    "failed_expectations": 5,
+    "checks": [
+      {"name": "result_card_error", "passed": true},
+      {"name": "result_card_failed", "passed": true},
+      {"name": "result_card_paused", "passed": true},
+      {"name": "mixed_summary_incomplete", "passed": true},
+      {"name": "returned_error_not_labeled_completed", "passed": false, "observed": {"label": "Verification completed", "state": "complete", "expanded": false}},
+      {"name": "error_retry_button", "passed": true},
+      {"name": "paused_retry_button", "passed": false, "observed": "No retry button for status=paused with pause metadata but no error string"},
+      {"name": "history_failure_not_unknown", "passed": false, "observed": "UNKNOWN"},
+      {"name": "evaluation_rejects_error_prediction", "passed": true},
+      {"name": "evaluation_denominator_error", "passed": true, "observed": {"total": 2, "completed": 1, "accuracy": 1.0, "coverage": 0.5, "synthetic": true}},
+      {"name": "evaluation_denominator_not_run", "passed": true, "observed": {"total": 2, "completed": 1, "accuracy": 1.0, "coverage": 0.5, "synthetic": true}},
+      {"name": "evaluation_rejects_parser_error", "passed": true},
+      {"name": "billing_error_stops_batch", "passed": false, "observed": "quota_pause returned null for synthetic HTTP 402 insufficient credits", "current_provider_status": "User reports OpenRouter working; no current outage claimed"},
+      {"name": "rate_limit_pauses", "passed": true},
+      {"name": "saved_calculation_raw_source_value", "passed": true},
+      {"name": "saved_calculation_formula", "passed": true},
+      {"name": "saved_calculation_normalized_value", "passed": true},
+      {"name": "saved_calculation_signed_difference", "passed": true},
+      {"name": "saved_calculation_currency_preserved", "passed": false, "observed": "currency=null in historical saved result; current generation behavior not established"}
+    ]
+  },
+  "additional_checks": {
+    "nonzero_signed_difference": {"passed": true, "claimed": -4213000000, "actual": 4213000000, "difference": -8426000000, "page": 40},
+    "view_page_callback": {"passed": true, "page": 40, "document_id": "0000066740-26-000014-56e1ef4130", "live_browser_click": false},
+    "original_pdf_page_40": {"passed": true, "raw_value_2024": "4,819", "raw_value_2025": "4,213", "source_unit": "Millions"},
+    "index": {"passed": true, "chunks": 4854, "database_records": 4854, "missing_ids": 0, "stale_ids": 0, "dimensions": 768, "embedding_model": "gemini-embedding-001"},
+    "backup": {"passed": true, "files_verified": 1732, "root": "F:/Multi Modal Change Detector/backups/claim-verifier-20261030T121339Z"}
+  },
+  "source_sha256": {
+    "app/ui/claim_input.py": "2f9dce0a39c79f288ebee1f035c342b3be950500de71b536cd6977e789ead570",
+    "app/ui/dashboard.py": "d9ed13194a36cf06e86b579330173b94dadb6167c1863a0c3d3cf5007eb3da62",
+    "app/ui/workspace.py": "e0e70d18169a74a670007a012d2a9a8b947093fb6c5cef57b31046494b4e304d",
+    "app/pipelines/verification_pipeline.py": "a8b56bb71886b1737ab3f98fb430601a5cfd73d6914ba47a0ab65863003f9fbd",
+    "app/evaluation/verdict_evaluation.py": "62fee13bd7de8b4f71d1c918180c9af0c777af74ba0898394cd9f360e4fc7809",
+    "app/services/verification_errors.py": "be8de03413ffdd63aa68f569c4328b39bb38c9aef7b0ee7997ea47f5edc3222e",
+    "app/ui/calculation.py": "dcad098e67722774099245bb5a0f300c241d845e7151a7e99fa0bedf258b89cb",
+    "app/ui/evidence.py": "9619e56c7e283e5c0f944fa85726436fd681346a81681a4b7611fad825b08501",
+    "app/ui/document_viewer.py": "3b54a79db389864d314599bc950e634c97486c0c0f971b38f36ff18382de97a3",
+    "tests/test_customer_access.py": "95c8113644b300d5ac251bfc81116d7ef81c7588c98739ba64c8b2a39145bd8c"
+  }
+}

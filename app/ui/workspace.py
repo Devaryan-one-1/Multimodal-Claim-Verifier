@@ -11,10 +11,10 @@ import streamlit as st
 
 from services.application import render_page
 from services.application import process_document, saved_documents
-from services.application import aggregate_verdict, verify_claims
+from services.application import verify_claims
 from services.documents import delete_document, persist_document_labels
 from services.runtime import digest, model_name
-from ui.claim_input import initialize_claim_state, render_claim_input
+from ui.claim_input import history_verdict, initialize_claim_state, render_claim_input
 from ui.dashboard import apply_dashboard_style, render_hero, render_nav, render_overall, render_result
 from ui.document_viewer import go_to_page, render_document_viewer
 from ui.evaluation import render_evaluation_panel
@@ -181,7 +181,7 @@ def _history():
         st.info("No claims have been verified in this session.")
         return
     rows = [{"Time": datetime.fromtimestamp(entry["created_at"]).strftime("%Y-%m-%d %H:%M"),
-             "Claim": entry["claim_text"], "Verdict": aggregate_verdict(entry["results"]),
+             "Claim": entry["claim_text"], "Status / verdict": history_verdict(entry["results"]),
              "Documents": ", ".join(entry["document_ids"])} for entry in reversed(history)]
     st.dataframe(rows, use_container_width=True, hide_index=True)
     st.download_button("Download claim history", json.dumps(history, ensure_ascii=False, indent=2),
