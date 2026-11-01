@@ -125,6 +125,9 @@ def model_name(task="text") -> str:
 def configuration_snapshot() -> dict:
     # No credentials, prompts, document text or circuit-breaker state.
     value = asdict(config())
+    # Checkpoints reload JSON arrays as lists; compare identical representations.
+    value["text_fallbacks"] = list(value["text_fallbacks"])
+    value["vision_fallbacks"] = list(value["vision_fallbacks"])
     value.update(gateway_version=2, schema_policy="strict JSON Schema plus local validation",
                  openrouter_base_url=BASE_URL)
     return value

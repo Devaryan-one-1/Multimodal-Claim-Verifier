@@ -1,0 +1,3 @@
+{"timestamp": "2026-11-01T13:32:46.083394+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "f4edd2e0bf3248619d499de7ad2f46a8"}
+{"timestamp": "2026-11-01T13:32:46.086337+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "f4edd2e0bf3248619d499de7ad2f46a8", "document_id": "2b75023e4e3844568636ad8ebad43f30", "size_bytes": 9011708}
+{"timestamp": "2026-11-01T13:32:46.156410+00:00", "level": "INFO", "event": "extraction_started", "request_id": "f4edd2e0bf3248619d499de7ad2f46a8", "document_id": "2b75023e4e3844568636ad8ebad43f30"}

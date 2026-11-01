@@ -1,0 +1,8 @@
+{"timestamp": "2026-10-31T23:33:41.717990+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "4970fade51fe49ea8c59049d0948bd5d"}
+{"timestamp": "2026-10-31T23:33:41.721098+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "document_id": "6b0bd9c1121f48de804fb98c4115faad", "size_bytes": 322159}
+{"timestamp": "2026-10-31T23:33:41.729369+00:00", "level": "INFO", "event": "extraction_started", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "document_id": "6b0bd9c1121f48de804fb98c4115faad"}
+{"timestamp": "2026-10-31T23:33:51.842731+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "page": 14}
+{"timestamp": "2026-10-31T23:33:51.845027+00:00", "level": "INFO", "event": "tables_found", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "document_id": "6b0bd9c1121f48de804fb98c4115faad", "count": 29}
+{"timestamp": "2026-10-31T23:33:52.130545+00:00", "level": "INFO", "event": "charts_found", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "document_id": "6b0bd9c1121f48de804fb98c4115faad", "count": 0}
+{"timestamp": "2026-10-31T23:37:41.499816+00:00", "level": "INFO", "event": "document_ready", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "document_id": "6b0bd9c1121f48de804fb98c4115faad", "evidence_count": 292, "table_count": 27, "chart_count": 0, "ocr_page_count": 0, "chunk_count": 305}
+{"timestamp": "2026-10-31T23:37:41.502120+00:00", "level": "INFO", "event": "document_processing_finished", "request_id": "4970fade51fe49ea8c59049d0948bd5d", "duration_seconds": 239.7845713000279}

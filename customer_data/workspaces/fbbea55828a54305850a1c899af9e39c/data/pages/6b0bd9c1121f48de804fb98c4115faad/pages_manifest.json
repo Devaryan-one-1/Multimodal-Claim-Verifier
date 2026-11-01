@@ -1,0 +1,19 @@
+{
+  "document_id": "6b0bd9c1121f48de804fb98c4115faad",
+  "source_pdf": "data\\documents\\6b0bd9c1121f48de804fb98c4115faad\\original.pdf",
+  "dpi": 200,
+  "page_count": 32,
+  "pages": {
+    "1": {
+      "document_id": "6b0bd9c1121f48de804fb98c4115faad",
+      "page_number": 1,
+      "image_path": "data\\pages\\6b0bd9c1121f48de804fb98c4115faad\\page_001.png",
+      "dpi": 200,
+      "width_px": 1700,
+      "height_px": 2200,
+      "page_width_pt": 612.0,
+      "page_height_pt": 792.0
+    }
+  },
+  "errors": []
+}

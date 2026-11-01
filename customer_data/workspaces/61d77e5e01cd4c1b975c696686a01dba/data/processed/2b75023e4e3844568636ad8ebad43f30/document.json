@@ -1,0 +1,34 @@
+{
+  "document_id": "2b75023e4e3844568636ad8ebad43f30",
+  "filename": "0000066740-26-000014.pdf",
+  "company_name": "",
+  "pdf_path": "data\\documents\\2b75023e4e3844568636ad8ebad43f30\\original.pdf",
+  "pdf_sha256": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "fingerprint": "56e1ef41301f2b8a44aa67c489fdb127a830d2b10cb09d5bac7511fdf3594aa1",
+  "size_bytes": 9011708,
+  "profile": "dashboard-v1",
+  "options": {
+    "ocr": true,
+    "chart_mode": "candidate pages",
+    "visual_limit": 20
+  },
+  "status": "processing",
+  "warnings": [],
+  "extraction_model_configuration": {
+    "provider": "openrouter",
+    "text_model": "nvidia/nemotron-3.5-super-vl:free",
+    "vision_model": "",
+    "draft_model": "nvidia/nemotron-3.5-super-vl:free",
+    "text_fallbacks": [
+      "minimax/minimax-m3.1-flash"
+    ],
+    "vision_fallbacks": [],
+    "allow_fallbacks": true,
+    "timeout_seconds": 120.0,
+    "max_output_tokens": 8192,
+    "send_temperature": false,
+    "gateway_version": 2,
+    "schema_policy": "strict JSON Schema plus local validation",
+    "openrouter_base_url": "https://openrouter.ai/api/v1"
+  }
+}

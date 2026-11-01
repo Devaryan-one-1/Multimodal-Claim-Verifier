@@ -21,6 +21,8 @@ _FIELDS = {
     "verdict", "provider", "model", "task", "duration_seconds", "elapsed_ms",
     "size_bytes", "claim_length", "document_count", "operation", "available",
     "table_count", "chart_count", "ocr_page_count", "evidence_count", "chunk_count",
+    "requested_model", "actual_model", "upstream_provider", "http_status",
+    "provider_request_id", "retry_after_seconds",
 }
 
 
@@ -92,7 +94,33 @@ def operation(name):
     return decorate
 
 
+def model_call_summary(record):
+    """Share allowlisted diagnostics; omit prompts, credentials and error bodies."""
+    elapsed = record.get("elapsed_ms")
+    duration = record.get("duration_seconds")
+    if elapsed is None and isinstance(duration, (int, float)):
+        elapsed = round(duration * 1000, 1)
+    usage = record.get("usage") or {}
+    usage_fields = {"prompt_tokens", "completion_tokens", "total_tokens", "cost",
+                    "prompt_token_count", "candidates_token_count", "total_token_count",
+                    "thoughts_token_count", "cached_content_token_count"}
+    return {
+        "provider": record.get("gateway_provider") or record.get("provider"),
+        "model": record.get("actual_model") or record.get("requested_model") or record.get("model"),
+        "requested_model": record.get("requested_model") or record.get("model"),
+        "actual_model": record.get("actual_model"),
+        "upstream_provider": record.get("upstream_provider"),
+        "status": record.get("status"), "task": record.get("task"), "elapsed_ms": elapsed,
+        "http_status": record.get("http_status"),
+        "error_kind": record.get("error_type") or record.get("error_kind"),
+        "provider_request_id": record.get("request_id") or record.get("provider_request_id"),
+        "retry_after_seconds": record.get("retry_after_seconds"),
+        "usage": {k: v for k, v in usage.items() if k in usage_fields and isinstance(v, (int, float))}
+                 if isinstance(usage, dict) else {},
+    }
+
+
 def record_model_call(record):
     """Called by the existing gateway recorder; keep its caches and tracing intact."""
     event("llm_called", level="warning" if record.get("status") in {"error", "cooldown"} else "info",
-          **{k: record.get(k) for k in ("provider", "model", "task", "status", "elapsed_ms")})
+          **model_call_summary(record))
