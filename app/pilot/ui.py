@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import io
 import math
 import os
+import re
 import time
 from pathlib import Path
 
@@ -11,6 +13,242 @@ import streamlit as st
 from PIL import Image, ImageDraw
 from pilot import store
 from pilot.exports import exports
+from pilot import model_connections, private_media
+
+
+def _plain_label(value):
+    return re.sub(r"([\\`*_{}\[\]()<>#!|])", r"\\\1", str(value))
+
+
+def _ensure_access(access):
+    if (st.session_state.get("customer_identity") != access.principal or
+            st.session_state.get("customer_workspace", access.workspace) != access.workspace or
+            access.expires <= time.time()):
+        st.rerun()
+
+
+def _remember_draft(key):
+    st.session_state["draft_"+key] = st.session_state[key]
+
+
+def _clear_drafts(keys, extra=None):
+    for key in keys:
+        st.session_state.pop(key, None)
+        st.session_state.pop("draft_"+key, None)
+    if extra:
+        st.session_state.pop(extra, None)
+
+
+def draft_text(label, key, default="", *, multiline=False, **options):
+    # Widget state is cleaned when navigating away; this session copy is retained.
+    # Never use this helper for credentials.
+    if key not in st.session_state:
+        st.session_state[key] = st.session_state.get("draft_"+key, default)
+    render = st.text_area if multiline else st.text_input
+    return render(label, key=key, on_change=_remember_draft, args=(key,), **options)
+
+
+@st.fragment
+def review_composer(access, key, document_ids, connected):
+    _ensure_access(access)
+    if st.button("Clear draft", key=key+"clear_draft"):
+        _clear_drafts([key+"review_name", key+"claim"])
+        st.rerun()
+    name = draft_text("Review name", key+"review_name", "Financial review", max_chars=160)
+    claim = draft_text("Claims to check", key+"claim", multiline=True, height=140, max_chars=6000,
+                       placeholder="Include the company, metric and reporting period. Compound claims are checked separately.")
+    st.caption("Drafts are kept in this session and workspace after you leave a field. Click Check figures to submit.")
+    if not connected:
+        st.info("Connect your OpenRouter key above before submitting a new review. Your draft can stay here.")
+    if st.button("Check figures", key=key+"check_figures", type="primary", disabled=not connected):
+        try:
+            job = store.submit_review(access, name, claim, document_ids)
+        except (PermissionError, ValueError) as exc:
+            st.error(str(exc))
+        else:
+            _remember_draft(key+"review_name")
+            _remember_draft(key+"claim")
+            st.session_state[key+"selected_review"] = job
+            st.rerun()
+
+
+@st.fragment
+def decision_editor(access, job_id, index, key):
+    _ensure_access(access)
+    try:
+        prior = store.decisions(access, job_id).get(index, {})
+    except PermissionError:
+        st.rerun()
+    choice_key, note_key, base_key = key+"choice", key+"note", key+"base_updated"
+    st.button("Discard draft changes", key=key+"discard", on_click=_clear_drafts,
+              args=([choice_key, note_key], base_key))
+    if base_key not in st.session_state:
+        st.session_state[base_key] = prior.get("updated")
+    if choice_key not in st.session_state:
+        st.session_state[choice_key] = st.session_state.get("draft_"+choice_key, prior.get("decision", "unreviewed"))
+    choice = st.selectbox("Review decision", ["unreviewed", "reviewed", "incorrect_evidence"], key=choice_key,
+                          on_change=_remember_draft, args=(choice_key,))
+    note = draft_text("Review note", note_key, prior.get("note", ""), multiline=True, max_chars=2000)
+    stale = st.session_state[base_key] != prior.get("updated")
+    if stale:
+        st.warning("Another reviewer changed this decision. Copy any note you need, then discard draft changes to load the latest decision.")
+    if st.button("Save decision", key=key+"save", disabled=stale):
+        try:
+            store.decide(access, job_id, index, choice, note, expected_updated=st.session_state[base_key])
+        except (PermissionError, ValueError) as exc:
+            st.error(str(exc))
+        else:
+            st.session_state.pop(base_key, None)
+            st.rerun()
+
+
+def retry_unavailable_reason(access, job):
+    if job.get("kind", "verify") in {"process", "verify"} and job.get("principal") != access.principal:
+        return "Only the request creator can retry work using their OpenRouter credits."
+    if job["attempts"] >= 3:
+        return "This request has reached the three-attempt limit. Submit a new request after resolving the issue."
+    if not store.can_retry(access, job):
+        return "This request is not available for retry."
+    if job["stage"].startswith("Code changed."):
+        return "Code changed since this request started. Submit a new review to use this version."
+    if job.get("kind", "verify") in {"process", "verify"}:
+        binding = json.loads(job["payload"]).get("openrouter") or {}
+        if not binding.get("connection_version"):
+            return "This request predates your saved connection. Submit a new request with your saved key."
+        saved = model_connections.metadata(access)
+        if not saved:
+            return "Connect your OpenRouter key, then submit a new request. The original connection is unavailable."
+        if saved["version"] != binding["connection_version"]:
+            return "Your OpenRouter key changed. Submit a new request with your current saved connection."
+    return None
+
+
+def failure_hint(saved):
+    codes = [c.get("http_status") for c in saved.get("model_calls", []) if c.get("http_status")]
+    code = codes[-1] if codes else None
+    if code in {401, 403}:
+        return "OpenRouter rejected the key or its permissions. Check your connection; replacing the key requires a new request."
+    if code == 402:
+        return "OpenRouter reported a credit or billing limit. Check your account balance and key spending limit before retrying."
+    if code == 429:
+        return "OpenRouter reported a rate limit. Wait for the limit to reset before retrying."
+    if isinstance(code, int) and code >= 500:
+        return "The model provider is temporarily unavailable. Retry when the service has recovered."
+    return "Resolve the service issue before retrying. Completed claims remain saved; retry does not recheck them."
+
+
+def request_details(job):
+    payload, saved = json.loads(job["payload"]), json.loads(job["result"])
+    models = (payload.get("openrouter") or {}).get("models") or saved.get("models") or {}
+    calls = list(saved.get("parsing_calls", [])) + list(saved.get("model_calls", []))
+    for result in saved.get("results", []):
+        calls.extend(result.get("model_calls", []))
+    with st.expander("Models and request details"):
+        st.text("Reasoning model for this request: " + (models.get("text_model") or "Not recorded"))
+        if models.get("vision_model"):
+            st.text("Vision model for this request: " + models["vision_model"])
+        st.caption("These are the models saved when this request was submitted. Editing your connection affects new requests.")
+        if calls:
+            fields = ("provider", "requested_model", "actual_model", "model", "status", "http_status", "provider_request_id")
+            rows = [{field: call.get(field) for field in fields
+                     if isinstance(call.get(field), (str, int, float, bool))} for call in calls]
+            st.dataframe(rows, hide_index=True)
+            st.caption("Observed request IDs can help you match calls in OpenRouter activity. Usage and billing remain in your OpenRouter account.")
+        else:
+            st.caption("No observed model calls are recorded for this request yet.")
+
+
+@st.fragment(run_every=2)
+def live_updates(access, key, revision):
+    # Fragments do not rerun the login flow. Re-enter it when this access expires.
+    _ensure_access(access)
+    try:
+        snapshot = store.progress_snapshot(access)
+    except PermissionError:
+        st.rerun()
+    except Exception:
+        st.warning("Live updates are temporarily unavailable. Use Refresh status to try again.")
+        return
+    fingerprint = (tuple(snapshot["documents"]), snapshot.get("connection"),
+                   tuple((j["id"], j["status"], j["completed"]) for j in snapshot["jobs"]))
+    previous = st.session_state.get(key+"live_fingerprint")
+    previous_revision = st.session_state.get(key+"live_revision")
+    st.session_state[key+"live_fingerprint"] = fingerprint
+    st.session_state[key+"live_revision"] = revision
+    # Only timer reruns may refresh the page. Interrupting an ordinary render here
+    # could discard a form submission before its handler runs below this panel.
+    if previous_revision == revision and previous is not None and previous != fingerprint:
+        st.rerun()
+    healthy = snapshot["worker_available"]
+    if healthy:
+        st.caption("Processing service available")
+        st.caption("Live updates every 2 seconds. Results appear automatically; you can leave this page while work continues.")
+    else:
+        st.warning("Processing service unavailable — queued requests remain saved. Running work may need a retry when the service returns.")
+        age = snapshot.get("worker_age_seconds")
+        if age is None:
+            st.caption("The processing service has not checked in yet.")
+        elif age >= 60:
+            st.caption(f"Last processing-service update: {int(age // 60)} minutes ago.")
+        else:
+            st.caption("The processing service has stopped checking in.")
+        st.caption("This page checks service status every 2 seconds. Processing can resume when the service returns; contact the app administrator if it stays unavailable.")
+    active = [j for j in snapshot["jobs"] if j["status"] in {"queued", "running"}]
+    for job in active:
+        label = {"verify": "Review", "process": "Document processing", "delete": "Document removal"}.get(job["kind"], "Request")
+        state = "Queued" if job["status"] == "queued" else "In progress"
+        if healthy:
+            panel = st.status(f"{label} · {state}", state="running", expanded=True)
+        else:
+            panel = st.container(border=True)
+            panel.text(f"{label} · Waiting for processing service")
+        panel.text(job["name"] or label)
+        panel.text(job["stage"])
+        if job["kind"] == "verify" and job["total"]:
+            done, total = job["completed"], job["total"]
+            panel.progress(min(done / total, 1.0), text=f"{done} of {total} claims checked")
+
+
+@st.fragment
+def connection_panel(access, key):
+    _ensure_access(access)
+    try:
+        saved = model_connections.metadata(access)
+    except PermissionError:
+        st.rerun()
+    models = saved["models"] if saved else {}
+    with st.expander("My OpenRouter connection", expanded=not bool(saved)):
+        st.caption("Your OpenRouter account pays for reasoning and vision calls. Document/query embeddings use the app's Google service.")
+        if saved:
+            st.success("Your OpenRouter key is saved encrypted.")
+            st.text("Saved reasoning model: " + models.get("text_model", "Not set"))
+            st.text("Saved vision model: " + (models.get("vision_model") or "Not set"))
+        text_model = draft_text("Reasoning model ID", key+"text_model", models.get("text_model", ""), max_chars=200,
+                                help="Use the exact OpenRouter ID, including :free when appropriate. Strict JSON Schema support is required.")
+        vision_model = draft_text("Vision model ID", key+"vision_model", models.get("vision_model", ""), max_chars=200,
+                                  help="Document processing needs an image-capable model with strict JSON Schema support. It can be the same model as reasoning.")
+        st.caption("Model edits apply after Check and save connection. Model choices stay here if the check fails.")
+        with st.form(key+"connection", clear_on_submit=True):
+            api_key = st.text_input("OpenRouter API key", type="password", max_chars=512,
+                                    help="Paste your own key. Leave blank to keep your saved key.")
+            submitted = st.form_submit_button("Check and save connection")
+        if submitted:
+            try:
+                with st.spinner("Checking your OpenRouter key and model capabilities…"):
+                    model_connections.save(access, api_key, text_model, vision_model)
+            except PermissionError:
+                st.rerun()
+            except model_connections.ModelConnectionError as exc:
+                st.error(str(exc))
+            else:
+                st.success("Connection checked and saved. New work will use these models and your OpenRouter credits.")
+                st.rerun()
+        if saved and st.button("Remove my saved key", key=key+"remove_key"):
+            model_connections.remove(access)
+            st.success("Saved key removed. Running work may finish; new attempts cannot use this connection.")
+            st.rerun()
+        st.caption("Queued jobs retain their selected models. Replacing/removing a key requires a new request. A valid key does not guarantee available account credits.")
+    return bool(saved)
 
 
 def action_hint(result):
@@ -28,7 +266,7 @@ def action_hint(result):
 
 def document_context(access, doc):
     meta, confirmed = json.loads(doc["metadata"]), json.loads(doc["context"])
-    st.caption("Source context · " + doc["name"])
+    st.caption("Source context · " + _plain_label(doc["name"]))
     st.write({"Detected company": meta.get("company_name") or "Not established", "Reporting period": meta.get("reporting_period") or "Not established", "Currency": meta.get("currency") or "Not established"})
     with st.expander("Confirm or correct source context"):
         st.caption("These labels are review notes. They do not replace source evidence or silently change claim periods or currencies.")
@@ -41,7 +279,7 @@ def document_context(access, doc):
                 st.success("Source context saved.")
 
 
-def documents_page(access, key):
+def documents_page(access, key, connected=True):
     st.header("Documents")
     limit = int(os.getenv("CUSTOMER_MAX_UPLOAD_MB", "10"))
     st.caption(f"PDF only · Up to {limit} MB and {os.getenv('CUSTOMER_MAX_PAGES','500')} pages per document. Upload starts processing automatically.")
@@ -50,7 +288,10 @@ def documents_page(access, key):
         charts = st.slider("Maximum chart candidate pages", 1, 30, 20, key=key+"charts")
         st.caption("Candidate scans can miss charts. Source files are sent to the configured processing providers where required.")
     epoch = st.session_state.get(key+"upload_epoch", 0)
-    files = st.file_uploader("Upload source reports", type=["pdf"], accept_multiple_files=True, key=key+f"uploads_{epoch}")
+    if not connected:
+        st.info("Connect your OpenRouter key above before uploading a new source.")
+    files = st.file_uploader("Upload source reports", type=["pdf"], accept_multiple_files=True,
+                             key=key+f"uploads_{epoch}", disabled=not connected)
     for uploaded in files:
         doc = store.upload(access, uploaded.name, uploaded.getvalue(), {"enable_ocr": ocr, "visual_limit": charts})
         st.session_state[key+"active_document"] = doc
@@ -58,21 +299,22 @@ def documents_page(access, key):
         st.session_state[key+"upload_epoch"] = epoch+1
         st.rerun()
     example = os.getenv("CUSTOMER_EXAMPLE_PDF")
-    if example and st.button("Try the prepared public report", key=key+"example"):
+    if example and st.button("Try the prepared public report", key=key+"example", disabled=not connected):
         source = Path(example)
         doc = store.upload(access, source.name, source.read_bytes(), {"enable_ocr": True, "visual_limit": 20})
         st.session_state[key+"active_document"] = doc
         st.success("Example queued in your private workspace. Open Reviews after processing finishes.")
-    if st.button("Refresh documents", key=key+"refresh_docs"):
-        st.rerun()
-    for doc in store.documents(access):
-        with st.expander(f"{doc['name']} · {doc['status']}"):
+    available_documents = store.documents(access)
+    for doc in available_documents:
+        with st.expander(f"{_plain_label(doc['name'])} · {doc['status']}"):
             document_context(access, doc)
             meta = json.loads(doc["metadata"])
             st.write({"Pages": meta.get("page_count"), "Tables": meta.get("table_count"), "Charts": meta.get("chart_count")})
             for warning in meta.get("warnings", []):
                 st.warning(warning)
-            st.download_button("Download original PDF", store.document_bytes(access, doc["id"]), file_name=doc["name"], mime="application/pdf", key=key+"download_"+doc["id"])
+            private_media.download(st, access, "Download original PDF",
+                                   lambda doc_id=doc["id"]: store.document_bytes(access, doc_id),
+                                   filename=doc["name"], mime="application/pdf", key=key+"download_"+doc["id"])
             with st.form(key+"delete_"+doc["id"]):
                 confirm = st.checkbox("Delete this source and its index. Saved review snapshots will remain.")
                 if st.form_submit_button("Delete document"):
@@ -84,9 +326,18 @@ def documents_page(access, key):
     processing = [j for j in store.jobs(access) if j["kind"] != "verify"]
     for job in processing[:10]:
         st.caption(f"{job['kind'].title()}: {job['status']} · {job['stage']}")
-        if job["status"] in {"paused", "failed"} and job["attempts"] < 3:
-            if st.button("Retry processing", key=key+"retry_"+job["id"]):
+        if job["status"] in {"failed", "paused"}:
+            reason = retry_unavailable_reason(access, job)
+            if reason:
+                st.caption(reason)
+            elif st.button("Retry processing", key=key+"retry_"+job["id"]):
                 store.resume(access, job["id"]); st.rerun()
+        source_id = json.loads(job["payload"]).get("document_id")
+        source = next((doc for doc in available_documents if doc["id"] == source_id), None)
+        if (connected and source and source["status"] not in {"ready", "deleting"} and
+            job["kind"] == "process" and job["status"] in {"paused", "failed"}):
+            if st.button("Start new processing with my saved connection", key=key+"new_process_"+job["id"]):
+                store.restart_processing(access, job["id"]); st.rerun()
 
 
 def viewer(access, result, key):
@@ -152,21 +403,41 @@ def viewer(access, result, key):
                 st.caption("Blue outline: selected evidence region.")
             except (ValueError, KeyError, TypeError, ZeroDivisionError):
                 st.caption("Region coordinates are unavailable or unsupported; inspect the full page.")
-        st.image(image, width=image.width, caption=f"PDF page {page_number} of {len(pdf)}")
-        st.download_button("Download this page image", pix.tobytes("png"), file_name=f"page_{page_number}.png", mime="image/png", key=key+"page_download")
+        rendered = io.BytesIO()
+        image.save(rendered, format="PNG")
+        page_png = rendered.getvalue()
+        private_media.image(st, access, page_png, width=image.width, caption=f"PDF page {page_number} of {len(pdf)}")
+        private_media.download(st, access, "Download this page image", lambda: page_png,
+                               filename=f"page_{page_number}.png", mime="image/png", key=key+"page_download")
 
 
 def review_detail(access, job, key):
     payload, saved = json.loads(job["payload"]), json.loads(job["result"])
-    st.subheader(payload.get("name", "Financial review"))
-    st.caption(f"Status: {job['status']} · {job['stage']}")
+    st.subheader(_plain_label(payload.get("name", "Financial review")))
+    if job["status"] in {"queued", "running"}:
+        st.caption("Review in progress. Follow the live progress panel above; completed claims appear automatically.")
+    else:
+        st.caption(f"Status: {job['status']} · {job['stage']}")
     if job["status"] in {"failed", "paused"}:
         st.error("Verification failed or paused. This is not an UNKNOWN factual verdict.")
-        if job["attempts"] < 3 and st.button("Retry / resume", key=key+"retry"):
+        st.info(failure_hint(saved))
+        reason = retry_unavailable_reason(access, job)
+        if reason:
+            st.caption(reason)
+        elif st.button("Retry / resume", key=key+"retry"):
             store.resume(access, job["id"]); st.rerun()
+        if payload.get("claim"):
+            with st.expander("Submitted claims"):
+                st.text(payload["claim"])
+    request_details(job)
     results = saved.get("results", [])
     if not results:
-        st.info("Results will appear here when the worker completes a claim. You may close this tab and return later.")
+        if job["status"] in {"failed", "paused"}:
+            st.info("No completed claims were saved. Resolve the service issue before retrying or submitting a new review.")
+        elif job["status"] == "complete":
+            st.info("This saved review contains no completed claims.")
+        else:
+            st.info("Results appear automatically as each claim is checked. You may close this tab and return later.")
         return
     decisions = store.decisions(access, job["id"])
     mode = st.radio("Show claims", ["Needs review", "Contradictions", "All"], horizontal=True, key=key+"filter")
@@ -184,8 +455,8 @@ def review_detail(access, job, key):
         with left:
             label = "VERIFICATION FAILED" if result.get("status") == "error" else result.get("verdict", "UNKNOWN").replace("_", " ")
             st.markdown("### " + label)
-            st.write(result.get("claim_text"))
-            st.write(result.get("reason"))
+            st.text(result.get("claim_text") or "")
+            st.text(result.get("reason") or "")
             if result.get("verdict") == "UNKNOWN" or result.get("status") == "error":
                 st.info(action_hint(result))
             from ui.calculation import render_calculation
@@ -202,33 +473,30 @@ def review_detail(access, job, key):
                     with st.expander("Full table", expanded=False):
                         st.dataframe(rows, hide_index=True)
                 else:
-                    st.write(evidence.get("content", ""))
+                    st.text(evidence.get("content", ""))
                 if st.button("View Page", key=key+f"view_{index}_{n}"):
                     # Viewer options are ownership-filtered; selection index is mapped below.
                     allowed = {d["id"] for d in store.documents(access)}
                     valid = [e for e in result.get("evidence", []) if e.get("document_id") in allowed and isinstance(e.get("page"), int)]
                     if evidence in valid:
                         st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
-            prior = decisions.get(index, {})
-            choices = ["unreviewed", "reviewed", "incorrect_evidence"]
-            with st.form(key+f"decision_{index}"):
-                choice = st.selectbox("Review decision", choices, index=choices.index(prior.get("decision", "unreviewed")))
-                note = st.text_area("Review note", value=prior.get("note", ""), max_chars=2000)
-                if st.form_submit_button("Save decision"):
-                    store.decide(access, job["id"], index, choice, note, expected_updated=prior.get("updated"))
-                    st.rerun()
+            decision_editor(access, job["id"], index, key+f"decision_{index}_")
         with right:
             viewer(access, result, key+f"viewer_{index}")
-    csv_data, report, raw = exports(access, job["id"])
     a, b = st.columns(2)
-    a.download_button("Export CSV", csv_data, file_name="financial_review.csv", mime="text/csv", key=key+"csv")
-    b.download_button("Export readable report", report, file_name="financial_review.html", mime="text/html", key=key+"report")
+    with a:
+        private_media.download(st, access, "Export CSV", lambda: exports(access, job["id"])[0],
+                               filename="financial_review.csv", mime="text/csv", key=key+"csv")
+    with b:
+        private_media.download(st, access, "Export readable report", lambda: exports(access, job["id"])[1],
+                               filename="financial_review.html", mime="text/html", key=key+"report")
     with st.expander("Advanced export"):
-        st.download_button("Download review JSON", raw, file_name="financial_review.json", mime="application/json", key=key+"json")
+        private_media.download(st, access, "Download review JSON", lambda: exports(access, job["id"])[2],
+                               filename="financial_review.json", mime="application/json", key=key+"json")
         st.caption("Includes model/version metadata when available. Confidence values in raw results are uncalibrated.")
 
 
-def reviews_page(access, key):
+def reviews_page(access, key, connected=True):
     ready = [d for d in store.documents(access) if d["status"] == "ready"]
     st.header("Reviews")
     if not ready:
@@ -243,13 +511,7 @@ def reviews_page(access, key):
         more = st.multiselect("Additional sources (optional)", [d for d in ids if d != active], format_func=lambda d: names[d], max_selections=2, key=key+"additional")
         st.caption("Claims without a company name require exactly one source. With multiple sources, name the company explicitly. Specify the reporting period in each claim.")
         document_context(access, next(d for d in ready if d["id"] == active))
-        with st.form(key+"new_review"):
-            name = st.text_input("Review name", value="Financial review", max_chars=160)
-            claim = st.text_area("Claims to check", height=140, max_chars=6000, placeholder="Include the company, metric and reporting period. Compound claims are checked separately.")
-            if st.form_submit_button("Check figures", type="primary"):
-                job = store.submit_review(access, name, claim, [active]+more)
-                st.session_state[key+"selected_review"] = job
-                st.success("Review queued. Completed claims and review decisions will be saved.")
+        review_composer(access, key, [active]+more, connected)
     reviews = store.jobs(access, "verify")
     if reviews:
         ids = [j["id"] for j in reviews]
@@ -264,19 +526,18 @@ def run(access):
     key = "customer_"+access.workspace+"_"
     st.title("Financial claim review")
     st.caption("Check the figures in your research note against original reports, with visible calculations and page citations.")
-    with store.db() as c:
-        store.authorize(c, access)
-        row = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
-    healthy = bool(row and time.time()-row["heartbeat"] < 15)
-    st.caption("Processing service available" if healthy else "Processing service unavailable — queued requests remain saved.")
-    if st.button("Refresh status", key=key+"refresh"):
+    connected = connection_panel(access, key)
+    revision = st.session_state.get(key+"render_revision", 0)+1
+    st.session_state[key+"render_revision"] = revision
+    live_updates(access, key, revision)
+    if st.button("Refresh status", key=key+"refresh", help="Optional fallback; progress and results update automatically."):
         st.rerun()
     area = st.radio("Navigation", ["Reviews", "Documents", "History"], horizontal=True, key=key+"area")
     try:
         if area == "Documents":
-            documents_page(access, key)
+            documents_page(access, key, connected=connected)
         elif area == "Reviews":
-            reviews_page(access, key)
+            reviews_page(access, key, connected=connected)
         else:
             st.header("History")
             reviews = store.jobs(access, "verify")

@@ -12,6 +12,8 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT / "app"))
 from pilot.store import Access, authorize, db, document, file_path, uid, workspace_dir
+from services.observability import event, model_call_summary
+from pilot.model_connections import ModelConnectionError, credentials_for_job
 
 
 def code_version():
@@ -48,6 +50,8 @@ def run(job_id, token):
             pass  # Do not publish backend paths, prompts or provider error bodies.
 
     reporter = Reporter()
+    previous_key = os.environ.get("OPENROUTER_API_KEY")
+    using_customer_key = False
     try:
         with db() as c:
             authorize(c, access)
@@ -56,7 +60,13 @@ def run(job_id, token):
             save("paused", "Code changed. Create a new review to use this version.", {"results": checkpoint.get("results", [])})
             return
         checkpoint["code_version"] = version
-        from services.model_gateway import configuration_snapshot, capture_calls
+        from services.model_gateway import configuration_snapshot, capture_calls, configure
+        if row["kind"] in {"process", "verify"}:
+            key, selected = credentials_for_job(access, payload)
+            # This process runs one job. Never set customer credentials in the UI or supervisor.
+            os.environ["OPENROUTER_API_KEY"] = key
+            using_customer_key = True
+            configure(selected)
         config = configuration_snapshot()
         if checkpoint.get("models") and checkpoint["models"] != config:
             save("paused", "Model settings changed. Restore them to resume, or create a new review.", {"results": checkpoint.get("results", [])})
@@ -88,9 +98,14 @@ def run(job_id, token):
                 reporter.update("Understanding claims")
                 with capture_calls() as (calls, start):
                     parsed = parse_claims(payload["claim"])
-                    checkpoint["parsing_calls"] = [{k: x.get(k) for k in ("provider", "model", "status", "usage", "elapsed_ms")} for x in calls[start:]]
+                    checkpoint["parsing_calls"] = [model_call_summary(x) for x in calls[start:]]
                 if not parsed or any(p.get("parsing_error") for p in parsed):
-                    save("paused", "Verification failed while understanding the claim; retry when service is available.")
+                    failure = next((p for p in parsed or [] if p.get("parsing_error")), {})
+                    event("customer_job_paused", level="warning", status="paused",
+                          stage="claim_parser", error_kind=failure.get("error_kind"))
+                    save("paused", "Verification failed while understanding the claim; retry when service is available.",
+                         {"results": checkpoint.get("results", []), "error_stage": "claim_parser",
+                          "error_kind": failure.get("error_kind"), "model_calls": checkpoint["parsing_calls"]})
                     return
                 checkpoint["parsed"] = parsed
                 checkpoint["results"] = []
@@ -100,10 +115,14 @@ def run(job_id, token):
                 started = time.perf_counter()
                 with capture_calls() as (calls, start):
                     result = _verify_one(pc, payload["documents"], reporter)
-                    result["model_calls"] = [{k: x.get(k) for k in ("provider", "model", "status", "usage", "elapsed_ms")} for x in calls[start:]]
+                    result["model_calls"] = [model_call_summary(x) for x in calls[start:]]
                 result["processing_time_seconds"] = time.perf_counter()-started
                 if result.get("status") == "error":
-                    save("paused", "Verification failed — retry. Completed subclaims were saved.", {"results": results, "error_stage": result.get("error_stage")})
+                    event("customer_job_paused", level="warning", status="paused",
+                          stage=result.get("error_stage"), error_kind=result.get("error_kind"))
+                    save("paused", "Verification failed — retry. Completed subclaims were saved.",
+                         {"results": results, "error_stage": result.get("error_stage"),
+                          "error_kind": result.get("error_kind"), "model_calls": result["model_calls"]})
                     return
                 results.append(result)
                 save(stage=f"Checked {len(results)} of {len(checkpoint['parsed'])} claims", result={"results": results})
@@ -125,12 +144,25 @@ def run(job_id, token):
             save("complete", "Source and its index deleted; saved review snapshots retained")
         else:
             raise ValueError("Unknown job kind.")
+    except ModelConnectionError as exc:
+        event("customer_job_paused", level="warning", status="paused",
+              stage="openrouter_connection", error_kind=type(exc).__name__)
+        save("paused", str(exc), {"results": checkpoint.get("results", []),
+                                 "error_kind": type(exc).__name__, "error_stage": "openrouter_connection"})
     except Exception as exc:
         # Persist useful classification, but never expose raw provider exception bodies.
+        event("customer_job_failed", level="error", status="failed",
+              stage=row["kind"], error_kind=type(exc).__name__)
         with db() as c:
             c.execute("UPDATE jobs SET status='failed',stage=?,result=?,updated=? WHERE id=? AND run_token=?", ("Processing failed — retry or contact the administrator", json.dumps({"error_kind": type(exc).__name__, "results": checkpoint.get("results", [])}), time.time(), job_id, token))
             if row["kind"] == "process":
                 c.execute("UPDATE documents SET status='error' WHERE id=? AND workspace=?", (payload.get("document_id"), access.workspace))
+    finally:
+        if using_customer_key:
+            if previous_key is None:
+                os.environ.pop("OPENROUTER_API_KEY", None)
+            else:
+                os.environ["OPENROUTER_API_KEY"] = previous_key
 
 
 if __name__ == "__main__":

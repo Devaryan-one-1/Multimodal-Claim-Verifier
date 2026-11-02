@@ -59,14 +59,28 @@ class StreamlitFixture(types.ModuleType):
                 raise StopPage()
             if name == "rerun":
                 raise RerunPage()
-            if name in {"form", "expander"}:
+            if name == "fragment":
+                return (lambda fn: fn) if not args else args[0]
+            if name in {"form", "expander", "status", "spinner", "container"}:
                 return self
             if name == "columns":
                 return [self] * (args[0] if isinstance(args[0], int) else len(args[0]))
             if name in {"button", "form_submit_button"}:
-                return args[0] in self.pressed
+                pressed = args[0] in self.pressed and not kwargs.get("disabled", False)
+                if pressed and kwargs.get("on_click"):
+                    kwargs["on_click"](*kwargs.get("args", ()), **kwargs.get("kwargs", {}))
+                return pressed
+            if name == "file_uploader":
+                return []
             if name in {"text_input", "text_area"}:
-                return self.inputs.get(args[0], "")
+                key = kwargs.get("key")
+                previous = self.session_state.get(key, kwargs.get("value", ""))
+                value = self.inputs.get(args[0], previous)
+                if key:
+                    self.session_state[key] = value
+                    if value != previous and kwargs.get("on_change"):
+                        kwargs["on_change"](*kwargs.get("args", ()))
+                return value
             if name == "radio":
                 return self.radios.get(args[0], args[1][0])
             if name == "selectbox":
@@ -111,9 +125,10 @@ class CustomerAuthTests(unittest.TestCase):
             self.auth, "memberships", return_value=[{"id": "a" * 32, "name": "Fixture workspace"}]))
         self.session = types.SimpleNamespace(access_token="rotated-access", refresh_token="rotated-refresh",
                                              expires_at=time.time() + 1800, expires_in=1800)
-        self.user = types.SimpleNamespace(id="fixture-uid", email_confirmed_at="2026-01-01T00:00:00Z",
+        self.user = types.SimpleNamespace(id="fixture-uid", email="fixture@example.com", email_confirmed_at="2026-01-01T00:00:00Z",
                                           deleted_at=None, is_anonymous=False, banned_until=None)
         self.client.auth.set_session.return_value = types.SimpleNamespace(session=self.session)
+        self.client.auth.refresh_session.return_value = types.SimpleNamespace(session=self.session)
         self.client.auth.get_user.return_value = types.SimpleNamespace(user=self.user)
         self.st.session_state[self.auth.SESSION] = {
             "access_token": "old-access", "refresh_token": "old-refresh", "expires_at": time.time() - 1,
@@ -251,10 +266,14 @@ class CustomerReviewScreenTests(unittest.TestCase):
         self.stack.enter_context(patch.object(store, "decisions", return_value={}))
         self.resume = self.stack.enter_context(patch.object(store, "resume"))
         self.access = store.Access("fixture", "a" * 32, time.time() + 300)
+        self.st.session_state.customer_identity = self.access.principal
+        self.stack.enter_context(patch.object(self.ui.model_connections, "metadata", return_value={
+            "version": "fixture-version", "models": {"text_model": "vendor/fixture"}}))
 
     def review(self, status="complete", results=None, attempts=1):
         job = {"id": "c" * 32, "status": status, "stage": "Fixture", "attempts": attempts,
-               "payload": json.dumps({"name": "Public fixture"}),
+               "kind": "verify", "principal": self.access.principal,
+               "payload": json.dumps({"name": "Public fixture", "openrouter": {"connection_version": "fixture-version"}}),
                "result": json.dumps({"results": results or []})}
         self.ui.review_detail(self.access, job, "fixture")
 
@@ -285,10 +304,25 @@ class CustomerReviewScreenTests(unittest.TestCase):
         self.resume.assert_not_called()
         self.assertFalse(any(name == "button" and args[0] == "Retry / resume" for name, args, _ in self.st.events))
 
+    def test_shared_workspace_member_cannot_offer_a_retry_using_another_users_key(self):
+        self.st.pressed.add("Retry / resume")
+        job = {"id": "c" * 32, "kind": "verify", "principal": "another-user", "status": "paused",
+               "stage": "Fixture", "attempts": 1, "payload": "{}", "result": "{}"}
+        self.ui.review_detail(self.access, job, "fixture")
+        self.resume.assert_not_called()
+        self.assertIn("Only the request creator", self.st.rendered_text("caption"))
+
     def test_completed_unknown_remains_a_factual_result(self):
         self.review(results=[{"status": "complete", "verdict": "UNKNOWN", "reason": "Source does not establish this."}])
         self.assertIn("### UNKNOWN", self.st.rendered_text("markdown"))
         self.assertNotIn("Verification failed", self.st.rendered_text("error"))
+
+    def test_source_and_model_text_cannot_render_remote_markdown_images(self):
+        tainted = "![untrusted](https://example.invalid/tracking)"
+        self.review(results=[{"status": "complete", "verdict": "SUPPORTED", "claim_text": tainted,
+                             "reason": tainted, "evidence": [{"content": tainted, "page": 1}]}])
+        self.assertIn(tainted, self.st.rendered_text("text"))
+        self.assertFalse(any(name in {"write", "markdown"} and tainted in args for name, args, _ in self.st.events))
 
     def test_saved_success_is_visible_inside_a_paused_partial_review(self):
         result = {"status": "complete", "verdict": "SUPPORTED", "claim_text": "First fixture"}
@@ -329,6 +363,36 @@ class CustomerReviewScreenTests(unittest.TestCase):
             self.real_viewer(self.access, result, "fixture-viewer")
         read.assert_not_called()
         self.assertIn("unavailable", self.st.rendered_text("warning"))
+
+    def test_connection_key_widget_is_masked_without_saved_plaintext(self):
+        with patch.object(self.ui.model_connections, "metadata", return_value=None):
+            self.assertFalse(self.ui.connection_panel(self.access, "fixture"))
+        fields = [(args, kwargs) for name, args, kwargs in self.st.events if name == "text_input"]
+        key_field = next(kwargs for args, kwargs in fields if args[0] == "OpenRouter API key")
+        self.assertEqual(key_field["type"], "password")
+        self.assertNotIn("value", key_field)
+        self.assertTrue(any(kwargs.get("clear_on_submit") for name, _, kwargs in self.st.events if name == "form"))
+
+    def test_connection_save_passes_only_current_users_settings(self):
+        self.st.inputs.update({"OpenRouter API key": "sk-or-customer-fixture", "Reasoning model ID": "vendor/text:free", "Vision model ID": "vendor/vision:free"})
+        self.st.pressed.add("Check and save connection")
+        with patch.object(self.ui.model_connections, "metadata", return_value=None), patch.object(self.ui.model_connections, "save") as save:
+            with self.assertRaises(RerunPage): self.ui.connection_panel(self.access, "fixture")
+        save.assert_called_once_with(self.access, "sk-or-customer-fixture", "vendor/text:free", "vendor/vision:free")
+        self.assertNotIn("sk-or-customer-fixture", self.st.rendered_text())
+
+    def test_connection_remove_uses_current_user(self):
+        self.st.pressed.add("Remove my saved key")
+        with patch.object(self.ui.model_connections, "metadata", return_value={"models": {}}), patch.object(self.ui.model_connections, "remove") as remove:
+            with self.assertRaises(RerunPage): self.ui.connection_panel(self.access, "fixture")
+        remove.assert_called_once_with(self.access)
+
+    def test_upload_is_disabled_without_blocking_document_history(self):
+        with patch.object(store, "documents", return_value=[]), patch.object(store, "jobs", return_value=[]):
+            self.ui.documents_page(self.access, "fixture", connected=False)
+        uploader = next(kwargs for name, _, kwargs in self.st.events if name == "file_uploader")
+        self.assertTrue(uploader["disabled"])
+        self.assertIn("Connect your OpenRouter key", self.st.rendered_text("info"))
 
 
 class CustomerExportTests(unittest.TestCase):

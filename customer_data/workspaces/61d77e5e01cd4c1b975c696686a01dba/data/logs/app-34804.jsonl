@@ -1,0 +1,25 @@
+{"timestamp": "2026-11-01T13:34:28.622537+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "b1b9a41a563e48f7a3de59008b81864b"}
+{"timestamp": "2026-11-01T13:34:28.626804+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "document_id": "2b75023e4e3844568636ad8ebad43f30", "size_bytes": 9011708}
+{"timestamp": "2026-11-01T13:34:28.662962+00:00", "level": "INFO", "event": "extraction_started", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "document_id": "2b75023e4e3844568636ad8ebad43f30"}
+{"timestamp": "2026-11-01T13:37:40.916785+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 23}
+{"timestamp": "2026-11-01T13:37:40.918447+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 23}
+{"timestamp": "2026-11-01T13:37:40.919077+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 46}
+{"timestamp": "2026-11-01T13:37:40.919160+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 47}
+{"timestamp": "2026-11-01T13:37:40.919213+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 47}
+{"timestamp": "2026-11-01T13:37:40.919352+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 53}
+{"timestamp": "2026-11-01T13:37:40.919410+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 53}
+{"timestamp": "2026-11-01T13:37:40.919659+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 59}
+{"timestamp": "2026-11-01T13:37:40.919744+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 60}
+{"timestamp": "2026-11-01T13:37:40.919801+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 60}
+{"timestamp": "2026-11-01T13:37:40.919856+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 60}
+{"timestamp": "2026-11-01T13:37:40.920187+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 68}
+{"timestamp": "2026-11-01T13:37:40.920246+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 68}
+{"timestamp": "2026-11-01T13:37:40.920362+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 70}
+{"timestamp": "2026-11-01T13:37:40.920420+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 70}
+{"timestamp": "2026-11-01T13:37:40.920475+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 70}
+{"timestamp": "2026-11-01T13:37:40.920568+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "page": 72}
+{"timestamp": "2026-11-01T13:37:40.920926+00:00", "level": "INFO", "event": "tables_found", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "document_id": "2b75023e4e3844568636ad8ebad43f30", "count": 98}
+{"timestamp": "2026-11-01T13:37:41.332904+00:00", "level": "INFO", "event": "weak_text_pages", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "document_id": "2b75023e4e3844568636ad8ebad43f30", "count": 1}
+{"timestamp": "2026-11-01T13:37:41.477020+00:00", "level": "INFO", "event": "charts_found", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "document_id": "2b75023e4e3844568636ad8ebad43f30", "count": 0}
+{"timestamp": "2026-11-01T13:37:43.686672+00:00", "level": "ERROR", "event": "document_processing_failed", "request_id": "b1b9a41a563e48f7a3de59008b81864b", "error_kind": "ClientError", "stage": "document_processing", "duration_seconds": 195.06452389998594}
+{"timestamp": "2026-11-01T13:37:43.686947+00:00", "level": "ERROR", "event": "customer_job_failed", "request_id": null, "status": "failed", "stage": "process", "error_kind": "ClientError"}

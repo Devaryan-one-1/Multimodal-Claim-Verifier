@@ -12,8 +12,29 @@
     "chart_mode": "candidate pages",
     "visual_limit": 20
   },
-  "status": "processing",
-  "warnings": [],
+  "status": "error",
+  "warnings": [
+    "Malformed or empty table skipped on page 23; inspect the source page.",
+    "Malformed or empty table skipped on page 23; inspect the source page.",
+    "Malformed or empty table skipped on page 46; inspect the source page.",
+    "Malformed or empty table skipped on page 47; inspect the source page.",
+    "Malformed or empty table skipped on page 47; inspect the source page.",
+    "Malformed or empty table skipped on page 53; inspect the source page.",
+    "Malformed or empty table skipped on page 53; inspect the source page.",
+    "Malformed or empty table skipped on page 59; inspect the source page.",
+    "Malformed or empty table skipped on page 60; inspect the source page.",
+    "Malformed or empty table skipped on page 60; inspect the source page.",
+    "Malformed or empty table skipped on page 60; inspect the source page.",
+    "Malformed or empty table skipped on page 68; inspect the source page.",
+    "Malformed or empty table skipped on page 68; inspect the source page.",
+    "Malformed or empty table skipped on page 70; inspect the source page.",
+    "Malformed or empty table skipped on page 70; inspect the source page.",
+    "Malformed or empty table skipped on page 70; inspect the source page.",
+    "Malformed or empty table skipped on page 72; inspect the source page.",
+    "OCR unavailable on page 109: Existing PDF text is sufficient; OCR was not required.",
+    "Chart detection used candidate pages; charts without detectable layout/caption cues may be missed.",
+    "Chart detection failed on page 1: Model service configuration: choose a vision model in the sidebar."
+  ],
   "extraction_model_configuration": {
     "provider": "openrouter",
     "text_model": "nvidia/nemotron-3.5-super-vl:free",
@@ -30,5 +51,17 @@
     "gateway_version": 2,
     "schema_policy": "strict JSON Schema plus local validation",
     "openrouter_base_url": "https://openrouter.ai/api/v1"
-  }
+  },
+  "page_count": 158,
+  "metadata": {
+    "title": "10-K - 02/03/2026 - 3M Company",
+    "author": null,
+    "subject": null,
+    "creator": "Equisolve",
+    "producer": "Equisolve"
+  },
+  "text_page_count": 158,
+  "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 1000, model: gemini-embedding-1.0, description: Embed content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\\nPlease retry in 18h22m16.264215818s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'description': 'Embed content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.', 'quotaMetric': 'generativelanguage.googleapis.com/embed_content_free_tier_requests', 'quotaId': 'EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-embedding-1.0'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '66136s'}]}}",
+  "error_kind": "ClientError",
+  "error_stage": "document_processing"
 }

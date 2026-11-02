@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS jobs(id TEXT PRIMARY KEY, workspace TEXT NOT NULL REF
 CREATE TABLE IF NOT EXISTS decisions(job TEXT NOT NULL REFERENCES jobs(id), atom INTEGER NOT NULL, decision TEXT NOT NULL, note TEXT NOT NULL, reviewer TEXT NOT NULL, updated REAL NOT NULL, PRIMARY KEY(job,atom));
 CREATE TABLE IF NOT EXISTS decision_events(id INTEGER PRIMARY KEY, job TEXT NOT NULL, atom INTEGER NOT NULL, decision TEXT NOT NULL, note TEXT NOT NULL, reviewer TEXT NOT NULL, updated REAL NOT NULL);
 CREATE TABLE IF NOT EXISTS worker_status(id INTEGER PRIMARY KEY CHECK(id=1), heartbeat REAL NOT NULL);
+CREATE TABLE IF NOT EXISTS model_connections(principal TEXT PRIMARY KEY, version TEXT NOT NULL UNIQUE, secret TEXT NOT NULL, models TEXT NOT NULL, updated REAL NOT NULL);
 ''')
 
 
@@ -128,6 +129,9 @@ def queue(c, access, kind, payload):
     today = c.execute("SELECT count(*) FROM jobs WHERE workspace=? AND created>?", (access.workspace, time.time()-86400)).fetchone()[0]
     if today >= int(os.getenv("CUSTOMER_JOBS_PER_DAY", "100")):
         raise ValueError("Workspace daily request limit reached.")
+    if kind in {"process", "verify"}:
+        from pilot.model_connections import snapshot
+        payload = {**payload, "openrouter": snapshot(c, access, vision=kind == "process")}
     job = uuid.uuid4().hex
     now = time.time()
     c.execute("INSERT INTO jobs(id,workspace,principal,kind,payload,status,stage,created,updated) VALUES(?,?,?,?,?,'queued','Waiting for worker',?,?)", (job, access.workspace, access.principal, kind, json.dumps(payload), now, now))
@@ -192,6 +196,32 @@ def jobs(access, kind=None):
         return [dict(r) for r in rows if kind is None or r["kind"] == kind]
 
 
+def progress_snapshot(access):
+    """Read workspace progress without loading historical evidence or model output."""
+    with db() as c:
+        authorize(c, access)
+        worker = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
+        connection = c.execute("SELECT version,updated FROM model_connections WHERE principal=?", (access.principal,)).fetchone()
+        sources = c.execute("SELECT id,name,status FROM documents WHERE workspace=? ORDER BY id", (access.workspace,)).fetchall()
+        rows = c.execute("""SELECT id,kind,status,stage,
+            CASE WHEN status IN ('queued','running') THEN payload ELSE '{}' END AS payload,
+            CASE WHEN status IN ('queued','running') THEN result ELSE '{}' END AS result,
+            CASE WHEN status IN ('queued','running') THEN checkpoint ELSE '{}' END AS checkpoint
+            FROM jobs WHERE workspace=? ORDER BY created DESC,id""", (access.workspace,)).fetchall()
+    names = {d["id"]: d["name"] for d in sources}
+    progress = []
+    for row in rows:
+        payload, result, checkpoint = (json.loads(row[field]) for field in ("payload", "result", "checkpoint"))
+        progress.append({"id": row["id"], "kind": row["kind"], "status": row["status"], "stage": row["stage"],
+                         "name": payload.get("name") or names.get(payload.get("document_id"), ""),
+                         "completed": sum(r.get("status") == "complete" for r in result.get("results", [])),
+                         "total": len(checkpoint.get("parsed", []))})
+    age = time.time()-worker["heartbeat"] if worker else None
+    return {"worker_available": age is not None and 0 <= age < 15, "worker_age_seconds": age,
+            "connection": tuple(connection) if connection else None,
+            "documents": [(d["id"], d["status"]) for d in sources], "jobs": progress}
+
+
 def get_job(access, job):
     with db() as c:
         authorize(c, access)
@@ -208,7 +238,40 @@ def resume(access, job):
         row = c.execute("SELECT * FROM jobs WHERE id=? AND workspace=?", (uid(job), access.workspace)).fetchone()
         if not row or row["status"] not in {"failed", "paused"} or row["attempts"] >= 3:
             raise ValueError("This request cannot be retried; at most three attempts are allowed.")
+        if row["kind"] in {"process", "verify"}:
+            if row["principal"] != access.principal:
+                raise PermissionError("Only the request creator can retry work using their OpenRouter credits.")
+            from pilot.model_connections import snapshot
+            current = snapshot(c, access)
+            original = json.loads(row["payload"]).get("openrouter") or {}
+            if original.get("connection_version") != current["connection_version"]:
+                raise ValueError("The OpenRouter connection changed. Submit a new request using your saved key.")
         c.execute("UPDATE jobs SET status='queued',stage='Queued for explicit retry',updated=? WHERE id=?", (time.time(), job))
+
+
+def can_retry(access, job):
+    return (job["status"] in {"failed", "paused"} and job["attempts"] < 3 and
+            (job.get("kind", "verify") not in {"process", "verify"} or job.get("principal") == access.principal))
+
+
+def restart_processing(access, job):
+    """Explicit new request/key snapshot for a paused source; reuse the saved PDF."""
+    with db() as c:
+        c.execute("BEGIN IMMEDIATE")
+        authorize(c, access)
+        row = c.execute("SELECT * FROM jobs WHERE id=? AND workspace=?", (uid(job), access.workspace)).fetchone()
+        if not row or row["kind"] != "process" or row["status"] not in {"paused", "failed"}:
+            raise ValueError("Only a paused or failed document can start a new processing request.")
+        payload = json.loads(row["payload"])
+        doc = document(c, access, payload["document_id"])
+        if doc["status"] in {"ready", "deleting"}:
+            raise ValueError("This source is already ready or being deleted.")
+        for active in c.execute("SELECT payload FROM jobs WHERE workspace=? AND status IN ('queued','running')", (access.workspace,)):
+            if json.loads(active["payload"]).get("document_id") == doc["id"]:
+                raise ValueError("This source already has an active processing request.")
+        new_job = queue(c, access, "process", {"document_id": doc["id"], "options": payload["options"]})
+        c.execute("UPDATE documents SET status='queued' WHERE id=? AND workspace=?", (doc["id"], access.workspace))
+        return new_job
 
 
 def save_context(access, doc, company, period, currency):

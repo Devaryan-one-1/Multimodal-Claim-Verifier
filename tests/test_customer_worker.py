@@ -140,6 +140,9 @@ class CustomerWorkerTests(unittest.TestCase):
         self.events = self.stack.enter_context(patch.object(observability, "event"))
         self.gateway = load_gateway(self.stack)
         self.task = load_module(self.stack, "_customer_task_under_test", APP / "pilot_task.py")
+        self.credential_config = self.gateway.asdict(self.gateway.config())
+        self.credentials = self.stack.enter_context(patch.object(
+            self.task, "credentials_for_job", return_value=("sk-customer-worker-fixture", self.credential_config)))
         self.stack.enter_context(patch.object(self.task, "code_version", return_value="fixture-version"))
         store.initialize()
         self.access = store.Access("fixture-user", "a" * 32, time.time() + 3600)
@@ -193,11 +196,37 @@ class CustomerWorkerTests(unittest.TestCase):
         self.parser.assert_called_once()
 
     def test_real_model_change_pauses_before_provider_call(self):
-        self.gateway.configure(self.gateway.replace(self.gateway.config(), text_model="vendor/new-model"))
+        self.credential_config["text_model"] = "vendor/new-model"
         result = self.run_job()
         self.assertEqual(result["status"], "paused")
         self.assertIn("Model settings changed", result["stage"])
         self.parser.assert_not_called()
+
+    def test_missing_customer_key_pauses_without_using_server_credentials(self):
+        from pilot.model_connections import ModelConnectionError
+        self.credentials.side_effect = ModelConnectionError("Connect your own OpenRouter key.")
+        with patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-server-fixture"}):
+            result = self.run_job()
+            self.assertEqual(os.environ["OPENROUTER_API_KEY"], "sk-server-fixture")
+        self.assertEqual(result["status"], "paused")
+        self.assertEqual(result["result"]["error_stage"], "openrouter_connection")
+        self.parser.assert_not_called()
+
+    def test_job_uses_customer_key_and_restores_process_environment(self):
+        def parse(_):
+            self.assertEqual(os.environ["OPENROUTER_API_KEY"], "sk-customer-worker-fixture")
+            return [{"claim_text": "fixture", "operation": "level"}]
+        self.parser.side_effect = parse
+        with patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-server-fixture"}):
+            result = self.run_job()
+            self.assertEqual(os.environ["OPENROUTER_API_KEY"], "sk-server-fixture")
+        self.assertEqual(result["status"], "complete")
+
+    def test_server_model_change_does_not_override_customer_job_models(self):
+        self.gateway.configure(self.gateway.replace(self.gateway.config(), text_model="vendor/server-new-model"))
+        result = self.run_job()
+        self.assertEqual(result["status"], "complete")
+        self.assertEqual(result["result"]["models"]["text_model"], "vendor/text-model")
 
     def test_real_code_change_still_requires_new_review(self):
         self.update_checkpoint(code_version="older-version")
@@ -247,6 +276,34 @@ class CustomerWorkerTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_PROVIDER_BODY", json.dumps(row["result"]))
         self.parser.assert_not_called()
         self.assertEqual(self.verifier.call_args.args[0], second)
+
+    def test_explicit_retry_finishes_only_the_remaining_claim(self):
+        saved = {"status": "complete", "verdict": "SUPPORTED", "claim_text": "First fixture"}
+        second = {"claim_text": "Second fixture", "operation": "level"}
+        self.update_checkpoint(parsed=[{"claim_text": "First fixture"}, second], results=[saved])
+        self.verifier.return_value = {"status": "error", "error_stage": "numeric", "error_kind": "ModelServiceError"}
+        self.assertEqual(self.run_job()["status"], "paused")
+        binding = {"connection_version": "fixture-connection", "models": self.credential_config}
+        with store.db() as c:
+            payload = json.loads(c.execute("SELECT payload FROM jobs WHERE id=?", (self.job,)).fetchone()[0])
+            payload["openrouter"] = binding
+            c.execute("UPDATE jobs SET payload=? WHERE id=?", (json.dumps(payload), self.job))
+        with patch("pilot.model_connections.snapshot", return_value=binding):
+            store.resume(self.access, self.job)
+        self.assertEqual(store.get_job(self.access, self.job)["status"], "queued")
+        # Simulate the supervisor claiming this queued attempt; execute the real task.
+        with store.db() as c:
+            c.execute("UPDATE jobs SET status='running',attempts=attempts+1 WHERE id=?", (self.job,))
+        self.verifier.reset_mock()
+        self.verifier.return_value = {"status": "complete", "verdict": "CONTRADICTED"}
+        row = self.run_job()
+        self.assertEqual(row["status"], "complete")
+        self.assertEqual(row["attempts"], 3)
+        self.assertEqual(row["result"]["results"][0], saved)
+        self.assertEqual(len(row["result"]["results"]), 2)
+        self.verifier.assert_called_once()
+        self.assertEqual(self.verifier.call_args.args[0], second)
+        self.parser.assert_not_called()
 
 
 if __name__ == "__main__":

@@ -6,6 +6,8 @@ never in a shared cached client, database, logs, URL parameters or exports.
 from __future__ import annotations
 
 import os
+import math
+import re
 import time
 from datetime import datetime, timezone
 from urllib.parse import urlparse
@@ -49,8 +51,57 @@ def make_client(url, key):
 def pack(session):
     if not session or not session.access_token or not session.refresh_token:
         raise ValueError("No authenticated session was returned.")
-    return {"access_token": session.access_token, "refresh_token": session.refresh_token,
-            "expires_at": float(session.expires_at or (time.time()+session.expires_in))}
+    expiry = session.expires_at if session.expires_at is not None else time.time()+session.expires_in
+    expiry = float(expiry)
+    if not math.isfinite(expiry):
+        raise ValueError("Invalid session expiration.")
+    return {"access_token": session.access_token, "refresh_token": session.refresh_token, "expires_at": expiry}
+
+
+def verified_user(client, saved, email=None):
+    user = client.auth.get_user(saved["access_token"]).user
+    if not user or not user.id or not user.email_confirmed_at or saved["expires_at"] <= time.time():
+        raise ValueError("No verified user.")
+    if getattr(user, "deleted_at", None) or getattr(user, "is_anonymous", False):
+        raise ValueError("Account unavailable.")
+    banned = getattr(user, "banned_until", None)
+    if banned:
+        until = banned if isinstance(banned, datetime) else datetime.fromisoformat(str(banned).replace("Z", "+00:00"))
+        if until.replace(tzinfo=until.tzinfo or timezone.utc).timestamp() > time.time():
+            raise ValueError("Account unavailable.")
+    if email and (getattr(user, "email", "") or "").casefold() != email.strip().casefold():
+        raise ValueError("Account does not match the verified email.")
+    return user
+
+
+def discard_customer_state(saved=None, who=None):
+    st.session_state.clear()
+    if saved:
+        st.session_state[SESSION] = saved
+    if who:
+        st.session_state.customer_identity = who
+
+
+def send_code(client, email, kind):
+    email = email.strip()
+    if not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", email):
+        st.error("Enter your account email address.")
+        return
+    now = time.time()
+    next_send = st.session_state.get("auth_email_next_send", {})
+    if next_send.get(kind, 0) > now:
+        st.info("Wait a minute before requesting another code. Check your inbox and spam folder.")
+        return
+    st.session_state["auth_email_next_send"] = {**next_send, kind: now+60}
+    site = setting("SUPABASE_SITE_URL", "http://localhost:8501")
+    try:
+        if kind == "signup":
+            client.auth.resend({"type": "signup", "email": email, "options": {"email_redirect_to": site}})
+        else:
+            client.auth.reset_password_for_email(email, {"redirect_to": site})
+    except Exception:
+        pass  # Same response for unknown accounts, rate limits and delivery errors.
+    st.info("If the account is eligible and email delivery succeeds, a code will arrive. Check your inbox and spam folder; wait before requesting another code.")
 
 
 def logout(url, key):
@@ -70,7 +121,7 @@ def logout(url, key):
 
 
 def accept_session(session):
-    st.session_state[SESSION] = pack(session)
+    discard_customer_state(pack(session))
     st.rerun()
 
 
@@ -80,12 +131,7 @@ def recovery_form(client, url, key):
         email = st.text_input("Account email", max_chars=254)
         requested = st.form_submit_button("Send reset code")
     if requested:
-        try:
-            client.auth.reset_password_for_email(email.strip(), {"redirect_to": setting("SUPABASE_SITE_URL", "http://localhost:8501")})
-        except Exception:
-            # Do not reveal whether an email has an account.
-            pass
-        st.info("If the account is eligible and email delivery succeeds, a reset code will arrive. Wait before requesting another code.")
+        send_code(client, email, "recovery")
     with st.form("reset_confirm", clear_on_submit=True):
         email = st.text_input("Email for reset", max_chars=254)
         code = st.text_input("Reset code", max_chars=32)
@@ -98,26 +144,32 @@ def recovery_form(client, url, key):
             return
         try:
             recovery = st.session_state.get(RECOVERY)
-            if recovery and recovery.get("email") == email.strip().lower() and recovery.get("valid_until", 0) > time.time():
-                response = client.auth.set_session(recovery["access_token"], recovery["refresh_token"])
+            cached = recovery and recovery.get("email") == email.strip().lower() and recovery.get("valid_until", 0) > time.time()
+            if cached:
+                deadline = recovery["valid_until"]
+                response = client.auth.refresh_session(recovery["refresh_token"])
             else:
+                st.session_state.pop(RECOVERY, None)
+                deadline = time.time()+600
                 response = client.auth.verify_otp({"email": email.strip(), "token": code.strip(), "type": "recovery"})
             recovery = pack(response.session)
-            recovery.update(email=email.strip().lower(), valid_until=time.time()+600)
-            st.session_state[RECOVERY] = recovery
+            recovery.update(email=email.strip().lower(), valid_until=deadline)
+            if cached:
+                # A refresh can rotate tokens before the subsequent user check
+                # fails transiently. Preserve rotation for this verified session.
+                st.session_state[RECOVERY] = recovery
             # Verification is performed by Supabase, never by trusting local token contents.
-            if not client.auth.get_user(recovery["access_token"]).user:
-                raise ValueError("Invalid recovery session.")
+            verified_user(client, recovery, email)
+            st.session_state[RECOVERY] = recovery
             client.auth.update_user({"password": password})
             try:
                 client.auth.sign_out({"scope": "global"})
             except Exception:
                 st.warning("Password changed, but revoking other sessions could not be confirmed.")
-            st.session_state.pop(RECOVERY, None)
-            st.session_state.pop(SESSION, None)
+            discard_customer_state()
             st.success("Password updated. Sign in with your new password.")
         except Exception:
-            st.error("Password reset could not finish. Check the code and password policy. A verified reset session is retained briefly so you can retry the password change.")
+            st.error("Password reset could not finish. Check the code and password policy. If the code was verified, you can retry the password change briefly without a new code.")
 
 
 def login_screen(url, key):
@@ -126,7 +178,7 @@ def login_screen(url, key):
     if st.session_state.get("auth_notice"):
         st.info(st.session_state.pop("auth_notice"))
     client = make_client(url, key)
-    options = ["Sign in", "Confirm email", "Reset password"]
+    options = ["Sign in", "Confirm email", "Resend confirmation", "Reset password"]
     if setting("SUPABASE_ENABLE_SIGNUP", "true").lower() == "true":
         options.insert(1, "Create account")
     mode = st.radio("Account action", options, horizontal=True)
@@ -137,20 +189,21 @@ def login_screen(url, key):
         email = st.text_input("Email", max_chars=254)
         if mode == "Confirm email":
             code = st.text_input("Confirmation code", max_chars=32)
-        else:
+        elif mode != "Resend confirmation":
             password = st.text_input("Password", type="password", max_chars=256)
         if mode == "Create account":
             again = st.text_input("Repeat password", type="password", max_chars=256)
         submitted = st.form_submit_button(mode, type="primary")
     if not submitted:
         return
+    if mode == "Resend confirmation":
+        send_code(client, email, "signup")
+        return
     try:
         if mode == "Sign in":
             response = client.auth.sign_in_with_password({"email": email.strip(), "password": password})
             saved = pack(response.session)
-            user = client.auth.get_user(saved["access_token"]).user
-            if not user or not user.email_confirmed_at:
-                raise ValueError("Confirm your email first.")
+            verified_user(client, saved, email)
             accept_session(response.session)
         elif mode == "Create account":
             if len(password) < 12 or password != again:
@@ -160,10 +213,12 @@ def login_screen(url, key):
                         "options": {"email_redirect_to": setting("SUPABASE_SITE_URL", "http://localhost:8501")}})
             if response.session:
                 # Dashboard confirmation settings can differ; always validate before workspace access.
+                verified_user(client, pack(response.session), email)
                 accept_session(response.session)
             st.info("If signup is eligible, check your email for a confirmation code. Use Confirm email to enter it.")
         else:
             response = client.auth.verify_otp({"email": email.strip(), "token": code.strip(), "type": "email"})
+            verified_user(client, pack(response.session), email)
             accept_session(response.session)
     except Exception:
         st.error("Authentication could not complete. Check your details, email confirmation and service availability; repeated attempts may be rate limited.")
@@ -177,25 +232,20 @@ def require_access():
         st.stop()
     saved = st.session_state.get(SESSION)
     if not saved:
+        if st.session_state.get("customer_identity"):
+            discard_customer_state()
         login_screen(url, key)
         st.stop()
     try:
         client = make_client(url, key)
-        # set_session refreshes expired sessions; preserve any rotated refresh token.
-        response = client.auth.set_session(saved["access_token"], saved["refresh_token"])
+        # Refresh proves the server session is still live even when its JWT has
+        # not expired (for example, after a password reset on another device).
+        response = client.auth.refresh_session(saved["refresh_token"])
         saved = pack(response.session)
         st.session_state[SESSION] = saved
-        user = client.auth.get_user(saved["access_token"]).user
-        if not user or not user.id or not user.email_confirmed_at or saved["expires_at"] <= time.time():
-            raise ValueError("No verified user.")
-        if getattr(user, "deleted_at", None) or getattr(user, "is_anonymous", False):
-            raise ValueError("Account unavailable.")
-        banned = getattr(user, "banned_until", None)
-        if banned:
-            until = banned if isinstance(banned, datetime) else datetime.fromisoformat(str(banned).replace("Z", "+00:00"))
-            if until.replace(tzinfo=until.tzinfo or timezone.utc).timestamp() > time.time():
-                raise ValueError("Account unavailable.")
+        user = verified_user(client, saved)
     except Exception:
+        discard_customer_state(saved)
         st.error("Your session could not be verified. Retry, or sign out and sign in again.")
         st.button("Retry verification", on_click=st.rerun)
         st.button("Sign out", on_click=logout, args=(url, key))
@@ -204,11 +254,17 @@ def require_access():
     who = principal(issuer, str(user.id))
     if st.session_state.get("customer_identity") != who:
         # Preserve only this newly verified session when identities change.
-        st.session_state.clear()
-        st.session_state[SESSION] = saved
-        st.session_state.customer_identity = who
-    entries = memberships(who)
+        discard_customer_state(saved, who)
+    try:
+        entries = memberships(who)
+    except Exception:
+        discard_customer_state(saved)
+        st.error("Workspace access could not be checked. Retry or sign out and sign in again.")
+        st.button("Retry workspace check", on_click=st.rerun)
+        st.button("Sign out", on_click=logout, args=(url, key))
+        st.stop()
     if not entries:
+        discard_customer_state(saved, who)
         st.info("Sign-in succeeded. An administrator must grant your workspace access.")
         st.caption("Account subject / Supabase User UID")
         st.code(str(user.id))
@@ -218,6 +274,9 @@ def require_access():
         st.button("Sign out", on_click=logout, args=(url, key))
         st.stop()
     ids = [entry["id"] for entry in entries]
+    if set(st.session_state.get("customer_memberships", [])) - set(ids):
+        discard_customer_state(saved, who)
+    st.session_state.customer_memberships = ids
     names = {entry["id"]: entry["name"] for entry in entries}
     if st.session_state.get("customer_workspace") not in ids:
         st.session_state.customer_workspace = ids[0]
