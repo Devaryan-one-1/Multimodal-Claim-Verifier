@@ -10,6 +10,7 @@ import uuid
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
+from pilot.pdf_limits import check_pages, PDFLimitError
 
 PROJECT = Path(__file__).resolve().parents[2]
 
@@ -147,8 +148,9 @@ def upload(access, filename, data, options):
         raise ValueError(f"Upload a nonempty PDF up to {limit} MB.")
     try:
         with pymupdf.open(stream=data, filetype="pdf") as pdf:
-            if not pdf.is_pdf or pdf.needs_pass or not 1 <= pdf.page_count <= int(os.getenv("CUSTOMER_MAX_PAGES", "500")):
-                raise ValueError()
+            check_pages(pdf)
+    except PDFLimitError:
+        raise
     except Exception as exc:
         raise ValueError("Use an unlocked, readable PDF within the page limit.") from exc
     sha = hashlib.sha256(data).hexdigest()

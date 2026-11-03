@@ -1,0 +1,23 @@
+{
+  "source": "customer_data/workspaces/fbbea55828a54305850a1c899af9e39c/data/documents/6b0bd9c1121f48de804fb98c4115faad/original.pdf",
+  "sha256": "3518726963892d32ec11a876a5dfa44810cd557d577b91eae28fccad29962505",
+  "physical_pages": 32,
+  "form": "10-Q",
+  "method": "Read-only pypdf text extraction; visual page check not run",
+  "source_quote": "As of June 27, 2026 and September 27, 2025, the Company had total deferred revenue of $14.9 billion and $13.7 billion, respectively.",
+  "physical_page": 9,
+  "source_values": {
+    "2025": {
+      "raw": "$13.7 billion",
+      "amount": 13700000000
+    },
+    "2026": {
+      "raw": "$14.9 billion",
+      "amount": 14900000000
+    }
+  },
+  "growth_percent": 8.75912408759124,
+  "existing_completed_numeric_review": "No saved completed calculation available for end-to-end acceptance",
+  "provider_calls": 0,
+  "index_rebuilt": false
+}

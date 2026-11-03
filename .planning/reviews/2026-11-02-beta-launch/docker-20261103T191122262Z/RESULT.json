@@ -1,0 +1,26 @@
+﻿{
+    "status":  "failed",
+    "image":  "claim-verifier:smoke-20261103t191122262z",
+    "compose_project":  "verifier-smoke-20261103t191122262z",
+    "passed":  [
+                   "Docker engine reachable",
+                   "Release image built; dependency imports/pip check/pinned model prediction passed",
+                   "Customer imports, native encryption/PDF/image/vector operations and offline non-root reranker passed",
+                   "Native encryption, connection and backup/restore regressions passed inside image",
+                   "Web and single worker healthy under configured runtime restrictions",
+                   "Fixture file and SQLite state survived container recreation",
+                   "Cold container backup, manifest verification and isolated restore passed"
+               ],
+    "failure":  null,
+    "python_dependency_audit":  "failed",
+    "audit_failure":  "Docker command failed with exit code 1. See F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\.planning\\reviews\\2026-11-02-beta-launch\\docker-20261103T191122262Z\\docker.log",
+    "runtime_checks_completed":  true,
+    "real_customer_data_used":  false,
+    "provider_calls":  0,
+    "public_deployment":  false,
+    "remaining":  [
+                      "OS/base-image scan",
+                      "Real configured customer app/browser acceptance",
+                      "Host/HTTPS and scheduled off-host backup"
+                  ]
+}

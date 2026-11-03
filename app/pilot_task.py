@@ -14,6 +14,7 @@ sys.path.insert(0, str(PROJECT / "app"))
 from pilot.store import Access, authorize, db, document, file_path, uid, workspace_dir
 from services.observability import event, model_call_summary
 from pilot.model_connections import ModelConnectionError, credentials_for_job
+from pilot.pdf_limits import check_pdf
 
 
 def code_version():
@@ -80,6 +81,7 @@ def run(job_id, token):
             data = file_path(access.workspace, "data/documents", uid(doc_id), "original.pdf").read_bytes()
             if hashlib.sha256(data).hexdigest() != source["sha"]:
                 raise ValueError("Source version changed.")
+            check_pdf(data)
             result = process_document(data, source["name"], doc_id, reporter=reporter, **payload["options"])
             with db() as c:
                 authorize(c, access)

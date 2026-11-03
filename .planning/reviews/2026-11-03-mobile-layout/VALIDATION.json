@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-03",
+  "skill": "gsd-debug (inline)",
+  "status": "implementation_checked_browser_acceptance_pending",
+  "local_interpreter": "Blender Python 3.11",
+  "full_suite": {"run": 283, "passed": 276, "skipped": 7, "failed": 0},
+  "new_mobile_tests": {"run": 10, "passed": 10},
+  "skip_reason": "Existing checks requiring the project's native encryption installation",
+  "syntax": {"python_modules": 7, "embedded_streamlit_fixtures": 5, "powershell_helper": "passed"},
+  "native_streamlit_fixture": "prepared_and_syntax_checked_not_run",
+  "viewport_keyboard_theme_checks": "not_run",
+  "browser_blocker": "Kernel initialization fails: failed to write kernel assets, os error 3",
+  "project_python_blocker": "Base Python executable launch denied",
+  "docker": "operator_run_pending_existing_managed_pipe_access_denied",
+  "data_or_schema_migration": false,
+  "publicly_deployed": false
+}

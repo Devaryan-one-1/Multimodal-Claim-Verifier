@@ -1,0 +1,15 @@
+# Template only: select the real host user/paths/storage before installing.
+[Unit]
+Description=Verified cold backup of the customer claim-review stack
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+User=claim-verifier
+WorkingDirectory=/srv/claim-verifier
+ExecStart=/bin/sh /srv/claim-verifier/deploy/backup.sh /srv/claim-verifier/deploy/.env
+UMask=0077
+TimeoutStartSec=30min
+StandardOutput=journal
+StandardError=journal

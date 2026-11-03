@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-03",
+  "source_run": "docker-20261103T191122262Z",
+  "image": "claim-verifier:smoke-20261103t191122262z",
+  "overall": "failed: dependency audit remains open",
+  "runtime_checks": "passed",
+  "container_regression_tests": {
+    "connections_and_encryption": 30,
+    "backup_restore": 13,
+    "total": 43,
+    "skipped": 0
+  },
+  "passed": [
+    "Docker engine reachable",
+    "Release image built; dependency imports/pip check/pinned model prediction passed",
+    "Customer imports, native encryption/PDF/image/vector operations and offline non-root reranker passed",
+    "Native encryption, connection and backup/restore regressions passed inside image",
+    "Web and single worker healthy under configured runtime restrictions",
+    "Fixture file and SQLite state survived container recreation",
+    "Cold container backup, manifest verification and isolated restore passed"
+  ],
+  "updated_versions_verified": {
+    "streamlit": "1.66.1",
+    "pillow": "13.0.0",
+    "pypdf": "6.21.4",
+    "setuptools": "84.1.0"
+  },
+  "python_audit": {
+    "status": "failed",
+    "reported_advisory_entries": 4,
+    "packages": 1,
+    "findings": [
+      {
+        "package": "chromadb",
+        "version": "1.5.9",
+        "id": "PYSEC-2026-311",
+        "fix_versions_listed": false
+      },
+      {
+        "package": "chromadb",
+        "version": "1.5.9",
+        "id": "PYSEC-2026-3814",
+        "fix_versions_listed": false
+      },
+      {
+        "package": "chromadb",
+        "version": "1.5.9",
+        "id": "PYSEC-2026-3815",
+        "fix_versions_listed": false
+      },
+      {
+        "package": "chromadb",
+        "version": "1.5.9",
+        "id": "PYSEC-2026-3813",
+        "fix_versions_listed": false
+      }
+    ],
+    "ignored_or_waived": false
+  },
+  "real_customer_data_used": false,
+  "provider_calls": 0,
+  "public_deployment": false,
+  "still_pending": [
+    "Chroma advisory applicability/remediation review",
+    "OS/base-image scan",
+    "Real configured customer browser and provider flow",
+    "Host/HTTPS and off-host scheduled backups"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "backup": "F:\\Multi Modal Change Detector\\backups\\beta-release-20261102T185422Z",
+  "restore": "F:\\Multi Modal Change Detector\\backups\\restore-drill-20261102T185422Z",
+  "files": 1782,
+  "bytes": 242024292,
+  "control_database_logically_equal": true,
+  "separate_key_backup": true
+}

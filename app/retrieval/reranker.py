@@ -1,16 +1,25 @@
 from sentence_transformers import CrossEncoder
+import os
+import threading
 
-RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+RERANK_MODEL = os.getenv("RERANK_MODEL_NAME", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 METADATA_BOOST = 0.1          # added per matching metadata field
 RELEVANCE_BAR = 0.0          # cross-encoder logit above this = "relevant"
 DEFAULT_KEEP = 5
 
 _model = None
+_model_lock = threading.Lock()
 
 def _get_model():
     global _model
     if _model is None:
-        _model = CrossEncoder(RERANK_MODEL)
+        with _model_lock:
+            if _model is None:
+                revision = os.getenv("RERANK_MODEL_REVISION")
+                options = ({"revision": revision, "trust_remote_code": False, "device": "cpu",
+                            "local_files_only": os.getenv("HF_HUB_OFFLINE", "0") == "1",
+                            "model_kwargs": {"use_safetensors": True}} if revision else {})
+                _model = CrossEncoder(RERANK_MODEL, **options)
     return _model
 
 def rerank(claim, hits, keep = DEFAULT_KEEP, parsed_claim = None):

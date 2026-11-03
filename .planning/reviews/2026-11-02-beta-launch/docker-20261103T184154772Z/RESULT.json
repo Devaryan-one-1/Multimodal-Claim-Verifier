@@ -1,0 +1,17 @@
+﻿{
+    "status":  "passed",
+    "image":  "claim-verifier:smoke-20261103t184154772z",
+    "compose_project":  "verifier-smoke-20261103t184154772z",
+    "passed":  [
+                   "Docker engine reachable"
+               ],
+    "failure":  null,
+    "real_customer_data_used":  false,
+    "provider_calls":  0,
+    "public_deployment":  false,
+    "remaining":  [
+                      "OS/base-image scan",
+                      "Real configured customer app/browser acceptance",
+                      "Host/HTTPS and scheduled off-host backup"
+                  ]
+}

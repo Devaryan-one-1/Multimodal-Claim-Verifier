@@ -1,0 +1,12 @@
+# Template only: no schedule is installed by adding this file.
+[Unit]
+Description=Nightly customer backup at 03:00 UTC
+
+[Timer]
+OnCalendar=*-*-* 03:00:00 UTC
+RandomizedDelaySec=5min
+Persistent=true
+Unit=claim-verifier-backup.service
+
+[Install]
+WantedBy=timers.target

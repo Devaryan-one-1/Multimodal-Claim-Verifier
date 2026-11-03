@@ -224,7 +224,7 @@ def login_screen(url, key):
         st.error("Authentication could not complete. Check your details, email confirmation and service availability; repeated attempts may be rate limited.")
 
 
-def require_access():
+def require_access(settings_body=None):
     try:
         url, key = configuration()
     except ValueError as exc:
@@ -280,12 +280,16 @@ def require_access():
     names = {entry["id"]: entry["name"] for entry in entries}
     if st.session_state.get("customer_workspace") not in ids:
         st.session_state.customer_workspace = ids[0]
-    with st.sidebar:
-        st.caption("Private workspaces")
-        selected = st.selectbox("Workspace", ids, format_func=lambda x: names[x], key="customer_workspace")
-        st.button("Sign out", on_click=logout, args=(url, key))
-    # Existing service methods independently enforce this deadline and DB membership.
-    return Access(who, selected, min(saved["expires_at"], time.time()+300))
+    with st.container(key="customer_account_menu", horizontal=True, horizontal_alignment="right"):
+        with st.popover("Settings", icon=":material/settings:"):
+            st.caption("Private workspaces")
+            selected = st.selectbox("Workspace", ids, format_func=lambda x: names[x], key="customer_workspace")
+            # Existing service methods independently enforce this deadline and DB membership.
+            access = Access(who, selected, min(saved["expires_at"], time.time()+300))
+            if settings_body is not None:
+                settings_body(access)
+            st.button("Sign out", on_click=logout, args=(url, key))
+    return access
 
 # from __future__ import annotations
 

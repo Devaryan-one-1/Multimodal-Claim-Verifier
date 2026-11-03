@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-02",
+  "interpreter": "Available Blender Python 3.11; project Python could not be launched by this session",
+  "command": "python -X utf8 -B -m unittest discover -s tests -p test_*.py",
+  "tests_run": 254,
+  "passed": 247,
+  "skipped": 7,
+  "skip_reason": "Real Fernet tests need compatible cryptography in the configured project environment",
+  "failures": 0,
+  "errors": 0,
+  "compose_example_config": "passed, including optional profiles",
+  "resolved_compose_runtime_boundaries": "passed",
+  "backup_shell_syntax": "passed",
+  "git_diff_check": "passed; existing line-ending warnings only",
+  "real_backup_isolated_restore": "passed; see BACKUP-DRILL.json",
+  "source_pdf_read_only_text": "passed; see SOURCE_CHECK.json",
+  "docker_image_build": "not run: engine unavailable",
+  "container_imports_model_warmup_preflight": "not run",
+  "python_dependency_audit": "prepared, not run",
+  "base_os_vulnerability_scan": "not run",
+  "public_https": "not deployed",
+  "live_browser_source_media_account_email": "not run",
+  "provider_calls_for_this_work": 0,
+  "internal_index_rebuilt": false,
+  "gsd_skills_applied": [
+    "gsd-debug"
+  ],
+  "other_skills_applied": [
+    "pdf"
+  ]
+}

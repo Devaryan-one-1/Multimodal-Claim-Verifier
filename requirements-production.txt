@@ -1,0 +1,20 @@
+# Reference pins plus security updates from the 2026-11-03 Docker audit.
+# Rebuild/import/PDF smoke and a new audit are required for these updated pins.
+streamlit==1.66.1
+supabase==2.33.0
+cryptography==50.0.1
+pdfplumber==0.11.10
+Pillow==13.0.0
+PyMuPDF==1.28.2
+pypdf==6.21.4
+google-genai==2.22.0
+pydantic==2.13.5
+python-dotenv==1.2.3
+chromadb==1.5.9
+rank-bm25==0.2.2
+sentence-transformers==6.0.1
+google-cloud-vision==3.15.0
+httpx==0.28.1
+jsonschema==4.26.0
+torch==2.14.0
+setuptools==84.1.0

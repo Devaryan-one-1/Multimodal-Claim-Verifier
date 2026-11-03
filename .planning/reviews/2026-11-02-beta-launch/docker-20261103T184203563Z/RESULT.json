@@ -1,0 +1,18 @@
+﻿{
+    "status":  "failed",
+    "image":  "claim-verifier:smoke-20261103t184203563z",
+    "compose_project":  "verifier-smoke-20261103t184203563z",
+    "passed":  [
+                   "Docker engine reachable",
+                   "Release image built; dependency imports/pip check/pinned model prediction passed"
+               ],
+    "failure":  "Docker command failed with exit code 1. See F:\\Multi Modal Change Detector\\multimodal-claim-verifier\\.planning\\reviews\\2026-11-02-beta-launch\\docker-20261103T184203563Z\\docker.log",
+    "real_customer_data_used":  false,
+    "provider_calls":  0,
+    "public_deployment":  false,
+    "remaining":  [
+                      "OS/base-image scan",
+                      "Real configured customer app/browser acceptance",
+                      "Host/HTTPS and scheduled off-host backup"
+                  ]
+}

@@ -1,0 +1,16 @@
+{
+  "request": "Run the Docker build and local checks now",
+  "client_version": "29.9.2",
+  "default_engine": "permission denied",
+  "desktop_linux_engine": "permission denied",
+  "docker_context_directory": "access denied",
+  "image_build": "not run",
+  "runtime_checks": "not run",
+  "privilege_or_acl_changes": false,
+  "operator_helper": "deploy/test-docker.ps1",
+  "helper_powershell_syntax": "passed",
+  "operator_run": "requested; result pending",
+  "real_customer_data_mounted": false,
+  "provider_calls": 0,
+  "public_deployment": false
+}

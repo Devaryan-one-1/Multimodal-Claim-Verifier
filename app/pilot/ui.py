@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import io
 import math
+import hashlib
 import os
 import re
 import time
@@ -14,6 +15,8 @@ from PIL import Image, ImageDraw
 from pilot import store
 from pilot.exports import exports
 from pilot import model_connections, private_media
+from pilot.responsive import navigation
+from services.verification_status import execution_failed
 
 
 def _plain_label(value):
@@ -59,7 +62,7 @@ def review_composer(access, key, document_ids, connected):
                        placeholder="Include the company, metric and reporting period. Compound claims are checked separately.")
     st.caption("Drafts are kept in this session and workspace after you leave a field. Click Check figures to submit.")
     if not connected:
-        st.info("Connect your OpenRouter key above before submitting a new review. Your draft can stay here.")
+        st.info("Connect your OpenRouter key in Settings before submitting a new review. Your draft can stay here.")
     if st.button("Check figures", key=key+"check_figures", type="primary", disabled=not connected):
         try:
             job = store.submit_review(access, name, claim, document_ids)
@@ -289,7 +292,7 @@ def documents_page(access, key, connected=True):
         st.caption("Candidate scans can miss charts. Source files are sent to the configured processing providers where required.")
     epoch = st.session_state.get(key+"upload_epoch", 0)
     if not connected:
-        st.info("Connect your OpenRouter key above before uploading a new source.")
+        st.info("Connect your OpenRouter key in Settings before uploading a new source.")
     files = st.file_uploader("Upload source reports", type=["pdf"], accept_multiple_files=True,
                              key=key+f"uploads_{epoch}", disabled=not connected)
     for uploaded in files:
@@ -314,7 +317,8 @@ def documents_page(access, key, connected=True):
                 st.warning(warning)
             private_media.download(st, access, "Download original PDF",
                                    lambda doc_id=doc["id"]: store.document_bytes(access, doc_id),
-                                   filename=doc["name"], mime="application/pdf", key=key+"download_"+doc["id"])
+                                   filename=doc["name"], mime="application/pdf", key=key+"download_"+doc["id"],
+                                   revision=json.dumps([doc["sha"], doc["name"]]))
             with st.form(key+"delete_"+doc["id"]):
                 confirm = st.checkbox("Delete this source and its index. Saved review snapshots will remain.")
                 if st.form_submit_button("Delete document"):
@@ -340,26 +344,66 @@ def documents_page(access, key, connected=True):
                 store.restart_processing(access, job["id"]); st.rerun()
 
 
-def viewer(access, result, key):
+def _valid_citations(result, documents):
+    allowed = {d["id"] for d in documents}
+    return [e for e in result.get("evidence", []) if e.get("document_id") in allowed
+            and isinstance(e.get("page"), int) and not isinstance(e["page"], bool) and e["page"] >= 1]
+
+
+def calculation_sources(access, result, key, viewer_key):
+    calculation = result.get("calculation") or {}
+    addresses = calculation.get("source_inputs") or {}
+    if not addresses:
+        return
+    documents = store.documents(access)
+    names = {d["id"]: d["name"] for d in documents}
+    citations = _valid_citations(result, documents)
+    rows = []
+    with st.expander("Calculation source pages", expanded=True):
+        for name, address in addresses.items():
+            meta = (calculation.get("input_metadata") or {}).get(name) or {}
+            doc, page = address.get("document_id"), address.get("page")
+            rows.append({"Input": name, "Source value": (calculation.get("raw_inputs") or {}).get(name),
+                         "Normalized value": (calculation.get("inputs") or {}).get(name),
+                         "Unit": meta.get("currency") or meta.get("unit") or calculation.get("currency") or "Not recorded",
+                         "Document": names.get(doc, "Unavailable source"), "PDF page": page})
+            matches = [i for i, e in enumerate(citations) if e["document_id"] == doc and e["page"] == page
+                       and (e.get("id") == address.get("evidence_id") or e.get("source_evidence_id") == address.get("evidence_id"))]
+            if not matches:
+                st.warning(f"The source citation for input {name} is unavailable in this saved review.")
+            elif st.button(f"View input page: {name}", key=key+"_"+name):
+                st.session_state[viewer_key+"citation"] = matches[0]
+                st.session_state[viewer_key+"page"] = page
+        st.dataframe(rows, hide_index=True)
+
+
+def viewer(access, result, key, versions=None):
     evidence = result.get("evidence") or []
     if not evidence:
         st.info("No cited source page is available for this result.")
         return
-    allowed = {d["id"] for d in store.documents(access)}
-    available = [e for e in evidence if e.get("document_id") in allowed and isinstance(e.get("page"), int)]
+    documents = {d["id"]: d for d in store.documents(access)}
+    available = _valid_citations(result, list(documents.values()))
     if not available:
         st.warning("The cited source is unavailable or has been deleted. The saved review retains its evidence snapshot.")
         return
-    selected = st.selectbox("Selected citation", range(len(available)), format_func=lambda i: f"Page {available[i]['page']} · {available[i].get('source_evidence_id') or available[i].get('id')}", key=key+"citation")
+    selected = st.selectbox("Selected citation", range(len(available)), format_func=lambda i: f"{documents[available[i]['document_id']]['name']} · PDF page {available[i]['page']} · {available[i].get('source_evidence_id') or available[i].get('id')}", key=key+"citation")
     item = available[selected]
+    source = documents[item["document_id"]]
+    if versions is not None and versions.get(item["document_id"]) != source.get("sha"):
+        st.warning("The PDF version no longer matches this saved review. Its evidence snapshot remains available, but this citation cannot be verified against the current file.")
+        return
     data = store.document_bytes(access, item["document_id"])
-    signature = str(item.get("id"))+str(item["page"])
+    signature = json.dumps([item["document_id"], source.get("sha"), item.get("source_evidence_id") or item.get("id"), item["page"]])
     if st.session_state.get(key+"citation_signature") != signature:
         st.session_state[key+"page"] = item["page"]
         st.session_state[key+"citation_signature"] = signature
         st.session_state.pop(key+"search_results", None)
     with pymupdf.open(stream=data, filetype="pdf") as pdf:
-        st.caption(f"Selected citation: PDF page {item['page']}")
+        if item["page"] > len(pdf):
+            st.warning("The cited page is outside this PDF. Inspect the source before relying on this result.")
+            return
+        st.text(f"Source: {source['name']} · Selected citation: PDF page {item['page']}")
         with st.form(key+"search"):
             query = st.text_input("Search text in this PDF", max_chars=150)
             searched = st.form_submit_button("Search")
@@ -376,7 +420,7 @@ def viewer(access, result, key):
         if matches is not None:
             st.caption(f"Matching pages (first 30): {', '.join(map(str,matches)) or 'None; scanned text may not be searchable.'}")
         page_number = st.number_input("PDF page", min_value=1, max_value=len(pdf), step=1, key=key+"page")
-        zoom = st.slider("Zoom", 75, 200, 110, 5, key=key+"zoom")
+        zoom = st.slider("Zoom", 75, 200, 100, 5, key=key+"zoom", format="%d%%")
         page = pdf[int(page_number)-1]
         scale = min(zoom/100, 2200/max(page.rect.width, page.rect.height))
         pix = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
@@ -406,9 +450,11 @@ def viewer(access, result, key):
         rendered = io.BytesIO()
         image.save(rendered, format="PNG")
         page_png = rendered.getvalue()
-        private_media.image(st, access, page_png, width=image.width, caption=f"PDF page {page_number} of {len(pdf)}")
+        private_media.image(st, access, page_png, width=image.width, caption=f"PDF page {page_number} of {len(pdf)}", zoom=zoom)
+        st.caption("100% fits the page. Zoom in, then swipe sideways or focus the preview and use arrow keys to pan.")
         private_media.download(st, access, "Download this page image", lambda: page_png,
-                               filename=f"page_{page_number}.png", mime="image/png", key=key+"page_download")
+                               filename=f"page_{page_number}.png", mime="image/png", key=key+"page_download",
+                               revision=hashlib.sha256(page_png).hexdigest())
 
 
 def review_detail(access, job, key):
@@ -451,49 +497,52 @@ def review_detail(access, job, key):
     else:
         index = st.selectbox("Claim", order, format_func=lambda i: f"{i+1}. {results[i].get('verdict','UNKNOWN')} · {results[i].get('claim_text','')[:100]}", key=key+"atom_"+mode)
         result = results[index]
-        left, right = st.columns([1, 1.2])
-        with left:
-            label = "VERIFICATION FAILED" if result.get("status") == "error" else result.get("verdict", "UNKNOWN").replace("_", " ")
-            st.markdown("### " + label)
-            st.text(result.get("claim_text") or "")
-            st.text(result.get("reason") or "")
-            if result.get("verdict") == "UNKNOWN" or result.get("status") == "error":
-                st.info(action_hint(result))
-            from ui.calculation import render_calculation
-            render_calculation(result)
-            st.markdown("#### Evidence")
-            for n, evidence in enumerate(result.get("evidence", [])):
-                st.caption(f"PDF page {evidence.get('page')} · {evidence.get('type','source')}")
-                rows = evidence.get("rows")
-                if rows:
-                    metric = str((result.get("parsed_claim") or {}).get("metric") or "").lower()
-                    relevant = [r for r in rows if metric and metric in " ".join(map(str,r)).lower()]
-                    st.write(evidence.get("headers") or evidence.get("column_headers") or {})
-                    st.dataframe(relevant or rows[:5], hide_index=True)
-                    with st.expander("Full table", expanded=False):
-                        st.dataframe(rows, hide_index=True)
-                else:
-                    st.text(evidence.get("content", ""))
-                if st.button("View Page", key=key+f"view_{index}_{n}"):
-                    # Viewer options are ownership-filtered; selection index is mapped below.
-                    allowed = {d["id"] for d in store.documents(access)}
-                    valid = [e for e in result.get("evidence", []) if e.get("document_id") in allowed and isinstance(e.get("page"), int)]
-                    if evidence in valid:
-                        st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
-            decision_editor(access, job["id"], index, key+f"decision_{index}_")
-        with right:
-            viewer(access, result, key+f"viewer_{index}")
-    a, b = st.columns(2)
-    with a:
-        private_media.download(st, access, "Export CSV", lambda: exports(access, job["id"])[0],
-                               filename="financial_review.csv", mime="text/csv", key=key+"csv")
-    with b:
-        private_media.download(st, access, "Export readable report", lambda: exports(access, job["id"])[1],
-                               filename="financial_review.html", mime="text/html", key=key+"report")
-    with st.expander("Advanced export"):
-        private_media.download(st, access, "Download review JSON", lambda: exports(access, job["id"])[2],
-                               filename="financial_review.json", mime="application/json", key=key+"json")
-        st.caption("Includes model/version metadata when available. Confidence values in raw results are uncalibrated.")
+        with st.container(key="customer_review_layout"):
+            left, right = st.columns([1, 1.2])
+            with left:
+                label = "VERIFICATION FAILED" if execution_failed(result) else result.get("verdict", "UNKNOWN").replace("_", " ")
+                st.markdown("### " + label)
+                st.text(result.get("claim_text") or "")
+                st.text(result.get("reason") or "")
+                if result.get("verdict") == "UNKNOWN" or execution_failed(result):
+                    st.info(action_hint(result))
+                from ui.calculation import render_calculation
+                render_calculation(result)
+                calculation_sources(access, result, key+f"input_{index}", key+f"viewer_{index}")
+                st.markdown("#### Evidence")
+                for n, evidence in enumerate(result.get("evidence", [])):
+                    st.caption(f"PDF page {evidence.get('page')} · {evidence.get('type','source')}")
+                    rows = evidence.get("rows")
+                    if rows:
+                        metric = str((result.get("parsed_claim") or {}).get("metric") or "").lower()
+                        relevant = [r for r in rows if metric and metric in " ".join(map(str,r)).lower()]
+                        st.write(evidence.get("headers") or evidence.get("column_headers") or {})
+                        st.dataframe(relevant or rows[:5], hide_index=True)
+                        with st.expander("Full table", expanded=False):
+                            st.dataframe(rows, hide_index=True)
+                    else:
+                        st.text(evidence.get("content", ""))
+                    if st.button("View Page", key=key+f"view_{index}_{n}"):
+                        # Viewer options are ownership-filtered; selection index is mapped below.
+                        valid = _valid_citations(result, store.documents(access))
+                        if evidence in valid:
+                            st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
+                decision_editor(access, job["id"], index, key+f"decision_{index}_")
+            with right:
+                viewer(access, result, key+f"viewer_{index}", versions=payload.get("versions"))
+    export_revision = hashlib.sha256(json.dumps([job["status"], job["payload"], job["result"], decisions], sort_keys=True).encode()).hexdigest()
+    with st.container(key="customer_export_actions"):
+        a, b = st.columns(2)
+        with a:
+            private_media.download(st, access, "Export CSV", lambda: exports(access, job["id"])[0],
+                                   filename="financial_review.csv", mime="text/csv", key=key+"csv", revision=export_revision)
+        with b:
+            private_media.download(st, access, "Export readable report", lambda: exports(access, job["id"])[1],
+                                   filename="financial_review.html", mime="text/html", key=key+"report", revision=export_revision)
+        with st.expander("Advanced export"):
+            private_media.download(st, access, "Download review JSON", lambda: exports(access, job["id"])[2],
+                                   filename="financial_review.json", mime="application/json", key=key+"json", revision=export_revision)
+            st.caption("Includes model/version metadata when available. Confidence values in raw results are uncalibrated.")
 
 
 def reviews_page(access, key, connected=True):
@@ -522,27 +571,63 @@ def reviews_page(access, key, connected=True):
         review_detail(access, store.get_job(access, selected), key+selected)
 
 
+def open_saved_review(access, key, job_id):
+    _ensure_access(access)
+    try:
+        job = store.get_job(access, job_id)
+        if job["kind"] != "verify":
+            raise PermissionError("Review unavailable.")
+    except (PermissionError, ValueError):
+        st.session_state.pop("customer_prepared_download", None)
+        st.rerun()
+        return
+    st.session_state[key+"selected_review"] = job_id
+    st.session_state[key+job_id+"filter"] = "All"
+    st.session_state[key+"area"] = "Reviews"
+
+
+def history_page(access, key):
+    st.header("History")
+    reviews = store.jobs(access, "verify")
+    if not reviews:
+        st.info("No saved reviews yet. Create a review from Reviews when a source is ready.")
+        return
+    st.dataframe([{"Review": json.loads(j["payload"]).get("name"), "Status": j["status"],
+                   "Created": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime(j["created"])), "ID": j["id"]}
+                  for j in reviews], hide_index=True)
+    mapping = {j["id"]: j for j in reviews}
+    if st.session_state.get(key+"history_review") not in mapping:
+        st.session_state[key+"history_review"] = reviews[0]["id"]
+    selected = st.selectbox("Open a saved review", list(mapping),
+                            format_func=lambda j: f"{json.loads(mapping[j]['payload']).get('name')} · {mapping[j]['status']}",
+                            key=key+"history_review")
+    st.button("Open review", key=key+"history_open", on_click=open_saved_review, args=(access, key, selected))
+    st.caption("Saved results, decisions and notes remain available after signing in again. Exports use the latest saved review.")
+
+
 def run(access):
+    _ensure_access(access)
     key = "customer_"+access.workspace+"_"
     st.title("Financial claim review")
     st.caption("Check the figures in your research note against original reports, with visible calculations and page citations.")
-    connected = connection_panel(access, key)
+    try:
+        connected = bool(model_connections.metadata(access))
+    except PermissionError:
+        st.rerun()
+        return
     revision = st.session_state.get(key+"render_revision", 0)+1
     st.session_state[key+"render_revision"] = revision
     live_updates(access, key, revision)
     if st.button("Refresh status", key=key+"refresh", help="Optional fallback; progress and results update automatically."):
         st.rerun()
-    area = st.radio("Navigation", ["Reviews", "Documents", "History"], horizontal=True, key=key+"area")
+    area = navigation(key)
     try:
         if area == "Documents":
             documents_page(access, key, connected=connected)
         elif area == "Reviews":
             reviews_page(access, key, connected=connected)
         else:
-            st.header("History")
-            reviews = store.jobs(access, "verify")
-            st.dataframe([{"Review": json.loads(j["payload"]).get("name"), "Status": j["status"], "Created": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime(j["created"])), "ID": j["id"]} for j in reviews], hide_index=True)
-            st.caption("Open a saved review from Reviews to inspect sources, save decisions and export it.")
+            history_page(access, key)
     except (PermissionError, ValueError) as exc:
         st.error(str(exc))
     except Exception:

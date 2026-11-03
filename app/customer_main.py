@@ -11,18 +11,20 @@ load_dotenv(PROJECT / ".env", override=False)
 st.set_page_config(page_title="Financial claim review", page_icon=":material/fact_check:", layout="wide")
 from pilot.store import initialize
 from pilot.auth import require_access
-from pilot.ui import run
+from pilot.ui import run, connection_panel
+from pilot.responsive import apply_layout
 
 
 def customer_page():
+    apply_layout()
     initialize()
-    access = require_access()
+    access = require_access(settings_body=lambda current: connection_panel(current, "customer_"+current.workspace+"_"))
     run(access)
 
 
 # Explicit navigation disables automatic exposure of legacy app/pages entries.
 # The authentication gate runs inside the only registered customer page.
-st.navigation([st.Page(customer_page, title="Financial reviews")]).run()
+st.navigation([st.Page(customer_page, title="Financial reviews")], position="hidden").run()
 
 # """Public entry point. Keep app/main.py restricted to your internal environment."""
 # from __future__ import annotations

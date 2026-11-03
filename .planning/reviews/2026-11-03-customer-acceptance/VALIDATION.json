@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-03",
+  "gsd_skill": "gsd-debug (inline)",
+  "local_tests": {
+    "run": 273,
+    "passed": 266,
+    "skipped": 7,
+    "failures": 0,
+    "errors": 0,
+    "skip_reason": "Available interpreter lacks compatible native Fernet; earlier image passed encryption tests, new image results pending"
+  },
+  "targeted_regressions": {
+    "history_exports_private_copy_recovery": 11,
+    "backup_restore_transfer_retention": 17,
+    "host_backup_wrapper_fake_docker": 4
+  },
+  "syntax": {
+    "python": "passed",
+    "powershell": "passed",
+    "backup_shell": "passed",
+    "systemd_template_ini_structure": "passed; native host/systemd validation not run"
+  },
+  "compose_configuration": {
+    "default_backup_volumes": "passed",
+    "separate_custom_host_mounts": "passed"
+  },
+  "git_diff_check": "passed; existing line-ending warnings only",
+  "new_docker_streamlit_apptest": "prepared; operator run pending",
+  "browser_automation": "initialization failed: kernel assets path missing (os error 3)",
+  "live_accounts": {
+    "two_accounts_different_workspaces": "user confirmed",
+    "content_and_download_isolation": "pending user outcome",
+    "password_reset_and_old_new_passwords": "pending user outcome",
+    "signup_confirmation_delivery": "not yet recorded",
+    "saved_note_and_export_reopen": "pending hands-on outcome"
+  },
+  "backup_scope": "user selected preparation only; host/destination not chosen",
+  "real_archive_retention_preview": {
+    "valid_archives": 1,
+    "candidates": 0,
+    "unverified": 0,
+    "files_deleted": 0
+  },
+  "installed_schedule": false,
+  "off_machine_copy_performed": false,
+  "notification_sent": false,
+  "account_or_password_changes_by_agent": false,
+  "customer_data_or_index_modified": false,
+  "schema_migration": false,
+  "model_provider_calls": 0
+}

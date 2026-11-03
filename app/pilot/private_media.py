@@ -19,19 +19,31 @@ def _authorize(view, access):
         store.authorize(c, access)
 
 
-def image(view, access, png, *, width, caption):
+def image(view, access, png, *, width, caption, zoom=None):
     _authorize(view, access)
+    if zoom is not None:
+        if isinstance(zoom, bool) or not isinstance(zoom, (int, float)) or not 75 <= zoom <= 200:
+            raise ValueError("Preview zoom must be between 75 and 200 percent.")
     encoded = base64.b64encode(png).decode("ascii")
-    view.html(f'<img src="data:image/png;base64,{encoded}" alt="{escape(caption, quote=True)}" '
-              f'style="width:{int(width)}px;max-width:100%;height:auto">')
+    label = escape(caption, quote=True)
+    style = (f'display:block;width:{zoom:g}%;max-width:none;height:auto' if zoom is not None else
+             f'width:{int(width)}px;max-width:100%;height:auto')
+    markup = f'<img src="data:image/png;base64,{encoded}" alt="{label}" style="{style}">'
+    if zoom is not None:
+        markup = (f'<div class="customer-pdf-preview" role="region" tabindex="0" aria-label="{label}" '
+                  f'style="width:100%;max-width:100%;overflow-x:auto">{markup}</div>')
+    view.html(markup)
     view.caption(caption)
 
 
-def download(view, access, label, load, *, filename, mime, key):
+def download(view, access, label, load, *, filename, mime, key, revision=None):
     # Reading and encoding only happens after the explicit prepare action.
     pressed = view.button(label, key=key)
     prepared = view.session_state.get("customer_prepared_download")
     if prepared and (prepared["principal"] != access.principal or prepared["workspace"] != access.workspace):
+        view.session_state.pop("customer_prepared_download", None)
+        prepared = None
+    if prepared and prepared["key"] == key and prepared.get("revision") != revision:
         view.session_state.pop("customer_prepared_download", None)
         prepared = None
     if pressed:
@@ -48,7 +60,7 @@ def download(view, access, label, load, *, filename, mime, key):
                 'border-radius:6px;color:#0969da;background:#fff;text-decoration:none">Save file</a>'
                 '</body></html>')
         # Keep one prepared copy per session so a live update cannot hide Save file.
-        prepared = {"key": key, "principal": access.principal, "workspace": access.workspace, "body": body}
+        prepared = {"key": key, "principal": access.principal, "workspace": access.workspace, "body": body, "revision": revision}
         view.session_state["customer_prepared_download"] = prepared
     if not prepared or prepared["key"] != key:
         return

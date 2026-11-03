@@ -36,8 +36,54 @@ def _tokens(value):
 
 
 def _bank(item):
-    return [{"index": i, "raw": m.group().strip(), "context": item.get("content", "")[max(0, m.start()-110):m.end()+110]}
+    return [{"index": i, "raw": m.group().strip(), "start": m.start(), "end": m.end(),
+             "context": item.get("content", "")[max(0, m.start()-110):m.end()+110]}
             for i, m in enumerate(NUMBER_PATTERN.finditer(item.get("content", "")))]
+
+
+def _text_year_check(pc, operand, item, chosen):
+    """Bind comparative prose values to their own period, not a nearby year."""
+    text, position = item.get("content", ""), chosen["start"]
+    boundaries = list(re.finditer(r"(?<=[.!?])\s+(?=[A-Z])", text))
+    start = max([m.end() for m in boundaries if m.end() <= position] or [0])
+    end = min([m.start() for m in boundaries if m.start() >= chosen["end"]] or [len(text)])
+    sentence = text[start:end]
+    months = r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)"
+    dates = list(re.finditer(rf"\b{months}\.?\s+\d{{1,2}}(?:,?\s+(?:19|20)\d{{2}})?\b|\b(?:19|20)\d{{2}}-\d{{2}}-\d{{2}}\b", sentence, re.I))
+    local_start, local_end = chosen["start"]-start, chosen["end"]-start
+    overlaps = lambda a, b, m: a < m.end() and b > m.start()
+    if any(overlaps(local_start, local_end, m) for m in dates):
+        raise ValueError("A date was selected as a financial value.")
+    years = [int(y) for y in re.findall(r"\b(?:19|20)\d{2}\b", sentence)]
+    expected = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
+    if len(set(years)) <= 1:
+        if expected is not None and expected not in years:
+            raise ValueError("Source sentence does not identify the claimed year.")
+        return
+    if expected is None:
+        raise ValueError("Comparative source text requires an explicit claimed year.")
+    if re.search(r"\brespectively\b", sentence, re.I):
+        amounts = [m for m in NUMBER_PATTERN.finditer(sentence)
+                   if not re.fullmatch(r"(?:19|20)\d{2}", m.group().strip()) and
+                   not any(overlaps(m.start(), m.end(), date) for date in dates)]
+        selected = [i for i, m in enumerate(amounts) if overlaps(local_start, local_end, m)]
+        if len(years) != len(set(years)) or len(amounts) != len(years) or len(selected) != 1:
+            raise ValueError("The respective source values and years cannot be bound unambiguously.")
+        actual = years[selected[0]]
+    else:
+        separators = list(re.finditer(r";|\b(?:and|versus|whereas|compared\s+(?:with|to)|from|to)\b", sentence, re.I))
+        left = max([m.end() for m in separators if m.end() <= local_start] or [0])
+        right = min([m.start() for m in separators if m.start() >= local_end] or [len(sentence)])
+        clause = sentence[left:right]
+        clause_years = set(map(int, re.findall(r"\b(?:19|20)\d{2}\b", clause)))
+        if len(clause_years) != 1:
+            raise ValueError("The selected value has an ambiguous reporting year.")
+        prefix = sentence[left:local_start]
+        if not _metric_matches(pc.get("metric"), clause) and set(_tokens(prefix)) - {"was", "were", "is", "are", "about", "approximately", "at", "up", "down"}:
+            raise ValueError("The value's period clause does not identify the claimed metric.")
+        actual = next(iter(clause_years))
+    if actual != expected:
+        raise ValueError("The selected source value belongs to a different year.")
 
 
 def source_context(item, *, include_page=True):
@@ -219,9 +265,7 @@ def _value(pc, operand, item):
             raise ValueError("Source number context does not identify the claimed metric.")
         if pc.get("segment") and not all(token in nearby for token in _tokens(pc["segment"])):
             raise ValueError("Source number context does not identify the claimed segment.")
-        expected_year = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
-        if expected_year is not None and str(expected_year) not in chosen["context"]:
-            raise ValueError("Source number context does not identify the claimed year.")
+        _text_year_check(pc, operand, item, chosen)
     if item["type"] != "table":
         period_context = (chosen["context"] if item["type"] not in {"table", "chart"} else
                           " ".join(str(x or "") for x in (fact.get("period"), item.get("title"), item.get("content"))))

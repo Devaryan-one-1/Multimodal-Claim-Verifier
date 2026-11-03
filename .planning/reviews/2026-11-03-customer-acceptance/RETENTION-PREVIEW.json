@@ -1,0 +1,11 @@
+{
+  "mode": "preview_only",
+  "retention_days": 14,
+  "minimum_retained": 2,
+  "candidates": [],
+  "retained": [
+    "F:\\Multi Modal Change Detector\\backups\\beta-release-20261102T185422Z"
+  ],
+  "unverified_do_not_remove": [],
+  "files_deleted": 0
+}

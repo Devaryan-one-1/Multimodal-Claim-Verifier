@@ -1,0 +1,12 @@
+{$BETA_HOST:localhost} {
+    encode zstd gzip
+    request_body {
+        max_size 11MB
+    }
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+        X-Frame-Options SAMEORIGIN
+    }
+    reverse_proxy web:8501
+}
