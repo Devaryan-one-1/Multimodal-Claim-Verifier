@@ -5,6 +5,7 @@ from services.document_guards import validate_pdf, usable_tables, safe_ocr
 from services.document_errors import NoUsableEvidenceError
 
 from services.model_gateway import configuration_snapshot
+from services.verification_errors import VerificationFailure
 
 import re
 import time
@@ -15,7 +16,6 @@ from PIL import Image
 
 from extraction.pdf_parser import parsepdf
 from extraction.layout_analyzer import analyze_layout
-from extraction.table_extractor import extract_tables
 from extraction.build_evidence import build_evidence
 from extraction.chunker import chunk_document
 from retrieval.embeddings import COLLECTION_NAME, embed_document
@@ -26,7 +26,8 @@ PROFILE = "dashboard-v1"
 
 @operation("document_processing")
 def process_document(file_bytes: bytes, filename: str, document_id: str, company_name: str = "", reporter=None,
-                     *, enable_ocr: bool = True, chart_mode: str = "candidate pages", visual_limit: int = 20, force: bool = False) -> dict:
+                     *, enable_ocr: bool = True, chart_mode: str = "candidate pages", visual_limit: int = 20, force: bool = False,
+                     refresh_visuals: bool = False) -> dict:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", document_id) or document_id in {".", ".."}:
         raise ValueError("Invalid document ID.")
     validate_pdf(file_bytes)
@@ -42,7 +43,7 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
     def update(stage, completed, message):
         if reporter:
             reporter.update(stage, completed=completed, total=7, message=message)
-    if meta_path.exists() and not force:
+    if meta_path.exists() and not force and not refresh_visuals:
         previous = read(meta_path)
         if (previous.get("profile") == PROFILE and previous.get("pdf_sha256") == source_hash
                 and previous.get("options") == options and previous.get("status") == "ready"
@@ -79,8 +80,12 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
         write(folder / "pages.json", {"document_id": document_id, "pages": pages})
         metadata.update(page_count=parsed["page_count"], metadata=parsed["metadata"],
                         text_page_count=sum(bool(p["text"].strip()) for p in pages))
-        update("Extracting tables", 4, "Preserving table values and recovered period headers")
-        tables = usable_tables(extract_tables(document_id), warnings)
+        update("Reading table images", 4, "Reading visible headers, units and cells with the configured vision model")
+        from extraction.visual_tables import extract_visual_tables
+        tables = usable_tables(extract_visual_tables(document_id, pages, reporter=reporter,
+                              visual_limit=visual_limit, force=force), warnings)
+        warnings.extend(tables.get("warnings", []))
+        metadata.update(table_extraction="table-vision-v1", table_detection_pages=tables.get("visual_pages_scanned", 0))
         event("tables_found", document_id=document_id, count=len(tables["tables"]))
         if not tables["tables"]:
             warnings.append("No structured tables extracted; text, OCR and visual evidence may still be available.")
@@ -142,11 +147,13 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
             detected_charts = detection.get("charts", [])
             for result in detection.get("results", []):
                 if not result.get("success"):
-                    warnings.append(f"Chart detection failed on page {result.get('page_number')}: {result.get('reason', 'provider failure')}")
+                    raise VerificationFailure("Chart detection failed; retry processing when the service is available.", stage="chart_detection")
             analysis = analyze_charts(detected_charts, overwrite=force)
             analyzed = {r.get("chart_id"): r for r in analysis.get("results", [])}
             for chart in detected_charts:
                 result = analyzed.get(chart.get("chart_id"), {})
+                if not result.get("success"):
+                    raise VerificationFailure("Chart reading failed; retry processing when the service is available.", stage="chart_reading")
                 item = dict(chart.get("evidence") or {})
                 if not item:
                     continue
@@ -154,7 +161,9 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
                 analysis_data = result.get("analysis") or {}
                 display_unit = analysis_data.get("display_unit") or (analysis_data.get("y_axis") or {}).get("unit")
                 if display_unit:
-                    facts = [dict(fact, unit=display_unit) for fact in facts]
+                    facts = [dict(fact, unit=fact.get("unit") or display_unit) for fact in facts]
+                item.update(title=analysis_data.get("title") or chart.get("title") or "",
+                            unit=display_unit or "", extraction_method="chart-vision-v1")
                 item["facts"] = facts
                 item["model_provenance"] = {"detection": item.get("model_calls", []),
                                             "analysis": result.get("model_calls", []),

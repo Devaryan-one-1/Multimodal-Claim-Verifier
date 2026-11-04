@@ -7,6 +7,36 @@ MAX_CHARS = 1600
 OVERLAP_CHARS = 160
 
 
+def _visual_pieces(item):
+    """Small searchable row/fact groups, preserving the full source record."""
+    title = str(item.get("title") or "")
+    unit = str(item.get("unit") or "")
+    if item["type"] == "table":
+        from extraction.build_evidence import _flatten_table
+        lines = [_flatten_table({**item, "rows": [row]}) for row in item.get("rows", [])]
+    else:
+        lines = [f"{fact.get('metric') or ''} {fact.get('segment') or ''} {fact.get('period') or fact.get('category') or ''}: "
+                 f"{fact.get('display_value') or fact.get('value')} {fact.get('unit') or ''}"
+                 for fact in item.get("facts", []) if fact.get("value_source") == "explicit_label"]
+    if not lines:
+        return [(0, str(item.get("content") or ""))]
+    prefix, pieces, group, start = f"{title}\n{unit}\n", [], [], 0
+    # Keep all content searchable even for unusually wide tables. The full row
+    # and its source cell addresses remain on every chunk's source record.
+    if any(len(prefix)+len(line) > 12000 for line in lines):
+        text = prefix+"\n".join(lines)
+        return [(offset, text[offset:offset+MAX_CHARS])
+                for offset in range(0, len(text), MAX_CHARS-OVERLAP_CHARS)]
+    for index, line in enumerate(lines):
+        if group and len(prefix)+sum(map(len, group))+len(line) > MAX_CHARS:
+            pieces.append((start, prefix+"\n".join(group)))
+            group, start = [], index
+        group.append(line)
+    if group:
+        pieces.append((start, prefix+"\n".join(group)))
+    return pieces
+
+
 def chunk_document(document_id: str) -> dict:
     evidence = read(f"{PROCESSED_ROOT}/{document_id}/evidence.json")["evidence"]
     chunks = []
@@ -15,9 +45,12 @@ def chunk_document(document_id: str) -> dict:
         if not text:
             continue
         structured = item["type"] in {"table", "chart"}
-        offsets = [0] if structured else range(0, len(text), MAX_CHARS - OVERLAP_CHARS)
-        for offset in offsets:
-            piece = text if structured else text[offset:offset + MAX_CHARS]
+        if item.get("extraction_method") in {"table-vision-v1", "chart-vision-v1"}:
+            pieces = _visual_pieces(item)
+        else:
+            offsets = [0] if structured else range(0, len(text), MAX_CHARS - OVERLAP_CHARS)
+            pieces = [(offset, text if structured else text[offset:offset+MAX_CHARS]) for offset in offsets]
+        for offset, piece in pieces:
             if not piece.strip():
                 continue
             chunk = dict(item)

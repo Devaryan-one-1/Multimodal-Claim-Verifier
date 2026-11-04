@@ -315,6 +315,11 @@ def documents_page(access, key, connected=True):
             st.write({"Pages": meta.get("page_count"), "Tables": meta.get("table_count"), "Charts": meta.get("chart_count")})
             for warning in meta.get("warnings", []):
                 st.warning(warning)
+            if doc["status"] == "ready":
+                st.caption("Refresh tables and graphs reads this report's visual data again using your saved connection. Completed reviews stay saved; check new claims after processing finishes.")
+                if st.button("Refresh tables and graphs", key=key+"refresh_visuals_"+doc["id"], disabled=not connected):
+                    store.refresh_visuals(access, doc["id"])
+                    st.rerun()
             private_media.download(st, access, "Download original PDF",
                                    lambda doc_id=doc["id"]: store.document_bytes(access, doc_id),
                                    filename=doc["name"], mime="application/pdf", key=key+"download_"+doc["id"],

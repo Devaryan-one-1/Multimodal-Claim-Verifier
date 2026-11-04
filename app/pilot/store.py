@@ -276,6 +276,21 @@ def restart_processing(access, job):
         return new_job
 
 
+def refresh_visuals(access, doc_id):
+    """Queue an explicit, document-scoped refresh using this user's connection."""
+    with db() as c:
+        c.execute("BEGIN IMMEDIATE")
+        doc = document(c, access, doc_id, ready=True)
+        for job in c.execute("SELECT kind,payload FROM jobs WHERE workspace=? AND status IN ('queued','running')", (access.workspace,)):
+            payload = json.loads(job["payload"])
+            if payload.get("document_id") == doc["id"] or doc["id"] in payload.get("documents", []):
+                raise ValueError("Wait for this source's active processing/review requests before refreshing it.")
+        options = {"enable_ocr": True, "chart_mode": "candidate pages", "visual_limit": 20, "refresh_visuals": True}
+        job = queue(c, access, "process", {"document_id": doc["id"], "options": options})
+        c.execute("UPDATE documents SET status='queued' WHERE id=? AND workspace=?", (doc["id"], access.workspace))
+        return job
+
+
 def save_context(access, doc, company, period, currency):
     with db() as c:
         document(c, access, doc)

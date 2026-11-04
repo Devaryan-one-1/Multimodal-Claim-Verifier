@@ -61,7 +61,7 @@ class StreamlitFixture(types.ModuleType):
                 raise RerunPage()
             if name == "fragment":
                 return (lambda fn: fn) if not args else args[0]
-            if name in {"form", "expander", "status", "spinner", "container"}:
+            if name in {"form", "expander", "status", "spinner", "container", "popover"}:
                 return self
             if name == "columns":
                 return [self] * (args[0] if isinstance(args[0], int) else len(args[0]))

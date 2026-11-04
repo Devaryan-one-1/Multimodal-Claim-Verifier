@@ -63,7 +63,7 @@ def build_evidence(document_id: str) -> dict:
     #         "rows": table["rows"],
     #     })
     for table in tables["tables"]:
-        evidence.append({
+        item = {
             "id": next_id(),
             "document_id": document_id,
             "page": table["page"],
@@ -76,7 +76,11 @@ def build_evidence(document_id: str) -> dict:
             "column_map": table.get("column_map"),      # positional year/period map
             "column_headers": table.get("column_headers"),  # recovered years/periods
             "is_data": table.get("is_data", True),          # False for TOC tables
-        })
+        }
+        for field in ("title", "unit", "currency_quote", "row_units", "extraction_method", "image_path", "model_provenance"):
+            if field in table:
+                item[field] = table[field]
+        evidence.append(item)
     result = {"document_id": document_id, "evidence": evidence}
 
     # overwrite the placeholder evidence.json
@@ -116,7 +120,7 @@ def _flatten_table(table):
     e.g. 'Products: 2026 three_months 78678, 2025 three_months 66613 | Services: ...'
     """
     col_map = table.get("column_map") or []
-    parts = []
+    parts = [str(table.get("title") or ""), str(table.get("unit") or "")]
     for row in table.get("rows") or []:
         if not row:
             continue
@@ -126,7 +130,7 @@ def _flatten_table(table):
         for i, cell in enumerate(values):
             if i < len(col_map):
                 cm = col_map[i]
-                tag = f"{cm['year']}"
+                tag = str(cm.get("raw") or cm.get("year") or "")
                 if cm.get("period"):
                     tag += f" {cm['period']}"
                 pairs.append(f"{tag} {cell}")

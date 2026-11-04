@@ -137,7 +137,13 @@ def _unit_context(item, operand, raw, column=None):
             r"\b(?:thousands?|millions?|billions?|trillions?)\b", operand.unit_quote, re.I
         ):
             raise ValueError("A table-wide amount scale cannot be applied to its per-share exception.")
-        return operand.unit_quote
+        if item.get("extraction_method") != "table-vision-v1":
+            return operand.unit_quote
+    if item.get("extraction_method") == "table-vision-v1":
+        units = item.get("row_units") or []
+        if operand.row_index is None or operand.row_index >= len(units):
+            raise ValueError("Visual table row unit context is unavailable.")
+        return units[operand.row_index]
     header = " ".join((str(item.get("context") or ""),
                        str((item.get("column_headers") or {}).get("raw") or ""),
                        str(item.get("unit") or item.get("units") or "")))
@@ -290,6 +296,9 @@ def _value(pc, operand, item):
     parsed, reason = parse_number(raw, context=unit_context)
     if parsed is None:
         raise ValueError(reason)
+    if parsed["kind"] != "percent" and any(symbol in unit_context for symbol in "$€£"):
+        # Source symbols establish a monetary type, but '$' alone is not USD.
+        parsed["unit"] = "amount"
     return parsed
 
 

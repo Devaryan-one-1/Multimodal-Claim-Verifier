@@ -29,7 +29,7 @@ def delete_document(document_id: str):
     ids = store.get(where={"document_id": document_id}, include=[])["ids"]
     if ids:
         store.delete(ids=ids)
-    for directory in ("documents", "processed", "pages", "tables", "charts"):
+    for directory in ("documents", "processed", "pages", "tables", "charts", "table_images", "model_cache"):
         root = (Path("data") / directory).resolve()
         target = root / document_id
         if target.is_symlink():
