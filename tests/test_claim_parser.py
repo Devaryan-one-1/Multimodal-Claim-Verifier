@@ -159,6 +159,41 @@ class ClaimParserTests(unittest.TestCase):
                                                            end_period=2025, period_quote="September 27, 2025"), B)
                 self.assertEqual((output["unit"], output["operation"], output["start_period"]), ("amount", "level", None))
 
+    def test_explicit_as_of_date_overrides_annual_label_without_a_model_retry(self):
+        self.respond([self.atom(period_type="annual", quarter=2)])
+        result = self.parser.parse_claims(A)[0]
+        self.assertEqual(result["period_type"], "point_in_time")
+        self.assertIsNone(result["quarter"])
+        self.assertEqual(self.gateway.structured.call_count, 1)
+
+    def test_explicit_reporting_durations_override_wrong_point_in_time_labels(self):
+        for wording, expected in (("three months", "quarter"), ("six months", "six_months"),
+                                  ("nine months", "nine_months"), ("twelve months", "annual")):
+            text = f"Apple's revenue was $100 million for the {wording} ended June 27, 2026."
+            with self.subTest(wording=wording):
+                item = self.atom(text, subject="revenue", metric="revenue", claimed_literal="$100 million",
+                                 period_quote=f"{wording} ended June 27, 2026", period_type="point_in_time")
+                self.assertEqual(self.parser._normalize(item, text)["period_type"], expected)
+
+    def test_explicit_annual_period_is_preserved_instead_of_using_end_date_as_snapshot(self):
+        text = "Apple's revenue was $100 million for the fiscal year ended June 27, 2026."
+        item = self.atom(text, subject="revenue", metric="revenue", claimed_literal="$100 million",
+                         period_quote="fiscal year ended June 27, 2026", period_type="point_in_time")
+        self.assertEqual(self.parser._normalize(item, text)["period_type"], "annual")
+
+    def test_conflicting_durations_require_separate_atomic_claims(self):
+        text = "Apple's revenue was $100 million for the three months and nine months ended June 27, 2026."
+        item = self.atom(text, subject="revenue", metric="revenue", claimed_literal="$100 million", period_quote="June 27, 2026")
+        with self.assertRaisesRegex(self.parser.ParseValidationError, "conflicting reporting durations"):
+            self.parser._normalize(item, text)
+
+    def test_explicit_quarter_is_retained_without_inference_from_calendar_month(self):
+        text = "Apple's revenue was $100 million in the third fiscal quarter of 2026."
+        item = self.atom(text, subject="revenue", metric="revenue", claimed_literal="$100 million",
+                         period_quote="third fiscal quarter of 2026", period_type="annual", quarter=3)
+        result = self.parser._normalize(item, text)
+        self.assertEqual((result["period_type"], result["quarter"]), ("quarter", 3))
+
     def test_plain_growth_is_equal_but_explicit_thresholds_remain_inequalities(self):
         examples = (("", "equal"), ("more than ", "greater_than"), ("at least ", "at_least"),
                     ("less than ", "less_than"), ("no more than ", "at_most"),

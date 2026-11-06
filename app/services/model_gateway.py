@@ -73,6 +73,7 @@ class ModelConfig:
     allow_fallbacks: bool = False
     timeout_seconds: float = 120.0
     max_output_tokens: int = 8192
+    vision_max_output_tokens: int = 32768
     send_temperature: bool = False
 
     @classmethod
@@ -93,6 +94,7 @@ class ModelConfig:
             allow_fallbacks=_boolean("LLM_ALLOW_FALLBACKS"),
             timeout_seconds=float(os.getenv("LLM_TIMEOUT_SECONDS", "120")),
             max_output_tokens=int(os.getenv("LLM_MAX_OUTPUT_TOKENS", "8192")),
+            vision_max_output_tokens=int(os.getenv("LLM_VISION_MAX_OUTPUT_TOKENS", "32768")),
             send_temperature=_boolean("OPENROUTER_SEND_TEMPERATURE"),
         )
 
@@ -115,6 +117,8 @@ def _validate_config(value):
         raise ModelConfigurationError("Model service configuration: timeout must be 1–600 seconds.")
     if not 256 <= value.max_output_tokens <= 131072:
         raise ModelConfigurationError("Model service configuration: invalid maximum output tokens.")
+    if not 256 <= value.vision_max_output_tokens <= 131072:
+        raise ModelConfigurationError("Model service configuration: invalid vision output tokens.")
 
 
 def model_name(task="text") -> str:
@@ -377,6 +381,8 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                task="text", images=(), temperature=0.0) -> SCHEMA:
     settings = config()
     _validate_config(settings)
+    if task == "vision":
+        settings = replace(settings, max_output_tokens=settings.vision_max_output_tokens)
     key = _key(settings)
     primary = model or model_name(task)
     if not primary:
@@ -402,7 +408,8 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
             started = time.perf_counter()
             event = {"time": datetime.now(timezone.utc).isoformat(), "task": task,
                      "gateway_provider": settings.provider, "requested_model": chosen,
-                     "actual_model": None, "attempt": attempt + 1, "fallback": model_index > 0}
+                     "actual_model": None, "attempt": attempt + 1, "fallback": model_index > 0,
+                     "output_token_limit": settings.max_output_tokens}
             try:
                 call = _openrouter if settings.provider == "openrouter" else _gemini
                 value, metadata = call(settings, key, chosen, prompt, system, request_schema, images, temperature)

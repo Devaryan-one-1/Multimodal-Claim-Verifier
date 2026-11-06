@@ -62,6 +62,15 @@ def response(tables):
     return types.SimpleNamespace(tables=tables, model_dump=lambda **kw: {"tables": tables})
 
 
+def compensation_table():
+    # Physical Apple page 14, second table; checked against the saved crop.
+    return {"title": "Share-Based Compensation", "unit": "(in millions)", "currency_quote": "$",
+            "columns": ["Metric", "Three Months Ended June 27, 2026", "Three Months Ended June 28, 2025",
+                        "Nine Months Ended June 27, 2026", "Nine Months Ended June 28, 2025"],
+            "rows": [["Share-based compensation expense", "3,401", "3,168", "10,523", "9,680"],
+                     ["Income tax benefit related to share-based compensation expense", "(1,122)", "(795)", "(3,217)", "(2,870)"]]}
+
+
 class VisualTableTests(unittest.TestCase):
     def setUp(self):
         self.stack = ExitStack()
@@ -91,11 +100,49 @@ class VisualTableTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "different widths"):
             self.normalize(table)
 
-    def test_currency_must_be_present_in_the_transcription(self):
+    def test_unsupported_currency_code_is_reconciled_to_the_literal_symbol(self):
         table = balance_table()
         table["currency_quote"] = "USD"
-        with self.assertRaisesRegex(ValueError, "currency quote"):
-            self.normalize(table)
+        normalized = self.normalize(table)
+        self.assertEqual(normalized["currency_quote"], "$")
+        self.assertEqual(normalized["row_units"], ["$ millions"]*3)
+
+    def test_page_14_separate_currency_symbol_does_not_need_duplicate_cells(self):
+        table = compensation_table()
+        normalized = self.normalize(table)
+        self.assertEqual(normalized["rows"], table["rows"])
+        self.assertEqual(normalized["currency_quote"], "$")
+        self.assertEqual(normalized["row_units"], ["$ millions"]*2)
+
+    def test_native_table_currency_recovers_symbol_without_guessing_usd(self):
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        normalized = self.visual.normalize_table(table, document_id="apple", page=14, bbox=[0, 0, 600, 100],
+                                                 image_path="table.png", source_text="Share-based compensation expense $ 3,401 $ 3,168")
+        self.assertEqual(normalized["currency_quote"], "$")
+        self.assertEqual(normalized["rows"], table["rows"])
+
+    def test_unconfirmed_currency_code_keeps_table_without_inventing_money(self):
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        normalized = self.normalize(table)
+        self.assertEqual(normalized["currency_quote"], "")
+        self.assertTrue(normalized["currency_warning"])
+        self.assertTrue(all("USD" not in unit and "$" not in unit for unit in normalized["row_units"]))
+        self.assertEqual(normalized["rows"], table["rows"])
+
+    def test_currency_in_column_header_is_visible_source(self):
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        table["columns"][1] += " (USD)"
+        self.assertEqual(self.normalize(table)["currency_quote"], "USD")
+
+    def test_native_currency_is_used_when_vision_omits_the_currency_field(self):
+        table = compensation_table()
+        table["currency_quote"] = ""
+        normalized = self.visual.normalize_table(table, document_id="apple", page=14, bbox=[0, 0, 600, 100],
+                                                 image_path="table.png", source_text="Expense $ 3,401")
+        self.assertEqual(normalized["currency_quote"], "$")
 
     def test_mixed_durations_are_mapped_per_column_without_guessing(self):
         mapping = self.visual.column_map(["Metric", "Three months ended June 27, 2026",
@@ -134,7 +181,7 @@ class VisualTableTests(unittest.TestCase):
         pdf.__enter__.return_value = types.SimpleNamespace(pages=[page, missed])
         self.visual.pdfplumber.open.return_value = pdf
         calls = []
-        def cached(schema, doc, image, task, prompt, force):
+        def cached(schema, doc, image, task, prompt, force, **kwargs):
             calls.append(task)
             if task == "table-detection":
                 return response([types.SimpleNamespace(box_2d=[150, 30, 700, 970])]), {}
@@ -146,6 +193,25 @@ class VisualTableTests(unittest.TestCase):
         self.assertEqual(render.call_count, 3)
         self.assertEqual(render.call_args_list[0].args[1], (8, 30, 592, 506))
         self.assertEqual(result["visual_pages_scanned"], 1)
+
+    def test_table_read_receives_native_text_and_surfaces_unconfirmed_currency(self):
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        native = types.SimpleNamespace(bbox=[20, 120, 580, 500], extract=lambda: table["rows"])
+        page = types.SimpleNamespace(width=600, bbox=[0, 0, 600, 800], find_tables=lambda: [native],
+                                     crop=lambda box: types.SimpleNamespace(extract_text=lambda: "Expense $ 3,401"))
+        pdf = MagicMock()
+        pdf.__enter__.return_value = types.SimpleNamespace(pages=[page])
+        self.visual.pdfplumber.open.return_value = pdf
+        with patch.object(self.visual, "_render"), patch.object(self.visual, "_cached", return_value=(response([table]), {})) as cached:
+            result = self.visual.extract_visual_tables("apple", [{"page_number": 1, "text": "Source"}])
+        self.assertEqual(cached.call_args.kwargs["source_text"], "Expense $ 3,401")
+        self.assertEqual(result["tables"][0]["currency_quote"], "$")
+        page.crop = lambda box: types.SimpleNamespace(extract_text=lambda: "")
+        with patch.object(self.visual, "_render"), patch.object(self.visual, "_cached", return_value=(response([table]), {})):
+            result = self.visual.extract_visual_tables("apple", [{"page_number": 1, "text": "Source"}])
+        self.assertEqual(len(result["tables"]), 1)
+        self.assertTrue(any("currency" in warning.lower() for warning in result["warnings"]))
 
     def test_fallback_detection_limit_is_explicit_and_does_not_limit_native_table_reads(self):
         missed = types.SimpleNamespace(width=600, bbox=[0, 0, 600, 800], find_tables=lambda: [])
@@ -200,6 +266,18 @@ class VisualTableTests(unittest.TestCase):
         with self.assertRaises(VerificationFailure):
             self.visual._cached(self.visual.TablesRead, "apple", image, "table-read", "Read", False)
         self.assertEqual(list(Path("cache").rglob("*.json")), [])
+
+    def test_currency_reconciliation_validates_and_reuses_successful_reads(self):
+        image = Path("table.png")
+        image.write_bytes(b"image-fixture")
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        self.visual.structured = MagicMock(return_value=response([table]))
+        with patch.object(self.visual.TablesRead, "model_validate", side_effect=lambda data: response(data["tables"]), create=True):
+            for _ in range(2):
+                self.visual._cached(self.visual.TablesRead, "apple", image, "table-read", "Read", False,
+                                    source_text="Expense $ 3,401")
+        self.assertEqual(self.visual.structured.call_count, 1)
 
     def test_visual_rows_remain_searchable_with_headers_units_and_source_addresses(self):
         builder = financial.load_module(self.stack, "_visual_evidence_tests", APP/"extraction/build_evidence.py")
@@ -299,6 +377,49 @@ class VisualNumericalTests(unittest.TestCase):
 
     def test_percent_cannot_match_a_plain_monetary_table_value(self):
         self.assertIsNone(self.evaluate("149818%") [0])
+
+    def compensation(self, literal, *, row=0, column=3, confirmed=True, declared="amount"):
+        table = compensation_table()
+        table["currency_quote"] = "USD"
+        item = self.visual.normalize_table(table, document_id="apple", page=14, bbox=[0, 0, 600, 100],
+                                           image_path="table.png", source_text="Expense $ 3,401" if confirmed else "")
+        item.update(id="source", type="table")
+        operand = financial.SourceOperand(column_index=column)
+        operand.row_index = row
+        operand.unit_quote = "$" if confirmed else ""
+        claim = {"operation": "level", "metric": table["rows"][row][0], "claimed_literal": literal,
+                 "unit": declared, "end_period": 2026, "period_type": "nine_months" if column == 3 else "quarter"}
+        selection = types.SimpleNamespace(applicable=True, reason="Controlled cell address", operands=[operand])
+        def select(pc, evidence, payload):
+            self.assertEqual(payload[0]["currency_quote"], "$" if confirmed else "")
+            self.assertIn("row_units", payload[0])
+            return selection
+        with patch.object(self.numeric, "_select", side_effect=select):
+            return self.numeric.verify_numeric(claim, [item])
+
+    def test_page_14_currency_is_visible_to_selector_and_millions_are_applied(self):
+        calculation, comparison, reason, _ = self.compensation("$10,523 million")
+        self.assertIsNotNone(calculation, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertEqual(calculation["inputs"]["value"], 10523e6)
+        self.assertIsNone(calculation["currency"])
+        self.assertEqual(calculation["source_inputs"]["value"]["page"], 14)
+
+    def test_page_14_parentheses_preserve_negative_tax_benefit(self):
+        calculation, comparison, reason, _ = self.compensation("($1,122 million)", row=1, column=1)
+        self.assertIsNotNone(calculation, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertEqual(calculation["inputs"]["value"], -1122e6)
+        self.assertEqual(calculation["raw_inputs"]["value"], "(1,122)")
+
+    def test_unconfirmed_currency_does_not_become_either_amount_or_count_verdict(self):
+        for literal, declared in (("$10,523 million", "amount"), ("10,523 million", "number")):
+            with self.subTest(literal=literal):
+                calculation, comparison, reason, used = self.compensation(literal, confirmed=False, declared=declared)
+                self.assertIsNone(calculation)
+                self.assertIsNone(comparison)
+                self.assertIn("currency could not be confirmed", reason)
+                self.assertEqual(used, [])
 
 
 class VisualRefreshTests(unittest.TestCase):

@@ -1,0 +1,134 @@
+{
+  "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+  "tables": [
+    {
+      "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+      "page": 1,
+      "table_id": "visual_1_ee32f0919c_0",
+      "bbox": [
+        36.0,
+        112.0,
+        576.0,
+        398.0
+      ],
+      "headers": [
+        "Metric",
+        "2025",
+        "2026"
+      ],
+      "rows": [
+        [
+          "Metric",
+          "2025",
+          "2026"
+        ],
+        [
+          "Revenue",
+          "120",
+          "150"
+        ],
+        [
+          "Operating profit",
+          "24",
+          "30"
+        ],
+        [
+          "Research expense",
+          "",
+          "12"
+        ],
+        [
+          "Cash and cash equivalents",
+          "40",
+          "45"
+        ]
+      ],
+      "title": "Annual financial results",
+      "unit": "All amounts in USD millions. Years ended December 31.",
+      "currency_quote": "USD",
+      "currency_warning": "",
+      "row_units": [
+        "USD millions",
+        "USD millions",
+        "USD millions",
+        "USD millions",
+        "USD millions"
+      ],
+      "column_map": [
+        {
+          "col": 1,
+          "year": 2025,
+          "period": null,
+          "raw": "2025",
+          "mapping_origin": "vision_column_header"
+        },
+        {
+          "col": 2,
+          "year": 2026,
+          "period": null,
+          "raw": "2026",
+          "mapping_origin": "vision_column_header"
+        }
+      ],
+      "column_headers": {
+        "raw": "Annual financial results\nAll amounts in USD millions. Years ended December 31.\n2025\n2026",
+        "years": [
+          2025,
+          2026
+        ],
+        "period_types": []
+      },
+      "is_data": true,
+      "needs_llm_header": false,
+      "extraction_method": "table-vision-v1",
+      "image_path": "data\\table_images\\8cee8deb65bd43d6a8ce0e04472069c8\\page_1_table_0.png",
+      "data_columns": 2,
+      "model_provenance": {
+        "model": "nvidia/nemotron-3.5-super-vl:free",
+        "call": {
+          "time": "2026-11-06T12:04:03.004444+00:00",
+          "task": "vision",
+          "gateway_provider": "openrouter",
+          "requested_model": "nvidia/nemotron-3.5-super-vl:free",
+          "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+          "attempt": 1,
+          "fallback": false,
+          "output_token_limit": 32768,
+          "upstream_provider": "Nvidia",
+          "request_id": "gen-1793966642-RzDmAvLa7mE8JnH5JCID",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 845,
+            "completion_tokens": 1384,
+            "total_tokens": 2229,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 1243,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 12.664
+        }
+      }
+    }
+  ],
+  "warnings": [],
+  "visual_pages_scanned": 1,
+  "extraction_method": "table-vision-v1"
+}

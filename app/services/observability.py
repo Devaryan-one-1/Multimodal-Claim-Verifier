@@ -115,6 +115,10 @@ def model_call_summary(record):
         "error_kind": record.get("error_type") or record.get("error_kind"),
         "provider_request_id": record.get("request_id") or record.get("provider_request_id"),
         "retry_after_seconds": record.get("retry_after_seconds"),
+        "finish_reason": record.get("finish_reason") if record.get("finish_reason") in ("stop", "length", "content_filter", "tool_calls") else None,
+        "output_token_limit": record.get("output_token_limit") if isinstance(record.get("output_token_limit"), int)
+                              and not isinstance(record.get("output_token_limit"), bool)
+                              and 256 <= record["output_token_limit"] <= 131072 else None,
         "usage": {k: v for k, v in usage.items() if k in usage_fields and isinstance(v, (int, float))}
                  if isinstance(usage, dict) else {},
     }

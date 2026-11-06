@@ -17,6 +17,7 @@ from pilot.exports import exports
 from pilot import model_connections, private_media
 from pilot.responsive import navigation
 from services.verification_status import execution_failed
+from services.failure_details import describe_failure
 
 
 def _plain_label(value):
@@ -127,6 +128,8 @@ def retry_unavailable_reason(access, job):
 
 
 def failure_hint(saved):
+    if isinstance(saved.get("failure"), dict):
+        return saved["failure"]["action"]
     codes = [c.get("http_status") for c in saved.get("model_calls", []) if c.get("http_status")]
     code = codes[-1] if codes else None
     if code in {401, 403}:
@@ -138,6 +141,30 @@ def failure_hint(saved):
     if isinstance(code, int) and code >= 500:
         return "The model provider is temporarily unavailable. Retry when the service has recovered."
     return "Resolve the service issue before retrying. Completed claims remain saved; retry does not recheck them."
+
+
+def show_failure(access, job):
+    saved = json.loads(job["result"])
+    details = saved.get("failure")
+    if not isinstance(details, dict):
+        details = (store.processing_failure(access, job["id"]) if job["kind"] == "process" else
+                   describe_failure(kind=saved.get("error_kind", ""), calls=saved.get("model_calls", []),
+                                    stage=saved.get("error_stage") or "verification"))
+    st.error(details["title"])
+    st.write(details["message"])
+    st.info(details["action"])
+    labels = {"stage": "Stage", "page": "PDF page", "table": "Table", "model": "Model",
+              "http_status": "Provider HTTP status", "output_token_limit": "Output token allowance",
+              "retry_after_seconds": "Retry after seconds", "provider_request_id": "Provider request ID"}
+    with st.expander("Error details"):
+        st.text("Diagnostic code: " + details["code"])
+        for name, label in labels.items():
+            if details.get(name) is not None:
+                st.text(f"{label}: {details[name]}")
+        if saved.get("error_kind"):
+            st.text("Error type: " + str(saved["error_kind"]))
+        st.text("Request reference: " + job["id"])
+        st.caption("Share the reference and diagnostic code for support. Failed execution does not count as a factual verdict.")
 
 
 def request_details(job):
@@ -226,6 +253,7 @@ def connection_panel(access, key):
             st.success("Your OpenRouter key is saved encrypted.")
             st.text("Saved reasoning model: " + models.get("text_model", "Not set"))
             st.text("Saved vision model: " + (models.get("vision_model") or "Not set"))
+            st.caption(f"New requests: up to {models.get('max_output_tokens', 8192):,} reasoning output tokens and {models.get('vision_max_output_tokens', 32768):,} vision output tokens. Actual usage is billed by your provider.")
         text_model = draft_text("Reasoning model ID", key+"text_model", models.get("text_model", ""), max_chars=200,
                                 help="Use the exact OpenRouter ID, including :free when appropriate. Strict JSON Schema support is required.")
         vision_model = draft_text("Vision model ID", key+"vision_model", models.get("vision_model", ""), max_chars=200,
@@ -308,14 +336,27 @@ def documents_page(access, key, connected=True):
         st.session_state[key+"active_document"] = doc
         st.success("Example queued in your private workspace. Open Reviews after processing finishes.")
     available_documents = store.documents(access)
+    # A retry updates an existing job; a fresh attempt creates a new one. Use
+    # last activity so either action replaces the previous error on screen.
+    latest = {}
+    known = {doc["id"] for doc in available_documents}
+    for job in sorted(store.jobs(access), key=lambda j: (j.get("updated", 0), j.get("created", 0), j["id"]), reverse=True):
+        if job["kind"] not in {"process", "delete"}:
+            continue
+        source_id = json.loads(job["payload"]).get("document_id")
+        if source_id in known:
+            latest.setdefault(source_id, job)
     for doc in available_documents:
-        with st.expander(f"{_plain_label(doc['name'])} · {doc['status']}"):
+        current = latest.get(doc["id"], {})
+        display_status = current.get("status") if current.get("status") in {"queued", "running"} else doc["status"]
+        with st.expander(f"{_plain_label(doc['name'])} · {display_status}"):
             document_context(access, doc)
             meta = json.loads(doc["metadata"])
             st.write({"Pages": meta.get("page_count"), "Tables": meta.get("table_count"), "Charts": meta.get("chart_count")})
-            for warning in meta.get("warnings", []):
-                st.warning(warning)
-            if doc["status"] == "ready":
+            if display_status == "ready":
+                for warning in meta.get("warnings", []):
+                    st.warning(warning)
+            if display_status == "ready":
                 st.caption("Refresh tables and graphs reads this report's visual data again using your saved connection. Completed reviews stay saved; check new claims after processing finishes.")
                 if st.button("Refresh tables and graphs", key=key+"refresh_visuals_"+doc["id"], disabled=not connected):
                     store.refresh_visuals(access, doc["id"])
@@ -332,10 +373,11 @@ def documents_page(access, key, connected=True):
                         st.success("Deletion queued.")
                     else:
                         st.warning("Confirm deletion first.")
-    processing = [j for j in store.jobs(access) if j["kind"] != "verify"]
+    processing = list(latest.values())
     for job in processing[:10]:
         st.caption(f"{job['kind'].title()}: {job['status']} · {job['stage']}")
         if job["status"] in {"failed", "paused"}:
+            show_failure(access, job)
             reason = retry_unavailable_reason(access, job)
             if reason:
                 st.caption(reason)
@@ -471,7 +513,7 @@ def review_detail(access, job, key):
         st.caption(f"Status: {job['status']} · {job['stage']}")
     if job["status"] in {"failed", "paused"}:
         st.error("Verification failed or paused. This is not an UNKNOWN factual verdict.")
-        st.info(failure_hint(saved))
+        show_failure(access, job)
         reason = retry_unavailable_reason(access, job)
         if reason:
             st.caption(reason)
@@ -532,6 +574,7 @@ def review_detail(access, job, key):
                         valid = _valid_citations(result, store.documents(access))
                         if evidence in valid:
                             st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
+                            st.session_state[key+f"viewer_{index}page"] = evidence["page"]
                 decision_editor(access, job["id"], index, key+f"decision_{index}_")
             with right:
                 viewer(access, result, key+f"viewer_{index}", versions=payload.get("versions"))
@@ -548,6 +591,21 @@ def review_detail(access, job, key):
             private_media.download(st, access, "Download review JSON", lambda: exports(access, job["id"])[2],
                                    filename="financial_review.json", mime="application/json", key=key+"json", revision=export_revision)
             st.caption("Includes model/version metadata when available. Confidence values in raw results are uncalibrated.")
+
+
+def _review_preview(job):
+    payload = json.loads(job["payload"])
+    claim = " ".join(str(payload.get("claim") or "").split())
+    if not claim:
+        results = json.loads(job["result"]).get("results", [])
+        claim = " ".join(str(results[0].get("claim_text") or "").split()) if results else ""
+    return claim[:90]+("…" if len(claim) > 90 else "")
+
+
+def _saved_review_label(job):
+    name = json.loads(job["payload"]).get("name") or "Financial review"
+    created = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(job["created"]))
+    return f"{created} · {name} · {job['status']} · {_review_preview(job)} · {job['id'][:8]}"
 
 
 def reviews_page(access, key, connected=True):
@@ -567,12 +625,20 @@ def reviews_page(access, key, connected=True):
         document_context(access, next(d for d in ready if d["id"] == active))
         review_composer(access, key, [active]+more, connected)
     reviews = store.jobs(access, "verify")
+    mapping = {j["id"]: j for j in reviews}
+    # This non-widget key survives Streamlit cleaning up the previous page's widgets.
+    requested = st.session_state.pop(key+"open_review_request", None)
+    if requested is not None:
+        if requested not in mapping:
+            st.error("The selected saved review is unavailable in this workspace. Choose another review in History.")
+            return
+        st.session_state[key+"selected_review"] = requested
+        st.session_state[key+requested+"filter"] = "All"
     if reviews:
         ids = [j["id"] for j in reviews]
-        mapping = {j["id"]: j for j in reviews}
         if st.session_state.get(key+"selected_review") not in ids:
             st.session_state[key+"selected_review"] = ids[0]
-        selected = st.selectbox("Saved reviews", ids, format_func=lambda j: f"{json.loads(mapping[j]['payload']).get('name')} · {mapping[j]['status']}", key=key+"selected_review")
+        selected = st.selectbox("Saved reviews", ids, format_func=lambda j: _saved_review_label(mapping[j]), key=key+"selected_review")
         review_detail(access, store.get_job(access, selected), key+selected)
 
 
@@ -587,6 +653,7 @@ def open_saved_review(access, key, job_id):
         st.rerun()
         return
     st.session_state[key+"selected_review"] = job_id
+    st.session_state[key+"open_review_request"] = job_id
     st.session_state[key+job_id+"filter"] = "All"
     st.session_state[key+"area"] = "Reviews"
 
@@ -597,14 +664,14 @@ def history_page(access, key):
     if not reviews:
         st.info("No saved reviews yet. Create a review from Reviews when a source is ready.")
         return
-    st.dataframe([{"Review": json.loads(j["payload"]).get("name"), "Status": j["status"],
-                   "Created": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime(j["created"])), "ID": j["id"]}
+    st.dataframe([{"Review": json.loads(j["payload"]).get("name"), "Claim": _review_preview(j), "Status": j["status"],
+                   "Created": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(j["created"])), "ID": j["id"]}
                   for j in reviews], hide_index=True)
     mapping = {j["id"]: j for j in reviews}
     if st.session_state.get(key+"history_review") not in mapping:
         st.session_state[key+"history_review"] = reviews[0]["id"]
     selected = st.selectbox("Open a saved review", list(mapping),
-                            format_func=lambda j: f"{json.loads(mapping[j]['payload']).get('name')} · {mapping[j]['status']}",
+                            format_func=lambda j: _saved_review_label(mapping[j]),
                             key=key+"history_review")
     st.button("Open review", key=key+"history_open", on_click=open_saved_review, args=(access, key, selected))
     st.caption("Saved results, decisions and notes remain available after signing in again. Exports use the latest saved review.")

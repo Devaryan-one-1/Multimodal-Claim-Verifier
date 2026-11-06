@@ -89,6 +89,8 @@ if area == 'Reviews':
         with pymupdf.open() as pdf:
             page = pdf.new_page(width=612, height=792)
             page.insert_text((72, 72), "Public source fixture: 14.9 billion")
+            page = pdf.new_page(width=612, height=792)
+            page.insert_text((72, 72), "Chart navigation fixture: 120 customers")
             source_pdf = pdf.tobytes()
         source_sha = hashlib.sha256(source_pdf).hexdigest()
         source_path = store.file_path(access.workspace, "data", "documents", "d"*32, "original.pdf")
@@ -115,9 +117,39 @@ ui.viewer(access, result, 'preview_', versions={source['id']:source['sha']})
         assert 'width:175%' in image_markup and 'overflow-x:auto' in image_markup
         assert 'tabindex="0"' in image_markup and '/media/' not in image_markup
 
+        page_jump = AppTest.from_string('''
+import json, time
+import streamlit as st
+from pilot import store, ui
+access = store.Access('fixture', 'a'*32, time.time()+300)
+st.session_state.setdefault('customer_identity', access.principal)
+st.session_state.setdefault('customer_workspace', access.workspace)
+source = store.documents(access)[0]
+job = store.get_job(access, 'c'*32)
+job['payload'] = json.dumps({'name':'Page navigation fixture', 'versions':{source['id']:source['sha']}})
+job['result'] = json.dumps({'results':[{'status':'complete', 'verdict':'SUPPORTED',
+    'claim_text':'Public chart navigation fixture', 'evidence':[{'id':'fixture-chart',
+    'document_id':source['id'], 'type':'chart', 'page':2, 'content':'120 customers'}]}]})
+ui.review_detail(access, job, 'page_jump_')
+''').run(timeout=15)
+        assert not page_jump.exception
+        assert page_jump.number_input(key="page_jump_viewer_0page").value == 2
+        page_jump.number_input(key="page_jump_viewer_0page").set_value(1).run(timeout=15)
+        assert not page_jump.exception and page_jump.number_input[0].value == 1
+        page_jump.button(key="page_jump_view_0_0").click().run(timeout=15)
+        assert not page_jump.exception and page_jump.number_input[0].value == 2
+        assert page_jump.selectbox(key="page_jump_viewer_0citation").value == 0
+
+        with store.db() as c:
+            c.execute("INSERT INTO jobs(id,workspace,principal,kind,payload,status,stage,result,created,updated) VALUES(?,?,?,'verify',?,'complete','Done',?,?,?)",
+                      ("d"*32, access.workspace, access.principal,
+                       json.dumps({"name": "Saved fixture", "claim": "Older fixture claim"}),
+                       json.dumps({"results": [{"verdict": "UNKNOWN", "claim_text": "assertion"}]}),
+                       time.time()-120, time.time()-120))
         history = AppTest.from_string('''
 import streamlit as st
 import time
+from unittest.mock import patch
 from pilot import store, ui
 from pilot.responsive import navigation
 access = store.Access('fixture', 'a'*32, time.time()+300)
@@ -129,13 +161,25 @@ area = navigation(key)
 if area == 'History':
     ui.history_page(access, key)
 else:
-    st.text('Opened review: '+st.session_state.get(key+'selected_review',''))
+    with patch.object(store, 'documents', return_value=[]), patch.object(
+        ui, 'review_detail', side_effect=lambda access, job, key: st.text(
+            'Opened review: '+job['id'])):
+        ui.reviews_page(access, key, connected=False)
 ''').run(timeout=15)
         assert not history.exception
-        history.button[0].click().run(timeout=15)
-        assert not history.exception
-        assert history.radio[0].value == "Reviews"
-        assert job_id in history.text[0].value
+        assert len(set(history.selectbox[0].options)) == 2
+        assert any("Older fixture claim" in label for label in history.selectbox[0].options)
+        history_key = "customer_"+access.workspace+"_"
+        for selected_job in ("d"*32, job_id):
+            history.selectbox(key=history_key+"history_review").set_value(selected_job).run(timeout=15)
+            history.button(key=history_key+"history_open").click().run(timeout=15)
+            assert not history.exception and history.radio[0].value == "Reviews"
+            assert history.selectbox(key=history_key+"selected_review").value == selected_job
+            assert selected_job in history.text[0].value
+            history.run(timeout=15)
+            assert not history.exception and selected_job in history.text[0].value
+            history.radio[0].set_value("History").run(timeout=15)
+            assert not history.exception
 
         download = AppTest.from_string('''
 import hashlib, json, time

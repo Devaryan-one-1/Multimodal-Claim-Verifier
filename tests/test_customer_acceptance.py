@@ -95,6 +95,65 @@ class HistoryExportAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.st.session_state[key+"selected_review"], self.job)
         self.assertEqual(self.st.session_state[key+self.job+"filter"], "All")
 
+    def add_same_named_review(self):
+        other = "d"*32
+        with store.db() as c:
+            c.execute("UPDATE jobs SET payload=?,created=? WHERE id=?",
+                      (json.dumps({"name": "Financial review", "claim": "Current assets were USD 149,818 million."}), 1793917123, self.job))
+            c.execute("INSERT INTO jobs(id,workspace,principal,kind,payload,status,stage,result,created,updated) VALUES(?,?,?,'verify',?,'complete','Done',?,?,?)",
+                      (other, self.access.workspace, self.access.principal,
+                       json.dumps({"name": "Financial review", "claim": "Inventories grew 94 percent."}),
+                       json.dumps({"results": [{"verdict": "UNKNOWN", "claim_text": "assertion"}]}),
+                       1793917124, 1793917124))
+        return other
+
+    def test_same_named_reviews_have_distinct_claim_date_and_reference_labels(self):
+        other = self.add_same_named_review()
+        key = "customer_"+self.access.workspace+"_"
+        self.ui.history_page(self.access, key)
+        _, args, options = next(event for event in self.st.events if event[0] == "selectbox")
+        labels = [options["format_func"](job) for job in args[1]]
+        self.assertEqual(len(set(labels)), 2)
+        self.assertTrue(any("Current assets" in label and self.job[:8] in label for label in labels))
+        self.assertTrue(any("Inventories" in label and other[:8] in label for label in labels))
+        self.assertTrue(all("2026-11-05" in label and "UTC" in label for label in labels))
+        self.assertIn("Current assets", self.st.rendered_text("dataframe"))
+        self.st.events.clear()
+        with patch.object(self.ui, "review_detail"):
+            self.ui.reviews_page(self.access, key, connected=False)
+        _, _, saved_options = next(event for event in self.st.events if event[0] == "selectbox")
+        self.assertEqual(saved_options["format_func"](self.job), options["format_func"](self.job))
+
+    def test_history_handoff_survives_widget_cleanup_and_opens_exact_saved_result(self):
+        other = self.add_same_named_review()
+        key = "customer_"+self.access.workspace+"_"
+        store.decide(self.access, self.job, 0, "reviewed", "Retain this saved note.")
+        for chosen in (self.job, other):
+            with self.subTest(chosen=chosen):
+                self.st.session_state[key+"history_review"] = chosen
+                self.st.pressed.add("Open review")
+                self.ui.history_page(self.access, key)
+                self.st.pressed.clear()
+                # Streamlit removes keys for widgets absent from the previous page.
+                self.st.session_state.pop(key+"selected_review", None)
+                with patch.object(self.ui, "review_detail") as detail:
+                    self.ui.reviews_page(self.access, key, connected=False)
+                opened = detail.call_args.args[1]
+                self.assertEqual(opened["id"], chosen)
+                expected = "SUPPORTED" if chosen == self.job else "UNKNOWN"
+                self.assertEqual(json.loads(opened["result"])["results"][0]["verdict"], expected)
+                self.assertEqual(self.st.session_state[key+chosen+"filter"], "All")
+                self.assertNotIn(key+"open_review_request", self.st.session_state)
+        self.assertEqual(store.decisions(self.access, self.job)[0]["note"], "Retain this saved note.")
+
+    def test_unavailable_history_selection_does_not_open_a_different_review(self):
+        key = "customer_"+self.access.workspace+"_"
+        self.st.session_state[key+"open_review_request"] = "e"*32
+        with patch.object(self.ui, "review_detail") as detail:
+            self.ui.reviews_page(self.access, key, connected=False)
+        detail.assert_not_called()
+        self.assertIn("unavailable", self.st.rendered_text("error").lower())
+
     def test_history_callback_rechecks_revocation_and_never_changes_selected_review(self):
         with store.db() as c:
             c.execute("DELETE FROM members WHERE principal=?", (self.access.principal,))

@@ -1,0 +1,122 @@
+{
+  "cache_version": 1,
+  "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+  "pages": {
+    "2": {
+      "success": true,
+      "status": "detected",
+      "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+      "page_number": 2,
+      "page_image_path": "data\\pages\\8cee8deb65bd43d6a8ce0e04472069c8\\page_002.png",
+      "width_px": 1700,
+      "height_px": 2200,
+      "dpi": 200,
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "min_area_ratio": 0.04,
+      "charts": [
+        {
+          "chart_type": "bar",
+          "title": "Figure 1. Annual customer count",
+          "bbox": [
+            126,
+            365,
+            1470,
+            1419
+          ],
+          "bbox_space": "image_pixels",
+          "area_ratio": 0.3788,
+          "chart_id": "chart_002_001",
+          "page": 2,
+          "page_number": 2,
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "image_path": "data\\charts\\8cee8deb65bd43d6a8ce0e04472069c8\\chart_002_001.png",
+          "evidence": {
+            "id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+            "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+            "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+            "page": 2,
+            "page_number": 2,
+            "type": "chart",
+            "chart_id": "chart_002_001",
+            "chart_type": "bar",
+            "content": "Detected bar chart: Figure 1. Annual customer count",
+            "bbox": [
+              126,
+              365,
+              1470,
+              1419
+            ],
+            "bbox_space": "image_pixels",
+            "image_path": "data\\charts\\8cee8deb65bd43d6a8ce0e04472069c8\\chart_002_001.png",
+            "facts": []
+          },
+          "facts": []
+        }
+      ],
+      "chart_count": 1,
+      "rejected_tiny_regions": 0,
+      "model_configuration": {
+        "provider": "openrouter",
+        "text_model": "nvidia/nemotron-3.5-super-vl:free",
+        "vision_model": "nvidia/nemotron-3.5-super-vl:free",
+        "draft_model": "nvidia/nemotron-3.5-super-vl:free",
+        "text_fallbacks": [],
+        "vision_fallbacks": [],
+        "allow_fallbacks": false,
+        "timeout_seconds": 120.0,
+        "max_output_tokens": 8192,
+        "vision_max_output_tokens": 32768,
+        "send_temperature": false,
+        "gateway_version": 2,
+        "schema_policy": "strict JSON Schema plus local validation",
+        "openrouter_base_url": "https://openrouter.ai/api/v1"
+      },
+      "model_calls": [
+        {
+          "time": "2026-11-06T12:04:25.160764+00:00",
+          "task": "vision",
+          "gateway_provider": "openrouter",
+          "requested_model": "nvidia/nemotron-3.5-super-vl:free",
+          "actual_model": "nvidia/nemotron-3.5-super-vl:free",
+          "attempt": 1,
+          "fallback": false,
+          "output_token_limit": 32768,
+          "upstream_provider": "Nvidia",
+          "request_id": "gen-1793966665-KBYkb6dhuFAGLUCSIVOz",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3473,
+            "completion_tokens": 827,
+            "total_tokens": 4300,
+            "cost": 0,
+            "is_byok": false,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "audio_tokens": 0,
+              "video_tokens": 0
+            },
+            "cost_details": {
+              "upstream_inference_cost": 0,
+              "upstream_inference_prompt_cost": 0,
+              "upstream_inference_completions_cost": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 776,
+              "image_tokens": 0,
+              "audio_tokens": 0
+            }
+          },
+          "status": "ok",
+          "duration_seconds": 7.767
+        }
+      ],
+      "actual_models": [
+        "nvidia/nemotron-3.5-super-vl:free"
+      ],
+      "gateway_provider": "openrouter"
+    }
+  }
+}

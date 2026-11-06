@@ -77,7 +77,7 @@ def build_evidence(document_id: str) -> dict:
             "column_headers": table.get("column_headers"),  # recovered years/periods
             "is_data": table.get("is_data", True),          # False for TOC tables
         }
-        for field in ("title", "unit", "currency_quote", "row_units", "extraction_method", "image_path", "model_provenance"):
+        for field in ("title", "unit", "currency_quote", "currency_warning", "row_units", "extraction_method", "image_path", "model_provenance"):
             if field in table:
                 item[field] = table[field]
         evidence.append(item)

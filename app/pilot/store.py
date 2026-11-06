@@ -233,6 +233,33 @@ def get_job(access, job):
         return dict(row)
 
 
+def processing_failure(access, job):
+    """Read safe diagnostics for legacy failures, never another attempt's error."""
+    from services.failure_details import describe_failure
+    row = get_job(access, job)
+    saved, payload = json.loads(row["result"]), json.loads(row["payload"])
+    if isinstance(saved.get("failure"), dict):
+        return saved["failure"]
+    details = describe_failure(kind=saved.get("error_kind", ""), calls=saved.get("model_calls", []),
+                               stage=saved.get("error_stage") or row["kind"])
+    if row["kind"] != "process" or row["status"] not in {"failed", "paused"}:
+        return details
+    with db() as c:
+        document(c, access, payload["document_id"])
+    path = file_path(access.workspace, "data/processed", uid(payload["document_id"]), "document.json")
+    try:
+        # Reprocessing overwrites this file. Do not mislabel an older job.
+        if abs(path.stat().st_mtime-row["updated"]) > 20:
+            return details
+        meta = json.loads(path.read_text(encoding="utf-8"))
+        models = (payload.get("openrouter") or {}).get("models") or {}
+        return describe_failure(kind=meta.get("error_kind", ""), message=meta.get("error", ""),
+                                stage=meta.get("error_stage") or "document_processing",
+                                metadata={"model": models.get("vision_model")})
+    except (OSError, ValueError, TypeError):
+        return details
+
+
 def resume(access, job):
     with db() as c:
         c.execute("BEGIN IMMEDIATE")
@@ -248,6 +275,15 @@ def resume(access, job):
             original = json.loads(row["payload"]).get("openrouter") or {}
             if original.get("connection_version") != current["connection_version"]:
                 raise ValueError("The OpenRouter connection changed. Submit a new request using your saved key.")
+        if row["kind"] == "process":
+            source_id = json.loads(row["payload"])["document_id"]
+            doc = document(c, access, source_id)
+            if doc["status"] in {"ready", "deleting"}:
+                raise ValueError("This source is already ready or being deleted. Refresh its current status.")
+            for active in c.execute("SELECT payload FROM jobs WHERE workspace=? AND id<>? AND kind IN ('process','delete') AND status IN ('queued','running')", (access.workspace, job)):
+                if json.loads(active["payload"]).get("document_id") == source_id:
+                    raise ValueError("This source already has active processing. Follow its latest request.")
+            c.execute("UPDATE documents SET status='queued' WHERE id=? AND workspace=?", (source_id, access.workspace))
         c.execute("UPDATE jobs SET status='queued',stage='Queued for explicit retry',updated=? WHERE id=?", (time.time(), job))
 
 

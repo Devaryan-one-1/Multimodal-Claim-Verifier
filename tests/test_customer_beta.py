@@ -364,6 +364,46 @@ class CustomerReviewScreenTests(unittest.TestCase):
         read.assert_not_called()
         self.assertIn("unavailable", self.st.rendered_text("warning"))
 
+    def test_evidence_view_page_returns_to_same_citation_after_manual_browsing(self):
+        self.st.pressed.add("View Page")
+        for kind, page, doc in (("chart", 2, "b"*32), ("table", 7, "d"*32), ("text", 4, "e"*32)):
+            with self.subTest(kind=kind, page=page):
+                evidence = {"id": "citation-"+kind, "document_id": doc, "page": page,
+                            "type": kind, "content": "Public citation fixture"}
+                result = {"status": "complete", "verdict": "SUPPORTED", "evidence": [evidence]}
+                key = "fixtureviewer_0"
+                self.st.session_state[key+"citation"] = 0
+                self.st.session_state[key+"page"] = 1
+                with patch.object(store, "documents", return_value=[{"id": doc, "name": kind+".pdf"}]):
+                    self.review(results=[result])
+                self.assertEqual(self.st.session_state[key+"citation"], 0)
+                self.assertEqual(self.st.session_state[key+"page"], page)
+
+    def test_evidence_view_page_uses_ownership_filtered_citation_index(self):
+        allowed, foreign = "b"*32, "d"*32
+        result = {"status": "complete", "verdict": "SUPPORTED", "evidence": [
+            {"id": "foreign", "document_id": foreign, "page": 9, "type": "chart"},
+            {"id": "allowed", "document_id": allowed, "page": 3, "type": "text"}]}
+        self.st.session_state["fixtureviewer_0page"] = 1
+        self.st.pressed.add("View Page")
+        with patch.object(store, "documents", return_value=[{"id": allowed, "name": "Allowed.pdf"}]):
+            self.review(results=[result])
+        self.assertEqual(self.st.session_state["fixtureviewer_0citation"], 0)
+        self.assertEqual(self.st.session_state["fixtureviewer_0page"], 3)
+
+    def test_evidence_view_page_does_not_navigate_to_foreign_or_invalid_citations(self):
+        allowed = "b"*32
+        self.st.pressed.add("View Page")
+        for doc, page in (("d"*32, 2), (allowed, 0), (allowed, -1), (allowed, True), (allowed, "2")):
+            with self.subTest(doc=doc, page=page):
+                result = {"status": "complete", "verdict": "SUPPORTED", "evidence": [
+                    {"id": "unavailable", "document_id": doc, "page": page, "type": "chart"}]}
+                self.st.session_state["fixtureviewer_0page"] = 1
+                self.st.session_state["fixtureviewer_0citation"] = 0
+                with patch.object(store, "documents", return_value=[{"id": allowed, "name": "Allowed.pdf"}]):
+                    self.review(results=[result])
+                self.assertEqual(self.st.session_state["fixtureviewer_0page"], 1)
+                self.assertEqual(self.st.session_state["fixtureviewer_0citation"], 0)
     def test_connection_key_widget_is_masked_without_saved_plaintext(self):
         with patch.object(self.ui.model_connections, "metadata", return_value=None):
             self.assertFalse(self.ui.connection_panel(self.access, "fixture"))

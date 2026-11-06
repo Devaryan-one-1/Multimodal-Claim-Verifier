@@ -51,6 +51,7 @@ def model_config(text_model, vision_model=""):
         "text_fallbacks": [], "vision_fallbacks": [],
         "timeout_seconds": min(600, max(1, float(os.getenv("CUSTOMER_MODEL_TIMEOUT_SECONDS", "120")))),
         "max_output_tokens": min(131072, max(256, int(os.getenv("CUSTOMER_MAX_OUTPUT_TOKENS", "8192")))),
+        "vision_max_output_tokens": min(131072, max(256, int(os.getenv("CUSTOMER_VISION_MAX_OUTPUT_TOKENS", "32768")))),
         "send_temperature": False,
     }
 
@@ -99,23 +100,30 @@ def validate(api_key, models):
         if not isinstance(endpoints, list):
             raise ModelConnectionError("OpenRouter returned invalid endpoint capabilities. Try again later.")
         compatible = []
+        required_limit = models.get("vision_max_output_tokens", models["max_output_tokens"]) if vision else models["max_output_tokens"]
         for item in endpoints:
             if not isinstance(item, dict):
                 continue
             parameters, limit = item.get("supported_parameters") or [], item.get("max_completion_tokens")
             if (isinstance(parameters, list) and
                 {"structured_outputs", "response_format", "max_tokens"}.issubset(parameters) and
-                (limit is None or isinstance(limit, (int, float)) and limit >= models["max_output_tokens"])):
+                (limit is None or isinstance(limit, (int, float)) and limit >= required_limit)):
                 compatible.append(item)
         if not compatible:
-            raise ModelConnectionError(f"Model {model} has no listed endpoint supporting strict JSON Schema and the output limit.")
+            raise ModelConnectionError(f"Model {model} has no listed endpoint supporting strict JSON Schema and {required_limit} output tokens. Choose a compatible model or ask the administrator to lower that limit.")
 
 
 def metadata(access):
     with store.db() as c:
         store.authorize(c, access)
         row = c.execute("SELECT version,models,updated FROM model_connections WHERE principal=?", (access.principal,)).fetchone()
-    return {"version": row["version"], "models": json.loads(row["models"]), "updated": row["updated"]} if row else None
+    return {"version": row["version"], "models": _new_job_models(json.loads(row["models"])), "updated": row["updated"]} if row else None
+
+
+def _new_job_models(models):
+    # Upgrade the new-job budget without replacing the saved key or editing old jobs.
+    return {**models, "vision_max_output_tokens": models.get("vision_max_output_tokens",
+            model_config(models.get("text_model", ""), models.get("vision_model", ""))["vision_max_output_tokens"])}
 
 
 def save(access, api_key, text_model, vision_model=""):
@@ -163,7 +171,7 @@ def snapshot(c, access, *, vision=False):
     row = c.execute("SELECT version,models FROM model_connections WHERE principal=?", (access.principal,)).fetchone()
     if not row:
         raise ModelConnectionError("Connect your OpenRouter key and choose models before submitting work.")
-    models = json.loads(row["models"])
+    models = _new_job_models(json.loads(row["models"]))
     if vision and not models.get("vision_model"):
         raise ModelConnectionError("Choose a compatible vision model before processing a document.")
     return {"connection_version": row["version"], "models": models}
@@ -180,14 +188,15 @@ def credentials_for_job(access, payload):
         if not row:
             raise ModelConnectionError("Your OpenRouter connection was removed or replaced. Reconnect and submit a new request.")
         key = _decode(row)
-    selected = binding["models"]
+    selected = dict(binding["models"])
+    selected.setdefault("vision_max_output_tokens", selected.get("max_output_tokens"))
     # Reconstruct from allowlisted fields; never inherit server providers/fallbacks.
     config = model_config(selected.get("text_model", ""), selected.get("vision_model", ""))
-    for name in ("timeout_seconds", "max_output_tokens"):
+    for name in ("timeout_seconds", "max_output_tokens", "vision_max_output_tokens"):
         value = selected.get(name)
         if not isinstance(value, (int, float)) or isinstance(value, bool) or not 0 < value <= config[name]:
             raise ModelConnectionError("The request's model limits changed. Submit a new request.")
-        if name == "max_output_tokens" and not isinstance(value, int):
+        if name.endswith("output_tokens") and not isinstance(value, int):
             raise ModelConnectionError("The request's output limit is invalid. Submit a new request.")
         config[name] = value
     if config != selected:

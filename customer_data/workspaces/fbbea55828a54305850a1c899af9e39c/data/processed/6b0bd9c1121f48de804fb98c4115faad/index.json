@@ -3,6 +3,6 @@
   "collection": "evidence_v2_4251d7d3a135",
   "embedding_model": "gemini-embedding-001",
   "dimensions": 768,
-  "chunk_count": 305,
-  "chunks_hash": "9ad85cddf39774073932fde5252216afdcb09b8c4f0d1515116a81429ce1048e"
+  "chunk_count": 345,
+  "chunks_hash": "254aac7d81cd92f39ed46efb87a74b2904ddab5c0c2fa58592ebb55fc0dab22e"
 }

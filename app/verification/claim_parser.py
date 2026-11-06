@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from services.model_gateway import capture_calls, model_name, structured
 from services.verification_errors import ParseValidationError, quota_pause
 from verification.number_parser import parse_number
+from verification.reporting_periods import explicit_period
 
 DESC_MODEL = model_name()
 # A sentence-ending full stop or comma is punctuation, not part of a number.
@@ -221,6 +222,22 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
         raise ParseValidationError("A declarative assertion was classified as unclear.")
 
     _validate_input_fields(pc, original)
+    period_text = atom if not quote or quote in atom else atom+" "+quote
+    try:
+        period = explicit_period(period_text)
+    except ValueError as error:
+        raise ParseValidationError(str(error)) from error
+    if period and pc["period_type"] != period[0]:
+        pc["period_type"] = period[0]
+        pc["notes"].append("Reporting period normalized from explicit original wording.")
+    if period and not pc.get("period_quote"):
+        pc["period_quote"] = period[1]
+    if pc.get("quarter") and not re.search(
+        rf"\bq{pc['quarter']}\b|\b{({1: 'first', 2: 'second', 3: 'third', 4: 'fourth'})[pc['quarter']]}\s+(?:fiscal\s+)?quarter\b",
+        period_text, re.I,
+    ):
+        pc["quarter"] = None
+        pc["notes"].append("Unstated fiscal quarter removed; calendar dates do not establish fiscal quarters.")
     years = _years(atom)
     if quote:
         years = list(dict.fromkeys([*years, *_years(quote)]))

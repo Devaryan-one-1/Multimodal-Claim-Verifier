@@ -15,6 +15,7 @@ from pilot.store import Access, authorize, db, document, file_path, uid, workspa
 from services.observability import event, model_call_summary
 from pilot.model_connections import ModelConnectionError, credentials_for_job
 from pilot.pdf_limits import check_pdf
+from services.failure_details import describe_failure
 
 
 def code_version():
@@ -35,6 +36,8 @@ def run(job_id, token):
         raise RuntimeError("Worker must run inside the assigned workspace.")
     payload = json.loads(row["payload"])
     checkpoint = json.loads(row["checkpoint"])
+    request_calls = []
+    last_stage = "Starting"
 
     def save(status="running", stage="Working", result=None):
         with db() as c:
@@ -46,6 +49,8 @@ def run(job_id, token):
 
     class Reporter:
         def update(self, stage, completed=0, total=None, message=None):
+            nonlocal last_stage
+            last_stage = str(stage)
             save(stage=str(stage)[:160])
         def log(self, message):
             pass  # Do not publish backend paths, prompts or provider error bodies.
@@ -58,7 +63,8 @@ def run(job_id, token):
             authorize(c, access)
         version = code_version()
         if checkpoint.get("code_version") and checkpoint["code_version"] != version:
-            save("paused", "Code changed. Create a new review to use this version.", {"results": checkpoint.get("results", [])})
+            save("paused", "Code changed. Start a new request to use this version.",
+                 {"results": checkpoint.get("results", []), "failure": describe_failure(kind="code_changed")})
             return
         checkpoint["code_version"] = version
         from services.model_gateway import configuration_snapshot, capture_calls, configure
@@ -70,7 +76,8 @@ def run(job_id, token):
             configure(selected)
         config = configuration_snapshot()
         if checkpoint.get("models") and checkpoint["models"] != config:
-            save("paused", "Model settings changed. Restore them to resume, or create a new review.", {"results": checkpoint.get("results", [])})
+            save("paused", "Model settings changed. Restore them to resume, or create a new request.",
+                 {"results": checkpoint.get("results", []), "failure": describe_failure(kind="settings_changed")})
             return
         checkpoint["models"] = config
         if row["kind"] == "process":
@@ -82,11 +89,15 @@ def run(job_id, token):
             if hashlib.sha256(data).hexdigest() != source["sha"]:
                 raise ValueError("Source version changed.")
             check_pdf(data)
-            result = process_document(data, source["name"], doc_id, reporter=reporter, **payload["options"])
+            with capture_calls() as (calls, start):
+                try:
+                    result = process_document(data, source["name"], doc_id, reporter=reporter, **payload["options"])
+                finally:
+                    request_calls = list(calls[start:])
             with db() as c:
                 authorize(c, access)
                 c.execute("UPDATE documents SET status='ready',metadata=? WHERE id=? AND workspace=?", (json.dumps(result), doc_id, access.workspace))
-            save("complete", "Document ready", {"document_id": doc_id})
+            save("complete", "Document ready", {"document_id": doc_id, "model_calls": [model_call_summary(x) for x in request_calls]})
         elif row["kind"] == "verify":
             from verification.claim_parser import parse_claims
             from pipelines.verification_pipeline import _verify_one
@@ -100,6 +111,7 @@ def run(job_id, token):
                 reporter.update("Understanding claims")
                 with capture_calls() as (calls, start):
                     parsed = parse_claims(payload["claim"])
+                    request_calls = list(calls[start:])
                     checkpoint["parsing_calls"] = [model_call_summary(x) for x in calls[start:]]
                 if not parsed or any(p.get("parsing_error") for p in parsed):
                     failure = next((p for p in parsed or [] if p.get("parsing_error")), {})
@@ -107,7 +119,9 @@ def run(job_id, token):
                           stage="claim_parser", error_kind=failure.get("error_kind"))
                     save("paused", "Verification failed while understanding the claim; retry when service is available.",
                          {"results": checkpoint.get("results", []), "error_stage": "claim_parser",
-                          "error_kind": failure.get("error_kind"), "model_calls": checkpoint["parsing_calls"]})
+                          "error_kind": failure.get("error_kind"), "model_calls": checkpoint["parsing_calls"],
+                          "failure": describe_failure(kind=failure.get("error_kind", ""),
+                              message=failure.get("parsing_error", ""), calls=request_calls, stage="claim_parser")})
                     return
                 checkpoint["parsed"] = parsed
                 checkpoint["results"] = []
@@ -117,6 +131,7 @@ def run(job_id, token):
                 started = time.perf_counter()
                 with capture_calls() as (calls, start):
                     result = _verify_one(pc, payload["documents"], reporter)
+                    request_calls = list(calls[start:])
                     result["model_calls"] = [model_call_summary(x) for x in calls[start:]]
                 result["processing_time_seconds"] = time.perf_counter()-started
                 if result.get("status") == "error":
@@ -124,7 +139,9 @@ def run(job_id, token):
                           stage=result.get("error_stage"), error_kind=result.get("error_kind"))
                     save("paused", "Verification failed — retry. Completed subclaims were saved.",
                          {"results": results, "error_stage": result.get("error_stage"),
-                          "error_kind": result.get("error_kind"), "model_calls": result["model_calls"]})
+                          "error_kind": result.get("error_kind"), "model_calls": result["model_calls"],
+                          "failure": describe_failure(kind=result.get("error_kind", ""),
+                              message=result.get("reason", ""), calls=request_calls, stage=result.get("error_stage") or "verification")})
                     return
                 results.append(result)
                 save(stage=f"Checked {len(results)} of {len(checkpoint['parsed'])} claims", result={"results": results})
@@ -149,14 +166,22 @@ def run(job_id, token):
     except ModelConnectionError as exc:
         event("customer_job_paused", level="warning", status="paused",
               stage="openrouter_connection", error_kind=type(exc).__name__)
-        save("paused", str(exc), {"results": checkpoint.get("results", []),
-                                 "error_kind": type(exc).__name__, "error_stage": "openrouter_connection"})
+        details = describe_failure(exc, stage="openrouter_connection")
+        save("paused", details["title"], {"results": checkpoint.get("results", []),
+                                 "error_kind": type(exc).__name__, "error_stage": "openrouter_connection",
+                                 "failure": details})
     except Exception as exc:
         # Persist useful classification, but never expose raw provider exception bodies.
         event("customer_job_failed", level="error", status="failed",
               stage=row["kind"], error_kind=type(exc).__name__)
+        if not request_calls and getattr(exc, "metadata", None):
+            request_calls = [exc.metadata]
+        details = describe_failure(exc, calls=request_calls, stage=last_stage if last_stage != "Starting" else getattr(exc, "stage", row["kind"]))
+        save("failed", "Processing failed — " + details["title"],
+             {"error_kind": type(exc).__name__, "error_stage": getattr(exc, "stage", row["kind"]),
+              "results": checkpoint.get("results", []), "failure": details,
+              "model_calls": [model_call_summary(x) for x in request_calls]})
         with db() as c:
-            c.execute("UPDATE jobs SET status='failed',stage=?,result=?,updated=? WHERE id=? AND run_token=?", ("Processing failed — retry or contact the administrator", json.dumps({"error_kind": type(exc).__name__, "results": checkpoint.get("results", [])}), time.time(), job_id, token))
             if row["kind"] == "process":
                 c.execute("UPDATE documents SET status='error' WHERE id=? AND workspace=?", (payload.get("document_id"), access.workspace))
     finally:

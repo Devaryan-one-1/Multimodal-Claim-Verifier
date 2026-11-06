@@ -1,0 +1,54 @@
+{
+  "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+  "filename": "beta-table-chart-check.pdf",
+  "company_name": "",
+  "pdf_path": "data\\documents\\8cee8deb65bd43d6a8ce0e04472069c8\\original.pdf",
+  "pdf_sha256": "2385e1aa3eab67849d5e5c7a625069d53c176525f06ff8e2ba3d5087d03f299a",
+  "fingerprint": "2385e1aa3eab67849d5e5c7a625069d53c176525f06ff8e2ba3d5087d03f299a",
+  "size_bytes": 3453,
+  "profile": "dashboard-v1",
+  "options": {
+    "ocr": true,
+    "chart_mode": "candidate pages",
+    "visual_limit": 20
+  },
+  "status": "ready",
+  "warnings": [
+    "Chart detection used candidate pages; charts without detectable layout/caption cues may be missed."
+  ],
+  "extraction_model_configuration": {
+    "provider": "openrouter",
+    "text_model": "nvidia/nemotron-3.5-super-vl:free",
+    "vision_model": "nvidia/nemotron-3.5-super-vl:free",
+    "draft_model": "nvidia/nemotron-3.5-super-vl:free",
+    "text_fallbacks": [],
+    "vision_fallbacks": [],
+    "allow_fallbacks": false,
+    "timeout_seconds": 120.0,
+    "max_output_tokens": 8192,
+    "vision_max_output_tokens": 32768,
+    "send_temperature": false,
+    "gateway_version": 2,
+    "schema_policy": "strict JSON Schema plus local validation",
+    "openrouter_base_url": "https://openrouter.ai/api/v1"
+  },
+  "page_count": 2,
+  "metadata": {
+    "title": "Beta table and chart check - synthetic data",
+    "author": "anonymous",
+    "subject": "unspecified",
+    "creator": "anonymous",
+    "producer": "ReportLab PDF Library - (opensource)"
+  },
+  "text_page_count": 2,
+  "table_extraction": "table-vision-v1",
+  "table_detection_pages": 1,
+  "text_extracted": true,
+  "table_count": 1,
+  "chart_count": 1,
+  "ocr_page_count": 0,
+  "evidence_count": 13,
+  "chunk_count": 13,
+  "visual_pages_scanned": 1,
+  "processing_time_seconds": 41.65458420000505
+}

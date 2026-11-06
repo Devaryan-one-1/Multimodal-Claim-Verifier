@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import json
 import signal
 import subprocess
 import sys
@@ -15,6 +16,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT / "app"))
 load_dotenv(PROJECT / ".env", override=False)
 from pilot.store import db, initialize, root, workspace_dir
+from services.failure_details import describe_failure
 
 
 def exclusive_lock():
@@ -84,7 +86,14 @@ def main(stop=None):
                     except subprocess.TimeoutExpired:
                         task.kill(); task.wait()
                 with db() as c:
-                    c.execute("UPDATE jobs SET status='paused',stage='Worker stopped or timed out; explicit retry required',updated=? WHERE id=? AND status='running' AND run_token=?", (time.time(), row["id"], token))
+                    pending = c.execute("SELECT result FROM jobs WHERE id=? AND status='running' AND run_token=?", (row["id"], token)).fetchone()
+                    if pending:
+                        result = json.loads(pending["result"])
+                        reason = ("worker_stopped" if stop.is_set() else "worker_timeout"
+                                  if time.monotonic()-started > int(os.getenv("CUSTOMER_JOB_TIMEOUT_SECONDS", "3600"))
+                                  else "worker_interrupted")
+                        result["failure"] = describe_failure(kind=reason)
+                        c.execute("UPDATE jobs SET status='paused',stage='Worker stopped or timed out; explicit retry required',result=?,updated=? WHERE id=? AND status='running' AND run_token=?", (json.dumps(result), time.time(), row["id"], token))
     finally:
         lock.close()
         for signum, handler in previous.items():
