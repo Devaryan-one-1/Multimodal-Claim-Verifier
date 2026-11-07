@@ -1,11 +1,13 @@
 """Real Linux image checks with public fixture data and no network/provider calls."""
 from importlib.metadata import version
+import hashlib
 import io
 from pathlib import Path
 import sys
 import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"app"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 
 def main():
@@ -14,6 +16,8 @@ def main():
     from pypdf import PdfReader
     import pymupdf
     import chromadb
+    import psycopg
+    assert psycopg.pq.version() > 0
     import pilot.ui
     import pilot.auth
     from pilot.pdf_limits import check_pdf
@@ -44,15 +48,21 @@ def main():
         client = chromadb.PersistentClient(path=folder)
         collection = client.get_or_create_collection("docker-smoke", embedding_function=None)
         vector = [1.0]+[0.0]*767
-        collection.add(ids=["public-fixture"], embeddings=[vector], documents=["public fixture"])
+        collection.add(ids=["public-fixture"], embeddings=[vector], documents=["public fixture"],metadatas=[{"document_id":"f"*32}])
         assert collection.query(query_embeddings=[vector], n_results=1)["ids"] == [["public-fixture"]]
-        client.delete_collection("docker-smoke")
+        client._system.stop()
+        before={p.relative_to(folder).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(folder).rglob("*") if p.is_file()}
+        from scripts.migrate_supabase import exported_vectors
+        copied=list(exported_vectors(Path(folder),"docker-smoke",["f"*32]))
+        assert len(copied)==1 and copied[0][1]["embeddings"]==[vector]
+        after={p.relative_to(folder).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(folder).rglob("*") if p.is_file()}
+        assert before==after
 
     # The build warms this cache as root. Prove non-root/offline runtime can use it.
     score = _get_model().predict([("public fixture", "public fixture")])
     assert len(score) == 1
-    print("Customer-only imports, native encryption, PDF/PNG, embedded vectors and offline reranker passed.")
-    for package in ("streamlit", "pillow", "pypdf", "setuptools", "chromadb"):
+    print("Customer-only imports, native Postgres driver/encryption, PDF/PNG, copied-index export and offline reranker passed.")
+    for package in ("streamlit", "pillow", "pypdf", "setuptools", "chromadb", "psycopg"):
         print(f"{package}=={version(package)}")
 
 

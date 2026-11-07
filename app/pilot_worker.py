@@ -17,9 +17,13 @@ sys.path.insert(0, str(PROJECT / "app"))
 load_dotenv(PROJECT / ".env", override=False)
 from pilot.store import db, initialize, root, workspace_dir
 from services.failure_details import describe_failure
+from pilot.cloud_db import enabled as cloud_enabled
 
 
 def exclusive_lock():
+    if cloud_enabled():
+        from pilot.cloud_db import WorkerLock
+        return WorkerLock()
     handle = (root() / "worker.lock").open("a+b")
     handle.seek(0)
     handle.write(b"0")
@@ -43,16 +47,35 @@ def heartbeat():
         c.execute("INSERT INTO worker_status VALUES(1,?) ON CONFLICT(id) DO UPDATE SET heartbeat=excluded.heartbeat", (time.time(),))
 
 
+def recover_cloud_jobs():
+    """Only after acquiring the database's exclusive worker lock."""
+    with db() as c:
+        c.execute("BEGIN IMMEDIATE")
+        for row in c.execute("SELECT id,result FROM jobs WHERE status='running'").fetchall():
+            result=json.loads(row["result"])
+            result["failure"]=describe_failure(kind="worker_interrupted")
+            c.execute("UPDATE jobs SET status='paused',stage='Worker restarted; explicit retry required',run_token=NULL,result=?,updated=? WHERE id=? AND status='running'",
+                      (json.dumps(result),time.time(),row["id"]))
+
+
 def main(stop=None):
     stop = stop or threading.Event()
     initialize()
     lock = exclusive_lock()
+    if cloud_enabled():
+        try:
+            recover_cloud_jobs()
+        except BaseException:
+            lock.close()
+            raise
     previous = {}
     if threading.current_thread() is threading.main_thread():
         for signum in (signal.SIGINT, signal.SIGTERM):
             previous[signum] = signal.signal(signum, lambda *_: stop.set())
     try:
         while not stop.is_set():
+            if cloud_enabled():
+                lock.check()
             heartbeat()
             with db() as c:
                 c.execute("BEGIN IMMEDIATE")
@@ -65,6 +88,8 @@ def main(stop=None):
                 continue
             env = os.environ.copy()
             env["CUSTOMER_DATA_ROOT"] = str(root())
+            env["CUSTOMER_WORKSPACE_ID"] = row["workspace"]
+            env["CUSTOMER_JOB_ID"], env["CUSTOMER_JOB_TOKEN"] = row["id"], token
             # The worker does not inherit browser state or a customer-supplied model configuration.
             env["CLAIM_VERIFIER_LOG_DIR"] = str(workspace_dir(row["workspace"]) / "data/logs")
             task = None
@@ -74,6 +99,8 @@ def main(stop=None):
                     task = subprocess.Popen([sys.executable, str(PROJECT / "app/pilot_task.py"), row["id"], token], cwd=workspace_dir(row["workspace"]), env=env,
                                             stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 while task is not None and task.poll() is None:
+                    if cloud_enabled():
+                        lock.check()
                     heartbeat()
                     if stop.is_set() or time.monotonic()-started > int(os.getenv("CUSTOMER_JOB_TIMEOUT_SECONDS", "3600")):
                         break

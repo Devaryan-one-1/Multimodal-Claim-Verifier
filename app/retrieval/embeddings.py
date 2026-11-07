@@ -9,7 +9,6 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-import chromadb
 from google.genai import types
 
 from services.runtime import client, digest, normalize, read, retry, write
@@ -55,6 +54,11 @@ def _pace(item_count: int, reporter=None):
 
 
 def collection():
+    from pilot.cloud_db import enabled
+    if enabled():
+        from retrieval.cloud_vectors import Collection
+        return Collection(COLLECTION_NAME, EMBED_MODEL, DIMENSIONS)
+    import chromadb
     return chromadb.PersistentClient(path=CHROMA_DIR).get_or_create_collection(name=COLLECTION_NAME)
 
 

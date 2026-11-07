@@ -6,6 +6,7 @@ import re
 
 
 MESSAGES = {
+    "cloud_storage": ("Customer cloud storage is unavailable", "The customer database, private files or saved vector index could not be used safely. No factual verdict was inferred from this failure.", "Ask the administrator to check Supabase availability, storage limits, the private bucket and saved encryption key, then retry."),
     "output_truncated": ("Model response reached its output limit", "The model stopped before completing its structured response. Partial output was not accepted.", "Start a new processing request to use the current vision budget. If this repeats, choose a model with a larger supported output limit or report the reference below."),
     "context_limit": ("Report region exceeds the model's context limit", "The provider could not fit the document input and requested output into this model's context window.", "Choose a vision model with a larger context window, or use a smaller report. Start a new request after changing the model."),
     "daily_quota": ("Free-model daily quota reached", "OpenRouter reported that the free-model daily allowance is exhausted.", "Wait for the provider's quota reset or choose a model with available quota, then start a new request. Re-uploading the PDF does not reset quota."),
@@ -64,6 +65,8 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
         current = getattr(current, "__cause__", None) or getattr(current, "__context__", None)
     texts.append(info.get("error_message", ""))
     kinds.add(str(info.get("error_type") or info.get("error_kind") or ""))
+    if "CloudStorageError" in kinds:
+        info = {}  # Earlier model HTTP status is unrelated to this storage failure.
     text = " ".join(str(value or "") for value in texts).lower()
     status = info.get("service_error_code") or info.get("http_status")
     status = status if isinstance(status, int) and not isinstance(status, bool) else None
@@ -72,6 +75,8 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
     google = "embedding" in stage.lower() or "embedding" in text or "ClientError" in kinds
     if kind in MESSAGES:
         code = kind
+    elif "CloudStorageError" in kinds:
+        code = "cloud_storage"
     elif finish == "length" or "structured response was truncated" in text or "output reached the token limit" in text:
         code = "output_truncated"
     elif "context" in text and any(s in text for s in ("limit", "exceed", "length")):

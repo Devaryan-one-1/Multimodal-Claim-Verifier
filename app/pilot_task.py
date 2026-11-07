@@ -16,6 +16,7 @@ from services.observability import event, model_call_summary
 from pilot.model_connections import ModelConnectionError, credentials_for_job
 from pilot.pdf_limits import check_pdf
 from services.failure_details import describe_failure
+from pilot.cloud_db import enabled as cloud_enabled
 
 
 def code_version():
@@ -61,6 +62,8 @@ def run(job_id, token):
     try:
         with db() as c:
             authorize(c, access)
+        if cloud_enabled() and os.getenv("CUSTOMER_WORKSPACE_ID") != access.workspace:
+            raise RuntimeError("Cloud worker workspace does not match the assigned request.")
         version = code_version()
         if checkpoint.get("code_version") and checkpoint["code_version"] != version:
             save("paused", "Code changed. Start a new request to use this version.",
@@ -80,6 +83,9 @@ def run(job_id, token):
                  {"results": checkpoint.get("results", []), "failure": describe_failure(kind="settings_changed")})
             return
         checkpoint["models"] = config
+        if cloud_enabled() and row["kind"] in {"process", "verify"}:
+            from pilot.cloud_files import hydrate
+            hydrate(access, [payload["document_id"]] if row["kind"] == "process" else payload["documents"])
         if row["kind"] == "process":
             from pipelines.document_pipeline import process_document
             doc_id = payload["document_id"]
@@ -94,6 +100,9 @@ def run(job_id, token):
                     result = process_document(data, source["name"], doc_id, reporter=reporter, **payload["options"])
                 finally:
                     request_calls = list(calls[start:])
+            if cloud_enabled():
+                from pilot.cloud_files import publish
+                publish(access,doc_id,job_id,token)
             with db() as c:
                 authorize(c, access)
                 c.execute("UPDATE documents SET status='ready',metadata=? WHERE id=? AND workspace=?", (json.dumps(result), doc_id, access.workspace))
@@ -154,6 +163,9 @@ def run(job_id, token):
             with db() as c:
                 document(c, access, doc_id)
             delete_document(doc_id)
+            if cloud_enabled():
+                from pilot.cloud_files import delete_document as delete_private_document
+                delete_private_document(access,doc_id)
             cache = file_path(access.workspace, "data/model_cache", uid(doc_id))
             if cache.exists():
                 shutil.rmtree(cache)
@@ -176,6 +188,12 @@ def run(job_id, token):
               stage=row["kind"], error_kind=type(exc).__name__)
         if not request_calls and getattr(exc, "metadata", None):
             request_calls = [exc.metadata]
+        if cloud_enabled() and row["kind"] == "process":
+            try:
+                from pilot.cloud_files import publish
+                publish(access,payload["document_id"],job_id,token)
+            except Exception:
+                event("customer_cloud_checkpoint_unavailable",level="warning",status="paused")
         details = describe_failure(exc, calls=request_calls, stage=last_stage if last_stage != "Starting" else getattr(exc, "stage", row["kind"]))
         save("failed", "Processing failed — " + details["title"],
              {"error_kind": type(exc).__name__, "error_stage": getattr(exc, "stage", row["kind"]),
@@ -185,6 +203,12 @@ def run(job_id, token):
             if row["kind"] == "process":
                 c.execute("UPDATE documents SET status='error' WHERE id=? AND workspace=?", (payload.get("document_id"), access.workspace))
     finally:
+        if cloud_enabled() and row["kind"] in {"process","verify"}:
+            try:
+                from pilot.cloud_files import publish_query_cache
+                publish_query_cache(access)
+            except Exception:
+                event("customer_query_cache_not_saved",level="warning",status="error")
         if using_customer_key:
             if previous_key is None:
                 os.environ.pop("OPENROUTER_API_KEY", None)

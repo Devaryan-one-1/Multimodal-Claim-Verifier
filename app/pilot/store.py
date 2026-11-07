@@ -7,15 +7,19 @@ import re
 import sqlite3
 import time
 import uuid
+import tempfile
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 from pilot.pdf_limits import check_pages, PDFLimitError
+from pilot.cloud_db import enabled as cloud_enabled
 
 PROJECT = Path(__file__).resolve().parents[2]
 
 def root():
-    path = Path(os.getenv("CUSTOMER_DATA_ROOT", str(PROJECT / "customer_data"))).resolve()
+    default = str(Path(tempfile.gettempdir()) / "claim-verifier-cache") if cloud_enabled() else str(PROJECT / "customer_data")
+    variable = "CUSTOMER_CACHE_ROOT" if cloud_enabled() else "CUSTOMER_DATA_ROOT"
+    path = Path(os.getenv(variable, default)).resolve()
     path.mkdir(parents=True, exist_ok=True)
     return path
 
@@ -39,6 +43,11 @@ class Access:
 
 @contextmanager
 def db():
+    if cloud_enabled():
+        from pilot.cloud_db import db as cloud_db
+        with cloud_db() as connection:
+            yield connection
+        return
     connection = sqlite3.connect(root() / "control.sqlite3", timeout=30)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys=ON")
@@ -53,6 +62,10 @@ def db():
 
 
 def initialize():
+    if cloud_enabled():
+        from pilot.cloud_db import initialize as initialize_cloud
+        initialize_cloud()
+        return
     with db() as c:
         c.execute("PRAGMA journal_mode=WAL")
         c.executescript('''
@@ -108,6 +121,9 @@ def document(c, access, document_id, ready=False):
 
 
 def document_bytes(access, document_id):
+    if cloud_enabled():
+        from pilot.cloud_files import read_document
+        return read_document(access, document_id)
     with db() as c:
         row = document(c, access, document_id)
         data = file_path(access.workspace, "data", "documents", uid(document_id), "original.pdf").read_bytes()
@@ -164,16 +180,28 @@ def upload(access, filename, data, options):
         if count >= int(os.getenv("CUSTOMER_MAX_DOCUMENTS", "30")):
             raise ValueError("Workspace document limit reached.")
         doc = uuid.uuid4().hex
-        target = file_path(access.workspace, "data", "documents", doc, "original.pdf")
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(data)
+        target = None
+        if not cloud_enabled():
+            target = file_path(access.workspace, "data", "documents", doc, "original.pdf")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
         # Ignore upload names for paths. Keep a bounded display-only name.
         name = filename.replace("\\", "/").split("/")[-1][:180]
         try:
             c.execute("INSERT INTO documents(id,workspace,name,sha,status,created) VALUES(?,?,?,?,'queued',?)", (doc, access.workspace, name, sha, time.time()))
             queue(c, access, "process", {"document_id": doc, "options": {"enable_ocr": bool(options.get("enable_ocr", True)), "chart_mode": "candidate pages", "visual_limit": min(30, max(1, int(options.get("visual_limit", 20))))}})
+            if cloud_enabled():
+                from pilot.cloud_files import put
+                put(c,access.workspace,doc,f"data/documents/{doc}/original.pdf",data)
         except BaseException:
-            target.unlink(missing_ok=True)
+            if target is not None:
+                target.unlink(missing_ok=True)
+            elif cloud_enabled():
+                try:
+                    from pilot.cloud_files import remove_objects, object_key
+                    remove_objects([object_key(access.workspace,f"data/documents/{doc}/original.pdf",sha)])
+                except Exception:
+                    pass  # An interrupted upload is private and is never registered as ready.
             raise
         return doc
 
@@ -243,6 +271,8 @@ def processing_failure(access, job):
     details = describe_failure(kind=saved.get("error_kind", ""), calls=saved.get("model_calls", []),
                                stage=saved.get("error_stage") or row["kind"])
     if row["kind"] != "process" or row["status"] not in {"failed", "paused"}:
+        return details
+    if cloud_enabled():
         return details
     with db() as c:
         document(c, access, payload["document_id"])

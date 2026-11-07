@@ -14,6 +14,8 @@ from urllib.parse import urlparse
 
 def configuration_errors(env):
     errors = []
+    if env.get("CUSTOMER_STORAGE", "local").lower() not in {"local", "supabase"}:
+        errors.append("Set CUSTOMER_STORAGE to local or supabase.")
     url = urlparse(env.get("SUPABASE_URL", ""))
     if (url.scheme != "https" or not url.hostname or url.username or url.password or
             url.path not in {"", "/"} or url.query or url.fragment or "YOUR_" in url.netloc.upper()):
@@ -56,6 +58,30 @@ def check(env=None):
     errors = configuration_errors(env)
     if errors:
         return errors
+    if env.get("CUSTOMER_STORAGE", "local").lower() == "supabase":
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"app"))
+            from pilot.cloud_db import initialize, db
+            from pilot.cloud_files import storage
+            from cryptography.fernet import Fernet
+            cipher = Fernet(env["CUSTOMER_KEY_ENCRYPTION_KEY"].encode())
+            initialize()
+            storage()
+            with db() as c:
+                expected_model=env.get("GEMINI_EMBEDDING_MODEL","gemini-embedding-001")
+                for row in c.execute("SELECT model,dimensions FROM vector_collections"):
+                    if row["model"] != expected_model or row["dimensions"] != 768:
+                        raise ValueError()
+                for row in c.execute("SELECT principal,version,secret FROM model_connections"):
+                    value = json.loads(cipher.decrypt(row["secret"].encode()))
+                    if value.get("principal") != row["principal"] or value.get("version") != row["version"]:
+                        raise ValueError()
+            if int(env.get("GEMINI_EMBEDDING_DIMENSIONS", "768")) != 768:
+                raise ValueError()
+        except Exception:
+            return ["Cloud storage preflight failed. Check the private schema/bucket, session-pooler URL, preserved master key and 768-dimensional settings."]
+        return []
     try:
         from cryptography.fernet import Fernet
         cipher = Fernet(env["CUSTOMER_KEY_ENCRYPTION_KEY"].encode())

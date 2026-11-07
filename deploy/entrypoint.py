@@ -17,7 +17,7 @@ def main():
             print("Preflight: " + error, file=sys.stderr)
         raise SystemExit(1)
     command = ([sys.executable, "-m", "streamlit", "run", "app/customer_main.py",
-                "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true",
+                "--server.address=0.0.0.0", "--server.port="+str(int(os.getenv("PORT", "8501"))), "--server.headless=true",
                 "--server.enableCORS=true", "--server.enableXsrfProtection=true",
                 "--server.enableStaticServing=false", "--server.maxUploadSize=10",
                 "--client.showErrorDetails=none", "--browser.gatherUsageStats=false"]
