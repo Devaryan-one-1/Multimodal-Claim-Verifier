@@ -1,14 +1,14 @@
 # Manual acceptance checks
 
-Run these yourself after configuring OIDC and starting both customer UI and worker. The assistant has not run them.
+Run these yourself after configuring Supabase Auth and starting both customer UI and worker. These browser/deployment checks are not established by the offline tests. Start with the shorter [BETA_TESTING.md](BETA_TESTING.md) checklist for the current beta round.
 
 ## Before inviting a pilot customer
 
 1. Keep the original internal dashboard private. Serve only app/customer_main.py publicly, with HTTPS. Verify legacy pages are not reachable through its navigation or direct page paths.
-2. Create two OIDC accounts, A and B. Grant each a distinct workspace. Confirm a signed-in uninvited account sees no source names, review history or API settings.
+2. Create two Supabase app-user accounts, A and B. Grant each a distinct workspace. Confirm a signed-in uninvited account sees no source names, review history or API settings.
 3. Upload a public PDF as A; verify it is absent for B. Test the supplied service-level denial tests for B using A's document/job IDs. Check download, deletion, review, submission and decision access.
-4. Revoke A's membership while A has a tab open. Refresh and attempt another action; access must fail. Check token-expiry behavior. Separately test native Streamlit media/download-link access: strict revocation on every file request is a known follow-up requirement, not established by these service checks.
-5. Confirm customer settings never expose provider keys/model configuration. Restrict server-shell access to administrators.
+4. Revoke A's membership while A has a tab open. Refresh and attempt another action; access must fail. Check token-expiry behavior. Customer media is now delivered inline after authorization; test PDF viewing and the prepare/Save file download flow in both browser profiles. Restart the app after updating to remove older shared media URLs. Already downloaded copies cannot be recalled.
+5. Confirm customer settings never expose server credentials or another user's saved API key. Job model choices may be visible to members of its workspace. Restrict server-shell access to administrators.
 6. Submit a review, close the browser tab, reopen it and inspect the saved job. Confirm decisions, source hashes and exports persist across UI restart with the worker running.
 7. Exercise quota failure: failed execution must appear as failed/paused, not as a successful UNKNOWN. Retry explicitly, with at most three attempts; previously completed atoms must not be regenerated. Observe provider billing separately.
 8. Stop the supervisor normally during a job; confirm it terminates the child and marks the job paused. Test restart and explicit recovery on public fixtures. Do not recover while an old child is still running.
@@ -18,7 +18,7 @@ Run these yourself after configuring OIDC and starting both customer UI and work
 12. Inspect desktop/narrow layouts, keyboard navigation, focus visibility, contrast and evidence highlights. Search native PDF text; scanned pages may have no searchable native text. Confirm highlighting is withheld for unsupported coordinates.
 13. Use two reviewers in one shared workspace. Save a decision from A, then attempt to save B's stale version; B must be asked to refresh. Historical decision events are retained.
 14. Queue deletion only after active workspace jobs complete. Confirm source/index artifacts disappear, saved review snapshots remain, and View Page reports source unavailability. This is not complete erasure of historical evidence snapshots/backups.
-15. Validate persistent disk backups and recovery, disk quotas, file/media access, PDF parser resource limits and dependency security before using sensitive customer reports. OS/container sandboxing and a dedicated authorized download API are outside this implementation.
+15. Validate persistent disk backups and recovery, disk quotas, file/media access, PDF parser resource limits and dependency security before using sensitive customer reports. OS/container sandboxing remains outside this implementation; an optional streaming download API is a later scaling decision for larger files.
 
 ## Supplied service-level tests
 
@@ -26,7 +26,7 @@ Run these yourself after configuring OIDC and starting both customer UI and work
 python -m unittest discover -s tests -p test_customer_access.py
 ```
 
-They use an isolated temporary SQLite database, make no model calls and do not touch the existing reports or vectors. They cover workspace denial, revocation, expired access, traversal, stale review decisions, CSV formula escaping and exclusion of failed predictions from metric denominators. They do not test OIDC login, real PDFs, provider availability or browser rendering.
+They use an isolated temporary SQLite database, make no model calls and do not touch the existing reports or vectors. They cover workspace denial, revocation, expired access, traversal, stale review decisions, CSV formula escaping and exclusion of failed predictions from metric denominators. They do not test live Supabase login, real PDFs, provider availability or browser rendering.
 
 ## Held-out accuracy benchmark
 

@@ -108,7 +108,8 @@ try {
     $testMount = 'type=bind,source=' + (Join-Path $project 'tests') + ',target=/app/tests,readonly'
     foreach ($pattern in @('test_customer_connections.py', 'test_backup_restore.py', 'test_customer_beta.py',
                           'test_customer_access.py', 'test_customer_account_security.py', 'test_customer_account_auth.py',
-                          'test_customer_acceptance.py', 'test_customer_ui_refinements.py', 'test_customer_mobile_layout.py')) {
+                          'test_customer_acceptance.py', 'test_customer_ui_refinements.py', 'test_customer_mobile_layout.py',
+                          'test_claim_parser.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
         Invoke-Docker -DockerArgs ($isolated + @('--mount', $testMount, $image, '-B', '-m', 'unittest',
                                                 'discover', '-s', 'tests', '-p', $pattern, '-v'))
     }

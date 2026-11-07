@@ -213,7 +213,7 @@ def main(argv=None):
     except ImportError:
         print("Install the project dependencies, including psycopg[binary] and the pinned Chroma version, before applying migration.",file=sys.stderr)
         return 1
-    except (OSError,ValueError,sqlite3.Error):
+    except Exception:
         print("Migration did not complete. Check the stopped source backup, preserved key, empty target and cloud configuration. No local data was deleted.",file=sys.stderr)
         return 1
     return 0

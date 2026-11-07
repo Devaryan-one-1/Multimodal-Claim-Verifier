@@ -1,1 +1,0 @@
-{"timestamp": "2026-10-31T23:39:34.977299+00:00", "level": "WARNING", "event": "llm_called", "request_id": null, "provider": null, "model": null, "task": "text", "status": "error", "elapsed_ms": null}

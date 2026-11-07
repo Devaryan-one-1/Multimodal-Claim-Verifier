@@ -133,6 +133,16 @@ def verify(archive):
 
 
 def create_backup(project, destination, *, services_stopped=False, customer_root=None, key_file=None, secret_output=None):
+    storage_mode=os.getenv("CUSTOMER_STORAGE")
+    if storage_mode is None:
+        config=Path(project)/".env"
+        if config.is_file():
+            for line in config.read_text(encoding="utf-8-sig").splitlines():
+                name,separator,value=line.removeprefix("export ").partition("=")
+                if separator and name.strip()=="CUSTOMER_STORAGE":
+                    storage_mode=value.strip().strip("\"'")
+    if (storage_mode or "local").strip().lower() != "local":
+        raise ValueError("Cloud storage is active. Back up Postgres and the private bucket; a local cache backup does not protect cloud customer data.")
     project, destination = Path(project).resolve(), Path(destination).resolve()
     roots = {"data": project/"data", "customer_data": Path(customer_root or os.getenv("CUSTOMER_DATA_ROOT", str(project/"customer_data"))).resolve()}
     if not services_stopped:

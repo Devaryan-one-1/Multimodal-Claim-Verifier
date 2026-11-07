@@ -293,6 +293,19 @@ CREATE TABLE vectors(workspace text,collection text,id text,document_id text,emb
         self.assertEqual(result["network_calls"],0); self.assertEqual(self.database.read_bytes(),before)
         self.assertRaises(cloud_db.CloudStorageError,migration.migrate,self.temp)
 
+    def test_local_backup_cannot_be_reported_as_cloud_data_protection(self):
+        from scripts.backup_restore import create_backup
+        target=self.temp/"must-not-be-created"
+        self.assertRaisesRegex(ValueError,"Postgres",create_backup,PROJECT,target,services_stopped=True)
+        self.assertFalse(target.exists())
+
+    def test_backup_cli_also_detects_cloud_mode_in_project_env_file(self):
+        from scripts.backup_restore import create_backup
+        project=self.temp/"cloud-project"; project.mkdir()
+        (project/".env").write_text('CUSTOMER_STORAGE="supabase"\n')
+        with patch.dict(os.environ,{},clear=True):
+            self.assertRaisesRegex(ValueError,"Postgres",create_backup,project,self.temp/"no-backup",services_stopped=True)
+
     def test_windows_artifact_paths_are_portable_without_changing_evidence_values(self):
         original={"image_path":f"data\\table_images\\{D1}\\p1.png","rows":[["Revenue","100"]],"content_hash":"keep"}
         fixed=migration.portable_paths(original)

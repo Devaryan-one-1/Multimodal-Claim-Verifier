@@ -91,13 +91,17 @@ Keep .env and secrets.toml out of Git. There is no need for a Supabase secret ke
 streamlit run app/customer_main.py
 ```
 
-You should see Sign in, Create account, Confirm email and Reset password. Seeing the old Google Sign in button means the old auth.py is still installed or Streamlit was not restarted. Seeing Workspace / Evaluation / History / How it works means you opened the old internal app/main.py instead of customer_main.py.
+You should see Sign in, Create account, Confirm email, Resend confirmation and Reset password. Seeing the old Google Sign in button means the old auth.py is still installed or Streamlit was not restarted. Seeing Workspace / Evaluation / History / How it works means you opened the old internal app/main.py instead of customer_main.py.
 
 ## 8. Create and confirm an app-user account
 
 Choose Create account, enter your email and a strong password, then submit. Find the code in your email. Choose Confirm email, enter the same address and code, and submit. You can also sign in normally with the password after confirmation.
 
 Creating a Supabase dashboard organization login is separate from creating this app-user account. App users appear under Authentication > Users.
+
+Resend confirmation requests another signup code using the same email. Reset and resend requests use neutral responses so they do not disclose account eligibility, and the app waits one minute between repeated send requests of each type in the current session. Provider limits still apply. A verified recovery session can retry a rejected password change for up to ten minutes from the original verification; retries do not extend that deadline. Successful password reset clears local customer state and requests global session sign-out.
+
+The app refreshes and verifies the server session on each full page run; an already issued JWT alone does not renew app access after server-session revocation. Fragment access lasts at most five minutes before full verification, while local workspace membership is checked independently on protected operations. See [BETA_TESTING.md](BETA_TESTING.md) for the two-account/email checks; offline mocks do not prove actual mail delivery.
 
 If the form reports an authentication error, inspect your Supabase Authentication logs, email settings and rate limits. Error messages in the app are intentionally generic to avoid revealing whether an email has an account.
 
@@ -134,7 +138,7 @@ In a second activated terminal:
 python app/pilot_worker.py
 ```
 
-The model provider keys/configuration must still be in the server environment or existing .env for the worker. Upload a small public PDF, refresh until ready, submit a known claim and inspect its result. Existing internal research data is not automatically exposed to a customer workspace.
+Customer reasoning/vision calls now use each user's saved OpenRouter connection; see [CUSTOMER_BYOK.md](CUSTOMER_BYOK.md) for setup. The operator's Google embedding key and the customer-key encryption secret must be available to the worker through the server environment or existing .env. Upload a small public PDF, refresh until ready, submit a known claim and inspect its result. Existing internal research data is not automatically exposed to a customer workspace.
 
 ## 11. Check the authentication flow
 

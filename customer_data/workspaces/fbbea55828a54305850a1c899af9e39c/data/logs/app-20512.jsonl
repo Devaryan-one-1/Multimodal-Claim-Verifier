@@ -1,6 +1,0 @@
-{"timestamp": "2026-10-31T23:28:37.254068+00:00", "level": "INFO", "event": "document_processing_started", "request_id": "06cfffee1fee4654b89d9193a6569d4a"}
-{"timestamp": "2026-10-31T23:28:37.255442+00:00", "level": "INFO", "event": "document_uploaded", "request_id": "06cfffee1fee4654b89d9193a6569d4a", "document_id": "4f44961ae4b24d33a6df28465d6237f1", "size_bytes": 322159}
-{"timestamp": "2026-10-31T23:28:37.266927+00:00", "level": "INFO", "event": "extraction_started", "request_id": "06cfffee1fee4654b89d9193a6569d4a", "document_id": "4f44961ae4b24d33a6df28465d6237f1"}
-{"timestamp": "2026-10-31T23:28:43.567903+00:00", "level": "WARNING", "event": "malformed_table", "request_id": "06cfffee1fee4654b89d9193a6569d4a", "page": 14}
-{"timestamp": "2026-10-31T23:28:43.568329+00:00", "level": "INFO", "event": "tables_found", "request_id": "06cfffee1fee4654b89d9193a6569d4a", "document_id": "4f44961ae4b24d33a6df28465d6237f1", "count": 29}
-{"timestamp": "2026-10-31T23:28:43.767713+00:00", "level": "INFO", "event": "charts_found", "request_id": "06cfffee1fee4654b89d9193a6569d4a", "document_id": "4f44961ae4b24d33a6df28465d6237f1", "count": 0}

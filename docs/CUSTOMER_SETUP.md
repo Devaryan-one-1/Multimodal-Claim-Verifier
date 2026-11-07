@@ -2,6 +2,8 @@
 
 This adds a separate authenticated Streamlit entry point, workspace-scoped storage, durable jobs, review decisions, exports and a focused Reviews / Documents / History flow. It retains the current internal dashboard, extraction, retrieval, numeric verification and evaluation modules.
 
+Optional remote customer storage is described in [SUPABASE_STORAGE.md](SUPABASE_STORAGE.md). Local storage remains the default; cloud migration and hosted acceptance must be run explicitly.
+
 ## Install
 
 Stop active evaluations before modifying code. Copy the supplied `app/` files into the matching project paths (merge, do not delete your existing app). These customer files are additions; the public entry point is `app/customer_main.py`. Keep your existing Day 10 updates. Copy requirements-customer.txt, config_examples/ and docs/ to the project root.
@@ -10,20 +12,17 @@ Stop active evaluations before modifying code. Copy the supplied `app/` files in
 pip install -r requirements-customer.txt
 ```
 
-No application, tests, syntax checks, model calls or security tests were run by the assistant. This is an implementation for a controlled pilot, not a claim that production security or financial accuracy has been established.
+Current offline verification and user-reported checks are recorded in [BETA_TESTING.md](BETA_TESTING.md), with remaining work in [BETA_TODO.md](BETA_TODO.md). This is a controlled-pilot implementation; automated service checks alone do not establish production security or financial accuracy.
 
 ## Configure identity
 
-Use an OIDC identity provider such as your organisation's Google, Microsoft, Auth0 or Okta connection. Register an application with its exact callback URL. Copy `config_examples/customer_secrets.toml.example` to `.streamlit/secrets.toml` and fill the actual client ID, client secret, discovery URL, issuer and cookie secret. Merge with existing secrets; do not overwrite unrelated settings. Use HTTPS and the public callback URL when deploying. Do not send credentials through chat.
+The active customer app uses **Supabase email/password authentication**. Follow [SUPABASE_SETUP.md](SUPABASE_SETUP.md) for project URL/publishable-key configuration, confirmation/reset email-code templates and SMTP. Older OIDC/Google examples are not the active login setup. Keep confirmation enabled and use HTTPS for the deployed customer app.
 
 The code uses the verified issuer and subject, checks token expiration and requires a database membership. A signed-in but uninvited account cannot access documents. It displays its account subject for an administrator to grant access. Accounts are owned by the identity provider; this app does not store passwords.
 
-Official references:
-- https://docs.streamlit.io/develop/api-reference/user/st.login
-- https://docs.streamlit.io/develop/api-reference/user/st.user
-- https://docs.streamlit.io/develop/api-reference/navigation/st.navigation
+Supabase validates identities; the app stores no account passwords. Each full app verification refreshes the server session and preserves rotated tokens. Lost memberships, invalid sessions and successful password reset clear stale customer state. The five-minute fragment access deadline is independently enforced alongside service-level membership checks.
 
-Authentication alone is not authorization. Every customer service operation checks current workspace membership. Workspace selection is restricted to memberships. IDs are validated, paths are derived on the server, source PDFs are hash-checked, and document records are scoped to the workspace. Download bytes and export content are obtained only after authorization. Native Streamlit media/download URLs must be handled as sensitive links; this is not a separate authenticated file API with per-request revocation. For strict download-session enforcement, add a protected file-serving endpoint before broader production use.
+Authentication alone is not authorization. Every customer service operation checks current workspace membership. Workspace selection is restricted to memberships. IDs are validated, paths are derived on the server, source PDFs are hash-checked, and document records are scoped to the workspace. Customer PDF images and downloads are delivered inline after access checks rather than through shared Streamlit media URLs. Preparing or redisplaying a file requires current access; copies already delivered to a browser cannot be recalled. Restart the customer app after this update to clear any old media-cache URLs.
 
 ## Start and grant access
 
@@ -53,7 +52,7 @@ In terminal two, from the project root:
 python app/pilot_worker.py
 ```
 
-Set model API keys and the same model/embedding configuration in the server environment or existing project `.env`; the worker does not load provider keys from Streamlit secrets. Credentials are never accepted from customer browser widgets.
+For current customer billing, follow [CUSTOMER_BYOK.md](CUSTOMER_BYOK.md): each user saves their own encrypted OpenRouter key and model choices in the customer app. The worker does not fall back to an operator OpenRouter key. Keep the Google embedding key and `CUSTOMER_KEY_ENCRYPTION_KEY` in the server environment or existing project `.env`; the worker does not load these operator secrets from Streamlit secrets.
 
 ## Storage and isolation
 
@@ -69,7 +68,7 @@ Do not deploy the old `app/main.py`, `ui_preview.py` or `hallucination_preview.p
 
 ## Jobs and recovery
 
-Closing a tab does not cancel a queued/running job. Reopen Reviews/History and refresh to see progress. Successful subclaims are checkpointed; retries skip them. Source hashes, model configuration and code fingerprint must stay compatible. Code/model changes can block resume; restore the configuration or create a new review. Maximum attempts per job: three. Retries are explicit; the worker does not repeatedly retry failed jobs automatically, although existing provider clients retain their bounded request retries.
+Closing a tab does not cancel a queued/running job. Reopen Reviews/History; progress updates automatically while the worker is available. Successful subclaims are checkpointed; retries skip them. Source hashes, model configuration and code fingerprint must stay compatible. Code/model changes can block resume; restore the configuration or create a new review. Maximum attempts per job: three. Retries are explicit; the worker does not repeatedly retry failed jobs automatically, although existing provider clients retain their bounded request retries.
 
 Document-processing retries reuse existing caches/index behavior, but do not provide a fully checkpointed state for every extraction stage. Completed document jobs are not automatically rerun. This is a single-host SQLite queue and needs persistent local disk plus a supervised worker service. It is not suitable for ephemeral serverless execution or multiple independent replicas.
 
@@ -97,8 +96,8 @@ Then restart the worker and explicitly resume paused jobs. A manual recovery fla
 
 ## Remaining work and release gates
 
-Run the supplied manual two-account checks and unit tests on your machine before a pilot. Streamlit media-link access, identity-provider setup, HTTPS, rate/resource limits, durable storage backups, dependency vulnerabilities and malformed-PDF handling need deployment/security validation. No visual/accessibility or runtime testing was performed here.
+Run the supplied manual two-account checks and unit tests on your machine before a pilot. Validate private inline images/downloads, real Supabase email/session flows, HTTPS, rate/resource limits, durable backups, dependencies and malformed-PDF handling on the intended host. Current offline results and user-reported interface checks are in BETA_TESTING.md; they do not establish all browser, accessibility or deployment gates.
 
 Accuracy is not established by implemented features. Keep your existing reviewed dataset and create a separate human-labelled benchmark on unseen reports. Include wrong years, units/currencies, restatements, segments, missing/conflicting evidence and OCR/chart failures. Measure false support, abstention, completion, latency and cost; never count service failures as correct UNKNOWN outcomes. Provider cost is explicitly unavailable when not supplied; no fabricated cost is shown.
 
-The acquisition recommendations (interviews, pilots, pricing and marketing demonstrations) require actual customer work. This update does not send outreach, claim customer traction, create fabricated benchmark labels or publish a site. Fine-grained roles, full stage-level processing checkpoints, a dedicated authenticated file API and horizontal scaling remain follow-up work.
+The acquisition recommendations (interviews, pilots, pricing and marketing demonstrations) require actual customer work. This update does not send outreach, claim customer traction, create fabricated benchmark labels or publish a site. Fine-grained roles, full stage-level processing checkpoints and horizontal scaling remain follow-up work. A streaming download API is optional future work for larger files; the current small-upload customer flow uses authorized inline delivery.

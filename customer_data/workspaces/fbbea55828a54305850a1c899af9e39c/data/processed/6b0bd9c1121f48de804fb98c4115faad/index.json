@@ -1,8 +1,0 @@
-{
-  "document_id": "6b0bd9c1121f48de804fb98c4115faad",
-  "collection": "evidence_v2_4251d7d3a135",
-  "embedding_model": "gemini-embedding-001",
-  "dimensions": 768,
-  "chunk_count": 345,
-  "chunks_hash": "254aac7d81cd92f39ed46efb87a74b2904ddab5c0c2fa58592ebb55fc0dab22e"
-}
