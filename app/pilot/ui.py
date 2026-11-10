@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import base64
 import io
 import math
 import hashlib
@@ -11,13 +12,17 @@ from pathlib import Path
 
 import pymupdf
 import streamlit as st
+import streamlit.components.v1 as components
 from PIL import Image, ImageDraw
 from pilot import store
+from pilot.selection_labels import resource_labels
+from pilot.beta_information import render as beta_information
 from pilot.exports import exports
 from pilot import model_connections, private_media
 from pilot.responsive import navigation
 from services.verification_status import execution_failed
 from services.failure_details import describe_failure
+from services.observability import model_call_summary
 
 
 def _plain_label(value):
@@ -150,20 +155,60 @@ def show_failure(access, job):
         details = (store.processing_failure(access, job["id"]) if job["kind"] == "process" else
                    describe_failure(kind=saved.get("error_kind", ""), calls=saved.get("model_calls", []),
                                     stage=saved.get("error_stage") or "verification"))
+    elif details.get("code") in {"output_truncated","context_limit","model_incompatible"}:
+        # Refresh controlled advice for old saved failures without changing the
+        # record. Earlier guidance always described document/vision processing.
+        calls=saved.get("model_calls",[])
+        task=next((call.get("task") for call in reversed(calls) if isinstance(call,dict)
+                   and call.get("status")=="error" and call.get("task") in {"text","vision"}),
+                  "vision" if job["kind"]=="process" else "text")
+        refreshed=describe_failure(kind=details["code"],stage=details.get("stage") or saved.get("error_stage", ""),
+                                   calls=calls,metadata={**details,"task":task})
+        details={**details,**refreshed}
     st.error(details["title"])
     st.write(details["message"])
     st.info(details["action"])
     labels = {"stage": "Stage", "page": "PDF page", "table": "Table", "model": "Model",
+              "validation_reason": "Validation reason",
+              "validation_rule": "Period check", "atom_index": "Claim number",
               "http_status": "Provider HTTP status", "output_token_limit": "Output token allowance",
+              "finish_reason": "Finish reason",
               "retry_after_seconds": "Retry after seconds", "provider_request_id": "Provider request ID"}
     with st.expander("Error details"):
-        st.text("Diagnostic code: " + details["code"])
+        lines=["Diagnostic code: " + details["code"]]
         for name, label in labels.items():
             if details.get(name) is not None:
-                st.text(f"{label}: {details[name]}")
+                lines.append(f"{label}: {details[name]}")
         if saved.get("error_kind"):
-            st.text("Error type: " + str(saved["error_kind"]))
-        st.text("Request reference: " + job["id"])
+            lines.append("Error type: " + str(saved["error_kind"]))
+        lines.append("Request reference: " + job["id"])
+        st.text("\n".join(lines))
+        encoded=base64.b64encode("\n".join(lines).encode("utf-8")).decode("ascii")
+        components.html(f"""
+<button id="copy-diagnostic" type="button" style="font:inherit;padding:.4rem .8rem;border:1px solid #aaa;border-radius:.4rem;background:white;cursor:pointer">
+  Copy error details
+</button>
+<span id="copy-status" role="status" aria-live="polite" style="margin-left:.5rem"></span>
+<script>
+const text = decodeURIComponent(escape(atob('{encoded}')));
+const button = document.getElementById('copy-diagnostic');
+button.addEventListener('click', async () => {{
+  const status = document.getElementById('copy-status');
+  try {{
+    await navigator.clipboard.writeText(text);
+  }} catch (_) {{
+    const field = document.createElement('textarea');
+    field.value = text;
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand('copy');
+    field.remove();
+    if (!copied) {{ status.textContent = 'Copy failed; select the details above.'; return; }}
+  }}
+  status.textContent = 'Copied';
+}});
+</script>
+""",height=48)
         st.caption("Share the reference and diagnostic code for support. Failed execution does not count as a factual verdict.")
 
 
@@ -177,13 +222,29 @@ def request_details(job):
         st.text("Reasoning model for this request: " + (models.get("text_model") or "Not recorded"))
         if models.get("vision_model"):
             st.text("Vision model for this request: " + models["vision_model"])
+        for field,label in (("max_output_tokens","Text response allowance"),("vision_max_output_tokens","Vision response allowance")):
+            limit=models.get(field)
+            if type(limit) is int and 256<=limit<=131072:
+                st.text(f"{label} for this request: {limit:,} tokens")
         st.caption("These are the models saved when this request was submitted. Editing your connection affects new requests.")
         if calls:
-            fields = ("provider", "requested_model", "actual_model", "model", "status", "http_status", "provider_request_id")
-            rows = [{field: call.get(field) for field in fields
-                     if isinstance(call.get(field), (str, int, float, bool))} for call in calls]
+            fields = ("provider", "requested_model", "actual_model", "model", "task", "status", "http_status", "provider_request_id",
+                      "output_token_limit", "finish_reason")
+            rows=[]
+            for raw in calls:
+                if not isinstance(raw,dict): continue
+                call=model_call_summary(raw)
+                row={field:call[field] for field in fields if isinstance(call.get(field),(str,int,float,bool))}
+                usage=call["usage"]
+                for label,primary,legacy in (("input_tokens","prompt_tokens","prompt_token_count"),
+                                              ("completion_tokens","completion_tokens","candidates_token_count"),
+                                              ("reasoning_tokens","reasoning_tokens","thoughts_token_count"),
+                                              ("total_tokens","total_tokens","total_token_count")):
+                    value=usage.get(primary,usage.get(legacy))
+                    if value is not None: row[label]=value
+                rows.append(row)
             st.dataframe(rows, hide_index=True)
-            st.caption("Observed request IDs can help you match calls in OpenRouter activity. Usage and billing remain in your OpenRouter account.")
+            st.caption("Token counts come from your provider; missing values were not reported. Request IDs help match OpenRouter activity. Billing remains in your OpenRouter account.")
         else:
             st.caption("No observed model calls are recorded for this request yet.")
 
@@ -274,11 +335,22 @@ def connection_panel(access, key):
             else:
                 st.success("Connection checked and saved. New work will use these models and your OpenRouter credits.")
                 st.rerun()
-        if saved and st.button("Remove my saved key", key=key+"remove_key"):
-            model_connections.remove(access)
-            st.success("Saved key removed. Running work may finish; new attempts cannot use this connection.")
+        confirmation_key=key+"confirm_remove_key"
+        if saved and st.session_state.get(confirmation_key):
+            st.warning("Removing this key disconnects OpenRouter. New work that needs it cannot run until you connect again. Your saved reviews remain available.")
+            if st.button("Confirm remove key", key=key+"confirm_remove_key_button"):
+                model_connections.remove(access)
+                st.session_state.pop(confirmation_key,None)
+                st.success("Saved key removed.")
+                st.rerun()
+            if st.button("Keep my key", key=key+"cancel_remove_key"):
+                st.session_state.pop(confirmation_key,None)
+                st.rerun()
+        elif saved and st.button("Remove my saved key", key=key+"remove_key"):
+            st.session_state[confirmation_key]=True
             st.rerun()
         st.caption("Queued jobs retain their selected models. Replacing/removing a key requires a new request. A valid key does not guarantee available account credits.")
+    beta_information(st)
     return bool(saved)
 
 
@@ -434,7 +506,8 @@ def viewer(access, result, key, versions=None):
     if not available:
         st.warning("The cited source is unavailable or has been deleted. The saved review retains its evidence snapshot.")
         return
-    selected = st.selectbox("Selected citation", range(len(available)), format_func=lambda i: f"{documents[available[i]['document_id']]['name']} · PDF page {available[i]['page']} · {available[i].get('source_evidence_id') or available[i].get('id')}", key=key+"citation")
+    labels=resource_labels(documents.values())
+    selected = st.selectbox("Selected citation", range(len(available)), format_func=lambda i: f"{labels[available[i]['document_id']]} · PDF page {available[i]['page']} · Citation {i+1}", key=key+"citation")
     item = available[selected]
     source = documents[item["document_id"]]
     if versions is not None and versions.get(item["document_id"]) != source.get("sha"):
@@ -602,6 +675,10 @@ def _review_preview(job):
     return claim[:90]+("…" if len(claim) > 90 else "")
 
 
+def go_to_area(key, area):
+    st.session_state[key+"area"] = area
+
+
 def _saved_review_label(job):
     name = json.loads(job["payload"]).get("name") or "Financial review"
     created = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(job["created"]))
@@ -609,18 +686,29 @@ def _saved_review_label(job):
 
 
 def reviews_page(access, key, connected=True):
-    ready = [d for d in store.documents(access) if d["status"] == "ready"]
+    documents = store.documents(access)
+    ready = [d for d in documents if d["status"] == "ready"]
     st.header("Reviews")
     if not ready:
-        st.info("Upload a report in Documents. Processing continues while you are away.")
+        if not documents:
+            st.subheader("Get started")
+            st.markdown("1. Connect your OpenRouter key in **Settings** and choose your models.")
+            st.markdown("2. Upload a PDF in **Documents**; processing continues while you are away.")
+            st.markdown("3. Return here, enter a claim with its reporting period, and select **Check figures**.")
+            if not connected:
+                st.info("Connect your OpenRouter key in Settings first. Your own OpenRouter account pays for model requests.")
+        else:
+            st.info("No report is ready yet. Check Documents for its processing status; you can leave this page while it processes.")
+        st.button("Open Documents", key=key+"empty_reviews_documents",
+                  on_click=go_to_area, args=(key,"Documents"))
     else:
         ids = [d["id"] for d in ready]
-        names = {d["id"]: d["name"] for d in ready}
+        labels = resource_labels(ready)
         if st.session_state.get(key+"active_document") not in ids:
             st.session_state[key+"active_document"] = ids[0]
-        active = st.selectbox("Active source", ids, format_func=lambda d: names[d], key=key+"active_document")
+        active = st.selectbox("Active source", ids, format_func=labels.__getitem__, key=key+"active_document")
         st.session_state[key+"additional"] = [d for d in st.session_state.get(key+"additional", []) if d in ids and d != active]
-        more = st.multiselect("Additional sources (optional)", [d for d in ids if d != active], format_func=lambda d: names[d], max_selections=2, key=key+"additional")
+        more = st.multiselect("Additional sources (optional)", [d for d in ids if d != active], format_func=labels.__getitem__, max_selections=2, key=key+"additional")
         st.caption("Claims without a company name require exactly one source. With multiple sources, name the company explicitly. Specify the reporting period in each claim.")
         document_context(access, next(d for d in ready if d["id"] == active))
         review_composer(access, key, [active]+more, connected)
@@ -681,6 +769,7 @@ def run(access):
     _ensure_access(access)
     key = "customer_"+access.workspace+"_"
     st.title("Financial claim review")
+    st.caption("Beta · Check every cited source. Open Settings for limitations, data handling and feedback.")
     st.caption("Check the figures in your research note against original reports, with visible calculations and page citations.")
     try:
         connected = bool(model_connections.metadata(access))

@@ -15,6 +15,8 @@ The private database schema is not exposed through the public Data API. Applicat
 
 In your existing Supabase project's SQL editor, run [storage_schema.sql](../supabase/storage_schema.sql). It creates new customer tables and a private bucket without changing authentication accounts. The vector extension must be available in the `extensions` schema, as on the standard Supabase setup. Do not expose the `verifier` schema in the Data API settings or add public bucket policies.
 
+Paste the entire current file into a **fresh query** and use the ordinary Run action. The script schema-qualifies every table/reference and explicitly enables RLS on all 12 tables; no automatic editor-added RLS statements are needed. If a previous attempt reported `relation "schema_version" does not exist`, replace the old query with this complete file. Do not reset/delete schemas or tables to retry. After success, `SELECT tablename, rowsecurity FROM pg_tables WHERE schemaname='verifier' ORDER BY tablename;` should show 12 rows, all `true`.
+
 Privately add the values in [supabase_storage.env.example](../config_examples/supabase_storage.env.example) to your server configuration. Copy the **Session pooler** URI from Supabase's Connect panel (port **5432**, not transaction-pooler port 6543). URL-encode the database password. Use your existing project URL/publishable key, Google embedding key and **the existing preserved encryption master key**. Add a server-only Supabase secret key for private object storage; do not replace the publishable key used by login.
 
 Keep `CUSTOMER_STORAGE=local` while backing up/migrating. The migration command connects to the target explicitly. The new driver is installed by the production Docker build; for your existing project environment:
@@ -41,15 +43,33 @@ Optional `--source "ABSOLUTE_PATH_TO_CUSTOMER_DATA"` selects a verified restored
 
 The database copy is transactional and refuses to overwrite a populated target. Failed attempts can leave private, content-addressed objects in the bucket; rerunning against an empty database reuses their names. Do not delete the target schema/bucket after starting customer use. Registered-source deletion includes old private object versions, while saved review snapshots remain.
 
+Migration prints its current stage. Control records are checked immediately after insertion, before uploading artifacts, and again before commit. A mismatch report names the table, counts, differing fields and Python value types without revealing customer values, account IDs or ciphertext. Do not skip this comparison to force a migration through. Database sessions explicitly request exact floating-point output so timestamps are read back without presentation rounding; this does not accept changes to stored values.
+
+If migration fails, retain the verified backup and master key, keep services stopped and local mode selected, and share the safe diagnostic output. A confirmed rollback can be retried against the empty target; do not reset/delete schemas or replace the encryption key. A migration pass, a live storage-fixture pass and hosted browser acceptance are separate checks.
+
+Chroma opens each disposable index copy in a separate Python process with telemetry disabled and no embedding function. That process exits before the parent reads the exported batches and deletes the copy, so native Windows file handles cannot remain in the migration process. Export errors identify the operation (`copy_index`, `open_copied_index`, `read_vectors` or `cleanup_copy`) and available OS/Windows codes while withholding private paths and exception bodies. Cleanup failures are not ignored.
+
 ## 3. Verify cloud mode before hosting
 
-Set `CUSTOMER_STORAGE=supabase` privately, preserving the remaining values. Run the opt-in cloud smoke:
+First check the configured database/schema and private bucket without creating fixtures. `CUSTOMER_STORAGE=local` can stay selected; this command reads the target's metadata using the private values in `.env`:
 
 ```powershell
-python scripts/test_supabase_storage.py --allow-cloud-write
+python scripts/test_supabase_storage.py --check-only
 ```
 
-It creates two disposable fixture workspaces, checks actual Postgres/pgvector/private Storage access and cross-workspace denial, then cleans up its own fixtures. It does not use customer documents or call model providers. A failure or incomplete cleanup is an unpassed check. This is storage acceptance; actual login, PDF rendering and verification need the separate browser check below.
+It makes no fixture/customer-data writes or model calls. Failures report the stage, a safe diagnostic code, an action and, when available, SQLSTATE or HTTP status. Share that output; keep passwords, database URLs and server keys private. A read-only pass does not replace the full storage smoke.
+
+For the full smoke, stop any cloud worker and select cloud mode temporarily in the same terminal:
+
+```powershell
+$env:CUSTOMER_STORAGE = "supabase"
+try { python scripts/test_supabase_storage.py --allow-cloud-write }
+finally { Remove-Item Env:CUSTOMER_STORAGE }
+```
+
+It creates two disposable fixture workspaces, checks actual Postgres/pgvector/private Storage access and cross-workspace denial, then cleans up its own fixtures. It does not use customer documents or call model providers. A failure or incomplete cleanup is an unpassed check. If cleanup fails, the safe report identifies the fixture workspaces and failed cleanup resources; retain those IDs and resolve cleanup before repeating or migrating. Fixture identities remain registered when object cleanup fails. This is storage acceptance; actual login, PDF rendering and verification need the separate browser check below.
+
+After migration and acceptance, set `CUSTOMER_STORAGE=supabase` in the server configuration, preserving the other values.
 
 Start the customer app and exactly one worker in separate terminals:
 
@@ -65,7 +85,7 @@ Check both accounts' history/documents, original PDF/citation pages, an existing
 
 ## 4. Vercel preparation
 
-[deploy/vercel.example.json](../deploy/vercel.example.json) is a **template**, not an active deployment. It selects the container runtime and declares one worker daemon with **zero instances** until acceptance. After the cloud smoke and release audit pass, copy it to `vercel.json`, choose a supported region close to your Supabase project, and change that region's worker count to `1`. Set the same private Production environment for the web app/worker and `PORT=8501`. Existing Docker starts only the customer app; `app/main.py` is excluded.
+The approved 9 November preparation adds root [vercel.json](../vercel.json) for the container runtime in Dublin with **zero worker instances**. The final Docker release now omits Chroma, requires Supabase and caps uploads at 4 MB; local Compose uses a separate `local-release` target. No remote project has been linked or deployed. Follow [DEPLOY_VERCEL.md](DEPLOY_VERCEL.md) for the fresh image/audit gate, private Production settings, `PORT=8501`, hosted reconnect checks and separately approved worker activation. Do not rerun migration or rebuild saved indexes for this packaging change.
 
 Set `SUPABASE_SITE_URL` and Supabase's allowed Site/redirect URLs to the actual HTTPS Vercel URL. Public hosting, Git push and worker activation require an explicit launch decision. Vercel daemon compute/quota is separate from Supabase's free storage allowance.
 
@@ -81,10 +101,18 @@ Before accepting new cloud work, rollback is switching `CUSTOMER_STORAGE` to `lo
 
 ## Commit the implementation
 
+If you have not already created a branch, run `git switch -c beta/supabase-storage`. This repository previously tracked runtime data and bytecode. Remove those entries from the index first; `--cached` keeps the actual local files. Older commits still retain their original content.
+
+```powershell
+Set-Location "F:\Multi Modal Change Detector\multimodal-claim-verifier"
+git rm -r --cached --ignore-unmatch -- customer_data data tmp output code_backups day10_backups day10_update pas.txt
+git rm -r --cached --ignore-unmatch -- ':(glob)**/__pycache__/**' ':(glob)**/*.pyc'
+```
+
 After reviewing the changes, these paths include the implementation without runtime data/secrets:
 
 ```powershell
-git add -- .gitignore .dockerignore .vercelignore requirements-production.txt app/pilot/cloud_db.py app/pilot/cloud_files.py app/pilot/store.py app/pilot_worker.py app/pilot_task.py app/retrieval/embeddings.py app/retrieval/cloud_vectors.py app/services/failure_details.py scripts/backup_restore.py scripts/migrate_supabase.py scripts/test_supabase_storage.py supabase/storage_schema.sql config_examples/supabase_storage.env.example deploy/env.example deploy/preflight.py deploy/healthcheck.py deploy/entrypoint.py deploy/container_smoke.py deploy/test-docker.ps1 deploy/vercel.example.json tests/test_supabase_storage.py docs/SUPABASE_STORAGE.md docs/BETA_TODO.md
+git add -- .gitignore .dockerignore .vercelignore requirements-production.txt app/pilot/cloud_db.py app/pilot/cloud_files.py app/pilot/store.py app/pilot_worker.py app/pilot_task.py app/retrieval/embeddings.py app/retrieval/cloud_vectors.py app/services/failure_details.py scripts/backup_restore.py scripts/migrate_supabase.py scripts/test_supabase_storage.py supabase/storage_schema.sql config_examples/supabase_storage.env.example deploy/env.example deploy/preflight.py deploy/healthcheck.py deploy/entrypoint.py deploy/container_smoke.py deploy/test-docker.ps1 deploy/vercel.example.json tests/test_supabase_storage.py docs/SUPABASE_STORAGE.md docs/BETA_TODO.md docs/CUSTOMER_SETUP.md docs/DEPLOY_BETA.md
 git diff --cached --stat
 git commit -m "Add optional Supabase customer storage and migration"
 ```

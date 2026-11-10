@@ -21,6 +21,12 @@ def explicit_dates(text):
     return result
 
 
+def explicit_quarters(text):
+    ordinals={"first":1,"second":2,"third":3,"fourth":4}
+    return {int(number) if number else ordinals[word.casefold()] for number,word in
+            re.findall(r"\bq([1-4])\b|\b(first|second|third|fourth)\s+(?:fiscal\s+)?quarter\b",str(text or ""),re.I)}
+
+
 def explicit_period(text):
     """Return a period and its original wording only when the wording is explicit."""
     durations = []

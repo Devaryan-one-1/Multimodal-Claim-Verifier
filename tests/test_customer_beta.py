@@ -38,10 +38,15 @@ class Session(dict):
 class StreamlitFixture(types.ModuleType):
     def __init__(self):
         super().__init__("streamlit")
+        self.__path__ = []
         self.session_state = Session()
         self.secrets = {}
         self.events, self.inputs, self.pressed, self.radios = [], {}, set(), {}
         self.sidebar = self
+        self.components = types.ModuleType("streamlit.components")
+        self.components.__path__ = []
+        self.components.v1 = types.ModuleType("streamlit.components.v1")
+        self.components.v1.html = lambda *args, **kwargs: self.events.append(("component_html", args, kwargs))
 
     def __enter__(self):
         return self
@@ -98,6 +103,12 @@ class StreamlitFixture(types.ModuleType):
 def load_module(stack, name, path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
+    streamlit = sys.modules.get("streamlit")
+    if isinstance(streamlit, StreamlitFixture):
+        stack.enter_context(patch.dict(sys.modules, {
+            "streamlit.components": streamlit.components,
+            "streamlit.components.v1": streamlit.components.v1,
+        }))
     stack.enter_context(patch.dict(sys.modules, {name: module}))
     spec.loader.exec_module(module)
     return module
@@ -424,6 +435,10 @@ class CustomerReviewScreenTests(unittest.TestCase):
     def test_connection_remove_uses_current_user(self):
         self.st.pressed.add("Remove my saved key")
         with patch.object(self.ui.model_connections, "metadata", return_value={"models": {}}), patch.object(self.ui.model_connections, "remove") as remove:
+            with self.assertRaises(RerunPage): self.ui.connection_panel(self.access, "fixture")
+            remove.assert_not_called()
+            self.st.pressed.clear()
+            self.st.pressed.add("Confirm remove key")
             with self.assertRaises(RerunPage): self.ui.connection_panel(self.access, "fixture")
         remove.assert_called_once_with(self.access)
 

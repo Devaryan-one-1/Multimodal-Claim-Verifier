@@ -216,6 +216,7 @@ class DeploymentConfigurationTests(unittest.TestCase):
     def config(self):
         return {"SUPABASE_URL": "https://fixture.supabase.co", "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_fixture",
                 "SUPABASE_SITE_URL": "http://localhost:8501", "GOOGLE_API_KEY": "fixture-key",
+                "BETA_SUPPORT_EMAIL": "support@example.com",
                 "CUSTOMER_KEY_ENCRYPTION_KEY": base64.urlsafe_b64encode(b"x"*32).decode(),
                 "RERANK_MODEL_REVISION": "a"*40}
 

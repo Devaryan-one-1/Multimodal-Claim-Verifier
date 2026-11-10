@@ -16,6 +16,7 @@ import streamlit as st
 from supabase import create_client
 from supabase.client import ClientOptions
 from pilot.store import Access, memberships, principal
+from pilot.selection_labels import resource_labels
 
 SESSION = "supabase_auth_session"
 RECOVERY = "supabase_recovery_session"
@@ -224,6 +225,12 @@ def login_screen(url, key):
         st.error("Authentication could not complete. Check your details, email confirmation and service availability; repeated attempts may be rate limited.")
 
 
+def _remember_workspace():
+    selected=st.session_state.get("customer_workspace_selector")
+    if selected in st.session_state.get("customer_memberships", []):
+        st.session_state.customer_workspace=selected
+
+
 def require_access(settings_body=None):
     try:
         url, key = configuration()
@@ -277,18 +284,28 @@ def require_access(settings_body=None):
     if set(st.session_state.get("customer_memberships", [])) - set(ids):
         discard_customer_state(saved, who)
     st.session_state.customer_memberships = ids
-    names = {entry["id"]: entry["name"] for entry in entries}
+    labels = resource_labels(entries)
     if st.session_state.get("customer_workspace") not in ids:
         st.session_state.customer_workspace = ids[0]
+    # Keep the authorized choice outside widget cleanup. A widget callback
+    # updates it before reruns; opening a menu must not select another workspace.
+    st.session_state.customer_workspace_selector=st.session_state.customer_workspace
     with st.container(key="customer_account_menu", horizontal=True, horizontal_alignment="right"):
         with st.popover("Settings", icon=":material/settings:"):
             st.caption("Private workspaces")
-            selected = st.selectbox("Workspace", ids, format_func=lambda x: names[x], key="customer_workspace")
+            selected = st.selectbox("Workspace", ids, format_func=labels.__getitem__,
+                                    key="customer_workspace_selector", on_change=_remember_workspace)
+            if selected not in ids:
+                st.error("The selected workspace is unavailable. Refresh workspace access.")
+                st.stop()
+            st.session_state.customer_workspace=selected
             # Existing service methods independently enforce this deadline and DB membership.
             access = Access(who, selected, min(saved["expires_at"], time.time()+300))
             if settings_body is not None:
                 settings_body(access)
             st.button("Sign out", on_click=logout, args=(url, key))
+    label=re.sub(r"([\\`*_{}\[\]()<>#!|])",r"\\\1",labels[selected])
+    st.caption("Workspace: "+label)
     return access
 
 # from __future__ import annotations

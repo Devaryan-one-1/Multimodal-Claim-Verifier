@@ -1,0 +1,5 @@
+deploy/*.sh text eol=lf
+deploy/*.yaml text eol=lf
+deploy/systemd/* text eol=lf
+Dockerfile text eol=lf
+.dockerignore text eol=lf

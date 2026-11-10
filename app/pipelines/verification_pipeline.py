@@ -79,6 +79,7 @@ def _verify_one(pc, selected, reporter=None):
         "notes": list(pc.get("notes") or []),
     }
     with capture_calls() as (calls, call_start):
+        stage="claim_parser"
         try:
             if pc.get("parsing_error"):
                 raise VerificationFailure(pc["parsing_error"], stage="claim_parser", pause=pc.get("pause"))
@@ -86,6 +87,7 @@ def _verify_one(pc, selected, reporter=None):
                 result.update(reason="The input is not a verifiable assertion.",
                               calculation_unavailable_reason="The input is a question or unclear statement.")
                 return result
+            stage="document"
             documents = _documents(pc, selected)
             scope = [d["document_id"] for d in documents]
             result["document_ids"] = scope
@@ -94,6 +96,7 @@ def _verify_one(pc, selected, reporter=None):
                               or documents[0].get("filename") or scope[0])
             if reporter:
                 reporter.update("Retrieving evidence", completed=3, message="Searching existing document indexes")
+            stage="retrieval"
             hits = []
             for doc in scope:
                 hits.extend(search(pc["claim_text"], top_k=20, document_id=doc))
@@ -103,7 +106,9 @@ def _verify_one(pc, selected, reporter=None):
                 result.update(reason="No relevant evidence was retrieved from the selected documents.",
                               calculation_unavailable_reason="No relevant evidence was retrieved.")
                 return result
+            stage="reranking"
             hits = rerank(pc["claim_text"], hits, keep=10, parsed_claim=pc)
+            stage="source_resolution"
             catalogs = {doc: {e["id"]: e for e in read(f"data/processed/{doc}/evidence.json")["evidence"]}
                         for doc in scope}
             metadata = {d["document_id"]: d for d in documents}
@@ -130,6 +135,7 @@ def _verify_one(pc, selected, reporter=None):
                 raise VerificationFailure("Retrieved chunks do not resolve to original evidence.", stage="source_resolution")
             if reporter:
                 reporter.update("Verifying calculations", completed=4, message="Reading source cells and calculating in Python")
+            stage="numeric_calculation"
             calculation, comparison, numeric_reason, used = verify_numeric(pc, evidence)
             event("calculation_performed" if comparison else "calculation_unavailable",
                   available=bool(comparison), operation=pc.get("operation"))
@@ -137,6 +143,7 @@ def _verify_one(pc, selected, reporter=None):
                           calculation_unavailable_reason=numeric_reason)
             if calculation:
                 result["unit"] = calculation["result_unit"]
+            stage="evidence_fusion"
             fusion = fuse_evidence([dict(item, source_evidence_id=item["id"]) for item in evidence],
                                    calculation=calculation, comparison=comparison)
             result["fused_evidence"] = fusion
@@ -158,6 +165,7 @@ def _verify_one(pc, selected, reporter=None):
             elif pc.get("operation") != "qualitative":
                 result["reason"] = "Calculation unavailable: " + numeric_reason
             else:
+                stage="grounded_reasoning"
                 if reporter:
                     reporter.update("Reasoning over evidence", completed=5, message="Checking an evidence-grounded assertion")
                 payload = [{k: e.get(k) for k in (
@@ -202,7 +210,7 @@ limited to the supplied evidence, not as proof about every page of the report.
         except Exception as exc:
             result.update(status="error", verdict="UNKNOWN", confidence=None, error=str(exc),
                           error_kind=type(exc).__name__, reason=str(exc),
-                          error_stage=getattr(exc, "stage", "verification"),
+                          error_stage=getattr(exc, "stage", stage),
                           pause=quota_pause(exc, calls[call_start:]))
             if not result.get("calculation_unavailable_reason"):
                 result["calculation_unavailable_reason"] = str(exc)

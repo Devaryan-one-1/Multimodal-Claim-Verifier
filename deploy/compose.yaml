@@ -1,11 +1,11 @@
 name: claim-verifier-beta
 
 x-runtime: &runtime
-  image: ${BETA_IMAGE:-claim-verifier:beta}
+  image: ${BETA_IMAGE:-claim-verifier:local-beta}
   build:
     context: ..
     dockerfile: Dockerfile
-    target: release
+    target: local-release
   user: "10001:10001"
   init: true
   read_only: true

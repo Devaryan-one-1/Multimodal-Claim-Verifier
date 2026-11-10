@@ -1,13 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "container",
-  "regions": ["iad1"],
+  "regions": ["dub1"],
   "daemons": {
     "worker": {
       "root": ".",
       "entrypoint": "Dockerfile",
       "command": ["python", "deploy/entrypoint.py", "worker"],
-      "instances": {"iad1": 0},
+      "instances": {"dub1": 0},
       "resources": {"requests": {"memory": "2Gi"}},
       "terminationGracePeriodSeconds": 30
     }

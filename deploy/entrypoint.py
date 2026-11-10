@@ -1,4 +1,4 @@
-"""Start exactly the customer UI or one worker after local preflight checks."""
+"""Start exactly the customer UI or one worker after preflight checks."""
 import os
 from pathlib import Path
 import sys
@@ -19,7 +19,8 @@ def main():
     command = ([sys.executable, "-m", "streamlit", "run", "app/customer_main.py",
                 "--server.address=0.0.0.0", "--server.port="+str(int(os.getenv("PORT", "8501"))), "--server.headless=true",
                 "--server.enableCORS=true", "--server.enableXsrfProtection=true",
-                "--server.enableStaticServing=false", "--server.maxUploadSize=10",
+                "--server.enableStaticServing=false",
+                "--server.maxUploadSize="+str(int(os.getenv("CUSTOMER_MAX_UPLOAD_MB", "10"))),
                 "--client.showErrorDetails=none", "--browser.gatherUsageStats=false"]
                if role == "web" else [sys.executable, "app/pilot_worker.py"])
     os.execv(sys.executable, command)

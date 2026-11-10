@@ -1,0 +1,4 @@
+# Local SQLite/Chroma fixtures and legacy index migration only.
+# The customer cloud release never installs this file.
+-r requirements-production.txt
+chromadb==1.5.9

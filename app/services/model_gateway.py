@@ -262,7 +262,7 @@ def _transient(exc):
     return code in {408, 429, 500, 502, 503, 504}
 
 
-def _openrouter(settings, key, model, prompt, system, schema, images, temperature):
+def _openrouter(settings, key, model, prompt, system, schema, images, temperature, *, reasoning=None):
     if "/" not in model or re.search(r"\s", model):
         raise ModelConfigurationError("Model service configuration: use the exact OpenRouter model ID, including its provider prefix.")
     known = (_catalog.get() or {}).get(model)
@@ -291,6 +291,8 @@ def _openrouter(settings, key, model, prompt, system, schema, images, temperatur
         "provider": {"require_parameters": True, "allow_fallbacks": settings.allow_fallbacks},
     }
     # Some reasoning models do not accept temperature. Omit unless explicitly enabled.
+    if reasoning is not None:
+        payload["reasoning"]=reasoning
     if settings.send_temperature:
         payload["temperature"] = temperature
     response = httpx.post(
@@ -378,7 +380,7 @@ def _gemini(settings, key, model, prompt, system, schema, images, temperature):
 
 
 def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
-               task="text", images=(), temperature=0.0) -> SCHEMA:
+               task="text", images=(), temperature=0.0, purpose=None) -> SCHEMA:
     settings = config()
     _validate_config(settings)
     if task == "vision":
@@ -412,7 +414,14 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                      "output_token_limit": settings.max_output_tokens}
             try:
                 call = _openrouter if settings.provider == "openrouter" else _gemini
-                value, metadata = call(settings, key, chosen, prompt, system, request_schema, images, temperature)
+                # Verified optional-thinking endpoint. Do not send disable flags
+                # to arbitrary models where reasoning may be mandatory.
+                parser_policy=(purpose=="claim_parser" and task=="text" and settings.provider=="openrouter"
+                               and chosen=="nvidia/nemotron-3.5-super-vl:free")
+                options={"reasoning":{"enabled":False}} if parser_policy else {}
+                if purpose: event["purpose"]=purpose
+                if parser_policy: event["reasoning_policy"]="disabled_for_claim_parser"
+                value, metadata = call(settings, key, chosen, prompt, system, request_schema, images, temperature, **options)
                 event.update(metadata)
                 validator.validate(value)
                 parsed = schema.model_validate(value)

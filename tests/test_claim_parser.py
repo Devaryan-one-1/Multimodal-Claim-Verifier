@@ -237,6 +237,58 @@ class ClaimParserTests(unittest.TestCase):
             with self.subTest(literal=literal), self.assertRaises(self.parser.ParseValidationError):
                 self.parser._normalize(self.atom(claimed_literal=literal), A)
 
+    def test_missing_display_quantity_is_restored_without_another_model_call(self):
+        text = A.replace("$14.9 billion", "").replace("was .", "was.")
+        for metric in ("total deferred revenue", None, "growth rate"):
+            with self.subTest(metric=metric):
+                self.gateway.structured.reset_mock()
+                atom = self.atom(text, metric=metric)
+                self.respond([atom], [atom])
+                result = self.parser.parse_claims(A)[0]
+                self.assertNotIn("parsing_error", result, result)
+                self.assertEqual(result["claimed_literal"], "$14.9 billion")
+                self.assertIn("$14.9 billion", result["claim_text"])
+                self.assertEqual(self.calculate(result)[1]["verdict"], "SUPPORTED")
+                self.assertEqual(self.gateway.structured.call_count, 1)
+
+    def test_display_repair_cannot_hide_a_changed_sign_currency_or_quantity_type(self):
+        for replacement in ("$-14.9 billion", "€14.9 billion", "14.9%", "2026"):
+            with self.subTest(replacement=replacement):
+                atom = self.atom(A.replace("$14.9 billion", replacement))
+                self.respond([atom], [atom])
+                result = self.parser.parse_claims(A)[0]
+                self.assertEqual(result.get("error_kind"), "ParseValidationError", result)
+                self.assertNotIn("verdict", result)
+
+    def test_display_repair_cannot_hide_a_value_borrowed_from_another_clause(self):
+        original = A + " At June 27, 2026, Apple's profit was $20 million."
+        profit = self.atom("At June 27, 2026, Apple's profit was $20 million.",
+                           metric="profit", subject="profit", claimed_literal="$20 million")
+        for replacement in ("$20 million", "$14.9 million"):
+            with self.subTest(replacement=replacement):
+                wrong = self.atom(A.replace("$14.9 billion", replacement))
+                self.respond([wrong, profit], [wrong, profit])
+                result = self.parser.parse_claims(original)[0]
+                self.assertEqual(result.get("error_kind"), "ParseValidationError", result)
+                self.assertNotIn("verdict", result)
+
+    def test_display_repair_does_not_guess_between_repeated_metric_values(self):
+        original = A + " " + B
+        missing = self.atom(A.replace("$14.9 billion", ""))
+        other = self.atom(B, end_period=2025, period_quote="September 27, 2025")
+        self.respond([missing, other], [missing, other])
+        result = self.parser.parse_claims(original)[0]
+        self.assertEqual(result.get("error_kind"), "ParseValidationError", result)
+
+    def test_display_repair_does_not_restore_an_incomplete_structured_literal(self):
+        text = A.replace("$14.9 billion", "")
+        for literal in ("14.9", "14.9 billion", "$14.9"):
+            with self.subTest(literal=literal):
+                atom = self.atom(text, claimed_literal=literal)
+                self.respond([atom], [atom])
+                result = self.parser.parse_claims(A)[0]
+                self.assertEqual(result.get("error_kind"), "ParseValidationError", result)
+
     def test_corrected_parser_output_reaches_real_growth_arithmetic(self):
         self.respond([self.growth(metric="growth rate", comparison_operator="greater_than")])
         pc = self.parser.parse_claims(C)[0]

@@ -3,9 +3,12 @@ from __future__ import annotations
 
 import math
 import re
+from services.verification_errors import PARSE_VALIDATION_MESSAGES, PARSE_PERIOD_RULES
 
 
 MESSAGES = {
+    "parse_validation": ("Parsed claims failed validation", "The model did not preserve a trustworthy interpretation of the submitted claim.", "Review the validation reason below. Submit a new review after correcting the claim or choosing a compatible model; keep the existing report."),
+    "numeric_execution": ("Numerical verification could not finish", "An unexpected calculation error interrupted verification. No factual verdict was accepted.", "Report the request reference and numeric stage to the administrator, then retry after the issue is resolved."),
     "cloud_storage": ("Customer cloud storage is unavailable", "The customer database, private files or saved vector index could not be used safely. No factual verdict was inferred from this failure.", "Ask the administrator to check Supabase availability, storage limits, the private bucket and saved encryption key, then retry."),
     "output_truncated": ("Model response reached its output limit", "The model stopped before completing its structured response. Partial output was not accepted.", "Start a new processing request to use the current vision budget. If this repeats, choose a model with a larger supported output limit or report the reference below."),
     "context_limit": ("Report region exceeds the model's context limit", "The provider could not fit the document input and requested output into this model's context window.", "Choose a vision model with a larger context window, or use a smaller report. Start a new request after changing the model."),
@@ -77,6 +80,10 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
         code = kind
     elif "CloudStorageError" in kinds:
         code = "cloud_storage"
+    elif "ParseValidationError" in kinds:
+        code = "parse_validation"
+    elif stage=="numeric_calculation":
+        code = "numeric_execution"
     elif finish == "length" or "structured response was truncated" in text or "output reached the token limit" in text:
         code = "output_truncated"
     elif "context" in text and any(s in text for s in ("limit", "exceed", "length")):
@@ -135,6 +142,18 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
     else:
         code = "internal_error"
     title, detail, action = MESSAGES[code]
+    vision=(info.get("task")=="vision" or bool(location) or
+            any(word in stage.lower() for word in ("vision", "reading chart", "detecting chart")))
+    if not vision:
+        if code=="output_truncated":
+            action="Start a new review after checking the reasoning model's output allowance and reasoning settings. Reuse the ready report; share the reference below if it repeats."
+        elif code=="context_limit":
+            title="Review request exceeds the model's context limit"
+            detail="The provider could not fit the review input and requested output into this model's context window."
+            action="Use fewer sources or a reasoning model with a larger context window, then submit a new review."
+        elif code=="model_incompatible":
+            detail="The endpoint could not accept the required structured JSON response or output allowance."
+            action="Choose a reasoning model with strict JSON Schema support and sufficient output capacity. Check and save the connection, then submit a new review."
     if code == "source_validation":
         if "chart period and category year labels conflict" in text:
             detail = "The chart has conflicting period and year-category labels. No numerical verdict was accepted."
@@ -143,6 +162,17 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
         elif "chart year category lacks an explicit time axis" in text:
             detail = "The chart category could not be confirmed as a reporting year. No numerical verdict was accepted."
     result = {"code": code, "title": title, "message": detail, "action": action}
+    if code=="parse_validation":
+        reason=info.get("validation_reason")
+        if isinstance(reason,str) and reason in PARSE_VALIDATION_MESSAGES:
+            result.update(validation_reason=reason,message=PARSE_VALIDATION_MESSAGES[reason])
+        rule=info.get("validation_rule")
+        if isinstance(rule,str) and rule in PARSE_PERIOD_RULES:
+            result.update(validation_rule=rule,message=PARSE_PERIOD_RULES[rule])
+        index=info.get("atom_index")
+        if type(index) is int and 1<=index<=8:
+            result["atom_index"]=index
+    if finish in {"stop","length","content_filter","tool_calls"}: result["finish_reason"]=finish
     if location:
         result["page"] = int(location[2] or location[3])
         if location[1]: result["table"] = int(location[1])

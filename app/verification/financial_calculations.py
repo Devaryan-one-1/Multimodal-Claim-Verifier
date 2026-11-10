@@ -53,6 +53,14 @@ def margin(profit, revenue):
                    "profit / revenue * 100", {"profit": a, "revenue": b}, note)
 
 
+def ratio(numerator, denominator):
+    a, b, note = _pair(numerator, denominator)
+    if b == 0:
+        note = "The ratio is undefined because its denominator is zero."
+    return _result(None if a is None or b is None or b == 0 else a / b * 100,
+                   "numerator / denominator * 100", {"numerator": a, "denominator": b}, note)
+
+
 def cagr(beginning, ending, years):
     a, b, note = _pair(beginning, ending)
     span, reason = parse_value(years)

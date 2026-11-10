@@ -1,5 +1,15 @@
 # Single-host customer beta
 
+9 November Vercel preparation: for the approved personal cloud trial use
+[DEPLOY_VERCEL.md](DEPLOY_VERCEL.md). The default Docker `release` is now a
+Chroma-free Supabase image with a 4 MB upload limit. This page's local Compose
+stack explicitly builds `local-release`, keeps SQLite/Chroma and a 10 MB limit,
+and must not be confused with the cloud image's security results. The updated
+checker scans the cloud image and uses a separate local image for fixture drills;
+neither newly prepared target has a successful native result yet.
+
+9 November: configure a real `BETA_FEEDBACK_URL` (Discord invite/HTTPS feedback page) or `BETA_SUPPORT_EMAIL` before setting production mode; preflight now requires one. The operator has requested the contact stay empty until supplied. Customer disclosures and the read-only worker/job monitor are documented in [BETA_INFORMATION.md](BETA_INFORMATION.md). The Docker checker now also runs Docker Scout against the built image, including OS packages, with no advisory exclusions; failures or scanner errors keep release blocked. A new native run has not passed from this managed session because Docker engine access is denied.
+
 7 November update: the operator's latest pre-migration Docker runtime/native UI/persistence/restore checks passed, while its audit still reports four Chroma findings. An optional [Supabase storage backend](SUPABASE_STORAGE.md) and inactive Vercel template are now prepared; they require a new image build and real cloud/hosted acceptance. The single-host instructions below continue to describe local persistent storage.
 
 Prepared on 2 November, updated 3 November 2026. Hosting is not chosen and nothing has been published. Operator run `docker-20261103T191122262Z` successfully built the updated image, passed native PDF/PNG/encryption/vector and offline non-root model smoke checks, ran 43 container regressions without skips, started healthy web/worker services, preserved fixture data through container recreation and verified a cold backup/isolated restore. Its Python audit still fails on four Chroma 1.5.9 advisories (down from 72 entries across four packages). No findings are ignored or waived. See [DOCKER-RUNTIME-RESULT.json](../.planning/reviews/2026-11-02-beta-launch/DOCKER-RUNTIME-RESULT.json). This agent session still receives Docker pipe access denial. Real customer/browser, host/HTTPS, OS audit and Chroma applicability/remediation checks remain open.
@@ -34,7 +44,7 @@ PowerShell, project root:
 $env:BETA_ENV_FILE = '.env'
 docker compose --env-file deploy/.env -f deploy/compose.yaml config --quiet
 docker compose --env-file deploy/.env -f deploy/compose.yaml build web
-docker build --target security-audit -t claim-verifier:dependency-audit .
+docker build --target local-security-audit -t claim-verifier:local-dependency-audit .
 ```
 
 Stop if any command fails. The build checks imports, `pip check` and a public dummy-text prediction with the pinned CPU reranker. It bakes that model into the image for offline runtime loading. The separate audit stage scans the exact runtime package snapshot captured before installing audit tooling. Fix reported vulnerabilities; an unavailable scanner is an unpassed gate. Also scan the OS/base image using the eventual host's image scanner and apply its relevant fixes.

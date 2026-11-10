@@ -8,10 +8,18 @@ from pathlib import Path, PurePosixPath
 import re
 from urllib.parse import urlparse
 
-from pilot.cloud_db import CloudStorageError
+from pilot.cloud_db import CloudStorageError, DIAGNOSTICS
 
 DIRECTORIES = {"documents", "processed", "pages", "tables", "charts", "table_images", "model_cache"}
 BUCKET = "verifier-private"
+
+
+def storage_error(error):
+    if isinstance(error,CloudStorageError): return error
+    raw=getattr(error,"status",None) or getattr(error,"status_code",None) or getattr(getattr(error,"response",None),"status_code",None)
+    status=int(raw) if isinstance(raw,(int,str)) and str(raw).isdigit() and len(str(raw))==3 else None
+    code="storage_dependency" if isinstance(error,(ImportError,TypeError,AttributeError)) else "storage_authentication" if status in {401,403} else "bucket_missing" if status==404 else "storage_request" if status==400 else "storage_connection"
+    return CloudStorageError(DIAGNOSTICS[code][0],code=code,http_status=status)
 
 
 def relative_path(value, document_id=None):
@@ -40,7 +48,7 @@ def storage():
     if (parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password
             or parsed.path not in {"", "/"} or parsed.query or parsed.fragment
             or not key.startswith(("sb_secret_","eyJ")) or "REPLACE" in key.upper()):
-        raise CloudStorageError("Configure the server-only SUPABASE_SECRET_KEY and HTTPS project URL for private files.")
+        raise CloudStorageError("Configure the server-only SUPABASE_SECRET_KEY and HTTPS project URL for private files.",code="storage_configuration")
     http = None
     try:
         import httpx
@@ -50,16 +58,16 @@ def storage():
             headers["Authorization"]="Bearer "+key
         # New sb_secret keys are API keys, not bearer JWTs. Avoid auth-session state.
         http=httpx.Client(headers=headers,timeout=30,follow_redirects=False)
-        client=SyncStorageClient(url.rstrip("/")+"/storage/v1",headers,http_client=http)
+        client=SyncStorageClient(url.rstrip("/")+"/storage/v1/",headers,http_client=http)
         bucket = client.get_bucket(BUCKET)
         public = bucket.get("public") if isinstance(bucket, dict) else bucket.public
         if public is not False:
-            raise ValueError()
+            raise CloudStorageError("The verifier-private bucket must remain private.",code="bucket_public")
         return client.from_(BUCKET)
-    except Exception:
+    except Exception as error:
         if http is not None:
             http.close()
-        raise CloudStorageError("Private file storage is unavailable. Apply the supplied private-bucket schema and check the server secret.") from None
+        raise storage_error(error) from None
 
 
 def object_key(workspace, path, sha):
@@ -82,8 +90,8 @@ def put(c, workspace, document_id, path, data):
     try:
         # Idempotent immutable key: repeating a failed migration cannot change content.
         storage().upload(key, data, {"content-type": "application/octet-stream", "upsert": "true"})
-    except Exception:
-        raise CloudStorageError("Private file upload failed. Check storage quota and connectivity, then retry.") from None
+    except Exception as error:
+        raise storage_error(error) from None
     c.execute("INSERT INTO artifacts(workspace,document_id,path,object_key,sha,size) VALUES(?,?,?,?,?,?) "
               "ON CONFLICT(workspace,path) DO UPDATE SET document_id=excluded.document_id,object_key=excluded.object_key,sha=excluded.sha,size=excluded.size",
               (workspace,document_id,path,key,sha,len(data)))
@@ -93,8 +101,8 @@ def put(c, workspace, document_id, path, data):
 def _download(key,sha,size):
     try:
         data = storage().download(key)
-    except Exception:
-        raise CloudStorageError("Private file download failed. Check storage availability, then retry.") from None
+    except Exception as error:
+        raise storage_error(error) from None
     if len(data) != size or hashlib.sha256(data).hexdigest() != sha:
         raise CloudStorageError("Private file checksum failed. Restore the verified source; it has not been used for a verdict.")
     return data
@@ -173,7 +181,7 @@ def publish(access, document_id, job_id, token):
     old_keys = []
     with store.db() as c:
         store.document(c,access,document_id)
-        if not c.execute("SELECT 1 FROM jobs WHERE id=? AND workspace=? AND status='running' AND run_token=?", (job_id,access.workspace,token)).fetchone():
+        if not c.execute("SELECT 1 FROM jobs WHERE id=? AND workspace=? AND status='running' AND run_token=? FOR UPDATE", (job_id,access.workspace,token)).fetchone():
             raise CloudStorageError("Processing ownership changed. Private artifacts were not published.")
         for path in document_files(base,document_id):
             old = put(c,access.workspace,document_id,path.relative_to(base).as_posix(),path.read_bytes())

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 import logging
 import os
 import sys
@@ -103,7 +104,14 @@ def model_call_summary(record):
     usage = record.get("usage") or {}
     usage_fields = {"prompt_tokens", "completion_tokens", "total_tokens", "cost",
                     "prompt_token_count", "candidates_token_count", "total_token_count",
-                    "thoughts_token_count", "cached_content_token_count"}
+                    "thoughts_token_count", "cached_content_token_count", "reasoning_tokens"}
+    safe_usage={k:v for k,v in usage.items() if k in usage_fields and type(v) in {int,float}
+                and (type(v) is int or math.isfinite(v)) and v>=0} if isinstance(usage,dict) else {}
+    # Preserve a count only; never persist the provider's reasoning content or
+    # arbitrary nested usage metadata. This also accepts already-summarized calls.
+    details=usage.get("completion_tokens_details") if isinstance(usage,dict) else None
+    reasoning=details.get("reasoning_tokens") if isinstance(details,dict) else None
+    if type(reasoning) is int and reasoning>=0: safe_usage["reasoning_tokens"]=reasoning
     return {
         "provider": record.get("gateway_provider") or record.get("provider"),
         "model": record.get("actual_model") or record.get("requested_model") or record.get("model"),
@@ -119,8 +127,7 @@ def model_call_summary(record):
         "output_token_limit": record.get("output_token_limit") if isinstance(record.get("output_token_limit"), int)
                               and not isinstance(record.get("output_token_limit"), bool)
                               and 256 <= record["output_token_limit"] <= 131072 else None,
-        "usage": {k: v for k, v in usage.items() if k in usage_fields and isinstance(v, (int, float))}
-                 if isinstance(usage, dict) else {},
+        "usage": safe_usage,
     }
 
 

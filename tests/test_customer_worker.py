@@ -253,6 +253,34 @@ class CustomerWorkerTests(unittest.TestCase):
         for private in ("PRIVATE_PROVIDER_BODY", "PRIVATE_CLAIM", "sk-private-secret"):
             self.assertNotIn(private, json.dumps(result))
 
+    def test_parser_local_validation_keeps_successful_call_context_without_private_text(self):
+        self.parser.return_value=[{'parsing_error':'PRIVATE_CLAIM sk-private-secret',
+            'error_kind':'ParseValidationError','parsing_context':{
+                'validation_reason':'binding','model':'vendor/parser','http_status':200,
+                'output_token_limit':16384,'finish_reason':'stop','provider_request_id':'gen-fixture'}}]
+        row=self.run_job()
+        self.assertEqual(row['status'],'paused')
+        failure=row['result']['failure']
+        self.assertEqual(failure['code'],'parse_validation')
+        self.assertEqual(failure['validation_reason'],'binding')
+        self.assertEqual((failure['model'],failure['output_token_limit']),('vendor/parser',16384))
+        self.assertEqual(row['result']['results'],[])
+        self.verifier.assert_not_called()
+        self.assertNotIn('PRIVATE_CLAIM',json.dumps(row['result']))
+        self.assertNotIn('sk-private-secret',json.dumps(row['result']))
+
+    def test_parser_period_failure_preserves_safe_rule_and_claim_number(self):
+        self.parser.return_value=[{'parsing_error':'PRIVATE_CLAIM', 'error_kind':'ParseValidationError',
+            'parsing_context':{'validation_reason':'period','validation_rule':'multiple_periods','atom_index':3,
+                'model':'vendor/parser','http_status':200,'output_token_limit':16384,'finish_reason':'stop'}}]
+        row=self.run_job()
+        self.assertEqual(row['status'],'paused')
+        failure=row['result']['failure']
+        self.assertEqual((failure['validation_reason'],failure['validation_rule'],failure['atom_index']),
+                         ('period','multiple_periods',3))
+        self.assertNotIn('PRIVATE_CLAIM',json.dumps(row['result']))
+        self.verifier.assert_not_called()
+
     def test_preflight_failure_keeps_error_class_without_inventing_a_request(self):
         self.parser.return_value = [{"parsing_error": "PRIVATE_PROVIDER_BODY", "error_kind": "ModelConfigurationError"}]
         row = self.run_job()

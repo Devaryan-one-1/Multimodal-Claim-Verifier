@@ -1,14 +1,19 @@
 from __future__ import annotations
 
 import re
-from typing import Literal
+import copy
+from typing import Literal, Annotated
 
 from pydantic import BaseModel, Field
 
 from services.model_gateway import capture_calls, model_name, structured
 from services.verification_errors import ParseValidationError, quota_pause
 from verification.number_parser import parse_number
-from verification.reporting_periods import explicit_period
+from verification.reporting_periods import explicit_period, explicit_quarters
+from verification.claim_integrity import comparison_operator as _comparison
+from verification.claim_integrity import normalize_direction, original_comparisons, validate_claims
+from verification.claim_periods import prepare_claim_periods
+from services.observability import model_call_summary
 
 DESC_MODEL = model_name()
 # A sentence-ending full stop or comma is punctuation, not part of a number.
@@ -28,17 +33,18 @@ COMPARATIVE = {"growth", "absolute_change", "percentage_points", "cagr", "direct
 
 class ParsedClaim(BaseModel):
     claim_text: str = Field(min_length=1, max_length=2400, description="The actual atomic statement with its quantity and period, never a label such as assertion.")
-    company: str | None = None
-    subject: str | None = None
-    metric: str | None = Field(default=None, description="Underlying financial quantity from the input, e.g. total deferred revenue; not the operation growth rate.")
-    segment: str | None = None
+    company: str | None = Field(default=None,max_length=200)
+    subject: str | None = Field(default=None,max_length=240)
+    metric: str | None = Field(default=None,max_length=240, description="Underlying financial quantity from the input, e.g. total deferred revenue; not the operation growth rate. For ratio, the numerator metric.")
+    denominator_metric: str | None = Field(default=None,max_length=240,description="For ratio only: the exact denominator metric from the input, e.g. total assets.")
+    segment: str | None = Field(default=None,max_length=200)
     start_period: int | None = None
     end_period: int | None = None
     period_quote: str | None = Field(default=None, max_length=300)
     period_type: Literal["annual", "quarter", "six_months", "nine_months", "point_in_time", "unspecified"] = "unspecified"
     temporal_status: Literal["historical", "forward_looking", "unspecified"] = "unspecified"
     quarter: int | None = Field(default=None, ge=1, le=4)
-    operation: Literal["growth", "absolute_change", "percentage_points", "margin", "cagr", "level", "qualitative", "direction"] = "qualitative"
+    operation: Literal["growth", "absolute_change", "percentage_points", "margin", "ratio", "cagr", "level", "qualitative", "direction"] = "qualitative"
     claimed_literal: str | None = Field(default=None, max_length=150)
     claimed_change: float | None = None
     comparison_operator: Literal["equal", "greater_than", "at_least", "less_than", "at_most"] = "equal"
@@ -47,7 +53,7 @@ class ParsedClaim(BaseModel):
     claim_type: Literal["assertion", "question", "unclear"] = "assertion"
     negated: bool = False
     approximate: bool = False
-    notes: list[str] = Field(default_factory=list, max_length=6)
+    notes: list[Annotated[str,Field(max_length=160)]] = Field(default_factory=list, max_length=3)
 
 
 class ParsedClaims(BaseModel):
@@ -85,6 +91,13 @@ and YTD periods exactly; do not map calendar months to fiscal quarters.
 Level means a stated amount/count/value, not growth. Margin is a profit/revenue
 ratio. An increase/decrease with no numeric threshold is direction, not margin.
 Percentage-point change is not relative percentage growth.
+For a share/proportion/percentage of another metric, use ratio: metric is the
+numerator and denominator_metric is its explicitly named denominator. Split each
+dated ratio value into its own claim with one date; do not use profit margin.
+For "Between DATE_A and DATE_B ... share fell from X% to Y%", X belongs
+to DATE_A and Y to DATE_B. Each ratio atom has start_period=null and one end date.
+Repeat the shared date range in period_quote for each growth/change clause.
+All explicit quantities, including from/to amounts, need their own atomic target.
 Explicit annual growth in year Y may use Y-1 only as a clearly noted inference.
 Retain negation, approximate wording and inequality operators. Do not invent units,
 years, companies or numbers. Do not say evidence is absent: this is parsing only.
@@ -109,27 +122,6 @@ def _words(text: str) -> list[str]:
 def _phrase_in(phrase: str, text: str) -> bool:
     phrase = " ".join(_words(phrase))
     return bool(phrase) and f" {phrase} " in f" {' '.join(_words(text))} "
-
-
-def _comparison(atom: str, literal: str, position=None) -> str:
-    # Bind threshold language to this quantity, not another clause/year/value.
-    position = atom.index(literal) if position is None else position
-    prefix, suffix = atom[:position], atom[position+len(literal):]
-    prefix = re.sub(r"\b(?:approximately|about|roughly|around)\s*$", "", prefix, flags=re.I).rstrip()
-    patterns = (
-        ("at_least", r"(?:at least|no less than|not less than|>=|≥)\s*$"),
-        ("at_most", r"(?:at most|no more than|not more than|<=|≤)\s*$"),
-        ("greater_than", r"(?:more than|greater than|higher than|over|above|exceeds?|exceeded|(?<![><=])>)\s*$"),
-        ("less_than", r"(?:less than|lower than|under|below|(?<![><=])<)\s*$"),
-    )
-    for operator, pattern in patterns:
-        if re.search(r"(?:\b|(?=[><≥≤]))"+pattern, prefix, re.I):
-            return operator
-    if re.match(r"\s+or (?:more|higher|greater)\b", suffix, re.I):
-        return "at_least"
-    if re.match(r"\s+or (?:less|lower|fewer)\b", suffix, re.I):
-        return "at_most"
-    return "equal"
 
 
 def _validate_input_fields(pc: dict, original: str) -> None:
@@ -176,9 +168,8 @@ def _validate_input_fields(pc: dict, original: str) -> None:
             pc.pop("period_inference", None)
         operator = _comparison(atom, literal)
         if not _phrase_in(atom, original):
-            original_operators = {_comparison(original, literal, match.start())
-                                  for match in re.finditer(re.escape(literal), original)}
-            if original_operators != {operator}:
+            original_operators = original_comparisons(pc,original)
+            if original_operators and operator not in original_operators:
                 raise ParseValidationError("Retain the original threshold wording in its own atomic statement; do not drop or move an inequality.")
         pc["comparison_operator"] = operator
     changed = [key for key in fields if pc.get(key) != before[key]]
@@ -187,7 +178,7 @@ def _validate_input_fields(pc: dict, original: str) -> None:
 
 
 def _normalize(item: ParsedClaim, original: str) -> dict:
-    pc = item.model_dump(mode="json")
+    pc = copy.deepcopy(item) if isinstance(item,dict) else item.model_dump(mode="json")
     atom = pc["claim_text"]
     literal = pc.get("claimed_literal")
     if literal and literal not in original:
@@ -209,7 +200,7 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
             raise ParseValidationError("claimed_literal must identify one original numerical quantity, not a derived or compound value.")
     quote = pc.get("period_quote")
     if quote and quote not in original:
-        raise ParseValidationError(f"period_quote {quote!r} is not verbatim input.")
+        raise ParseValidationError(f"period_quote {quote!r} is not verbatim input.",rule="quote_not_grounded")
     if not _question(original) and pc["claim_type"] == "question":
         if ASSERTION.search(atom):
             pc["claim_type"] = "assertion"
@@ -226,18 +217,19 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
     try:
         period = explicit_period(period_text)
     except ValueError as error:
-        raise ParseValidationError(str(error)) from error
+        raise ParseValidationError(str(error),rule="conflicting_durations") from error
     if period and pc["period_type"] != period[0]:
         pc["period_type"] = period[0]
         pc["notes"].append("Reporting period normalized from explicit original wording.")
     if period and not pc.get("period_quote"):
         pc["period_quote"] = period[1]
-    if pc.get("quarter") and not re.search(
-        rf"\bq{pc['quarter']}\b|\b{({1: 'first', 2: 'second', 3: 'third', 4: 'fourth'})[pc['quarter']]}\s+(?:fiscal\s+)?quarter\b",
-        period_text, re.I,
-    ):
-        pc["quarter"] = None
-        pc["notes"].append("Unstated fiscal quarter removed; calendar dates do not establish fiscal quarters.")
+    quarters=explicit_quarters(period_text)
+    if len(quarters)>1:
+        raise ParseValidationError("One atomic claim mixed different fiscal quarters; split the period/value assertions.",rule="conflicting_durations")
+    quarter=next(iter(quarters),None)
+    if pc.get("quarter")!=quarter:
+        pc["quarter"]=quarter
+        pc["notes"].append("Fiscal quarter normalized from explicit wording; calendar months do not establish fiscal quarters.")
     years = _years(atom)
     if quote:
         years = list(dict.fromkeys([*years, *_years(quote)]))
@@ -248,7 +240,7 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
             years = [int(shared.group(1))]
             pc["period_quote"] = shared.group().strip()
         elif pc["operation"] != "qualitative":
-            raise ParseValidationError("A numerical atom dropped its explicit/shared period; retain period_quote.")
+            raise ParseValidationError("A numerical atom dropped its explicit/shared period; retain period_quote.",rule="missing_shared_period")
     for key in ("start_period", "end_period"):
         year = pc.get(key)
         inferred_start = (
@@ -259,13 +251,19 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
         if year is not None and year not in original_years and not inferred_start:
             # Recovery/inference is performed locally below, never by guessing
             # whether an unexplained model-generated year was legitimate.
-            raise ParseValidationError(f"{key}={year} is not a stated input year.")
+            raise ParseValidationError(f"{key}={year} is not a stated input year.",rule="unstated_year")
         if inferred_start:
             pc["period_inference"] = "preceding_annual_year"
     operation = pc["operation"]
     quantity_present = bool(re.search(r"[$€£]\s*\(?\d|\d[\d,.]*\s*%|\d[\d,.]*\s+(?:million|billion|thousand)\b", atom, re.I))
     if literal is None and quantity_present and pc["claim_type"] == "assertion":
         raise ParseValidationError("An explicit quantity disappeared from claimed_literal; split and retain it.")
+    if operation == "ratio":
+        denominator=pc.get("denominator_metric")
+        if not denominator or not _phrase_in(denominator,original) or not _phrase_in(denominator,atom):
+            raise ParseValidationError("A ratio must retain its explicit denominator metric.",reason="operation")
+        if not re.search(r"\b(?:share|proportion|percentage|percent|ratio)\b|/",atom,re.I):
+            raise ParseValidationError("A ratio needs explicit ratio/share wording.",reason="operation")
     if operation == "margin" and not re.search(r"\bmargin\b|\bratio\b|profit\s*/\s*revenue", atom, re.I):
         raise ParseValidationError("A non-ratio assertion was assigned margin; use level/change and retain each clause.")
     if literal and operation in {"growth", "cagr"}:
@@ -292,7 +290,7 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
             pc["start_period"] = pc.get("start_period") if pc.get("start_period") is not None else start
             pc["end_period"] = pc.get("end_period") if pc.get("end_period") is not None else end
             if pc["start_period"] == pc["end_period"]:
-                raise ParseValidationError("A two-year comparison has identical start and end years.")
+                raise ParseValidationError("A two-year comparison has identical start and end years.",rule="identical_comparison_years")
         elif len(years) == 1:
             pc["end_period"] = years[0]
             if pc["period_type"] == "annual" and operation != "cagr" and not pc.get("start_period"):
@@ -302,14 +300,15 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
     elif len(years) == 1:
         pc["end_period"] = years[0]
         if pc.get("start_period") not in {None, pc["end_period"]}:
-            raise ParseValidationError("A level assertion has an unrelated start year.")
-    elif len(years) > 1 and operation in {"level", "margin"}:
-        raise ParseValidationError("Multiple distinct years remain in one level assertion; split it.")
+            raise ParseValidationError("A level assertion has an unrelated start year.",rule="unrelated_start_period")
+    elif len(years) > 1 and operation in {"level", "margin", "ratio"}:
+        raise ParseValidationError("Multiple distinct years remain in one level assertion; split it.",rule="multiple_periods")
     if years and not pc.get("end_period"):
-        raise ParseValidationError("The explicit year was not retained in end_period.")
+        raise ParseValidationError("The explicit year was not retained in end_period.",rule="missing_year")
     if len(years) > 1 and operation in COMPARATIVE:
         if {pc.get("start_period"), pc.get("end_period")} != set(years):
-            raise ParseValidationError("Comparison year fields do not retain both explicit years.")
+            raise ParseValidationError("Comparison year fields do not retain both explicit years.",rule="comparison_year_mismatch")
+    normalize_direction(pc)
     pc["change_type"] = "decline" if pc["direction"] == "down" else "growth"
     return pc
 
@@ -322,14 +321,22 @@ def parse_claims(text: str) -> list[dict]:
         try:
             correction = ""
             for attempt in range(2):
-                parsed = structured(ParsedClaims, text + correction, system=SYSTEM)
+                parsed = structured(ParsedClaims, text + correction, system=SYSTEM,purpose="claim_parser")
                 try:
-                    output = [_normalize(item, text) for item in parsed.claims]
+                    prepared=prepare_claim_periods([item.model_dump(mode="json") for item in parsed.claims],text,_years(text))
+                    output=[]
+                    for index,item in enumerate(prepared):
+                        try:
+                            output.append(_normalize(item,text))
+                        except ParseValidationError as exc:
+                            exc.metadata["atom_index"]=index+1
+                            raise
                     # Explicit years may not disappear from every atom.
                     retained = {p.get(k) for p in output for k in ("start_period", "end_period")}
                     missing = set(_years(text)) - retained
                     if missing and not _question(text):
-                        raise ParseValidationError(f"Explicit years omitted from all atoms: {sorted(missing)}.")
+                        raise ParseValidationError(f"Explicit years omitted from all atoms: {sorted(missing)}.",rule="missing_year")
+                    validate_claims(output,text)
                     return output
                 except ParseValidationError as exc:
                     if attempt:
@@ -341,10 +348,15 @@ def parse_claims(text: str) -> list[dict]:
                     )
             raise ParseValidationError("No validated claim structures were returned.")
         except Exception as exc:
+            context={}
+            if isinstance(exc,ParseValidationError):
+                if calls[start:]: context=model_call_summary(calls[-1])
+                context.update(exc.metadata)
             return [{
                 "claim_text": text, "claim_type": "unclear", "operation": "qualitative",
                 "parsing_error": str(exc), "error_kind": type(exc).__name__,
                 "pause": quota_pause(exc, calls[start:]),
+                "parsing_context":context,
                 "notes": [f"Claim parsing unavailable: {type(exc).__name__}: {exc}"],
             }]
 

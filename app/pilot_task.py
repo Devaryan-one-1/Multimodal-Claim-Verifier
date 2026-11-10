@@ -40,11 +40,17 @@ def run(job_id, token):
     request_calls = []
     last_stage = "Starting"
 
-    def save(status="running", stage="Working", result=None):
+    def save(status="running", stage="Working", result=None, *, document_ready=None):
         with db() as c:
+            if document_ready is not None and not cloud_enabled():
+                c.execute("BEGIN IMMEDIATE")
             authorize(c, access)
-            if not c.execute("SELECT 1 FROM jobs WHERE id=? AND run_token=? AND status='running'", (job_id, token)).fetchone():
+            fence=" FOR UPDATE" if cloud_enabled() else ""
+            if not c.execute("SELECT 1 FROM jobs WHERE id=? AND run_token=? AND status='running'"+fence, (job_id, token)).fetchone():
                 raise RuntimeError("Job ownership changed.")
+            if document_ready is not None:
+                doc_id,metadata=document_ready
+                c.execute("UPDATE documents SET status='ready',metadata=? WHERE id=? AND workspace=?", (json.dumps(metadata),doc_id,access.workspace))
             visible_result = result if result is not None else {"results": checkpoint.get("results", [])}
             c.execute("UPDATE jobs SET status=?,stage=?,result=?,checkpoint=?,updated=? WHERE id=? AND run_token=?", (status, stage, json.dumps(visible_result, default=str), json.dumps(checkpoint, default=str), time.time(), job_id, token))
 
@@ -103,10 +109,8 @@ def run(job_id, token):
             if cloud_enabled():
                 from pilot.cloud_files import publish
                 publish(access,doc_id,job_id,token)
-            with db() as c:
-                authorize(c, access)
-                c.execute("UPDATE documents SET status='ready',metadata=? WHERE id=? AND workspace=?", (json.dumps(result), doc_id, access.workspace))
-            save("complete", "Document ready", {"document_id": doc_id, "model_calls": [model_call_summary(x) for x in request_calls]})
+            save("complete", "Document ready", {"document_id": doc_id, "model_calls": [model_call_summary(x) for x in request_calls]},
+                 document_ready=(doc_id,result))
         elif row["kind"] == "verify":
             from verification.claim_parser import parse_claims
             from pipelines.verification_pipeline import _verify_one
@@ -130,7 +134,8 @@ def run(job_id, token):
                          {"results": checkpoint.get("results", []), "error_stage": "claim_parser",
                           "error_kind": failure.get("error_kind"), "model_calls": checkpoint["parsing_calls"],
                           "failure": describe_failure(kind=failure.get("error_kind", ""),
-                              message=failure.get("parsing_error", ""), calls=request_calls, stage="claim_parser")})
+                              message=failure.get("parsing_error", ""), calls=request_calls, stage="claim_parser",
+                              metadata=failure.get("parsing_context"))})
                     return
                 checkpoint["parsed"] = parsed
                 checkpoint["results"] = []

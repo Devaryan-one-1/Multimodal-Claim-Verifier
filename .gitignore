@@ -3,5 +3,25 @@
 .env.*
 !.env.example
 
+# Runtime/customer state belongs in private backups, never source control.
+/customer_data/
+/data/
+/tmp/
+/output/
+/backups/
+/code_backups/
+/day10_backups/
+/day10_update/
+/pas.txt
+**/__pycache__/
+*.py[cod]
+*.sqlite3-wal
+*.sqlite3-shm
+.streamlit/secrets.toml
+/deploy/.env
+/deploy/backup-secrets/
+/deploy/backups/
+.vercel/
+
 .env
 .env.*

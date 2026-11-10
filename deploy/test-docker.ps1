@@ -1,19 +1,30 @@
-# Run in the operator's normal PowerShell. Uses isolated fixture data and no API credits.
+# Run in the operator's normal PowerShell or a GitHub-hosted Linux runner.
+# Uses isolated fixture data and no model API credits.
+param(
+    [ValidateSet('scout', 'trivy')]
+    [string]$ImageScanner = 'scout'
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 $project = Split-Path -Parent $PSScriptRoot
 $stamp = [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ')
 $record = Join-Path $project ".planning/reviews/2026-11-02-beta-launch/docker-$stamp"
 New-Item -ItemType Directory -Path $record | Out-Null
+if ($env:GITHUB_OUTPUT) {
+    Add-Content -LiteralPath $env:GITHUB_OUTPUT -Value "record=$record" -Encoding utf8
+}
 $log = Join-Path $record 'docker.log'
 $stack = "verifier-smoke-$($stamp.ToLowerInvariant())"
 $image = "claim-verifier:smoke-$($stamp.ToLowerInvariant())"
+$fixtureImage = "$image-local"
 $config = Join-Path $record 'fixture.env'
 $passed = [System.Collections.Generic.List[string]]::new()
 $original = @{}
 $started = $false
 $failure = $null
 $auditFailure = $null
+$imageAuditFailure = $null
 $runtimeCompleted = $false
 
 function Invoke-Docker {
@@ -46,6 +57,24 @@ function Invoke-Compose {
                                  '-f', (Join-Path $project 'deploy/compose.yaml')) + $DockerArgs)
 }
 
+function Invoke-ImageAudit {
+    if ($ImageScanner -eq 'trivy') {
+        # Public, version-pinned scanner: no Docker Hub account or customer keys.
+        # The socket/report mounts are for the hosted Linux runner only.
+        Invoke-Docker -DockerArgs @('run', '--rm',
+            '--security-opt', 'no-new-privileges:true',
+            '--mount', 'type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,readonly',
+            '--mount', ('type=bind,source=' + $record + ',target=/reports'),
+            'ghcr.io/aquasecurity/trivy:0.76.2', 'image', '--image-src', 'docker',
+            '--scanners', 'vuln', '--pkg-types', 'os,library', '--disable-telemetry',
+            '--exit-code', '1', '--ignorefile', '/dev/null', '--format', 'sarif',
+            '--output', '/reports/image-audit.sarif.json', $image)
+    } else {
+        Invoke-Docker -DockerArgs @('scout', 'cves', '--exit-code', '--format', 'sarif',
+            '--output', (Join-Path $record 'image-audit.sarif.json'), "local://$image")
+    }
+}
+
 Push-Location -LiteralPath $project
 try {
     Invoke-Docker -DockerArgs @('info', '--format', '{{.ServerVersion}}')
@@ -60,10 +89,11 @@ try {
     $master = [Convert]::ToBase64String($random).Replace('+','-').Replace('/','_')
     $settings = [ordered]@{
         BETA_ENV_FILE = $config.Replace('\','/')
-        BETA_IMAGE = $image
+        BETA_IMAGE = $fixtureImage
         BETA_PORT = "$port"
         BETA_HOST = 'localhost'
         BETA_PRODUCTION = '0'
+        CUSTOMER_STORAGE = 'local'
         SUPABASE_URL = 'https://docker-fixture.supabase.invalid'
         SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_docker_fixture'
         SUPABASE_SITE_URL = "http://localhost:$port"
@@ -85,8 +115,8 @@ try {
     [System.IO.File]::WriteAllLines($config, [string[]]$lines, [System.Text.UTF8Encoding]::new($false))
 
     Invoke-Compose -DockerArgs @('config', '--quiet')
-    Invoke-Docker -DockerArgs @('build', '--progress=plain', '--target', 'release', '-t', $image, '.')
-    $passed.Add('Release image built; dependency imports/pip check/pinned model prediction passed')
+    Invoke-Docker -DockerArgs @('build', '--pull', '--progress=plain', '--target', 'release', '-t', $image, '.')
+    $passed.Add('Cloud release image built without Chroma; dependency imports/pip check/pinned model prediction passed')
     Invoke-Docker -DockerArgs @('image', 'inspect', '--format', '{{.Id}}', $image)
     try {
         # Refresh the advisory check even if the runtime layers are cached.
@@ -97,20 +127,43 @@ try {
         Write-Warning 'The audit failed. Release remains blocked; continuing isolated fixture diagnostics only. The final result will remain failed.'
     }
 
+    try {
+        Invoke-ImageAudit
+        $passed.Add('Image and base-OS vulnerability scan passed')
+    } catch {
+        $imageAuditFailure = $_.Exception.Message
+        Write-Warning 'Image/OS scan did not pass. Release remains blocked; continuing isolated fixture diagnostics only.'
+    }
+
     # Test the real native encryption dependency without generation/provider calls.
     $isolated = @('run', '--rm', '--network', 'none', '--read-only', '--user', '10001:10001',
                   '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges:true',
                   '--tmpfs', '/tmp:rw,nosuid,size=268435456,mode=1777', '--entrypoint', 'python')
-    Invoke-Docker -DockerArgs ($isolated + @($image, '-B', 'deploy/container_smoke.py'))
-    $passed.Add('Customer imports, native encryption/PDF/image/vector operations and offline non-root reranker passed')
-    Invoke-Docker -DockerArgs ($isolated + @($image, '-B', 'deploy/customer_ui_smoke.py'))
+    Invoke-Docker -DockerArgs ($isolated + @($image, '-B', 'deploy/container_smoke.py', 'cloud'))
+    $passed.Add('Cloud image Chroma absence, native Postgres/encryption/PDF/PNG, scoped pgvector adapter (mocked DB) and offline non-root reranker passed')
+
+    # Local persistence/migration drills intentionally use a separate Chroma image.
+    # It is never the cloud release or the subject of its security gate.
+    Invoke-Docker -DockerArgs @('build', '--progress=plain', '--target', 'local-release', '-t', $fixtureImage, '.')
+    Invoke-Docker -DockerArgs @('image', 'inspect', '--format', '{{.Id}}', $fixtureImage)
+    Invoke-Docker -DockerArgs ($isolated + @($fixtureImage, '-B', 'deploy/container_smoke.py', 'local'))
+    $passed.Add('Separate local fixture image native Chroma and copied-index preservation passed')
+    Invoke-Docker -DockerArgs ($isolated + @($fixtureImage, '-B', 'deploy/customer_ui_smoke.py'))
     $passed.Add('Real Streamlit Settings, navigation/drafts, PDF zoom, history, inline export, revision invalidation and revocation checks passed (fixtures; no browser/live auth)')
     $testMount = 'type=bind,source=' + (Join-Path $project 'tests') + ',target=/app/tests,readonly'
     foreach ($pattern in @('test_customer_connections.py', 'test_backup_restore.py', 'test_customer_beta.py',
                           'test_customer_access.py', 'test_customer_account_security.py', 'test_customer_account_auth.py',
                           'test_customer_acceptance.py', 'test_customer_ui_refinements.py', 'test_customer_mobile_layout.py',
-                          'test_claim_parser.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
-        Invoke-Docker -DockerArgs ($isolated + @('--mount', $testMount, $image, '-B', '-m', 'unittest',
+                          'test_customer_selection_diagnostics.py',
+                          'test_claim_parser.py', 'test_claim_pipeline.py', 'test_beta_information.py', 'test_beta_release.py', 'test_vercel_deployment.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
+        $mounts = @('--mount', $testMount)
+        if ($pattern -eq 'test_vercel_deployment.py') {
+            # Source contract files are inspection fixtures, not runtime assets.
+            foreach ($name in @('Dockerfile', 'vercel.json', '.dockerignore', '.vercelignore')) {
+                $mounts += @('--mount', ('type=bind,source=' + (Join-Path $project $name) + ',target=/app/' + $name + ',readonly'))
+            }
+        }
+        Invoke-Docker -DockerArgs ($isolated + $mounts + @($fixtureImage, '-B', '-m', 'unittest',
                                                 'discover', '-s', 'tests', '-p', $pattern, '-v'))
     }
     $passed.Add('Native encryption, history/exports, account isolation/recovery and backup regressions passed inside image (auth/HTTP boundaries mocked)')
@@ -153,18 +206,22 @@ try {
         [Environment]::SetEnvironmentVariable($name, $original[$name], 'Process')
     }
     $result = [ordered]@{
-        status = $(if ($null -eq $failure -and $null -eq $auditFailure) { 'passed' } else { 'failed' })
+        status = $(if ($null -eq $failure -and $null -eq $auditFailure -and $null -eq $imageAuditFailure) { 'passed' } else { 'failed' })
         image = $image
+        local_fixture_image = $fixtureImage
         compose_project = $stack
         passed = @($passed.ToArray())
         failure = $failure
         python_dependency_audit = $(if ($null -ne $auditFailure) { 'failed' } elseif ($passed.Contains('Python dependency audit passed')) { 'passed' } else { 'not run' })
         audit_failure = $auditFailure
+        image_security_audit = $(if ($null -ne $imageAuditFailure) { 'failed' } elseif ($passed.Contains('Image and base-OS vulnerability scan passed')) { 'passed' } else { 'not run' })
+        image_security_scanner = $ImageScanner
+        image_audit_failure = $imageAuditFailure
         runtime_checks_completed = $runtimeCompleted
         real_customer_data_used = $false
         provider_calls = 0
         public_deployment = $false
-        remaining = @('OS/base-image scan', 'Real configured customer app/browser acceptance', 'Host/HTTPS and scheduled off-host backup')
+        remaining = @('Real configured cloud customer app/browser acceptance', 'Vercel activation and hosted reconnect/PDF/export checks', 'Scheduled cloud backup and isolated restore')
     }
     $result | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $record 'RESULT.json') -Encoding utf8
     Pop-Location
@@ -173,4 +230,5 @@ try {
 }
 if ($null -ne $failure) { throw $failure }
 if ($null -ne $auditFailure) { throw "Fixture runtime checks completed, but the dependency audit failed. Release remains blocked. See $log" }
+if ($null -ne $imageAuditFailure) { throw "Fixture runtime checks completed, but the image/OS scan did not pass. Release remains blocked. See $log" }
 Write-Host 'Docker fixture checks passed. This does not publish or activate the real customer app.' -ForegroundColor Green

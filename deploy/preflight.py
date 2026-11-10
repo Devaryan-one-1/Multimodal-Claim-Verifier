@@ -1,4 +1,4 @@
-"""Local configuration/storage checks. No provider calls or secret values printed."""
+"""Configuration/storage checks. No model calls or secret values printed."""
 from contextlib import closing
 import base64
 import hashlib
@@ -12,8 +12,21 @@ import tempfile
 from urllib.parse import urlparse
 
 
-def configuration_errors(env):
+CLOUD_ONLY_MARKER = Path(__file__).with_name("cloud-only")
+
+
+def configuration_errors(env, *, cloud_only=False):
     errors = []
+    if cloud_only or env.get("VERCEL") == "1":
+        if env.get("CUSTOMER_STORAGE", "local").strip().lower() != "supabase":
+            errors.append("The cloud image requires CUSTOMER_STORAGE=supabase; local fallback is disabled.")
+        if env.get("BETA_PRODUCTION", "0") != "1":
+            errors.append("The cloud image requires BETA_PRODUCTION=1 and production preflight checks.")
+        try:
+            if int(env.get("CUSTOMER_MAX_UPLOAD_MB", "10")) > 4:
+                errors.append("Set CUSTOMER_MAX_UPLOAD_MB to at most 4 for Vercel uploads.")
+        except ValueError:
+            pass  # The positive-integer check below supplies the diagnostic.
     if env.get("CUSTOMER_STORAGE", "local").lower() not in {"local", "supabase"}:
         errors.append("Set CUSTOMER_STORAGE to local or supabase.")
     url = urlparse(env.get("SUPABASE_URL", ""))
@@ -29,6 +42,10 @@ def configuration_errors(env):
         errors.append("Use an HTTPS customer Site URL, or loopback HTTP for local testing.")
     if env.get("BETA_PRODUCTION", "0") == "1" and (site.scheme != "https" or local):
         errors.append("Production requires the actual public HTTPS Site URL.")
+    if env.get("BETA_PRODUCTION", "0") == "1":
+        from app.pilot.beta_information import feedback_target
+        if not feedback_target(env):
+            errors.append("Set BETA_FEEDBACK_URL to a public HTTPS support link or BETA_SUPPORT_EMAIL to your support email.")
     try:
         if len(base64.urlsafe_b64decode(env.get("CUSTOMER_KEY_ENCRYPTION_KEY", ""))) != 32:
             raise ValueError()
@@ -55,7 +72,7 @@ def configuration_errors(env):
 
 def check(env=None):
     env = os.environ if env is None else env
-    errors = configuration_errors(env)
+    errors = configuration_errors(env, cloud_only=CLOUD_ONLY_MARKER.is_file())
     if errors:
         return errors
     if env.get("CUSTOMER_STORAGE", "local").lower() == "supabase":

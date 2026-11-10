@@ -12,13 +12,18 @@ from services.model_gateway import structured, capture_calls
 from services.verification_errors import VerificationFailure, quota_pause
 from verification.number_parser import parse_number
 from verification.reporting_periods import explicit_dates
-from verification.financial_calculations import percentage_growth, absolute_change, margin, cagr, percentage_point_change
+from verification.claim_integrity import source_quantity_matches
+from verification.financial_calculations import percentage_growth, absolute_change, margin, ratio, cagr, percentage_point_change
 
 NUMBER_PATTERN = re.compile(r"(?<!\w)(?:USD|EUR|GBP|CAD|AUD|JPY|CNY|CHF|INR)?\s*[€£$]?\(?[−-]?\d[\d,]*(?:\.\d+)?\)?\s*(?:%|billion|million|thousand|trillion|bn|[BMTK])?(?!\w)", re.I)
 
 
+class NumericValidationError(ValueError):
+    """Expected missing/incompatible source data; no deterministic verdict."""
+
+
 class Operand(BaseModel):
-    name: Literal["old", "new", "profit", "revenue", "value"]
+    name: Literal["old", "new", "profit", "revenue", "value", "numerator", "denominator"]
     evidence_id: str
     row_index: int | None = None
     column_index: int | None = None
@@ -56,22 +61,22 @@ def _text_year_check(pc, operand, item, chosen):
     local_start, local_end = chosen["start"]-start, chosen["end"]-start
     overlaps = lambda a, b, m: a < m.end() and b > m.start()
     if any(overlaps(local_start, local_end, m) for m in dates):
-        raise ValueError("A date was selected as a financial value.")
+        raise NumericValidationError("A date was selected as a financial value.")
     years = [int(y) for y in re.findall(r"\b(?:19|20)\d{2}\b", sentence)]
     expected = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
     if len(set(years)) <= 1:
         if expected is not None and expected not in years:
-            raise ValueError("Source sentence does not identify the claimed year.")
+            raise NumericValidationError("Source sentence does not identify the claimed year.")
         return
     if expected is None:
-        raise ValueError("Comparative source text requires an explicit claimed year.")
+        raise NumericValidationError("Comparative source text requires an explicit claimed year.")
     if re.search(r"\brespectively\b", sentence, re.I):
         amounts = [m for m in NUMBER_PATTERN.finditer(sentence)
                    if not re.fullmatch(r"(?:19|20)\d{2}", m.group().strip()) and
                    not any(overlaps(m.start(), m.end(), date) for date in dates)]
         selected = [i for i, m in enumerate(amounts) if overlaps(local_start, local_end, m)]
         if len(years) != len(set(years)) or len(amounts) != len(years) or len(selected) != 1:
-            raise ValueError("The respective source values and years cannot be bound unambiguously.")
+            raise NumericValidationError("The respective source values and years cannot be bound unambiguously.")
         actual = years[selected[0]]
     else:
         separators = list(re.finditer(r";|\b(?:and|versus|whereas|compared\s+(?:with|to)|from|to)\b", sentence, re.I))
@@ -80,13 +85,13 @@ def _text_year_check(pc, operand, item, chosen):
         clause = sentence[left:right]
         clause_years = set(map(int, re.findall(r"\b(?:19|20)\d{2}\b", clause)))
         if len(clause_years) != 1:
-            raise ValueError("The selected value has an ambiguous reporting year.")
+            raise NumericValidationError("The selected value has an ambiguous reporting year.")
         prefix = sentence[left:local_start]
         if not _metric_matches(pc.get("metric"), clause) and set(_tokens(prefix)) - {"was", "were", "is", "are", "about", "approximately", "at", "up", "down"}:
-            raise ValueError("The value's period clause does not identify the claimed metric.")
+            raise NumericValidationError("The value's period clause does not identify the claimed metric.")
         actual = next(iter(clause_years))
     if actual != expected:
-        raise ValueError("The selected source value belongs to a different year.")
+        raise NumericValidationError("The selected source value belongs to a different year.")
 
 
 def source_context(item, *, include_page=True):
@@ -148,20 +153,20 @@ def _mapping(item, width):
 def _unit_context(item, operand, raw, column=None):
     local = source_context(item, include_page=False)
     if item.get("extraction_method") == "table-vision-v1" and item.get("currency_warning"):
-        raise ValueError("The table's currency could not be confirmed; review its source before numerical comparison.")
+        raise NumericValidationError("The table's currency could not be confirmed; review its source before numerical comparison.")
     if operand.unit_quote:
         if operand.unit_quote not in local:
-            raise ValueError("Unit quote is absent from the source table/figure/text, including its original headers.")
+            raise NumericValidationError("Unit quote is absent from the source table/figure/text, including its original headers.")
         if re.search(r"per\s+share", str(item.get("metric_label") or ""), re.I) and re.search(
             r"\b(?:thousands?|millions?|billions?|trillions?)\b", operand.unit_quote, re.I
         ):
-            raise ValueError("A table-wide amount scale cannot be applied to its per-share exception.")
+            raise NumericValidationError("A table-wide amount scale cannot be applied to its per-share exception.")
         if item.get("extraction_method") != "table-vision-v1":
             return operand.unit_quote
     if item.get("extraction_method") == "table-vision-v1":
         units = item.get("row_units") or []
         if operand.row_index is None or operand.row_index >= len(units):
-            raise ValueError("Visual table row unit context is unavailable.")
+            raise NumericValidationError("Visual table row unit context is unavailable.")
         return units[operand.row_index]
     header = " ".join((str(item.get("context") or ""),
                        str((item.get("column_headers") or {}).get("raw") or ""),
@@ -171,7 +176,7 @@ def _unit_context(item, operand, raw, column=None):
         return "%"
     scales = re.findall(r"\b(?:thousands?|millions?|billions?|trillions?)\b", header, re.I)
     if len({word.casefold().rstrip("s") for word in scales}) > 1:
-        raise ValueError("Table-level units are ambiguous; an exact value-specific unit quote is required.")
+        raise NumericValidationError("Table-level units are ambiguous; an exact value-specific unit quote is required.")
     # Per-share amounts are explicitly an exception to a table's million scale.
     if re.search(r"per\s+share", str(item.get("metric_label") or ""), re.I):
         return ""
@@ -191,17 +196,17 @@ def _period_check(pc, name, item, column, width=None):
             expected_year = available[0]
             item["period_interpretation"] = "only_available_source_year"
         else:
-            raise ValueError("The claim omits a required year and this source contains multiple possible reporting periods.")
+            raise NumericValidationError("The claim omits a required year and this source contains multiple possible reporting periods.")
     mappings = [cm for cm in all_mappings if cm.get("col") == column]
     if not mappings:
         if expected_year is not None or pc.get("period_type") not in {None, "unspecified", "point_in_time"}:
-            raise ValueError("The selected cell has no verified year/period mapping.")
+            raise NumericValidationError("The selected cell has no verified year/period mapping.")
         return
     if len(mappings) != 1:
-        raise ValueError("Selected period column is ambiguous.")
+        raise NumericValidationError("Selected period column is ambiguous.")
     cm = mappings[0]
     if expected_year is not None and str(cm.get("year")) != str(expected_year):
-        raise ValueError("Selected cell belongs to a different year.")
+        raise NumericValidationError("Selected cell belongs to a different year.")
     periods = {"annual": {"year", "twelve_months", "annual"}, "quarter": {"quarter", "three_months"},
                "six_months": {"six_months"}, "nine_months": {"nine_months"}, "point_in_time": {"point_in_time"}}
     wanted = pc.get("period_type")
@@ -213,7 +218,7 @@ def _period_check(pc, name, item, column, width=None):
         # columns. Keep this as an explicit inference in the calculation proof.
         year_columns = item.get("annual_report_year_columns") and cm.get("mapping_origin") == "explicit_terminal_header"
         if wanted != "annual" or partial or not (explicit_annual or year_columns):
-            raise ValueError("Quarterly, annual or YTD periods do not match the claim.")
+            raise NumericValidationError("Quarterly, annual or YTD periods do not match the claim.")
         item["period_interpretation"] = "explicit_annual_header" if explicit_annual else "annual_report_year_columns"
     if wanted in periods:
         dates = {value for value, _ in explicit_dates(pc.get("period_quote") or pc.get("claim_text") or "")
@@ -221,7 +226,7 @@ def _period_check(pc, name, item, column, width=None):
         if dates:
             source_dates = {value for value, _ in explicit_dates(cm.get("raw") or "")}
             if len(dates) != 1 or source_dates != dates:
-                raise ValueError("Selected cell does not identify the claim's exact reporting date.")
+                raise NumericValidationError("Selected cell does not identify the claim's exact reporting date.")
 
 
 def _chart_period(fact, item):
@@ -232,7 +237,7 @@ def _chart_period(fact, item):
     if period:
         years = set(re.findall(r"\b(?:19|20)\d{2}\b", period))
         if category_year and years and years != {category}:
-            raise ValueError("Chart period and category year labels conflict.")
+            raise NumericValidationError("Chart period and category year labels conflict.")
         return period
     if not category_year:
         return ""
@@ -243,48 +248,55 @@ def _chart_period(fact, item):
     if (not re.search(r"\b(?:annual|annually|year|years|yearly)\b", context, re.I) or
             re.search(r"\b(?:product|model|segment|category|cohort|region)\b", axis_label, re.I) or
             re.search(r"\bby\s+(?:product|model|segment|category|cohort|region)\b", context, re.I)):
-        raise ValueError("Chart year category lacks an explicit time axis.")
+        raise NumericValidationError("Chart year category lacks an explicit time axis.")
     item["period_interpretation"] = "explicit_chart_year_category"
     return category
 
 
 def _value(pc, operand, item):
+    if operand.name == "denominator":
+        if not pc.get("denominator_metric"):
+            raise NumericValidationError("A ratio requires an explicit denominator metric.")
+        pc = dict(pc, metric=pc["denominator_metric"])
+        item.pop("_preferred_metric_rows", None)
     context = source_context(item)
     if operand.unit_quote and operand.unit_quote not in context:
-        raise ValueError("Unit quote is absent from the source evidence.")
+        raise NumericValidationError("Unit quote is absent from the source evidence.")
     if operand.scope_quote and operand.scope_quote not in context:
-        raise ValueError("Scope quote is absent from the source evidence.")
+        raise NumericValidationError("Scope quote is absent from the source evidence.")
     if item["type"] == "table":
         row_index, column = operand.row_index, operand.column_index
         rows = item.get("rows") or []
         if row_index is None or column is None or row_index < 0 or row_index >= len(rows) or column < 1 or column >= len(rows[row_index]):
-            raise ValueError("Invalid table cell address.")
+            raise NumericValidationError("Invalid table cell address.")
         row = rows[row_index]
         width = max([len(item.get("headers") or []), *(len(source_row) for source_row in rows)])
         if len(row) != width:
-            raise ValueError("Selected table row has missing column positions. Re-extract the source table before verification.")
+            raise NumericValidationError("Selected table row has missing column positions. Re-extract the source table before verification.")
         label_context = " ".join([str(row[0]), str(item.get("headers") or []), str(item.get("context") or ""),
                                   str((item.get("column_headers") or {}).get("raw") or "")]).casefold()
         item["metric_label"] = str(row[0])
         segment_tokens = _tokens(pc.get("segment"))
         if segment_tokens and not all(token in _tokens(label_context) for token in segment_tokens):
-            raise ValueError("Selected table row does not explicitly identify the claimed segment.")
+            raise NumericValidationError("Selected table row does not explicitly identify the claimed segment.")
         metric = str(pc.get("metric") or "").casefold()
-        if operand.name in {"old", "new", "value"} and metric:
+        if operand.name in {"old", "new", "value", "numerator", "denominator"} and metric:
             exact = item["_preferred_metric_rows"] if "_preferred_metric_rows" in item else _exact_metric_rows(metric, rows)
             if exact and row_index not in exact:
-                raise ValueError("The selected row is a different metric; use the explicitly matching source row.")
+                raise NumericValidationError("The selected row is a different metric; use the explicitly matching source row.")
             if not _metric_matches(metric, label_context):
-                raise ValueError("The selected row/header does not identify the claimed metric.")
+                raise NumericValidationError("The selected row/header does not identify the claimed metric.")
+            if operand.name in {"numerator", "denominator"} and not _metric_matches(metric,str(row[0])):
+                raise NumericValidationError("Each ratio operand must identify its own metric in the source row.")
         if operand.name == "revenue" and not any(x in label_context for x in ("revenue", "revenues", "net sales", "total sales")):
-            raise ValueError("The denominator row does not identify revenue.")
+            raise NumericValidationError("The denominator row does not identify revenue.")
         if operand.name == "profit":
             profit_labels = ("income", "profit", "earnings")
             if not any(x in label_context for x in profit_labels):
-                raise ValueError("The numerator row does not identify profit/income.")
+                raise NumericValidationError("The numerator row does not identify profit/income.")
             for qualifier in ("operating", "gross", "net"):
                 if qualifier in _tokens(pc.get("metric")) and qualifier not in _tokens(label_context):
-                    raise ValueError("The numerator does not identify the claimed margin's profit definition.")
+                    raise NumericValidationError("The numerator does not identify the claimed margin's profit definition.")
         _period_check(pc, operand.name, item, column, len(row))
         raw = str(row[column])
         item.setdefault("relevant_row_indices", []).append(row_index)
@@ -293,63 +305,67 @@ def _value(pc, operand, item):
         facts = item.get("facts") or []
         index = operand.fact_index
         if index is None or index < 0 or index >= len(facts):
-            raise ValueError("Invalid chart fact address.")
+            raise NumericValidationError("Invalid chart fact address.")
         fact = facts[index]
         if fact.get("value_source") != "explicit_label":
-            raise ValueError("Estimated chart values cannot establish a numerical verdict.")
+            raise NumericValidationError("Estimated chart values cannot establish a numerical verdict.")
         chart_period = _chart_period(fact, item)
         year = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
         if year is not None and set(re.findall(r"\b(?:19|20)\d{2}\b", chart_period)) != {str(year)}:
-            raise ValueError("Chart period does not match the claim.")
+            raise NumericValidationError("Chart period does not match the claim.")
         if pc.get("segment") and not all(t in _tokens(fact.get("segment")) for t in _tokens(pc["segment"])):
-            raise ValueError("Chart segment does not match the claim.")
+            raise NumericValidationError("Chart segment does not match the claim.")
         metric_context = " ".join(str(x or "") for x in (fact.get("metric"), item.get("title"), item.get("content"))).casefold()
         metric = str(pc.get("metric") or "").casefold()
         aliases = [metric] + (["net sales", "revenue", "revenues"] if "revenue" in metric else [])
         if metric and not any(alias in metric_context for alias in aliases):
-            raise ValueError("Chart labels do not identify the claimed metric.")
+            raise NumericValidationError("Chart labels do not identify the claimed metric.")
+        if operand.name in {"numerator", "denominator"} and not _metric_matches(metric,str(fact.get("metric") or "")):
+            raise NumericValidationError("Each ratio chart fact must explicitly identify its own metric.")
         raw = str(fact.get("display_value") if fact.get("display_value") is not None else fact.get("value"))
         operand.unit_quote = str(fact.get("unit") or "")
     else:
         numbers = _bank(item)
         index = operand.number_index
         if index is None or index < 0 or index >= len(numbers):
-            raise ValueError("Invalid source-text number address.")
+            raise NumericValidationError("Invalid source-text number address.")
         chosen = numbers[index]
         raw = chosen["raw"]
         if re.fullmatch(r"(?:19|20)\d{2}", raw):
-            raise ValueError("A bare year was selected as a financial value.")
+            raise NumericValidationError("A bare year was selected as a financial value.")
         metric_tokens = _tokens(pc.get("metric"))
         nearby = _tokens(chosen["context"])
         if metric_tokens and not all(token in nearby for token in metric_tokens):
-            raise ValueError("Source number context does not identify the claimed metric.")
+            raise NumericValidationError("Source number context does not identify the claimed metric.")
+        if operand.name in {"numerator", "denominator"} and not source_quantity_matches(pc,item.get("content", ""),chosen["start"],chosen["end"]):
+            raise NumericValidationError("The ratio source value is not bound to its own metric clause.")
         if pc.get("segment") and not all(token in nearby for token in _tokens(pc["segment"])):
-            raise ValueError("Source number context does not identify the claimed segment.")
+            raise NumericValidationError("Source number context does not identify the claimed segment.")
         _text_year_check(pc, operand, item, chosen)
     if item["type"] != "table":
         period_context = (chosen["context"] if item["type"] not in {"table", "chart"} else
                           " ".join(str(x or "") for x in (chart_period, item.get("title"), item.get("content"))))
         partial = re.search(r"\b(?:quarter|quarterly|q[1-4]|three months|six months|nine months)\b", period_context, re.I)
         if pc.get("period_type") == "annual" and partial:
-            raise ValueError("The source number is associated with a partial-year period, not an annual figure.")
+            raise NumericValidationError("The source number is associated with a partial-year period, not an annual figure.")
         required = {"quarter": r"quarter|q[1-4]|three months", "six_months": r"six months", "nine_months": r"nine months"}
         if pc.get("period_type") in required and not re.search(required[pc["period_type"]], period_context, re.I):
-            raise ValueError("The source number does not explicitly identify the requested reporting-period type.")
+            raise NumericValidationError("The source number does not explicitly identify the requested reporting-period type.")
     if pc.get("quarter"):
         q = pc["quarter"]
         ordinals = {1: "first", 2: "second", 3: "third", 4: "fourth"}
         quarter_context = " ".join((str(item.get("context") or ""), str(item.get("headers") or ""), operand.scope_quote)) if item["type"] == "table" else period_context
         if not re.search(rf"\bq{q}\b|\b{ordinals[q]}\s+quarter\b", quarter_context, re.I):
-            raise ValueError("The source does not explicitly identify the claimed fiscal quarter.")
+            raise NumericValidationError("The source does not explicitly identify the claimed fiscal quarter.")
     if pc.get("temporal_status") == "forward_looking" and operand.name != "old":
         forecast_context = (" ".join((str(item.get("context") or ""), operand.scope_quote))
                             if item["type"] == "table" else period_context)
         if not re.search(r"\b(?:expect\w*|project\w*|forecast\w*|plan\w*|outlook|guidance)\b", forecast_context, re.I):
-            raise ValueError("Historical source values cannot verify a forward-looking assertion.")
+            raise NumericValidationError("Historical source values cannot verify a forward-looking assertion.")
     unit_context = _unit_context(item, operand, raw, operand.column_index)
     parsed, reason = parse_number(raw, context=unit_context)
     if parsed is None:
-        raise ValueError(reason)
+        raise NumericValidationError(reason)
     if parsed["kind"] != "percent" and any(symbol in unit_context for symbol in "$€£"):
         # Source symbols establish a monetary type, but '$' alone is not USD.
         parsed["unit"] = "amount"
@@ -362,6 +378,8 @@ def _required_names(pc):
         return ("old", "new")
     if operation == "margin":
         return None
+    if operation == "ratio":
+        return ("numerator", "denominator")
     return ("value",)
 
 
@@ -411,19 +429,19 @@ def _validated_selection(pc, evidence, selection):
         if operand.evidence_id not in catalog:
             targets = aliases.get(operand.evidence_id, set())
             if len(targets) != 1:
-                raise ValueError("Copy an exact evidence id; this reference is missing or ambiguous across sources.")
+                raise NumericValidationError("Copy an exact evidence id; this reference is missing or ambiguous across sources.")
             operand.evidence_id = next(iter(targets))
         address = (operand.name, operand.evidence_id, operand.row_index, operand.column_index,
                    operand.number_index, operand.fact_index, operand.unit_quote, operand.scope_quote)
         if address in seen:
             continue  # Repeated identical addresses do not select another value.
         if operand.name in names:
-            raise ValueError("Select each required operand name once, using one source address.")
+            raise NumericValidationError("Select each required operand name once, using one source address.")
         _value(pc, operand, copy.deepcopy(catalog[operand.evidence_id]))
         operands.append(operand); names.add(operand.name); seen.add(address)
     required = _required_names(pc)
     if (required and names != set(required)) or (required is None and names not in ({"value"}, {"profit", "revenue"})):
-        raise ValueError("Selected operand names do not match the requested calculation.")
+        raise NumericValidationError("Selected operand names do not match the requested calculation.")
     selection.operands = operands
     return selection
 
@@ -444,6 +462,8 @@ containing 3371 with applicable=true. Python must determine CONTRADICTED.
 Never refuse merely because the claimed number, sign, or direction is wrong.
 For growth/change/direction/points/CAGR select old,new. For level select value.
 For margin select profit,revenue or one directly reported percent named value.
+For ratio select numerator,denominator: metric identifies the numerator row and
+denominator_metric identifies the denominator row, for the same date and document.
 Match metric, segment, company and period independently of the claimed amount.
 Never substitute total-company values for missing segment figures.
 row_index indexes rows excluding headers; column_index indexes actual row cells,
@@ -516,7 +536,7 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
         used = []
         for operand in selection.operands:
             if operand.evidence_id not in catalog or operand.name in operands:
-                raise ValueError("Invalid or duplicate operand reference.")
+                raise NumericValidationError("Invalid or duplicate operand reference.")
             operands[operand.name] = _value(pc, operand, catalog[operand.evidence_id])
             source = catalog[operand.evidence_id]
             addresses[operand.name] = {
@@ -531,23 +551,28 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
             }
             used.append(operand.evidence_id)
         names = {"growth": ("old", "new"), "absolute_change": ("old", "new"), "percentage_points": ("old", "new"),
-                 "direction": ("old", "new"), "cagr": ("old", "new"), "level": ("value",),
+                 "direction": ("old", "new"), "cagr": ("old", "new"), "level": ("value",), "ratio": ("numerator", "denominator"),
                  "margin": ("value",) if "value" in operands else ("profit", "revenue")}[operation]
         if set(operands) != set(names):
-            raise ValueError("Selected operands do not match the requested operation.")
+            raise NumericValidationError("Selected operands do not match the requested operation.")
         kinds = {_quantity_kind(operand) for operand in operands.values()}
         if len(kinds) != 1:
-            raise ValueError("Source operands have incompatible percentage, monetary amount or count types.")
+            raise NumericValidationError("Source operands have incompatible percentage, monetary amount or count types.")
         source_kind = next(iter(kinds))
         values = {name: operands[name]["value"] for name in names}
+        if operation == "ratio":
+            if source_kind == "percent":
+                raise NumericValidationError("A share ratio requires matching amounts or counts, not percentage inputs.")
+            if len({address["document_id"] for address in addresses.values()}) != 1:
+                raise NumericValidationError("A share ratio must use numerator and denominator from the same document.")
         if operation == "margin" and "value" not in operands and source_kind != "amount":
-            raise ValueError("A profit/revenue margin requires source-established monetary amounts.")
+            raise NumericValidationError("A profit/revenue margin requires source-established monetary amounts.")
         if operation == "absolute_change" and source_kind == "percent":
-            raise ValueError("An absolute change between percentages requires an explicit percentage-point comparison.")
+            raise NumericValidationError("An absolute change between percentages requires an explicit percentage-point comparison.")
         money = [value for value in operands.values() if value["kind"] != "percent"]
         currencies = {value["currency"] for value in money}
         if len(currencies) > 1:
-            raise ValueError("Source currencies differ or are incompletely specified; no currency conversion is inferred.")
+            raise NumericValidationError("Source currencies differ or are incompletely specified; no currency conversion is inferred.")
         currency = next(iter(currencies), None)
         quantity_unit = currency or source_kind
         unit = "percent"
@@ -561,7 +586,7 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
             unit = quantity_unit
         elif operation == "percentage_points":
             if any(item["kind"] != "percent" for item in operands.values()):
-                raise ValueError("Percentage-point change requires two percentage inputs.")
+                raise NumericValidationError("Percentage-point change requires two percentage inputs.")
             computed = percentage_point_change(values["old"], values["new"])
             operands = {"old_margin": operands["old"], "new_margin": operands["new"]}
             addresses = {"old_margin": addresses["old"], "new_margin": addresses["new"]}
@@ -569,10 +594,12 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
         elif operation == "margin":
             if "value" in values:
                 if operands["value"]["kind"] != "percent":
-                    raise ValueError("A directly reported margin must be a percentage.")
+                    raise NumericValidationError("A directly reported margin must be a percentage.")
                 computed = {"formula": "value", "value": values["value"], "inputs": values}
             else:
                 computed = margin(values["profit"], values["revenue"])
+        elif operation == "ratio":
+            computed = ratio(values["numerator"], values["denominator"])
         elif operation == "cagr":
             years = (pc.get("end_period") or 0) - (pc.get("start_period") or 0)
             computed = cagr(values["old"], values["new"], years)
@@ -583,37 +610,37 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
             unit = quantity_unit
         formula, value, values = computed["formula"], computed["value"], computed["inputs"]
         if value is None:
-            raise ValueError(computed.get("note") or "The calculation is undefined.")
+            raise NumericValidationError(computed.get("note") or "The calculation is undefined.")
         if not math.isfinite(value):
-            raise ValueError("The computed result is not finite.")
+            raise NumericValidationError("The computed result is not finite.")
         clean_literal = re.sub(r"\b(?:percentage\s+points?|points?|pp|ppt)\b", "", literal or "", flags=re.I).strip()
         claimed, reason = parse_number(clean_literal) if operation != "direction" else (
             {"value": 0.0, "kind": "number", "precision": 0, "currency": currency}, None
         )
         if claimed is None:
-            raise ValueError(reason)
+            raise NumericValidationError(reason)
         if operation != "direction":
             claimed_kind = _quantity_kind(claimed)
             result_kind = "percentage_points" if unit == "percentage points" else (
                 "percent" if unit == "percent" else source_kind)
             declared = pc.get("unit", "unspecified")
             if declared not in {None, "unspecified", result_kind}:
-                raise ValueError("Claim unit and calculated result have incompatible quantity types.")
+                raise NumericValidationError("Claim unit and calculated result have incompatible quantity types.")
             if result_kind == "percentage_points":
                 if claimed_kind != "number" or not (declared == "percentage_points" or re.search(
                     r"\b(?:percentage\s+points?|points?|pp|ppt)\b", literal or "", re.I
                 )):
-                    raise ValueError("Percentage-point change needs a percentage-point literal, not a percent or monetary amount.")
+                    raise NumericValidationError("Percentage-point change needs a percentage-point literal, not a percent or monetary amount.")
             elif claimed_kind != result_kind:
-                raise ValueError("Claim and source result have incompatible percentage, monetary amount or count types.")
+                raise NumericValidationError("Claim and source result have incompatible percentage, monetary amount or count types.")
             if claimed_kind == "percent" and (claimed.get("currency") or any(symbol in clean_literal for symbol in "$€£")):
-                raise ValueError("A percentage claim cannot also specify a monetary amount.")
+                raise NumericValidationError("A percentage claim cannot also specify a monetary amount.")
         if unit in {"percent", "percentage points"}:
             claimed_value = claimed["value"]
             tolerance = 0.5 * 10 ** (-claimed["precision"])
         else:
             if claimed["currency"] and claimed["currency"] != currency:
-                raise ValueError("Claim currency cannot be matched to the source currency.")
+                raise NumericValidationError("Claim currency cannot be matched to the source currency.")
             claimed_value = claimed["value"]
             tolerance = 0.5 * max(operands[name]["scale"] * 10 ** (-operands[name]["precision"]) for name in operands)
         if pc.get("direction") == "down" and operation in {"growth", "absolute_change", "percentage_points"}:
@@ -622,7 +649,7 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
         operator = pc.get("comparison_operator", "equal")
         if operation == "direction":
             if pc.get("direction") not in {"up", "down", "flat"}:
-                raise ValueError("A directional comparison must specify increase, decrease or unchanged.")
+                raise NumericValidationError("A directional comparison must specify increase, decrease or unchanged.")
             operator = {"up": "greater_than", "down": "less_than", "flat": "equal"}[pc["direction"]]
             tolerance = 0.0
         if pc.get("direction") == "down" and operation in {"growth", "absolute_change", "percentage_points"}:
@@ -649,8 +676,10 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
         return calculation, comparison, selection.reason, list(dict.fromkeys(used))
     except VerificationFailure:
         raise
-    except Exception as exc:
+    except NumericValidationError as exc:
         return None, None, str(exc), []
+    except Exception as exc:
+        raise VerificationFailure("An unexpected numeric execution error interrupted verification.",stage="numeric_calculation") from exc
 
 
 # from __future__ import annotations

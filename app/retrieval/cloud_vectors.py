@@ -102,4 +102,4 @@ class Collection:
         if not c.execute("SELECT 1 FROM jobs j JOIN members m ON m.workspace=j.workspace AND m.principal=j.principal "
                          "WHERE j.id=? AND j.workspace=? AND j.run_token=? AND j.status='running' FOR UPDATE OF j",
                          (job,self.workspace,token)).fetchone():
-            raise cloud_db.CloudStorageError("The request lost processing ownership or workspace access. No vectors were changed.")
+            raise cloud_db.CloudStorageError("The request lost processing ownership or workspace access. No vectors were changed.",code="job_ownership_changed")
