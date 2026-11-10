@@ -1,9 +1,19 @@
 # Customer beta work list
 
+10 November hosted result: all runtime checks and **458 selected container tests**
+pass, including native UI, persistence and fixture backup/restore. Python dependency
+audit passes. The image scan reports 341 findings: 335 Debian OS package entries
+and six pip 25.0.1 entries. These are scanner findings, not proof that every issue
+is exploitable. The user-approved packaging remediation switches to Python 3.12
+on Debian Trixie, installs available OS updates and pins pip 26.3 before dependency
+installation. Runtime audit snapshots now include pip, and native smoke checks
+verify its inclusion. Fresh hosted build/scan results are pending; no security
+finding was ignored or waived. Application behavior and saved indexes are unchanged.
+
 10 November: a GitHub-hosted **Docker checks** workflow is prepared to avoid the
 PC's C: disk exhaustion. It uses the same fixture runner with a public pinned
 Trivy image scanner instead of Scout, without real secrets or deployment. It is
-not pushed/run yet. The latest local cloud build, pip audit and native cloud smoke
+now pushed and run as recorded above. The earlier local cloud build, pip audit and native cloud smoke
 passed; Scout failed to copy the image because C: was full, and the local fixture
 build then failed on Docker's read-only storage. Follow
 [GitHub steps](GITHUB_DOCKER_CHECKS.md); the release gate remains open.

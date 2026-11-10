@@ -6,8 +6,11 @@ import io
 import json
 import os
 from pathlib import Path
+import platform
+import sqlite3
 import sys
 import tempfile
+import zlib
 from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"app"))
@@ -119,7 +122,11 @@ def main():
     score = _get_model().predict([("public fixture", "public fixture")])
     assert len(score) == 1
     print("Customer-only imports, native Postgres driver/encryption, PDF/PNG and offline reranker passed.")
-    packages = ("streamlit", "pillow", "pypdf", "setuptools", "psycopg") + (("chromadb",) if mode == "local" else ())
+    # pip freeze normally omits pip itself, so verify the audit covers it too.
+    snapshot = Path(__file__).with_name("installed-requirements.txt").read_text().splitlines()
+    assert f"pip=={version('pip')}" in snapshot, "Runtime audit snapshot omitted pip"
+    print(f"Python {platform.python_version()}; SQLite {sqlite3.sqlite_version}; zlib {zlib.ZLIB_RUNTIME_VERSION}")
+    packages = ("pip", "streamlit", "pillow", "pypdf", "setuptools", "psycopg") + (("chromadb",) if mode == "local" else ())
     for package in packages:
         print(f"{package}=={version(package)}")
 

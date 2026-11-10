@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:3.12-slim-bookworm AS runtime
+FROM python:3.12-slim-trixie AS runtime
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     HF_HOME=/opt/verifier-models HF_HUB_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1 \
     TOKENIZERS_PARALLELISM=false ANONYMIZED_TELEMETRY=false \
@@ -7,9 +7,14 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     RERANK_MODEL_NAME=cross-encoder/ms-marco-MiniLM-L6-v2 \
     RERANK_MODEL_REVISION=233902d25c440f23af6f7d6e94d2946bac0bee0a
 WORKDIR /app
-RUN groupadd --gid 10001 verifier && useradd --uid 10001 --gid 10001 --create-home verifier
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --gid 10001 verifier \
+    && useradd --uid 10001 --gid 10001 --create-home verifier
 COPY requirements-production.txt /app/requirements-production.txt
-RUN python -m pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.14.0 \
+RUN python -m pip install --no-cache-dir --upgrade pip==26.3 \
+    && python -m pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.14.0 \
     && python -m pip install --no-cache-dir -r requirements-production.txt \
     && python -m pip check
 COPY app/pilot/ /app/app/pilot/
@@ -25,7 +30,7 @@ COPY scripts/ /app/scripts/
 COPY deploy/*.py /app/deploy/
 RUN python -c "import streamlit, supabase, pymupdf, pdfplumber, torch, httpx, jsonschema; print('Dependency imports OK')" \
     && HF_HUB_OFFLINE=0 python deploy/warm_model.py \
-    && python -m pip freeze > /app/deploy/installed-requirements.txt \
+    && python -m pip freeze --all > /app/deploy/installed-requirements.txt \
     && mkdir -p /var/lib/verifier /backups /backup-secrets \
     && chown -R 10001:10001 /var/lib/verifier /backups /backup-secrets \
     && chmod 700 /backups /backup-secrets \
@@ -42,7 +47,7 @@ USER root
 COPY requirements-local.txt /app/requirements-local.txt
 RUN python -m pip install --no-cache-dir -r requirements-local.txt \
     && python -m pip check \
-    && python -m pip freeze > /app/deploy/installed-requirements.txt
+    && python -m pip freeze --all > /app/deploy/installed-requirements.txt
 ENV CUSTOMER_STORAGE=local BETA_PRODUCTION=0 CUSTOMER_MAX_UPLOAD_MB=10
 USER 10001:10001
 
