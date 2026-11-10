@@ -10,8 +10,19 @@ Trivy scans all severity levels, including unfixed findings; no ignore file is u
 It uses generated fixture configuration only. No Supabase, OpenRouter, Google or
 Docker credentials are needed in GitHub Secrets. It does not upload customer data,
 publish container images, run model calls, deploy Vercel or start a live worker.
-Only result/log/SARIF files are uploaded as the seven-day `docker-check-results`
-artifact; generated fixture environment files and backup keys are excluded.
+The seven-day `docker-check-results` artifact contains RESULT/log/SARIF, full Trivy
+`image-audit.json`, and `runtime-inventory.json`. The inventory records package
+provenance, selected program permissions/presence, pip's bundled components,
+SQLite build flags and the isolated test container's UID/capabilities. It uses
+standard library probes and an in-memory SQLite database; it does not import the
+app or connect to providers. It does not decide whether an alert is exploitable.
+Generated fixture environment files and backup keys are excluded.
+
+Trivy JSON is converted to SARIF even when findings make the scan fail. Successful
+conversion does not clear that failure. Missing reports or conversion errors also
+keep the image gate failed. Missing programs/modules in an inventory are evidence
+to review, not automatic exceptions. CI container controls do not establish the
+eventual Vercel runtime's controls.
 
 ## First run
 

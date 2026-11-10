@@ -25,26 +25,33 @@ $started = $false
 $failure = $null
 $auditFailure = $null
 $imageAuditFailure = $null
+$inventoryCompleted = $false
 $runtimeCompleted = $false
 
 function Invoke-Docker {
-    param([string[]]$DockerArgs)
+    param([string[]]$DockerArgs, [string]$CapturePath)
     # Arguments contain paths/config names only; never customer keys.
     [System.IO.File]::AppendAllText($log, ('docker ' + ($DockerArgs -join ' ') + [Environment]::NewLine), [System.Text.UTF8Encoding]::new($false))
     $previousPreference = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
     $code = -1
     $writer = [System.IO.StreamWriter]::new($log, $true, [System.Text.UTF8Encoding]::new($false))
+    $captureWriter = $null
     try {
+        if ($CapturePath) {
+            $captureWriter = [System.IO.StreamWriter]::new($CapturePath, $false, [System.Text.UTF8Encoding]::new($false))
+        }
         # Tee-Object writes UTF-16 under Windows PowerShell 5; use one encoding
         # throughout so a later agent can read the complete build/audit output.
         & docker @DockerArgs 2>&1 | ForEach-Object {
             $line = $_.ToString()
             $writer.WriteLine($line)
+            if ($null -ne $captureWriter) { $captureWriter.WriteLine($line) }
             Write-Host $line
         }
         $code = $LASTEXITCODE
     } finally {
+        if ($null -ne $captureWriter) { $captureWriter.Dispose() }
         $writer.Dispose()
         $ErrorActionPreference = $previousPreference
     }
@@ -61,14 +68,30 @@ function Invoke-ImageAudit {
     if ($ImageScanner -eq 'trivy') {
         # Public, version-pinned scanner: no Docker Hub account or customer keys.
         # The socket/report mounts are for the hosted Linux runner only.
-        Invoke-Docker -DockerArgs @('run', '--rm',
-            '--security-opt', 'no-new-privileges:true',
-            '--mount', 'type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,readonly',
-            '--mount', ('type=bind,source=' + $record + ',target=/reports'),
-            'ghcr.io/aquasecurity/trivy:0.76.2', 'image', '--image-src', 'docker',
-            '--scanners', 'vuln', '--pkg-types', 'os,library', '--disable-telemetry',
-            '--exit-code', '1', '--ignorefile', '/dev/null', '--format', 'sarif',
-            '--output', '/reports/image-audit.sarif.json', $image)
+        $scannerFailure = $null
+        try {
+            Invoke-Docker -DockerArgs @('run', '--rm',
+                '--security-opt', 'no-new-privileges:true',
+                '--mount', 'type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,readonly',
+                '--mount', ('type=bind,source=' + $record + ',target=/reports'),
+                'ghcr.io/aquasecurity/trivy:0.76.2', 'image', '--image-src', 'docker',
+                '--scanners', 'vuln', '--pkg-types', 'os,library', '--disable-telemetry',
+                '--exit-code', '1', '--ignorefile', '/dev/null', '--format', 'json', '--list-all-pkgs',
+                '--output', '/reports/image-audit.json', $image)
+        } catch { $scannerFailure = $_ }
+        if (Test-Path -LiteralPath (Join-Path $record 'image-audit.json')) {
+            # Conversion still runs for a completed scan that found vulnerabilities.
+            # Its success never clears the original scanner's failure status.
+            Invoke-Docker -DockerArgs @('run', '--rm', '--network', 'none',
+                '--security-opt', 'no-new-privileges:true',
+                '--mount', ('type=bind,source=' + $record + ',target=/reports'),
+                'ghcr.io/aquasecurity/trivy:0.76.2', 'convert', '--format', 'sarif',
+                '--ignorefile', '/dev/null', '--output', '/reports/image-audit.sarif.json',
+                '/reports/image-audit.json')
+        } elseif ($null -eq $scannerFailure) {
+            throw 'Trivy returned success without the required JSON report.'
+        }
+        if ($null -ne $scannerFailure) { throw $scannerFailure }
     } else {
         Invoke-Docker -DockerArgs @('scout', 'cves', '--exit-code', '--format', 'sarif',
             '--output', (Join-Path $record 'image-audit.sarif.json'), "local://$image")
@@ -139,6 +162,11 @@ try {
     $isolated = @('run', '--rm', '--network', 'none', '--read-only', '--user', '10001:10001',
                   '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges:true',
                   '--tmpfs', '/tmp:rw,nosuid,size=268435456,mode=1777', '--entrypoint', 'python')
+    $inventoryPath = Join-Path $record 'runtime-inventory.json'
+    Invoke-Docker -DockerArgs ($isolated + @($image, '-B', 'deploy/runtime_inventory.py')) -CapturePath $inventoryPath
+    Get-Content -LiteralPath $inventoryPath -Raw | ConvertFrom-Json | Out-Null
+    $inventoryCompleted = $true
+    $passed.Add('Read-only cloud runtime inventory collected; applicability not inferred')
     Invoke-Docker -DockerArgs ($isolated + @($image, '-B', 'deploy/container_smoke.py', 'cloud'))
     $passed.Add('Cloud image Chroma absence, native Postgres/encryption/PDF/PNG, scoped pgvector adapter (mocked DB) and offline non-root reranker passed')
 
@@ -155,7 +183,7 @@ try {
                           'test_customer_access.py', 'test_customer_account_security.py', 'test_customer_account_auth.py',
                           'test_customer_acceptance.py', 'test_customer_ui_refinements.py', 'test_customer_mobile_layout.py',
                           'test_customer_selection_diagnostics.py',
-                          'test_claim_parser.py', 'test_claim_pipeline.py', 'test_beta_information.py', 'test_beta_release.py', 'test_vercel_deployment.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
+                          'test_claim_parser.py', 'test_claim_pipeline.py', 'test_beta_information.py', 'test_beta_release.py', 'test_vercel_deployment.py', 'test_runtime_inventory.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
         $mounts = @('--mount', $testMount)
         if ($pattern -eq 'test_vercel_deployment.py') {
             # Source contract files are inspection fixtures, not runtime assets.
@@ -217,6 +245,7 @@ try {
         image_security_audit = $(if ($null -ne $imageAuditFailure) { 'failed' } elseif ($passed.Contains('Image and base-OS vulnerability scan passed')) { 'passed' } else { 'not run' })
         image_security_scanner = $ImageScanner
         image_audit_failure = $imageAuditFailure
+        runtime_inventory_completed = $inventoryCompleted
         runtime_checks_completed = $runtimeCompleted
         real_customer_data_used = $false
         provider_calls = 0

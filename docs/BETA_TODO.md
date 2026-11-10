@@ -1,5 +1,13 @@
 # Customer beta work list
 
+10 November diagnostic follow-up: latest hosted run passes 458 container tests and
+runtime/restore checks. Image findings fell from 341 to 189, with zero critical
+and 48 high entries (12 distinct high issues). The approved CI-only follow-up adds
+full Trivy JSON and a read-only runtime inventory to identify component paths,
+bundled code and affected features. Seven inventory tests, 12 deployment tests
+and scanner failure/conversion/capture simulations pass locally. Fresh diagnostic
+artifacts are pending a user push. No ignore/VEX or release-policy change is made.
+
 10 November hosted result: all runtime checks and **458 selected container tests**
 pass, including native UI, persistence and fixture backup/restore. Python dependency
 audit passes. The image scan reports 341 findings: 335 Debian OS package entries

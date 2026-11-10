@@ -38,6 +38,8 @@ jobs:
             ${{ steps.checks.outputs.record }}/RESULT.json
             ${{ steps.checks.outputs.record }}/docker.log
             ${{ steps.checks.outputs.record }}/image-audit.sarif.json
+            ${{ steps.checks.outputs.record }}/image-audit.json
+            ${{ steps.checks.outputs.record }}/runtime-inventory.json
           include-hidden-files: true
           if-no-files-found: warn
           retention-days: 7
