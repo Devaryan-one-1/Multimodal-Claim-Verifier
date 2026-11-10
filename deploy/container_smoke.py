@@ -122,11 +122,16 @@ def main():
     score = _get_model().predict([("public fixture", "public fixture")])
     assert len(score) == 1
     print("Customer-only imports, native Postgres driver/encryption, PDF/PNG and offline reranker passed.")
-    # pip freeze normally omits pip itself, so verify the audit covers it too.
     snapshot = Path(__file__).with_name("installed-requirements.txt").read_text().splitlines()
-    assert f"pip=={version('pip')}" in snapshot, "Runtime audit snapshot omitted pip"
+    if mode == "cloud":
+        from deploy.runtime_hardening import check_runtime
+        assert os.geteuid() == 10001
+        print("Customer runtime hardening:", json.dumps(check_runtime()))
+    else:
+        # The separate local/migration environment intentionally keeps its installer.
+        assert f"pip=={version('pip')}" in snapshot, "Local runtime audit snapshot omitted pip"
     print(f"Python {platform.python_version()}; SQLite {sqlite3.sqlite_version}; zlib {zlib.ZLIB_RUNTIME_VERSION}")
-    packages = ("pip", "streamlit", "pillow", "pypdf", "setuptools", "psycopg") + (("chromadb",) if mode == "local" else ())
+    packages = ("streamlit", "pillow", "pypdf", "setuptools", "psycopg") + (("pip", "chromadb") if mode == "local" else ())
     for package in packages:
         print(f"{package}=={version(package)}")
 

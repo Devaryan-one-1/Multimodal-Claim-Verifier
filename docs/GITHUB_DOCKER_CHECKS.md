@@ -7,6 +7,14 @@ scan, then runs the separate local-image native/UI/regression/persistence/restor
 fixtures. A vulnerability, unavailable scanner or failed test keeps the run red.
 Trivy scans all severity levels, including unfixed findings; no ignore file is used.
 
+The customer cloud runtime removes the pip installer after dependency/model setup
+and clears setuid/setgid bits from regular files under `/usr` (including mount,
+umount and su). Native checks verify that state and compare every installed
+distribution with a fresh metadata-based dependency snapshot. The Python audit
+runs in its own virtual environment in the audit-only target; it never reinstalls
+pip in the shipped release. The separate local/migration image retains pip.
+These controls do not repair every underlying OS advisory or clear scan findings.
+
 It uses generated fixture configuration only. No Supabase, OpenRouter, Google or
 Docker credentials are needed in GitHub Secrets. It does not upload customer data,
 publish container images, run model calls, deploy Vercel or start a live worker.

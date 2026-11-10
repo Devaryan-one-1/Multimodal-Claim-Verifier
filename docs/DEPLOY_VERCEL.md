@@ -11,6 +11,10 @@ eligible plan/host ([Hobby terms](https://vercel.com/docs/plans/hobby)).
 - The final Docker `release` target uses Supabase/Postgres vectors and excludes
   Chroma. `local-release` retains Chroma for the local Compose/migration drills.
   No saved index, migrated vector, PDF or encryption key needs rebuilding.
+- The customer filesystem also removes runtime pip and strips setuid/setgid bits
+  under `/usr`. Audit tooling is isolated in its own build-target environment.
+  Fresh hosted build/native/security results are required for this hardening;
+  prior passing runtime tests predate it. Existing image findings remain open.
 - Cloud startup refuses local storage and requires production checks. Writable
   caches/logs use `/tmp`; durable documents, jobs, reviews and vectors stay in
   Supabase. Never treat `/tmp` as a backup.

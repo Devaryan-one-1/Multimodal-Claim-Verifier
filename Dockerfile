@@ -62,12 +62,19 @@ ENV CUSTOMER_STORAGE=supabase BETA_PRODUCTION=1 CUSTOMER_MAX_UPLOAD_MB=4 \
     CLAIM_VERIFIER_LOG_DIR=/tmp/claim-verifier-logs PORT=8501
 USER root
 RUN python -c "from importlib.util import find_spec; from importlib.metadata import packages_distributions; assert find_spec('chromadb') is None; assert 'chromadb' not in packages_distributions(); print('Cloud release contains no Chroma')" \
-    && touch /app/deploy/cloud-only
+    && touch /app/deploy/cloud-only \
+    && python -m pip uninstall --yes pip \
+    && python deploy/runtime_hardening.py snapshot \
+    && find /usr -xdev -type f -perm /6000 -exec chmod a-s '{}' + \
+    && python deploy/runtime_hardening.py check
 USER 10001:10001
 
 FROM cloud-runtime AS security-audit
 USER root
-RUN python -m pip install --no-cache-dir pip-audit==2.9.0 \
-    && python scripts/dependency_audit.py
+# Installer/audit tooling lives only in this separate build target.
+RUN python -m venv /opt/verifier-audit \
+    && /opt/verifier-audit/bin/python -m pip install --no-cache-dir --upgrade pip==26.3 \
+    && /opt/verifier-audit/bin/python -m pip install --no-cache-dir pip-audit==2.9.0 \
+    && /opt/verifier-audit/bin/python scripts/dependency_audit.py
 
 FROM cloud-runtime AS release

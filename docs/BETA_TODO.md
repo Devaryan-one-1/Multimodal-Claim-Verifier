@@ -1,5 +1,16 @@
 # Customer beta work list
 
+10 November customer-image hardening is implemented after approval: pip is removed
+from the customer filesystem after installation/model setup, system-tree setuid/
+setgid bits are cleared, and an exact metadata snapshot is regenerated afterward.
+The audit-only target uses its own virtual environment; local/migration images
+retain their installer. Native guards reject leftover installer modules/commands,
+privilege bits or a stale snapshot. Eight new hardening tests and the 12 deployment
+tests pass locally. A new GitHub build/native/scan run is pending. The last verified
+hosted run passed 465 container tests, with 204 reported image entries (zero
+critical, 48 high, 75 medium, 66 low and 15 unscored OpenSSL entries). The latter
+are five newly published advisories rated Low upstream. No findings are waived.
+
 10 November diagnostic follow-up: latest hosted run passes 458 container tests and
 runtime/restore checks. Image findings fell from 341 to 189, with zero critical
 and 48 high entries (12 distinct high issues). The approved CI-only follow-up adds
