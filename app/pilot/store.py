@@ -230,7 +230,12 @@ def progress_snapshot(access):
     """Read workspace progress without loading historical evidence or model output."""
     with db() as c:
         authorize(c, access)
-        worker = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
+        if cloud_enabled():
+            from pilot.cloud_db import worker_heartbeat_age
+            age = worker_heartbeat_age(c)
+        else:
+            worker = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
+            age = time.time()-worker["heartbeat"] if worker else None
         connection = c.execute("SELECT version,updated FROM model_connections WHERE principal=?", (access.principal,)).fetchone()
         sources = c.execute("SELECT id,name,status FROM documents WHERE workspace=? ORDER BY id", (access.workspace,)).fetchall()
         rows = c.execute("""SELECT id,kind,status,stage,
@@ -246,7 +251,6 @@ def progress_snapshot(access):
                          "name": payload.get("name") or names.get(payload.get("document_id"), ""),
                          "completed": sum(r.get("status") == "complete" for r in result.get("results", [])),
                          "total": len(checkpoint.get("parsed", []))})
-    age = time.time()-worker["heartbeat"] if worker else None
     return {"worker_available": age is not None and 0 <= age < 15, "worker_age_seconds": age,
             "connection": tuple(connection) if connection else None,
             "documents": [(d["id"], d["status"]) for d in sources], "jobs": progress}

@@ -208,6 +208,13 @@ def initialize():
             raise CloudStorageError("Apply the supplied Supabase storage schema before starting cloud mode.",code="schema_missing")
 
 
+def worker_heartbeat_age(connection):
+    """Measure liveness on the database clock shared by the web app and worker."""
+    row = connection.execute("""SELECT EXTRACT(EPOCH FROM clock_timestamp())::double precision
+        - heartbeat AS age FROM worker_status WHERE id=1""").fetchone()
+    return float(row[0]) if row else None
+
+
 class WorkerLock:
     def __init__(self):
         self.connection = connect(autocommit=True)

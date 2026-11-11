@@ -44,7 +44,12 @@ def exclusive_lock():
 
 def heartbeat():
     with db() as c:
-        c.execute("INSERT INTO worker_status VALUES(1,?) ON CONFLICT(id) DO UPDATE SET heartbeat=excluded.heartbeat", (time.time(),))
+        if cloud_enabled():
+            c.execute("""INSERT INTO worker_status VALUES(1,
+                EXTRACT(EPOCH FROM clock_timestamp())::double precision)
+                ON CONFLICT(id) DO UPDATE SET heartbeat=excluded.heartbeat""")
+        else:
+            c.execute("INSERT INTO worker_status VALUES(1,?) ON CONFLICT(id) DO UPDATE SET heartbeat=excluded.heartbeat", (time.time(),))
 
 
 def recover_cloud_jobs():

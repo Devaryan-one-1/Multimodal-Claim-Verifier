@@ -23,6 +23,9 @@ from pilot import store, cloud_db, cloud_files
 from retrieval.cloud_vectors import Collection, vector_literal
 from scripts import migrate_supabase as migration
 from scripts import test_supabase_storage as smoke_cli
+from scripts import beta_status
+from deploy import healthcheck
+from test_customer_beta import load_module
 
 W1,W2,D1,D2,J1,TOKEN=(char*32 for char in "abcdef")
 
@@ -152,6 +155,87 @@ class DatabaseAdapterTests(unittest.TestCase):
         self.assertEqual(details["code"],"cloud_storage")
         self.assertNotIn("PRIVATE",json.dumps(details))
         self.assertNotIn("http_status",details)
+
+
+class CloudHeartbeatTests(unittest.TestCase):
+    def setUp(self):
+        self.stack = ExitStack()
+        self.addCleanup(self.stack.close)
+        folder = self.stack.enter_context(tempfile.TemporaryDirectory())
+        self.stack.enter_context(patch.dict(os.environ, {
+            "CUSTOMER_STORAGE": "local", "CUSTOMER_DATA_ROOT": folder,
+        }))
+        store.initialize()
+        self.native = self.stack.enter_context(closing(sqlite3.connect(Path(folder) / "control.sqlite3")))
+        self.native.row_factory = sqlite3.Row
+        self.database_time = 10000.0
+        self.native.create_function("clock_timestamp", 0, lambda: self.database_time)
+        self.native.execute("INSERT INTO workspaces VALUES(?,?)", (W1, "Fixture"))
+        self.native.execute("INSERT INTO members VALUES(?,?)", ("owner", W1))
+        self.native.commit()
+        self.access = store.Access("owner", W1, 1e12)
+
+        # Emulate only PostgreSQL's epoch expression; use real SQL/state for the
+        # heartbeat, authorization, progress and monitor queries underneath it.
+        self.connection = MagicMock()
+        self.connection.execute.side_effect = lambda sql, parameters=(): self.native.execute(
+            sql.replace("EXTRACT(EPOCH FROM clock_timestamp())::double precision", "clock_timestamp()"),
+            parameters,
+        )
+        self.stack.enter_context(patch.dict(sys.modules, {
+            "dotenv": types.SimpleNamespace(load_dotenv=lambda *args, **kwargs: None),
+        }))
+        self.worker = load_module(self.stack, "_cloud_heartbeat_worker", PROJECT / "app/pilot_worker.py")
+        self.stack.enter_context(patch.dict(os.environ, {"CUSTOMER_STORAGE": "supabase"}))
+        self.stack.enter_context(patch.object(self.worker, "db", self.database))
+        self.stack.enter_context(patch.object(store, "db", self.database))
+        self.stack.enter_context(patch.object(cloud_db, "db", self.database))
+
+    @contextmanager
+    def database(self):
+        yield self.connection
+        self.native.commit()
+
+    def assert_health(self, expected):
+        snapshot = store.progress_snapshot(self.access)
+        self.assertEqual(snapshot["worker_available"], expected)
+        self.assertEqual(healthcheck.healthy("worker"), expected)
+        report = beta_status.snapshot(self.connection)
+        self.assertEqual("worker_unavailable" not in report["warnings"], expected)
+        return snapshot
+
+    def test_different_worker_and_web_clocks_use_the_database_time(self):
+        for worker_time, web_time in ((9000, 11000), (11000, 9000)):
+            with self.subTest(worker_time=worker_time, web_time=web_time):
+                with patch("time.time", return_value=worker_time):
+                    self.worker.heartbeat()
+                saved = self.native.execute("SELECT heartbeat FROM worker_status").fetchone()[0]
+                self.assertEqual(saved, self.database_time)
+                self.database_time += 1.25
+                with patch("time.time", return_value=web_time):
+                    self.assertEqual(self.assert_health(True)["worker_age_seconds"], 1.25)
+
+    def test_actual_staleness_is_detected_despite_a_skewed_web_clock(self):
+        self.worker.heartbeat()
+        for age, available in ((14.99, True), (15, False), (60, False)):
+            with self.subTest(age=age), patch("time.time", return_value=9000):
+                self.database_time = 10000 + age
+                self.assertAlmostEqual(self.assert_health(available)["worker_age_seconds"], age)
+        self.worker.heartbeat()
+        self.assert_health(True)
+
+    def test_missing_and_future_legacy_heartbeats_are_unavailable(self):
+        self.assertIsNone(self.assert_health(False)["worker_age_seconds"])
+        self.native.execute("INSERT INTO worker_status VALUES(1,?)", (self.database_time + 30,))
+        self.assertEqual(self.assert_health(False)["worker_age_seconds"], -30)
+        self.worker.heartbeat()
+        self.assert_health(True)
+
+    def test_local_worker_keeps_its_existing_timestamp_format(self):
+        with patch.dict(os.environ, {"CUSTOMER_STORAGE": "local"}), patch("time.time", return_value=12345.5):
+            self.worker.heartbeat()
+        saved = self.native.execute("SELECT heartbeat FROM worker_status").fetchone()[0]
+        self.assertEqual(saved, 12345.5)
 
 
 class SmokeDiagnosticTests(unittest.TestCase):

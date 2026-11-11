@@ -27,14 +27,20 @@ def connection():
 
 def snapshot(c, now=None):
     now = time.time() if now is None else now
-    row = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
-    age = max(0, round(now-row[0], 1)) if row and row[0] <= now else None
+    if os.getenv("CUSTOMER_STORAGE", "local").lower() == "supabase":
+        from pilot.cloud_db import worker_heartbeat_age
+        age = worker_heartbeat_age(c)
+    else:
+        row = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
+        age = now-row[0] if row else None
+    if age is not None and age < 0:
+        age = None
     counts = {row[0]: row[1] for row in c.execute("SELECT status,COUNT(*) FROM jobs GROUP BY status").fetchall()}
     queued = c.execute("SELECT MIN(created) FROM jobs WHERE status='queued'").fetchone()[0]
     running = c.execute("SELECT MIN(updated) FROM jobs WHERE status='running'").fetchone()[0]
     recent = c.execute("SELECT COUNT(*) FROM jobs WHERE status IN ('failed','paused') AND updated>=?", (now-86400,)).fetchone()[0]
     warnings = []
-    if age is None or age >= 15:
+    if age is None or not 0 <= age < 15:
         warnings.append("worker_unavailable")
     if queued is not None and now-queued > 300:
         warnings.append("queue_wait_over_5_minutes")
@@ -42,7 +48,7 @@ def snapshot(c, now=None):
         warnings.append("running_job_without_recent_progress")
     if recent:
         warnings.append("failed_or_paused_jobs_in_last_24_hours")
-    return {"status": "attention" if warnings else "ok", "worker_age_seconds": age,
+    return {"status": "attention" if warnings else "ok", "worker_age_seconds": round(age, 1) if age is not None else None,
             "job_counts": {key: counts.get(key, 0) for key in ("queued", "running", "complete", "failed", "paused")},
             "failed_or_paused_last_24_hours": recent,
             "oldest_queue_wait_seconds": max(0, round(now-queued)) if queued is not None else None,

@@ -17,10 +17,10 @@ def healthy(role):
             return False
         if os.environ.get("CUSTOMER_STORAGE", "local").lower() == "supabase":
             sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"app"))
-            from pilot.cloud_db import db
+            from pilot.cloud_db import db, worker_heartbeat_age
             with db() as c:
-                row = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
-                return bool(row and 0 <= time.time()-row[0] < 15)
+                age = worker_heartbeat_age(c)
+                return age is not None and 0 <= age < 15
         path = Path(os.environ.get("CUSTOMER_DATA_ROOT", "/var/lib/verifier/customer_data"))/"control.sqlite3"
         with closing(sqlite3.connect(path.resolve().as_uri()+"?mode=ro", uri=True, timeout=3)) as c:
             row = c.execute("SELECT heartbeat FROM worker_status WHERE id=1").fetchone()
