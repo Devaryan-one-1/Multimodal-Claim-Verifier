@@ -136,13 +136,22 @@ def _verify_one(pc, selected, reporter=None):
             if reporter:
                 reporter.update("Verifying calculations", completed=4, message="Reading source cells and calculating in Python")
             stage="numeric_calculation"
-            calculation, comparison, numeric_reason, used = verify_numeric(pc, evidence)
+            period_sources = [dict(item, document_id=doc)
+                              for doc, catalog in catalogs.items() for item in catalog.values()
+                              if item.get("type") == "table"]
+            calculation, comparison, numeric_reason, used = verify_numeric(pc, evidence, period_evidence=period_sources)
             event("calculation_performed" if comparison else "calculation_unavailable",
                   available=bool(comparison), operation=pc.get("operation"))
             result.update(calculation=calculation, comparison=comparison,
                           calculation_unavailable_reason=numeric_reason)
             if calculation:
                 result["unit"] = calculation["result_unit"]
+                inferred = calculation.get("inferred_periods")
+                if inferred:
+                    pc = dict(pc, start_period=inferred["old"]["year"], end_period=inferred["new"]["year"],
+                              period_type=inferred["old"]["period_type"] or pc.get("period_type"),
+                              period_inference="only_available_source_period_pair")
+                    result["parsed_claim"] = pc
             stage="evidence_fusion"
             fusion = fuse_evidence([dict(item, source_evidence_id=item["id"]) for item in evidence],
                                    calculation=calculation, comparison=comparison)

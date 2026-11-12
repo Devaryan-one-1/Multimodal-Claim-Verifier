@@ -76,6 +76,18 @@ class ClaimParserTests(unittest.TestCase):
     def respond(self, *responses):
         self.gateway.structured.side_effect = [types.SimpleNamespace(claims=atoms) for atoms in responses]
 
+    def test_reported_periods_are_retained_for_later_source_resolution(self):
+        text = "Apple's total deferred revenue grew 8.8% over the reported periods."
+        self.respond([self.atom(text, operation="growth", claimed_literal="8.8%", unit="percent",
+                                direction="up", start_period=None, end_period=None,
+                                period_type="unspecified", period_quote="reported periods")])
+        parsed = self.parser.parse_claims(text)[0]
+        self.assertNotIn("parsing_error", parsed)
+        self.assertIsNone(parsed["start_period"])
+        self.assertIsNone(parsed["end_period"])
+        self.assertEqual(parsed["period_quote"], "reported periods")
+        self.assertEqual(self.gateway.structured.call_count, 1)
+
     def test_placeholder_text_triggers_correction_and_returns_real_statement(self):
         self.respond([self.atom("assertion")], [self.atom()])
         output = self.parser.parse_claims(A)

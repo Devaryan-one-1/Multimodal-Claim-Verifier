@@ -1,5 +1,24 @@
 # Customer beta work list
 
+12 November reported-period comparisons now resolve an omitted date pair from
+matching table headers across the selected source catalog. A third relevant
+period, mixed reporting durations or competing documents require explicit periods.
+The inferred pair appears in the calculation note and saved parsed result.
+Fifteen new regressions cover resolution, ambiguity, date binding and the normal
+verification entry point. All 154 focused parser/source/numerical tests pass with
+provider boundaries mocked. The broader suite cannot pass in the available
+Python 3.11 runner because cryptography and Python 3.12 filesystem APIs are missing.
+Fresh provider acceptance after pushing/redeploying and restarting the worker is
+pending. Natural-wording and broader compound-claim improvements remain queued.
+
+11 November hosted Preview follow-up. The user reports the app opens, the Apple
+claim returns SUPPORTED, and processing availability stays steady after the cloud
+heartbeat changes. Automated regression execution for that change remains
+unconfirmed in this session because the configured Python interpreter is denied.
+The user also reports intermittent automatic sign-outs and explicitly deferred
+that fix. Track session persistence and reconnect behavior for a later task.
+Production deployment and a hosted worker remain pending.
+
 10 November customer-image hardening is implemented after approval: pip is removed
 from the customer filesystem after installation/model setup, system-tree setuid/
 setgid bits are cleared, and an exact metadata snapshot is regenerated afterward.

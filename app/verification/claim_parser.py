@@ -86,6 +86,8 @@ end_period for explicit comparisons. Copy the corresponding original date/period
 wording into period_quote. A statement about 2024 MUST NOT have both year fields null.
 For a forward comparison, old is start_period and new is end_period.
 Never resolve next year against today's date. Leave document-relative dates null.
+For "reported periods" without explicit dates, leave both year fields null;
+source table headers will resolve the pair. Retain any explicit period duration.
 Fiscal/annual years are annual. As-of balances are point_in_time. Preserve quarters
 and YTD periods exactly; do not map calendar months to fiscal quarters.
 Level means a stated amount/count/value, not growth. Margin is a profit/revenue

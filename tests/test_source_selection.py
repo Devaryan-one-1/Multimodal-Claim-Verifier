@@ -80,6 +80,156 @@ class SourceSelectionTests(unittest.TestCase):
         self.assertAlmostEqual(calc["value"], 93.9839104582)
         self.numeric.structured.assert_not_called()
 
+    def reported_period_claim(self, **updates):
+        return {"claim_text": "Apple's inventories grew 94.0% over the reported periods.",
+                "operation": "growth", "metric": "inventories", "claimed_literal": "94.0%",
+                "unit": "percent", "start_period": None, "end_period": None,
+                "period_type": "unspecified", **updates}
+
+    def test_reported_periods_use_the_only_pair_and_preserve_verdict_comparison(self):
+        for literal, expected in (("94.0%", "SUPPORTED"), ("10%", "CONTRADICTED")):
+            with self.subTest(literal=literal):
+                claim = self.reported_period_claim(claimed_literal=literal)
+                original = copy.deepcopy(claim)
+                calc, comparison, reason, _ = self.numeric.verify_numeric(claim, [self.evidence])
+                self.assertIsNotNone(calc, reason)
+                self.assertEqual(comparison["verdict"], expected)
+                self.assertEqual(calc["inputs"], {"old": 5718e6, "new": 11092e6})
+                self.assertEqual(calc["inferred_periods"]["old"]["date"], "2025-09-27")
+                self.assertEqual(calc["inferred_periods"]["new"]["date"], "2026-06-27")
+                self.assertIn("September 27, 2025", calc["note"])
+                self.assertEqual(claim, original)
+        self.numeric.structured.assert_not_called()
+
+    def test_reported_periods_reject_a_third_period_outside_retrieved_evidence(self):
+        other = self.table()
+        other["id"] = "doc-a::older-table"
+        other["headers"] = ["Metric", "September 27, 2025", "September 28, 2024"]
+        other["column_map"] = self.visual.column_map(other["headers"])
+        calc, comparison, reason, used = self.numeric.verify_numeric(
+            self.reported_period_claim(), [self.evidence], period_evidence=[self.evidence, other])
+        self.assertIsNone(calc)
+        self.assertIsNone(comparison)
+        self.assertEqual(used, [])
+        self.assertIn("Specify the two reporting periods", reason)
+        self.numeric.structured.assert_not_called()
+
+    def test_unrelated_metric_periods_do_not_make_the_requested_pair_ambiguous(self):
+        other = self.table()
+        other["id"] = "doc-a::unrelated"
+        other["headers"] = ["Metric", "September 27, 2025", "September 28, 2024"]
+        other["column_map"] = self.visual.column_map(other["headers"])
+        other["rows"] = [["Revenue", "100", "90"]]
+        other["row_units"] = ["$ millions"]
+        calc, comparison, reason, _ = self.numeric.verify_numeric(
+            self.reported_period_claim(), [self.evidence], period_evidence=[self.evidence, other])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.numeric.structured.assert_not_called()
+
+    def test_reported_periods_reject_mixed_durations_and_honor_explicit_duration(self):
+        table = self.visual.normalize_table(visual_fixture.compensation_table(), document_id="doc-a", page=14,
+                                            bbox=[0, 0, 600, 700], image_path="fixture.png")
+        table.update(id="doc-a::compensation", type="table")
+        claim = self.reported_period_claim(metric="share-based compensation expense", claimed_literal="8.7%")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(claim, [table])
+        self.assertIsNone(calc)
+        self.assertIn("Specify the two reporting periods", reason)
+        nine_months = dict(claim, period_type="nine_months")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(nine_months, [table])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertEqual(calc["inputs"], {"old": 9680e6, "new": 10523e6})
+        self.numeric.structured.assert_not_called()
+
+    def test_reported_periods_keep_full_dates_when_both_columns_are_in_one_year(self):
+        self.evidence["headers"] = ["Metric", "June 27, 2026", "March 28, 2026"]
+        self.evidence["column_map"] = self.visual.column_map(self.evidence["headers"])
+        calc, comparison, reason, _ = self.numeric.verify_numeric(self.reported_period_claim(), [self.evidence])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertEqual(calc["inferred_periods"]["old"]["date"], "2026-03-28")
+        self.numeric.structured.assert_not_called()
+
+    def test_explicit_periods_bypass_inference_despite_other_report_periods(self):
+        claim = self.reported_period_claim(start_period=2025, end_period=2026)
+        other = self.table("doc-b")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(
+            claim, [self.evidence], period_evidence=[self.evidence, other])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertNotIn("inferred_periods", calc)
+        self.numeric.structured.assert_not_called()
+
+    def test_reported_periods_do_not_choose_between_multiple_documents(self):
+        calc, comparison, reason, _ = self.numeric.verify_numeric(
+            self.reported_period_claim(), [self.evidence], period_evidence=[self.evidence, self.table("doc-b")])
+        self.assertIsNone(calc)
+        self.assertIn("Specify the two reporting periods", reason)
+        self.numeric.structured.assert_not_called()
+
+    def test_blank_third_period_is_not_discarded_to_create_an_apparent_pair(self):
+        self.evidence["headers"].append("September 28, 2024")
+        self.evidence["column_map"] = self.visual.column_map(self.evidence["headers"])
+        for row in self.evidence["rows"]:
+            row.append("")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(self.reported_period_claim(), [self.evidence])
+        self.assertIsNone(calc)
+        self.assertIn("Specify the two reporting periods", reason)
+        self.numeric.structured.assert_not_called()
+
+    def test_repeated_headers_in_other_source_tables_keep_the_same_period_pair(self):
+        repeated = self.table()
+        repeated["id"] = "doc-a::repeated"
+        calc, comparison, reason, _ = self.numeric.verify_numeric(
+            self.reported_period_claim(), [self.evidence], period_evidence=[self.evidence, repeated])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.numeric.structured.assert_not_called()
+
+    def test_year_only_headers_resolve_comparable_annual_revenue_periods(self):
+        table = {"id": "annual", "type": "table", "document_id": "doc-a", "page": 3,
+                 "headers": ["Metric", "2026", "2025"], "rows": [["Net sales", "110", "100"]],
+                 "column_headers": {"raw": "Years ended 2026 2025"}, "unit": "$ millions"}
+        claim = self.reported_period_claim(metric="revenue", claimed_literal="10%")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(claim, [table])
+        self.assertIsNotNone(calc, reason)
+        self.assertEqual(comparison["verdict"], "SUPPORTED")
+        self.assertEqual(calc["inferred_periods"]["old"]["period_type"], "annual")
+        self.assertEqual(calc["inputs"], {"old": 100e6, "new": 110e6})
+        self.numeric.structured.assert_not_called()
+
+    def test_conflicting_period_metadata_and_printed_duration_require_clarification(self):
+        self.evidence["column_map"][0].update(period="year", raw="Three months ended June 27, 2026")
+        calc, comparison, reason, _ = self.numeric.verify_numeric(self.reported_period_claim(), [self.evidence])
+        self.assertIsNone(calc)
+        self.assertIn("Specify the two reporting periods", reason)
+        self.numeric.structured.assert_not_called()
+
+    def test_inferred_dates_remain_bound_to_their_own_respective_prose_values(self):
+        self.evidence["headers"] = ["Metric", "June 27, 2026", "March 28, 2026"]
+        self.evidence["column_map"] = self.visual.column_map(self.evidence["headers"])
+        claim = self.numeric._resolve_reported_periods(self.reported_period_claim(), [self.evidence])
+        item = {"type": "text", "document_id": "doc-a", "content":
+                "On March 28, 2026 and June 27, 2026, inventories were $5,718 million and $11,092 million, respectively."}
+        for name, raw in (("old", "$5,718 million"), ("new", "$11,092 million")):
+            operand = self.operand(name=name)
+            chosen = next(number for number in self.numeric._bank(item) if number["raw"] == raw)
+            self.numeric._text_year_check(claim, operand, item, chosen)
+        item["content"] = item["content"].replace("March 28", "January 28")
+        chosen = next(number for number in self.numeric._bank(item) if number["raw"] == "$5,718 million")
+        with self.assertRaisesRegex(ValueError, "different reporting date"):
+            self.numeric._text_year_check(claim, self.operand(name="old"), item, chosen)
+
+    def test_inferred_source_scope_and_full_chart_dates_cannot_be_dropped(self):
+        claim = self.numeric._resolve_reported_periods(self.reported_period_claim(), [self.evidence])
+        with self.assertRaisesRegex(ValueError, "different document"):
+            self.numeric._value(claim, self.operand(name="new"), self.table("doc-b"))
+        chart = {"type": "chart", "document_id": "doc-a", "title": "Inventories",
+                 "facts": [{"value_source": "explicit_label", "period": "2026"}]}
+        with self.assertRaisesRegex(ValueError, "inferred reporting date"):
+            self.numeric._value(claim, self.operand(name="new", fact_index=0), chart)
+
     def test_short_source_id_is_resolved_only_when_unique(self):
         calc, comparison, reason, used = self.model_result(self.selection(self.operand(evidence_id="evidence_843")))
         self.assertIsNotNone(calc, reason)

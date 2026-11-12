@@ -34,7 +34,7 @@ def fixture(kind):
     finally: case.doCleanups()
 
 
-def active_pipeline(pc,calculate,*,fail_stage=None):
+def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None):
     """Run the actual pipeline function, replacing only storage/search boundaries."""
     tree=ast.parse((PROJECT/'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8-sig'))
     node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='_verify_one')
@@ -48,7 +48,8 @@ def active_pipeline(pc,calculate,*,fail_stage=None):
         '_documents':lambda *a:boundary('document',[{'document_id':'fixture-document','filename':'Fixture'}]),
         'search':lambda *a,**k:boundary('retrieval',[{'document_id':'fixture-document','source_evidence_id':'source'}]),
         'rerank':lambda q,h,**k:boundary('reranking',h),
-        'read':lambda p:boundary('source_resolution',{'evidence':[{'id':'source','type':'text','page':9,'content':'Fixture'}]}),
+        'read':lambda p:boundary('source_resolution',{'evidence':source_evidence if source_evidence is not None else
+            [{'id':'source','type':'text','page':9,'content':'Fixture'}]}),
         'verify_numeric':calculate,'fuse_evidence':lambda *a,**k:boundary('evidence_fusion',{'requires_unknown':False}),
         'quota_pause':lambda *a:None}
     exec(compile(ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[])),str(PROJECT/'app/pipelines/verification_pipeline.py'),'exec'),namespace)
@@ -569,12 +570,36 @@ class RatioSafetyTests(unittest.TestCase):
 
 
 class FailureFlowTests(unittest.TestCase):
+    def test_reported_periods_use_the_full_source_catalog_and_record_inference(self):
+        with fixture(source_fixture.SourceSelectionTests) as case:
+            source = copy.deepcopy(case.evidence)
+            source["id"] = "source"
+            older = copy.deepcopy(source)
+            older["id"] = "older"
+            older["headers"] = ["Metric", "September 27, 2025", "September 28, 2024"]
+            older["column_map"] = case.visual.column_map(older["headers"])
+            for hidden_third_period in (False, True):
+                with self.subTest(hidden_third_period=hidden_third_period):
+                    sources = [source, older] if hidden_third_period else [source]
+                    claim = case.reported_period_claim(claim_type="assertion")
+                    result = active_pipeline(claim, case.numeric.verify_numeric, source_evidence=sources)
+                    self.assertEqual(result["status"], "complete", result.get("reason"))
+                    if hidden_third_period:
+                        self.assertEqual(result["verdict"], "UNKNOWN")
+                        self.assertIn("Specify the two reporting periods", result["reason"])
+                    else:
+                        self.assertEqual(result["verdict"], "SUPPORTED")
+                        self.assertEqual(result["reporting_period"], "2025\u20132026")
+                        self.assertEqual(result["parsed_claim"]["period_inference"], "only_available_source_period_pair")
+                    self.assertIsNone(claim["start_period"])
+            case.numeric.structured.assert_not_called()
+
     def test_runtime_fault_is_an_execution_failure_and_excluded_from_accuracy(self):
         with fixture(parser_fixture.ClaimParserTests) as case:
             pc=case.parser._normalize(case.growth(),parser_fixture.C)
             for kind in (RuntimeError,ValueError,TypeError,KeyError):
                 with self.subTest(error=kind.__name__), patch.object(case.numeric,'percentage_growth',side_effect=kind('PRIVATE_RUNTIME_DETAIL')):
-                    result=active_pipeline(pc,lambda *a:case.calculate(pc))
+                    result=active_pipeline(pc,lambda *a,**k:case.calculate(pc))
                     self.assertEqual((result['status'],result['error_stage']),('error','numeric_calculation'))
                     self.assertTrue(execution_failed(result))
                     scored=score([{'status':result['status'],'gold':'SUPPORTED','predicted':result['verdict']}])
@@ -587,7 +612,7 @@ class FailureFlowTests(unittest.TestCase):
         pc={'claim_type':'assertion','claim_text':'Fixture','operation':'growth'}
         for stage in ('document','retrieval','reranking','source_resolution','evidence_fusion'):
             with self.subTest(stage=stage):
-                result=active_pipeline(pc,lambda *a:(None,None,'Missing evidence',[]),fail_stage=stage)
+                result=active_pipeline(pc,lambda *a,**k:(None,None,'Missing evidence',[]),fail_stage=stage)
                 self.assertEqual((result['status'],result['error_stage']),('error',stage))
                 self.assertTrue(execution_failed(result))
 

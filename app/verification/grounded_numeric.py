@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 from services.model_gateway import structured, capture_calls
 from services.verification_errors import VerificationFailure, quota_pause
 from verification.number_parser import parse_number
-from verification.reporting_periods import explicit_dates
+from verification.reporting_periods import explicit_dates, explicit_period, explicit_quarters
 from verification.claim_integrity import source_quantity_matches
 from verification.financial_calculations import percentage_growth, absolute_change, margin, ratio, cagr, percentage_point_change
 
@@ -64,10 +64,13 @@ def _text_year_check(pc, operand, item, chosen):
         raise NumericValidationError("A date was selected as a financial value.")
     years = [int(y) for y in re.findall(r"\b(?:19|20)\d{2}\b", sentence)]
     expected = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
+    expected_date = ((pc.get("inferred_periods") or {}).get(operand.name) or {}).get("date")
+    source_dates = [date for date, _ in explicit_dates(sentence)]
     if len(set(years)) <= 1:
         if expected is not None and expected not in years:
             raise NumericValidationError("Source sentence does not identify the claimed year.")
-        return
+        if not expected_date or source_dates == [expected_date]:
+            return
     if expected is None:
         raise NumericValidationError("Comparative source text requires an explicit claimed year.")
     if re.search(r"\brespectively\b", sentence, re.I):
@@ -75,6 +78,10 @@ def _text_year_check(pc, operand, item, chosen):
                    if not re.fullmatch(r"(?:19|20)\d{2}", m.group().strip()) and
                    not any(overlaps(m.start(), m.end(), date) for date in dates)]
         selected = [i for i, m in enumerate(amounts) if overlaps(local_start, local_end, m)]
+        if expected_date and len(source_dates) == len(amounts) and len(selected) == 1:
+            if source_dates[selected[0]] != expected_date:
+                raise NumericValidationError("The selected source value belongs to a different reporting date.")
+            return
         if len(years) != len(set(years)) or len(amounts) != len(years) or len(selected) != 1:
             raise NumericValidationError("The respective source values and years cannot be bound unambiguously.")
         actual = years[selected[0]]
@@ -86,6 +93,8 @@ def _text_year_check(pc, operand, item, chosen):
         clause_years = set(map(int, re.findall(r"\b(?:19|20)\d{2}\b", clause)))
         if len(clause_years) != 1:
             raise NumericValidationError("The selected value has an ambiguous reporting year.")
+        if expected_date and {date for date, _ in explicit_dates(clause)} != {expected_date}:
+            raise NumericValidationError("The selected source value has no unambiguous matching reporting date.")
         prefix = sentence[left:local_start]
         if not _metric_matches(pc.get("metric"), clause) and set(_tokens(prefix)) - {"was", "were", "is", "are", "about", "approximately", "at", "up", "down"}:
             raise NumericValidationError("The value's period clause does not identify the claimed metric.")
@@ -150,6 +159,81 @@ def _mapping(item, width):
     return item.get("column_map") or []
 
 
+def _resolve_reported_periods(pc, evidence):
+    """Resolve an omitted comparison pair from matching saved table headers."""
+    comparative = {"growth", "absolute_change", "percentage_points", "direction", "cagr"}
+    if (pc.get("operation") not in comparative or not pc.get("metric") or
+            pc.get("start_period") is not None or pc.get("end_period") is not None):
+        return pc
+    message = "Specify the two reporting periods; the relevant source tables do not identify one unambiguous comparable pair."
+    if re.search(r"\b(?:next|last|previous|following|current)\s+(?:year|quarter)\b", pc.get("claim_text", ""), re.I):
+        raise NumericValidationError(message)
+    aliases = {"year": "annual", "twelve_months": "annual", "three_months": "quarter"}
+    wanted = pc.get("period_type")
+    periods = {}
+    for item in evidence:
+        if item.get("type") != "table":
+            continue
+        rows, headers = item.get("rows") or [], item.get("headers") or []
+        matching = _exact_metric_rows(pc["metric"], rows)
+        if not matching:
+            continue
+        context = " ".join((str(headers), str(item.get("context") or ""),
+                            str((item.get("column_headers") or {}).get("raw") or "")))
+        segment = _tokens(pc.get("segment"))
+        if segment and not any(set(segment).issubset(_tokens(str(rows[index][0])+" "+context)) for index in matching):
+            continue
+        width = max([len(headers), *(len(row) for row in rows)])
+        for mapping in _mapping(item, width):
+            column, year = mapping.get("col"), mapping.get("year")
+            if (not isinstance(column, int) or column < 1 or column >= width or
+                    not re.fullmatch(r"(?:19|20)\d{2}", str(year))):
+                continue
+            raw = str(mapping.get("raw") or (headers[column] if column < len(headers) else year))
+            dates = [date for date, _ in explicit_dates(raw)]
+            if len(dates) > 1 or (dates and not dates[0].startswith(str(year)+"-")):
+                raise NumericValidationError(message)
+            kind = aliases.get(mapping.get("period"), mapping.get("period"))
+            try:
+                stated = explicit_period(raw)
+            except ValueError:
+                raise NumericValidationError(message) from None
+            if stated and kind is not None and kind != stated[0]:
+                raise NumericValidationError(message)
+            if kind is None:
+                try:
+                    stated = stated or explicit_period(context)
+                except ValueError:
+                    raise NumericValidationError(message) from None
+                kind = stated[0] if stated else None
+            if wanted not in {None, "unspecified"} and kind is not None and kind != wanted:
+                continue
+            quarters = explicit_quarters(raw)
+            if len(quarters) > 1:
+                raise NumericValidationError(message)
+            quarter = next(iter(quarters), None)
+            if pc.get("quarter") and quarter and pc["quarter"] != quarter:
+                continue
+            date = dates[0] if dates else None
+            document = item.get("document_id")
+            key = (document, kind, int(year), date, quarter)
+            periods[key] = {"document_id": document, "year": int(year), "date": date,
+                            "period_type": kind, "quarter": quarter, "raw": raw}
+    if not periods:
+        return pc
+    if len(periods) != 2 or len({(p["document_id"], p["period_type"]) for p in periods.values()}) != 1:
+        raise NumericValidationError(message)
+    old, new = sorted(periods.values(), key=lambda p: (p["year"], p["date"] or "", p["quarter"] or 0))
+    if old["year"] == new["year"] and not (
+            old["date"] and new["date"] or old["quarter"] and new["quarter"] and old["quarter"] != new["quarter"]):
+        raise NumericValidationError(message)
+    if pc.get("operation") == "cagr" and (old["period_type"] != "annual" or old["year"] == new["year"]):
+        raise NumericValidationError(message)
+    return dict(pc, start_period=old["year"], end_period=new["year"],
+                period_type=old["period_type"] or wanted or "unspecified",
+                inferred_periods={"old": old, "new": new})
+
+
 def _unit_context(item, operand, raw, column=None):
     local = source_context(item, include_page=False)
     if item.get("extraction_method") == "table-vision-v1" and item.get("currency_warning"):
@@ -205,6 +289,7 @@ def _period_check(pc, name, item, column, width=None):
     if len(mappings) != 1:
         raise NumericValidationError("Selected period column is ambiguous.")
     cm = mappings[0]
+    inferred = (pc.get("inferred_periods") or {}).get(name)
     if expected_year is not None and str(cm.get("year")) != str(expected_year):
         raise NumericValidationError("Selected cell belongs to a different year.")
     periods = {"annual": {"year", "twelve_months", "annual"}, "quarter": {"quarter", "three_months"},
@@ -220,13 +305,20 @@ def _period_check(pc, name, item, column, width=None):
         if wanted != "annual" or partial or not (explicit_annual or year_columns):
             raise NumericValidationError("Quarterly, annual or YTD periods do not match the claim.")
         item["period_interpretation"] = "explicit_annual_header" if explicit_annual else "annual_report_year_columns"
-    if wanted in periods:
-        dates = {value for value, _ in explicit_dates(pc.get("period_quote") or pc.get("claim_text") or "")
-                 if expected_year is None or value.startswith(str(expected_year)+"-")}
+    if wanted in periods or inferred:
+        dates = ({inferred["date"]} if inferred and inferred.get("date") else
+                 {value for value, _ in explicit_dates(pc.get("period_quote") or pc.get("claim_text") or "")
+                  if expected_year is None or value.startswith(str(expected_year)+"-")})
         if dates:
-            source_dates = {value for value, _ in explicit_dates(cm.get("raw") or "")}
+            headers = item.get("headers") or []
+            source_dates = {value for value, _ in explicit_dates(
+                cm.get("raw") or (headers[column] if column < len(headers) else ""))}
             if len(dates) != 1 or source_dates != dates:
                 raise NumericValidationError("Selected cell does not identify the claim's exact reporting date.")
+    if inferred:
+        if inferred.get("quarter") and explicit_quarters(cm.get("raw") or "") != {inferred["quarter"]}:
+            raise NumericValidationError("Selected cell does not identify the inferred fiscal quarter.")
+        item["period_interpretation"] = "only_available_source_period_pair"
 
 
 def _chart_period(fact, item):
@@ -254,6 +346,9 @@ def _chart_period(fact, item):
 
 
 def _value(pc, operand, item):
+    inferred = (pc.get("inferred_periods") or {}).get(operand.name)
+    if inferred and inferred["document_id"] != item.get("document_id"):
+        raise NumericValidationError("The inferred reporting periods belong to a different document.")
     if operand.name == "denominator":
         if not pc.get("denominator_metric"):
             raise NumericValidationError("A ratio requires an explicit denominator metric.")
@@ -310,6 +405,8 @@ def _value(pc, operand, item):
         if fact.get("value_source") != "explicit_label":
             raise NumericValidationError("Estimated chart values cannot establish a numerical verdict.")
         chart_period = _chart_period(fact, item)
+        if inferred and inferred.get("date") and {date for date, _ in explicit_dates(chart_period)} != {inferred["date"]}:
+            raise NumericValidationError("The selected chart fact does not identify the inferred reporting date.")
         year = pc.get("start_period") if operand.name == "old" else pc.get("end_period")
         if year is not None and set(re.findall(r"\b(?:19|20)\d{2}\b", chart_period)) != {str(year)}:
             raise NumericValidationError("Chart period does not match the claim.")
@@ -504,7 +601,7 @@ def _quantity_kind(value: dict) -> str:
     return "amount" if value.get("currency") or value.get("unit") == "amount" else "number"
 
 
-def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | None, str, list[str]]:
+def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> tuple[dict | None, dict | None, str, list[str]]:
     operation = pc.get("operation", "qualitative")
     if operation == "qualitative":
         return None, None, "This assertion has no deterministic numerical calculation.", []
@@ -528,6 +625,7 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
             record["numbers"] = _bank(item)
         payload.append(record)
     try:
+        pc = _resolve_reported_periods(pc, period_evidence if period_evidence is not None else evidence)
         selection = _select(pc, evidence, payload)
         if not selection.applicable:
             return None, None, selection.reason, []
@@ -668,6 +766,10 @@ def verify_numeric(pc: dict, evidence: list[dict]) -> tuple[dict | None, dict | 
                        "currency": currency, "result_unit": unit, "result_precision": precision,
                        "source_inputs": addresses,
                        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."}
+        if pc.get("inferred_periods"):
+            calculation["inferred_periods"] = pc["inferred_periods"]
+            old, new = (pc["inferred_periods"][name]["raw"] for name in ("old", "new"))
+            calculation["note"] += f" Reporting periods inferred from source headers: {old} to {new}."
         comparison = {"claimed": claimed_value, "actual": value, "difference": difference,
                       "tolerance": tolerance, "verdict": verdict, "unit": unit, "claimed_precision": claimed["precision"],
                       "actual_precision": precision, "difference_precision": precision, "operator": operator}
