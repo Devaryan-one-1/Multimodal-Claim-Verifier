@@ -1,0 +1,56 @@
+{
+  "user_report": "works for the five chart retest cases",
+  "saved_current_code_results_found": 3,
+  "cases": [
+    {
+      "job": "a19c8ba7030d42079508f0470d37fa20",
+      "operation": "growth",
+      "claimed": 25.0,
+      "verdict": "CONTRADICTED",
+      "actual": 50.0,
+      "difference": -25.0,
+      "citations": [
+        {
+          "type": "chart",
+          "page": 2
+        }
+      ],
+      "current_code": true,
+      "passed": true
+    },
+    {
+      "job": "419f2fdcb0454b339aea190fe44c8ea5",
+      "operation": "level",
+      "claimed": 120.0,
+      "verdict": "SUPPORTED",
+      "actual": 120.0,
+      "difference": 0.0,
+      "citations": [
+        {
+          "type": "chart",
+          "page": 2
+        }
+      ],
+      "current_code": true,
+      "passed": true
+    },
+    {
+      "job": "f6530841a1a3487a9df78a18e963c932",
+      "operation": "level",
+      "claimed": 100.0,
+      "verdict": "CONTRADICTED",
+      "actual": 120.0,
+      "difference": -20.0,
+      "citations": [
+        {
+          "type": "chart",
+          "page": 2
+        }
+      ],
+      "current_code": true,
+      "passed": true
+    }
+  ],
+  "all_five_confirmed": false,
+  "scope": "Read-only saved-result check. Live View Page clicks were not observed; user submitted the reviews."
+}

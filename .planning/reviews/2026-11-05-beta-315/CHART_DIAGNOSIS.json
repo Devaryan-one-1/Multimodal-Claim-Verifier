@@ -1,0 +1,40 @@
+{
+  "saved_before_error": "Chart period does not match the claim.",
+  "observed_labels": [
+    {
+      "category": "2025",
+      "period": null,
+      "value": 80.0
+    },
+    {
+      "category": "2026",
+      "period": null,
+      "value": 120.0
+    }
+  ],
+  "in_memory_period_label_probe": {
+    "verdict": "SUPPORTED",
+    "actual": 120.0,
+    "source_inputs": {
+      "value": {
+        "name": "value",
+        "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+        "row_index": 0,
+        "column_index": null,
+        "number_index": null,
+        "fact_index": 1,
+        "unit_quote": "customers",
+        "scope_quote": "",
+        "raw": "120",
+        "normalized_value": 120.0,
+        "unit_context": "customers",
+        "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+        "page": 2,
+        "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+        "period_interpretation": null,
+        "effective_column_map": []
+      }
+    }
+  },
+  "scope": "Controlled address and in-memory source metadata only. No source/code/index/record modifications and no provider requests."
+}

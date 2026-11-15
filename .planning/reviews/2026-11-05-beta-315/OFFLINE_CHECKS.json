@@ -1,0 +1,124 @@
+{
+  "scope": "Read-only saved snapshots and real PDF extraction. Vision/parser/address responses controlled; production normalization/validation/arithmetic. No fresh model or embedding calls. Does not establish live ingestion/retrieval.",
+  "passed": 13,
+  "cases": [
+    {
+      "group": "saved_Apple",
+      "metric": "total current assets",
+      "period_type": "point_in_time",
+      "literal": "$149,818 million",
+      "expected": "SUPPORTED",
+      "actual": 149818000000.0,
+      "mode": "deterministic local source selection",
+      "passed": true
+    },
+    {
+      "group": "saved_Apple",
+      "metric": "total current assets",
+      "period_type": "point_in_time",
+      "literal": "$147,957 million",
+      "expected": "CONTRADICTED",
+      "actual": 149818000000.0,
+      "mode": "deterministic local source selection",
+      "passed": true
+    },
+    {
+      "group": "saved_Apple",
+      "metric": "inventories",
+      "period_type": "point_in_time",
+      "literal": "94.0%",
+      "expected": "SUPPORTED",
+      "actual": 93.98391045820217,
+      "mode": "deterministic local source selection",
+      "passed": true
+    },
+    {
+      "group": "saved_Apple",
+      "metric": "share-based compensation expense",
+      "period_type": "nine_months",
+      "literal": "$10,523 million",
+      "expected": "SUPPORTED",
+      "actual": 10523000000.0,
+      "mode": "controlled model address; production validation/arithmetic",
+      "passed": true
+    },
+    {
+      "group": "saved_Apple",
+      "metric": "share-based compensation expense",
+      "period_type": "nine_months",
+      "literal": "$3,401 million",
+      "expected": "CONTRADICTED",
+      "actual": 10523000000.0,
+      "mode": "controlled model address; production validation/arithmetic",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Revenue",
+      "year": 2026,
+      "expected": "SUPPORTED",
+      "actual": "SUPPORTED",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Revenue",
+      "year": 2025,
+      "expected": "CONTRADICTED",
+      "actual": "CONTRADICTED",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Revenue",
+      "year": 2026,
+      "expected": "SUPPORTED",
+      "actual": "SUPPORTED",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Research expense",
+      "year": 2026,
+      "expected": "SUPPORTED",
+      "actual": "SUPPORTED",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Research expense",
+      "year": 2025,
+      "expected": "unavailable",
+      "actual": "unavailable",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_table",
+      "metric": "Revenue",
+      "year": 2040,
+      "expected": "unavailable",
+      "actual": "unavailable",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_chart",
+      "literal": "120",
+      "expected": "SUPPORTED",
+      "actual": "SUPPORTED",
+      "passed": true
+    },
+    {
+      "group": "generated_PDF_chart",
+      "literal": "80",
+      "expected": "CONTRADICTED",
+      "actual": "CONTRADICTED",
+      "passed": true
+    }
+  ],
+  "offline_suite": {
+    "run": 401,
+    "passed": 401,
+    "skipped": 0
+  },
+  "old_replay_issue": "Old replay grouped snapshots by metric only. Latest quarterly compensation snapshot replaced its assumed nine-month snapshot. This audit selects by metric and period; no application change."
+}

@@ -1,0 +1,157 @@
+{
+  "passed": 9,
+  "checks": [
+    {
+      "case": "correct_2026",
+      "verdict": "SUPPORTED",
+      "actual": 120.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "wrong_2026",
+      "verdict": "CONTRADICTED",
+      "actual": 120.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "correct_2025",
+      "verdict": "SUPPORTED",
+      "actual": 80.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 0,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "80",
+          "normalized_value": 80.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "growth",
+      "verdict": "SUPPORTED",
+      "actual": 50.0,
+      "source_inputs": {
+        "old": {
+          "name": "old",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 0,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "80",
+          "normalized_value": 80.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        },
+        "new": {
+          "name": "new",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "conflicting_years",
+      "rejected": "Chart period and category year labels conflict.",
+      "passed": true
+    },
+    {
+      "case": "ambiguous_axis",
+      "rejected": "Chart year category lacks an explicit time axis.",
+      "passed": true
+    },
+    {
+      "case": "estimated_value",
+      "rejected": "Estimated chart values cannot establish a numerical verdict.",
+      "passed": true
+    },
+    {
+      "case": "wrong_year",
+      "rejected": "Chart period does not match the claim.",
+      "passed": true
+    }
+  ],
+  "diagnostic": {
+    "code": "source_validation",
+    "title": "Selected source could not be validated",
+    "message": "The selected chart value does not identify the claim's reporting period. No numerical verdict was accepted.",
+    "action": "Check the claim's metric and reporting period against the cited page. Create a new review after correcting the claim or updating the app. If it repeats, report the reference and stage below.",
+    "stage": "numeric_selection"
+  },
+  "saved_evidence_sha256": "8be80f3cbd62df69fafc3513c8187848f740b91d4e9dc611251cc6908dbd334b",
+  "source_artifact_unchanged": true,
+  "scope": "Actual saved chart and parser fields, real Pydantic schema and production validation/arithmetic; controlled model address only. No live provider call, source edit, index rebuild or job change."
+}

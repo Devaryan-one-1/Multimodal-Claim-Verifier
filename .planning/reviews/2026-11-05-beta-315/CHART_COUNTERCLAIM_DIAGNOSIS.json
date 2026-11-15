@@ -1,0 +1,31 @@
+{
+  "case": "Claim 100 customers in 2026",
+  "saved_failed_job": "5a68590687e549a0b3c3555766178084",
+  "local_table_matcher_result": null,
+  "validated_chart_candidates": 1,
+  "expected": "CONTRADICTED",
+  "actual": 120.0,
+  "claimed": 100.0,
+  "difference": -20.0,
+  "source_inputs": {
+    "value": {
+      "name": "value",
+      "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+      "row_index": null,
+      "column_index": null,
+      "number_index": null,
+      "fact_index": 1,
+      "unit_quote": "customers",
+      "scope_quote": "",
+      "raw": "120",
+      "normalized_value": 120.0,
+      "unit_context": "customers",
+      "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+      "page": 2,
+      "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+      "period_interpretation": "explicit_chart_year_category",
+      "effective_column_map": []
+    }
+  },
+  "scope": "Read-only saved parser/evidence with controlled source address. No code/data/index change or provider request. Exact invalid live model fields were not saved, so their specific validation cause is unconfirmed."
+}

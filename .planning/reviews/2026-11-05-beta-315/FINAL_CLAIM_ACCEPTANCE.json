@@ -1,0 +1,113 @@
+{
+  "user_report": "works for the future/compound/Apple three-case check",
+  "checks": {
+    "future_year": true,
+    "compound": true,
+    "apple_compensation": true
+  },
+  "saved_results": {
+    "apple_compensation": {
+      "job": "d3c1ad2363b446c3921162bef6aa0f2b",
+      "status": "complete",
+      "results": [
+        {
+          "claim": "Apple\u2019s share-based compensation expense was $10,523 million for the nine months ended June 27, 2026.",
+          "verdict": "SUPPORTED",
+          "status": "complete",
+          "actual": 10523000000.0,
+          "citations": [
+            {
+              "type": "table",
+              "page": 8
+            }
+          ]
+        }
+      ]
+    },
+    "compound": {
+      "job": "391d69244df24b3196dc292483b219a1",
+      "status": "complete",
+      "results": [
+        {
+          "claim": "Northstar Fixture Ltd\u2019s annual revenue was USD 150 million in 2026",
+          "verdict": "SUPPORTED",
+          "status": "complete",
+          "actual": 150000000.0,
+          "citations": [
+            {
+              "type": "table",
+              "page": 1
+            }
+          ]
+        },
+        {
+          "claim": "Northstar Fixture Ltd\u2019s annual revenue was USD 150 million in 2025",
+          "verdict": "CONTRADICTED",
+          "status": "complete",
+          "actual": 120000000.0,
+          "citations": [
+            {
+              "type": "table",
+              "page": 1
+            }
+          ]
+        }
+      ]
+    },
+    "future_year": {
+      "job": "05e56a4adc5141fcb8aa23bac9e94bb9",
+      "status": "complete",
+      "results": [
+        {
+          "claim": "Northstar Fixture Ltd\u2019s annual revenue was USD 150 million in 2040.",
+          "verdict": "UNKNOWN",
+          "status": "complete",
+          "actual": null,
+          "citations": [
+            {
+              "type": "text",
+              "page": 1
+            },
+            {
+              "type": "text",
+              "page": 2
+            },
+            {
+              "type": "table",
+              "page": 1
+            },
+            {
+              "type": "text",
+              "page": 1
+            },
+            {
+              "type": "text",
+              "page": 2
+            },
+            {
+              "type": "text",
+              "page": 2
+            },
+            {
+              "type": "text",
+              "page": 2
+            },
+            {
+              "type": "text",
+              "page": 2
+            },
+            {
+              "type": "chart",
+              "page": 2
+            },
+            {
+              "type": "footnote",
+              "page": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "Read-only actual saved results. Agent made no provider requests or real data changes. Browser clicks not observed."
+}

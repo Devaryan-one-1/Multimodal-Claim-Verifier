@@ -1,0 +1,185 @@
+{
+  "passed": 6,
+  "checks": [
+    {
+      "case": "level_wrong_100",
+      "verdict": "CONTRADICTED",
+      "actual": 120.0,
+      "difference": -20.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "level_correct_120",
+      "verdict": "SUPPORTED",
+      "actual": 120.0,
+      "difference": 0.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "level_wrong_80",
+      "verdict": "CONTRADICTED",
+      "actual": 120.0,
+      "difference": -40.0,
+      "source_inputs": {
+        "value": {
+          "name": "value",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "growth_correct_50",
+      "verdict": "SUPPORTED",
+      "actual": 50.0,
+      "difference": 0.0,
+      "source_inputs": {
+        "old": {
+          "name": "old",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 0,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "80",
+          "normalized_value": 80.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        },
+        "new": {
+          "name": "new",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "growth_wrong_25",
+      "verdict": "CONTRADICTED",
+      "actual": 50.0,
+      "difference": -25.0,
+      "source_inputs": {
+        "old": {
+          "name": "old",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 0,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "80",
+          "normalized_value": 80.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        },
+        "new": {
+          "name": "new",
+          "evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "row_index": null,
+          "column_index": null,
+          "number_index": null,
+          "fact_index": 1,
+          "unit_quote": "customers",
+          "scope_quote": "",
+          "raw": "120",
+          "normalized_value": 120.0,
+          "unit_context": "customers",
+          "document_id": "8cee8deb65bd43d6a8ce0e04472069c8",
+          "page": 2,
+          "source_evidence_id": "chart_evidence_8cee8deb65bd43d6a8ce0e04472069c8_002_001",
+          "period_interpretation": "explicit_chart_year_category",
+          "effective_column_map": []
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "ambiguous_sources_do_not_get_local_selection",
+      "passed": true
+    }
+  ],
+  "source_selection_model_calls": 0,
+  "provider_requests": 0,
+  "source_sha256": "8be80f3cbd62df69fafc3513c8187848f740b91d4e9dc611251cc6908dbd334b",
+  "source_unchanged": true,
+  "scope": "Actual failed parsed claim and all 13 persisted source records, real Pydantic and production source matching/calculation. No model address supplied, live request, job mutation or re-index."
+}
