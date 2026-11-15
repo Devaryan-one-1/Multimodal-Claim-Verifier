@@ -36,6 +36,7 @@ class ParsedClaim(BaseModel):
     company: str | None = Field(default=None,max_length=200)
     subject: str | None = Field(default=None,max_length=240)
     metric: str | None = Field(default=None,max_length=240, description="Underlying financial quantity from the input, e.g. total deferred revenue; not the operation growth rate. For ratio, the numerator metric.")
+    metric_interpretation: str | None = Field(default=None, max_length=240, description="Short financial terminology equivalent of the metric, for retrieval only. Preserve scope; omit company, numbers, dates and assertions. Null when uncertain.")
     denominator_metric: str | None = Field(default=None,max_length=240,description="For ratio only: the exact denominator metric from the input, e.g. total assets.")
     segment: str | None = Field(default=None,max_length=200)
     start_period: int | None = None
@@ -68,6 +69,15 @@ Never put a classification such as "assertion" in claim_text. Copy its wording;
 shared qualifiers may be repeated from the input, but do not invent new words.
 metric is the underlying financial quantity, e.g. total deferred revenue for a
 deferred-revenue growth assertion, not the operation name "growth rate".
+Interpret conversational wording using the same structured operation fields.
+Keep metric and claim_text grounded in the original wording. Separately provide
+metric_interpretation as a short equivalent financial noun phrase for retrieval.
+For example, "money owed by customers" may mean "accounts receivable";
+"sales brought in" may mean "sales revenue". Preserve qualifiers such as net,
+current, total and segment scope. If the meaning is uncertain, use null.
+This interpretation contains no company, quantities, dates, verdict or instructions.
+Never use it to invent a period or change an asserted value. Open information
+questions remain questions. "Reported periods" stays unresolved until source evidence is read.
 Set unit from the original quantity. A dollar amount is not a percentage.
 "Grew 8.8%" states equality with rounding, not greater_than 8.8%. Inequalities
 require explicit threshold wording, e.g. more than, at least or no more than.
@@ -75,8 +85,13 @@ Every factual clause must be retained. Split separate years/values into separate
 level assertions. Preserve shared company, segment and period qualifiers.
 Do not split names such as research and development or Transportation and Electronics.
 An affirmative sentence stating a fact is claim_type=assertion, never question.
-Use question only for an actual question. Questions/unclear inputs must not be
-rewritten as facts. Keep company null if it is not stated.
+Use claim_type=question for open information or hypothetical questions.
+Keep company null if it is not stated.
+Yes/no verification questions such as "Did Cedar's revenue grow 10% in 2026?"
+have a checkable proposition: set claim_type=assertion, keep the question wording verbatim and populate
+the metric, literal, operation and period normally. Open questions (what/how
+much/why) and hypothetical ability questions remain question. Split compound
+yes/no propositions into question atoms, retaining shared dates and subjects.
 Copy claimed_literal VERBATIM from the original input. Copy just the quantity,
 currency and scale, excluding words such as loss of or approximately.
 Preserve a loss sign/parentheses in the literal; never add a minus absent from it.
@@ -93,6 +108,8 @@ and YTD periods exactly; do not map calendar months to fiscal quarters.
 Level means a stated amount/count/value, not growth. Margin is a profit/revenue
 ratio. An increase/decrease with no numeric threshold is direction, not margin.
 Percentage-point change is not relative percentage growth.
+"Increase by 94%" is operation=growth, unit=percent, never percentage_points.
+Use percentage_points only when the quantity explicitly says percentage points.
 For a share/proportion/percentage of another metric, use ratio: metric is the
 numerator and denominator_metric is its explicitly named denominator. Split each
 dated ratio value into its own claim with one date; do not use profit margin.
@@ -115,6 +132,13 @@ def _years(text: str) -> list[int]:
 
 def _question(text: str) -> bool:
     return text.rstrip().endswith("?") or bool(QUESTION.match(text))
+
+
+def _verification_question(text: str) -> bool:
+    return bool(re.match(
+        r"^\s*(?:(?:for|about|regarding|between|in|during|as of|at|from)\s+[^?!.]{1,300},\s*)?"
+        r"(?:did|does|do|is|are|was|were|has|have|had)\b", text, re.I,
+    ))
 
 
 def _words(text: str) -> list[str]:
@@ -159,6 +183,15 @@ def _validate_input_fields(pc: dict, original: str) -> None:
             points = re.match(r"\s*(?:percentage|percent)[ -]points?\b", suffix, re.I)
             pc["unit"] = ("percentage_points" if points else "percent" if quantity["kind"] == "percent" else
                           "amount" if quantity.get("currency") or quantity.get("unit") == "amount" else "number")
+            if pc["operation"] == "percentage_points" and pc["unit"] != "percentage_points":
+                if (pc["unit"] == "percent" and re.search(
+                        r"\b(?:increase\w*|decrease\w*|grew|grow|rose|rise|fell|fall|declin\w*|change\w*)"
+                        r"\s+by\s+(?:(?:about|approximately|roughly|around)\s+)?$", prefix, re.I)):
+                    pc["operation"] = "growth"
+                else:
+                    raise ParseValidationError(
+                        "Percentage-point change requires an explicit percentage-point quantity; retain the original operation and unit.",
+                        reason="operation")
         if pc["operation"] == "qualitative":
             raise ParseValidationError("An explicit numerical assertion needs a numerical operation, not qualitative.")
         if (pc["operation"] in COMPARATIVE and
@@ -210,7 +243,17 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
         else:
             raise ParseValidationError("A declarative input was classified as a question.")
     if _question(original):
-        pc["claim_type"] = "question"
+        # A model may omit the leading auxiliary in an otherwise faithful atom.
+        # For a single yes/no input, the submitted wording establishes intent.
+        # Do not let missing numerical fields silently downgrade it to UNKNOWN;
+        # normal validation below requests a corrected parse instead.
+        single_yes_no = (_verification_question(original) and original.count("?") <= 1
+                         and not re.search(r"[.!?]\s+(?=[A-Z])", original))
+        if _verification_question(atom) or single_yes_no:
+            pc["claim_type"] = "assertion"
+            pc["verification_question"] = True
+        else:
+            pc["claim_type"] = "question"
     elif pc["claim_type"] == "unclear" and ASSERTION.search(atom):
         raise ParseValidationError("A declarative assertion was classified as unclear.")
 
@@ -315,6 +358,35 @@ def _normalize(item: ParsedClaim, original: str) -> dict:
     return pc
 
 
+def _attach_interpretation(pc: dict, original: str) -> None:
+    """Keep retrieval terminology separate from validated factual targets.
+
+    Optional terminology is a search hint, never an operand, period or verdict.
+    Invalid hints fall back to original wording without failing a valid claim.
+    """
+    hint = pc.pop("metric_interpretation", None)
+    hint = " ".join(hint.split()) if isinstance(hint, str) else ""
+    if (len(hint) > 240 or re.search(r"[\d$%€£\n]|[<>{}=]", hint)
+            or len(hint.split()) > 24):
+        hint = ""
+    metric = pc.get("metric")
+    pc["original_input"] = original
+    pc["interpretation"] = {
+        "metric": hint or metric,
+        "original_metric": metric,
+        **{key: pc.get(key) for key in (
+            "company", "segment", "denominator_metric", "operation", "claim_type",
+            "claimed_literal", "unit", "direction", "comparison_operator",
+            "negated", "approximate", "start_period", "end_period", "period_quote",
+            "period_type", "quarter", "temporal_status")},
+        "period_resolution": "source_required" if pc.get("end_period") is None
+                             else "inferred" if pc.get("period_inference") else "explicit",
+    }
+    pc["retrieval_query"] = pc["claim_text"]
+    if hint and _words(hint) != _words(metric):
+        pc["retrieval_query"] += "\nFinancial metric terminology: " + hint
+
+
 def parse_claims(text: str) -> list[dict]:
     if not isinstance(text, str) or not text.strip():
         return [{"claim_text": "", "claim_type": "unclear", "operation": "qualitative",
@@ -339,6 +411,8 @@ def parse_claims(text: str) -> list[dict]:
                     if missing and not _question(text):
                         raise ParseValidationError(f"Explicit years omitted from all atoms: {sorted(missing)}.",rule="missing_year")
                     validate_claims(output,text)
+                    for pc in output:
+                        _attach_interpretation(pc, text)
                     return output
                 except ParseValidationError as exc:
                     if attempt:

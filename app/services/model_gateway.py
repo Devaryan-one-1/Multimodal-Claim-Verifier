@@ -32,6 +32,7 @@ from services.runtime import write
 
 SCHEMA = TypeVar("SCHEMA", bound=BaseModel)
 BASE_URL = "https://openrouter.ai/api/v1"
+INTERPRETATION_MODEL = "baidu/ernie-5.5-flash-preview:free"
 _settings: ContextVar[ModelConfig | None] = ContextVar("model_settings", default=None)
 _calls: ContextVar[list | None] = ContextVar("model_calls", default=None)
 _last: ContextVar[dict | None] = ContextVar("last_model_call", default=None)
@@ -134,6 +135,9 @@ def configuration_snapshot() -> dict:
     value["vision_fallbacks"] = list(value["vision_fallbacks"])
     value.update(gateway_version=2, schema_policy="strict JSON Schema plus local validation",
                  openrouter_base_url=BASE_URL)
+    if value["provider"] == "openrouter":
+        value["claim_interpretation"] = {"model": INTERPRETATION_MODEL,
+                                       "max_output_tokens": 2048, "prompt_version": "v3"}
     return value
 
 
@@ -262,12 +266,14 @@ def _transient(exc):
     return code in {408, 429, 500, 502, 503, 504}
 
 
-def _openrouter(settings, key, model, prompt, system, schema, images, temperature, *, reasoning=None):
+def _openrouter(settings, key, model, prompt, system, schema, images, temperature, *, reasoning=None,
+                json_mode=False, examples=()):
     if "/" not in model or re.search(r"\s", model):
         raise ModelConfigurationError("Model service configuration: use the exact OpenRouter model ID, including its provider prefix.")
     known = (_catalog.get() or {}).get(model)
     if known is not None:
-        if "structured_outputs" not in (known.get("supported_parameters") or []):
+        required = "response_format" if json_mode else "structured_outputs"
+        if required not in (known.get("supported_parameters") or []):
             raise ModelConfigurationError(
                 f"Model service configuration: {model} does not advertise structured_outputs. "
                 "This gateway requires JSON Schema support; response_format alone is insufficient. "
@@ -282,7 +288,11 @@ def _openrouter(settings, key, model, prompt, system, schema, images, temperatur
             raise ModelConfigurationError("Model service configuration: unsupported image format.")
         encoded = base64.b64encode(path.read_bytes()).decode("ascii")
         content.append({"type": "image_url", "image_url": {"url": f"data:{mime};base64,{encoded}"}})
-    messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": content}]
+    messages = ([{"role": "system", "content": system}] if system else [])
+    for input_value, output_value in examples:
+        messages.extend([{"role": "user", "content": json.dumps(input_value)},
+                         {"role": "assistant", "content": json.dumps(output_value)}])
+    messages.append({"role": "user", "content": content})
     payload = {
         "model": model, "messages": messages, "stream": False,
         "max_tokens": settings.max_output_tokens,
@@ -290,6 +300,8 @@ def _openrouter(settings, key, model, prompt, system, schema, images, temperatur
             "name": "financial_document_response", "strict": True, "schema": schema}},
         "provider": {"require_parameters": True, "allow_fallbacks": settings.allow_fallbacks},
     }
+    if json_mode:
+        payload["response_format"] = {"type": "json_object"}
     # Some reasoning models do not accept temperature. Omit unless explicitly enabled.
     if reasoning is not None:
         payload["reasoning"]=reasoning
@@ -380,13 +392,18 @@ def _gemini(settings, key, model, prompt, system, schema, images, temperature):
 
 
 def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
-               task="text", images=(), temperature=0.0, purpose=None) -> SCHEMA:
+               task="text", images=(), temperature=0.0, purpose=None, examples=()) -> SCHEMA:
     settings = config()
+    interpreting = purpose == "claim_interpretation"
+    if interpreting:
+        if settings.provider != "openrouter":
+            raise ModelConfigurationError("Claim interpretation requires the saved OpenRouter connection.")
+        settings = replace(settings, max_output_tokens=2048, allow_fallbacks=False)
     _validate_config(settings)
     if task == "vision":
         settings = replace(settings, max_output_tokens=settings.vision_max_output_tokens)
     key = _key(settings)
-    primary = model or model_name(task)
+    primary = INTERPRETATION_MODEL if interpreting else model or model_name(task)
     if not primary:
         raise ModelConfigurationError(f"Model service configuration: choose a {task} model in the sidebar.")
     raw_schema = copy.deepcopy(schema.model_json_schema())
@@ -406,7 +423,7 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
             if model_index < len(models) - 1:
                 continue
             raise ModelServiceError(f"Model service rate limit cooldown: retry in {math.ceil(wait)} seconds, or select another model.")
-        for attempt in range(2):
+        for attempt in range(1 if interpreting else 2):
             started = time.perf_counter()
             event = {"time": datetime.now(timezone.utc).isoformat(), "task": task,
                      "gateway_provider": settings.provider, "requested_model": chosen,
@@ -419,6 +436,8 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                 parser_policy=(purpose=="claim_parser" and task=="text" and settings.provider=="openrouter"
                                and chosen=="nvidia/nemotron-3.5-super-vl:free")
                 options={"reasoning":{"enabled":False}} if parser_policy else {}
+                if interpreting:
+                    options.update(json_mode=True, examples=examples)
                 if purpose: event["purpose"]=purpose
                 if parser_policy: event["reasoning_policy"]="disabled_for_claim_parser"
                 value, metadata = call(settings, key, chosen, prompt, system, request_schema, images, temperature, **options)
@@ -452,7 +471,7 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                         _cooldowns[circuit] = time.monotonic() + _retry_seconds(exc)
                 if transient and model_index < len(models) - 1:
                     break
-                if transient and code != 429 and attempt == 0:
+                if transient and code != 429 and attempt == 0 and not interpreting:
                     time.sleep(2)
                     continue
                 if code == 429:

@@ -22,6 +22,8 @@ def verification_state(results: list[dict]) -> str:
     """Describe execution without aggregating any unfinished factual verdicts."""
     if not results:
         return "failed"
+    if any(result.get("clarification") for result in results):
+        return "incomplete"
     unfinished = [result for result in results if execution_failed(result)]
     if not unfinished:
         return "complete"

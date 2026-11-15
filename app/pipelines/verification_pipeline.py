@@ -3,6 +3,7 @@ from __future__ import annotations
 from services.observability import event, operation
 
 import json
+import copy
 import re
 import time
 from typing import Literal
@@ -17,6 +18,60 @@ from services.model_gateway import capture_calls, structured, trace_verification
 from services.verification_errors import VerificationFailure, quota_pause
 from verification.claim_parser import parse_claims
 from verification.grounded_numeric import source_context, verify_numeric
+from verification.evidence_context import enrich_candidate
+
+
+def prepare_verification(claim_text, document_ids, reporter=None):
+    """Retrieve once, then interpret assertions and periods together for OpenRouter."""
+    from services.model_gateway import config
+    from verification.evidence_interpreter import interpret_claims
+    if config().provider != "openrouter":
+        return parse_claims(claim_text), None
+    with capture_calls() as (calls, start):
+        try:
+            if not claim_text.strip() or not document_ids:
+                raise VerificationFailure("Enter a claim and select a processed document.", stage="claim_parser")
+            documents = [read(f"data/processed/{doc}/document.json") for doc in document_ids]
+            if any(doc.get("status") != "ready" for doc in documents):
+                raise VerificationFailure("A selected document is not ready.", stage="document")
+            catalogs = {doc: {e["id"]: e for e in read(f"data/processed/{doc}/evidence.json")["evidence"]}
+                        for doc in document_ids}
+            if reporter:
+                reporter.update("Retrieving evidence for interpretation", completed=1)
+            hits = []
+            for doc in document_ids:
+                hits.extend(search(claim_text, top_k=40, document_id=doc))
+            for hit in hits:
+                catalog = catalogs.get(hit.get("document_id"), {})
+                hit["candidate_context"] = enrich_candidate(catalog.get(hit.get("source_evidence_id"), {}),
+                                                             catalog.values()).get("candidate_context", {})
+            hits = rerank(claim_text, hits, keep=20) if hits else []
+            metadata = {doc["document_id"]: doc for doc in documents}
+            evidence, seen = [], set()
+            for hit in hits:
+                doc, source = hit.get("document_id"), hit.get("source_evidence_id")
+                if source not in catalogs.get(doc, {}) or (doc, source) in seen:
+                    continue
+                seen.add((doc, source))
+                item = enrich_candidate(catalogs[doc][source], catalogs[doc].values())
+                title = str((metadata[doc].get("metadata") or {}).get("title") or "")
+                item.update(id=f"{doc}::{source}", evidence_id=f"{doc}::{source}", source_evidence_id=source,
+                            document_id=doc, company=metadata[doc].get("company_name") or title or metadata[doc].get("filename"),
+                            annual_report_year_columns=bool(re.search(r"\b10[- ]?k\b|annual report", title, re.I)))
+                evidence.append(item)
+            if reporter:
+                reporter.update("Understanding claims and reporting periods", completed=2)
+            interpretation = interpret_claims(claim_text, evidence)
+            prepared = {"documents": documents, "evidence": evidence}
+            if interpretation["status"] != "ready":
+                return [{"claim_text": claim_text, "original_input": claim_text,
+                         "interpretation_status": interpretation["status"],
+                         "clarification": {"question": interpretation.get("question"),
+                                           "options": interpretation.get("options", [])}}], prepared
+            return interpretation["claims"], prepared
+        except Exception as exc:
+            return [{"claim_text": claim_text, "parsing_error": str(exc), "error_kind": type(exc).__name__,
+                     "parsing_context": getattr(exc, "metadata", {}), "pause": quota_pause(exc, calls[start:])}], None
 
 
 class EvidenceQuote(BaseModel):
@@ -70,7 +125,7 @@ def _documents(pc, selected):
     return documents
 
 
-def _verify_one(pc, selected, reporter=None):
+def _verify_one(pc, selected, reporter=None, prepared=None):
     result = {
         "claim_text": pc.get("claim_text", ""), "parsed_claim": pc,
         "document_ids": list(selected), "status": "complete", "verdict": "UNKNOWN",
@@ -83,52 +138,72 @@ def _verify_one(pc, selected, reporter=None):
         try:
             if pc.get("parsing_error"):
                 raise VerificationFailure(pc["parsing_error"], stage="claim_parser", pause=pc.get("pause"))
+            interpretation_status = pc.get("interpretation_status")
+            if interpretation_status == "clarification_required":
+                result.update(status="clarification_required", verdict="", clarification=pc["clarification"],
+                              reason=pc["clarification"]["question"])
+                return result
+            if interpretation_status in {"question", "insufficient_evidence"}:
+                result["reason"] = ("Enter an assertion or a yes/no check about a specific fact." if interpretation_status == "question"
+                                    else "The retrieved evidence does not establish the requested metric and comparable periods.")
+                return result
             if pc.get("claim_type") != "assertion":
                 result.update(reason="The input is not a verifiable assertion.",
                               calculation_unavailable_reason="The input is a question or unclear statement.")
                 return result
             stage="document"
-            documents = _documents(pc, selected)
+            documents = ([d for d in prepared["documents"] if any(
+                e["document_id"] == d["document_id"] and e["id"] in pc.get("meaning_source_ids", [])
+                for e in prepared["evidence"])] if prepared is not None else _documents(pc, selected))
             scope = [d["document_id"] for d in documents]
             result["document_ids"] = scope
             if len(documents) == 1:
                 result.update(document_id=scope[0], company_name=documents[0].get("company_name")
                               or documents[0].get("filename") or scope[0])
-            if reporter:
-                reporter.update("Retrieving evidence", completed=3, message="Searching existing document indexes")
-            stage="retrieval"
-            hits = []
-            for doc in scope:
-                hits.extend(search(pc["claim_text"], top_k=20, document_id=doc))
-            event("evidence_retrieved", count=len(hits), stage="initial")
-            if not hits:
-                event("evidence_unavailable", stage="retrieval")
-                result.update(reason="No relevant evidence was retrieved from the selected documents.",
-                              calculation_unavailable_reason="No relevant evidence was retrieved.")
-                return result
-            stage="reranking"
-            hits = rerank(pc["claim_text"], hits, keep=10, parsed_claim=pc)
-            stage="source_resolution"
-            catalogs = {doc: {e["id"]: e for e in read(f"data/processed/{doc}/evidence.json")["evidence"]}
-                        for doc in scope}
-            metadata = {d["document_id"]: d for d in documents}
-            evidence, seen = [], set()
-            for hit in hits:
-                doc, source_id = hit["document_id"], hit.get("source_evidence_id")
-                key = (doc, source_id)
-                if key in seen or source_id not in catalogs.get(doc, {}):
-                    continue
-                item = dict(catalogs[doc][source_id])
-                title = str((metadata[doc].get("metadata") or {}).get("title") or "")
-                item.update(
-                    id=f"{doc}::{source_id}", evidence_id=f"{doc}::{source_id}",
-                    document_id=doc, source_evidence_id=source_id,
-                    text=item.get("content", ""), score=hit.get("score"),
-                    rerank_score=hit.get("rerank_score"),
-                    annual_report_year_columns=bool(re.search(r"\b10[- ]?k\b|annual report", title, re.I)),
-                )
-                evidence.append(item)
-                seen.add(key)
+            if prepared is not None:
+                evidence = copy.deepcopy([e for e in prepared["evidence"] if e["id"] in pc["meaning_source_ids"]])
+                catalogs = {doc: {e["source_evidence_id"]: e for e in evidence if e["document_id"] == doc} for doc in scope}
+            else:
+                if reporter:
+                    reporter.update("Retrieving evidence", completed=3, message="Searching existing document indexes")
+                stage="retrieval"
+                hits = []
+                retrieval_query = pc.get("retrieval_query") or pc["claim_text"]
+                for doc in scope:
+                    hits.extend(search(retrieval_query, top_k=20, document_id=doc))
+                event("evidence_retrieved", count=len(hits), stage="initial")
+                if not hits:
+                    event("evidence_unavailable", stage="retrieval")
+                    result.update(reason="No relevant evidence was retrieved from the selected documents.",
+                                  calculation_unavailable_reason="No relevant evidence was retrieved.")
+                    return result
+                stage="source_resolution"
+                catalogs = {doc: {e["id"]: e for e in read(f"data/processed/{doc}/evidence.json")["evidence"]}
+                            for doc in scope}
+                stage="reranking"
+                hits = [dict(hit, candidate_context=enrich_candidate(
+                            catalogs.get(hit["document_id"], {}).get(hit.get("source_evidence_id"), {}),
+                            catalogs.get(hit["document_id"], {}).values()).get("candidate_context", {})) for hit in hits]
+                hits = rerank(retrieval_query, hits, keep=10, parsed_claim=pc)
+                stage="source_resolution"
+                metadata = {d["document_id"]: d for d in documents}
+                evidence, seen = [], set()
+                for hit in hits:
+                    doc, source_id = hit["document_id"], hit.get("source_evidence_id")
+                    key = (doc, source_id)
+                    if key in seen or source_id not in catalogs.get(doc, {}):
+                        continue
+                    item = enrich_candidate(catalogs[doc][source_id], catalogs[doc].values())
+                    title = str((metadata[doc].get("metadata") or {}).get("title") or "")
+                    item.update(
+                        id=f"{doc}::{source_id}", evidence_id=f"{doc}::{source_id}",
+                        document_id=doc, source_evidence_id=source_id,
+                        text=item.get("content", ""), score=hit.get("score"),
+                        rerank_score=hit.get("rerank_score"),
+                        annual_report_year_columns=bool(re.search(r"\b10[- ]?k\b|annual report", title, re.I)),
+                    )
+                    evidence.append(item)
+                    seen.add(key)
             event("evidence_retrieved", count=len(evidence), stage="resolved")
             result["evidence"] = evidence
             if not evidence:
@@ -136,7 +211,8 @@ def _verify_one(pc, selected, reporter=None):
             if reporter:
                 reporter.update("Verifying calculations", completed=4, message="Reading source cells and calculating in Python")
             stage="numeric_calculation"
-            period_sources = [dict(item, document_id=doc)
+            period_sources = evidence if prepared is not None else [dict(enrich_candidate(item, catalog.values()), document_id=doc,
+                                   id=f"{doc}::{item['id']}", source_evidence_id=item["id"])
                               for doc, catalog in catalogs.items() for item in catalog.values()
                               if item.get("type") == "table"]
             calculation, comparison, numeric_reason, used = verify_numeric(pc, evidence, period_evidence=period_sources)
@@ -144,6 +220,12 @@ def _verify_one(pc, selected, reporter=None):
                   available=bool(comparison), operation=pc.get("operation"))
             result.update(calculation=calculation, comparison=comparison,
                           calculation_unavailable_reason=numeric_reason)
+            if getattr(numeric_reason, "options", None):
+                result.update(status="clarification_required", verdict="",
+                              reason=str(numeric_reason), clarification={
+                                  "question": "Out of these specific meanings or reported period pairs, which one are you referring to?",
+                                  "options": numeric_reason.options})
+                return result
             if calculation:
                 result["unit"] = calculation["result_unit"]
                 inferred = calculation.get("inferred_periods")
@@ -179,7 +261,7 @@ def _verify_one(pc, selected, reporter=None):
                     reporter.update("Reasoning over evidence", completed=5, message="Checking an evidence-grounded assertion")
                 payload = [{k: e.get(k) for k in (
                     "id", "document_id", "page", "type", "content", "headers", "rows",
-                    "column_map", "column_headers", "facts", "context",
+                    "column_map", "column_headers", "facts", "context", "title", "caption", "candidate_context",
                 )} for e in evidence]
                 try:
                     reasoning = structured(GroundedResult, json.dumps({"claim": pc, "evidence": payload}, ensure_ascii=False),
@@ -241,10 +323,10 @@ def verify_claims(claim_text: str, document_ids: list[str], reporter=None) -> li
                  "error": "Select a processed document.", "reason": "Select a processed document.", "evidence": []}]
     if reporter:
         reporter.update("Parsing claims", completed=1, message="Retaining explicit periods and numerical assertions")
-    parsed = parse_claims(claim_text)
+    parsed, prepared = prepare_verification(claim_text, document_ids, reporter)
     results = []
     for pc in parsed:
-        result = _verify_one(pc, document_ids, reporter)
+        result = _verify_one(pc, document_ids, reporter, prepared=prepared)
         results.append(result)
         if result.get("pause"):
             break

@@ -1,6 +1,7 @@
 from sentence_transformers import CrossEncoder
 import os
 import threading
+import json
 
 RERANK_MODEL = os.getenv("RERANK_MODEL_NAME", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 METADATA_BOOST = 0.1          # added per matching metadata field
@@ -80,6 +81,8 @@ def _diverse_top(scored, keep):
 
 def _evidence_text(h):
     parts = []
+    if h.get("candidate_context"):
+        parts.append(json.dumps(h["candidate_context"], ensure_ascii=False))
 
     if h.get("text"):
         parts.append(str(h["text"]))

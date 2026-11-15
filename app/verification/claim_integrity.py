@@ -14,6 +14,7 @@ QUANTITY=re.compile(r"(?<!\w)(?:(?:USD|EUR|GBP|CAD|AUD|JPY|CNY|CHF|INR|HKD)\s*)?
 STOP=set("a an the s of at as in on for from to by with between during ended ending fiscal year years months month quarter annual approximately about roughly around nearly only just respectively and or but while whereas than more less no least most is are was were has have had been it its that this those these company corporation inc ltd limited grew grow growth increased increase increasing decreased decrease decreasing declined decline declining fell fall rose rise change changed reported recorded amounted generated earned paid totaled totalled reached expects plans will would be consequently therefore hence so offset offsetting due because both over under above below since".split())
 STOP.update("january february march april may june july august september october november december jan feb mar apr jun jul aug sep sept oct nov dec".split())
 STOP.update("grow grown increases increasing decreases rising rises falls falling lower higher dropped drops dropping unchanged flat stable cagr".split())
+STOP.update("did does do".split())
 
 
 def words(text):
@@ -57,7 +58,7 @@ def _bound(pc,text,spans,index):
     left=spans[index-1][1] if index else 0
     right=spans[index+1][0] if index+1<len(spans) else len(text)
     metric=pc.get("metric") or pc.get("subject")
-    allowed=STOP|set(words(pc.get("company")))
+    allowed=STOP|set(words(pc.get("company")))|{"not", "never"}
     before=_without_periods(text[left:start])
     matches=_spans(metric,before)
     if matches:
@@ -257,6 +258,9 @@ def normalize_direction(pc):
 
 def _same_assertion(pc,original,spans,index):
     clause,position=_clause(original,spans,index)
+    original_negated = bool(re.search(r"\b(?:not|never)\b", clause, re.I))
+    if original_negated != bool(pc.get("negated")):
+        return False
     source_periods,endpoint=_input_periods(original,spans,index,clause)
     parsed_periods=_periods(pc["claim_text"]+" "+(pc.get("period_quote") or ""))
     if set(source_periods)!=set(parsed_periods): return False

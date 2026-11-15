@@ -220,6 +220,10 @@ def request_details(job):
         calls.extend(result.get("model_calls", []))
     with st.expander("Models and request details"):
         st.text("Reasoning model for this request: " + (models.get("text_model") or "Not recorded"))
+        interpretation = (saved.get("models") or {}).get("claim_interpretation") or {}
+        if interpretation.get("model"):
+            st.text("Claim interpretation model: " + interpretation["model"])
+            st.text("Claim interpretation allowance: " + str(interpretation["max_output_tokens"]) + " tokens")
         if models.get("vision_model"):
             st.text("Vision model for this request: " + models["vision_model"])
         for field,label in (("max_output_tokens","Text response allowance"),("vision_max_output_tokens","Vision response allowance")):
@@ -313,6 +317,7 @@ def connection_panel(access, key):
         if saved:
             st.success("Your OpenRouter key is saved encrypted.")
             st.text("Saved reasoning model: " + models.get("text_model", "Not set"))
+            st.caption("Claim interpretation and reporting-period selection use baidu/ernie-5.5-flash-preview:free with your saved OpenRouter key (up to 2,048 output tokens).")
             st.text("Saved vision model: " + (models.get("vision_model") or "Not set"))
             st.caption(f"New requests: up to {models.get('max_output_tokens', 8192):,} reasoning output tokens and {models.get('vision_max_output_tokens', 32768):,} vision output tokens. Actual usage is billed by your provider.")
         text_model = draft_text("Reasoning model ID", key+"text_model", models.get("text_model", ""), max_chars=200,
@@ -615,14 +620,21 @@ def review_detail(access, job, key):
     if not order:
         st.success("No claims match this filter.")
     else:
-        index = st.selectbox("Claim", order, format_func=lambda i: f"{i+1}. {results[i].get('verdict','UNKNOWN')} · {results[i].get('claim_text','')[:100]}", key=key+"atom_"+mode)
+        index = st.selectbox("Claim", order, format_func=lambda i: f"{i+1}. {'Clarification required' if results[i].get('clarification') else results[i].get('verdict','UNKNOWN')} · {results[i].get('claim_text','')[:100]}", key=key+"atom_"+mode)
         result = results[index]
         with st.container(key="customer_review_layout"):
             left, right = st.columns([1, 1.2])
             with left:
-                label = "VERIFICATION FAILED" if execution_failed(result) else result.get("verdict", "UNKNOWN").replace("_", " ")
+                label = "Clarification required" if result.get("clarification") else "VERIFICATION FAILED" if execution_failed(result) else result.get("verdict", "UNKNOWN").replace("_", " ")
                 st.markdown("### " + label)
                 st.text(result.get("claim_text") or "")
+                from ui.claim_interpretation import render_claim_interpretation
+                render_claim_interpretation(st, result)
+                if result.get("clarification"):
+                    st.write(result["clarification"]["question"])
+                    for number, option in enumerate(result["clarification"]["options"], 1):
+                        st.text(f"{number}. {option}")
+                    st.info("Add your chosen meaning or reporting periods to the claim and submit a new review.")
                 st.text(result.get("reason") or "")
                 if result.get("verdict") == "UNKNOWN" or execution_failed(result):
                     st.info(action_hint(result))

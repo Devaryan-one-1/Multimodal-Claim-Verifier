@@ -15,6 +15,8 @@ FIELDS = ["review_id", "review_name", "run_status", "atom_index", "execution_sta
 
 
 def execution_status(item):
+    if item.get("clarification"):
+        return "clarification_required"
     if execution_failed(item):
         return "paused" if item.get("status") == "paused" or item.get("pause") else "failed"
     if item.get("status") in {"queued", "running"}:

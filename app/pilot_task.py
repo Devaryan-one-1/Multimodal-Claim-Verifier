@@ -112,8 +112,7 @@ def run(job_id, token):
             save("complete", "Document ready", {"document_id": doc_id, "model_calls": [model_call_summary(x) for x in request_calls]},
                  document_ready=(doc_id,result))
         elif row["kind"] == "verify":
-            from verification.claim_parser import parse_claims
-            from pipelines.verification_pipeline import _verify_one
+            from pipelines.verification_pipeline import _verify_one, prepare_verification
             for doc_id, sha in payload["versions"].items():
                 with db() as c:
                     source = document(c, access, doc_id, ready=True)
@@ -123,7 +122,7 @@ def run(job_id, token):
             if "parsed" not in checkpoint:
                 reporter.update("Understanding claims")
                 with capture_calls() as (calls, start):
-                    parsed = parse_claims(payload["claim"])
+                    parsed, prepared = prepare_verification(payload["claim"], payload["documents"], reporter)
                     request_calls = list(calls[start:])
                     checkpoint["parsing_calls"] = [model_call_summary(x) for x in calls[start:]]
                 if not parsed or any(p.get("parsing_error") for p in parsed):
@@ -138,13 +137,14 @@ def run(job_id, token):
                               metadata=failure.get("parsing_context"))})
                     return
                 checkpoint["parsed"] = parsed
+                checkpoint["prepared_evidence"] = prepared
                 checkpoint["results"] = []
                 save(stage="Claims understood")
             results = checkpoint["results"]
             for pc in checkpoint["parsed"][len(results):]:
                 started = time.perf_counter()
                 with capture_calls() as (calls, start):
-                    result = _verify_one(pc, payload["documents"], reporter)
+                    result = _verify_one(pc, payload["documents"], reporter, prepared=checkpoint.get("prepared_evidence"))
                     request_calls = list(calls[start:])
                     result["model_calls"] = [model_call_summary(x) for x in calls[start:]]
                 result["processing_time_seconds"] = time.perf_counter()-started

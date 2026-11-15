@@ -168,6 +168,9 @@ class CustomerWorkerTests(unittest.TestCase):
         verifier = types.ModuleType("pipelines.verification_pipeline")
         verifier._verify_one = MagicMock(return_value={"status": "complete", "verdict": "SUPPORTED"})
         self.parser, self.verifier = parser.parse_claims, verifier._verify_one
+        self.prepared = {"documents": [], "evidence": [{"id": "saved-fixture-source"}]}
+        verifier.prepare_verification = MagicMock(side_effect=lambda text, documents, reporter: (self.parser(text), self.prepared))
+        self.prepare = verifier.prepare_verification
         self.stack.enter_context(patch.dict(sys.modules, {
             "verification.claim_parser": parser, "pipelines.verification_pipeline": verifier,
         }))
@@ -194,6 +197,8 @@ class CustomerWorkerTests(unittest.TestCase):
         self.assertEqual(result["status"], "complete")
         self.assertEqual(result["result"]["results"][0]["verdict"], "SUPPORTED")
         self.parser.assert_called_once()
+        self.assertEqual(result["checkpoint"]["prepared_evidence"], self.prepared)
+        self.assertEqual(self.verifier.call_args.kwargs["prepared"], self.prepared)
 
     def test_real_model_change_pauses_before_provider_call(self):
         self.credential_config["text_model"] = "vendor/new-model"
@@ -292,7 +297,7 @@ class CustomerWorkerTests(unittest.TestCase):
         saved = {"status": "complete", "verdict": "SUPPORTED", "claim_text": "First fixture"}
         second = {"claim_text": "Second fixture", "operation": "level"}
         self.update_checkpoint(parsed=[{"claim_text": "First fixture"}, second], results=[saved])
-        def fail(*args):
+        def fail(*args, **kwargs):
             self.emit_error()
             return {"status": "error", "error_stage": "numeric", "error_kind": "ModelServiceError", "reason": ERROR_CALL["error_message"]}
         self.verifier.side_effect = fail

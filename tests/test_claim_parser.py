@@ -88,6 +88,64 @@ class ClaimParserTests(unittest.TestCase):
         self.assertEqual(parsed["period_quote"], "reported periods")
         self.assertEqual(self.gateway.structured.call_count, 1)
 
+    def test_conversational_metric_expands_search_without_replacing_original(self):
+        text = "For Cedar, money owed by customers was $12 million in 2026."
+        self.respond([self.atom(text, company="Cedar", metric="money owed by customers",
+                               subject="money owed by customers", claimed_literal="$12 million",
+                               period_quote="2026", period_type="unspecified",
+                               metric_interpretation="accounts receivable")])
+        pc = self.parser.parse_claims(text)[0]
+        self.assertNotIn("parsing_error", pc, pc)
+        self.assertEqual(pc["claim_text"], text)
+        self.assertEqual(pc["original_input"], text)
+        self.assertEqual(pc["metric"], "money owed by customers")
+        self.assertEqual(pc["interpretation"]["metric"], "accounts receivable")
+        self.assertEqual(pc["interpretation"]["claimed_literal"], "$12 million")
+        self.assertIn("accounts receivable", pc["retrieval_query"])
+        self.assertTrue(pc["retrieval_query"].startswith(text))
+        self.assertEqual(self.gateway.structured.call_count, 1)
+
+    def test_retrieval_hint_cannot_supply_missing_reported_periods_or_values(self):
+        text = "Cedar's sales brought in grew 8.8% over the reported periods."
+        for hint in ("sales revenue", "sales revenue 2025 2026", "sales revenue $120 million"):
+            with self.subTest(hint=hint):
+                self.respond([self.growth(claim_text=text, company="Cedar", subject="sales brought in",
+                    metric="sales brought in", start_period=None, end_period=None,
+                    period_quote="reported periods", metric_interpretation=hint)])
+                pc = self.parser.parse_claims(text)[0]
+                self.assertNotIn("parsing_error", pc, pc)
+                self.assertIsNone(pc["interpretation"]["start_period"])
+                self.assertIsNone(pc["interpretation"]["end_period"])
+                self.assertEqual(pc["interpretation"]["period_resolution"], "source_required")
+                self.assertEqual(pc["claimed_literal"], "8.8%")
+                if hint != "sales revenue":
+                    self.assertEqual(pc["retrieval_query"], text)
+
+    def test_interpretation_preserves_negation_and_threshold(self):
+        text = C.replace("grew 8.8%", "did not grow more than 8.8%")
+        pc = self.parser._normalize(self.growth(claim_text=text, negated=True,
+                                    metric_interpretation="total deferred revenue"), text)
+        self.parser._attach_interpretation(pc, text)
+        self.assertTrue(pc["interpretation"]["negated"])
+        self.assertEqual(pc["interpretation"]["comparison_operator"], "greater_than")
+        self.assertEqual(pc["retrieval_query"], text)
+
+    def test_interpretation_cannot_repair_invalid_original_quantity(self):
+        wrong = self.atom(claimed_literal="$99 billion", metric_interpretation="total deferred revenue")
+        self.respond([wrong], [wrong])
+        result = self.parser.parse_claims(A)[0]
+        self.assertEqual(result.get("error_kind"), "ParseValidationError")
+        self.assertNotIn("interpretation", result)
+
+    def test_compound_interpretations_keep_each_quantity_and_full_original(self):
+        original = A + " " + B
+        self.respond([self.atom(), self.atom(B, end_period=2025, period_quote="September 27, 2025")])
+        output = self.parser.parse_claims(original)
+        self.assertEqual(len(output), 2)
+        self.assertEqual([p["original_input"] for p in output], [original, original])
+        self.assertEqual([p["interpretation"]["end_period"] for p in output], [2026, 2025])
+        self.assertEqual([p["retrieval_query"] for p in output], [A, B])
+
     def test_placeholder_text_triggers_correction_and_returns_real_statement(self):
         self.respond([self.atom("assertion")], [self.atom()])
         output = self.parser.parse_claims(A)
@@ -239,6 +297,15 @@ class ClaimParserTests(unittest.TestCase):
         text = "What was Apple's total deferred revenue at June 27, 2026?"
         output = self.parser._normalize(self.atom(text, claimed_literal=None), text)
         self.assertEqual(output["claim_type"], "question")
+
+    def test_company_led_yes_no_question_remains_a_verifiable_assertion(self):
+        text = "For Northstar, did revenue change by 18% over the reported periods?"
+        atom = self.growth(claim_text=text, company="Northstar", metric="revenue", subject="revenue",
+                           claimed_literal="18%", period_quote="reported periods",
+                           start_period=None, end_period=None, period_type="unspecified")
+        output = self.parser._normalize(atom, text)
+        self.assertEqual(output["claim_type"], "assertion")
+        self.assertTrue(output["verification_question"])
 
     def test_claimed_quantity_still_cannot_be_invented(self):
         with self.assertRaises(self.parser.ParseValidationError):

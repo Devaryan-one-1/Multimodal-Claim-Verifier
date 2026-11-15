@@ -17,6 +17,7 @@ from services.failure_details import describe_failure
 from services.verification_errors import VerificationFailure
 from services.verification_status import execution_failed
 from pilot.benchmark import score
+from verification.evidence_context import enrich_candidate
 
 PROJECT=Path(__file__).resolve().parents[1]
 DATES="September 27, 2025 and June 27, 2026"
@@ -34,7 +35,7 @@ def fixture(kind):
     finally: case.doCleanups()
 
 
-def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None):
+def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None,retrieval_calls=None):
     """Run the actual pipeline function, replacing only storage/search boundaries."""
     tree=ast.parse((PROJECT/'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8-sig'))
     node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='_verify_one')
@@ -43,11 +44,15 @@ def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None):
     def boundary(stage,value):
         if fail_stage==stage: raise RuntimeError('PRIVATE_RUNTIME_DETAIL')
         return value
+    def query_boundary(stage, query, value):
+        if retrieval_calls is not None:
+            retrieval_calls.append((stage, query))
+        return boundary(stage, value)
     namespace={'capture_calls':calls,'VerificationFailure':VerificationFailure,'time':time,'re':re,
-        'event':lambda *a,**k:None,
+        'event':lambda *a,**k:None, 'enrich_candidate':enrich_candidate,
         '_documents':lambda *a:boundary('document',[{'document_id':'fixture-document','filename':'Fixture'}]),
-        'search':lambda *a,**k:boundary('retrieval',[{'document_id':'fixture-document','source_evidence_id':'source'}]),
-        'rerank':lambda q,h,**k:boundary('reranking',h),
+        'search':lambda q,**k:query_boundary('retrieval',q,[{'document_id':'fixture-document','source_evidence_id':'source'}]),
+        'rerank':lambda q,h,**k:query_boundary('reranking',q,h),
         'read':lambda p:boundary('source_resolution',{'evidence':source_evidence if source_evidence is not None else
             [{'id':'source','type':'text','page':9,'content':'Fixture'}]}),
         'verify_numeric':calculate,'fuse_evidence':lambda *a,**k:boundary('evidence_fusion',{'requires_unknown':False}),
@@ -57,6 +62,24 @@ def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None):
 
 
 class CompoundClaimTests(unittest.TestCase):
+    def test_interpreted_search_keeps_original_target_for_verification(self):
+        original = "Cedar's money owed by customers was $12 million in 2026."
+        for query in (None, original + "\nFinancial metric terminology: accounts receivable"):
+            with self.subTest(query=query):
+                pc = dict(claim_text=original, claim_type='assertion', operation='level',
+                          metric='money owed by customers', claimed_literal='$12 million')
+                if query is not None:
+                    pc['retrieval_query'] = query
+                observed = []
+                def calculate(target, evidence, **kwargs):
+                    self.assertEqual(target['claim_text'], original)
+                    self.assertEqual(target['metric'], 'money owed by customers')
+                    self.assertEqual(target['claimed_literal'], '$12 million')
+                    return None, None, 'Controlled unavailable source', []
+                result = active_pipeline(pc, calculate, retrieval_calls=observed)
+                self.assertEqual(observed, [('retrieval', query or original), ('reranking', query or original)])
+                self.assertEqual(result['claim_text'], original)
+
     def test_inventory_claim_keeps_all_five_quantities_and_calculates_from_table(self):
         with fixture(parser_fixture.ClaimParserTests) as parser, fixture(source_fixture.SourceSelectionTests) as source:
             def atom(text,metric,literal,**kw):
@@ -583,11 +606,14 @@ class FailureFlowTests(unittest.TestCase):
                     sources = [source, older] if hidden_third_period else [source]
                     claim = case.reported_period_claim(claim_type="assertion")
                     result = active_pipeline(claim, case.numeric.verify_numeric, source_evidence=sources)
-                    self.assertEqual(result["status"], "complete", result.get("reason"))
                     if hidden_third_period:
-                        self.assertEqual(result["verdict"], "UNKNOWN")
+                        self.assertEqual(result["status"], "clarification_required")
+                        self.assertEqual(result["verdict"], "")
+                        self.assertTrue(result["clarification"]["options"])
+                        self.assertEqual(score([dict(status=result["status"], predicted="", gold="SUPPORTED")])["completed"], 0)
                         self.assertIn("Specify the two reporting periods", result["reason"])
                     else:
+                        self.assertEqual(result["status"], "complete", result.get("reason"))
                         self.assertEqual(result["verdict"], "SUPPORTED")
                         self.assertEqual(result["reporting_period"], "2025\u20132026")
                         self.assertEqual(result["parsed_claim"]["period_inference"], "only_available_source_period_pair")
