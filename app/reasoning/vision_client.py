@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from services.model_gateway import structured, model_name, last_call, cache_file, trace_extraction
+from services.model_gateway import CHART_EXTRACTION_MODEL, structured, model_name, last_call, cache_file, trace_extraction
 
 import base64
 import hashlib
@@ -12,6 +12,7 @@ from typing import Any, Literal
 from dotenv import load_dotenv
 from google import genai
 from pydantic import BaseModel, Field
+
 
 
 load_dotenv()
@@ -988,15 +989,24 @@ def analyze_charts(
 #     chart: dict[str, Any],
 #     full_page: bool,
 # ) -> ChartAnalysisResponse:
-def _analyze_with_gemini(*, image_path: Path, chart: dict[str, Any],
-                         full_page: bool, model: str) -> ChartAnalysisResponse:
+def read_chart_image(*, image_path: Path, chart: dict[str, Any],
+                     full_page: bool = False, model: str | None = None,
+                     purpose: str | None = None) -> ChartAnalysisResponse:
+    """Read one chart image using the configured gateway and normalize its points."""
     extracted = structured(
         RawChartExtraction, _build_prompt(chart=chart, full_page=full_page),
-        task="vision", images=[image_path],
+        task="vision", images=[image_path], model=model, purpose=purpose,
     )
     analysis = _normalize_raw_extraction(extracted)
     object.__setattr__(analysis, "_gateway_call", last_call())
     return analysis
+
+
+def _analyze_with_gemini(*, image_path: Path, chart: dict[str, Any],
+                         full_page: bool, model: str) -> ChartAnalysisResponse:
+    purpose = "chart_extraction" if model == CHART_EXTRACTION_MODEL else None
+    return read_chart_image(image_path=image_path, chart=chart, full_page=full_page,
+                            model=model, purpose=purpose)
 
 
 def _analyze_with_retry(*, image_path: Path, chart: dict[str, Any], full_page: bool,
@@ -1446,6 +1456,7 @@ def _build_facts(
                 continue
 
             fact = {
+                "series_name": series.name,
                 "metric": (
                     series.metric
                 ),

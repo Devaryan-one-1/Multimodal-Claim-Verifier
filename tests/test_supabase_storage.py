@@ -578,6 +578,7 @@ class SQLiteCloudConnection:
     """Exercise actual store/file/vector methods; adapt only PostgreSQL syntax."""
     def __init__(self,c): self.c=c
     def execute(self,sql,args=()):
+        sql=sql.replace("metadata::jsonb", "metadata")
         sql=sql.replace("embedding <=> ?::extensions.vector","cosine_distance(embedding, ?)")
         sql=sql.replace("?::extensions.vector","?").replace("embedding::text","embedding").replace(" FOR UPDATE OF j","").replace(" FOR UPDATE","")
         if sql.startswith("SELECT setval("): return self.c.execute("SELECT 1")
@@ -777,6 +778,17 @@ CREATE TABLE vectors(workspace text,collection text,id text,document_id text,emb
         self.assertEqual(a.get(where={"document_id":D2},include=[])["ids"],[])
         a.delete(ids=["shared"])
         with self.db() as c: self.assertEqual(c.execute("SELECT COUNT(*) FROM vectors WHERE workspace=?",(W2,)).fetchone()[0],1)
+
+    def test_filtered_vector_search_preserves_document_scope_and_candidate_type(self):
+        collection = Collection("collection", "gemini-embedding-001", 768)
+        vector = [1.0] + [0.0] * 767
+        collection.upsert(ids=["chart", "text"], embeddings=[vector, vector], documents=["bar chart", "paragraph"],
+                          metadatas=[{"document_id": D1, "type": kind} for kind in ("chart", "text")])
+        def search(doc):
+            return collection.query(query_embeddings=[vector], n_results=5,
+                                    where={"$and": [{"document_id": doc}, {"type": {"$in": ["chart"]}}]})["ids"]
+        self.assertEqual(search(D1), [["chart"]])
+        self.assertEqual(search(D2), [[]])
 
     def test_vectors_cannot_be_written_after_job_ownership_changes(self):
         a=Collection("collection","gemini-embedding-001",768)

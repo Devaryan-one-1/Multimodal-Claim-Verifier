@@ -69,7 +69,8 @@ class VisualPipelineTests(unittest.TestCase):
         detector.detect_charts = MagicMock(return_value={"charts": [chart], "results": [{"success": True}]})
         analysis = types.ModuleType("reasoning.vision_client")
         analysis.analyze_charts = MagicMock(return_value={"results": [{"chart_id": "graph-1", "success": success,
-            "facts": facts or [], "analysis": {"title": "Revenue", "display_unit": "$ millions"}}]})
+            "facts": facts or [], "analysis": {"title": "Revenue", "display_unit": "$ millions",
+                                               "x_axis": {"label": "Year"}}}]})
         self.stack.enter_context(patch.dict(fixtures.sys.modules, {"extraction.chart_detector": detector, "reasoning.vision_client": analysis}))
         return detector, analysis
 
@@ -114,7 +115,8 @@ class VisualPipelineTests(unittest.TestCase):
     def test_graph_facts_are_indexed_with_units_and_estimates_are_excluded(self):
         self.graph(facts=[{"metric": "Revenue", "period": "2026", "display_value": "20", "value": 20,
                            "value_source": "explicit_label", "unit": "$ millions"},
-                          {"metric": "Revenue", "period": "2025", "value": 18, "value_source": "estimated"}])
+                          {"metric": "Revenue", "period": "2025", "value": 18, "value_source": "estimated"},
+                          {"metric": "Revenue", "period": "2024", "value": 16, "value_source": "explicit_label"}])
         result = self.run_document()
         self.assertEqual(result["chart_count"], 1)
         evidence = json.loads(Path("data/processed/selected/evidence.json").read_text())["evidence"]
@@ -122,6 +124,7 @@ class VisualPipelineTests(unittest.TestCase):
         self.assertEqual(graph["extraction_method"], "chart-vision-v1")
         self.assertEqual(len(graph["facts"]), 1)
         self.assertEqual(graph["unit"], "$ millions")
+        self.assertEqual(graph["x_axis"]["label"], "Year")
 
     def test_graph_with_no_readable_labels_warns_but_does_not_invent_values(self):
         self.graph()

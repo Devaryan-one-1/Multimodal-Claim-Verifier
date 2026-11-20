@@ -249,6 +249,10 @@ def normalize_direction(pc):
     if not direction and value and pc.get("operation")=="cagr":
         signed="down" if value["value"]<0 else "up" if value["value"]>0 else "flat"
     direction=direction or signed
+    if not direction and value and re.search(r"\bchange(?:d)?\s+by\b", clause, re.I):
+        pc["direction"] = "unspecified"
+        pc["comparison_basis"] = "absolute magnitude"
+        return
     if not direction:
         raise ParseValidationError("The change direction cannot be read unambiguously from the submitted assertion.",reason="operation")
     if pc.get("direction")!=direction:
@@ -258,7 +262,7 @@ def normalize_direction(pc):
 
 def _same_assertion(pc,original,spans,index):
     clause,position=_clause(original,spans,index)
-    original_negated = bool(re.search(r"\b(?:not|never)\b", clause, re.I))
+    original_negated = bool(re.search(r"\b(?:not(?!\s+(?:more|less)\s+than\b)|never)\b", clause, re.I))
     if original_negated != bool(pc.get("negated")):
         return False
     source_periods,endpoint=_input_periods(original,spans,index,clause)

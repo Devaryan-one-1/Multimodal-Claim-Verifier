@@ -20,6 +20,7 @@ from extraction.build_evidence import build_evidence
 from extraction.chunker import chunk_document
 from retrieval.embeddings import COLLECTION_NAME, embed_document
 from services.runtime import digest, read, write
+from verification.evidence_context import has_printed_chart_value
 
 PROFILE = "dashboard-v1"
 
@@ -157,13 +158,14 @@ def process_document(file_bytes: bytes, filename: str, document_id: str, company
                 item = dict(chart.get("evidence") or {})
                 if not item:
                     continue
-                facts = [fact for fact in result.get("facts", []) if fact.get("value") is not None and fact.get("value_source") == "explicit_label"]
+                facts = [fact for fact in result.get("facts", []) if has_printed_chart_value(fact)]
                 analysis_data = result.get("analysis") or {}
                 display_unit = analysis_data.get("display_unit") or (analysis_data.get("y_axis") or {}).get("unit")
                 if display_unit:
                     facts = [dict(fact, unit=fact.get("unit") or display_unit) for fact in facts]
                 item.update(title=analysis_data.get("title") or chart.get("title") or "",
-                            unit=display_unit or "", extraction_method="chart-vision-v1")
+                            unit=display_unit or "", x_axis=analysis_data.get("x_axis"),
+                            y_axis=analysis_data.get("y_axis"), extraction_method="chart-vision-v1")
                 item["facts"] = facts
                 item["model_provenance"] = {"detection": item.get("model_calls", []),
                                             "analysis": result.get("model_calls", []),

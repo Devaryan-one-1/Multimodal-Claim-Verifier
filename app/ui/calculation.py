@@ -60,6 +60,10 @@ def render_calculation(result: dict[str, Any]) -> None:
             _unavailable(_reason(calculation, raw, result))
             return
 
+        agent = calculation.get("evidence_agent")
+        if agent in ("table", "chart", "text"):
+            st.caption(f"Source selected by the {agent.title()} Agent.")
+
         inputs = _mapping(calculation.get("inputs"))
         original = _raw_inputs(calculation, raw, result)
         margin_analysis = "pp_change" in calculation or "relative_change" in calculation

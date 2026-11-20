@@ -28,6 +28,12 @@ VERDICT_CONFIG = {
         "colour": "#fbbf24",
         "background": "rgba(251, 191, 36, 0.10)",
     },
+    "SOURCE_CONFLICT": {
+        "icon": "!",
+        "label": "SOURCE CONFLICT",
+        "colour": "#fbbf24",
+        "background": "rgba(251, 191, 36, 0.10)",
+    },
     "UNKNOWN": {
         "icon": "?",
         "label": "UNKNOWN",
@@ -199,7 +205,7 @@ def render_overall_verdict(
     counts = result.get("verdict_counts") or {}
 
     if result.get("claim_count", 1) > 1:
-        columns = st.columns(4)
+        columns = st.columns(5 if counts.get("SOURCE_CONFLICT") else 4)
 
         columns[0].metric(
             "Supported",
@@ -217,6 +223,8 @@ def render_overall_verdict(
             "Unknown",
             counts.get("UNKNOWN", 0),
         )
+        if counts.get("SOURCE_CONFLICT"):
+            columns[4].metric("Source conflict", counts["SOURCE_CONFLICT"])
 
 
 def render_subclaim_verdict(
@@ -511,7 +519,9 @@ def aggregate_results(
 
     counts = Counter(verdicts)
 
-    if len(counts) == 1:
+    if "SOURCE_CONFLICT" in counts:
+        overall_verdict = "SOURCE_CONFLICT"
+    elif len(counts) == 1:
         overall_verdict = verdicts[0]
     else:
         overall_verdict = "PARTIALLY_SUPPORTED"
@@ -523,6 +533,8 @@ def aggregate_results(
 
     if len(results) == 1:
         reason = results[0].get("reason") or ""
+    elif overall_verdict == "SOURCE_CONFLICT":
+        reason = "At least one component has conflicting sources. Review its citations."
     elif overall_verdict == "SUPPORTED":
         reason = (
             "All components of the compound claim are supported "

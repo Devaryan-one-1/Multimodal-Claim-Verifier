@@ -134,8 +134,9 @@ def describe_failure(error=None, *, calls=(), stage="", kind="", message="", met
         code = "disk_full"
     elif kinds & {"FileNotFoundError", "OSError", "PermissionError"}:
         code = "storage" if "PermissionError" not in kinds or "permission denied" in text else "access_lost"
-    elif stage == "numeric_selection" and any(s in text for s in (
-            "source selection failed validation against saved evidence", "source selection failed local schema validation")):
+    elif stage in {"numeric_selection", "table_selection", "text_verification"} and any(s in text for s in (
+            "source selection failed validation against saved evidence", "source selection failed local schema validation",
+            "table agent returned invalid source cells", "text agent returned invalid source evidence")):
         code = "source_validation"
     elif any(s in text for s in ("invalid json", "no structured text", "schema validation", "response envelope")) or kinds & {"ValidationError", "JSONDecodeError"}:
         code = "invalid_response"

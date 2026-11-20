@@ -45,6 +45,13 @@ class InterpretationRoutingTests(unittest.TestCase):
             self.gateway.structured(self.schema, 'fixture', task='vision')
             self.assertEqual(call.call_args.args[2], 'vendor/vision-model')
 
+    def test_text_specialist_disables_configured_fallbacks(self):
+        model = "baidu/ernie-5.5-flash-preview:free"
+        with patch.object(self.gateway, "_openrouter", return_value=({}, {})) as call:
+            self.gateway.structured(self.schema, "fixture", purpose="text_verification", model=model)
+        self.assertEqual(call.call_args.args[2], model)
+        self.assertFalse(call.call_args.args[0].allow_fallbacks)
+
     def test_json_mode_has_fewshots_and_local_schema_is_still_checked(self):
         response = types.SimpleNamespace(status_code=200, is_error=False, headers={}, json=lambda: {
             'id': 'fixture', 'choices': [{'finish_reason': 'stop', 'message': {'content': '{}'}}]})

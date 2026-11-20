@@ -1,5 +1,8 @@
 """Production interpretation adapter and real source arithmetic; no paid/API calls."""
 import ast
+from concurrent.futures import ThreadPoolExecutor
+from contextvars import copy_context
+from threading import Barrier
 import copy
 import json
 import re
@@ -180,42 +183,135 @@ class EvidenceInterpreterTests(unittest.TestCase):
 
     def pipeline(self):
         tree = ast.parse((ROOT / 'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8'))
-        nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in {'prepare_verification', '_verify_one'}]
+        nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in
+                 {'prepare_verification', '_verify_one', '_review_modalities', '_combine_checks', '_source_records', '_parse_without_sources'}]
         self.document = {'document_id': self.evidence['document_id'], 'status': 'ready', 'company_name': 'Apple'}
         self.source = dict(self.evidence, id=self.evidence['source_evidence_id'])
-        self.storage = MagicMock(side_effect=lambda path: self.document if path.endswith('document.json') else {'evidence': [self.source]})
-        self.search = MagicMock(return_value=[dict(document_id=self.evidence['document_id'], source_evidence_id=self.source['id'])])
+        self.storage = MagicMock(return_value={'evidence': [self.source]})
+        self.search = MagicMock(return_value={'text': [], 'chart': [], 'table': [
+            dict(document_id=self.document['document_id'], source_evidence_id=self.source['id'])]})
         gateway = sys.modules['services.model_gateway']
         gateway.config = lambda: types.SimpleNamespace(provider='openrouter')
-        namespace = dict(json=json, re=re, time=time, copy=copy, capture_calls=parser_fixture.capture_calls,
+        claim = self.adapt()['claims'][0]
+        for field in ('meaning_source_ids', 'interpretation_method', 'resolved_periods', 'inferred_periods'):
+            claim.pop(field, None)
+        namespace = dict(json=json, re=re, time=time, ThreadPoolExecutor=ThreadPoolExecutor, copy_context=copy_context,
+                         capture_calls=lambda **kwargs: parser_fixture.capture_calls(),
                          VerificationFailure=VerificationFailure, quota_pause=quota_pause, enrich_candidate=enrich_candidate,
-                         event=lambda *a, **k: None, read=self.storage, search=self.search,
+                         event=lambda *a, **k: None, read=self.storage, search_by_modality=self.search,
+                         embed_query=MagicMock(return_value=[1]), _documents=MagicMock(return_value=[self.document]),
                          rerank=lambda query, hits, **kw: hits, verify_numeric=self.numeric.verify_numeric,
-                         fuse_evidence=lambda *a, **k: {}, parse_claims=MagicMock(side_effect=AssertionError('Legacy parser called')))
+                         fuse_evidence=lambda *a, **k: {}, parse_claims=MagicMock(return_value=[claim]))
         exec(compile(ast.Module(body=nodes, type_ignores=[]), '<production pipeline>', 'exec'), namespace)
         return namespace
 
-    def test_full_preparation_and_calculation_reuse_selected_sources(self):
+    def test_interprets_before_accessing_sources_and_reports_empty_branches(self):
         ns = self.pipeline()
-        with patch.object(self.module, 'structured', return_value=types.SimpleNamespace(data=self.response())) as model:
-            parsed, prepared = ns['prepare_verification'](self.text, [self.document['document_id']])
-        self.assertNotIn('parsing_error', parsed[0])
-        self.search.assert_called_once()
+        parsed, prepared = ns['prepare_verification'](self.text, [self.document['document_id']], workflow='independent_modalities')
+        ns['parse_claims'].assert_called_once_with(self.text)
+        self.search.assert_not_called()
+        self.storage.assert_not_called()
         result = ns['_verify_one'](parsed[0], [self.document['document_id']], prepared=prepared)
         self.assertEqual(result['verdict'], 'SUPPORTED', result)
         self.assertEqual(result['evidence_ids'], [self.evidence['id']])
-        self.search.assert_called_once()  # No second retrieval or parser request.
-        model.assert_called_once()
+        self.assertEqual(result['calculation']['evidence_agent'], 'table')
+        self.assertEqual(result['evidence_checks']['text']['status'], 'no_evidence')
+        self.assertEqual(result['evidence_checks']['chart']['status'], 'no_evidence')
 
-    def test_provider_failure_and_bad_response_do_not_become_factual_verdicts(self):
+    def test_checks_three_types_concurrently_and_preserves_conflicting_citations(self):
         ns = self.pipeline()
-        for error in (RuntimeError('HTTP 429 rate limit'), ParseValidationError('Invalid source', reason='invalid_structure')):
-            with self.subTest(error=error), patch.object(self.module, 'structured', side_effect=error):
-                parsed, prepared = ns['prepare_verification'](self.text, [self.document['document_id']])
-                self.assertIn('parsing_error', parsed[0])
-                self.assertIsNone(prepared)
-                result = ns['_verify_one'](parsed[0], [self.document['document_id']])
-                self.assertEqual(result['status'], 'error')
+        doc = self.document['document_id']
+        parsed, prepared = ns['prepare_verification'](self.text, [doc], workflow='independent_modalities')
+        self.storage.return_value = {'evidence': [dict(id=k, type=k, page=i+1) for i,k in enumerate(('table','chart','text'))]}
+        self.search.return_value = {k: [dict(document_id=doc, source_evidence_id=k)] for k in ('table','chart','text')}
+        barrier = Barrier(3, timeout=5)
+        def calculate(claim, evidence, **kwargs):
+            barrier.wait()
+            self.assertEqual(len(evidence), 1)
+            item = evidence[0]
+            actual = 60 if item['type'] == 'chart' else 94
+            verdict = 'SUPPORTED' if actual == 94 else 'CONTRADICTED'
+            return ({'result_unit':'percent', 'inputs':{'value':actual}},
+                    {'verdict':verdict,'unit':'percent','claimed':94,'actual':actual}, '', [item['id']])
+        ns['verify_numeric'] = calculate
+        result = ns['_verify_one'](parsed[0], [doc], prepared=prepared)
+        self.assertEqual(result['status'], 'complete', result)
+        self.assertEqual(result['verdict'], 'UNKNOWN')
+        self.assertEqual(set(result['evidence_ids']), {f'{doc}::{k}' for k in ('table','chart','text')})
+        self.assertEqual(result['evidence_checks']['chart']['verdict'], 'CONTRADICTED')
+        self.assertEqual(result['evidence_checks']['table']['verdict'], 'SUPPORTED')
+        self.assertEqual(result['evidence_checks']['text']['verdict'], 'SUPPORTED')
+
+    def test_table_and_chart_independently_check_the_same_customer_count(self):
+        ns = self.pipeline()
+        self.fixture.stack.enter_context(patch.object(sys.modules['services.model_gateway'],
+                                                     'CHART_EXTRACTION_MODEL', 'fixture/vision', create=True))
+        doc = self.document['document_id']
+        table = dict(id='table', type='table', page=1, title='Annual customer count',
+                     headers=['Metric', '2026'], rows=[['Customer count', '100']],
+                     column_map=[{'col':1, 'year':2026, 'period':'annual'}], unit='customers')
+        chart = dict(self.fixture.chart(), id='chart')
+        self.storage.return_value = {'evidence':[table, chart]}
+        self.search.return_value = {k:[dict(document_id=doc, source_evidence_id=k)] for k in ('table','chart')}
+        ns['parse_claims'].return_value = [self.fixture.chart_claim(claim_type='assertion')]
+        claims, prepared = ns['prepare_verification']('Annual customer count was 120 in 2026.', [doc], workflow='independent_modalities')
+        result = ns['_verify_one'](claims[0], [doc], prepared=prepared)
+        self.assertEqual(result['verdict'], 'UNKNOWN', result)
+        table_check = result['evidence_checks']['table']
+        chart_check = result['evidence_checks']['chart']
+        self.assertEqual((table_check['verdict'], table_check['calculation']['value']), ('CONTRADICTED', 100))
+        self.assertEqual((chart_check['verdict'], chart_check['calculation']['value']), ('SUPPORTED', 120))
+        self.assertEqual(set(result['evidence_ids']), {f'{doc}::table', f'{doc}::chart'})
+
+    def test_matching_verdicts_with_different_values_still_require_review(self):
+        ns = self.pipeline()
+        findings = {k: {'status':'complete', 'verdict':'CONTRADICTED', 'calculation':{'inputs':{'value':v}}}
+                    for k, v in [('table', 120), ('text', 160)]}
+        counts = {'text':1, 'table':1, 'chart':0}
+        result = ns['_combine_checks']({'verdict':'UNKNOWN'}, counts, findings)
+        self.assertEqual(result['verdict'], 'UNKNOWN')
+        findings['text']['calculation'] = findings['table']['calculation']
+        agreed = ns['_combine_checks']({'verdict':'UNKNOWN'}, counts, findings)
+        self.assertEqual(agreed['verdict'], 'CONTRADICTED')
+        findings['text'].update(status='error', verdict='UNKNOWN', error_stage='numeric_selection')
+        incomplete = ns['_combine_checks']({'verdict':'UNKNOWN'}, counts, findings)
+        self.assertEqual(incomplete['status'], 'error')
+        self.assertEqual(incomplete['error_stage'], 'numeric_selection')
+
+    def test_parser_failure_never_triggers_retrieval(self):
+        ns = self.pipeline()
+        ns['parse_claims'].return_value = [{'claim_text':self.text,'parsing_error':'rate limit'}]
+        parsed, prepared = ns['prepare_verification'](self.text, [self.document['document_id']], workflow='independent_modalities')
+        result = ns['_verify_one'](parsed[0], [self.document['document_id']], prepared=prepared)
+        self.assertEqual(result['status'], 'error')
+        self.search.assert_not_called()
+
+    def test_hybrid_initial_retrieval_miss_still_checks_independent_sources(self):
+        ns = self.pipeline()
+        ns['search'] = MagicMock(return_value=[])
+        self.storage.side_effect = lambda path: (self.document if path.endswith('document.json')
+                                                else {'evidence': [self.source]})
+        selected = [self.document['document_id']]
+        claims, prepared = ns['prepare_verification'](self.text, selected)
+        ns['parse_claims'].assert_called_once_with(self.text)
+        result = ns['_verify_one'](claims[0], selected, prepared=prepared)
+        self.assertEqual(result['workflow'], 'hybrid')
+        self.assertEqual(result['verdict'], 'SUPPORTED', result)
+        self.assertEqual(result['evidence_ids'], [self.evidence['id']])
+        self.search.assert_called_once()
+
+    def test_hybrid_interpreter_failure_remains_an_operational_failure(self):
+        ns = self.pipeline()
+        selected = [self.document['document_id']]
+        ns['search'] = MagicMock(return_value=[{'document_id':selected[0], 'source_evidence_id':self.source['id']}])
+        self.storage.side_effect = lambda path: (self.document if path.endswith('document.json')
+                                                else {'evidence': [self.source]})
+        with patch.object(self.module, 'structured', side_effect=RuntimeError('provider unavailable')):
+            claims, prepared = ns['prepare_verification'](self.text, selected)
+        self.assertIn('provider unavailable', claims[0]['parsing_error'])
+        self.assertIsNone(prepared)
+        ns['parse_claims'].assert_not_called()
+        self.search.assert_not_called()
 
     def test_clarification_exits_before_calculation(self):
         ns = self.pipeline()

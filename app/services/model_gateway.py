@@ -33,6 +33,7 @@ from services.runtime import write
 SCHEMA = TypeVar("SCHEMA", bound=BaseModel)
 BASE_URL = "https://openrouter.ai/api/v1"
 INTERPRETATION_MODEL = "baidu/ernie-5.5-flash-preview:free"
+CHART_EXTRACTION_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 _settings: ContextVar[ModelConfig | None] = ContextVar("model_settings", default=None)
 _calls: ContextVar[list | None] = ContextVar("model_calls", default=None)
 _last: ContextVar[dict | None] = ContextVar("last_model_call", default=None)
@@ -137,7 +138,7 @@ def configuration_snapshot() -> dict:
                  openrouter_base_url=BASE_URL)
     if value["provider"] == "openrouter":
         value["claim_interpretation"] = {"model": INTERPRETATION_MODEL,
-                                       "max_output_tokens": 2048, "prompt_version": "v3"}
+                                         "max_output_tokens": 2048, "mode": "hybrid"}
     return value
 
 
@@ -395,6 +396,13 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                task="text", images=(), temperature=0.0, purpose=None, examples=()) -> SCHEMA:
     settings = config()
     interpreting = purpose == "claim_interpretation"
+    if purpose in {"table_selection", "chart_extraction", "text_verification"}:
+        if settings.provider != "openrouter":
+            operation = purpose.replace("_", " ").capitalize()
+            raise ModelConfigurationError(f"{operation} requires an OpenRouter connection.")
+        # Keep a free specialist call on its named endpoint even when the
+        # workspace has paid fallbacks configured for ordinary reasoning.
+        settings = replace(settings, allow_fallbacks=False)
     if interpreting:
         if settings.provider != "openrouter":
             raise ModelConfigurationError("Claim interpretation requires the saved OpenRouter connection.")
@@ -487,8 +495,8 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
 
 
 @contextmanager
-def capture_calls():
-    existing = _calls.get()
+def capture_calls(*, isolated=False):
+    existing = None if isolated else _calls.get()
     calls = existing if existing is not None else []
     start = len(calls)
     token = _calls.set(calls)

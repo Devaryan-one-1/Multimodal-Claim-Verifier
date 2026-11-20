@@ -3,6 +3,13 @@ from __future__ import annotations
 import copy
 
 
+def has_printed_chart_value(fact: dict) -> bool:
+    label = fact.get("display_value")
+    return (fact.get("value_source") == "explicit_label"
+            and fact.get("value") is not None
+            and isinstance(label, str) and bool(label.strip()))
+
+
 def enrich_candidate(item, siblings=()):
     result = copy.deepcopy(item)
     context = {key: copy.deepcopy(item.get(key)) for key in (

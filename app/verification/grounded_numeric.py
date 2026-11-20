@@ -178,6 +178,8 @@ def source_context(item, *, include_page=True):
 
 def _metric_aliases(metric):
     aliases = [str(metric or "").casefold()]
+    if aliases[0] in {"total revenue", "total revenues"}:
+        aliases.append("revenue")
     if "revenue" in aliases[0]:
         aliases.append(re.sub(r"\brevenues?\b", "net sales", aliases[0]))
     if "property" in aliases[0] and "equipment" in aliases[0]:
@@ -517,7 +519,7 @@ def _value(pc, operand, item):
             raise NumericValidationError("A bare year was selected as a financial value.")
         metric_tokens = _tokens(pc.get("metric"))
         nearby = _tokens(chosen["context"])
-        if metric_tokens and not all(token in nearby for token in metric_tokens):
+        if metric_tokens and not _metric_matches(pc.get("metric"), chosen["context"]):
             raise NumericValidationError("Source number context does not identify the claimed metric.")
         if operand.name in {"numerator", "denominator"} and not source_quantity_matches(pc,item.get("content", ""),chosen["start"],chosen["end"]):
             raise NumericValidationError("The ratio source value is not bound to its own metric clause.")
@@ -690,11 +692,24 @@ def _quantity_kind(value: dict) -> str:
     return "amount" if value.get("currency") or value.get("unit") == "amount" else "number"
 
 
-def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> tuple[dict | None, dict | None, str, list[str]]:
+def _select_review_operands(pc, evidence, payload):
+    """Dispatch single-modality evidence after the claim's source scope is applied."""
+    modalities = {item["type"] for item in evidence}
+    if modalities == {"table"}:
+        from agents.table import select_table_operands
+        return select_table_operands(pc, evidence), "table"
+    if modalities == {"chart"}:
+        from agents.chart import select_chart_operands
+        return select_chart_operands(pc, evidence), "chart"
+    return _select(pc, evidence, payload), None
+
+
+def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None,
+                   use_specialists=False, use_text_agent=False) -> tuple[dict | None, dict | None, str, list[str]]:
     operation = pc.get("operation", "qualitative")
     if operation == "qualitative":
         return None, None, "This assertion has no deterministic numerical calculation.", []
-    if pc.get("negated") and pc.get("interpretation_method") != "evidence_llm_v3":
+    if pc.get("negated") and pc.get("interpretation_method") not in {"evidence_llm_v3", "claim_only"}:
         return None, None, "Negated numerical assertions require an explicit supported comparison policy.", []
     if pc.get("temporal_status") == "forward_looking" and not pc.get("end_period"):
         return None, None, "The document-relative forecast period has not been resolved from source evidence.", []
@@ -720,7 +735,13 @@ def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> t
             evidence = [item for item in evidence if item["id"] in allowed]
             payload = [item for item in payload if item["id"] in allowed]
             catalog = {item["id"]: item for item in evidence}
-        selection = _select(pc, evidence, payload)
+        if use_text_agent:
+            from agents.text import select_text_operands
+            selection, evidence_agent = select_text_operands(pc, evidence), "text"
+        elif use_specialists:
+            selection, evidence_agent = _select_review_operands(pc, evidence, payload)
+        else:
+            selection, evidence_agent = _select(pc, evidence, payload), None
         if not selection.applicable:
             return None, None, selection.reason, []
         operands = {}
@@ -840,7 +861,7 @@ def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> t
         if pc.get("direction") == "down" and operation in {"growth", "absolute_change", "percentage_points"}:
             claimed_value = -abs(claimed_value)
         difference = claimed_value - value
-        comparison_value = abs(value) if pc.get("direction") == "either" else value
+        comparison_value = abs(value) if (pc.get("direction") == "either" or pc.get("comparison_basis") == "absolute magnitude") else value
         comparison_difference = claimed_value - comparison_value
         operator = pc.get("comparison_operator", "equal")
         if operation == "direction":
@@ -868,6 +889,8 @@ def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> t
                        "currency": currency, "result_unit": unit, "result_precision": precision,
                        "source_inputs": addresses,
                        "note": "Inputs are read from cited source addresses. Display rounding does not alter the computed value."}
+        if evidence_agent:
+            calculation["evidence_agent"] = evidence_agent
         if pc.get("inferred_periods"):
             calculation["inferred_periods"] = pc["inferred_periods"]
             old, new = (pc["inferred_periods"][name]["raw"] for name in ("old", "new"))
@@ -875,7 +898,7 @@ def verify_numeric(pc: dict, evidence: list[dict], *, period_evidence=None) -> t
         comparison = {"claimed": claimed_value, "actual": value, "difference": difference,
                       "tolerance": tolerance, "verdict": verdict, "unit": unit, "claimed_precision": claimed["precision"],
                       "actual_precision": precision, "difference_precision": precision, "operator": operator}
-        if pc.get("direction") == "either":
+        if (pc.get("direction") == "either" or pc.get("comparison_basis") == "absolute magnitude"):
             comparison.update(comparison_basis="absolute magnitude", comparison_value=comparison_value,
                               comparison_difference=comparison_difference)
         if normalized_literal != (literal or ""):

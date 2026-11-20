@@ -65,7 +65,7 @@ def _range(original,dates,years):
 
 
 def _ratio_atoms(pc,original,shared):
-    if (pc.get("operation")!="ratio" or not shared or not pc.get("metric") or not pc.get("denominator_metric")
+    if (pc.get("operation") not in {"ratio", "level"} or not shared or not pc.get("metric") or not pc.get("denominator_metric")
             or pc.get("temporal_status")=="forward_looking"):
         return None
     dates,_,_=shared
@@ -100,7 +100,7 @@ def _ratio_atoms(pc,original,shared):
         if not combined and literal!=pc["claimed_literal"]:
             continue
         atom=copy.deepcopy(pc)
-        atom.update(claim_text=f"{date.group()}, {company}{match['phrase']} was {match[f'approx{index+1}']}{literal}.",
+        atom.update(operation="ratio", claim_text=f"{date.group()}, {company}{match['phrase']} was {match[f'approx{index+1}']}{literal}.",
                     start_period=None,end_period=int(day[:4]),period_quote=date.group(),
                     period_type="point_in_time",claimed_literal=literal,direction="flat")
         output.append(atom)

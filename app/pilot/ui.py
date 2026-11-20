@@ -612,7 +612,9 @@ def review_detail(access, job, key):
         return
     decisions = store.decisions(access, job["id"])
     mode = st.radio("Show claims", ["Needs review", "Contradictions", "All"], horizontal=True, key=key+"filter")
-    order = sorted(range(len(results)), key=lambda i: (results[i].get("verdict") not in {"CONTRADICTED", "UNKNOWN", "PARTIALLY_SUPPORTED"}, i))
+    review_labels = {"CONTRADICTED", "UNKNOWN", "PARTIALLY_SUPPORTED", "SOURCE_CONFLICT"}
+    order = sorted(range(len(results)), key=lambda i: (
+        not results[i].get("source_resolution") and results[i].get("verdict") not in review_labels, i))
     if mode == "Contradictions":
         order = [i for i in order if results[i].get("verdict") == "CONTRADICTED"]
     elif mode == "Needs review":
@@ -636,8 +638,28 @@ def review_detail(access, job, key):
                         st.text(f"{number}. {option}")
                     st.info("Add your chosen meaning or reporting periods to the claim and submit a new review.")
                 st.text(result.get("reason") or "")
+                resolution = result.get("source_resolution")
+                if resolution:
+                    for i, finding in enumerate(resolution["findings"]):
+                        pages = ", ".join(str(e["page"]) for e in result["evidence"]
+                                          if e["id"] in finding["evidence_ids"])
+                        labels = ", ".join(dict.fromkeys(filter(None, finding["labels"])))
+                        value = finding.get("value")
+                        actual = f" · {value:g} {finding.get('unit') or ''}" if value is not None else ""
+                        preferred = " · used for verdict" if resolution["preferred"] == i else ""
+                        st.text(f"{finding['kind'].title()} · PDF page {pages} · {labels}{actual} · {finding['verdict']}{preferred}")
+                        if finding["scope"] == "different":
+                            st.caption(f"Different scope · {finding['scope_quote']}")
                 if result.get("verdict") == "UNKNOWN" or execution_failed(result):
                     st.info(action_hint(result))
+                if result.get("evidence_checks"):
+                    with st.expander("Text, table and chart checks"):
+                        for kind, check in result["evidence_checks"].items():
+                            st.write(f"{kind.title()} ? {check['verdict']} ? {check['candidate_count']} candidate sources")
+                            st.caption(check["reason"])
+                            if kind == "text":
+                                for citation in check.get("quotes", []):
+                                    st.text(citation["quote"])
                 from ui.calculation import render_calculation
                 render_calculation(result)
                 calculation_sources(access, result, key+f"input_{index}", key+f"viewer_{index}")

@@ -48,13 +48,39 @@ def search(query: str, top_k: int = DEFAULT_K, document_id: str | None = None) -
     missing = {c["id"] for c in chunks} - available
     if missing:
         raise RuntimeError("The document index is incomplete. Reprocess it before verification.")
-    result = store.query(
-        query_embeddings=[embed_query(query)], where={"document_id": document_id},
-        n_results=min(CANDIDATE_POOL, len(existing)), include=["metadatas"],
-    )
-    vector_ids = result["ids"][0]
+    return _rank_pool(store, {"document_id": document_id}, embed_query(query), chunks,
+                      bm25.get_scores(_tokenize(query)), top_k)
+
+
+def search_by_modality(query, document_id, embedding, top_k=20):
+    """Run hybrid retrieval separately in every available source type."""
+    bm25, chunks = _load_bm25(document_id)
+    groups = {"text": [], "table": [], "chart": []}
+    if not chunks:
+        return groups
+    store = collection()
+    where = {"document_id": document_id}
+    indexed = set(store.get(where=where, include=[])["ids"])
+    if any(c["id"] not in indexed for c in chunks):
+        raise RuntimeError("The document index is incomplete. Reprocess it before verification.")
     scores = bm25.get_scores(_tokenize(query))
-    keyword_ids = [c["id"] for c, _ in sorted(zip(chunks, scores), key=lambda pair: pair[1], reverse=True)[:CANDIDATE_POOL]]
+    for chunk, score in zip(chunks, scores):
+        kind = chunk["type"]
+        groups[kind if kind in ("table", "chart") else "text"].append((chunk, score))
+    for kind, group in groups.items():
+        if group:
+            records, weights = zip(*group)
+            types = sorted({c["type"] for c in records})
+            condition = {"$and": [where, {"type": {"$in": types}}]}
+            groups[kind] = _rank_pool(store, condition, embedding, records, weights, top_k)
+    return groups
+
+
+def _rank_pool(store, where, embedding, chunks, weights, top_k):
+    result = store.query(query_embeddings=[embedding], where=where,
+                         n_results=min(CANDIDATE_POOL, len(chunks)), include=["metadatas"])
+    vector_ids = result["ids"][0]
+    keyword_ids = [c["id"] for c, _ in sorted(zip(chunks, weights), key=lambda pair: pair[1], reverse=True)[:CANDIDATE_POOL]]
     fused = {}
     for ranking in (vector_ids, keyword_ids):
         for rank, cid in enumerate(ranking, start=1):

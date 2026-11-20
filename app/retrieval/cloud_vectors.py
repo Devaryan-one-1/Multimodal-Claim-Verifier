@@ -74,11 +74,24 @@ class Collection:
                           "ON CONFLICT(workspace,collection,id) DO UPDATE SET document_id=excluded.document_id,embedding=excluded.embedding,document=excluded.document,metadata=excluded.metadata", values)
 
     def query(self, *, query_embeddings, where, n_results, include=None):
-        if not isinstance(where,dict) or set(where) != {"document_id"}:
+        types = None
+        if isinstance(where, dict) and set(where) == {"$and"}:
+            filters = where["$and"]
+            if (not isinstance(filters, list) or len(filters) != 2
+                    or not isinstance(filters[1], dict) or set(filters[1]) != {"type"}
+                    or not isinstance(filters[1]["type"], dict) or set(filters[1]["type"]) != {"$in"}):
+                raise ValueError("Unsupported cloud retrieval filter.")
+            where, types = filters[0], filters[1]["type"]["$in"]
+            if not isinstance(types, list) or not types or not all(isinstance(t, str) for t in types):
+                raise ValueError("A source type filter needs at least one type.")
+        if not isinstance(where, dict) or set(where) != {"document_id"}:
             raise ValueError("Cloud retrieval requires an explicit document filter.")
         if len(query_embeddings) != 1 or not 1 <= int(n_results) <= 1000:
             raise ValueError("Use one query vector and between 1 and 1,000 results.")
         sql,args = self._scope(where)
+        if types:
+            sql += " AND (metadata::jsonb ->> 'type') IN (" + ",".join("?" for _ in types) + ")"
+            args.extend(types)
         vector = vector_literal(query_embeddings[0],self.dimensions)
         with cloud_db.db() as c:
             rows = c.execute("SELECT id,metadata,document,embedding <=> ?::extensions.vector AS distance FROM vectors WHERE "+sql+" ORDER BY distance,id LIMIT ?", [vector,*args,int(n_results)]).fetchall()

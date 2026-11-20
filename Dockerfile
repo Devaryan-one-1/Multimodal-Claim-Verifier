@@ -20,12 +20,14 @@ RUN python -m pip install --no-cache-dir --upgrade pip==26.3 \
 COPY app/pilot/ /app/app/pilot/
 COPY app/customer_main.py app/pilot_worker.py app/pilot_task.py app/pilot_admin.py /app/app/
 COPY app/extraction/ /app/app/extraction/
+COPY app/agents/table.py app/agents/chart.py app/agents/text.py /app/app/agents/
 COPY app/pipelines/ /app/app/pipelines/
 COPY app/retrieval/ /app/app/retrieval/
 COPY app/verification/ /app/app/verification/
 COPY app/reasoning/ /app/app/reasoning/
 COPY app/services/ /app/app/services/
 COPY app/ui/calculation.py /app/app/ui/calculation.py
+COPY app/ui/claim_interpretation.py /app/app/ui/claim_interpretation.py
 COPY scripts/ /app/scripts/
 COPY deploy/*.py /app/deploy/
 RUN python -c "import streamlit, supabase, pymupdf, pdfplumber, torch, httpx, jsonschema; print('Dependency imports OK')" \

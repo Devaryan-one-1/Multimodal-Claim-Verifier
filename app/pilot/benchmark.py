@@ -6,7 +6,7 @@ import math
 import statistics
 from pathlib import Path
 
-LABELS = ("SUPPORTED", "CONTRADICTED", "PARTIALLY_SUPPORTED", "UNKNOWN")
+LABELS = ("SUPPORTED", "CONTRADICTED", "PARTIALLY_SUPPORTED", "UNKNOWN", "SOURCE_CONFLICT")
 
 
 def score(rows):
@@ -41,7 +41,8 @@ def score(rows):
     return {"total": len(rows), "completed": n, "failed_or_unattempted": len(rows)-n,
             "completion_rate": n/len(rows) if rows else None,
             "accuracy": sum(r["gold"]==r["predicted"] for r in valid)/n if n else None,
-            "per_class": per_class, "macro_f1_all_four_classes": sum(v["f1"] for v in per_class.values())/4 if n else None,
+            "per_class": per_class, "macro_f1_all_four_classes": sum(per_class[k]["f1"] for k in LABELS[:4])/4 if n else None,
+            "macro_f1_all_five_classes": sum(v["f1"] for v in per_class.values())/len(LABELS) if n else None,
             "false_supported_count": false_supported,
             "false_support_rate_among_non_supported_gold": false_supported/len(non_supported_gold) if non_supported_gold else None,
             "false_discovery_rate_among_supported_predictions": false_supported/len(supported) if supported else None,

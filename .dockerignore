@@ -10,6 +10,7 @@ app/*preview.py
 app/pages/**
 app/ui/**
 !app/ui/calculation.py
+!app/ui/claim_interpretation.py
 !scripts/
 !scripts/backup_restore.py
 !scripts/dependency_audit.py
