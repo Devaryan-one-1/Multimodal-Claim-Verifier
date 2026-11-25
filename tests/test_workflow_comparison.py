@@ -159,7 +159,7 @@ class WorkflowComparisonTests(unittest.TestCase):
         self.assertEqual(results["Claim-only"]["evidence_ids"], [f"{DOC}::chart"])
         self.assertEqual(set(results["Hybrid"]["evidence_ids"]), {f"{DOC}::chart", f"{DOC}::table"})
 
-    def verify_sources(self, records, **changes):
+    def verify_sources(self, records, reporter=None, **changes):
         self.env.storage.return_value = {"evidence": records}
         self.env.search.return_value = {
             kind: [dict(document_id=DOC, source_evidence_id=r["id"]) for r in records if r["type"] == kind]
@@ -167,7 +167,161 @@ class WorkflowComparisonTests(unittest.TestCase):
         claim = dict(claim_type="assertion", operation="level", claim_text=EXPLICIT, metric="customer count",
                      claimed_literal="120", unit="number", period_type="annual", end_period=2026)
         claim.update(changes)
-        return self.pipeline["_verify_one"](claim, [DOC], prepared={"workflow": "hybrid"})
+        return self.pipeline["_verify_one"](claim, [DOC], reporter, prepared={"workflow": "hybrid"})
+
+    def footnote_case(self, wording="Retail segment only.", *, marker="¹", note_page=1, alternative=False):
+        table = source_records(150, None, None)[0]
+        table.update(title="Table 2. Revenue", rows=[["Revenue" + marker, "150"]],
+                     context="USD millions", unit="USD millions", bbox=[20, 40, 200, 120])
+        note = dict(id="note", type="footnote", document_id=DOC, page=note_page,
+                    content="Note 1: " + wording, bbox=[20, 125, 185, 136])
+        records = [table, note]
+        if alternative:
+            chart = source_records(None, 180, None)[0]
+            chart.update(title="Consolidated annual revenue", unit="USD millions")
+            for fact in chart["facts"]:
+                fact.update(metric="Revenue", unit="USD millions")
+            records.append(chart)
+        return records
+
+    def verify_revenue(self, records, reporter=None):
+        return self.verify_sources(records, reporter, metric="revenue", claimed_literal="USD 150 million",
+                                   unit="amount", claim_text="Consolidated revenue was USD 150 million in 2026.")
+
+    def scope_reply(self, schema, prompt, **kwargs):
+        self.assertEqual(kwargs["purpose"], "footnote_followup")
+        answers = []
+        for q in json.loads(prompt)["questions"]:
+            quote = next((s for s in q["passages"] if "retail" in s.lower() or "consolidat" in s.lower()), "")
+            scope = ("excluded" if "retail" in quote.lower() else "matches") if quote else "unclear"
+            answers.append(SimpleNamespace(index=q["index"], scope=scope, quote=quote))
+        return SimpleNamespace(answers=answers)
+
+    def test_linked_footnote_restricts_or_confirms_scope(self):
+        for note, expected in [("Retail segment only.", "UNKNOWN"), ("Includes all consolidated subsidiaries.", "SUPPORTED")]:
+            with self.subTest(note=note), patch("agents.text.structured", side_effect=self.scope_reply) as model:
+                result = self.verify_revenue(self.footnote_case(note))
+                self.assertEqual(result["status"], "complete", result["reason"])
+                self.assertEqual(result["verdict"], expected, result["reason"])
+                self.assertEqual(result["footnote_checks"][0]["quote"], "Note 1: " + note)
+                self.assertEqual(set(result["evidence_ids"]), {f"{DOC}::table", f"{DOC}::note"})
+                model.assert_called_once()
+
+    def test_retail_table_yields_to_explicit_consolidated_chart_in_one_round(self):
+        with patch("agents.text.structured", side_effect=self.scope_reply) as model:
+            result = self.verify_revenue(self.footnote_case(alternative=True))
+        self.assertEqual(result["verdict"], "CONTRADICTED", result["reason"])
+        self.assertEqual(result["comparison"]["actual"], 180_000_000)
+        self.assertEqual(set(result["evidence_ids"]), {f"{DOC}::table", f"{DOC}::note", f"{DOC}::chart"})
+        model.assert_called_once()
+        self.assertEqual(len(json.loads(model.call_args.args[1])["questions"]), 2)
+
+    def test_text_and_chart_disagree_after_retail_table_is_excluded(self):
+        def answer(schema, prompt, **kwargs):
+            if kwargs['purpose'] == 'footnote_followup':
+                return self.scope_reply(schema, prompt, **kwargs)
+            return self.text_selector(schema, prompt, **kwargs)
+
+        for label, verdict in [('revenue', 'SOURCE_CONFLICT'), ('total revenue', 'SUPPORTED')]:
+            with self.subTest(label=label), patch('agents.text.structured', side_effect=answer):
+                records = self.footnote_case(alternative=True)
+                prose = source_records(None, None, 150)[0]
+                prose['content'] = f'Consolidated {label} was USD 150 million in 2026.'
+                result = self.verify_revenue([*records, prose])
+                self.assertEqual(result['verdict'], verdict, result['reason'])
+                self.assertEqual(result['footnote_checks'][0]['scope'], 'excluded')
+                decision = result['source_resolution']
+                self.assertEqual({f['kind'] for f in decision['findings']}, {'text', 'chart'})
+                self.assertEqual({(e['id'], e['page']) for e in result['evidence']}, {
+                    (f'{DOC}::table', 1), (f'{DOC}::note', 1), (f'{DOC}::chart', 2), (f'{DOC}::text', 3)})
+                if verdict == 'SUPPORTED':
+                    self.assertEqual(decision['status'], 'possible_source_conflict')
+                    self.assertEqual(decision['findings'][decision['preferred']]['kind'], 'text')
+
+    def test_row_and_column_notes_checked_together_and_both_must_match(self):
+        records = self.footnote_case("Includes all consolidated subsidiaries.")
+        records[0]["headers"][-1] = "2026[2]"
+        records.append(dict(records[1], id="note2", content="Note 2: Retail segment only."))
+        with patch("agents.text.structured", side_effect=self.scope_reply) as model:
+            result = self.verify_revenue(records)
+        self.assertEqual(result["verdict"], "UNKNOWN", result["reason"])
+        self.assertEqual({c["marker"] for c in result["footnote_checks"]}, {"1", "2"})
+        model.assert_called_once()
+        self.assertEqual(len(json.loads(model.call_args.args[1])["questions"]), 2)
+
+    def test_alternative_consolidated_table_determines_verdict(self):
+        records = self.footnote_case()
+        records.append(dict(records[0], id="group", page=3, title="Consolidated annual revenue",
+                            rows=[["Revenue", "180"]]))
+        # The joint selection uses the marked cell. The independent check also finds the group table.
+        choice = self.env.numeric.Selection(applicable=True, reason="Selected revenue",
+                     operands=[self.env.numeric.Operand(name="value", evidence_id=f"{DOC}::table",
+                                                        row_index=0, column_index=1)])
+        with patch("agents.table.structured", return_value=choice), patch("agents.text.structured", side_effect=self.scope_reply):
+            result = self.verify_revenue(records)
+        self.assertEqual(result["verdict"], "CONTRADICTED", result["reason"])
+        self.assertEqual(result["comparison"]["actual"], 180_000_000)
+        self.assertEqual(set(result["evidence_ids"]), {f"{DOC}::table", f"{DOC}::note", f"{DOC}::group"})
+
+    def test_invalid_followup_quote_pauses_and_does_not_publish_a_factual_verdict(self):
+        reply = SimpleNamespace(answers=[SimpleNamespace(index=0, scope="matches", quote="Invented scope statement")])
+        with patch("agents.text.structured", return_value=reply):
+            result = self.verify_revenue(self.footnote_case())
+        self.assertEqual(result["status"], "error")
+        self.assertEqual(result["error_stage"], "footnote_followup")
+
+    def test_duplicate_note_numbers_resolve_only_to_explicit_table_caption(self):
+        records = self.footnote_case()
+        second = dict(records[0], id="second", title="Table 3", rows=[["Expense¹", "300"]])
+        records[1]["content"] = "Table 2, Note 1: Includes all consolidated subsidiaries."
+        records.extend([second, dict(records[1], id="othernote", content="Table 3, Note 1: Retail segment only.")])
+        with patch("agents.text.structured", side_effect=self.scope_reply), patch("agents.table.structured",
+                return_value=self.env.numeric.Selection(applicable=False, reason="No matching metric", operands=[])):
+            result = self.verify_revenue(records)
+        self.assertEqual(result["verdict"], "SUPPORTED", result["reason"])
+        self.assertEqual(result["footnote_checks"][0]["note_id"], f"{DOC}::note")
+
+    def test_shared_page_with_second_table_cannot_borrow_its_note(self):
+        records = self.footnote_case()
+        records.append(dict(records[0], id="second", title="Table 3", rows=[["Expense¹", "300"]]))
+        with patch("agents.table.structured",
+                return_value=self.env.numeric.Selection(applicable=False, reason="No matching metric", operands=[])):
+            result = self.verify_revenue(records)
+        self.assertEqual(result["verdict"], "UNKNOWN", result["reason"])
+        self.assertIsNone(result["footnote_checks"][0]["note_id"])
+
+    def test_retry_after_footnote_failure_reuses_saved_findings_and_explicit_page(self):
+        class Reporter:
+            footnote_state = None
+            def update(self, *args, **kwargs):
+                pass
+            def save_footnote(self, state):
+                self.footnote_state = json.loads(json.dumps(state))
+        reporter = Reporter()
+        records = self.footnote_case("Includes all consolidated subsidiaries.", marker="¹ (see Note 1 on page 4)", note_page=4)
+        with patch("agents.text.structured", side_effect=TimeoutError("timeout")):
+            failed = self.verify_revenue(records, reporter)
+        self.assertEqual(failed["error_stage"], "footnote_followup")
+        self.assertEqual(reporter.footnote_state["plan"]["status"], "pending")
+        self.pipeline["embed_query"].reset_mock()
+        with patch("agents.text.structured", side_effect=self.scope_reply) as model:
+            retried = self.verify_revenue(records, reporter)
+            self.assertEqual(retried["verdict"], "SUPPORTED", retried["reason"])
+            self.assertEqual(reporter.footnote_state["plan"]["status"], "answered")
+            replay = self.verify_revenue(records, reporter)
+            self.assertEqual(replay["footnote_checks"][0]["note_page"], 4)
+            model.assert_called_once()
+        self.pipeline["embed_query"].assert_not_called()
+
+    def test_owned_note_refers_to_another_page(self):
+        records = self.footnote_case("See Note 3 on page 4.")
+        records.append(dict(records[1], id="target", page=4, content="Note 3: Retail segment only."))
+        with patch("agents.text.structured", side_effect=self.scope_reply) as model:
+            result = self.verify_revenue(records)
+        self.assertEqual(result["verdict"], "UNKNOWN", result["reason"])
+        self.assertEqual(set(result["evidence_ids"]), {f"{DOC}::table", f"{DOC}::note", f"{DOC}::target"})
+        self.assertEqual(result["footnote_checks"][0]["note_page"], 4)
+        model.assert_called_once()
 
     def test_similar_labels_use_text_in_both_directions(self):
         for text, table, expected in [(120, 100, "SUPPORTED"), (100, 120, "CONTRADICTED")]:

@@ -6,6 +6,7 @@ from copy import deepcopy
 
 from services.model_gateway import structured
 from services.verification_errors import VerificationFailure
+from verification.table_notes import cell_requests as footnote_requests
 from verification.grounded_numeric import (
     NumericValidationError,
     Selection,

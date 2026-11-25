@@ -35,7 +35,7 @@ FORMULAS = {
 }
 
 
-def render_calculation(result: dict[str, Any]) -> None:
+def render_calculation(result: dict[str, Any], *, expanded: bool | None = None) -> None:
     """Render backend calculations; never generate or change a verdict.
 
     Accepts both claim_verifier.py results and verdict.normalize_result()
@@ -55,7 +55,7 @@ def render_calculation(result: dict[str, Any]) -> None:
     verdict = _first(result.get("verdict"), comparison.get("verdict"), "UNKNOWN")
     verdict = str(getattr(verdict, "value", verdict)).upper()
 
-    with st.expander("Calculation", expanded=verdict == "CONTRADICTED"):
+    with st.expander("Calculation", expanded=verdict == "CONTRADICTED" if expanded is None else expanded):
         if not calculation:
             _unavailable(_reason(calculation, raw, result))
             return
@@ -261,6 +261,19 @@ def _format(value: Any, unit: Any, precision: Any = None, signed: bool = False) 
     if unit == "percent":
         return text + "%"
     return f"{text} {unit}" if unit else text
+
+
+def comparison_summary(comparison: dict[str, Any]) -> dict[str, str]:
+    """Format the verifier's values for the review overview."""
+    actual, claimed = comparison.get("actual"), comparison.get("claimed")
+    if _decimal(actual) is None or _decimal(claimed) is None:
+        return {}
+    unit = comparison.get("unit")
+    label = "Claimed value" if comparison.get("operator", "equal") == "equal" else "Claim threshold"
+    return {
+        label: _format(claimed, unit, comparison.get("claimed_precision")),
+        "Reported value": _format(actual, unit, comparison.get("actual_precision")),
+    }
 
 
 def _original(value: Any) -> str:

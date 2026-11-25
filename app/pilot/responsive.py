@@ -10,6 +10,25 @@ html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"] {
     min-width: 375px;
 }
 [data-testid="stMainBlockContainer"] { min-width: 0; }
+.st-key-customer_verdict {
+    border-inline-start: 4px solid #257474;
+    background-color: color-mix(in srgb, #257474 7%, transparent);
+}
+.st-key-customer_verdict [data-testid="stText"],
+.st-key-customer_review_layout [data-testid="stText"] {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+.st-key-customer_verdict [data-testid="stMetricValue"],
+.st-key-customer_review_layout [data-testid="stMetricValue"] {
+    font-size: clamp(1.1rem, 2vw, 1.7rem);
+    font-variant-numeric: tabular-nums;
+}
+.st-key-customer_verdict [data-testid="stMetricValue"] > div,
+.st-key-customer_review_layout [data-testid="stMetricValue"] > div {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
 [data-testid="stMain"] button:focus-visible,
 [data-testid="stPopoverBody"] button:focus-visible,
 [data-testid="stMain"] a:focus-visible,
@@ -51,11 +70,13 @@ html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"] {
     .st-key-customer_account_menu [data-testid="stPopoverButton"] { min-height: 44px; }
     [data-testid="stMain"] pre { max-width: 100%; overflow-x: auto; }
     .st-key-customer_review_layout [data-testid="stHorizontalBlock"],
+    .st-key-customer_verdict [data-testid="stHorizontalBlock"],
     .st-key-customer_export_actions [data-testid="stHorizontalBlock"] {
         flex-direction: column;
         align-items: stretch;
     }
     .st-key-customer_review_layout [data-testid="stColumn"],
+    .st-key-customer_verdict [data-testid="stColumn"],
     .st-key-customer_export_actions [data-testid="stColumn"] {
         width: 100% !important;
         flex: 1 1 100% !important;

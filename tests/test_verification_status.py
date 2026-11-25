@@ -93,6 +93,22 @@ class VerificationStateTests(unittest.TestCase):
             with self.subTest(expected=expected, results=results):
                 self.assertEqual(verification_state(results), expected)
 
+    def test_rollout_metrics_keep_missing_measurements_out_of_denominators(self):
+        rows = [dict(status='complete', gold='UNKNOWN', predicted='SUPPORTED', model_calls=5,
+                     citations_correct=1, citations_checked=2), dict(status='paused', model_calls=3),
+                dict(status='queued')]
+        result = score(rows)
+        self.assertEqual(result['false_supported_count'], 1)
+        self.assertEqual(result['mean_model_calls_per_measured_review'], 4)
+        self.assertEqual(result['model_calls_measured_reviews'], 2)
+        self.assertEqual(result['citation_accuracy'], 0.5)
+        self.assertEqual(result['citation_measured_reviews'], 1)
+        self.assertIsNone(score([dict(status='queued')])['citation_accuracy'])
+        for bad in [dict(model_calls=-1), dict(model_calls=True), dict(citations_checked=1),
+                    dict(citations_checked=1, citations_correct=2)]:
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                score([bad])
+
     def test_benchmark_excludes_failed_and_paused_unknowns(self):
         report = score([
             {"status": "complete", "gold": "SUPPORTED", "predicted": "SUPPORTED"},
@@ -113,6 +129,7 @@ class VerificationUITests(unittest.TestCase):
         pipeline = types.ModuleType("pipelines.verification_pipeline")
         pipeline.aggregate_verdict = self.aggregate
         calculation = types.ModuleType("ui.calculation")
+        calculation.comparison_summary = Mock(return_value={})
         calculation._format = Mock(return_value="0")
         calculation.render_calculation = Mock()
         self.stack.enter_context(patch.dict(sys.modules, {

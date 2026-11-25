@@ -38,6 +38,22 @@ def score(rows):
             raise ValueError(f"Invalid {field} measurement.")
         return sorted(values)
     latencies, costs = measurements("latency_seconds"), measurements("cost_usd")
+    calls = []
+    checked = correct = citation_reviews = 0
+    for row in rows:
+        count = row.get("model_calls")
+        if count is not None:
+            if type(count) is not int or count < 0:
+                raise ValueError("model_calls must be a nonnegative integer.")
+            calls.append(count)
+        inspected, matched = row.get("citations_checked"), row.get("citations_correct")
+        if inspected is None and matched is None:
+            continue
+        if type(inspected) is not int or type(matched) is not int or not 0 <= matched <= inspected:
+            raise ValueError("Provide both citation counts, with correct between zero and checked.")
+        checked += inspected
+        correct += matched
+        citation_reviews += 1
     return {"total": len(rows), "completed": n, "failed_or_unattempted": len(rows)-n,
             "completion_rate": n/len(rows) if rows else None,
             "accuracy": sum(r["gold"]==r["predicted"] for r in valid)/n if n else None,
@@ -49,6 +65,9 @@ def score(rows):
             "abstention_rate": sum(r["predicted"]=="UNKNOWN" for r in valid)/n if n else None,
             "latency_measured_count": len(latencies), "median_latency_seconds": statistics.median(latencies) if latencies else None,
             "p95_latency_seconds_nearest_rank": latencies[max(0,math.ceil(.95*len(latencies))-1)] if latencies else None,
+            "model_calls_measured_reviews": len(calls), "mean_model_calls_per_measured_review": statistics.mean(calls) if calls else None,
+            "citation_measured_reviews": citation_reviews, "citations_correct": correct, "citations_checked": checked,
+            "citation_accuracy": correct/checked if checked else None,
             "cost_measured_count": len(costs), "observed_cost_usd": sum(costs) if costs else None,
             "cost_complete": bool(rows) and len(costs)==len(rows), "confusion_matrix": matrix}
 

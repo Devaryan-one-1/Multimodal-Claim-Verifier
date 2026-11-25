@@ -143,6 +143,13 @@ def _documents(pc, selected):
 def _review_modalities(pc, selected, reporter, result, *, documents=None, suggestions=(), use_text_agent=False):
     if documents is None:
         documents = _documents(pc, selected)
+    result["document_ids"] = [doc["document_id"] for doc in documents]
+    if len(documents) == 1:
+        result.update(document_id=documents[0]["document_id"], company_name=documents[0].get("company_name"))
+    saved = getattr(reporter, "footnote_state", None) if use_text_agent else None
+    if isinstance(saved, dict):
+        from verification.footnote_review import restore_state
+        return _finish_modalities(pc, result, restore_state(saved), reporter, use_text_agent)
     query = pc.get("retrieval_query") or pc["claim_text"]
     if reporter:
         reporter.update("Searching text, tables and charts", completed=3)
@@ -188,9 +195,31 @@ def _review_modalities(pc, selected, reporter, result, *, documents=None, sugges
             outcomes[kind] = outcome
             review_calls.extend(calls)
 
-    result["document_ids"] = [doc["document_id"] for doc in documents]
-    if len(documents) == 1:
-        result.update(document_id=documents[0]["document_id"], company_name=documents[0].get("company_name"))
+    state = dict(counts=counts, findings=findings, outcomes=outcomes, plan=None)
+    if use_text_agent and all(o["status"] == "complete" for o in outcomes.values()):
+        from verification.footnote_review import checkpoint_state, prepare
+        state["plan"] = prepare(pc, findings, catalogs)
+        if state["plan"] and hasattr(reporter, "save_footnote"):
+            reporter.save_footnote(checkpoint_state(state))
+    return _finish_modalities(pc, result, state, reporter, use_text_agent)
+
+
+def _finish_modalities(pc, result, state, reporter, use_text_agent):
+    counts, findings = state["counts"], state["findings"]
+    outcomes = dict(state["outcomes"])
+    plan = state["plan"]
+    if plan:
+        from verification.footnote_review import apply_scope, checkpoint_state, explain
+        def save():
+            if hasattr(reporter, "save_footnote"):
+                reporter.save_footnote(checkpoint_state(state))
+        findings = apply_scope(pc, plan, findings, save)
+        for kind, group in findings.items():
+            if group:
+                keys = {str(i): proof for i, proof in enumerate(group)}
+                outcomes[kind] = _combine_checks(dict(result), dict.fromkeys(keys, 1), keys)
+            else:
+                outcomes[kind] = dict(result, reason="No validated finding established the requested scope.")
     result = _combine_checks(result, counts, outcomes)
     if use_text_agent and result["status"] == "complete":
         from verification.source_conflicts import reconcile
@@ -207,6 +236,8 @@ def _review_modalities(pc, selected, reporter, result, *, documents=None, sugges
                     check_verdict = decision["verdict"] if len(applicable) > 1 else next(iter(applicable), "UNKNOWN")
                     check.update(verdict=check_verdict, calculation=None, reason=decision["reason"],
                                  evidence_ids=list(dict.fromkeys(k for s in sources for k in s["evidence_ids"])))
+    if plan:
+        explain(result, plan)
     return result
 
 

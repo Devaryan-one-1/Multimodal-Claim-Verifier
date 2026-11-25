@@ -83,6 +83,8 @@ def _packet(kind, proof):
     for item in sources.values():
         fields = {k: item[k] for k in ("id", "company", "page", "title", "caption", "section",
                                        "context", "headers", "unit", "segment") if item.get(k)}
+        if item["id"] in proof.get("confirmed_footnotes", {}):
+            fields["linked_footnotes"] = proof["confirmed_footnotes"][item["id"]]
         for address in (calc.get("source_inputs") or {}).values():
             if address["evidence_id"] != item["id"]:
                 continue
@@ -104,7 +106,8 @@ def _packet(kind, proof):
 
 
 def _normalized(label):
-    return " ".join(re.findall(r"\w+", label.casefold()))
+    from verification.table_notes import unmark
+    return " ".join(re.findall(r"\w+", unmark(label).casefold()))
 
 
 def _strings(value):

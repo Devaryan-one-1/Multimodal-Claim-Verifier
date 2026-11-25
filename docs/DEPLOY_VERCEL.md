@@ -105,6 +105,8 @@ when personal testing ends; this configuration does not provide a month of free
 
 ## 4. Hosted acceptance before sharing
 
+Use the [worker rollout fixtures and checks](../tests/fixtures/worker_rollout/README.md) for the table footnote, duplicate marker, text/chart conflict, worker restart and rate-limit cases.
+
 Use the existing Apple and fixture documents rather than re-uploading them:
 
 1. Login to each disposable account. Check workspace selection, document list and

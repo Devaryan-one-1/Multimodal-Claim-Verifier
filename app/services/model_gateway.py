@@ -247,15 +247,23 @@ def _record(event):
     logger.info("model_call %s", json.dumps(event, ensure_ascii=False, default=str))
 
 
-def _retry_seconds(exc):
-    response = getattr(exc, "response", None)
+def _retry_timing(headers):
+    from email.utils import parsedate_to_datetime
+    value = headers.get("retry-after", "")
     try:
-        seconds = float(response.headers.get("retry-after", ""))
+        seconds = float(value)
         if math.isfinite(seconds) and seconds >= 0:
-            return min(seconds + 2, 3600)
-    except (AttributeError, ValueError, TypeError):
+            return {"retry_after_seconds": math.ceil(seconds)}
+    except (ValueError, TypeError):
         pass
-    return 65.0
+    try:
+        reset = parsedate_to_datetime(value).timestamp()
+    except (ValueError, TypeError, OverflowError):
+        try:
+            reset = float(headers["x-ratelimit-reset"]) / 1000
+        except (KeyError, TypeError, ValueError):
+            return {}
+    return {"retry_after_seconds": max(0, math.ceil(reset - time.time()))} if math.isfinite(reset) else {}
 
 
 def _transient(exc):
@@ -319,12 +327,12 @@ def _openrouter(settings, key, model, prompt, system, schema, images, temperatur
         raise ModelServiceError(
             f"Model service HTTP {response.status_code}: response was not JSON.",
             code=response.status_code if response.is_error else None,
-            metadata={"http_status": response.status_code,
+            metadata={**_retry_timing(response.headers), "http_status": response.status_code,
                       "request_id": response.headers.get("x-request-id")}) from exc
     if not isinstance(body, dict):
         raise ModelServiceError("Model service returned an invalid response envelope.",
                                 code=response.status_code if response.is_error else None,
-                                metadata={"http_status": response.status_code})
+                                metadata={**_retry_timing(response.headers), "http_status": response.status_code})
     metadata = _response_metadata(body, response)
     error = body.get("error")
     if response.is_error or error:
@@ -337,6 +345,12 @@ def _openrouter(settings, key, model, prompt, system, schema, images, temperatur
             detail += (" Check model availability, JSON Schema support, and routing/privacy filters; "
                        "a 404 alone does not establish which condition failed.")
         metadata["service_error_code"] = code
+        nested = error.get("metadata")
+        headers = nested.get("headers") if isinstance(nested, dict) else None
+        timing = _retry_timing(response.headers)
+        if not timing and isinstance(headers, dict):
+            timing = _retry_timing({str(k).lower(): v for k, v in headers.items()})
+        metadata.update(timing)
         raise ModelServiceError(f"Model service error {code}: {detail}", code=code, metadata=metadata)
     choices = body.get("choices")
     choice = choices[0] if isinstance(choices, list) and choices and isinstance(choices[0], dict) else {}
@@ -396,7 +410,7 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                task="text", images=(), temperature=0.0, purpose=None, examples=()) -> SCHEMA:
     settings = config()
     interpreting = purpose == "claim_interpretation"
-    if purpose in {"table_selection", "chart_extraction", "text_verification"}:
+    if purpose in {"table_selection", "chart_extraction", "text_verification", "footnote_followup"}:
         if settings.provider != "openrouter":
             operation = purpose.replace("_", " ").capitalize()
             raise ModelConfigurationError(f"{operation} requires an OpenRouter connection.")
@@ -476,10 +490,11 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                 _record(event)
                 if transient and code == 429:
                     with _cooldown_lock:
-                        _cooldowns[circuit] = time.monotonic() + _retry_seconds(exc)
+                        _cooldowns[circuit] = time.monotonic() + event.get("retry_after_seconds", 65)
                 if transient and model_index < len(models) - 1:
                     break
-                if transient and code != 429 and attempt == 0 and not interpreting:
+                if (transient and code != 429 and attempt == 0 and not interpreting
+                        and purpose != "footnote_followup" and not event.get("retry_after_seconds")):
                     time.sleep(2)
                     continue
                 if code == 429:

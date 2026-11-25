@@ -1,6 +1,7 @@
 """Cloud startup, upload and launch contracts; no hosted services or model calls."""
 import base64
 from contextlib import ExitStack
+from fnmatch import fnmatchcase
 import hashlib
 import importlib.util
 import json
@@ -154,10 +155,22 @@ class PackageAndLaunchContractTests(unittest.TestCase):
                 patterns = [p for p in (PROJECT/filename).read_text().splitlines() if p and not p.startswith("#")]
                 self.assertEqual(patterns[0], "**")
                 allowed = [p[1:] for p in patterns if p.startswith("!")]
+                if filename == ".vercelignore":
+                    for line in (PROJECT/"Dockerfile").read_text().splitlines():
+                        if line.startswith("COPY app/"):
+                            for source in line.split()[1:-1]:
+                                if source.endswith("/"):
+                                    self.assertIn(source + "*.py", allowed)
+                                else:
+                                    self.assertTrue(any(fnmatchcase(source, rule) for rule in allowed), source)
                 for private in (".env", "customer_data/", "data/", "pas.txt", ".streamlit/secrets.toml", ".vercel/"):
                     self.assertNotIn(private, allowed)
                 self.assertIn("app/main.py", patterns)
                 self.assertIn("!supabase/storage_schema.sql", patterns)
+                for line in (PROJECT/"Dockerfile").read_text().splitlines():
+                    if line.startswith("COPY app/ui/"):
+                        source = line.split()[1]
+                        self.assertIn("!" + source, patterns[patterns.index("app/ui/**") + 1:])
 
 
 if __name__ == "__main__":

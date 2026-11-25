@@ -55,6 +55,13 @@ def run(job_id, token):
             c.execute("UPDATE jobs SET status=?,stage=?,result=?,checkpoint=?,updated=? WHERE id=? AND run_token=?", (status, stage, json.dumps(visible_result, default=str), json.dumps(checkpoint, default=str), time.time(), job_id, token))
 
     class Reporter:
+        footnote_state = None
+
+        def save_footnote(self, state):
+            checkpoint["footnote"] = dict(atom=len(checkpoint["results"]), versions=payload["versions"],
+                                          state=state, calls=previous_calls + [model_call_summary(x) for x in calls[start:]])
+            save(stage="Checking footnote scope" if state["plan"]["status"] == "pending" else "Footnote scope checked")
+
         def update(self, stage, completed=0, total=None, message=None):
             nonlocal last_stage
             last_stage = str(stage)
@@ -143,12 +150,19 @@ def run(job_id, token):
             results = checkpoint["results"]
             for pc in checkpoint["parsed"][len(results):]:
                 started = time.perf_counter()
+                prior = checkpoint.get("footnote") or {}
+                if prior and (prior["atom"] != len(results) or prior["versions"] != payload["versions"]):
+                    raise ValueError("Source version changed or subclaim checkpoint does not match.")
+                reporter.footnote_state = prior.get("state")
+                previous_calls = prior.get("calls", [])
                 with capture_calls() as (calls, start):
                     result = _verify_one(pc, payload["documents"], reporter, prepared=checkpoint.get("prepared_evidence"))
                     request_calls = list(calls[start:])
-                    result["model_calls"] = [model_call_summary(x) for x in calls[start:]]
+                    result["model_calls"] = previous_calls + [model_call_summary(x) for x in calls[start:]]
                 result["processing_time_seconds"] = time.perf_counter()-started
                 if result.get("status") == "error":
+                    if "footnote" in checkpoint:
+                        checkpoint["footnote"]["calls"] = result["model_calls"]
                     event("customer_job_paused", level="warning", status="paused",
                           stage=result.get("error_stage"), error_kind=result.get("error_kind"))
                     save("paused", "Verification failed — retry. Completed subclaims were saved.",
@@ -158,6 +172,7 @@ def run(job_id, token):
                               message=result.get("reason", ""), calls=request_calls, stage=result.get("error_stage") or "verification")})
                     return
                 results.append(result)
+                checkpoint.pop("footnote", None)
                 save(stage=f"Checked {len(results)} of {len(checkpoint['parsed'])} claims", result={"results": results})
             save("complete", "Review ready", {"results": results, "models": config, "code_version": version,
                                                "source_versions": payload["versions"], "parsing_calls": checkpoint.get("parsing_calls", []),

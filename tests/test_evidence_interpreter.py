@@ -184,7 +184,7 @@ class EvidenceInterpreterTests(unittest.TestCase):
     def pipeline(self):
         tree = ast.parse((ROOT / 'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8'))
         nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in
-                 {'prepare_verification', '_verify_one', '_review_modalities', '_combine_checks', '_source_records', '_parse_without_sources'}]
+                 {'prepare_verification', '_verify_one', '_review_modalities', '_finish_modalities', '_combine_checks', '_source_records', '_parse_without_sources'}]
         self.document = {'document_id': self.evidence['document_id'], 'status': 'ready', 'company_name': 'Apple'}
         self.source = dict(self.evidence, id=self.evidence['source_evidence_id'])
         self.storage = MagicMock(return_value={'evidence': [self.source]})

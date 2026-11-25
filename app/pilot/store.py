@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import re
 import sqlite3
@@ -301,6 +302,8 @@ def resume(access, job):
         row = c.execute("SELECT * FROM jobs WHERE id=? AND workspace=?", (uid(job), access.workspace)).fetchone()
         if not row or row["status"] not in {"failed", "paused"} or row["attempts"] >= 3:
             raise ValueError("This request cannot be retried; at most three attempts are allowed.")
+        if retry_wait(dict(row)):
+            raise ValueError("The provider's retry delay has not elapsed.")
         if row["kind"] in {"process", "verify"}:
             if row["principal"] != access.principal:
                 raise PermissionError("Only the request creator can retry work using their OpenRouter credits.")
@@ -319,6 +322,14 @@ def resume(access, job):
                     raise ValueError("This source already has active processing. Follow its latest request.")
             c.execute("UPDATE documents SET status='queued' WHERE id=? AND workspace=?", (source_id, access.workspace))
         c.execute("UPDATE jobs SET status='queued',stage='Queued for explicit retry',updated=? WHERE id=?", (time.time(), job))
+
+
+def retry_wait(job):
+    failure = (json.loads(job.get("result") or "{}").get("failure") or {})
+    delay = failure.get("retry_after_seconds")
+    if isinstance(delay, (int, float)) and math.isfinite(delay) and delay > 0 and job.get("updated"):
+        return max(0, math.ceil(float(job["updated"]) + delay - time.time()))
+    return 0
 
 
 def can_retry(access, job):
