@@ -163,6 +163,7 @@ class HistoryExportAcceptanceTests(unittest.TestCase):
 
     def test_new_saved_note_changes_the_ui_download_revision(self):
         calculation = types.ModuleType("ui.calculation")
+        calculation.comparison_summary = MagicMock(return_value={})
         calculation.render_calculation = MagicMock()
         with patch.dict(sys.modules, {"ui.calculation": calculation}), patch.object(self.ui, "viewer"), patch.object(private_media, "download") as download:
             self.ui.review_detail(self.access, store.get_job(self.access, self.job), "review")

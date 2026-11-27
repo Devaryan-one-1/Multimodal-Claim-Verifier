@@ -16,19 +16,29 @@ class InterpretationRoutingTests(unittest.TestCase):
         self.stack.enter_context(patch.dict(os.environ, {'OPENROUTER_API_KEY': 'sk-customer-public-fixture'}))
         self.schema = types.SimpleNamespace(model_json_schema=lambda: {'type': 'object'}, model_validate=lambda x: x)
 
-    def test_role_uses_customer_key_ernie_budget_and_no_fallback(self):
+    def test_role_uses_customer_key_nemotron_budget_and_no_fallback(self):
         initial = self.gateway.configuration_snapshot()
         with patch.object(self.gateway, '_openrouter', return_value=({}, {'finish_reason': 'stop'})) as call:
             self.gateway.structured(self.schema, 'fixture', purpose='claim_interpretation', examples=[({}, {})])
             settings, key, model = call.call_args.args[:3]
             self.assertEqual(key, 'sk-customer-public-fixture')
-            self.assertEqual(model, 'baidu/ernie-5.5-flash-preview:free')
+            self.assertEqual(model, 'nvidia/nemotron-3.5-super-vl:free')
             self.assertEqual(settings.max_output_tokens, 2048)
             self.assertFalse(settings.allow_fallbacks)
             self.assertTrue(call.call_args.kwargs['json_mode'])
+            self.assertEqual(call.call_args.kwargs['reasoning'], {'enabled': False})
             self.assertEqual(call.call_args.kwargs['examples'], [({}, {})])
             self.assertEqual(self.gateway.last_call()['purpose'], 'claim_interpretation')
         self.assertEqual(self.gateway.configuration_snapshot(), initial)
+
+    def test_nemotron_text_stages_disable_optional_reasoning(self):
+        for purpose in ('table_selection', 'text_verification', 'footnote_followup'):
+            with self.subTest(purpose=purpose), \
+                    patch.object(self.gateway, '_openrouter', return_value=({}, {})) as call:
+                self.gateway.structured(self.schema, 'fixture', purpose=purpose,
+                                        model='nvidia/nemotron-3.5-super-vl:free')
+                self.assertEqual(call.call_args.kwargs['reasoning'], {'enabled': False})
+                self.assertFalse(call.call_args.args[0].allow_fallbacks)
 
     def test_transient_failure_is_not_retried_or_given_to_another_model(self):
         error = self.gateway.ModelServiceError('Provider temporarily unavailable', code=503)
@@ -51,6 +61,7 @@ class InterpretationRoutingTests(unittest.TestCase):
             self.gateway.structured(self.schema, "fixture", purpose="text_verification", model=model)
         self.assertEqual(call.call_args.args[2], model)
         self.assertFalse(call.call_args.args[0].allow_fallbacks)
+        self.assertNotIn('reasoning', call.call_args.kwargs)
 
     def test_json_mode_has_fewshots_and_local_schema_is_still_checked(self):
         response = types.SimpleNamespace(status_code=200, is_error=False, headers={}, json=lambda: {

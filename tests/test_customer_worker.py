@@ -79,6 +79,12 @@ class SnapshotTests(unittest.TestCase):
         snapshot = self.gateway.configuration_snapshot()
         self.assertEqual(snapshot, json.loads(json.dumps(snapshot)))
 
+    def test_retry_after_seconds_http_date_and_openrouter_reset(self):
+        with patch("time.time", return_value=1000):
+            for headers in ({"retry-after": "60"}, {"retry-after": "Thu, 01 Jan 1970 00:17:40 GMT"},
+                            {"x-ratelimit-reset": "1060000"}):
+                self.assertEqual(self.gateway._retry_timing(headers), {"retry_after_seconds": 60})
+
     def test_empty_fallbacks_survive_json_roundtrip(self):
         self.gateway.configure(self.gateway.replace(self.gateway.config(), text_fallbacks=()))
         snapshot = self.gateway.configuration_snapshot()
@@ -136,7 +142,7 @@ class CustomerWorkerTests(unittest.TestCase):
         self.stack = ExitStack()
         self.addCleanup(self.stack.close)
         self.temp = self.stack.enter_context(tempfile.TemporaryDirectory())
-        self.stack.enter_context(patch.dict(os.environ, {"CUSTOMER_DATA_ROOT": self.temp}))
+        self.stack.enter_context(patch.dict(os.environ, {"CUSTOMER_DATA_ROOT": self.temp, "CUSTOMER_STORAGE": "local"}))
         self.events = self.stack.enter_context(patch.object(observability, "event"))
         self.gateway = load_gateway(self.stack)
         self.task = load_module(self.stack, "_customer_task_under_test", APP / "pilot_task.py")
@@ -309,6 +315,80 @@ class CustomerWorkerTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_PROVIDER_BODY", json.dumps(row["result"]))
         self.parser.assert_not_called()
         self.assertEqual(self.verifier.call_args.args[0], second)
+
+    def test_footnote_checkpoint_survives_rate_limit_and_worker_retry(self):
+        state = {"counts": {"table": 1}, "findings": {}, "evidence": {},
+                 "plan": {"status": "pending", "questions": [{"question": "Does note 1 limit scope?"}]}}
+        def fail(pc, selected, reporter, **kwargs):
+            self.assertIsNone(reporter.footnote_state)
+            self.gateway._record(dict(ERROR_CALL, status="ok", http_status=200))
+            reporter.save_footnote(state)
+            self.gateway._record(dict(ERROR_CALL, http_status=429, retry_after_seconds=65))
+            return dict(status="error", error_stage="footnote_followup", reason="Rate limit")
+        self.verifier.side_effect = fail
+        row = self.run_job()
+        self.assertEqual(row["status"], "paused")
+        self.assertEqual(row["checkpoint"]["footnote"]["versions"], {self.doc: self.sha})
+        self.assertEqual(row["checkpoint"]["footnote"]["state"], state)
+        with self.assertRaisesRegex(ValueError, "delay"):
+            store.resume(self.access, self.job)
+        binding = {"connection_version": "fixture-connection", "models": self.credential_config}
+        with store.db() as c:
+            payload = json.loads(c.execute("SELECT payload FROM jobs WHERE id=?", (self.job,)).fetchone()[0])
+            payload["openrouter"] = binding
+            c.execute("UPDATE jobs SET updated=updated-66,payload=? WHERE id=?", (json.dumps(payload), self.job))
+        with patch("pilot.model_connections.snapshot", return_value=binding):
+            store.resume(self.access, self.job)
+        with store.db() as c:
+            c.execute("UPDATE jobs SET status='running' WHERE id=?", (self.job,))
+        def finish(pc, selected, reporter, **kwargs):
+            self.assertEqual(reporter.footnote_state, state)
+            return dict(status="complete", verdict="UNKNOWN")
+        self.verifier.side_effect = finish
+        row = self.run_job()
+        self.assertEqual(row["status"], "complete")
+        self.assertEqual(row["result"]["results"][0]["verdict"], "UNKNOWN")
+        self.assertNotIn("footnote", row["checkpoint"])
+        self.parser.assert_called_once()
+
+    def test_supervisor_restart_resumes_pending_followup_and_saves_once(self):
+        with patch('dotenv.load_dotenv'):
+            supervisor = load_module(self.stack, '_restart_test_worker', APP / 'pilot_worker.py')
+        state = dict(findings={kind: [dict(verdict='UNKNOWN')] for kind in ('chart', 'table', 'text')},
+                     plan=dict(status='pending', questions=['Does Note 1 limit revenue to retail?']))
+        def interrupt(pc, selected, reporter, **kwargs):
+            reporter.save_footnote(state)
+            raise SystemExit('simulated process exit')
+        self.verifier.side_effect = interrupt
+        with self.assertRaises(SystemExit):
+            self.run_job()
+        supervisor.recover_interrupted_jobs()
+        row = store.get_job(self.access, self.job)
+        self.assertEqual(row['status'], 'paused')
+        self.assertIsNone(row['run_token'])
+        self.assertEqual(json.loads(row['checkpoint'])['footnote']['state'], state)
+        binding = {'connection_version': 'fixture-connection'}
+        payload = dict(json.loads(row['payload']), openrouter=binding)
+        with store.db() as c:
+            c.execute('UPDATE jobs SET payload=? WHERE id=?', (json.dumps(payload), self.job))
+        with patch('pilot.model_connections.snapshot', return_value=binding):
+            store.resume(self.access, self.job)
+        old_token, self.token = self.token, 'e' * 32
+        with store.db() as c:
+            c.execute("UPDATE jobs SET status='running', attempts=attempts+1, run_token=? WHERE id=? AND status='queued'", (self.token, self.job))
+        def finish(pc, selected, reporter, **kwargs):
+            self.assertEqual(reporter.footnote_state, state)
+            return dict(status='complete', verdict='UNKNOWN')
+        self.verifier.side_effect = finish
+        self.task.run(self.job, old_token)
+        row = self.run_job()
+        self.task.run(self.job, self.token)
+        self.assertEqual(row['status'], 'complete')
+        self.assertEqual(row['attempts'], 3)
+        self.assertEqual([r['verdict'] for r in row['result']['results']], ['UNKNOWN'])
+        self.assertNotIn('footnote', row['checkpoint'])
+        self.assertEqual(self.verifier.call_count, 2)
+        self.prepare.assert_called_once()
 
     def test_explicit_retry_finishes_only_the_remaining_claim(self):
         saved = {"status": "complete", "verdict": "SUPPORTED", "claim_text": "First fixture"}

@@ -127,18 +127,26 @@ st.session_state.setdefault('customer_workspace', access.workspace)
 source = store.documents(access)[0]
 job = store.get_job(access, 'c'*32)
 job['payload'] = json.dumps({'name':'Page navigation fixture', 'versions':{source['id']:source['sha']}})
-job['result'] = json.dumps({'results':[{'status':'complete', 'verdict':'SUPPORTED',
-    'claim_text':'Public chart navigation fixture', 'evidence':[{'id':'fixture-chart',
-    'document_id':source['id'], 'type':'chart', 'page':2, 'content':'120 customers'}]}]})
+job['result'] = json.dumps({'results':[{'status':'complete', 'verdict':'CONTRADICTED',
+    'claim_text':'Public table navigation fixture',
+    'comparison':{'claimed':30000000, 'actual':24000000, 'unit':'USD'},
+    'evidence':[{'id':'fixture-table', 'document_id':source['id'], 'type':'table', 'page':2,
+    'headers':['Metric (USD millions)', '2025', '2026'],
+    'rows':[['Operating profit', '18', '24']]}]}]})
 ui.review_detail(access, job, 'page_jump_')
 ''').run(timeout=15)
         assert not page_jump.exception
+        assert [item.value for item in page_jump.metric] == ["30,000,000 USD", "24,000,000 USD"]
+        assert page_jump.dataframe[0].value.columns.tolist() == ["Metric (USD millions)", "2025", "2026"]
         assert page_jump.number_input(key="page_jump_viewer_0page").value == 2
         page_jump.number_input(key="page_jump_viewer_0page").set_value(1).run(timeout=15)
         assert not page_jump.exception and page_jump.number_input[0].value == 1
         page_jump.button(key="page_jump_view_0_0").click().run(timeout=15)
         assert not page_jump.exception and page_jump.number_input[0].value == 2
         assert page_jump.selectbox(key="page_jump_viewer_0citation").value == 0
+        page_jump.number_input(key="page_jump_viewer_0page").set_value(1).run(timeout=15)
+        page_jump.button(key="page_jump_viewer_0back_to_citation").click().run(timeout=15)
+        assert not page_jump.exception and page_jump.number_input[0].value == 2
 
         with store.db() as c:
             c.execute("INSERT INTO jobs(id,workspace,principal,kind,payload,status,stage,result,created,updated) VALUES(?,?,?,'verify',?,'complete','Done',?,?,?)",

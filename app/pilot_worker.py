@@ -52,8 +52,8 @@ def heartbeat():
             c.execute("INSERT INTO worker_status VALUES(1,?) ON CONFLICT(id) DO UPDATE SET heartbeat=excluded.heartbeat", (time.time(),))
 
 
-def recover_cloud_jobs():
-    """Only after acquiring the database's exclusive worker lock."""
+def recover_interrupted_jobs():
+    """Only after acquiring the supervisor's exclusive lock for this store."""
     with db() as c:
         c.execute("BEGIN IMMEDIATE")
         for row in c.execute("SELECT id,result FROM jobs WHERE status='running'").fetchall():
@@ -67,12 +67,11 @@ def main(stop=None):
     stop = stop or threading.Event()
     initialize()
     lock = exclusive_lock()
-    if cloud_enabled():
-        try:
-            recover_cloud_jobs()
-        except BaseException:
-            lock.close()
-            raise
+    try:
+        recover_interrupted_jobs()
+    except BaseException:
+        lock.close()
+        raise
     previous = {}
     if threading.current_thread() is threading.main_thread():
         for signum in (signal.SIGINT, signal.SIGTERM):

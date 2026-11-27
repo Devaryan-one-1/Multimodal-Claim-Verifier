@@ -6,6 +6,7 @@ from copy import deepcopy
 
 from services.model_gateway import structured
 from services.verification_errors import VerificationFailure
+from verification.table_notes import cell_requests as footnote_requests
 from verification.grounded_numeric import (
     NumericValidationError,
     Selection,
@@ -14,7 +15,7 @@ from verification.grounded_numeric import (
 )
 
 
-TABLE_MODEL = "baidu/ernie-5.5-flash-preview:free"
+TABLE_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 TABLE_FIELDS = (
     "id", "document_id", "page", "company", "title", "section", "caption",
     "headers", "rows", "column_map", "column_headers", "row_units", "context",

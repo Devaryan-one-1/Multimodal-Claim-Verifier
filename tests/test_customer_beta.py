@@ -268,6 +268,7 @@ class CustomerReviewScreenTests(unittest.TestCase):
             "ui.calculation": calculation,
         }))
         renderer = load_module(self.stack, "_customer_calculation_beta", APP / "ui/calculation.py")
+        calculation.comparison_summary = renderer.comparison_summary
         calculation.render_calculation = MagicMock(wraps=renderer.render_calculation)
         self.calculation = calculation.render_calculation
         self.ui = load_module(self.stack, "_customer_ui_beta", APP / "pilot/ui.py")
@@ -275,6 +276,7 @@ class CustomerReviewScreenTests(unittest.TestCase):
         self.stack.enter_context(patch.object(self.ui, "viewer"))
         self.stack.enter_context(patch.object(self.ui, "exports", return_value=("csv", "html", "json")))
         self.stack.enter_context(patch.object(store, "decisions", return_value={}))
+        self.stack.enter_context(patch.object(store, "documents", return_value=[]))
         self.resume = self.stack.enter_context(patch.object(store, "resume"))
         self.access = store.Access("fixture", "a" * 32, time.time() + 300)
         self.st.session_state.customer_identity = self.access.principal
@@ -293,7 +295,8 @@ class CustomerReviewScreenTests(unittest.TestCase):
             with self.subTest(status=status):
                 self.st.events.clear()
                 self.review(status)
-                self.assertIn("Verification failed or paused", self.st.rendered_text("error"))
+                expected = "Review paused" if status == "paused" else "Verification failed"
+                self.assertIn(expected, self.st.rendered_text("error"))
                 self.assertNotIn("### UNKNOWN", self.st.rendered_text("markdown"))
 
     def test_queued_and_running_reviews_offer_no_retry(self):
@@ -314,6 +317,11 @@ class CustomerReviewScreenTests(unittest.TestCase):
         self.review("failed", attempts=3)
         self.resume.assert_not_called()
         self.assertFalse(any(name == "button" and args[0] == "Retry / resume" for name, args, _ in self.st.events))
+
+    def test_paused_review_places_retry_before_technical_details(self):
+        self.review("paused")
+        elements = [(name, args[0]) for name, args, _ in self.st.events if args]
+        self.assertLess(elements.index(("button", "Retry / resume")), elements.index(("expander", "Error details")))
 
     def test_shared_workspace_member_cannot_offer_a_retry_using_another_users_key(self):
         self.st.pressed.add("Retry / resume")
@@ -338,7 +346,7 @@ class CustomerReviewScreenTests(unittest.TestCase):
     def test_saved_success_is_visible_inside_a_paused_partial_review(self):
         result = {"status": "complete", "verdict": "SUPPORTED", "claim_text": "First fixture"}
         self.review("paused", [result])
-        self.assertIn("Verification failed or paused", self.st.rendered_text("error"))
+        self.assertIn("Review paused", self.st.rendered_text("error"))
         self.assertIn("First fixture", self.st.rendered_text())
         self.assertIn("### SUPPORTED", self.st.rendered_text("markdown"))
 
@@ -351,10 +359,12 @@ class CustomerReviewScreenTests(unittest.TestCase):
                                           "inputs": {"value": 100}, "raw_inputs": {"value": "100"}},
                           "comparison": {"claimed": claimed, "actual": 100, "unit": "number", "difference": difference}}
                 self.review(results=[result])
-                self.calculation.assert_called_with(result)
+                self.calculation.assert_called_with(result, expanded=False)
                 metrics = {args[0]: args[1] for name, args, _ in self.st.events if name == "metric"}
                 self.assertEqual(metrics["Signed difference"].replace("\u2212", "-"), shown)
                 self.assertEqual(metrics["Actual"], "100 number")
+                self.assertEqual(metrics["Reported value"], "100 number")
+                self.assertEqual(metrics["Claimed value"], f"{claimed} number")
                 self.assertIn("100", self.st.rendered_text("text"))
                 self.assertIn("value", self.st.rendered_text("code"))
 
@@ -368,12 +378,38 @@ class CustomerReviewScreenTests(unittest.TestCase):
         self.assertEqual(metrics["Actual"], "5%")
         self.assertEqual(metrics["Signed difference"], "+1.5 percentage points")
 
+    def test_table_preview_uses_the_report_headers(self):
+        evidence = {"page": 2, "type": "table", "headers": ["Metric (USD millions)", 2025, 2026],
+                    "rows": [["Operating profit", "18", "24"]]}
+        result = {"status": "complete", "verdict": "CONTRADICTED", "evidence": [evidence]}
+        self.review(results=[result])
+        self.assertIn(([{"Metric (USD millions)": "Operating profit", "2025": "18", "2026": "24"}],),
+                      [args for name, args, _ in self.st.events if name == "dataframe"])
+
     def test_foreign_citation_is_blocked_before_reading_any_pdf(self):
         result = {"evidence": [{"document_id": "b" * 32, "page": 1}]}
         with patch.object(store, "documents", return_value=[{"id": "a" * 32}]), patch.object(store, "document_bytes") as read:
             self.real_viewer(self.access, result, "fixture-viewer")
         read.assert_not_called()
         self.assertIn("unavailable", self.st.rendered_text("warning"))
+
+    def test_table_and_footnote_buttons_return_to_the_cited_pages(self):
+        doc = 'b' * 32
+        evidence = [{'id': kind, 'document_id': doc, 'page': page, 'type': kind}
+                    for kind, page in [('footnote', 4), ('table', 1)]]
+        check = dict(table_id='table', note_id='footnote', title='Table 2', amount='150',
+                     label='Revenue', scope='excluded', quote='Note 1: Retail only.')
+        result = dict(status='complete', verdict='UNKNOWN', footnote_checks=[check], evidence=evidence)
+        key = 'fixtureviewer_0'
+        for kind, index in [('Table', 1), ('Footnote', 0)]:
+            page = evidence[index]['page']
+            with self.subTest(button=kind), patch.object(store, 'documents', return_value=[{'id': doc}]):
+                self.st.pressed = {f'{kind} · PDF page {page}'}
+                self.st.session_state[key+'citation'] = index
+                self.st.session_state[key+'page'] = 2  # reviewer browsed away within the same PDF
+                self.review(results=[result])
+                self.assertEqual(self.st.session_state[key+'citation'], index)
+                self.assertEqual(self.st.session_state[key+'page'], page)
 
     def test_evidence_view_page_returns_to_same_citation_after_manual_browsing(self):
         self.st.pressed.add("View Page")

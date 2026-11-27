@@ -65,8 +65,7 @@ def review_composer(access, key, document_ids, connected):
         st.rerun()
     name = draft_text("Review name", key+"review_name", "Financial review", max_chars=160)
     claim = draft_text("Claims to check", key+"claim", multiline=True, height=140, max_chars=6000,
-                       placeholder="Include the company, metric and reporting period. Compound claims are checked separately.")
-    st.caption("Drafts are kept in this session and workspace after you leave a field. Click Check figures to submit.")
+                       placeholder="Cedar Harbor’s operating profit was USD 30 million in 2026.")
     if not connected:
         st.info("Connect your OpenRouter key in Settings before submitting a new review. Your draft can stay here.")
     if st.button("Check figures", key=key+"check_figures", type="primary", disabled=not connected):
@@ -95,7 +94,8 @@ def decision_editor(access, job_id, index, key):
         st.session_state[base_key] = prior.get("updated")
     if choice_key not in st.session_state:
         st.session_state[choice_key] = st.session_state.get("draft_"+choice_key, prior.get("decision", "unreviewed"))
-    choice = st.selectbox("Review decision", ["unreviewed", "reviewed", "incorrect_evidence"], key=choice_key,
+    labels = {"unreviewed": "Unreviewed", "reviewed": "Reviewed", "incorrect_evidence": "Incorrect evidence"}
+    choice = st.selectbox("Review decision", list(labels), format_func=labels.__getitem__, key=choice_key,
                           on_change=_remember_draft, args=(choice_key,))
     note = draft_text("Review note", note_key, prior.get("note", ""), multiline=True, max_chars=2000)
     stale = st.session_state[base_key] != prior.get("updated")
@@ -116,6 +116,9 @@ def retry_unavailable_reason(access, job):
         return "Only the request creator can retry work using their OpenRouter credits."
     if job["attempts"] >= 3:
         return "This request has reached the three-attempt limit. Submit a new request after resolving the issue."
+    wait = store.retry_wait(job)
+    if wait:
+        return f"The provider requested a delay. Retry in {wait} seconds."
     if not store.can_retry(access, job):
         return "This request is not available for retry."
     if job["stage"].startswith("Code changed."):
@@ -148,7 +151,7 @@ def failure_hint(saved):
     return "Resolve the service issue before retrying. Completed claims remain saved; retry does not recheck them."
 
 
-def show_failure(access, job):
+def show_failure(access, job, *, retry_key=None):
     saved = json.loads(job["result"])
     details = saved.get("failure")
     if not isinstance(details, dict):
@@ -165,9 +168,20 @@ def show_failure(access, job):
         refreshed=describe_failure(kind=details["code"],stage=details.get("stage") or saved.get("error_stage", ""),
                                    calls=calls,metadata={**details,"task":task})
         details={**details,**refreshed}
-    st.error(details["title"])
-    st.write(details["message"])
+    title = details["title"]
+    if retry_key is not None:
+        status_label = "Review paused" if job["status"] == "paused" else "Verification failed"
+        if title != status_label:
+            title = f"{status_label} · {title}"
+    st.error(title)
     st.info(details["action"])
+    if retry_key is not None:
+        reason = retry_unavailable_reason(access, job)
+        if reason:
+            st.caption(reason)
+        elif st.button("Retry / resume", key=retry_key, type="primary"):
+            store.resume(access, job["id"])
+            st.rerun()
     labels = {"stage": "Stage", "page": "PDF page", "table": "Table", "model": "Model",
               "validation_reason": "Validation reason",
               "validation_rule": "Period check", "atom_index": "Claim number",
@@ -175,6 +189,7 @@ def show_failure(access, job):
               "finish_reason": "Finish reason",
               "retry_after_seconds": "Retry after seconds", "provider_request_id": "Provider request ID"}
     with st.expander("Error details"):
+        st.write(details["message"])
         lines=["Diagnostic code: " + details["code"]]
         for name, label in labels.items():
             if details.get(name) is not None:
@@ -277,7 +292,6 @@ def live_updates(access, key, revision):
     healthy = snapshot["worker_available"]
     if healthy:
         st.caption("Processing service available")
-        st.caption("Live updates every 2 seconds. Results appear automatically; you can leave this page while work continues.")
     else:
         st.warning("Processing service unavailable — queued requests remain saved. Running work may need a retry when the service returns.")
         age = snapshot.get("worker_age_seconds")
@@ -317,7 +331,7 @@ def connection_panel(access, key):
         if saved:
             st.success("Your OpenRouter key is saved encrypted.")
             st.text("Saved reasoning model: " + models.get("text_model", "Not set"))
-            st.caption("Claim interpretation and reporting-period selection use baidu/ernie-5.5-flash-preview:free with your saved OpenRouter key (up to 2,048 output tokens).")
+            st.caption("Claim interpretation and reporting-period selection use nvidia/nemotron-3.5-super-vl:free with your saved OpenRouter key (up to 2,048 output tokens).")
             st.text("Saved vision model: " + (models.get("vision_model") or "Not set"))
             st.caption(f"New requests: up to {models.get('max_output_tokens', 8192):,} reasoning output tokens and {models.get('vision_max_output_tokens', 32768):,} vision output tokens. Actual usage is billed by your provider.")
         text_model = draft_text("Reasoning model ID", key+"text_model", models.get("text_model", ""), max_chars=200,
@@ -474,6 +488,15 @@ def _valid_citations(result, documents):
             and isinstance(e.get("page"), int) and not isinstance(e["page"], bool) and e["page"] >= 1]
 
 
+def _evidence_table(rows, evidence):
+    headers = evidence.get("headers") or evidence.get("column_headers")
+    if isinstance(headers, list) and all(len(row) == len(headers) for row in rows):
+        labels = [str(value).strip() if value is not None else "" for value in headers]
+        if all(labels) and len(set(labels)) == len(labels):
+            return [dict(zip(labels, row)) for row in rows]
+    return rows
+
+
 def calculation_sources(access, result, key, viewer_key):
     calculation = result.get("calculation") or {}
     addresses = calculation.get("source_inputs") or {}
@@ -483,7 +506,7 @@ def calculation_sources(access, result, key, viewer_key):
     names = {d["id"]: d["name"] for d in documents}
     citations = _valid_citations(result, documents)
     rows = []
-    with st.expander("Calculation source pages", expanded=True):
+    with st.expander("Calculation source pages"):
         for name, address in addresses.items():
             meta = (calculation.get("input_metadata") or {}).get(name) or {}
             doc, page = address.get("document_id"), address.get("page")
@@ -512,7 +535,9 @@ def viewer(access, result, key, versions=None):
         st.warning("The cited source is unavailable or has been deleted. The saved review retains its evidence snapshot.")
         return
     labels=resource_labels(documents.values())
-    selected = st.selectbox("Selected citation", range(len(available)), format_func=lambda i: f"{labels[available[i]['document_id']]} · PDF page {available[i]['page']} · Citation {i+1}", key=key+"citation")
+    selected = st.selectbox("Go to citation", range(len(available)),
+                            format_func=lambda i: f"Page {available[i]['page']} · {available[i].get('type', 'source').title()} · {labels[available[i]['document_id']]}",
+                            key=key+"citation")
     item = available[selected]
     source = documents[item["document_id"]]
     if versions is not None and versions.get(item["document_id"]) != source.get("sha"):
@@ -528,10 +553,13 @@ def viewer(access, result, key, versions=None):
         if item["page"] > len(pdf):
             st.warning("The cited page is outside this PDF. Inspect the source before relying on this result.")
             return
-        st.text(f"Source: {source['name']} · Selected citation: PDF page {item['page']}")
-        with st.form(key+"search"):
-            query = st.text_input("Search text in this PDF", max_chars=150)
-            searched = st.form_submit_button("Search")
+        if st.session_state.get(key+"page") != item["page"]:
+            if st.button(f"Back to cited page {item['page']}", key=key+"back_to_citation"):
+                st.session_state[key+"page"] = item["page"]
+        with st.expander("Search this PDF"):
+            with st.form(key+"search"):
+                query = st.text_input("Search text in this PDF", max_chars=150)
+                searched = st.form_submit_button("Search")
         if searched:
             matches = []
             if query.strip():
@@ -576,7 +604,8 @@ def viewer(access, result, key, versions=None):
         image.save(rendered, format="PNG")
         page_png = rendered.getvalue()
         private_media.image(st, access, page_png, width=image.width, caption=f"PDF page {page_number} of {len(pdf)}", zoom=zoom)
-        st.caption("100% fits the page. Zoom in, then swipe sideways or focus the preview and use arrow keys to pan.")
+        if zoom > 100:
+            st.caption("Swipe sideways or focus the page and use the arrow keys to pan.")
         private_media.download(st, access, "Download this page image", lambda: page_png,
                                filename=f"page_{page_number}.png", mime="image/png", key=key+"page_download",
                                revision=hashlib.sha256(page_png).hexdigest())
@@ -587,28 +616,20 @@ def review_detail(access, job, key):
     st.subheader(_plain_label(payload.get("name", "Financial review")))
     if job["status"] in {"queued", "running"}:
         st.caption("Review in progress. Follow the live progress panel above; completed claims appear automatically.")
-    else:
-        st.caption(f"Status: {job['status']} · {job['stage']}")
     if job["status"] in {"failed", "paused"}:
-        st.error("Verification failed or paused. This is not an UNKNOWN factual verdict.")
-        show_failure(access, job)
-        reason = retry_unavailable_reason(access, job)
-        if reason:
-            st.caption(reason)
-        elif st.button("Retry / resume", key=key+"retry"):
-            store.resume(access, job["id"]); st.rerun()
+        show_failure(access, job, retry_key=key+"retry")
         if payload.get("claim"):
             with st.expander("Submitted claims"):
                 st.text(payload["claim"])
-    request_details(job)
     results = saved.get("results", [])
     if not results:
         if job["status"] in {"failed", "paused"}:
-            st.info("No completed claims were saved. Resolve the service issue before retrying or submitting a new review.")
+            st.caption("No completed claims were saved.")
         elif job["status"] == "complete":
             st.info("This saved review contains no completed claims.")
         else:
             st.info("Results appear automatically as each claim is checked. You may close this tab and return later.")
+        request_details(job)
         return
     decisions = store.decisions(access, job["id"])
     mode = st.radio("Show claims", ["Needs review", "Contradictions", "All"], horizontal=True, key=key+"filter")
@@ -624,21 +645,49 @@ def review_detail(access, job, key):
     else:
         index = st.selectbox("Claim", order, format_func=lambda i: f"{i+1}. {'Clarification required' if results[i].get('clarification') else results[i].get('verdict','UNKNOWN')} · {results[i].get('claim_text','')[:100]}", key=key+"atom_"+mode)
         result = results[index]
+        from ui.calculation import comparison_summary, render_calculation
+        from ui.claim_interpretation import render_claim_interpretation
+
+        failed = execution_failed(result)
+        summary = {} if failed or result.get("clarification") else comparison_summary(result.get("comparison") or {})
+        resolution = result.get("source_resolution")
+        possible_conflict = (resolution or {}).get("status") == "possible_source_conflict"
+        valid = _valid_citations(result, store.documents(access)) if result.get("evidence") else []
+        label = "Clarification required" if result.get("clarification") else "VERIFICATION FAILED" if failed else result.get("verdict", "UNKNOWN").replace("_", " ")
+        with st.container(key="customer_verdict", border=True):
+            st.markdown("### " + label)
+            st.text(result.get("claim_text") or "")
+            if summary:
+                for column, (name, value) in zip(st.columns(2), summary.items()):
+                    column.metric(name, value)
+            elif result.get("reason") and not result.get("footnote_checks"):
+                st.text(result["reason"])
+            if possible_conflict:
+                st.warning("Possible source conflict. Review both citations before using this verdict.")
         with st.container(key="customer_review_layout"):
             left, right = st.columns([1, 1.2])
             with left:
-                label = "Clarification required" if result.get("clarification") else "VERIFICATION FAILED" if execution_failed(result) else result.get("verdict", "UNKNOWN").replace("_", " ")
-                st.markdown("### " + label)
-                st.text(result.get("claim_text") or "")
-                from ui.claim_interpretation import render_claim_interpretation
-                render_claim_interpretation(st, result)
+                st.markdown("#### Evidence")
                 if result.get("clarification"):
                     st.write(result["clarification"]["question"])
                     for number, option in enumerate(result["clarification"]["options"], 1):
                         st.text(f"{number}. {option}")
                     st.info("Add your chosen meaning or reporting periods to the claim and submit a new review.")
-                st.text(result.get("reason") or "")
-                resolution = result.get("source_resolution")
+                if result.get("footnote_checks"):
+                    for n, check in enumerate(result["footnote_checks"]):
+                        note = check["quote"] or "No unique footnote could be linked to this cell."
+                        effect = {"matches": "covers the requested scope", "excluded": "has a different scope",
+                                  "unclear": "has unresolved scope"}[check["scope"]]
+                        st.text(f"{check['title']} reports {check['amount']} for {check['label']}. "
+                                f"The figure {effect}. {note}")
+                        for kind, eid in (("Table", check["table_id"]), ("Reference", check.get("reference_id")),
+                                          ("Footnote", check["note_id"])):
+                            citation = next((i for i, item in enumerate(valid) if item["id"] == eid), None)
+                            if citation is not None and st.button(f"{kind} · PDF page {valid[citation]['page']}",
+                                    key=f"{key}scope_{index}_{n}_{kind}"):
+                                st.session_state[key+f"viewer_{index}citation"] = citation
+                                st.session_state[key+f"viewer_{index}page"] = valid[citation]["page"]
+                    st.text(result.get("reason") or "")
                 if resolution:
                     for i, finding in enumerate(resolution["findings"]):
                         pages = ", ".join(str(e["page"]) for e in result["evidence"]
@@ -650,41 +699,43 @@ def review_detail(access, job, key):
                         st.text(f"{finding['kind'].title()} · PDF page {pages} · {labels}{actual} · {finding['verdict']}{preferred}")
                         if finding["scope"] == "different":
                             st.caption(f"Different scope · {finding['scope_quote']}")
-                if result.get("verdict") == "UNKNOWN" or execution_failed(result):
+                if result.get("verdict") == "UNKNOWN" or failed:
                     st.info(action_hint(result))
                 if result.get("evidence_checks"):
                     with st.expander("Text, table and chart checks"):
                         for kind, check in result["evidence_checks"].items():
-                            st.write(f"{kind.title()} ? {check['verdict']} ? {check['candidate_count']} candidate sources")
+                            st.text(f"{kind.title()} · {check['verdict']} · {check['candidate_count']} candidate sources")
                             st.caption(check["reason"])
                             if kind == "text":
                                 for citation in check.get("quotes", []):
                                     st.text(citation["quote"])
-                from ui.calculation import render_calculation
-                render_calculation(result)
-                calculation_sources(access, result, key+f"input_{index}", key+f"viewer_{index}")
-                st.markdown("#### Evidence")
                 for n, evidence in enumerate(result.get("evidence", [])):
                     st.caption(f"PDF page {evidence.get('page')} · {evidence.get('type','source')}")
                     rows = evidence.get("rows")
                     if rows:
                         metric = str((result.get("parsed_claim") or {}).get("metric") or "").lower()
                         relevant = [r for r in rows if metric and metric in " ".join(map(str,r)).lower()]
-                        st.write(evidence.get("headers") or evidence.get("column_headers") or {})
-                        st.dataframe(relevant or rows[:5], hide_index=True)
-                        with st.expander("Full table", expanded=False):
-                            st.dataframe(rows, hide_index=True)
+                        st.dataframe(_evidence_table(relevant or rows[:5], evidence), hide_index=True)
+                        if len(rows) > len(relevant or rows[:5]):
+                            with st.expander("Full table"):
+                                st.dataframe(_evidence_table(rows, evidence), hide_index=True)
                     else:
                         st.text(evidence.get("content", ""))
-                    if st.button("View Page", key=key+f"view_{index}_{n}"):
-                        # Viewer options are ownership-filtered; selection index is mapped below.
-                        valid = _valid_citations(result, store.documents(access))
-                        if evidence in valid:
-                            st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
-                            st.session_state[key+f"viewer_{index}page"] = evidence["page"]
-                decision_editor(access, job["id"], index, key+f"decision_{index}_")
+                    if evidence in valid and st.button("View Page", key=key+f"view_{index}_{n}"):
+                        st.session_state[key+f"viewer_{index}citation"] = valid.index(evidence)
+                        st.session_state[key+f"viewer_{index}page"] = evidence["page"]
+                render_claim_interpretation(st, result)
+                if summary and result.get("reason"):
+                    with st.expander("Verdict explanation"):
+                        st.text(result["reason"])
+                render_calculation(result, expanded=False)
+                calculation_sources(access, result, key+f"input_{index}", key+f"viewer_{index}")
+                with st.expander("Reviewer decision and notes"):
+                    decision_editor(access, job["id"], index, key+f"decision_{index}_")
             with right:
+                st.markdown("#### Source PDF")
                 viewer(access, result, key+f"viewer_{index}", versions=payload.get("versions"))
+    request_details(job)
     export_revision = hashlib.sha256(json.dumps([job["status"], job["payload"], job["result"], decisions], sort_keys=True).encode()).hexdigest()
     with st.container(key="customer_export_actions"):
         a, b = st.columns(2)
@@ -721,6 +772,7 @@ def _saved_review_label(job):
 
 def reviews_page(access, key, connected=True):
     documents = store.documents(access)
+    reviews = store.jobs(access, "verify")
     ready = [d for d in documents if d["status"] == "ready"]
     st.header("Reviews")
     if not ready:
@@ -736,17 +788,17 @@ def reviews_page(access, key, connected=True):
         st.button("Open Documents", key=key+"empty_reviews_documents",
                   on_click=go_to_area, args=(key,"Documents"))
     else:
-        ids = [d["id"] for d in ready]
-        labels = resource_labels(ready)
-        if st.session_state.get(key+"active_document") not in ids:
-            st.session_state[key+"active_document"] = ids[0]
-        active = st.selectbox("Active source", ids, format_func=labels.__getitem__, key=key+"active_document")
-        st.session_state[key+"additional"] = [d for d in st.session_state.get(key+"additional", []) if d in ids and d != active]
-        more = st.multiselect("Additional sources (optional)", [d for d in ids if d != active], format_func=labels.__getitem__, max_selections=2, key=key+"additional")
-        st.caption("Claims without a company name require exactly one source. With multiple sources, name the company explicitly. Specify the reporting period in each claim.")
-        document_context(access, next(d for d in ready if d["id"] == active))
-        review_composer(access, key, [active]+more, connected)
-    reviews = store.jobs(access, "verify")
+        with st.expander("New review", expanded=not reviews):
+            ids = [d["id"] for d in ready]
+            labels = resource_labels(ready)
+            if st.session_state.get(key+"active_document") not in ids:
+                st.session_state[key+"active_document"] = ids[0]
+            active = st.selectbox("Active source", ids, format_func=labels.__getitem__, key=key+"active_document")
+            st.session_state[key+"additional"] = [d for d in st.session_state.get(key+"additional", []) if d in ids and d != active]
+            more = st.multiselect("Additional sources (optional)", [d for d in ids if d != active], format_func=labels.__getitem__, max_selections=2, key=key+"additional",
+                                  help="Name the company in your claim when checking multiple reports.")
+            document_context(access, next(d for d in ready if d["id"] == active))
+            review_composer(access, key, [active]+more, connected)
     mapping = {j["id"]: j for j in reviews}
     # This non-widget key survives Streamlit cleaning up the previous page's widgets.
     requested = st.session_state.pop(key+"open_review_request", None)
@@ -803,8 +855,7 @@ def run(access):
     _ensure_access(access)
     key = "customer_"+access.workspace+"_"
     st.title("Financial claim review")
-    st.caption("Beta · Check every cited source. Open Settings for limitations, data handling and feedback.")
-    st.caption("Check the figures in your research note against original reports, with visible calculations and page citations.")
+    st.caption("Check financial claims against original reports and open the cited evidence.")
     try:
         connected = bool(model_connections.metadata(access))
     except PermissionError:

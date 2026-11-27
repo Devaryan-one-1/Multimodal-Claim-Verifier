@@ -183,7 +183,7 @@ try {
                           'test_customer_access.py', 'test_customer_account_security.py', 'test_customer_account_auth.py',
                           'test_customer_acceptance.py', 'test_customer_ui_refinements.py', 'test_customer_mobile_layout.py',
                           'test_customer_selection_diagnostics.py',
-                          'test_claim_parser.py', 'test_claim_pipeline.py', 'test_beta_information.py', 'test_beta_release.py', 'test_vercel_deployment.py', 'test_runtime_inventory.py', 'test_runtime_hardening.py', 'test_source_selection.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
+                          'test_claim_parser.py', 'test_claim_pipeline.py', 'test_beta_information.py', 'test_beta_release.py', 'test_vercel_deployment.py', 'test_runtime_inventory.py', 'test_runtime_hardening.py', 'test_source_selection.py', 'test_chart_cropping.py', 'test_visual_extraction.py', 'test_visual_pipeline.py', 'test_processing_diagnostics.py', 'test_supabase_storage.py')) {
         $mounts = @('--mount', $testMount)
         if ($pattern -eq 'test_vercel_deployment.py') {
             # Source contract files are inspection fixtures, not runtime assets.

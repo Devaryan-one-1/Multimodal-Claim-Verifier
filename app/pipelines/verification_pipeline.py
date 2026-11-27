@@ -140,12 +140,7 @@ def _documents(pc, selected):
     return documents
 
 
-def _review_modalities(pc, selected, reporter, result, *, documents=None, suggestions=(), use_text_agent=False):
-    if documents is None:
-        documents = _documents(pc, selected)
-    query = pc.get("retrieval_query") or pc["claim_text"]
-    if reporter:
-        reporter.update("Searching text, tables and charts", completed=3)
+def _retrieve_modalities(query, documents):
     embedding = embed_query(query)
     groups = {"text": [], "table": [], "chart": []}
     catalogs = {}
@@ -154,19 +149,45 @@ def _review_modalities(pc, selected, reporter, result, *, documents=None, sugges
         catalogs[doc_id] = {e["id"]: e for e in read(f"data/processed/{doc_id}/evidence.json")["evidence"]}
         for kind, hits in search_by_modality(query, doc_id, embedding).items():
             groups[kind].extend(hits)
+    return groups, catalogs
 
-    def check(kind, records):
-        # Isolate branch diagnostics while retaining the workspace/model context.
-        with capture_calls(isolated=True) as (calls, _):
-            def verify(items):
-                return _verify_one(pc, selected, prepared={"documents": documents, "evidence": items,
-                                                           "text_agent": use_text_agent and kind == "text"})
-            if use_text_agent:
-                from verification.source_conflicts import inspect_group
-                outcome, findings = inspect_group(records, verify)
-            else:
-                outcome, findings = verify(records), []
-            return outcome, findings, calls
+
+def _rank_modality(pc, query, kind, hits, suggestions, catalogs, documents):
+    seeds = [s for s in suggestions if (s["type"] if s["type"] in {"chart", "table"} else "text") == kind]
+    ranked = rerank(query, hits, keep=10, parsed_claim=pc) if hits else []
+    # Add the hints outside the independent ranking budget. Neither can evict the other.
+    return list(_source_records([*seeds, *ranked], catalogs, documents).values())
+
+
+def _check_modality(pc, selected, documents, kind, records, use_text_agent):
+    # Isolate branch diagnostics while retaining the workspace/model context.
+    with capture_calls(isolated=True) as (calls, _):
+        def verify(items):
+            return _verify_one(pc, selected, prepared={"documents": documents, "evidence": items,
+                                                       "text_agent": use_text_agent and kind == "text"})
+        if use_text_agent:
+            from verification.source_conflicts import inspect_group
+            outcome, findings = inspect_group(records, verify)
+        else:
+            outcome, findings = verify(records), []
+        return outcome, findings, calls
+
+
+def _review_modalities(pc, selected, reporter, result, *, documents=None, suggestions=(), use_text_agent=False):
+    if documents is None:
+        documents = _documents(pc, selected)
+    result["document_ids"] = [doc["document_id"] for doc in documents]
+    if len(documents) == 1:
+        result.update(document_id=documents[0]["document_id"], company_name=documents[0].get("company_name"))
+    saved = getattr(reporter, "footnote_state", None) if use_text_agent else None
+    if isinstance(saved, dict):
+        from verification.footnote_review import restore_state
+        return _finish_modalities(pc, result, restore_state(saved), reporter, use_text_agent)
+    query = pc.get("retrieval_query") or pc["claim_text"]
+    if reporter:
+        reporter.update("Searching text, tables and charts", completed=3)
+    groups, catalogs = _retrieve_modalities(query, documents)
+
 
     outcomes = {}
     findings = {}
@@ -176,21 +197,41 @@ def _review_modalities(pc, selected, reporter, result, *, documents=None, sugges
     with capture_calls() as (review_calls, _), ThreadPoolExecutor(max_workers=3) as pool:
         futures = {}
         for kind, hits in groups.items():
-            seeds = [s for s in suggestions if (s["type"] if s["type"] in {"chart", "table"} else "text") == kind]
-            ranked = rerank(query, hits, keep=10, parsed_claim=pc) if hits else []
-            # Add the hints outside the independent ranking budget. Neither can evict the other.
-            records = _source_records([*seeds, *ranked], catalogs, documents)
+            records = _rank_modality(pc, query, kind, hits, suggestions, catalogs, documents)
             counts[kind] = len(records)
             if records:
-                futures[kind] = pool.submit(copy_context().run, check, kind, list(records.values()))
+                futures[kind] = pool.submit(copy_context().run, _check_modality, pc, selected, documents,
+                                            kind, records, use_text_agent)
         for kind, future in futures.items():
             outcome, findings[kind], calls = future.result()
             outcomes[kind] = outcome
             review_calls.extend(calls)
 
-    result["document_ids"] = [doc["document_id"] for doc in documents]
-    if len(documents) == 1:
-        result.update(document_id=documents[0]["document_id"], company_name=documents[0].get("company_name"))
+    state = dict(counts=counts, findings=findings, outcomes=outcomes, plan=None)
+    if use_text_agent and all(o["status"] == "complete" for o in outcomes.values()):
+        from verification.footnote_review import checkpoint_state, prepare
+        state["plan"] = prepare(pc, findings, catalogs)
+        if state["plan"] and hasattr(reporter, "save_footnote"):
+            reporter.save_footnote(checkpoint_state(state))
+    return _finish_modalities(pc, result, state, reporter, use_text_agent)
+
+
+def _finish_modalities(pc, result, state, reporter, use_text_agent):
+    counts, findings = state["counts"], state["findings"]
+    outcomes = dict(state["outcomes"])
+    plan = state["plan"]
+    if plan:
+        from verification.footnote_review import apply_scope, checkpoint_state, explain
+        def save():
+            if hasattr(reporter, "save_footnote"):
+                reporter.save_footnote(checkpoint_state(state))
+        findings = apply_scope(pc, plan, findings, save)
+        for kind, group in findings.items():
+            if group:
+                keys = {str(i): proof for i, proof in enumerate(group)}
+                outcomes[kind] = _combine_checks(dict(result), dict.fromkeys(keys, 1), keys)
+            else:
+                outcomes[kind] = dict(result, reason="No validated finding established the requested scope.")
     result = _combine_checks(result, counts, outcomes)
     if use_text_agent and result["status"] == "complete":
         from verification.source_conflicts import reconcile
@@ -207,6 +248,8 @@ def _review_modalities(pc, selected, reporter, result, *, documents=None, sugges
                     check_verdict = decision["verdict"] if len(applicable) > 1 else next(iter(applicable), "UNKNOWN")
                     check.update(verdict=check_verdict, calculation=None, reason=decision["reason"],
                                  evidence_ids=list(dict.fromkeys(k for s in sources for k in s["evidence_ids"])))
+    if plan:
+        explain(result, plan)
     return result
 
 
@@ -259,14 +302,29 @@ def _combine_checks(result, counts, outcomes):
     return result
 
 
-def _verify_one(pc, selected, reporter=None, prepared=None):
-    result = {
+def _initial_verification_result(pc, selected):
+    return {
         "claim_text": pc.get("claim_text", ""), "parsed_claim": pc,
         "document_ids": list(selected), "status": "complete", "verdict": "UNKNOWN",
         "confidence": None, "confidence_kind": "uncalibrated model confidence",
         "evidence": [], "evidence_ids": [], "calculation": None, "comparison": None,
         "notes": list(pc.get("notes") or []),
     }
+
+
+def _bound_sources(pc, selected, prepared):
+    mode = prepared["workflow"]
+    keys = pc.get("suggested_source_ids" if mode == "hybrid" else "meaning_source_ids", [])
+    sources = [prepared["sources"][key] for key in keys]
+    # Search every modality throughout the document the interpreter bound to this claim.
+    source_documents = {source["document_id"] for source in sources}
+    documents = [doc for doc in prepared.get("documents", [])
+                 if doc["document_id"] in selected and doc["document_id"] in source_documents]
+    return documents, sources
+
+
+def _verify_one(pc, selected, reporter=None, prepared=None):
+    result = _initial_verification_result(pc, selected)
     with capture_calls() as (calls, call_start):
         stage="claim_parser"
         try:
@@ -289,12 +347,7 @@ def _verify_one(pc, selected, reporter=None, prepared=None):
             if prepared and prepared.get("workflow") in {"hybrid", "source_scoped"}:
                 mode = prepared["workflow"]
                 result["workflow"] = mode
-                keys = pc.get("suggested_source_ids" if mode == "hybrid" else "meaning_source_ids", [])
-                sources = [prepared["sources"][key] for key in keys]
-                # The interpreter binds each atom's reporting periods to one selected document.
-                # Search every modality throughout that document, including unhinted pages.
-                docs = [d for d in prepared.get("documents", []) if d["document_id"] in selected
-                        and any(s["document_id"] == d["document_id"] for s in sources)]
+                docs, sources = _bound_sources(pc, selected, prepared)
                 if mode == "hybrid":
                     stage = "retrieval"
                     return _review_modalities(pc, selected, reporter, result, documents=docs or None,

@@ -1,0 +1,4 @@
+{"file":"fern-quay.pdf","gold":"UNKNOWN","status":"complete","predicted":"UNKNOWN","citations_correct":0,"citations_checked":2,"latency_seconds":41.282,"model_calls":10}
+{"file":"mill-beck.pdf","gold":"SUPPORTED","status":"error","stage":"text_verification","reason":"provider_http_429","latency_seconds":47.724,"model_calls":8}
+{"file":"aster-vale.pdf","gold":"SOURCE_CONFLICT","status":"error","stage":"claim_parser","reason":"provider_cooldown","latency_seconds":5.633,"model_calls":0}
+{"file":"red-tarn.pdf","gold":"CONTRADICTED","status":"error","stage":"claim_parser","reason":"parser_validation_after_http_200","latency_seconds":12.122,"model_calls":1}

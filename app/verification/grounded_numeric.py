@@ -99,7 +99,7 @@ class Selection(BaseModel):
 
 
 def _tokens(value):
-    return re.findall(r"\w+", str(value or "").casefold())
+    return re.findall(r"\w+", re.sub("[⁰¹²³⁴⁵⁶⁷⁸⁹]+", " ", str(value or "").casefold()))
 
 
 def _bank(item):
@@ -551,7 +551,13 @@ def _value(pc, operand, item):
         if not re.search(r"\b(?:expect\w*|project\w*|forecast\w*|plan\w*|outlook|guidance)\b", forecast_context, re.I):
             raise NumericValidationError("Historical source values cannot verify a forward-looking assertion.")
     unit_context = _unit_context(item, operand, raw, operand.column_index)
-    parsed, reason = parse_number(raw, context=unit_context)
+    if item["type"] == "table":
+        from verification.table_notes import unmark
+        parsed, reason = parse_number(unmark(raw), context=unit_context)
+        if parsed:
+            parsed["raw"] = raw
+    else:
+        parsed, reason = parse_number(raw, context=unit_context)
     if parsed is None:
         raise NumericValidationError(reason)
     if parsed["kind"] != "percent" and any(symbol in unit_context for symbol in "$€£"):
