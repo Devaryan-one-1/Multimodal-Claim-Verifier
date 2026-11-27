@@ -10,7 +10,6 @@ jobs:
     timeout-minutes: 60
     env:
       BASELINE: python:3.12-slim-trixie@sha256:191083cdf6c7bda8c76158983163ead5d5cf7b77cf3033e805bb0f5296f51b4b
-      CANDIDATE: python:3.12.16-slim-bookworm@sha256:44cf1793efa7c7a476bb0f2cff81443f4a072c90c1cb127e2924933daa3e8c64
       SCANNER: ghcr.io/aquasecurity/trivy:0.76.2
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -27,16 +26,14 @@ jobs:
           docker run --rm -v compare-trivy:/cache "$SCANNER" image --cache-dir /cache --download-db-only
           docker run --rm --network none --entrypoint sha256sum -v compare-trivy:/cache:ro "$SCANNER" /cache/db/trivy.db > reports/db.sha256
           bash .github/docker-compare.sh baseline "$BASELINE"
-      - name: Scan and exercise one candidate
+      - name: Simulate dependency removals and test a pruned Trixie release
         shell: bash
-        run: bash .github/docker-compare.sh candidate "$CANDIDATE"
-      - name: Compare package and advisory identities
-        run: python .github/docker-compare-results.py reports
+        run: bash .github/prune-candidate.sh
       - name: Preserve comparison evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: docker-base-comparison
+          name: docker-package-comparison
           path: reports/
           if-no-files-found: error
           retention-days: 7
