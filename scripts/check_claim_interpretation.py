@@ -238,9 +238,47 @@ EXAMPLES = [
           options=[option(["annual"], "2022", "2023", "annual"), option(["q1"], "2022-Q1", "2023-Q1", "quarter")])),
 ]
 
+# Use the same source-backed period representation as the production request.
+# The scored historical fixtures retain their original values-only format.
+for example_input, example_output in EXAMPLES:
+    for item in example_input["evidence"]:
+        item["document_id"] = "maple-report"
+        item["periods"] = {
+            f"{item['duration']}:{raw}": {
+                "key": f"{item['duration']}:{raw}", "year": int(raw[:4]),
+                "date": None, "period_type": item["duration"],
+                "quarter": int(raw[-1]) if "-Q" in raw else None,
+                "raw": raw, "document_id": "maple-report",
+            } for raw in item["values"]
+        }
+    by_id = {item["id"]: item for item in example_input["evidence"]}
+    for target in example_output["atoms"] + example_output["options"]:
+        duration = by_id[target["sources"][0]]["duration"]
+        for field in ("start", "end"):
+            if target[field] is not None:
+                target[field] = f"{duration}:{target[field]}"
+
+for duration in ("annual", "unspecified"):
+    key = f"{duration}:2023"
+    source = record("sales-level", "sales", {"2023": 45}, company="Maple",
+                    duration=duration, type="chart" if duration == "unspecified" else "table",
+                    document_id="maple-report", periods={key: {
+                        "key": key, "year": 2023, "date": None, "period_type": duration,
+                        "quarter": None, "raw": "2023", "document_id": "maple-report",
+                    }})
+    EXAMPLES.append((
+        dict(claim="Maple sales were USD 49 million in 2023.", evidence=[source]),
+        dict(status="ready", atoms=[compact_atom(atom(
+            metric="sales", literal="USD 49 million", operation="level", unit="amount",
+            start=None, end=key, sources=("sales-level",), direction="unspecified"))],
+            clarification=None, options=[]),
+    ))
+
 FIELD_GUIDE = """Atom fields: metric, denominator_metric (ratio only; otherwise null), literal
 (exact quantity or null), operation, unit, start, end, sources (IDs), direction,
 comparison, negated (boolean), approximate (boolean).
+start/end: exact selected-source period keys, including duration prefixes when supplied.
+For a single-period level, start=null and end is the target period key.
 operation: level, growth, absolute_change, percentage_points, ratio, margin, cagr,
 direction, qualitative. A directly stated profit margin uses margin; a from/to
 margin statement splits into level atoms. Ratio names its numerator and denominator.

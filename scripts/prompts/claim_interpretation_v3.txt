@@ -38,10 +38,13 @@ Match the intended company, segment, and metric.
 
 3. RESOLVE THE PERIODS
 
-Copy period keys exactly from the evidence.
+Each selected source's periods object contains the allowed period keys. Copy those keys exactly, including the duration prefix and any date or quarter suffix.
+For example, if periods contains "unspecified:2026", return "unspecified:2026", not "2026" or "annual:2026". Preserve "unspecified"; a year alone does not establish an annual reporting duration.
+Only use a key present in the periods object of at least one source listed in that atom's sources. Do not take a period from an unselected source. For standalone evidence without a periods object, copy the exact keys in values instead.
 
-- For a fact about one date or period, set start=null.
-- For a growth or change comparison, keep both periods in one atom.
+- For operation=level about one date or period, always set start=null and end to the exact key for the claimed date or period. Never put the only period in start or leave end=null.
+- A single-period ratio or directly reported margin also uses start=null and end equal to its exact source period key.
+- For growth, absolute_change, percentage_points, direction or cagr, keep both periods in one atom: start is the earlier source period key and end is the later source period key.
 - For two separately stated dated levels, create two atoms.
 - Preserve explicitly stated periods; do not replace them with another available pair.
 - For a claim where no period is mentioned, pick the periods available in the document that are latest.
@@ -55,6 +58,8 @@ When the claim refers to “reported periods” without identifying them:
 Never choose a period pair because it produces the claimed number.
 Do not mix annual and quarterly periods.
 Do not treat balance levels and cash-flow amounts as the same metric.
+
+Before returning JSON, check each atom: its non-null start/end values are exact keys from its selected evidence, a level has start=null and a non-null end, and a comparison has two distinct, comparable periods. Preserve the claim's literal even when a source reports a different value.
 
 4. PRESERVE THE CLAIMED QUANTITY AND MEANING
 

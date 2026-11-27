@@ -12,7 +12,7 @@ from services.verification_errors import VerificationFailure
 from verification.grounded_numeric import Selection, _bank, _metric_matches, _validated_selection
 
 
-TEXT_MODEL = "baidu/ernie-5.5-flash-preview:free"
+TEXT_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 TEXT_TYPES = {"text", "paragraph", "heading", "caption", "footnote", "ocr"}
 FORECAST = re.compile(r"\b(?:expects?|expected to|forecasts?|forecasted|projected|"
                       r"plans? to|planned to|targets? of|guidance|outlook|anticipates?|will)\b", re.I)

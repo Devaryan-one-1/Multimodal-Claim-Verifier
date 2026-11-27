@@ -164,6 +164,49 @@ class EvidenceInterpreterTests(unittest.TestCase):
         self.assertEqual(self.module.FIELD_GUIDE, checker['FIELD_GUIDE'])
         self.assertEqual(json.dumps(self.module.EXAMPLES), json.dumps(checker['EXAMPLES']))
 
+    def test_worked_examples_have_schema_valid_source_backed_periods(self):
+        for supplied, expected in self.module.EXAMPLES:
+            with self.subTest(claim=supplied['claim'], evidence=supplied['evidence']):
+                self.module.InterpretationResponse.model_validate(expected)
+                records = {item['id']: item for item in supplied['evidence']}
+                adapted = self.module.adapt_response(supplied['claim'], expected, records)
+                self.assertEqual(adapted['status'], expected['status'])
+                for target in expected['atoms'] + expected['options']:
+                    for field in ('start', 'end'):
+                        if target[field] is not None:
+                            self.assertTrue(any(target[field] in records[s]['periods']
+                                                for s in target['sources']))
+
+    def test_level_examples_preserve_wrong_claim_and_duration(self):
+        levels = [(supplied, expected) for supplied, expected in self.module.EXAMPLES
+                  if expected['atoms'] and expected['atoms'][0]['operation'] == 'level']
+        self.assertEqual(len(levels), 2)
+        keys = set()
+        for supplied, expected in levels:
+            value, = expected['atoms']
+            self.assertIsNone(value['start'])
+            self.assertEqual(value['literal'], 'USD 49 million')
+            self.assertEqual(supplied['evidence'][0]['values']['2023'], 45)
+            keys.add(value['end'])
+        self.assertEqual(keys, {'annual:2023', 'unspecified:2023'})
+
+    def test_reported_level_start_year_and_bare_end_year_still_fail(self):
+        source = dict(id='chart', document_id='report', type='chart',
+                      title='Consolidated revenue', x_axis={'label': 'Year'},
+                      facts=[{'category': '2025', 'value': 100},
+                             {'category': '2026', 'value': 133}])
+        records = {'chart': self.module.candidate(source)}
+        original = "Red Tarn's consolidated revenue was USD 133 million in 2026."
+        value = self.atom(metric='consolidated revenue', literal='USD 133 million',
+                          operation='level', unit='amount', sources=['chart'],
+                          start=None, end='unspecified:2026', direction='unspecified', approximate=False)
+        adapted = self.module.adapt_response(original, self.response(value), records)
+        self.assertEqual(adapted['claims'][0]['end_period'], 2026)
+        for start, end in (('2026', None), ('unspecified:2026', None), (None, '2026')):
+            with self.subTest(start=start, end=end), self.assertRaises(ParseValidationError):
+                invalid = dict(value, start=start, end=end)
+                self.module.adapt_response(original, self.response(invalid), records)
+
     def test_all_39_expected_interpretations_fit_production_adapter(self):
         checker = runpy.run_path(str(ROOT / 'scripts/check_claim_interpretation.py'))
         for case in checker['CASES']:
@@ -184,7 +227,9 @@ class EvidenceInterpreterTests(unittest.TestCase):
     def pipeline(self):
         tree = ast.parse((ROOT / 'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8'))
         nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in
-                 {'prepare_verification', '_verify_one', '_review_modalities', '_finish_modalities', '_combine_checks', '_source_records', '_parse_without_sources'}]
+                 {'prepare_verification', '_verify_one', '_initial_verification_result', '_bound_sources',
+                  '_review_modalities', '_retrieve_modalities', '_rank_modality', '_check_modality',
+                  '_finish_modalities', '_combine_checks', '_source_records', '_parse_without_sources'}]
         self.document = {'document_id': self.evidence['document_id'], 'status': 'ready', 'company_name': 'Apple'}
         self.source = dict(self.evidence, id=self.evidence['source_evidence_id'])
         self.storage = MagicMock(return_value={'evidence': [self.source]})

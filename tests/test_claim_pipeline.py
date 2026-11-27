@@ -38,7 +38,8 @@ def fixture(kind):
 def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None,retrieval_calls=None):
     """Run the actual pipeline function, replacing only storage/search boundaries."""
     tree=ast.parse((PROJECT/'app/pipelines/verification_pipeline.py').read_text(encoding='utf-8-sig'))
-    node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='_verify_one')
+    nodes = [node for node in tree.body if isinstance(node, ast.FunctionDef)
+             and node.name in {"_verify_one", "_initial_verification_result"}]
     @contextmanager
     def calls(): yield [],0
     def boundary(stage,value):
@@ -57,7 +58,7 @@ def active_pipeline(pc,calculate,*,fail_stage=None,source_evidence=None,retrieva
             [{'id':'source','type':'text','page':9,'content':'Fixture'}]}),
         'verify_numeric':calculate,'fuse_evidence':lambda *a,**k:boundary('evidence_fusion',{'requires_unknown':False}),
         'quota_pause':lambda *a:None}
-    exec(compile(ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[])),str(PROJECT/'app/pipelines/verification_pipeline.py'),'exec'),namespace)
+    exec(compile(ast.fix_missing_locations(ast.Module(body=nodes,type_ignores=[])),str(PROJECT/'app/pipelines/verification_pipeline.py'),'exec'),namespace)
     return namespace['_verify_one'](pc,['fixture-document'])
 
 

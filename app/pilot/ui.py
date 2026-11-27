@@ -331,7 +331,7 @@ def connection_panel(access, key):
         if saved:
             st.success("Your OpenRouter key is saved encrypted.")
             st.text("Saved reasoning model: " + models.get("text_model", "Not set"))
-            st.caption("Claim interpretation and reporting-period selection use baidu/ernie-5.5-flash-preview:free with your saved OpenRouter key (up to 2,048 output tokens).")
+            st.caption("Claim interpretation and reporting-period selection use nvidia/nemotron-3.5-super-vl:free with your saved OpenRouter key (up to 2,048 output tokens).")
             st.text("Saved vision model: " + (models.get("vision_model") or "Not set"))
             st.caption(f"New requests: up to {models.get('max_output_tokens', 8192):,} reasoning output tokens and {models.get('vision_max_output_tokens', 32768):,} vision output tokens. Actual usage is billed by your provider.")
         text_model = draft_text("Reasoning model ID", key+"text_model", models.get("text_model", ""), max_chars=200,

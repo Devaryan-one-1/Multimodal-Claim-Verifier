@@ -32,7 +32,7 @@ from services.runtime import write
 
 SCHEMA = TypeVar("SCHEMA", bound=BaseModel)
 BASE_URL = "https://openrouter.ai/api/v1"
-INTERPRETATION_MODEL = "baidu/ernie-5.5-flash-preview:free"
+INTERPRETATION_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 CHART_EXTRACTION_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 _settings: ContextVar[ModelConfig | None] = ContextVar("model_settings", default=None)
 _calls: ContextVar[list | None] = ContextVar("model_calls", default=None)
@@ -455,13 +455,15 @@ def structured(schema: type[SCHEMA], prompt: str, *, system="", model=None,
                 call = _openrouter if settings.provider == "openrouter" else _gemini
                 # Verified optional-thinking endpoint. Do not send disable flags
                 # to arbitrary models where reasoning may be mandatory.
-                parser_policy=(purpose=="claim_parser" and task=="text" and settings.provider=="openrouter"
+                parser_policy=(purpose in {"claim_parser", "claim_interpretation", "table_selection",
+                                           "text_verification", "footnote_followup"}
+                               and task=="text" and settings.provider=="openrouter"
                                and chosen=="nvidia/nemotron-3.5-super-vl:free")
                 options={"reasoning":{"enabled":False}} if parser_policy else {}
                 if interpreting:
                     options.update(json_mode=True, examples=examples)
                 if purpose: event["purpose"]=purpose
-                if parser_policy: event["reasoning_policy"]="disabled_for_claim_parser"
+                if parser_policy: event["reasoning_policy"]=f"disabled_for_{purpose}"
                 value, metadata = call(settings, key, chosen, prompt, system, request_schema, images, temperature, **options)
                 event.update(metadata)
                 validator.validate(value)

@@ -44,7 +44,7 @@ class TableAgentTests(unittest.TestCase):
         self.assertFalse(result.applicable)
         self.assertEqual(result.operands, [])
         first, second = self.agent.structured.call_args_list
-        self.assertEqual(first.kwargs["model"], "baidu/ernie-5.5-flash-preview:free")
+        self.assertEqual(first.kwargs["model"], "nvidia/nemotron-3.5-super-vl:free")
         self.assertEqual(first.kwargs["purpose"], "table_selection")
         self.assertEqual([t["id"] for t in json.loads(first.args[1])["tables"]], [table["id"]])
         self.assertIn("validation_error", json.loads(second.args[1]))
