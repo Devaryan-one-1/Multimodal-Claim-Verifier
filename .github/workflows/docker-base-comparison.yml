@@ -1,0 +1,42 @@
+name: Docker base comparison
+on:
+  push:
+    branches: [experiment/docker-base-20261127]
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      BASELINE: python:3.12-slim-trixie@sha256:191083cdf6c7bda8c76158983163ead5d5cf7b77cf3033e805bb0f5296f51b4b
+      CANDIDATE: python:3.12.16-slim-bookworm@sha256:44cf1793efa7c7a476bb0f2cff81443f4a072c90c1cb127e2924933daa3e8c64
+      SCANNER: ghcr.io/aquasecurity/trivy:0.76.2
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Freeze scanner database and scan baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          docker pull "$SCANNER"
+          docker inspect --format '{{index .RepoDigests 0}}' "$SCANNER" > reports/scanner.digest
+          docker volume create compare-trivy
+          docker run --rm -v compare-trivy:/cache "$SCANNER" image --cache-dir /cache --download-db-only
+          docker run --rm --network none --entrypoint sha256sum -v compare-trivy:/cache:ro "$SCANNER" /cache/db/trivy.db > reports/db.sha256
+          bash .github/docker-compare.sh baseline "$BASELINE"
+      - name: Scan and exercise one candidate
+        shell: bash
+        run: bash .github/docker-compare.sh candidate "$CANDIDATE"
+      - name: Compare package and advisory identities
+        run: python .github/docker-compare-results.py reports
+      - name: Preserve comparison evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: docker-base-comparison
+          path: reports/
+          if-no-files-found: error
+          retention-days: 7
